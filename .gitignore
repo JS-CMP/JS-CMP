@@ -1,0 +1,19 @@
+# config files
+.idea
+.vscode
+
+# CMake
+cmake_install.cmake
+cmake-build-debug
+.cmake
+CMakeCache.txt
+CMakeFiles
+JS_CMP_alpha
+Makefile
+*.out
+*.js
+*.js.cpp
+*.a
+
+# Misc
+Testing

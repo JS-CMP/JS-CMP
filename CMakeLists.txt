@@ -1,24 +1,37 @@
-cmake_minimum_required(VERSION 3.22)
-project(JS_CMP_alpha)
+cmake_minimum_required(VERSION 3.20)
+project(JS_CMP VERSION 1.0 LANGUAGES CXX)
 
+# Set the C++ standard to C++23
 set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-include_directories(includes/class)
-include_directories(includes/types)
+# Define output directory for the binaries
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-file(GLOB_RECURSE SOURCES_LIB
-        "includes/**/*.hpp"
-        "lib/types/*.cpp"
-        "lib/types/**/*.cpp"
+# Include directories for header files
+include_directories(${PROJECT_SOURCE_DIR}/includes)
+
+# Add the JS_CMP_LEXER submodule
+add_subdirectory(submodules/Lexer)
+
+# Add the source files for the main program
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS
+        "main.cpp"
 )
 
-file(GLOB_RECURSE SOURCES_GLOB
-        "src/*.cpp"
-        "src/**/*.cpp"
-        "src/*.hpp"
-        "src/**/*.hpp"
+# Add the executable for the JS_CMP program
+add_executable(${PROJECT_NAME} ${SOURCES})
+
+# Link the JS_CMP executable with the JS_CMP_LEXER library
+target_link_libraries(${PROJECT_NAME} PRIVATE JS_CMP_LEXER)
+
+# Include directories for the JS_CMP_LEXER headers
+target_include_directories(${PROJECT_NAME} PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/submodules/Lexer/include
 )
 
-add_library(JS_CMP ${SOURCES_LIB})
-
-add_executable(JS_CMP_alpha main.cpp ${SOURCES_GLOB})
+# Optionally, specify an install rule for the JS_CMP executable
+install(TARGETS ${PROJECT_NAME}
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+)

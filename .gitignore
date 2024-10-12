@@ -17,3 +17,6 @@ Makefile
 
 # Misc
 Testing
+
+# Build
+bin

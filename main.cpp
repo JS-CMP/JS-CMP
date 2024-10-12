@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
-#include "src/Lexer.hpp"
-#include "src/Program.hpp"
+#include <Lexer.hpp>
+#include <Program.hpp>
 
 std::string read_all(const std::string &filename)
 {

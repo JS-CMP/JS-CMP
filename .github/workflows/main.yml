@@ -1,0 +1,32 @@
+name: C++ Linting with cpplint
+
+on: [push, pull_request]
+
+jobs:
+  cpplint:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Étape 1 : Cloner le dépôt
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Étape 2 : Installer Python (cpplint est un outil Python)
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x' # Remplace par la version de Python si besoin
+
+      # Étape 3 : Installer cpplint via pip
+      - name: Install cpplint
+        run: |
+          pip install cpplint
+      # Étape 4 : Exécuter cpplint sur les fichiers .cpp et .h
+      - name: Run cpplint on C++ files
+        run: |
+          cpplint $(find . -name "*.cpp" -o -name "*.h")
+      # Optionnel : Configurer l'échec du workflow en cas d'erreurs de lint
+      - name: Fail on linting errors
+        run: |
+          cpplint $(find . -name "*.cpp" -o -name "*.h")
+        continue-on-error: false

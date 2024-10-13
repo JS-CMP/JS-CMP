@@ -1,9 +1,15 @@
-name: C++ Linting with cpplint
+name: Uncrustify and Cpplint
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - '**'  # S'exécute sur toutes les branches
+  pull_request:
+    branches:
+      - '**'  # S'exécute sur toutes les pull requests
 
 jobs:
-  cpplint:
+  format_and_lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -11,22 +17,30 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Étape 2 : Installer Python (cpplint est un outil Python)
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x' # Remplace par la version de Python si besoin
+      # Étape 2 : Installer Uncrustify
+      - name: Install Uncrustify
+        run: sudo apt-get update && sudo apt-get install -y uncrustify
 
-      # Étape 3 : Installer cpplint via pip
-      - name: Install cpplint
+      # Étape 3 : Formater le code avec Uncrustify
+      - name: Run Uncrustify
         run: |
-          pip install cpplint
-      # Étape 4 : Exécuter cpplint sur les fichiers .cpp et .h
-      - name: Run cpplint on C++ files
+          uncrustify -c uncrustify.cfg --replace $(find . -name "*.cpp" -o -name "*.h")
+
+      # Étape 4 : Vérifier si des fichiers ont été modifiés par Uncrustify
+      - name: Check for uncommitted changes
+        run: |
+          if [[ $(git status --porcelain) ]]; then
+            echo "Uncrustify made changes. Please commit the changes.";
+            exit 1;
+          else
+            echo "No changes detected by Uncrustify.";
+          fi
+
+      # Étape 5 : Installer Cpplint
+      - name: Install Cpplint
+        run: sudo pip install cpplint
+
+      # Étape 6 : Exécuter Cpplint pour vérifier les erreurs de style
+      - name: Run Cpplint
         run: |
           cpplint $(find . -name "*.cpp" -o -name "*.h")
-      # Optionnel : Configurer l'échec du workflow en cas d'erreurs de lint
-      - name: Fail on linting errors
-        run: |
-          cpplint $(find . -name "*.cpp" -o -name "*.h")
-        continue-on-error: false

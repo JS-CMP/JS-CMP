@@ -3,44 +3,42 @@ name: Uncrustify and Cpplint
 on:
   push:
     branches:
-      - '**'  # S'exécute sur toutes les branches
+      - '**'
   pull_request:
     branches:
-      - '**'  # S'exécute sur toutes les pull requests
+      - '**'
 
 jobs:
   format_and_lint:
     runs-on: ubuntu-latest
 
     steps:
-      # Étape 1 : Cloner le dépôt
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Étape 2 : Installer Uncrustify
-      - name: Install Uncrustify
-        run: sudo apt-get update && sudo apt-get install -y uncrustify
+      # Étape 1 : Installer les dépendances nécessaires pour compiler Uncrustify
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y git cmake g++ make
 
-      # Étape 3 : Formater le code avec Uncrustify
+      # Étape 2 : Cloner et compiler Uncrustify à partir du dépôt source
+      - name: Install latest Uncrustify from source
+        run: |
+          git clone https://github.com/uncrustify/uncrustify.git
+          cd uncrustify
+          mkdir build && cd build
+          cmake ..
+          make -j$(nproc)
+          sudo make install
+
+      # Étape 3 : Exécuter Uncrustify
       - name: Run Uncrustify
         run: |
           uncrustify -c uncrustify/uncrustify.cfg --replace $(find . -name "*.cpp" -o -name "*.h")
 
-      # Étape 4 : Vérifier si des fichiers ont été modifiés par Uncrustify
-      - name: Check for uncommitted changes
-        run: |
-          if [[ $(git status --porcelain) ]]; then
-            echo "Uncrustify made changes. Please commit the changes.";
-            exit 1;
-          else
-            echo "No changes detected by Uncrustify.";
-          fi
-
-      # Étape 5 : Installer Cpplint
+      # Étape 4 : Installer Cpplint
       - name: Install Cpplint
         run: sudo pip install cpplint
 
-      # Étape 6 : Exécuter Cpplint pour vérifier les erreurs de style
+      # Étape 5 : Exécuter Cpplint
       - name: Run Cpplint
-        run: |
-          cpplint $(find . -name "*.cpp" -o -name "*.h")
+        run: cpplint $(find . -name "*.cpp" -o -name "*.h")

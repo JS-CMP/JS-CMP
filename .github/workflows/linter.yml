@@ -33,7 +33,7 @@ jobs:
       # Étape 3 : Exécuter Uncrustify
       - name: Run Uncrustify
         run: |
-          uncrustify -c uncrustify/uncrustify.cfg --replace $(find . -name "*.cpp" -o -name "*.h")
+          uncrustify -c uncrustify_config/uncrustify.cfg --replace $(find . -name "*.cpp" -o -name "*.h")
 
       # Étape 4 : Installer Cpplint
       - name: Install Cpplint

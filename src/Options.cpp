@@ -44,9 +44,6 @@ void Options::parse()
 
     // Parse the environment options
     // TODO: can be cached
-    std::cout << "hello" << std::endl;
-    std::cout << this->vm_argv.count("CXX") << std::endl;
-    std::cout << (std::getenv("CXX") != nullptr) << std::endl;
 
     if (this->vm_argv.count("CXX")) {
         this->compiler = this->vm_argv["CXX"].as<std::string>();
@@ -54,15 +51,12 @@ void Options::parse()
         this->compiler = std::getenv("CXX");
     } else {
         auto compiler = findCompiler();
-        std::cout << compiler.has_value() << std::endl;
-        std::cout << compiler.value() << std::endl;
         if (compiler.has_value()) {
             this->compiler = compiler.value();
         } else {
             throw std::runtime_error("No compiler found. Compiler tested: " + std::accumulate(commonCompilers.begin(), commonCompilers.end(), std::string("")));
         }
     }
-    std::cout << this->compiler << std::endl;
 
 }
 
@@ -98,13 +92,6 @@ void Options::printVersion()
 std::optional<std::string> Options::findCompiler()
 {
     for (const auto& compiler : commonCompilers) {
-        std::cout << std::string(compiler +
-                #ifdef _WIN32
-                    " --version >nul 2>&1"
-                    #else
-                    " --version > /dev/null 2>&1"
-            #endif
-        ).c_str() << std::endl;
         if (std::system(std::string(compiler +
             #ifdef _WIN32
             " --version >nul 2>&1"

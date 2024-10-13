@@ -24,7 +24,7 @@ jobs:
       # Étape 3 : Formater le code avec Uncrustify
       - name: Run Uncrustify
         run: |
-          uncrustify -c uncrustify.cfg --replace $(find . -name "*.cpp" -o -name "*.h")
+          uncrustify -c uncrustify/uncrustify.cfg --replace $(find . -name "*.cpp" -o -name "*.h")
 
       # Étape 4 : Vérifier si des fichiers ont été modifiés par Uncrustify
       - name: Check for uncommitted changes

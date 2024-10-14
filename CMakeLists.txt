@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(JS_CMP VERSION 0.0.1 LANGUAGES CXX)
+project(js_cmp VERSION 0.0.1 LANGUAGES CXX)
 
 add_compile_definitions(
         JS_CMP_VERSION="${PROJECT_VERSION}"
@@ -35,6 +35,5 @@ file(GLOB_RECURSE SOURCES_GLOB
 add_library(JS_CMP ${SOURCES_LIB})
 
 # Link Boost program_options library to both the library and executable
-target_link_libraries(JS_CMP PRIVATE Boost::program_options)
-add_executable(JS_CMP_alpha main.cpp ${SOURCES_GLOB})
-target_link_libraries(JS_CMP_alpha PRIVATE JS_CMP Boost::program_options)
+add_executable(${PROJECT_NAME} main.cpp ${SOURCES_GLOB})
+target_link_libraries(${PROJECT_NAME} PRIVATE Boost::program_options)

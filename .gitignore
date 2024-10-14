@@ -8,7 +8,8 @@ cmake-build-debug
 .cmake
 CMakeCache.txt
 CMakeFiles
-JS_CMP_alpha
+JS_CMP
+js_cmp
 Makefile
 *.out
 *.js

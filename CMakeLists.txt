@@ -1,13 +1,10 @@
 cmake_minimum_required(VERSION 3.20)
-project(JS_CMP VERSION 1.0 LANGUAGES CXX)
+project(js_cmp VERSION 0.0.1 LANGUAGES CXX)
 
 # Set the C++ standard to C++23
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Define output directory for the binaries
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # Include directories for header files
 include_directories(${PROJECT_SOURCE_DIR}/includes)
@@ -19,6 +16,17 @@ add_subdirectory(submodules/Lexer)
 file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS
         "main.cpp"
 )
+
+
+# Add the source files for the JS_CMP library
+file(GLOB_RECURSE SOURCES_LIB
+        "includes/**/*.hpp"
+        "lib/types/*.cpp"
+        "lib/types/**/*.cpp"
+)
+
+# Add the library for the JS_CMP program
+add_library(JS_CMP ${SOURCES_LIB})
 
 # Add the executable for the JS_CMP program
 add_executable(${PROJECT_NAME} ${SOURCES})

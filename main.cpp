@@ -75,7 +75,7 @@ int main(int argc, char **argv) {
             #elif _WIN32
             throw std::runtime_error("Windows 32-bit is not supported.");
             #elif __APPLE__
-            system(("clang++ -g -Ofast -std=c++17 -o " + outputFilename + " " + inputFilename + " -Iincludes -L./ -lJS_CMP 2>/dev/null; if [ $? -ne 0 ]; then echo \"the JavaScript code contain a feature that is not yet implemented.\"; fi").c_str());
+            system(("clang++ -g -Ofast -std=c++17 -o " + outputFilename + " " + inputFilename + " -Iincludes -L./ -lJS_CMP").c_str());
             #elif __linux
             system(("g++ -g -Ofast -o " + outputFilename + " " + inputFilename +
                 " -Iincludes -L./ -lJS_CMP").c_str());

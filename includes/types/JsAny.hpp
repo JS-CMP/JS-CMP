@@ -12,12 +12,12 @@ template<class... Ts> overloaded(Ts...) -> overloaded<Ts...>;
 
 namespace JS {
     enum Types {
-        NUMBER = 0,
-        STRING = 1,
-        BOOL = 2,
-        FUNCTION = 3,
-        UNDEFINED = 4,
-        NULL_TYPE = 5
+        NUMBER,
+        STRING,
+        BOOL,
+        FUNCTION,
+        UNDEFINED,
+        NULL_TYPE
     };
 
     class Any;

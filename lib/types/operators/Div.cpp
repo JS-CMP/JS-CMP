@@ -12,8 +12,8 @@ JS::Any JS::Any::operator/(const JS::Any &other) const
                         return JS::Any(std::get<double>(this->value) / std::stod(std::get<std::string>(other.value)));
                     case BOOL:
                         return JS::Any(std::get<double>(this->value) / std::get<bool>(other.value));
-                    case NULL_TYPE: // TODO
-//                        return inf
+                    case NULL_TYPE: 
+                        return JS::Any(std::numeric_limits<double>::infinity());
                     default:
                         return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Undefined case
                 }
@@ -37,7 +37,7 @@ JS::Any JS::Any::operator/(const JS::Any &other) const
                     case BOOL:
                         return JS::Any(std::get<bool>(this->value) / std::get<bool>(other.value));
                     case NULL_TYPE:
-//                        return inf
+                        return JS::Any(std::numeric_limits<double>::infinity());
                     default:
                         return JS::Any(std::numeric_limits<double>::quiet_NaN());
                 }

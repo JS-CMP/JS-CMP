@@ -26,7 +26,7 @@ file(GLOB_RECURSE SOURCES_LIB
 )
 
 # Add the library for the JS_CMP program
-add_library(JS_CMP ${SOURCES_LIB})
+add_library(jscmp ${SOURCES_LIB})
 
 # Add the executable for the JS_CMP program
 add_executable(${PROJECT_NAME} ${SOURCES})

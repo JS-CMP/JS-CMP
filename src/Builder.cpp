@@ -34,7 +34,7 @@ void Builder::compiling(const std::string &inputFilename) const
         std::string(" -Ofast ") + this->options.getCompilerArgs();
     std::string compiler = this->options.getCompiler();
     std::string outputFilename = options.getOutputFilename();
-    std::string command = compiler + customArgs + inputFilename + std::string(" -o ") + outputFilename + std::string(" -Iincludes -L./ -lJS_CMP");
+    std::string command = compiler + customArgs + inputFilename + std::string(" -o ") + outputFilename + std::string(" -Iincludes -L./ -ljscmp");
     system(command.c_str());
 }
 

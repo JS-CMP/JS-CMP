@@ -32,7 +32,7 @@ file(GLOB_RECURSE SOURCES_GLOB
         "src/**/*.hpp"
 )
 
-add_library(JS_CMP ${SOURCES_LIB})
+add_library(jscmp ${SOURCES_LIB})
 
 # Link Boost program_options library to both the library and executable
 add_executable(${PROJECT_NAME} main.cpp ${SOURCES_GLOB})

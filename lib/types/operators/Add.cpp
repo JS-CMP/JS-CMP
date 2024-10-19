@@ -59,12 +59,6 @@ JS::Any JS::Any::operator+(const JS::Any &other) const
                     return JS::Any(this->toString() + other.toString());
             }
             break;
-//        case Type::Object:
-//            switch (other.type) {
-//                case Type::Object:
-//                    return JS::Any(this->toString() + other.toString());
-//            }
-//            break;
         case NULL_TYPE:
             switch (other.value.index()) {
                 case NUMBER:

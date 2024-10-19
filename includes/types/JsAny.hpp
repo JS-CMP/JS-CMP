@@ -30,14 +30,6 @@ namespace JS {
 
 
     using Value = std::variant<double, std::string, bool, JS::Function, JS::Undefined, JS::Null>;
-    // value.index()
-    //
-    // double : 0
-    // string : 1
-    // bool : 2
-    // function : 3
-    // undefined : 4
-    // null : 5
 
     class Any {
     private:

@@ -12,7 +12,11 @@ Options::Options(int argc, char **argv, char **env) : desc_argv("Allowed options
         ("output,o", po::value<std::string>(), "place the output into <file>");
 
     this->argc = extractCompilerOptions();
-    po::store(po::parse_command_line(argc, argv, this->desc_argv), this->vm_argv);
+    auto parsed = po::command_line_parser(argc, argv)
+        .options(this->desc_argv)
+        .allow_unregistered()
+        .run();
+    po::store(parsed, this->vm_argv);
     po::notify(this->vm_argv);
 }
 
@@ -54,7 +58,7 @@ void Options::parse()
         if (compiler.has_value()) {
             this->compiler = compiler.value();
         } else {
-            throw std::runtime_error("No compiler found. Compiler tested: " + std::accumulate(commonCompilers.begin(), commonCompilers.end(), std::string("")));
+            throw std::runtime_error("No compiler found. Compiler tested: " + std::accumulate(std::begin(commonCompilers), std::end(commonCompilers), std::string("")));
         }
     }
 
@@ -91,14 +95,15 @@ void Options::printVersion()
 
 std::optional<std::string> Options::findCompiler()
 {
-    for (const auto& compiler : commonCompilers) {
-        if (std::system(std::string(compiler +
+    for (const auto &compiler : commonCompilers) {
+        std::string compilerPath = std::string(compiler);
+        if (std::system((compilerPath + std::string(
             #ifdef _WIN32
             " --version >nul 2>&1"
             #else
             " --version > /dev/null 2>&1"
             #endif
-        ).c_str()) == 0) {
+        )).c_str()) == 0) {
             return std::string(compiler);
         }
     }

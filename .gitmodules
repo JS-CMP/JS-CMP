@@ -1,0 +1,3 @@
+[submodule "submodules/Lexer"]
+	path = submodules/Lexer
+	url = git@github.com:JS-CMP/Lexer.git

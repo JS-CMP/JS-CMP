@@ -9,7 +9,7 @@ bool JS::Any::operator<(const JS::Any &other) const
                     case NUMBER:
                         return std::get<double>(this->value) < std::get<double>(other.value);
                     case STRING:
-                        return std::get<double>(this->value) < std::stod(std::get<std::string>(other.value));
+                        return std::get<double>(this->value) < std::stod(std::get<Rope>(other.value).toString());
                     case BOOL:
                         return std::get<double>(this->value) < static_cast<double>(std::get<bool>(other.value));
                     case FUNCTION:
@@ -20,13 +20,13 @@ bool JS::Any::operator<(const JS::Any &other) const
             case STRING:
                 switch (other.value.index()) {
                     case NUMBER:
-                        return std::stod(std::get<std::string>(this->value)) < std::get<double>(other.value);
+                        return std::stod(std::get<Rope>(this->value).toString()) < std::get<double>(other.value);
                     case STRING:
-                        return std::get<std::string>(this->value).compare(std::get<std::string>(other.value)) < 0;
+                        return std::get<Rope>(this->value).toString().compare(std::get<Rope>(other.value).toString()) < 0;
                     case BOOL:
-                        return std::stod(std::get<std::string>(this->value)) < std::get<bool>(other.value);
+                        return std::stod(std::get<Rope>(this->value).toString()) < std::get<bool>(other.value);
                     case FUNCTION:
-                        return std::get<std::string>(this->value).compare(other.toString()) < 0;
+                        return std::get<Rope>(this->value).toString().compare(std::get<Rope>(other.value).toString()) < 0;
                     default:
                         return false;
                 }
@@ -35,7 +35,7 @@ bool JS::Any::operator<(const JS::Any &other) const
                     case NUMBER:
                         return std::get<bool>(this->value) < static_cast<long long int>(std::get<double>(other.value));
                     case STRING:
-                        return std::get<bool>(this->value) < static_cast<long long int>(std::stod(std::get<std::string>(other.value)));
+                        return std::get<bool>(this->value) < static_cast<long long int>(std::stod(std::get<Rope>(other.value).toString()));
                     case BOOL:
                         return std::get<bool>(this->value) < std::get<bool>(other.value);
                     case FUNCTION:
@@ -48,7 +48,7 @@ bool JS::Any::operator<(const JS::Any &other) const
                     case NUMBER:
                         return 0.0 < std::get<double>(other.value);
                     case STRING:
-                        return 0.0 < std::stod(std::get<std::string>(other.value));
+                        return 0.0 < std::stod(std::get<Rope>(other.value).toString());
                     case BOOL:
                         return 0 < std::get<bool>(other.value);
                     default:

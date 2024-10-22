@@ -6,9 +6,7 @@
 #include <memory>
 #include <variant>
 #include <limits>
-
-template<class... Ts> struct overloaded : Ts... { using Ts::operator()...; };
-template<class... Ts> overloaded(Ts...) -> overloaded<Ts...>;
+#include "../class/Rope/Rope.hpp"
 
 namespace JS {
     enum Types {
@@ -29,7 +27,7 @@ namespace JS {
     using Null = std::nullptr_t;
 
 
-    using Value = std::variant<double, std::string, bool, JS::Function, JS::Undefined, JS::Null>;
+    using Value = std::variant<double, Rope, bool, JS::Function, JS::Undefined, JS::Null>;
 
     class Any {
     private:
@@ -39,8 +37,9 @@ namespace JS {
         Any() : value(JS::Undefined{}) {}
         explicit Any(int v) : value(static_cast<double>(v)) {}
         explicit Any(double v) : value(v) {}
-        explicit Any(const std::string& v) : value(v) {}
-        explicit Any(const char* v) : value(std::string(v)) {}
+        explicit Any(Rope v) : value(v) {};
+        explicit Any(const std::string& v) : value(Rope(v)) {}
+        explicit Any(const char* v) : value(Rope(v)) {}
         explicit Any(bool v) : value(v) {}
         explicit Any(JS::Function v) : value(v) {}
         explicit Any(JS::Undefined) : value(JS::Undefined{}) {}

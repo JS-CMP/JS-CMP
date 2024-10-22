@@ -8,6 +8,7 @@ include_directories(includes/types)
 
 file(GLOB_RECURSE SOURCES_LIB
         "includes/**/*.hpp"
+        "lib/class/Rope/*.hpp"
         "lib/types/*.cpp"
         "lib/types/**/*.cpp"
 )

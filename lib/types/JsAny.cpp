@@ -9,7 +9,7 @@ bool JS::Any::operator==(const JS::Any &other) const
                 case NUMBER:
                     return std::get<double>(this->value) == std::get<double>(other.value);
                 case STRING:
-                    return std::get<double>(this->value) == std::stod(std::get<std::string>(other.value));
+                    return std::get<double>(this->value) == std::stod(std::get<Rope>(other.value).toString());
                 case BOOL:
                     return std::get<double>(this->value) == static_cast<double>(std::get<bool>(other.value));
                 default:
@@ -18,11 +18,11 @@ bool JS::Any::operator==(const JS::Any &other) const
         case STRING:
             switch (other.value.index()) {
                 case NUMBER:
-                    return std::stod(std::get<std::string>(this->value)) == std::get<double>(other.value);
+                    return std::stod(std::get<Rope>(this->value).toString()) == std::get<double>(other.value);
                 case STRING:
-                    return std::get<std::string>(this->value) == std::get<std::string>(other.value);
+                    return std::get<Rope>(this->value) == std::get<Rope>(other.value);
                 case BOOL:
-                    return std::stod(std::get<std::string>(this->value)) == static_cast<double>(std::get<bool>(other.value));
+                    return std::stod(std::get<Rope>(this->value).toString()) == static_cast<double>(std::get<bool>(other.value));
                 default:
                     return false; // Invalid type
             }
@@ -31,7 +31,7 @@ bool JS::Any::operator==(const JS::Any &other) const
                 case NUMBER:
                     return static_cast<double>(std::get<bool>(this->value)) == std::get<double>(other.value);
                 case STRING:
-                    return static_cast<double>(std::get<bool>(this->value)) == std::stod(std::get<std::string>(other.value));
+                    return static_cast<double>(std::get<bool>(this->value)) == std::stod(std::get<Rope>(other.value).toString());
                 case BOOL:
                     return std::get<bool>(this->value) == std::get<bool>(other.value);
                 default:
@@ -74,7 +74,7 @@ std::string JS::Any::toString() const
                                    "Infinity" :
                    std::to_string(std::get<double>(this->value));
         case STRING:
-            return std::get<std::string>(this->value);
+            return std::get<Rope>(this->value).toString();
         case BOOL:
             return std::get<bool>(this->value) ? "true" : "false";
         case FUNCTION:

@@ -32,7 +32,7 @@ jobs:
     # Run Uncrustify on the codebase
     - name: Run Uncrustify
       run: |
-        uncrustify -c uncrustify_config/uncrustify.cfg --replace --no-backup $(find . -name '*.cpp' -o -name '*.hpp')
+        uncrustify -c configs/uncrustify.cfg --replace --no-backup $(find . -name '*.cpp' -o -name '*.hpp')
 
     # Check if there are any changes after running Uncrustify
     - name: Commit changes

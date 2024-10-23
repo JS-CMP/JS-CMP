@@ -1,44 +1,65 @@
-name: Uncrustify and Cpplint
+name: Run Uncrustify and Clang-Tidy
 
 on:
-  push:
-    branches:
-      - '**'
+  workflow_call:
+  workflow_dispatch:
   pull_request:
-    branches:
-      - '**'
+  merge_group:
+
+permissions:
+    contents: write
 
 jobs:
-  format_and_lint:
+  uncrustify:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+          
+    - name: Install Uncrustify, git, and dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y uncrustify git
+        uncrustify --version
+    
+    # Run Uncrustify on the codebase
+    - name: Run Uncrustify
+      run: |
+        uncrustify -c uncrustify_config/uncrustify.cfg --replace --no-backup $(find . -name '*.cpp' -o -name '*.hpp')
 
-      # Étape 1 : Installer les dépendances nécessaires pour compiler Uncrustify
-      - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y git cmake g++ make
+    # Check if there are any changes after running Uncrustify
+    - name: Commit changes
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "Formating uncrustify"
+  
+  clang-tidy:
+    runs-on: ubuntu-latest
 
-      # Étape 2 : Cloner et compiler Uncrustify à partir du dépôt source
-      - name: Install latest Uncrustify from source
-        run: |
-          git clone https://github.com/uncrustify/uncrustify.git
-          cd uncrustify
-          mkdir build && cd build
-          cmake ..
-          make -j$(nproc)
-          sudo make install
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.head_ref }}
+        fetch-depth: 0
 
-      # Étape 3 : Exécuter Uncrustify
-      - name: Run Uncrustify
-        run: |
-          uncrustify -c uncrustify_config/uncrustify.cfg --replace $(find . -name "*.cpp" -o -name "*.h" ! -path "./uncrustify/tests/*")
+    # Install clang-tidy and git
+    - name: Install Clang-Tidy, git, and dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y clang-tidy git
 
-      # Étape 4 : Installer Cpplint
-      - name: Install Cpplint
-        run: sudo pip install cpplint
+    # Run clang-tidy on the codebase
+    - name: Run Clang-Tidy
+      run: |
+        clang-tidy $(find . -name '*.cpp' -o -name '*.hpp') -- -std=c++17
 
-      # Étape 5 : Exécuter Cpplint
-      - name: Run Cpplint
-        run: cpplint $(find . -name "*.cpp" -o -name "*.h")
+    # Commit changes if needed
+    - name: Commit changes
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "Formating clang tidy"

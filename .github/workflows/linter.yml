@@ -5,6 +5,9 @@ on:
   workflow_dispatch:
   pull_request:
   merge_group:
+  push:
+    branches:
+      - 'features/action-linter'
 
 permissions:
     contents: write

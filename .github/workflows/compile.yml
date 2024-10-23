@@ -1,3 +1,14 @@
+name: Run Compile
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  pull_request:
+  merge_group:
+  push:
+    branches:
+      - 'features/action-compile'
+
 jobs:
   build:
     runs-on: ${{ matrix.os }}
@@ -7,32 +18,27 @@ jobs:
         compiler: [gcc, clang]
 
     steps:
-      # Étape 1 : Cloner le dépôt
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      # Étape 2 : Installer les dépendances pour Linux et macOS
       - name: Install dependencies on Linux
         if: matrix.os == 'ubuntu-latest'
-        run: sudo apt-get update && sudo apt-get install -y cmake g++ make
+        run: sudo apt-get update && sudo apt-get install -y cmake g++ make libboost-all-dev
 
       - name: Install dependencies on macOS
         if: matrix.os == 'macos-latest'
-        run: brew install cmake gcc
+        run: brew install cmake gcc boost
 
-      # Étape 3 : Créer les répertoires de build et compiler
-      - name: Create build directory
-        run: mkdir -p build
+      - name: Initialize git submodules
+        run: git submodule update --init --recursive
 
       - name: Run CMake
         run: |
-          cd build
-          cmake ..
-          make
-        continue-on-error: true  # Ajouter cette ligne pour que le job continue même en cas d'erreur
+          cmake .
+          make -j$(getconf _NPROCESSORS_ONLN)
 
-      # Étape 4 : Tester l'exécutable généré
       - name: Test the built executable
         run: |
-          cd build
-          ./JS_CMP_alpha
+          echo "console.log('Everything works fine!');" > test.js
+          ./js_cmp test.js
+          diff <(./test) <(echo "Everything works fine!")

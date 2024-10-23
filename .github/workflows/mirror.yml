@@ -9,7 +9,7 @@ jobs:
   git-mirror:
     runs-on: ubuntu-latest
     steps:
-      - uses: agherzan/git-mirror-me-action@v1
+      - uses: agherzan/git-mirror-me-action@v2
         env:
           GMM_SSH_PRIVATE_KEY: ${{ secrets.GMM_SSH_PRIVATE_KEY }}
           GMM_SSH_KNOWN_HOSTS: ${{ secrets.GMM_SSH_KNOWN_HOSTS }}

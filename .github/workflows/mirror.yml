@@ -9,9 +9,11 @@ jobs:
   git-mirror:
     runs-on: ubuntu-latest
     steps:
-      - uses: agherzan/git-mirror-me-action@v2.0.1
-        env:
-          GMM_SSH_PRIVATE_KEY: ${{ secrets.GMM_SSH_PRIVATE_KEY }}
-          GMM_SSH_KNOWN_HOSTS: ${{ secrets.GMM_SSH_KNOWN_HOSTS }}
-          GMM_SRC_REPO: "git@github.com:JS-CMP/JS-CMP.git"
-          GMM_DST_REPO: "git@github.com:EpitechPromo2026/G-EIP-700-lil-7-1-eip-simon.bandiera.git"
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: yesolutions/mirror-action@master
+        with:
+          REMOTE: git@github.com:EpitechPromo2026/G-EIP-700-lil-7-1-eip-simon.bandiera.git
+          GIT_SSH_PRIVATE_KEY: ${{ secrets.GMM_SSH_PRIVATE_KEY }}
+          GIT_SSH_NO_VERIFY_HOST: "true"

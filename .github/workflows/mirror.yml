@@ -15,5 +15,5 @@ jobs:
       - uses: yesolutions/mirror-action@master
         with:
           REMOTE: git@github.com:EpitechPromo2026/G-EIP-700-lil-7-1-eip-simon.bandiera.git
-          GIT_SSH_PRIVATE_KEY: ${{ secrets.GMM_SSH_PRIVATE_KEY }}
+          GIT_SSH_PRIVATE_KEY: ${{ secrets.GIT_SSH_PRIVATE_KEY }}
           GIT_SSH_NO_VERIFY_HOST: "true"

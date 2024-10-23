@@ -1,4 +1,4 @@
-Name: Mirror Repository to Epitech
+name: Mirror Repository to Epitech
 
 on: [ push, delete, create ]
 

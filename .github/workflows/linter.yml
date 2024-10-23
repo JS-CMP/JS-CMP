@@ -32,7 +32,7 @@ jobs:
     # Run Uncrustify on the codebase
     - name: Run Uncrustify
       run: |
-        uncrustify -c configs/uncrustify.cfg --replace --no-backup $(find . -name '*.cpp' -o -name '*.hpp')
+        git ls-files '*.cpp' '*.hpp' | xargs uncrustify -c configs/uncrustify.cfg --replace --no-backup
 
     # Check if there are any changes after running Uncrustify
     - name: Commit changes
@@ -59,10 +59,4 @@ jobs:
     # Run clang-tidy on the codebase
     - name: Run Clang-Tidy
       run: |
-        clang-tidy $(find . -name '*.cpp' -o -name '*.hpp') -- -std=c++17
-
-    # Commit changes if needed
-    - name: Commit changes
-      uses: stefanzweifel/git-auto-commit-action@v5
-      with:
-        commit_message: "Formating clang tidy"
+        git ls-files '*.cpp' '*.hpp' | xargs -I{} clang-tidy {} -quiet -checks='boost-*,bugprone-*,cert-*,clang-analyzer-*,hicpp-*,performance-*,portability-*' -- -std=c++20

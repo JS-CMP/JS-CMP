@@ -9,7 +9,7 @@
 
 class Builder {
 public:
-    Builder(const Options& options);
+    explicit Builder(const Options& options);
 
     void build();
 

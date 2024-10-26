@@ -34,8 +34,8 @@ namespace JS {
         explicit Any(const char* v) : value(std::string(v)) {}
         explicit Any(bool v) : value(v) {}
         explicit Any(JS::Function v) : value(v) {}
-        explicit Any(JS::Undefined) : value(JS::Undefined{}) {}
-        explicit Any(JS::Null) : value(JS::Null{}) {}
+        explicit Any(JS::Undefined v) : value(JS::Undefined{}) {}
+        explicit Any(JS::Null v) : value(JS::Null{}) {}
 
 
         JS::Any operator+(const JS::Any& other) const;
@@ -43,9 +43,9 @@ namespace JS {
         JS::Any operator*(const JS::Any& other) const;
         JS::Any operator/(const JS::Any& other) const;
         JS::Any &operator++();
-        JS::Any &operator++(int);
+        const JS::Any &operator++(int);
         JS::Any &operator--();
-        JS::Any &operator--(int);
+        const JS::Any &operator--(int);
         inline bool operator<(const JS::Any &other) const
         {
             try {

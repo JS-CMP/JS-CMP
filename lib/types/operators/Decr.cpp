@@ -28,7 +28,7 @@ JS::Any &JS::Any::operator--() {
     return *this;
 }
 
-JS::Any &JS::Any::operator--(int) {
+const JS::Any &JS::Any::operator--(int) {
     try {
         std::visit(overloaded{
                 // types

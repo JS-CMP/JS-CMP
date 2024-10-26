@@ -38,10 +38,12 @@ std::string JS::Any::toString() const
     }, value);
 }
 
-std::ostream &JS::operator<<(std::ostream &os, const JS::Any &any)
-{
-    os << any.toString();
-    return os;
+namespace JS {
+    std::ostream &operator<<(std::ostream &os, const Any &any)
+    {
+        os << any.toString();
+        return os;
+    }
 }
 
 

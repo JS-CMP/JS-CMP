@@ -22,7 +22,7 @@ bool JS::Any::operator>(const JS::Any &other) const
                     case NUMBER:
                         return std::stod(std::get<Rope>(this->value).toString()) > std::get<double>(other.value);
                     case STRING:
-                        return std::get<Rope>(this->value).toString().compare(std::get<Rope>(other.value).toString()) > 0;
+                        return std::get<Rope>(this->value).compare(std::get<Rope>(other.value)) > 0;
                     case BOOL:
                         return static_cast<long long int>(std::stod(std::get<Rope>(this->value).toString())) > std::get<bool>(other.value);
                     case FUNCTION:

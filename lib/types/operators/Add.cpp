@@ -8,7 +8,7 @@ JS::Any JS::Any::operator+(const JS::Any &other) const
                 case NUMBER:
                     return JS::Any(std::get<double>(this->value) + std::get<double>(other.value));
                 case STRING:
-                    return JS::Any(std::get<Rope>(other.value).addLeft(this->toString()));
+                    return JS::Any(this->toString() + std::get<Rope>(other.value));
                 case BOOL:
                     return JS::Any(std::get<double>(this->value) + std::get<bool>(other.value));
                 case FUNCTION:
@@ -35,7 +35,7 @@ JS::Any JS::Any::operator+(const JS::Any &other) const
                 case NUMBER:
                     return JS::Any(std::get<bool>(this->value) + std::get<double>(other.value));
                 case STRING:
-                      return JS::Any(std::get<Rope>(other.value).addLeft(this->toString()));
+                      return JS::Any(this->toString() + std::get<Rope>(other.value));
                 case BOOL:
                     return JS::Any(std::get<bool>(this->value) + std::get<bool>(other.value));
                 case FUNCTION: // TODO
@@ -49,7 +49,7 @@ JS::Any JS::Any::operator+(const JS::Any &other) const
                 case NUMBER:
                     return JS::Any(this->toString() + other.toString());
                 case STRING:
-                    return JS::Any(std::get<Rope>(other.value).addLeft(this->toString()));
+                    return JS::Any(this->toString() + std::get<Rope>(other.value));
                 case BOOL:
                     return JS::Any(this->toString() + other.toString());
                 case FUNCTION:
@@ -65,7 +65,7 @@ JS::Any JS::Any::operator+(const JS::Any &other) const
                 case NUMBER:
                     return JS::Any(std::get<double>(other.value));
                 case STRING:
-                    return JS::Any(std::get<Rope>(other.value).addLeft(this->toString()));
+                    return JS::Any(this->toString() + std::get<Rope>(other.value));
                 case BOOL:
                     return JS::Any(static_cast<double>(std::get<bool>(other.value)));
                 case FUNCTION:
@@ -81,7 +81,7 @@ JS::Any JS::Any::operator+(const JS::Any &other) const
                 case NUMBER:
                     return JS::Any(std::numeric_limits<double>::quiet_NaN());
                 case STRING:
-                    return JS::Any(std::get<Rope>(other.value).addLeft(this->toString()));
+                    return JS::Any(this->toString() + std::get<Rope>(other.value));
                 case BOOL:
                     return JS::Any(std::numeric_limits<double>::quiet_NaN());
                 case FUNCTION:

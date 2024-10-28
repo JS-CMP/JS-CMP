@@ -37,6 +37,7 @@ namespace JS {
         Any() : value(JS::Undefined{}) {}
         explicit Any(int v) : value(static_cast<double>(v)) {}
         explicit Any(double v) : value(v) {}
+        explicit Any(Rope &v) : value(v) {};
         explicit Any(Rope v) : value(v) {};
         explicit Any(const std::string& v) : value(Rope(v)) {}
         explicit Any(const char* v) : value(Rope(v)) {}

@@ -29,7 +29,7 @@ Rope Rope::operator+(const std::string& other) {
     return Rope(std::make_shared<RopeConcat>(root, other));
 }
 
-Rope Rope::operator+(std::string&& other) const {
+Rope Rope::operator+(const std::string&& other) const {
     return Rope(std::make_shared<RopeConcat>(root, other));
 }
 
@@ -72,6 +72,7 @@ void Rope::toStringHelper(std::string& result, const std::shared_ptr<RopeNode>& 
     }
 }
 
+//TODO: to change it to a while because a recursive can stack overflow
 bool Rope::equals(const std::shared_ptr<RopeNode>& node1, const std::shared_ptr<RopeNode>& node2) const {
     if (!node1 && !node2) {
         return true;

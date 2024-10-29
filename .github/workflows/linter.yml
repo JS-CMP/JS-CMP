@@ -53,7 +53,7 @@ jobs:
     - name: Install Clang-Tidy, git, and dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y clang-tidy git
+        sudo apt-get install -y clang-tidy git libboost-all-dev
 
     # Run clang-tidy on the codebase
     - name: Run Clang-Tidy

@@ -19,9 +19,9 @@ JS::Any JS::Any::operator/(const JS::Any& other) const {
                     case NULL_TYPE:
                         return JS::Any(std::numeric_limits<double>::infinity());
                     default:
-                        return JS::Any(
-                            std::numeric_limits<double>::quiet_NaN()); // Undefined
-                                                                       // case
+                        return JS::Any(std::numeric_limits<
+                                       double>::quiet_NaN()); // Undefined
+                                                              // case
                 }
             case STRING:
 

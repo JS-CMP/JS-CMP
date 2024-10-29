@@ -5,6 +5,7 @@ on: [push, delete]
 jobs:
   to_epitech_repo:
     runs-on: ubuntu-latest
+    environment: mirroring
     steps:
       - uses: actions/checkout@v3
         with:

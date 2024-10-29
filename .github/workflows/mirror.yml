@@ -3,16 +3,13 @@ name: Mirror Repository to Epitech
 on: [push, delete]
 
 jobs:
-  to_epitech_repo:
+  git-mirror:
     runs-on: ubuntu-latest
     environment: mirroring
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Echo Environment Variables
-        run: |
-          env
       - uses: pixta-dev/repository-mirroring-action@v1
         with:
           target_repo_url:

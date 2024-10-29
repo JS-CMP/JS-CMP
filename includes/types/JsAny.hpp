@@ -6,45 +6,26 @@
 #include <memory>
 #include <variant>
 #include <limits>
+#include "Types.hpp"
 
 template<class... Ts> struct overloaded : Ts... { using Ts::operator()...; };
 template<class... Ts> overloaded(Ts...) -> overloaded<Ts...>;
 
 namespace JS {
-    enum Types {
-        NUMBER,
-        STRING,
-        BOOL,
-        FUNCTION,
-        UNDEFINED,
-        NULL_TYPE
-    };
-
-    class Any;
-
-    using Function = std::function<JS::Any(const std::vector<JS::Any>&)>;
-    using Object = std::unordered_map<std::string, std::shared_ptr<JS::Any>>;
-    using Null = std::nullptr_t;
-    struct Undefined {};
-    using Null = std::nullptr_t;
-
-
-    using Value = std::variant<double, std::string, bool, JS::Function, JS::Undefined, JS::Null>;
-
     class Any {
     private:
         JS::Value value;
     public:
-
-        Any() : value(JS::Undefined{}) {}
-        explicit Any(int v) : value(static_cast<double>(v)) {}
-        explicit Any(double v) : value(v) {}
-        explicit Any(const std::string& v) : value(v) {}
-        explicit Any(const char* v) : value(std::string(v)) {}
-        explicit Any(bool v) : value(v) {}
-        explicit Any(JS::Function v) : value(v) {}
-        explicit Any(JS::Undefined) : value(JS::Undefined{}) {}
-        explicit Any(JS::Null) : value(JS::Null{}) {}
+        Any();
+        explicit Any(int v);
+        explicit Any(double v);
+        explicit Any(const std::string& v);
+        explicit Any(const char* v);
+        explicit Any(bool v);
+        explicit Any(JS::Function v);
+        explicit Any(JS::Undefined v);
+        explicit Any(JS::Null v);
+        explicit Any(const JS::Object& v);
 
 
         JS::Any operator+(const JS::Any& other) const;
@@ -58,6 +39,16 @@ namespace JS {
         bool operator<(const JS::Any &other) const;
         bool operator>(const JS::Any& other) const;
         bool operator==(const JS::Any& other) const;
+
+        JS::Any& operator[](const std::string& key);
+        const JS::Any& operator[](const std::string& key) const;
+        JS::Any& operator[](const char* key);
+        const JS::Any& operator[](const char* key) const;
+        JS::Any& operator[](size_t index);
+        const JS::Any& operator[](size_t index) const;
+        JS::Any& operator[](int index);
+        const JS::Any& operator[](int index) const;
+
         JS::Any operator()(std::vector<JS::Any>& args);
         [[nodiscard]] std::string toString() const;
 

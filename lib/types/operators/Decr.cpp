@@ -2,54 +2,46 @@
 
 JS::Any &JS::Any::operator--() {
     try {
-        std::visit(overloaded{
-                // types
-                [](double &hs) {
-                    --hs;
-                },
-                [this](std::string &hs) {
-                    value = static_cast<double>(std::stod(hs) - 1);
-                },
-                [this](bool &hs) {
-                    value = static_cast<double>(hs - 1);
-                },
-                [this](JS::Null &) {
-                    value = static_cast<double>(-1);
-                },
-
-                // default
-                [](auto &) {
-
-                }
-        }, value);
+        switch (this->value.index()) {
+            case NUMBER:
+                --std::get<double>(this->value);
+                break;
+            case STRING:
+                this->value = static_cast<double>(std::stod(std::get<Rope>(this->value).toString()) - 1);
+                break;
+            case BOOL:
+                this->value = static_cast<double>(std::get<bool>(this->value) - 1);
+                break;
+            case NULL_TYPE:
+                this->value = static_cast<double>(-1);
+                break;
+            default:
+                break;
+        }
     } catch (const std::invalid_argument &e) {
         value = std::numeric_limits<double>::quiet_NaN();
     }
     return *this;
 }
 
-JS::Any &JS::Any::operator--(int) {
+const JS::Any &JS::Any::operator--(int) {
     try {
-        std::visit(overloaded{
-                // types
-                [](double &hs) {
-                    hs--;
-                },
-                [this](std::string &hs) {
-                    value = static_cast<double>(std::stod(hs) - 1);
-                },
-                [this](bool &hs) {
-                    value = static_cast<double>(hs - 1);
-                },
-                [this](JS::Null &) {
-                    value = static_cast<double>(-1);
-                },
-
-                // default
-                [](auto &) {
-
-                }
-        }, value);
+        switch (this->value.index()) {
+            case NUMBER:
+                std::get<double>(this->value)--;
+                break;
+            case STRING:
+                this->value = static_cast<double>(std::stod(std::get<Rope>(this->value).toString()) - 1);
+                break;
+            case BOOL:
+                this->value = static_cast<double>(std::get<bool>(this->value) - 1);
+                break;
+            case NULL_TYPE:
+                this->value = static_cast<double>(-1);
+                break;
+            default:
+                break;
+        }
     } catch (const std::invalid_argument &e) {
         value = std::numeric_limits<double>::quiet_NaN();
     }

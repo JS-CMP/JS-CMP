@@ -15,7 +15,7 @@ typedef enum {
 } option_flag_t;
 
 
-static const char *commonCompilers[4] = {"g++", "clang++", "cl"};
+static const std::array<const char*, 4> commonCompilers = {"g++", "clang++", "cl"};
 
 class Options {
 public:

@@ -1,7 +1,6 @@
-#include "src/Options.hpp"
 #include "src/Builder.hpp"
-
-int main(int argc, char **argv, char **env) {
+#include "src/Options.hpp"
+int main(int argc, char** argv, char** env) {
     Options options(argc, argv, env);
     try {
         options.parse();
@@ -17,5 +16,5 @@ int main(int argc, char **argv, char **env) {
         std::cerr << e.what() << std::endl;
         exit(1);
     }
-    return 0;
+    return (0);
 }

@@ -14,8 +14,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
-        compiler: [gcc, clang]
+        os: [ ubuntu-latest, macos-latest ]
+        compiler: [ gcc, clang ]
 
     steps:
       - name: Checkout repository

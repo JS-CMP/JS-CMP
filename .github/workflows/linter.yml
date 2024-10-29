@@ -1,0 +1,59 @@
+name: Run Clang-Format and Clang-Tidy
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  pull_request:
+  merge_group:
+
+permissions:
+  contents: write
+
+jobs:
+  clang-format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: Install Uncrustify, git, and dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-format git
+
+      # Run Uncrustify on the codebase
+      - name: Run Uncrustify
+        run: |
+          git ls-files '*.cpp' '*.hpp' | xargs clang-format -i      
+
+        # Check if there are any changes after running Uncrustify
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Formating Clang-Format"
+  
+  clang-tidy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      # Install clang-tidy and git
+      - name: Install Clang-Tidy, git, and dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-tidy git libboost-all-dev
+
+      # Run clang-tidy on the codebase
+      - name: Run Clang-Tidy
+        run: |
+          git submodule update --init --recursive
+          git ls-files '*.cpp' '*.hpp' | xargs -I{} clang-tidy {} -quiet -checks='boost-*,cert-*,clang-analyzer-*,hicpp-*,performance-*,portability-*' -- -std=c++20 -I./includes -I./submodules/Lexer/include -DJS_CMP_VERSION="\"DUMB\""

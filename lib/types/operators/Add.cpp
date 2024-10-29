@@ -1,7 +1,6 @@
 #include "../../../includes/types/JsAny.hpp"
 
-JS::Any JS::Any::operator+(const JS::Any &other) const
-{
+JS::Any JS::Any::operator+(const JS::Any& other) const {
     switch (this->value.index()) {
         case NUMBER:
             switch (other.value.index()) {
@@ -23,9 +22,8 @@ JS::Any JS::Any::operator+(const JS::Any &other) const
             switch (other.value.index()) {
                 case NUMBER:
                     return JS::Any(std::get<Rope>(this->value) + other.toString());
-                case STRING:{
+                case STRING:
                     return JS::Any(std::get<Rope>(this->value) + std::get<Rope>(other.value));
-                }
                 default:
                     return JS::Any(std::get<Rope>(this->value) + other.toString());
             }
@@ -35,11 +33,11 @@ JS::Any JS::Any::operator+(const JS::Any &other) const
                 case NUMBER:
                     return JS::Any(std::get<bool>(this->value) + std::get<double>(other.value));
                 case STRING:
-                      return JS::Any(this->toString() + std::get<Rope>(other.value));
+                    return JS::Any(this->toString() + std::get<Rope>(other.value));
                 case BOOL:
                     return JS::Any(std::get<bool>(this->value) + std::get<bool>(other.value));
                 case FUNCTION: // TODO
-                   // console.log(true + (() => {})) -> "true() =&gt; {}"
+                // console.log(true + (() => {})) -> "true() =&gt; {}"
                 case NULL_TYPE:
                     return JS::Any(static_cast<double>(std::get<bool>(this->value)));
             }
@@ -93,5 +91,5 @@ JS::Any JS::Any::operator+(const JS::Any &other) const
             }
             break;
     }
-    return JS::Any();
+    return {};
 }

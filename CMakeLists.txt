@@ -15,9 +15,9 @@ find_package(Boost REQUIRED COMPONENTS program_options)
 
 if (Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
-else()
+else ()
     message(FATAL_ERROR "Boost not found!")
-endif()
+endif ()
 
 file(GLOB_RECURSE SOURCES_LIB
         "includes/**/*.hpp"

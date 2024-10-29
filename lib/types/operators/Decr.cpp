@@ -1,6 +1,6 @@
 #include "../../../includes/types/JsAny.hpp"
 
-JS::Any &JS::Any::operator--() {
+JS::Any& JS::Any::operator--() {
     try {
         switch (this->value.index()) {
             case NUMBER:
@@ -18,13 +18,11 @@ JS::Any &JS::Any::operator--() {
             default:
                 break;
         }
-    } catch (const std::invalid_argument &e) {
-        value = std::numeric_limits<double>::quiet_NaN();
-    }
+    } catch (const std::invalid_argument& e) { value = std::numeric_limits<double>::quiet_NaN(); }
     return *this;
 }
 
-const JS::Any &JS::Any::operator--(int) {
+const JS::Any& JS::Any::operator--(int) {
     try {
         switch (this->value.index()) {
             case NUMBER:
@@ -42,8 +40,6 @@ const JS::Any &JS::Any::operator--(int) {
             default:
                 break;
         }
-    } catch (const std::invalid_argument &e) {
-        value = std::numeric_limits<double>::quiet_NaN();
-    }
+    } catch (const std::invalid_argument& e) { value = std::numeric_limits<double>::quiet_NaN(); }
     return *this;
 }

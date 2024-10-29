@@ -1,6 +1,6 @@
 name: Mirror Repository to Epitech
 
-on: [push, delete]
+on: [ push, delete ]
 
 jobs:
   git-mirror:

@@ -27,8 +27,8 @@ void Builder::build() {
 
 void Builder::compiling(const std::string& inputFilename) const {
     std::string customArgs = this->options.getCompilerArgs().empty()
-                                 ? std::string(" -Ofast -std=c++23 ")
-                                 : std::string(" -Ofast -std=c++23 ") +
+                                 ? std::string(" -Ofast -std=c++20 ")
+                                 : std::string(" -Ofast -std=c++20 ") +
                                        this->options.getCompilerArgs();
     std::string compiler = this->options.getCompiler();
     std::string outputFilename = options.getOutputFilename();

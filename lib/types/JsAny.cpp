@@ -1,66 +1,104 @@
 #include <cmath>
 #include "../../includes/types/JsAny.hpp"
 
-bool JS::Any::operator==(const JS::Any&other) const
+bool JS::Any::operator==(const JS::Any &other) const
 {
-   return(std::visit(overloaded{
-      [](double lhs, double rhs) {
-         return lhs == rhs;
-      },
-      [](const std::string&lhs, const std::string&rhs) {
-         return lhs == rhs;
-      },
-      [](bool lhs, bool rhs) {
-         return lhs == rhs;
-      },
-      [](const auto&, const auto&)->bool {
-         return false;
-      }
-   }, value, other.value));
+    switch (this->value.index()) {
+        case NUMBER:
+            switch (other.value.index()) {
+                case NUMBER:
+                    return std::get<double>(this->value) == std::get<double>(other.value);
+                case STRING:
+                    return std::get<double>(this->value) == std::stod(std::get<Rope>(other.value).toString());
+                case BOOL:
+                    return std::get<double>(this->value) == static_cast<double>(std::get<bool>(other.value));
+                default:
+                    return false; // Invalid type
+            }
+        case STRING:
+            switch (other.value.index()) {
+                case NUMBER:
+                    return std::stod(std::get<Rope>(this->value).toString()) == std::get<double>(other.value);
+                case STRING:
+                    return std::get<Rope>(this->value) == std::get<Rope>(other.value);
+                case BOOL:
+                    return std::stod(std::get<Rope>(this->value).toString()) == static_cast<double>(std::get<bool>(other.value));
+                default:
+                    return false; // Invalid type
+            }
+        case BOOL:
+            switch (other.value.index()) {
+                case NUMBER:
+                    return static_cast<double>(std::get<bool>(this->value)) == std::get<double>(other.value);
+                case STRING:
+                    return static_cast<double>(std::get<bool>(this->value)) == std::stod(std::get<Rope>(other.value).toString());
+                case BOOL:
+                    return std::get<bool>(this->value) == std::get<bool>(other.value);
+                default:
+                    return false; // Invalid type
+            }
+        case UNDEFINED:
+            switch (other.value.index()) {
+                case UNDEFINED:
+                    return true;
+                default:
+                    return false; // Invalid type
+            }
+        case NULL_TYPE:
+            switch (other.value.index()) {
+                case NULL_TYPE:
+                    return true;
+                default:
+                    return false; // Invalid type
+            }
+        default:
+            return false; // Invalid type
+    }
 }
 
-JS::Any JS::Any::operator()(std::vector <JS::Any>&args)
+JS::Any JS::Any::operator()(std::vector<JS::Any> &args)
 {
-   if (!std::holds_alternative <JS::Function>(value))
-   {
-      throw std::runtime_error("Value is not a function");
-   }
-   return(std::get <JS::Function>(value)(args));
+    if (!std::holds_alternative<JS::Function>(value)) {
+        throw std::runtime_error("Value is not a function");
+    }
+    return std::get<JS::Function>(value)(args);
 }
 
 std::string JS::Any::toString() const
 {
-   return(std::visit(overloaded{
-      [](double v)->std::string {
-         return std::isnan(v) ? "NaN" :
-         std::isinf(v) ? v < 0 ?
-         "-Infinity" :
-         "Infinity" :
-         std::to_string(v);
-      },
-      [](const std::string&v)->std::string {
-         return v;
-      },
-      [](bool v)->std::string {
-         return v ? "true" : "false";
-      },
-      [](const JS::Function&)->std::string {
-         return "[Function]";
-      },
-      [](const JS::Undefined&)->std::string {
-         return "undefined";
-      },
-      [](const JS::Null&)->std::string {
-         return "null";
-      },
-      [](const auto&)->std::string {
-         return "[Object]";
-      }
-   }, value));
+    switch (this->value.index()) {
+        case NUMBER:
+            return std::isnan(std::get<double>(this->value)) ? "NaN" :
+                   std::isinf(std::get<double>(this->value)) ? std::get<double>(this->value) < 0 ?
+                                   "-Infinity" :
+                                   "Infinity" :
+                   std::to_string(std::get<double>(this->value));
+        case STRING:
+            return std::get<Rope>(this->value).toString();
+        case BOOL:
+            return std::get<bool>(this->value) ? "true" : "false";
+        case FUNCTION:
+            return "[Function]";
+        case UNDEFINED:
+            return "undefined";
+        case NULL_TYPE:
+            return "null";
+        default:
+            return "[Object]";
+    }
 }
 
-std::ostream&JS::operator<<(std::ostream&os, const JS::Any&any)
-{
-   os << any.toString();
-   return(os);
+namespace JS {
+    std::ostream &operator<<(std::ostream &os, const Any &any)
+    {
+        os << any.toString();
+        return os;
+    }
 }
+
+
+
+
+
+
+

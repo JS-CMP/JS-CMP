@@ -1,74 +1,70 @@
 #include "../../../includes/types/JsAny.hpp"
 
-JS::Any JS::Any::operator*(const JS::Any&other) const
+JS::Any JS::Any::operator*(const JS::Any &other) const
 {
-   // TODO: change with infinite precision the stol
-   try {
-      return(std::visit(overloaded{
-         // types
-         [](double lhs, double rhs) {
-            return JS::Any(lhs * rhs);
-         },
-         [](const std::string&lhs, const std::string&rhs) {
-            return JS::Any(std::stod(lhs) * std::stod(rhs));
-         },
-         [](bool lhs, bool rhs) {
-            return JS::Any(lhs * rhs);
-         },
-         [](JS::Null&lhs, JS::Null&rhs) {
-            return JS::Any(0);
-         },
-
-         // double
-         [](double lhs, const std::string&rhs) {
-            return JS::Any(lhs * std::stod(rhs));
-         },
-         [](double lhs, bool rhs) {
-            return JS::Any(lhs * rhs);
-         },
-         [](double lhs, JS::Null rhs) {
-            return JS::Any(0);
-         },
-
-         // string
-         [](const std::string&lhs, double rhs) {
-            return JS::Any(std::stod(lhs) * rhs);
-         },
-         [](const std::string&lhs, bool rhs) {
-            return JS::Any(std::stod(lhs) * rhs);
-         },
-         [](const std::string&lhs, JS::Null rhs) {
-            return JS::Any(std::stod(lhs) * 0);
-         },
-
-         // bool
-         [](bool lhs, double rhs) {
-            return JS::Any(lhs * rhs);
-         },
-         [](bool lhs, const std::string&rhs) {
-            return JS::Any(lhs * std::stod(rhs));
-         },
-         [](bool lhs, JS::Null rhs) {
-            return JS::Any(0);
-         },
-
-         // null
-         [](JS::Null lhs, double rhs) {
-            return JS::Any(0);
-         },
-         [](JS::Null lhs, const std::string&rhs) {
-            return JS::Any(0 * std::stod(rhs));
-         },
-         [](JS::Null lhs, bool rhs) {
-            return JS::Any(0);
-         },
-
-         // default
-         [](const auto&, const auto&)->JS::Any {
-            throw std::runtime_error("Invalid types for multiplication");
-         }
-      }, value, other.value));
-   } catch (std::invalid_argument&e) {
-      return(JS::Any(std::numeric_limits <double>::quiet_NaN()));
-   }
+    // TODO: change with infinite precision the stol
+    try {
+        switch (this->value.index()) {
+            case NUMBER:
+                switch (other.value.index()) {
+                    case NUMBER:
+                        return JS::Any(std::get<double>(this->value) * std::get<double>(other.value));
+                    case STRING:
+                        return JS::Any(std::get<double>(this->value) * std::stod(std::get<Rope>(other.value).toString()));
+                    case BOOL:
+                        return JS::Any(std::get<double>(this->value) * std::get<bool>(other.value));
+                    case NULL_TYPE:
+                        return JS::Any(0.0);
+                    default:
+                        throw std::runtime_error("Invalid types for multiplication");
+                }
+            case STRING:
+                switch (other.value.index()) {
+                    case NUMBER:
+                        return JS::Any(std::stod(std::get<Rope>(this->value).toString()) * std::get<double>(other.value));
+                    case STRING:
+                        return JS::Any(std::stod(std::get<Rope>(this->value).toString()) * std::stod(std::get<Rope>(other.value).toString()));
+                    case BOOL:
+                        return JS::Any(std::stod(std::get<Rope>(this->value).toString()) * std::get<bool>(other.value));
+                    case NULL_TYPE:
+                        return JS::Any(0.0);
+                    default:
+                        throw std::runtime_error("Invalid types for multiplication");
+                }
+            case BOOL:
+                switch (other.value.index()) {
+                    case NUMBER:
+                        return JS::Any(std::get<bool>(this->value) * std::get<double>(other.value));
+                    case STRING:
+                        return JS::Any(std::get<bool>(this->value) * std::stod(std::get<Rope>(other.value).toString()));
+                    case BOOL:
+                        return JS::Any(std::get<bool>(this->value) * std::get<bool>(other.value));
+                    case NULL_TYPE:
+                        return JS::Any(0);
+                    default:
+                        throw std::runtime_error("Invalid types for multiplication");
+                }
+            case NULL_TYPE:
+                switch (other.value.index()) {
+                    case NUMBER:
+                        return JS::Any(0.0);
+                    case STRING:
+                        return JS::Any(0.0);
+                    case BOOL:
+                        return JS::Any(0.0);
+                    case FUNCTION:
+                        return JS::Any(0.0);
+                    case NULL_TYPE:
+                        return JS::Any(0.0);
+                    default:
+                        throw std::runtime_error("Invalid types for multiplication");
+                }
+            default:
+                throw std::runtime_error("Invalid types for multiplication");
+        }
+    } catch (const std::invalid_argument &e) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
+    } catch (const std::runtime_error &e) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Handle multiplication of invalid types
+    }
 }

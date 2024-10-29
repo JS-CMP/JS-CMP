@@ -1,22 +1,12 @@
 #include <class/Rope/Rope.hpp>
-Rope::Rope(const std::string &str) : root(std::make_shared<RopeLeaf>(str)) {
+Rope::Rope(const std::string& str) : root(std::make_shared<RopeLeaf>(str)) {}
 
+Rope::Rope(const char* str)
+    : root(std::make_shared<RopeLeaf>(std::string(str))) {}
 
-}
+Rope::Rope(std::shared_ptr<RopeNode> node) : root(node) {}
 
-Rope::Rope(const char * str) : root(std::make_shared<RopeLeaf>(std::string(str))) {
-
-
-}
-
-Rope::Rope(std::shared_ptr<RopeNode> node) : root(node) {
-
-
-}
-
-size_t Rope::length() const {
-    return root->length();
-}
+size_t Rope::length() const { return root->length(); }
 
 char Rope::getCharAt(size_t idx) const {
     if (idx >= length()) {
@@ -25,35 +15,35 @@ char Rope::getCharAt(size_t idx) const {
     return root->getCharAt(idx);
 }
 
-void Rope::concat(const Rope &other) {
+void Rope::concat(const Rope& other) {
     root = std::make_shared<RopeConcat>(root, other.root);
 }
 
-Rope Rope::operator+(const Rope &other) const {
+Rope Rope::operator+(const Rope& other) const {
     return Rope(std::make_shared<RopeConcat>(root, other.root));
 }
 
-Rope Rope::operator+(const std::string &other) {
+Rope Rope::operator+(const std::string& other) {
     return Rope(std::make_shared<RopeConcat>(root, other));
 }
 
-Rope Rope::operator+(const std::string &&other) const {
+Rope Rope::operator+(const std::string&& other) const {
     return Rope(std::make_shared<RopeConcat>(root, other));
 }
 
-Rope operator+(const std::string &&other, const Rope &rope) {
+Rope operator+(const std::string&& other, const Rope& rope) {
     return Rope(std::make_shared<RopeConcat>(other, rope.root));
 }
 
-Rope operator+(const std::string &other, const Rope &rope) {
+Rope operator+(const std::string& other, const Rope& rope) {
     return Rope(std::make_shared<RopeConcat>(other, rope.root));
 }
 
-bool Rope::operator==(const Rope &other) const {
+bool Rope::operator==(const Rope& other) const {
     return equals(this->root, other.root);
 }
 
-int Rope::compare(const Rope &other) const {
+int Rope::compare(const Rope& other) const {
     return equals(this->root, other.root) ? 1 : -1;
 }
 
@@ -71,7 +61,8 @@ std::string Rope::toString() const {
     return result;
 }
 
-void Rope::toStringHelper(std::string &result, const std::shared_ptr<RopeNode> &node) const {
+void Rope::toStringHelper(std::string& result,
+                          const std::shared_ptr<RopeNode>& node) const {
     if (auto leaf = std::dynamic_pointer_cast<RopeLeaf>(node)) {
         result += leaf->getData();
     } else if (auto concat = std::dynamic_pointer_cast<RopeConcat>(node)) {
@@ -80,8 +71,9 @@ void Rope::toStringHelper(std::string &result, const std::shared_ptr<RopeNode> &
     }
 }
 
-//TODO: to change it to a while because a recursive can stack overflow
-bool Rope::equals(const std::shared_ptr<RopeNode> &node1, const std::shared_ptr<RopeNode> &node2) const {
+// TODO: to change it to a while because a recursive can stack overflow
+bool Rope::equals(const std::shared_ptr<RopeNode>& node1,
+                  const std::shared_ptr<RopeNode>& node2) const {
     if (!node1 && !node2) {
         return true;
     }

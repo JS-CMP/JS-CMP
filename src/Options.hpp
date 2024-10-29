@@ -1,25 +1,24 @@
 #ifndef OPTIONS_HPP
 #define OPTIONS_HPP
 #include <boost/program_options.hpp>
-#include <iostream>
 #include <filesystem>
+#include <iostream>
 #include <list>
-#include <optional>
 #include <numeric>
+#include <optional>
 
 namespace po = boost::program_options;
-
 
 typedef enum {
     OPTION_FLAG_PREPROCESS = 0x1,
 } option_flag_t;
 
-
-static const std::array<const char *, 4> commonCompilers = {"g++", "clang++", "cl"};
+static const std::array<const char*, 4> commonCompilers = {"g++", "clang++",
+                                                           "cl"};
 
 class Options {
 public:
-    Options(int argc, char * * argv, char * * env);
+    Options(int argc, char** argv, char** env);
 
     void parse();
     void printUsage();
@@ -27,21 +26,15 @@ public:
 
     ~Options() = default;
 
-    [[nodiscard]] std::string getFilename() const {
-        return this->filename;
-    }
+    [[nodiscard]] std::string getFilename() const { return this->filename; }
 
     [[nodiscard]] std::string getOutputFilename() const {
         return this->outputFilename;
     }
 
-    [[nodiscard]] uint32_t getFlags() const {
-        return this->flags;
-    }
+    [[nodiscard]] uint32_t getFlags() const { return this->flags; }
 
-    [[nodiscard]] std::string getCompiler() const {
-        return this->compiler;
-    }
+    [[nodiscard]] std::string getCompiler() const { return this->compiler; }
 
     [[nodiscard]] std::string getCompilerArgs() const {
         return this->compilerArgs;
@@ -61,7 +54,7 @@ private:
     po::options_description desc_argv;
     po::variables_map vm_argv;
     int argc;
-    char * * argv;
+    char** argv;
 };
 
-#endif //OPTIONS_HPP
+#endif // OPTIONS_HPP

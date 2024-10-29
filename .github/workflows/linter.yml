@@ -59,4 +59,4 @@ jobs:
     - name: Run Clang-Tidy
       run: |
         git submodule update --init --recursive
-        git ls-files '*.cpp' '*.hpp' | xargs -I{} clang-tidy {} -quiet -checks='boost-*,cert-*,clang-analyzer-*,hicpp-*,performance-*,portability-*' -- -std=c++20 -I/home/hgalan/Eip/JS-CMP/lib -I/home/hgalan/Eip/JS-CMP/includes -Isubmodules/Lexer/include -DJS_CMP_VERSION="\"DUMB\""
+        git ls-files '*.cpp' '*.hpp' | xargs -I{} clang-tidy {} -quiet -checks='boost-*,cert-*,clang-analyzer-*,hicpp-*,performance-*,portability-*' -- -std=c++20 -I./lib -I./includes -I./submodules/Lexer/include -DJS_CMP_VERSION="\"DUMB\""

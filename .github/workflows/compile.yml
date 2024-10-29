@@ -33,7 +33,10 @@ jobs:
         run: brew install cmake gcc boost
 
       - name: Initialize git submodules
-        run: git submodule update --init --recursive
+        run: |
+          git submodule update --init --recursive
+          git submodule foreach git pull origin main
+
 
       - name: Run CMake
         run: |

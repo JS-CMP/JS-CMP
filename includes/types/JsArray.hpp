@@ -24,6 +24,8 @@ namespace JS {
         void push(const JS::Any& value);
         size_t length() const;
     private:
+        void init();
+
         std::vector<JS::Any> elements;
     };
 }

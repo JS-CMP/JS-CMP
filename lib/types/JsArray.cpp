@@ -3,17 +3,7 @@
 namespace JS {
 
     Array::Array() {
-        properties["length"] = JS::Any(0); // Initialize length property
-        properties["pop"] = JS::Any([this](const std::vector<JS::Any>& args) -> JS::Any {
-            if (elements.empty()) {
-                return JS::Any(JS::Undefined{});
-            }
-            // Store the last element to return it
-            JS::Any lastElement = elements.back();
-            elements.pop_back(); // Remove the last element
-            properties["length"] = JS::Any(static_cast<int>(elements.size())); // Update length
-            return lastElement; // Return the removed element
-        });
+        init();
     }
 
     Array::Array(const JS::Array& other) : Object(other), elements(other.elements) {}
@@ -29,6 +19,21 @@ namespace JS {
         Object::operator=(std::move(other));
         elements = std::move(other.elements);
         return *this;
+    }
+
+    void Array::init() {
+        properties["length"] = JS::Any(0);
+        properties["pop"] = JS::Any([this](const std::vector<JS::Any>& args) -> JS::Any {
+            std::cout << "elem" << elements.size() << std::endl;
+            if (elements.empty()) {
+                return JS::Any(JS::Undefined{});
+            }
+            // Store the last element to return it
+            JS::Any lastElement = elements.back();
+            elements.pop_back(); // Remove the last element
+            properties["length"] = JS::Any(static_cast<int>(elements.size())); // Update length
+            return lastElement; // Return the removed element
+        });
     }
 
     JS::Any& Array::operator[](size_t index) {

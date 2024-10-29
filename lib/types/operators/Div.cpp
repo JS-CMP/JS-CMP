@@ -9,7 +9,8 @@ JS::Any JS::Any::operator/(const JS::Any& other) const {
                     case NUMBER:
                         return JS::Any(std::get<double>(this->value) / std::get<double>(other.value));
                     case STRING:
-                        return JS::Any(std::get<double>(this->value) / std::stod(std::get<Rope>(other.value).toString()));
+                        return JS::Any(std::get<double>(this->value) /
+                                       std::stod(std::get<Rope>(other.value).toString()));
                     case BOOL:
                         return JS::Any(std::get<double>(this->value) / std::get<bool>(other.value));
                     case NULL_TYPE:

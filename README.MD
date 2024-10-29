@@ -1,4 +1,4 @@
-# JS-CMP
+# [JS-CMP](https://github.com/JS-CMP/JS_CMP)
 
 ## Description
 
@@ -79,6 +79,5 @@ like WSL or Cygwin, official support and testing have not been provided for Wind
 Windows compatibility are welcome.
 
 ---
-
-This version improves readability, adds clearer steps, and provides a note about the lack of official Windows support.
-Let me know if there are any other changes you'd like!
+Organization: https://github.com/JS-CMP
+Road Map: https://github.com/orgs/JS-CMP/projects/2

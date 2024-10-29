@@ -26,15 +26,15 @@ jobs:
     - name: Install Uncrustify, git, and dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y uncrustify git
+        sudo apt-get install -y clang-format git
         uncrustify --version
     
     # Run Uncrustify on the codebase
     - name: Run Uncrustify
       run: |
-        git ls-files '*.cpp' '*.hpp' | xargs uncrustify -c configs/uncrustify.cfg --replace --no-backup
+        git ls-files '*.cpp' '*.hpp' | xargs clang-format -i      
 
-    # Check if there are any changes after running Uncrustify
+      # Check if there are any changes after running Uncrustify
     - name: Commit changes
       uses: stefanzweifel/git-auto-commit-action@v5
       with:

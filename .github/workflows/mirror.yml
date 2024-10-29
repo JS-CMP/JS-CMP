@@ -1,19 +1,17 @@
 name: Mirror Repository to Epitech
 
-on: [push, delete, create]
-
-concurrency:
-  group: git-mirror-me
+on: [push, delete]
 
 jobs:
-  git-mirror:
+  to_epitech_repo:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: yesolutions/mirror-action@master
+      - uses: pixta-dev/repository-mirroring-action@v1
         with:
-          REMOTE: git@github.com:EpitechPromo2026/G-EIP-700-lil-7-1-eip-simon.bandiera.git
-          GIT_SSH_PRIVATE_KEY: ${{ secrets.GIT_SSH_PRIVATE_KEY }}
-          GIT_SSH_NO_VERIFY_HOST: "true"
+          target_repo_url:
+            git@github.com:EpitechPromo2026/G-EIP-700-lil-7-1-eip-simon.bandiera.git
+          ssh_private_key:
+            ${{ secrets.GIT_SSH_PRIVATE_KEY }}

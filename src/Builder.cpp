@@ -44,8 +44,9 @@ std::string Builder::read_all(const std::string &filename)
     std::string content;
     std::ifstream inputFile(filename);
 
-    if (!inputFile.is_open())
+    if (!inputFile.is_open()) {
         throw std::runtime_error("File not found: " + filename);
+    }
 
     while (inputFile.good()) {
         std::string line;
@@ -55,5 +56,3 @@ std::string Builder::read_all(const std::string &filename)
     inputFile.close();
     return content;
 }
-
-

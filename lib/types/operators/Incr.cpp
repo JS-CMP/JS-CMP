@@ -24,7 +24,7 @@ JS::Any &JS::Any::operator++() {
     return *this;
 }
 
-JS::Any &JS::Any::operator++(int) {
+const JS::Any &JS::Any::operator++(int) {
     try {
         switch (this->value.index()) {
             case NUMBER:

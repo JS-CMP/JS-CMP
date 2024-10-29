@@ -1,0 +1,62 @@
+name: Run Uncrustify and Clang-Tidy
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  pull_request:
+  merge_group:
+  push:
+    branches:
+      - 'features/action-linter'
+
+permissions:
+    contents: write
+
+jobs:
+  uncrustify:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+          
+    - name: Install Uncrustify, git, and dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y uncrustify git
+        uncrustify --version
+    
+    # Run Uncrustify on the codebase
+    - name: Run Uncrustify
+      run: |
+        git ls-files '*.cpp' '*.hpp' | xargs uncrustify -c configs/uncrustify.cfg --replace --no-backup
+
+    # Check if there are any changes after running Uncrustify
+    - name: Commit changes
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "Formating uncrustify"
+  
+  clang-tidy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.head_ref }}
+        fetch-depth: 0
+
+    # Install clang-tidy and git
+    - name: Install Clang-Tidy, git, and dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y clang-tidy git
+
+    # Run clang-tidy on the codebase
+    - name: Run Clang-Tidy
+      run: |
+        git ls-files '*.cpp' '*.hpp' | xargs -I{} clang-tidy {} -quiet -checks='boost-*,bugprone-*,cert-*,clang-analyzer-*,hicpp-*,performance-*,portability-*' -- -std=c++20

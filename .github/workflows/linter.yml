@@ -1,4 +1,4 @@
-name: Run Uncrustify and Clang-Tidy
+name: Run Clang-Format and Clang-Tidy
 
 on:
   workflow_call:

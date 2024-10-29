@@ -15,21 +15,37 @@ typedef enum {
 } option_flag_t;
 
 
-static const std::array<const char*, 4> commonCompilers = {"g++", "clang++", "cl"};
+static const std::array<const char *, 4> commonCompilers = {"g++", "clang++", "cl"};
 
 class Options {
 public:
-    Options(int argc, char **argv, char **env);
+    Options(int argc, char * * argv, char * * env);
+
     void parse();
     void printUsage();
     static void printVersion();
+
     ~Options() = default;
 
-    [[nodiscard]] std::string getFilename() const { return this->filename; }
-    [[nodiscard]] std::string getOutputFilename() const { return this->outputFilename; }
-    [[nodiscard]] uint32_t getFlags() const { return this->flags; }
-    [[nodiscard]] std::string getCompiler() const { return this->compiler; }
-    [[nodiscard]] std::string getCompilerArgs() const { return this->compilerArgs; }
+    [[nodiscard]] std::string getFilename() const {
+        return this->filename;
+    }
+
+    [[nodiscard]] std::string getOutputFilename() const {
+        return this->outputFilename;
+    }
+
+    [[nodiscard]] uint32_t getFlags() const {
+        return this->flags;
+    }
+
+    [[nodiscard]] std::string getCompiler() const {
+        return this->compiler;
+    }
+
+    [[nodiscard]] std::string getCompilerArgs() const {
+        return this->compilerArgs;
+    }
 
 private:
     int extractCompilerOptions();
@@ -45,7 +61,7 @@ private:
     po::options_description desc_argv;
     po::variables_map vm_argv;
     int argc;
-    char **argv;
+    char * * argv;
 };
 
 #endif //OPTIONS_HPP

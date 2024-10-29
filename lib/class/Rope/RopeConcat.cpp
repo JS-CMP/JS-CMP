@@ -1,13 +1,21 @@
 #include <class/Rope/RopeConcat.hpp>
-
 RopeConcat::RopeConcat(std::shared_ptr<RopeNode> l, std::shared_ptr<RopeNode> r)
-        : left(std::move(l)), right(std::move(r)), totalLength(left->length() + right->length()) {}
+    : left(std::move(l)), right(std::move(r)), totalLength(left->length() + right->length()) {
 
-RopeConcat::RopeConcat(std::shared_ptr<RopeNode> l, const std::string& r)
-        : left(std::move(l)), right(std::make_shared<RopeLeaf>(r)), totalLength(left->length() + right->length()) {}
 
-RopeConcat::RopeConcat(const std::string& l, std::shared_ptr<RopeNode> r)
-        : left(std::make_shared<RopeLeaf>(l)), right(std::move(r)), totalLength(left->length() + right->length()) {}
+}
+
+RopeConcat::RopeConcat(std::shared_ptr<RopeNode> l, const std::string &r)
+    : left(std::move(l)), right(std::make_shared<RopeLeaf>(r)), totalLength(left->length() + right->length()) {
+
+
+}
+
+RopeConcat::RopeConcat(const std::string &l, std::shared_ptr<RopeNode> r)
+    : left(std::make_shared<RopeLeaf>(l)), right(std::move(r)), totalLength(left->length() + right->length()) {
+
+
+}
 
 size_t RopeConcat::length() const {
     return totalLength;

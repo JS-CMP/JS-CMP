@@ -1,18 +1,18 @@
 #include "Builder.hpp"
-
 Builder::Builder(const Options &options)
-    : options(options)
-{
+    : options(options) {
+
+
 }
 
-void Builder::build()
-{
+void Builder::build() {
     std::string content = read_all(this->options.getFilename());
     Lexer::Lexer lexer(content);
     std::vector<Lexer::Token> tokens = lexer.tokenize();
 
     Lexer::Program program(tokens);
     program.parse();
+
     if (this->options.getFlags() & OPTION_FLAG_PREPROCESS) {
         std::cout << program << std::endl;
         return;
@@ -27,8 +27,7 @@ void Builder::build()
     compiling(inputFilename);
 }
 
-void Builder::compiling(const std::string &inputFilename) const
-{
+void Builder::compiling(const std::string &inputFilename) const {
     std::string customArgs = this->options.getCompilerArgs().empty() ?
         std::string(" -Ofast -std=c++23 ") :
         std::string(" -Ofast -std=c++23 ") + this->options.getCompilerArgs();
@@ -38,8 +37,7 @@ void Builder::compiling(const std::string &inputFilename) const
     system(command.c_str());
 }
 
-std::string Builder::read_all(const std::string &filename)
-{
+std::string Builder::read_all(const std::string &filename) {
 
     std::string content;
     std::ifstream inputFile(filename);

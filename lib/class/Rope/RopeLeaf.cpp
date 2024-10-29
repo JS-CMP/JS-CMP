@@ -1,6 +1,8 @@
 #include <class/Rope/RopeLeaf.hpp>
+RopeLeaf::RopeLeaf(const std::string &str) : data(str) {
 
-RopeLeaf::RopeLeaf(const std::string& str) : data(str) {}
+
+}
 
 size_t RopeLeaf::length() const {
     return data.size();

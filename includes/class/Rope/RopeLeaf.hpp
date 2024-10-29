@@ -3,12 +3,13 @@
 #define ROPELEAF_HPP
 
 #include "RopeNode.hpp"
-#include <string>
+
 #include <iostream>
+#include <string>
 
 class RopeLeaf : public RopeNode {
 public:
-    explicit RopeLeaf(const std::string &str);
+    explicit RopeLeaf(const std::string& str);
 
     [[nodiscard]] size_t length() const override;
 

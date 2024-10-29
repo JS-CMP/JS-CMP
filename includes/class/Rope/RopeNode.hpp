@@ -12,7 +12,6 @@ public:
     virtual void print() const = 0;
 
     virtual ~RopeNode() = default;
-
 };
 
 #endif // ROPENODE_HPP

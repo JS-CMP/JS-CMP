@@ -2,16 +2,17 @@
 #ifndef ROPECONCAT_HPP
 #define ROPECONCAT_HPP
 
-#include "RopeNode.hpp"
 #include "RopeLeaf.hpp"
+#include "RopeNode.hpp"
+
 #include <memory>
 #include <string>
 
 class RopeConcat : public RopeNode {
 public:
     RopeConcat(std::shared_ptr<RopeNode> l, std::shared_ptr<RopeNode> r);
-    RopeConcat(std::shared_ptr<RopeNode> l, const std::string &r);
-    RopeConcat(const std::string &l, std::shared_ptr<RopeNode> r);
+    RopeConcat(std::shared_ptr<RopeNode> l, const std::string& r);
+    RopeConcat(const std::string& l, std::shared_ptr<RopeNode> r);
 
     [[nodiscard]] size_t length() const override;
 

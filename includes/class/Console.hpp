@@ -5,15 +5,15 @@
 
 class console { // TODO: change initial to capital letter
 public:
-    template <class ... Args>
+    template <class... Args>
     static void log(Args... args) {
-        auto print_with_space = [](const auto &arg, bool is_last) {
-                std::cout << arg;
+        auto print_with_space = [](const auto& arg, bool is_last) {
+            std::cout << arg;
 
-                if (!is_last) {
-                    std::cout << " ";
-                }
-            };
+            if (!is_last) {
+                std::cout << " ";
+            }
+        };
 
         bool is_last = false;
         size_t num_args = sizeof...(args);
@@ -24,10 +24,8 @@ public:
     }
 
 private:
-    console()  = default;
+    console() = default;
     ~console() = default;
-
 };
 
-
-#endif //JS_CMP_ALPHA_CONSOLE_HPP
+#endif // JS_CMP_ALPHA_CONSOLE_HPP

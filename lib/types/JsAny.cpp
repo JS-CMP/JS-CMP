@@ -8,14 +8,11 @@ bool JS::Any::operator==(const JS::Any& other) const {
 
             switch (other.value.index()) {
                 case NUMBER:
-                    return std::get<double>(this->value) ==
-                           std::get<double>(other.value);
+                    return std::get<double>(this->value) == std::get<double>(other.value);
                 case STRING:
-                    return std::get<double>(this->value) ==
-                           std::stod(std::get<Rope>(other.value).toString());
+                    return std::get<double>(this->value) == std::stod(std::get<Rope>(other.value).toString());
                 case BOOL:
-                    return std::get<double>(this->value) ==
-                           static_cast<double>(std::get<bool>(other.value));
+                    return std::get<double>(this->value) == static_cast<double>(std::get<bool>(other.value));
                 default:
                     return false; // Invalid type
             }
@@ -23,11 +20,9 @@ bool JS::Any::operator==(const JS::Any& other) const {
 
             switch (other.value.index()) {
                 case NUMBER:
-                    return std::stod(std::get<Rope>(this->value).toString()) ==
-                           std::get<double>(other.value);
+                    return std::stod(std::get<Rope>(this->value).toString()) == std::get<double>(other.value);
                 case STRING:
-                    return std::get<Rope>(this->value) ==
-                           std::get<Rope>(other.value);
+                    return std::get<Rope>(this->value) == std::get<Rope>(other.value);
                 case BOOL:
                     return std::stod(std::get<Rope>(this->value).toString()) ==
                            static_cast<double>(std::get<bool>(other.value));
@@ -38,14 +33,12 @@ bool JS::Any::operator==(const JS::Any& other) const {
 
             switch (other.value.index()) {
                 case NUMBER:
-                    return static_cast<double>(std::get<bool>(this->value)) ==
-                           std::get<double>(other.value);
+                    return static_cast<double>(std::get<bool>(this->value)) == std::get<double>(other.value);
                 case STRING:
                     return static_cast<double>(std::get<bool>(this->value)) ==
                            std::stod(std::get<Rope>(other.value).toString());
                 case BOOL:
-                    return std::get<bool>(this->value) ==
-                           std::get<bool>(other.value);
+                    return std::get<bool>(this->value) == std::get<bool>(other.value);
                 default:
                     return false; // Invalid type
             }
@@ -82,8 +75,7 @@ std::string JS::Any::toString() const {
         case NUMBER:
             return std::isnan(std::get<double>(this->value)) ? "NaN"
                    : std::isinf(std::get<double>(this->value))
-                       ? std::get<double>(this->value) < 0 ? "-Infinity"
-                                                           : "Infinity"
+                       ? std::get<double>(this->value) < 0 ? "-Infinity" : "Infinity"
                        : std::to_string(std::get<double>(this->value));
         case STRING:
             return std::get<Rope>(this->value).toString();

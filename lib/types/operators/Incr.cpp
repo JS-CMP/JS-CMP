@@ -7,12 +7,10 @@ JS::Any& JS::Any::operator++() {
                 ++std::get<double>(this->value);
                 break;
             case STRING:
-                this->value = static_cast<double>(
-                    std::stod(std::get<Rope>(this->value).toString()) + 1);
+                this->value = static_cast<double>(std::stod(std::get<Rope>(this->value).toString()) + 1);
                 break;
             case BOOL:
-                this->value =
-                    static_cast<double>(std::get<bool>(this->value) + 1);
+                this->value = static_cast<double>(std::get<bool>(this->value) + 1);
                 break;
             case NULL_TYPE:
                 this->value = static_cast<double>(1);
@@ -20,9 +18,7 @@ JS::Any& JS::Any::operator++() {
             default:
                 break;
         }
-    } catch (const std::invalid_argument& e) {
-        value = std::numeric_limits<double>::quiet_NaN();
-    }
+    } catch (const std::invalid_argument& e) { value = std::numeric_limits<double>::quiet_NaN(); }
     return *this;
 }
 
@@ -33,12 +29,10 @@ const JS::Any& JS::Any::operator++(int) {
                 std::get<double>(this->value)++;
                 break;
             case STRING:
-                this->value = static_cast<double>(
-                    std::stod(std::get<Rope>(this->value).toString()) + 1);
+                this->value = static_cast<double>(std::stod(std::get<Rope>(this->value).toString()) + 1);
                 break;
             case BOOL:
-                this->value =
-                    static_cast<double>(std::get<bool>(this->value) + 1);
+                this->value = static_cast<double>(std::get<bool>(this->value) + 1);
                 break;
             case NULL_TYPE:
                 this->value = static_cast<double>(1);
@@ -46,8 +40,6 @@ const JS::Any& JS::Any::operator++(int) {
             default:
                 break;
         }
-    } catch (const std::invalid_argument& e) {
-        value = std::numeric_limits<double>::quiet_NaN();
-    }
+    } catch (const std::invalid_argument& e) { value = std::numeric_limits<double>::quiet_NaN(); }
     return *this;
 }

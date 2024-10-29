@@ -13,27 +13,24 @@ void Builder::build() {
         std::cout << program << std::endl;
         return;
     }
-    std::string inputFilename =
-        this->options.getFilename() + std::string(".cpp");
+    std::string inputFilename = this->options.getFilename() + std::string(".cpp");
     std::ofstream outputFile(inputFilename);
     outputFile << program;
     outputFile.close();
 
     std::cout << "Compiler Found: " << this->options.getCompiler() << std::endl;
-    std::cout << "Compiling " << this->options.getFilename() << " to "
-              << this->options.getOutputFilename() << std::endl;
+    std::cout << "Compiling " << this->options.getFilename() << " to " << this->options.getOutputFilename()
+              << std::endl;
     compiling(inputFilename);
 }
 
 void Builder::compiling(const std::string& inputFilename) const {
     std::string customArgs = this->options.getCompilerArgs().empty()
                                  ? std::string(" -Ofast -std=c++20 ")
-                                 : std::string(" -Ofast -std=c++20 ") +
-                                       this->options.getCompilerArgs();
+                                 : std::string(" -Ofast -std=c++20 ") + this->options.getCompilerArgs();
     std::string compiler = this->options.getCompiler();
     std::string outputFilename = options.getOutputFilename();
-    std::string command = compiler + customArgs + inputFilename +
-                          std::string(" -o ") + outputFilename +
+    std::string command = compiler + customArgs + inputFilename + std::string(" -o ") + outputFilename +
                           std::string(" -Iincludes -L./ -ljscmp");
     system(command.c_str());
 }

@@ -1,19 +1,14 @@
 #include "Options.hpp"
-Options::Options(int argc, char** argv, char** env)
-    : desc_argv("Allowed options"), compilerArgs() {
+Options::Options(int argc, char** argv, char** env) : desc_argv("Allowed options"), compilerArgs() {
     this->argc = argc;
     this->argv = argv;
-    this->desc_argv.add_options()("help,h", "produce help message")(
-        "version,v", "print version information")(
+    this->desc_argv.add_options()("help,h", "produce help message")("version,v", "print version information")(
         "preprocess,E", "preprocess only; do not compile")(
-        "CXX,c", po::value<std::string>(), "specify the compiler to use")(
-        "output,o", po::value<std::string>(), "place the output into <file>");
+        "CXX,c", po::value<std::string>(), "specify the compiler to use")("output,o", po::value<std::string>(),
+                                                                          "place the output into <file>");
 
     this->argc = extractCompilerOptions();
-    auto parsed = po::command_line_parser(argc, argv)
-                      .options(this->desc_argv)
-                      .allow_unregistered()
-                      .run();
+    auto parsed = po::command_line_parser(argc, argv).options(this->desc_argv).allow_unregistered().run();
     po::store(parsed, this->vm_argv);
     po::notify(this->vm_argv);
 }
@@ -44,8 +39,7 @@ void Options::parse() {
     if (this->vm_argv.count("output")) {
         this->outputFilename = this->vm_argv["output"].as<std::string>();
     } else {
-        this->outputFilename =
-            this->filename.substr(0, this->filename.find_last_of('.'));
+        this->outputFilename = this->filename.substr(0, this->filename.find_last_of('.'));
     }
     // Parse the environment options
     // TODO: can be cached
@@ -62,8 +56,7 @@ void Options::parse() {
         } else {
             throw std::runtime_error(
                 "No compiler found. Compiler tested: " +
-                std::accumulate(std::begin(commonCompilers),
-                                std::end(commonCompilers), std::string("")));
+                std::accumulate(std::begin(commonCompilers), std::end(commonCompilers), std::string("")));
         }
     }
 }
@@ -95,9 +88,7 @@ void Options::printUsage() {
               << std::endl;
 }
 
-void Options::printVersion() {
-    std::cout << "JS_CMP version " << JS_CMP_VERSION << std::endl;
-}
+void Options::printVersion() { std::cout << "JS_CMP version " << JS_CMP_VERSION << std::endl; }
 
 std::optional<std::string> Options::findCompiler() {
     for (const auto& compiler : commonCompilers) {

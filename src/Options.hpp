@@ -13,8 +13,7 @@ typedef enum {
     OPTION_FLAG_PREPROCESS = 0x1,
 } option_flag_t;
 
-static const std::array<const char*, 4> commonCompilers = {"g++", "clang++",
-                                                           "cl"};
+static const std::array<const char*, 4> commonCompilers = {"g++", "clang++", "cl"};
 
 class Options {
 public:
@@ -28,17 +27,13 @@ public:
 
     [[nodiscard]] std::string getFilename() const { return this->filename; }
 
-    [[nodiscard]] std::string getOutputFilename() const {
-        return this->outputFilename;
-    }
+    [[nodiscard]] std::string getOutputFilename() const { return this->outputFilename; }
 
     [[nodiscard]] uint32_t getFlags() const { return this->flags; }
 
     [[nodiscard]] std::string getCompiler() const { return this->compiler; }
 
-    [[nodiscard]] std::string getCompilerArgs() const {
-        return this->compilerArgs;
-    }
+    [[nodiscard]] std::string getCompilerArgs() const { return this->compilerArgs; }
 
 private:
     int extractCompilerOptions();

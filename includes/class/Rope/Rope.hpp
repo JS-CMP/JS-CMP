@@ -33,11 +33,9 @@ private:
     std::shared_ptr<RopeNode> root;
     std::string build;
     bool updated = false;
-    void toStringHelper(std::string& result,
-                        const std::shared_ptr<RopeNode>& node) const;
+    void toStringHelper(std::string& result, const std::shared_ptr<RopeNode>& node) const;
 
-    [[nodiscard]] bool equals(const std::shared_ptr<RopeNode>& node1,
-                              const std::shared_ptr<RopeNode>& node2) const;
+    [[nodiscard]] bool equals(const std::shared_ptr<RopeNode>& node1, const std::shared_ptr<RopeNode>& node2) const;
 };
 
 #endif // ROPE_HPP

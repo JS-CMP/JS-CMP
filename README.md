@@ -1,4 +1,4 @@
-# [JS-CMP](https://github.com/JS-CMP/JS_CMP)
+# JS-CMP
 
 ## Description
 
@@ -80,4 +80,5 @@ Windows compatibility are welcome.
 
 ---
 Organization: https://github.com/JS-CMP
+
 Road Map: https://github.com/orgs/JS-CMP/projects/2

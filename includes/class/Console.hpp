@@ -45,7 +45,7 @@ public:
     }
 
 private:
-    console() = default; ///< Private constructor to prevent instantiation.
+    console() = default;  ///< Private constructor to prevent instantiation.
     ~console() = default; ///< Private destructor to prevent deletion.
 };
 

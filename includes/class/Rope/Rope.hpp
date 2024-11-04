@@ -4,6 +4,7 @@
 #include "RopeConcat.hpp"
 #include "RopeLeaf.hpp"
 #include "RopeNode.hpp"
+
 #include <memory>
 #include <string>
 

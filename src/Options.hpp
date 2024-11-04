@@ -1,13 +1,13 @@
 #ifndef OPTIONS_HPP
 #define OPTIONS_HPP
 
+#include <array>
 #include <boost/program_options.hpp>
 #include <filesystem>
 #include <iostream>
 #include <list>
 #include <numeric>
 #include <optional>
-#include <array>
 
 namespace po = boost::program_options;
 
@@ -92,15 +92,15 @@ private:
 
     uint32_t flags = 0; /**< Flags set for various options. */
 
-    std::string filename;        /**< Filename specified in the options. */
-    std::string outputFilename;  /**< Output filename specified in the options. */
-    std::string compiler;        /**< Compiler specified in the options. */
-    std::string compilerArgs;    /**< Compiler arguments specified in the options. */
+    std::string filename;       /**< Filename specified in the options. */
+    std::string outputFilename; /**< Output filename specified in the options. */
+    std::string compiler;       /**< Compiler specified in the options. */
+    std::string compilerArgs;   /**< Compiler arguments specified in the options. */
 
     po::options_description desc_argv; /**< Options description for argument parsing. */
     po::variables_map vm_argv;         /**< Variable map for storing parsed arguments. */
-    int argc; /**< Argument count. */
-    char** argv; /**< Argument vector. */
+    int argc;                          /**< Argument count. */
+    char** argv;                       /**< Argument vector. */
 };
 
 #endif // OPTIONS_HPP

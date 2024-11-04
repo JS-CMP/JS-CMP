@@ -28,10 +28,10 @@ enum Types {
 using Function = std::function<JS::Any(const std::vector<JS::Any>&)>; /**< Type alias for JavaScript-like functions. */
 using Object =
     std::unordered_map<std::string, std::shared_ptr<JS::Any>>; /**< Type alias for an object (dictionary) type. */
-/** @cond */ // Hide from Doxygen
+/** @cond */                                                   // Hide from Doxygen
 struct Undefined {};                                           /**< Represents an undefined value. */
 /** @endcond */
-using Null = std::nullptr_t;                                   /**< Type alias for a null value. */
+using Null = std::nullptr_t; /**< Type alias for a null value. */
 
 using Value = std::variant<double, Rope, bool, JS::Function, JS::Undefined,
                            JS::Null>; /**< Union of all possible types Any can hold. */
@@ -55,27 +55,27 @@ public:
      */
     ///@{
     /** @brief Default constructor initializes the value to undefined */
-    Any() : value(JS::Undefined{}) {};
+    Any() : value(JS::Undefined{}){};
     /** @brief Constructor for int */
-    explicit Any(int v) : value(static_cast<double>(v)) {};
+    explicit Any(int v) : value(static_cast<double>(v)){};
     /** @brief Constructor for double */
-    explicit Any(double v) : value(v) {};
+    explicit Any(double v) : value(v){};
     /** @brief Constructor for Rope */
-    explicit Any(Rope& v) : value(v) {};
+    explicit Any(Rope& v) : value(v){};
     /** @brief Constructor for Rope */
-    explicit Any(Rope v) : value(v) {};
+    explicit Any(Rope v) : value(v){};
     /** @brief Constructor for string */
-    explicit Any(const std::string& v) : value(Rope(v)) {};
+    explicit Any(const std::string& v) : value(Rope(v)){};
     /** @brief Constructor for string */
-    explicit Any(const char* v) : value(Rope(v)) {};
+    explicit Any(const char* v) : value(Rope(v)){};
     /** @brief Constructor for bool */
-    explicit Any(bool v) : value(v) {};
+    explicit Any(bool v) : value(v){};
     /** @brief Constructor for function */
-    explicit Any(JS::Function v) : value(v) {};
+    explicit Any(JS::Function v) : value(v){};
     /** @brief Constructor for undefined */
-    explicit Any(JS::Undefined v) : value(JS::Undefined{}) {};
+    explicit Any(JS::Undefined v) : value(JS::Undefined{}){};
     /** @brief Constructor for null */
-    explicit Any(JS::Null v) : value(JS::Null{}) {};
+    explicit Any(JS::Null v) : value(JS::Null{}){};
     ///@}
 
     /**

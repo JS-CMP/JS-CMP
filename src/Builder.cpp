@@ -1,4 +1,5 @@
 #include "Builder.hpp"
+
 Builder::Builder(const Options& options) : options(options) {}
 
 void Builder::build() {
@@ -18,9 +19,12 @@ void Builder::build() {
     outputFile << program;
     outputFile.close();
 
+
+
     std::cout << "Compiler Found: " << this->options.getCompiler() << std::endl;
     std::cout << "Compiling " << this->options.getFilename() << " to " << this->options.getOutputFilename()
               << std::endl;
+    inputFilename = "testt.js.cpp";
     compiling(inputFilename);
 }
 

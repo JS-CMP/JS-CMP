@@ -75,3 +75,80 @@ JS::Any JS::Any::operator*(const JS::Any& other) const {
                                                                   // of invalid types
     }
 }
+
+JS::Any JS::Any::operator*(int value) const {
+    try {
+    switch (this->value.index()) {
+        case NUMBER:
+            return JS::Any(std::get<double>(this->value) * value);
+        case STRING:
+            return JS::Any(std::stod(std::get<Rope>(this->value).toString()) * value);
+        case BOOL:
+            return JS::Any(std::get<bool>(this->value) * value);
+        case NULL_TYPE:
+            return JS::Any(0.0);
+        default:
+            return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Invalid type
+    }
+    } catch (const std::invalid_argument&) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Handle conversion errors
+    }
+}
+
+JS::Any JS::Any::operator*(std::string value) const {
+    try {
+        switch (this->value.index()) {
+            case NUMBER:
+                return JS::Any(std::get<double>(this->value) * std::stod(value));
+            case STRING:
+                return JS::Any(std::stod(std::get<Rope>(this->value).toString()) * std::stod(value));
+            case BOOL:
+                return JS::Any(std::get<bool>(this->value) * std::stod(value));
+            case NULL_TYPE:
+                return JS::Any(0.0);
+            default:
+                return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Invalid type
+        }
+    } catch (const std::invalid_argument&) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Handle conversion errors
+    }
+}
+
+JS::Any JS::Any::operator*(bool value) const {
+    try {
+        switch (this->value.index()) {
+            case NUMBER:
+                return JS::Any(std::get<double>(this->value) * static_cast<double>(value));
+            case STRING:
+                return JS::Any(std::stod(std::get<Rope>(this->value).toString()) * static_cast<double>(value));
+            case BOOL:
+                return JS::Any(std::get<bool>(this->value) * value);
+            case NULL_TYPE:
+                return JS::Any(0);
+            default:
+                return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Invalid type
+        }
+    } catch (const std::invalid_argument&) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Handle conversion errors
+    }
+}
+
+/*
+JS::Any operator*(const int value, const JS::Any& any) {
+    try {
+        switch (any.getValue().index()) {
+            case JS::NUMBER:
+                return JS::Any(value * std::get<double>(any.getValue()));
+            case JS::STRING:
+                return JS::Any(value * std::stod(std::get<Rope>(any.getValue()).toString()));
+            case JS::BOOL:
+                return JS::Any(value * std::get<bool>(any.getValue()));
+            case JS::NULL_TYPE:
+                return JS::Any(0);
+            default:
+                return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Invalid type
+        }
+    } catch (const std::invalid_argument&) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Handle conversion errors
+    }
+}*/

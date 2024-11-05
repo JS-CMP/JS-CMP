@@ -40,9 +40,29 @@ public:
     explicit Any(JS::Null v) : value(JS::Null{}){};
 
     JS::Any operator+(const JS::Any& other) const;
+    JS::Any operator+(int value) const;
+    JS::Any operator+(std::string value) const;
+    JS::Any operator+(bool value) const;
+    /*friend JS::Any operator+(const int value, const JS::Any& any);*/
+
     JS::Any operator-(const JS::Any& other) const;
+    JS::Any operator-(int value) const;
+    JS::Any operator-(std::string value) const;
+    JS::Any operator-(bool value) const;
+    /*friend JS::Any operator-(const int value, const JS::Any& any);*/
+
     JS::Any operator*(const JS::Any& other) const;
+    JS::Any operator*(int value) const;
+    JS::Any operator*(std::string value) const;
+    JS::Any operator*(bool value) const;
+    /*friend JS::Any operator*(const int value, const JS::Any& any);*/
+
     JS::Any operator/(const JS::Any& other) const;
+    JS::Any operator/(int value) const;
+    JS::Any operator/(std::string value) const;
+    JS::Any operator/(bool value) const;
+    /*friend JS::Any operator/(const int value, const JS::Any& any);*/
+
     JS::Any& operator++();
     const JS::Any& operator++(int);
     JS::Any& operator--();
@@ -52,6 +72,7 @@ public:
     bool operator==(const JS::Any& other) const;
     JS::Any operator()(std::vector<JS::Any>& args);
 
+    [[nodiscard]] JS::Value getValue() const;
     [[nodiscard]] std::string toString() const;
 
     friend std::ostream& operator<<(std::ostream& os, const JS::Any& any);

@@ -76,3 +76,48 @@ JS::Any JS::Any::operator-(const JS::Any& other) const {
                                                                   // errors
     }
 }
+
+JS::Any JS::Any::operator-(int value) const {
+    switch (this->value.index()) {
+        case NUMBER:
+            return JS::Any(std::get<double>(this->value) - value);
+        case STRING:
+            return JS::Any(std::stod(std::get<Rope>(this->value).toString()) - value);
+        case BOOL:
+            return JS::Any(static_cast<double>(std::get<bool>(this->value)) - value);
+        case NULL_TYPE:
+            return JS::Any(-value); // Null - Number is -Number
+        default:
+            return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Invalid type
+    }
+}
+
+JS::Any JS::Any::operator-(std::string value) const {
+    switch (this->value.index()) {
+        case NUMBER:
+            return JS::Any(std::get<double>(this->value) - std::stod(value));
+        case STRING:
+            return JS::Any(std::stod(std::get<Rope>(this->value).toString()) - std::stod(value));
+        case BOOL:
+            return JS::Any(static_cast<double>(std::get<bool>(this->value)) - std::stod(value));
+        case NULL_TYPE:
+            return JS::Any(-std::stod(value)); // Null - String is -String
+        default:
+            return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Invalid type
+    }
+}
+
+JS::Any JS::Any::operator-(bool value) const {
+    switch (this->value.index()) {
+        case NUMBER:
+            return JS::Any(std::get<double>(this->value) - static_cast<double>(value));
+        case STRING:
+            return JS::Any(std::stod(std::get<Rope>(this->value).toString()) - static_cast<double>(value));
+        case BOOL:
+            return JS::Any(static_cast<double>(std::get<bool>(this->value)) - static_cast<double>(value));
+        case NULL_TYPE:
+            return JS::Any(-static_cast<double>(value)); // Null - Boolean is -Boolean
+        default:
+            return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Invalid type
+    }
+}

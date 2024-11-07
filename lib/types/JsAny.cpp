@@ -1,6 +1,13 @@
 #include "../../includes/types/JsAny.hpp"
-
+#include "../../includes/types/Objects/JsFunction.hpp"
 #include <cmath>
+
+namespace JS {
+    std::ostream& operator<<(std::ostream& os, const Any& any) {
+        os << any.toString();
+        return os;
+    }
+}
 
 bool JS::Any::operator==(const JS::Any& other) const {
     switch (this->value.index()) {
@@ -63,13 +70,6 @@ bool JS::Any::operator==(const JS::Any& other) const {
     }
 }
 
-JS::Any JS::Any::operator()(std::vector<JS::Any>& args) {
-    if (!std::holds_alternative<JS::Function>(value)) {
-        throw std::runtime_error("Value is not a function");
-    }
-    return std::get<JS::Function>(value)(args);
-}
-
 std::string JS::Any::toString() const {
     switch (this->value.index()) {
         case NUMBER:
@@ -92,10 +92,23 @@ std::string JS::Any::toString() const {
     }
 }
 
-namespace JS {
-std::ostream& operator<<(std::ostream& os, const Any& any) {
-    os << any.toString();
-    return os;
+JS::Any& JS::Any::operator[](const std::string& key) const {
+    if (this->value.index() == OBJECT) {
+        return std::get<std::shared_ptr<JS::Object>>(this->value)->operator[](key);
+    }
+    throw std::runtime_error("Value is not an object");
 }
 
-} // namespace JS
+JS::Any& JS::Any::operator[](size_t index) const {
+    if (this->value.index() == OBJECT) {
+        return std::get<std::shared_ptr<JS::Object>>(this->value)->operator[](index);
+    }
+    throw std::runtime_error("Value is not an object");
+}
+
+JS::Any JS::Any::helper(std::vector<JS::Any> &args) const {
+    if (value.index() == JS::OBJECT && std::get<std::shared_ptr<JS::Object>>(value)->isCallable()) {
+        return std::dynamic_pointer_cast<JS::Function>(std::get<std::shared_ptr<JS::Object>>(value))->operator()(args);
+    }
+    throw std::runtime_error("Value is not a function");
+}

@@ -1,31 +1,11 @@
 #ifndef JSANY_HPP
 #define JSANY_HPP
 
-#include "../class/Rope/Rope.hpp"
-
-#include <functional>
-#include <iostream>
-#include <limits>
-#include <memory>
-#include <variant>
+#include "Types.hpp"
+#include "./Objects/JsObject.hpp"
 
 namespace JS {
-enum Types { NUMBER, STRING, BOOL, FUNCTION, UNDEFINED, NULL_TYPE };
-
-class Any;
-
-using Function = std::function<JS::Any(const std::vector<JS::Any>&)>;
-using Object = std::unordered_map<std::string, std::shared_ptr<JS::Any>>;
-using Null = std::nullptr_t;
-struct Undefined {};
-using Null = std::nullptr_t;
-
-using Value = std::variant<double, Rope, bool, JS::Function, JS::Undefined, JS::Null>;
-
 class Any {
-private:
-    JS::Value value;
-
 public:
     Any() : value(JS::Undefined{}){};
     explicit Any(int v) : value(static_cast<double>(v)){};
@@ -35,9 +15,11 @@ public:
     explicit Any(const std::string& v) : value(Rope(v)){};
     explicit Any(const char* v) : value(Rope(v)){};
     explicit Any(bool v) : value(v){};
-    explicit Any(JS::Function v) : value(v){};
     explicit Any(JS::Undefined v) : value(JS::Undefined{}){};
     explicit Any(JS::Null v) : value(JS::Null{}){};
+    explicit Any(const std::shared_ptr<JS::Object>& v) : value(v){}
+    explicit Any(const JS::Object& v) : value(std::make_shared<JS::Object>(v)){}
+
 
     JS::Any operator+(const JS::Any& other) const;
     JS::Any operator-(const JS::Any& other) const;
@@ -50,11 +32,22 @@ public:
     bool operator<(const JS::Any& other) const;
     bool operator>(const JS::Any& other) const;
     bool operator==(const JS::Any& other) const;
-    JS::Any operator()(std::vector<JS::Any>& args);
+
+    JS::Any& operator[](const std::string& key) const;
+    JS::Any& operator[](size_t index) const;
 
     [[nodiscard]] std::string toString() const;
 
     friend std::ostream& operator<<(std::ostream& os, const JS::Any& any);
+
+    template <typename... Args>
+    JS::Any operator()(Args&&... args) {
+        std::vector<JS::Any> arguments = { JS::Any(std::forward<Args>(args))... };
+        return helper(arguments);
+    }
+private:
+    JS::Value value;
+    JS::Any helper(std::vector<JS::Any>& args) const;
 };
 
 } // namespace JS

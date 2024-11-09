@@ -154,18 +154,7 @@ JS::Any JS::Any::operator/(JS::Null) const {
 }
 
 JS::Any JS::Any::operator/(JS::Undefined) const {
-    switch (this->value.index()) {
-        case NUMBER:
-            return JS::Any(std::get<double>(this->value) / 0);
-        case STRING:
-            return JS::Any(std::stod(std::get<Rope>(this->value).toString()) / 0);
-        case BOOL:
-            return JS::Any(std::get<bool>(this->value) / 0);
-        case NULL_TYPE:
-            return JS::Any(std::numeric_limits<double>::infinity());
-        default:
-            return JS::Any(std::numeric_limits<double>::quiet_NaN());
-    }
+    return JS::Any(std::numeric_limits<double>::quiet_NaN());
 }
 
 namespace JS {

@@ -18,7 +18,7 @@ public:
     [[nodiscard]] int compare(const Rope& other) const;
     void concat(const Rope& other);
     Rope operator+(const Rope& other) const;
-    Rope operator+(const std::string& other) const ;
+    Rope operator+(const std::string& other) const;
     Rope operator+(const std::string&& other) const;
 
     friend Rope operator+(const std::string&& other, const Rope& rope);

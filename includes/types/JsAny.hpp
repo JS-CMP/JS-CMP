@@ -46,12 +46,12 @@ public:
     JS::Any operator+(bool value) const;
     JS::Any operator+(JS::Null) const;
     JS::Any operator+(JS::Undefined) const;
-    friend JS::Any operator+(int value, JS::Any const & any);
-    friend JS::Any operator+(double value, JS::Any const & any);
-    friend JS::Any operator+(std::string value, JS::Any const & any);
-    friend JS::Any operator+(bool value, JS::Any const & any);
-    friend JS::Any operator+(JS::Null value, JS::Any const & any);
-    friend JS::Any operator+(JS::Undefined value, JS::Any const & any);
+    friend JS::Any operator+(int value, JS::Any const& any);
+    friend JS::Any operator+(double value, JS::Any const& any);
+    friend JS::Any operator+(std::string value, JS::Any const& any);
+    friend JS::Any operator+(bool value, JS::Any const& any);
+    friend JS::Any operator+(JS::Null value, JS::Any const& any);
+    friend JS::Any operator+(JS::Undefined value, JS::Any const& any);
 
     JS::Any operator-(const JS::Any& other) const;
     JS::Any operator-(int value) const;
@@ -60,12 +60,12 @@ public:
     JS::Any operator-(bool value) const;
     JS::Any operator-(JS::Null) const;
     JS::Any operator-(JS::Undefined) const;
-    friend JS::Any operator-(int value, JS::Any const & any);
-    friend JS::Any operator-(double value, JS::Any const & any);
-    friend JS::Any operator-(std::string value, JS::Any const & any);
-    friend JS::Any operator-(bool value, JS::Any const & any);
-    friend JS::Any operator-(JS::Null value, JS::Any const & any);
-    friend JS::Any operator-(JS::Undefined value, JS::Any const & any);
+    friend JS::Any operator-(int value, JS::Any const& any);
+    friend JS::Any operator-(double value, JS::Any const& any);
+    friend JS::Any operator-(std::string value, JS::Any const& any);
+    friend JS::Any operator-(bool value, JS::Any const& any);
+    friend JS::Any operator-(JS::Null value, JS::Any const& any);
+    friend JS::Any operator-(JS::Undefined value, JS::Any const& any);
 
     JS::Any operator*(const JS::Any& other) const;
     JS::Any operator*(int value) const;
@@ -74,12 +74,12 @@ public:
     JS::Any operator*(bool value) const;
     JS::Any operator*(JS::Null) const;
     JS::Any operator*(JS::Undefined) const;
-    friend JS::Any operator*(int value, JS::Any const & any);
-    friend JS::Any operator*(double value, JS::Any const & any);
-    friend JS::Any operator*(std::string value, JS::Any const & any);
-    friend JS::Any operator*(bool value, JS::Any const & any);
-    friend JS::Any operator*(JS::Null value, JS::Any const & any);
-    friend JS::Any operator*(JS::Undefined value, JS::Any const & any);
+    friend JS::Any operator*(int value, JS::Any const& any);
+    friend JS::Any operator*(double value, JS::Any const& any);
+    friend JS::Any operator*(std::string value, JS::Any const& any);
+    friend JS::Any operator*(bool value, JS::Any const& any);
+    friend JS::Any operator*(JS::Null value, JS::Any const& any);
+    friend JS::Any operator*(JS::Undefined value, JS::Any const& any);
 
     JS::Any operator/(const JS::Any& other) const;
     JS::Any operator/(int value) const;
@@ -88,12 +88,12 @@ public:
     JS::Any operator/(bool value) const;
     JS::Any operator/(JS::Null) const;
     JS::Any operator/(JS::Undefined) const;
-    friend JS::Any operator/(int value, JS::Any const & any);
-    friend JS::Any operator/(double value, JS::Any const & any);
-    friend JS::Any operator/(std::string value, JS::Any const & any);
-    friend JS::Any operator/(bool value, JS::Any const & any);
-    friend JS::Any operator/(JS::Null value, JS::Any const & any);
-    friend JS::Any operator/(JS::Undefined value, JS::Any const & any);
+    friend JS::Any operator/(int value, JS::Any const& any);
+    friend JS::Any operator/(double value, JS::Any const& any);
+    friend JS::Any operator/(std::string value, JS::Any const& any);
+    friend JS::Any operator/(bool value, JS::Any const& any);
+    friend JS::Any operator/(JS::Null value, JS::Any const& any);
+    friend JS::Any operator/(JS::Undefined value, JS::Any const& any);
 
     JS::Any operator%(const JS::Any& other) const;
     JS::Any operator%(int value) const;
@@ -102,12 +102,12 @@ public:
     JS::Any operator%(bool value) const;
     JS::Any operator%(JS::Null) const;
     JS::Any operator%(JS::Undefined) const;
-    friend JS::Any operator%(int value, JS::Any const & any);
-    friend JS::Any operator%(double value, JS::Any const & any);
-    friend JS::Any operator%(std::string value, JS::Any const & any);
-    friend JS::Any operator%(bool value, JS::Any const & any);
-    friend JS::Any operator%(JS::Null value, JS::Any const & any);
-    friend JS::Any operator%(JS::Undefined value, JS::Any const & any);
+    friend JS::Any operator%(int value, JS::Any const& any);
+    friend JS::Any operator%(double value, JS::Any const& any);
+    friend JS::Any operator%(std::string value, JS::Any const& any);
+    friend JS::Any operator%(bool value, JS::Any const& any);
+    friend JS::Any operator%(JS::Null value, JS::Any const& any);
+    friend JS::Any operator%(JS::Undefined value, JS::Any const& any);
 
     JS::Any& operator++(); // ++a
     const JS::Any& operator++(int);

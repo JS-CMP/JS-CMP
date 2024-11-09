@@ -19,8 +19,6 @@ void Builder::build() {
     outputFile << program;
     outputFile.close();
 
-
-
     std::cout << "Compiler Found: " << this->options.getCompiler() << std::endl;
     std::cout << "Compiling " << this->options.getFilename() << " to " << this->options.getOutputFilename()
               << std::endl;

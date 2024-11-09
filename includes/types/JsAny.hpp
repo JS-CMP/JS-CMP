@@ -3,12 +3,12 @@
 
 #include "../class/Rope/Rope.hpp"
 
+#include <cmath>
 #include <functional>
 #include <iostream>
 #include <limits>
 #include <memory>
 #include <variant>
-#include <cmath>
 
 namespace JS {
 enum Types { NUMBER, STRING, BOOL, FUNCTION, UNDEFINED, NULL_TYPE };

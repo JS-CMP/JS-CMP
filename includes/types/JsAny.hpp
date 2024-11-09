@@ -8,6 +8,7 @@
 #include <limits>
 #include <memory>
 #include <variant>
+#include <cmath>
 
 namespace JS {
 enum Types { NUMBER, STRING, BOOL, FUNCTION, UNDEFINED, NULL_TYPE };

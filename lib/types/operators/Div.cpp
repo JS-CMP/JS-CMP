@@ -153,9 +153,7 @@ JS::Any JS::Any::operator/(JS::Null) const {
     }
 }
 
-JS::Any JS::Any::operator/(JS::Undefined) const {
-    return JS::Any(std::numeric_limits<double>::quiet_NaN());
-}
+JS::Any JS::Any::operator/(JS::Undefined) const { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
 
 namespace JS {
 Any operator/(int value, JS::Any const& any) {

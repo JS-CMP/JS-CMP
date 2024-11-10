@@ -4,22 +4,27 @@
 #include "JsFunction.hpp"
 
 namespace JS {
-    class Array : public Object {
+    class Array : public Object, public std::enable_shared_from_this<Array> {
     public:
         Array();
+
         Array(const JS::Array&);
         Array(JS::Array&&) noexcept;
-        ~Array() = default;
-
         Array& operator=(const JS::Array&);
         Array& operator=(JS::Array&&) noexcept;
-        JS::Any& operator[](size_t index);
+
+        ~Array() = default;
+
+        JS::Any& operator[](size_t index) override;
+        JS::Any& operator[](std::string key) {
+            return properties->operator[](key);
+        }
 
         void push(const JS::Any& value);
-        size_t length() const;
-        bool isCallable() const override;
+        [[nodiscard]] bool isCallable() const override;
+        void init() override;
+        std::shared_ptr<std::vector<JS::Any>> elements;
     private:
-        std::vector<JS::Any> elements;
     };
 }
 

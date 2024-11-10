@@ -1,5 +1,5 @@
-#include "../../includes/types/JsAny.hpp"
-#include "../../includes/types/Objects/JsFunction.hpp"
+#include <types/JsAny.hpp>
+#include <types/objects/JsFunction.hpp>
 #include <cmath>
 
 namespace JS {
@@ -7,6 +7,18 @@ namespace JS {
         os << any.toString();
         return os;
     }
+}
+
+JS::Any::Any(const std::shared_ptr<JS::Object> v) {
+    v->init();
+    value = std::move(v);
+    std::cout << "bbb" << &value << std::endl;
+}
+
+JS::Any::Any(const JS::Object& v) {
+    std::shared_ptr<JS::Object> obj = std::make_shared<JS::Object>(v);
+    obj->init();
+    value = std::move(obj);
 }
 
 bool JS::Any::operator==(const JS::Any& other) const {
@@ -94,7 +106,8 @@ std::string JS::Any::toString() const {
 
 JS::Any& JS::Any::operator[](const std::string& key) const {
     if (this->value.index() == OBJECT) {
-        return std::get<std::shared_ptr<JS::Object>>(this->value)->operator[](key);
+        std::cout << "operator [] " << &std::get<std::shared_ptr<JS::Object>>(this->value)->properties << std::endl;
+        return std::get<std::shared_ptr<JS::Object>>(this->value)->properties->operator[](key);
     }
     throw std::runtime_error("Value is not an object");
 }
@@ -108,7 +121,29 @@ JS::Any& JS::Any::operator[](size_t index) const {
 
 JS::Any JS::Any::helper(std::vector<JS::Any> &args) const {
     if (value.index() == JS::OBJECT && std::get<std::shared_ptr<JS::Object>>(value)->isCallable()) {
-        return std::dynamic_pointer_cast<JS::Function>(std::get<std::shared_ptr<JS::Object>>(value))->operator()(args);
+        // TODO:: change if function is not the only callable object
+//        std::get<std::shared_ptr<JS::Object>>(value)->properties->operator[]("pop");
+//        return {};
+//        return std::dynamic_pointer_cast<JS::Function>(std::get<std::shared_ptr<JS::Object>>(value))->operator()(args);
+        auto a = std::get<std::shared_ptr<JS::Object>>(value);
+        auto b = std::reinterpret_pointer_cast<JS::Function>(a);
+        return b->operator()(args);
     }
+    std::cout << "here3" << std::endl;
     throw std::runtime_error("Value is not a function");
+}
+
+JS::Any::Any(const JS::Any& v) {
+    value = v.value;
+}
+JS::Any::Any(const JS::Any&& v) noexcept {
+    value = std::move(v.value);
+}
+JS::Any& JS::Any::operator=(JS::Any const&& other) {
+    value = std::move(other.value);
+    return *this;
+}
+JS::Any& JS::Any::operator=(const JS::Any& other) {
+    value = other.value;
+    return *this;
 }

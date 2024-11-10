@@ -1,5 +1,4 @@
 #include <class/Rope/Rope.hpp>
-//#include "../../../includes/class/Rope/Rope.hpp" // when compiling with g++
 
 Rope::Rope(const std::string& str) : root(std::make_shared<RopeLeaf>(str)) {}
 

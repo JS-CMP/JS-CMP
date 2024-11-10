@@ -1,5 +1,4 @@
 #include <class/Rope/RopeLeaf.hpp>
-//#include "../../../includes/class/Rope/RopeLeaf.hpp" // when compiling with g++
 
 RopeLeaf::RopeLeaf(const std::string& str) : data(str) {}
 

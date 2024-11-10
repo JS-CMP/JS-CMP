@@ -24,6 +24,7 @@ namespace JS {
 
     class Any;
     class Object;
+    class Array;
 
     using FunctionType = std::function<JS::Any(const std::vector<JS::Any> &)>;
     struct Undefined {};

@@ -5,20 +5,23 @@
 #include "../JsAny.hpp"
 
 namespace JS {
-    class Object {
+class Object {
     public:
         Object() = default;
-        Object(const JS::Object&) = default;
-        Object& operator=(const JS::Object&) = default;
-        Object(JS::Object&&) noexcept = default;
-        Object& operator=(JS::Object&&) noexcept = default;
+        Object(const JS::Object& other);
+        Object& operator=(const JS::Object& other);
+        Object(JS::Object&& other) noexcept;
+        Object& operator=(JS::Object&& other) noexcept;
 
         JS::Any& operator[](const std::string& key);
-        JS::Any& operator[](size_t index);
+//        JS::Any operator()(std::vector<JS::Any>& args);
+        virtual JS::Any& operator[](size_t index);
+        virtual void init() {};
 
         [[nodiscard]] virtual bool isCallable() const;
         [[nodiscard]] bool hasProperty(const std::string& key) const;
-        std::unordered_map<std::string, JS::Any> properties;
+        void setProperty(const std::string& key, const JS::Any& value);
+        std::shared_ptr<std::unordered_map<std::string, JS::Any>> properties = std::make_shared<std::unordered_map<std::string, JS::Any>>();
     protected:
     };
 }

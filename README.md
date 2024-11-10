@@ -37,31 +37,37 @@ git submodule update --init --recursive
 **Debian-based:**
 
 ```bash
-sudo apt install libboost-all-dev
+sudo apt install libboost-all-dev doxygen
 ```
 
 **Arch-based:**
 
 ```bash
-sudo pacman -S boost
+sudo pacman -S boost doxygen
 ```
 
 **Fedora:**
 
 ```bash
-sudo dnf install boost-devel
+sudo dnf install boost-devel doxygen
 ```
 
 #### macOS
 
 ```bash
-brew install boost
+brew install boost doxygen
 ```
 
 ### 5. Build the Project
 
 ```bash
 cmake . && make
+```
+
+### 6. Build the Documentation
+
+```bash
+doxygen Doxyfile
 ```
 
 ## Usage

@@ -16,6 +16,9 @@ jobs:
       - name: Set up Doxygen
         run: sudo apt-get install doxygen
 
+      - name: Pull submodules
+        run: git submodule update --init --recursive
+
       - name: Generate Doxygen documentation
         run: doxygen Doxyfile
 

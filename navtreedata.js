@@ -40,6 +40,13 @@ var NAVTREE =
     ] ],
     [ "Usage", "index.html#autotoc_md12", null ],
     [ "Platform Support", "index.html#autotoc_md13", null ],
+    [ "Contributing to JS-CMP", "md_CONTRIBUTING.html", [
+      [ "Ways to Contribute", "md_CONTRIBUTING.html#autotoc_md16", null ],
+      [ "Contribution Guidelines", "md_CONTRIBUTING.html#autotoc_md17", null ],
+      [ "Code of Conduct", "md_CONTRIBUTING.html#autotoc_md18", null ],
+      [ "Review Process", "md_CONTRIBUTING.html#autotoc_md19", null ],
+      [ "Community and Discussions", "md_CONTRIBUTING.html#autotoc_md20", null ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

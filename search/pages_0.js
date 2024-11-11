@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['js_2dcmp_90',['JS-CMP',['../index.html',1,'']]]
+  ['contributing_20to_20js_2dcmp_91',['Contributing to JS-CMP',['../md_CONTRIBUTING.html',1,'']]]
 ];

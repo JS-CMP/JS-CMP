@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9"/>
     <meta name="generator" content="Doxygen 1.9.1"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>JS-CMP: Class Hierarchy</title>
+    <title>JS-CMP: Contributing to JS-CMP</title>
     <link href="tabs.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="dynsections.js"></script>
@@ -75,7 +75,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('hierarchy.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('md_CONTRIBUTING.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -93,26 +93,63 @@ $(document).ready(function(){initNavTree('hierarchy.html',''); initResizable(); 
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Class Hierarchy</div>  </div>
+<div class="title">Contributing to JS-CMP </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">
-<p><a href="inherits.html">Go to the graphical class hierarchy</a></p>
-This inheritance list is sorted roughly, but not completely, alphabetically:</div><div class="directory">
-<div class="levels">[detail level <span onclick="javascript:toggleLevel(1);">1</span><span onclick="javascript:toggleLevel(2);">2</span>]</div><table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classJS_1_1Any.html" target="_self">JS::Any</a></td><td class="desc">Represents a JavaScript-like variant type in C++ that can hold multiple types of values </td></tr>
-<tr id="row_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classBuilder.html" target="_self">Builder</a></td><td class="desc">Responsible for compiling and building programs based on specified options </td></tr>
-<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classconsole.html" target="_self">console</a></td><td class="desc">A simple logging class that provides static methods to print messages to the console </td></tr>
-<tr id="row_3_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classOptions.html" target="_self">Options</a></td><td class="desc">Handles parsing and storage of command-line options and settings </td></tr>
-<tr id="row_4_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classRope.html" target="_self">Rope</a></td><td class="desc">Represents a rope, a data structure for efficiently manipulating and storing strings </td></tr>
-<tr id="row_5_"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_5_" class="arrow" onclick="toggleFolder('5_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classRopeNode.html" target="_self">RopeNode</a></td><td class="desc">Abstract base class representing a node in a <a class="el" href="classRope.html" title="Represents a rope, a data structure for efficiently manipulating and storing strings.">Rope</a> data structure </td></tr>
-<tr id="row_5_0_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classRopeConcat.html" target="_self">RopeConcat</a></td><td class="desc">Represents a concatenation node in a <a class="el" href="classRope.html" title="Represents a rope, a data structure for efficiently manipulating and storing strings.">Rope</a> data structure </td></tr>
-<tr id="row_5_1_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classRopeLeaf.html" target="_self">RopeLeaf</a></td><td class="desc">Concrete class representing a leaf node in a <a class="el" href="classRope.html" title="Represents a rope, a data structure for efficiently manipulating and storing strings.">Rope</a> data structure </td></tr>
-</table>
-</div><!-- directory -->
-</div><!-- contents -->
+<div class="textblock"><p>Thank you for considering contributing to the JS-CMP project! Your help is essential for improving this project and making it even more useful to JavaScript developers.</p>
+<h1><a class="anchor" id="autotoc_md16"></a>
+Ways to Contribute</h1>
+<ul>
+<li><b>Report Bugs</b>: Use our issue tracker to report any bugs you find. Please use the bug report template provided.</li>
+<li><b>Feature Requests</b>: If you have ideas for new functionalities, feel free to suggest them using our feature request template.</li>
+<li><b>Code Contributions</b>: We welcome pull requests! Whether it's fixing a bug, improving the documentation, or adding a new feature, your contribution will be appreciated.</li>
+<li><b>Documentation Improvements</b>: Enhancing the accuracy and readability of our documentation can greatly help other users.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md17"></a>
+Contribution Guidelines</h1>
+<ol type="1">
+<li><b>Fork the Repository</b>: Start by forking the project repository on GitHub to your personal account.</li>
+<li><b>Clone Your Fork</b>: Clone the forked repository to your local machine to start making changes.</li>
+</ol>
+<div class="fragment"><div class="line">git clone https://github.com/yourusername/JS-CMP.git</div>
+<div class="line">cd JS-CMP</div>
+</div><!-- fragment --><ol type="1">
+<li><b>Create a Branch</b>: Make sure to create a new branch for your changes related to the issue or feature you're addressing.</li>
+</ol>
+<div class="fragment"><div class="line">git checkout -b my-feature-branch</div>
+</div><!-- fragment --><ol type="1">
+<li><b>Make Changes</b>: Write clear, concise, and well-structured code. Ensure your code adheres to our style guide and the functionality matches the quality assurance plan.</li>
+<li><strike><b>Run Tests</b>: Before submitting, make sure all tests pass. This includes functional and compatibility tests as outlined in our QA strategy.</strike></li>
+<li><b>Commit Your Changes</b>: Write <a href="http://chris.beams.io/posts/git-commit/">meaningful commit messages</a> that describe your changes in detail.</li>
+</ol>
+<div class="fragment"><div class="line">git add .</div>
+<div class="line">git commit -m &quot;Add detailed description of the changes&quot;</div>
+</div><!-- fragment --><ol type="1">
+<li><b>Push Changes</b>: Push your changes to your forked repository.</li>
+</ol>
+<div class="fragment"><div class="line">git push origin my-feature-branch</div>
+</div><!-- fragment --><ol type="1">
+<li><b>Open a Pull Request</b>: Navigate to the original repository and open a pull request. Ensure your pull request provides sufficient context and refers to any relevant issues.</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md18"></a>
+Code of Conduct</h1>
+<p>Please note that this project adheres to a Code of Conduct. By participating, you are expected to uphold this code.</p>
+<h1><a class="anchor" id="autotoc_md19"></a>
+Review Process</h1>
+<ol type="1">
+<li><b>Initial Review</b>: Each pull request should be reviewed by at least two team members. They will provide feedback or approve changes.</li>
+<li><b>CI/CD Checks</b>: Automated tests will run for each pull request. Ensure all checks pass before a pull request can be merged.</li>
+<li><b>Incorporate Feedback</b>: Address any feedback and make necessary revisions to your contribution.</li>
+<li><b>Merge</b>: Once approved and all checks have passed, a maintainer will merge the pull request into the main branch.</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md20"></a>
+Community and Discussions</h1>
+<p>Engage with other contributors and maintainers through discussions in issues or pull requests. Sharing ideas and collaborating is at the heart of open-source contributions.</p>
+<p>We look forward to your contributions and thank you for helping make JS-CMP a success! </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

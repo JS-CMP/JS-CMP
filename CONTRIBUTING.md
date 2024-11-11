@@ -28,7 +28,7 @@ Thank you for considering contributing to the JS-CMP project! Your help is essen
 
 4. **Make Changes**: Write clear, concise, and well-structured code. Ensure your code adheres to our style guide and the functionality matches the quality assurance plan.
 
-5. **Run Tests**: Before submitting, make sure all tests pass. This includes functional and compatibility tests as outlined in our QA strategy.
+5. ~~**Run Tests**: Before submitting, make sure all tests pass. This includes functional and compatibility tests as outlined in our QA strategy.~~
 
 6. **Commit Your Changes**: Write [meaningful commit messages](http://chris.beams.io/posts/git-commit/) that describe your changes in detail.
 

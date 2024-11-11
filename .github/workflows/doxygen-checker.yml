@@ -1,0 +1,31 @@
+name: Doxygen Documentation Check
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  pull_request:
+  merge_group:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Doxygen
+        run: sudo apt-get install doxygen
+
+      - name: Generate Doxygen documentation
+        run: doxygen Doxyfile 2>&1 | tee doxygen.log
+
+      - name: Check for Doxygen undocumented warnings
+        run: |
+          if cat doxygen.log | grep "not documented"; then
+            echo "Doxygen warnings found!"
+            cat doxygen.log | grep "warning:.* is not documented"
+            exit 1
+          else
+            echo "No Doxygen warnings found."
+          fi

@@ -54,7 +54,7 @@ JS-CMP is a transpiler that converts JavaScript (ECMAScript 5) code into C++ cod
 - **CI/CD Integration**: Ensure that the code passes all automated tests.
 - 
 ### 2. Branching Strategy
-- **Feature Branches**: Use branches like 'features', 'fix', 'wip'.
+- **Feature Branches**: Use branches folder like 'features', 'fix', 'wip'.
 - **Branch Naming Convention**: Follow kebab-case for branch names.
 
 ---
@@ -131,11 +131,3 @@ JS-CMP is a transpiler that converts JavaScript (ECMAScript 5) code into C++ cod
 
 ### 2. Feedback Loop
 - **Incorporate Learnings**: Integrate learnings from each release into the QA process.
-
----
-
-## Summary
-
-This QA plan establishes a robust framework for testing, performance evaluation, error handling, documentation, and community engagement. With automated tests, CI/CD integration, and continuous performance monitoring, JS-CMP aims to provide a reliable, high-performance transpiler that leverages the strengths of both JavaScript and C++ for backend applications.
-
----

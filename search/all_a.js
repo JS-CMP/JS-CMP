@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['_7eoptions_41',['~Options',['../classOptions.html#a0bf0757248a84e954165d21613308b86',1,'Options']]],
-  ['_7eropenode_42',['~RopeNode',['../classRopeNode.html#a6eaab31ba7910e144622bbc22ea59668',1,'RopeNode']]]
+  ['tostring_41',['toString',['../classRope.html#ae9beaf440eeacc7502cf3457c8807127',1,'Rope::toString()'],['../classJS_1_1Any.html#ad9b57b8bd845158865128afe22d438b8',1,'JS::Any::toString()']]]
 ];

@@ -14,7 +14,6 @@ namespace JS {
             Function& operator=(Function&& f) noexcept;
             ~Function() = default;
 
-
             template <typename... Args>
             JS::Any operator()(Args... args) {
                 return function(args...);

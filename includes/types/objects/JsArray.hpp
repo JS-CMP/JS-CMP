@@ -7,24 +7,21 @@ namespace JS {
     class Array : public Object, public std::enable_shared_from_this<Array> {
     public:
         Array();
-
         Array(const JS::Array&);
         Array(JS::Array&&) noexcept;
         Array& operator=(const JS::Array&);
         Array& operator=(JS::Array&&) noexcept;
 
-        ~Array() = default;
+        ~Array() override = default;
 
         JS::Any& operator[](size_t index) override;
-        JS::Any& operator[](std::string key) {
-            return properties->operator[](key);
-        }
+        JS::Any& operator[](const std::string& key) override;
 
         void push(const JS::Any& value);
         [[nodiscard]] bool isCallable() const override;
         void init() override;
-        std::shared_ptr<std::vector<JS::Any>> elements;
     private:
+        std::shared_ptr<std::vector<JS::Any>> elements;
     };
 }
 

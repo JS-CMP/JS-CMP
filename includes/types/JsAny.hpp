@@ -17,14 +17,13 @@ public:
     explicit Any(bool v) : value(v){};
     explicit Any(JS::Undefined v) : value(JS::Undefined{}){};
     explicit Any(JS::Null v) : value(JS::Null{}){};
-    explicit Any(std::shared_ptr<JS::Object>& v);
     explicit Any(std::shared_ptr<JS::Object> v);
     explicit Any(const JS::Object& v);
 
-    explicit Any(const JS::Any& v);
-    explicit Any(const JS::Any&& v) noexcept;
+    Any(const JS::Any& v);
+    Any(const JS::Any&& v) noexcept;
     JS::Any& operator=(const JS::Any& other);
-    JS::Any& operator=(JS::Any const && other);
+    JS::Any& operator=(JS::Any&& other) noexcept;
 
     JS::Any operator+(const JS::Any& other) const;
     JS::Any operator-(const JS::Any& other) const;

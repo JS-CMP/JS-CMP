@@ -4,7 +4,6 @@ JS::Any JS::Any::operator/(const JS::Any& other) const {
     try {
         switch (this->value.index()) {
             case NUMBER:
-
                 switch (other.value.index()) {
                     case NUMBER:
                         return JS::Any(std::get<double>(this->value) / std::get<double>(other.value));
@@ -67,7 +66,8 @@ JS::Any JS::Any::operator/(int value) const {
             case STRING:
                 return JS::Any(std::stod(std::get<Rope>(this->value).toString()) / value);
             case BOOL:
-                return JS::Any(std::get<bool>(this->value) / value);
+                return value == 0 ? JS::Any(std::numeric_limits<double>::infinity())
+                                  : JS::Any(std::get<bool>(this->value) / value);
             case NULL_TYPE:
                 return JS::Any(std::numeric_limits<double>::infinity());
             default:
@@ -117,8 +117,13 @@ JS::Any JS::Any::operator/(bool value) const {
                 return JS::Any(std::get<double>(this->value) / static_cast<double>(value));
             case STRING:
                 return JS::Any(std::stod(std::get<Rope>(this->value).toString()) / static_cast<double>(value));
-            case BOOL:
-                return JS::Any(std::get<bool>(this->value) / value);
+            case BOOL: {
+                bool thisValue = std::get<bool>(this->value);
+                return JS::Any(thisValue && !value ? std::numeric_limits<double>::infinity()
+                   : thisValue && value ? 1
+                   : !thisValue && value ? 0
+                   : std::numeric_limits<double>::quiet_NaN());
+            }
             case NULL_TYPE:
                 return JS::Any(std::numeric_limits<double>::infinity());
             default:
@@ -129,20 +134,10 @@ JS::Any JS::Any::operator/(bool value) const {
 
 JS::Any JS::Any::operator/(JS::Null) const {
     switch (this->value.index()) {
-        case NUMBER: {
-            double num = std::get<double>(this->value);
-            return JS::Any(num == 0 ? std::numeric_limits<double>::quiet_NaN()
-                                    : (num > 0 ? std::numeric_limits<double>::infinity()
-                                               : -std::numeric_limits<double>::infinity()));
-        }
-        case STRING: {
-            try {
-                double num = std::stod(std::get<Rope>(this->value).toString());
-                return JS::Any(num == 0 ? std::numeric_limits<double>::quiet_NaN()
-                                        : (num > 0 ? std::numeric_limits<double>::infinity()
-                                                   : -std::numeric_limits<double>::infinity()));
-            } catch (...) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
-        }
+        case NUMBER:
+            return JS::Any(std::get<double>(this->value) / 0.0);
+        case STRING:
+            return JS::Any(std::stod(std::get<Rope>(this->value).toString()) / 0.0);
         case BOOL:
             return std::get<bool>(this->value) ? JS::Any(std::numeric_limits<double>::infinity())
                                                : JS::Any(std::numeric_limits<double>::quiet_NaN());

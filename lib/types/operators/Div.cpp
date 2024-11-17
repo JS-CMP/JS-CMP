@@ -93,7 +93,7 @@ JS::Any JS::Any::operator/(double value) const {
     } catch (const std::invalid_argument& e) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
 }
 
-JS::Any JS::Any::operator/(std::string value) const {
+JS::Any JS::Any::operator/(const char* value) const {
     try {
         switch (this->value.index()) {
             case NUMBER:
@@ -190,7 +190,7 @@ Any operator/(double value, JS::Any const& any) {
     } catch (const std::invalid_argument& e) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
 }
 
-Any operator/(std::string value, JS::Any const& any) {
+Any operator/(const char* value, JS::Any const& any) {
     try {
         switch (any.value.index()) {
             case NUMBER:

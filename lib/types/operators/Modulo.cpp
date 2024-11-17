@@ -74,7 +74,7 @@ JS::Any JS::Any::operator%(double value) const {
     }
 }
 
-JS::Any JS::Any::operator%(std::string value) const {
+JS::Any JS::Any::operator%(const char* value) const {
     switch (this->value.index()) {
         case NUMBER:
             return JS::Any(std::fmod(std::get<double>(this->value), std::stod(value)));
@@ -155,7 +155,7 @@ Any operator%(double value, JS::Any const& any) {
     }
 }
 
-Any operator%(std::string value, JS::Any const& any) {
+Any operator%(const char* value, JS::Any const& any) {
     switch (any.value.index()) {
         case NUMBER:
             return JS::Any(std::fmod(std::stod(value), std::get<double>(any.value)));

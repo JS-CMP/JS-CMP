@@ -1,5 +1,6 @@
 #include <types/objects/JsArray.hpp>
 
+// WIP, dont worry about this file
 namespace JS {
     Array::Array() : Object() {
         elements = std::make_shared<std::vector<JS::Any>>();

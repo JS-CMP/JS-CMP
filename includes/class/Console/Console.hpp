@@ -73,9 +73,8 @@ public:
      * @endcode
      */
     static JS::Any clear(const std::vector<JS::Any>& args);
+
 private:
 };
-
-
 
 #endif // JS_CMP_ALPHA_CONSOLE_HPP

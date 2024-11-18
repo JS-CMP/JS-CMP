@@ -19,19 +19,3 @@ int main(int argc, char** argv, char** env) {
     }
     return (0);
 }
-
-
-//#include "includes/class/Console.hpp"
-//#include "includes/types/JsAny.hpp"
-//#include "includes/types/Objects/JsArray.hpp"
-//
-//int main() {
-//    JS::Any array = JS::Any(JS::Array());
-//    array[0] = JS::Any("va");
-//    array[1] = JS::Any("ca");
-//    array[2] = JS::Any("salut");
-//    console::log(array[0]);
-//    console::log(array[1]);
-//    console::log(array[2]);
-//    array["pop"](1, 2, "salt");
-//}

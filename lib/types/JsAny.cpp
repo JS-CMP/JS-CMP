@@ -1,5 +1,5 @@
-#include <types/JsAny.hpp>
 #include <cmath>
+#include <types/JsAny.hpp>
 
 bool JS::Any::operator==(const JS::Any& other) const {
     switch (this->value.index()) {

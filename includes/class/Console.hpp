@@ -10,6 +10,13 @@ public:
     Console() {
         this->operator[]("log") = JS::Any(std::make_shared<JS::Function>(
             JS::Function([](const std::vector<JS::Any>& args) -> JS::Any {
+                auto print_with_space = [](const JS::Any& arg, bool is_last) {
+                    std::cout << arg.toString();
+                    if (!is_last) {
+                        std::cout << " ";
+                    }
+                };
+
                 bool is_last = false;
                 size_t num_args = args.size();
                 size_t counter = 0;
@@ -21,17 +28,36 @@ public:
                 std::cout << "\n";
                 return {};
             })));
+        this->operator[]("error") = JS::Any(std::make_shared<JS::Function>(
+            JS::Function([](const std::vector<JS::Any>& args) -> JS::Any {
+                auto print_with_space = [](const JS::Any& arg, bool is_last) {
+                    std::cerr << arg.toString();
+                    if (!is_last) {
+                        std::cerr << " ";
+                    }
+                };
+
+                bool is_last = false;
+                size_t num_args = args.size();
+                size_t counter = 0;
+
+                for (const auto& arg : args) {
+                    print_with_space(arg, ++counter == num_args);
+                }
+
+                std::cerr << "\n";
+                return {};
+            })));
+        this->operator[]("clear") = JS::Any(std::make_shared<JS::Function>(
+            JS::Function([](const std::vector<JS::Any>& args) -> JS::Any {
+                std::system("clear");
+                return {};
+            })));
     };
     ~Console() override = default;
 private:
-    static const std::function<void(const JS::Any&, bool)> print_with_space;
 };
 
-const std::function<void(const JS::Any&, bool)> Console::print_with_space = [](const JS::Any& arg, bool is_last) {
-    std::cout << arg.toString();
-    if (!is_last) {
-        std::cout << " ";
-    }
-};
+
 
 #endif // JS_CMP_ALPHA_CONSOLE_HPP

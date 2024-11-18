@@ -30,6 +30,7 @@ public:
     /** @brief Move constructor */
     Object& operator=(JS::Object&& other) noexcept;
     ///@}
+
     /**
      * @name Destructor
      * The destructor is defaulted

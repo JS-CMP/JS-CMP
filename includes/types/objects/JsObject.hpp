@@ -32,9 +32,7 @@ public:
     ///@}
 
     /**
-     * @name Destructor
      * @brief The destructor for the object defaulted
-     * @return nothing
      */
     virtual ~Object() = default;
 

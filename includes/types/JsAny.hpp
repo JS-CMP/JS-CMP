@@ -40,11 +40,17 @@ public:
     explicit Any(JS::Undefined v) : value(JS::Undefined{}){};
     /** @brief Constructor for null */
     explicit Any(JS::Null v) : value(JS::Null{}){};
+    /** @brief Constructor for object taking a shared_ptr */
     explicit Any(std::shared_ptr<JS::Object> v);
+    /** @brief Constructor for object */
     explicit Any(const JS::Object& v);
+    /** @brief Copy constructor */
     Any(const JS::Any& v);
+    /** @brief Move constructor */
     Any(const JS::Any&& v) noexcept;
+    /** @brief Copy constructor */
     JS::Any& operator=(const JS::Any& other);
+    /** @brief Move constructor */
     JS::Any& operator=(JS::Any&& other) noexcept;
     ///@}
 
@@ -76,20 +82,23 @@ public:
     /** @brief Modulus operator a == b */
     bool operator==(const JS::Any& other) const;
     ///@}
+
     /**
-     * @brief Calls the function stored in the `Any` object with the given arguments.
-     * @param args The arguments to pass to the function.
-     * @return The result of the function call.
+     * @name Accessors
+     * These methods provide access to the properties of the object
      */
+    ///@{
+    /** @brief Accessors to call function stored in properties on an object stored in value */
     template <typename... Args>
     JS::Any operator()(Args&&... args) {
         std::vector<JS::Any> arguments = { JS::Any(std::forward<Args>(args))... };
         return helper(arguments);
     }
-
+    /** @brief Accessors to properties of object in stored in value */
     JS::Any& operator[](const std::string& key) const;
+    /** @brief Accessors to properties of object in stored in value */
     JS::Any& operator[](size_t index) const;
-
+    ///@}
 
     /**
      * @brief Friend function for outputting `Any` object to a stream.
@@ -98,12 +107,11 @@ public:
      * @return Output stream with `Any` value representation.
      */
     friend std::ostream& operator<<(std::ostream& os, const JS::Any& any);
-
     /**
      * @brief Converts the `Any` object to a string.
      * @return String representation of the `Any` value.
      */
-    [[nodiscard]] std::string toString();
+    [[nodiscard]] std::string toString() const;
 private:
     JS::Value value; /**< Holds the current value of this Any instance. */
     JS::Any helper(std::vector<JS::Any>& args) const;

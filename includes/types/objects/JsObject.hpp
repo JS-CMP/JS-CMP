@@ -30,9 +30,9 @@ public:
     /** @brief Move constructor */
     Object& operator=(JS::Object&& other) noexcept;
     ///@}
+
     /**
-     * @name Destructor
-     * The destructor is defaulted
+     * @brief The destructor for the object defaulted
      */
     virtual ~Object() = default;
 

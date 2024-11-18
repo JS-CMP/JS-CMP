@@ -8,6 +8,7 @@
 #include <string>
 #include <unordered_map>
 #include <variant>
+#include <limits>
 #include <vector>
 
 namespace JS {

@@ -4,11 +4,11 @@
 #include "../class/Rope/Rope.hpp"
 
 #include <functional>
+#include <limits>
 #include <memory>
 #include <string>
 #include <unordered_map>
 #include <variant>
-#include <limits>
 #include <vector>
 
 namespace JS {

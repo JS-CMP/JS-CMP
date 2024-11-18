@@ -1,8 +1,8 @@
 #ifndef JSANY_HPP
 #define JSANY_HPP
 
-#include "Types.hpp"
 #include "./objects/JsObject.hpp"
+#include "Types.hpp"
 
 namespace JS {
 /**
@@ -91,7 +91,7 @@ public:
     /** @brief Accessors to call function stored in properties on an object stored in value */
     template <typename... Args>
     JS::Any operator()(Args&&... args) {
-        std::vector<JS::Any> arguments = { JS::Any(std::forward<Args>(args))... };
+        std::vector<JS::Any> arguments = {JS::Any(std::forward<Args>(args))...};
         return helper(arguments);
     }
     /** @brief Accessors to properties of object in stored in value */
@@ -112,6 +112,7 @@ public:
      * @return String representation of the `Any` value.
      */
     [[nodiscard]] std::string toString() const;
+
 private:
     JS::Value value; /**< Holds the current value of this Any instance. */
     JS::Any helper(std::vector<JS::Any>& args) const;

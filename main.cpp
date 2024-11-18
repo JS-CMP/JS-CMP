@@ -20,12 +20,11 @@ int main(int argc, char** argv, char** env) {
     return (0);
 }
 
-
 //#include "includes/class/Console.hpp"
 //#include "includes/types/JsAny.hpp"
 //#include "includes/types/Objects/JsArray.hpp"
 //
-//int main() {
+// int main() {
 //    JS::Any array = JS::Any(JS::Array());
 //    array[0] = JS::Any("va");
 //    array[1] = JS::Any("ca");

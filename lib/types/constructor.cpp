@@ -11,15 +11,11 @@ JS::Any::Any(const JS::Object& v) {
     value = std::move(obj);
 }
 
-JS::Any::Any(const JS::Any& v) {
-    value = v.value;
-}
+JS::Any::Any(const JS::Any& v) { value = v.value; }
 
-JS::Any::Any(const JS::Any&& v) noexcept {
-    value = std::move(v.value);
-}
+JS::Any::Any(const JS::Any&& v) noexcept { value = std::move(v.value); }
 
-JS::Any& JS::Any::operator=(JS::Any&& other)  noexcept {
+JS::Any& JS::Any::operator=(JS::Any&& other) noexcept {
     value = std::move(other.value);
     return *this;
 }

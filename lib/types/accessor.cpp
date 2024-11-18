@@ -20,7 +20,6 @@ JS::Any JS::Any::helper(std::vector<JS::Any>& args) const {
         // TODO: change if function is not the only callable object
         return std::dynamic_pointer_cast<JS::Function>(std::get<std::shared_ptr<JS::Object>>(value))->operator()(args);
     }
-    std::cout << "here3" << std::endl;
     throw std::runtime_error("Value is not a function");
 }
 

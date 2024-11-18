@@ -1,5 +1,6 @@
 #include <types/objects/JsArray.hpp>
 
+// WIP, dont worry about this file
 namespace JS {
     Array::Array() : Object() {
         elements = std::make_shared<std::vector<JS::Any>>();
@@ -11,10 +12,10 @@ namespace JS {
         this->operator[]("length") = JS::Any(0);
         this->operator[]("pop") = JS::Any(std::make_shared<JS::Function>(
             JS::Function([self = shared_from_this()] (const std::vector<JS::Any>& args) {
-//                auto last = self->elements->back();
+                auto last = self->elements->back();
                 self->elements->pop_back();
                 self->operator[]("length") = self->operator[]("length") - JS::Any(1);
-                return JS::Any(0);
+                return last;
             })));
     }
 
@@ -22,12 +23,12 @@ namespace JS {
         return properties->operator[](key);
     }
 
+    // TODO: https://github.com/JS-CMP/JS-CMP/issues/35
     JS::Any& Array::operator[](size_t index) {
         if (index >= elements->size()) {
             elements->resize(index + 1, JS::Any(JS::Undefined{}));
-            this->operator[]("length") = this->operator[]("length") + JS::Any(1);
         }
-//        properties->operator[]("length") = JS::Any(static_cast<int>(elements->size()));
+        properties->operator[]("length") = JS::Any(static_cast<int>(elements->size()));
         return elements->operator[](index);
     }
 

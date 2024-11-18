@@ -5,8 +5,29 @@
 #include <types/objects/JsObject.hpp>
 #include <types/objects/JsFunction.hpp>
 
+/**
+ * @class console
+ * @brief A simple logging class that provides static methods to print messages to the console.
+ *
+ * This class encapsulates the logging functionality and provides a single method to log messages
+ * of various types. It ensures that the output is formatted correctly with spaces between arguments.
+ */
 class Console : public JS::Object {
 public:
+    /**
+     * @brief Logs messages to the console.
+     *
+     * This method accepts a variable number of arguments of any type and prints them to the console
+     * with a space separating each argument. A newline is printed at the end.
+     *
+     * @tparam Args Variadic template parameter for the types of arguments.
+     * @param args The arguments to log. Can be of any type.
+     *
+     * Example usage:
+     * @code
+     * console::log("Hello,", "world!", 42);
+     * @endcode
+     */
     Console() {
         this->operator[]("log") = JS::Any(std::make_shared<JS::Function>(
             JS::Function([](const std::vector<JS::Any>& args) -> JS::Any {

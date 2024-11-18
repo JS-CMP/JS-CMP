@@ -13,7 +13,6 @@ namespace JS {
             this->function = std::move(f.function);
             return *this;
     }
-
     bool Function::isCallable() const {
         return true;
     }

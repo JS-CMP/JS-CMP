@@ -17,19 +17,19 @@ namespace JS {
         return false;
     }
 
-    void Object::setProperty(const std::string& key, const JS::Any& value) {
-            properties->operator[](key) = value;
-    }
     Object::Object(const Object& other) {
         properties = other.properties;
     }
+
     Object::Object(Object&& other) noexcept {
         properties = other.properties;
     }
+
     Object& Object::operator=(const Object& other) {
         properties = other.properties;
         return *this;
     }
+
     Object& Object::operator=(Object&& other) noexcept {
         properties = other.properties;
         return *this;

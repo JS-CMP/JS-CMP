@@ -7,14 +7,14 @@
 #include <iostream>
 #include <unistd.h>
 
+// TODO: https://nodejs.org/docs/latest/api/console.html
 /**
- * @class console
+ * @class Console
  * @brief A simple logging class that provides static methods to print messages to the console.
  *
  * This class encapsulates the logging functionality and provides a single method to log messages
  * of various types. It ensures that the output is formatted correctly with spaces between arguments.
  */
-// TODO: https://nodejs.org/docs/latest/api/console.html
 class Console : public JS::Object {
 public:
     /**
@@ -73,8 +73,6 @@ public:
      * @endcode
      */
     static JS::Any clear(const std::vector<JS::Any>& args);
-
-private:
 };
 
 #endif // JS_CMP_ALPHA_CONSOLE_HPP

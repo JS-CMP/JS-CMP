@@ -119,10 +119,10 @@ JS::Any JS::Any::operator/(bool value) const {
                 return JS::Any(std::stod(std::get<Rope>(this->value).toString()) / static_cast<double>(value));
             case BOOL: {
                 bool thisValue = std::get<bool>(this->value);
-                return JS::Any(thisValue && !value ? std::numeric_limits<double>::infinity()
-                   : thisValue && value ? 1
-                   : !thisValue && value ? 0
-                   : std::numeric_limits<double>::quiet_NaN());
+                return JS::Any(thisValue && !value   ? std::numeric_limits<double>::infinity()
+                               : thisValue && value  ? 1
+                               : !thisValue && value ? 0
+                                                     : std::numeric_limits<double>::quiet_NaN());
             }
             case NULL_TYPE:
                 return JS::Any(std::numeric_limits<double>::infinity());

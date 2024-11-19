@@ -187,6 +187,7 @@ public:
      * @brief Converts the `Any` object to a string.
      * @return String representation of the `Any` value.
      */
+     JS::Value getValue() const;
     [[nodiscard]] std::string toString() const;
 };
 } // namespace JS

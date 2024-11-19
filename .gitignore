@@ -19,5 +19,9 @@ Makefile
 # Misc
 Testing
 
+# Doxygen
+doxygen.log
+html
+
 # Build
 bin

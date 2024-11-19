@@ -198,117 +198,116 @@ JS::Any JS::Any::operator+(JS::Undefined) const {
             return JS::Any(std::numeric_limits<double>::quiet_NaN());
         case NULL_TYPE:
             return JS::Any(std::numeric_limits<double>::quiet_NaN());
-
     }
     return {};
 }
 
 namespace JS {
-    JS::Any operator+(int value, JS::Any const& any) {
-        switch (any.getValue().index()) {
-            case JS::NUMBER:
-                return JS::Any(value + std::get<double>(any.getValue()));
-            case JS::STRING:
-                return JS::Any(std::to_string(value) + std::get<Rope>(any.getValue()));
-            case JS::BOOL:
-                return JS::Any(value + std::get<bool>(any.getValue()));
-            case JS::FUNCTION:
-                return JS::Any(std::to_string(value) + any.toString());
-            case JS::UNDEFINED:
-                return JS::Any(std::numeric_limits<double>::quiet_NaN());
-            case JS::NULL_TYPE:
-                return JS::Any(value);
-        }
-        return {};
+JS::Any operator+(int value, JS::Any const& any) {
+    switch (any.getValue().index()) {
+        case JS::NUMBER:
+            return JS::Any(value + std::get<double>(any.getValue()));
+        case JS::STRING:
+            return JS::Any(std::to_string(value) + std::get<Rope>(any.getValue()));
+        case JS::BOOL:
+            return JS::Any(value + std::get<bool>(any.getValue()));
+        case JS::FUNCTION:
+            return JS::Any(std::to_string(value) + any.toString());
+        case JS::UNDEFINED:
+            return JS::Any(std::numeric_limits<double>::quiet_NaN());
+        case JS::NULL_TYPE:
+            return JS::Any(value);
     }
+    return {};
+}
 
-    JS::Any operator+(double value, JS::Any const& any) {
-        switch (any.getValue().index()) {
-            case JS::NUMBER:
-                return JS::Any(value + std::get<double>(any.getValue()));
-            case JS::STRING:
-                return JS::Any(std::to_string(value) + std::get<Rope>(any.getValue()));
-            case JS::BOOL:
-                return JS::Any(value + std::get<bool>(any.getValue()));
-            case JS::FUNCTION:
-                return JS::Any(std::to_string(value) + any.toString());
-            case JS::UNDEFINED:
-                return JS::Any(std::numeric_limits<double>::quiet_NaN());
-            case JS::NULL_TYPE:
-                return JS::Any(value);
-        }
-        return {};
+JS::Any operator+(double value, JS::Any const& any) {
+    switch (any.getValue().index()) {
+        case JS::NUMBER:
+            return JS::Any(value + std::get<double>(any.getValue()));
+        case JS::STRING:
+            return JS::Any(std::to_string(value) + std::get<Rope>(any.getValue()));
+        case JS::BOOL:
+            return JS::Any(value + std::get<bool>(any.getValue()));
+        case JS::FUNCTION:
+            return JS::Any(std::to_string(value) + any.toString());
+        case JS::UNDEFINED:
+            return JS::Any(std::numeric_limits<double>::quiet_NaN());
+        case JS::NULL_TYPE:
+            return JS::Any(value);
     }
+    return {};
+}
 
-    JS::Any operator+(const char* value, JS::Any const& any) {
-        switch (any.getValue().index()) {
-            case JS::NUMBER:
-                return JS::Any(value + any.toString());
-            case JS::STRING:
-                return JS::Any(value + std::get<Rope>(any.getValue()));
-            case JS::BOOL:
-                return JS::Any(value + any.toString());
-            case JS::FUNCTION:
-                return JS::Any(value + any.toString());
-            case JS::UNDEFINED:
-                return JS::Any(value + any.toString());
-            case JS::NULL_TYPE:
-                return JS::Any(value + any.toString());
-        }
-        return {};
+JS::Any operator+(const char* value, JS::Any const& any) {
+    switch (any.getValue().index()) {
+        case JS::NUMBER:
+            return JS::Any(value + any.toString());
+        case JS::STRING:
+            return JS::Any(value + std::get<Rope>(any.getValue()));
+        case JS::BOOL:
+            return JS::Any(value + any.toString());
+        case JS::FUNCTION:
+            return JS::Any(value + any.toString());
+        case JS::UNDEFINED:
+            return JS::Any(value + any.toString());
+        case JS::NULL_TYPE:
+            return JS::Any(value + any.toString());
     }
+    return {};
+}
 
-    JS::Any operator+(bool value, JS::Any const& any) {
-        switch (any.getValue().index()) {
-            case JS::NUMBER:
-                return JS::Any(value + std::get<double>(any.getValue()));
-            case JS::STRING:
-                return JS::Any(std::to_string(value) + std::get<Rope>(any.getValue()));
-            case JS::BOOL:
-                return JS::Any(value + std::get<bool>(any.getValue()));
-            case JS::FUNCTION:
-                return JS::Any(std::to_string(value) + any.toString());
-            case JS::UNDEFINED:
-                return JS::Any(std::numeric_limits<double>::quiet_NaN());
-            case JS::NULL_TYPE:
-                return JS::Any(value + std::get<bool>(any.getValue()));
-        }
-        return {};
+JS::Any operator+(bool value, JS::Any const& any) {
+    switch (any.getValue().index()) {
+        case JS::NUMBER:
+            return JS::Any(value + std::get<double>(any.getValue()));
+        case JS::STRING:
+            return JS::Any(std::to_string(value) + std::get<Rope>(any.getValue()));
+        case JS::BOOL:
+            return JS::Any(value + std::get<bool>(any.getValue()));
+        case JS::FUNCTION:
+            return JS::Any(std::to_string(value) + any.toString());
+        case JS::UNDEFINED:
+            return JS::Any(std::numeric_limits<double>::quiet_NaN());
+        case JS::NULL_TYPE:
+            return JS::Any(value + std::get<bool>(any.getValue()));
     }
+    return {};
+}
 
-    JS::Any operator+(JS::Null, JS::Any const& any) {
-        switch (any.getValue().index()) {
-            case JS::NUMBER:
-                return JS::Any(std::get<double>(any.getValue()));
-            case JS::STRING:
-                return JS::Any("null" + std::get<Rope>(any.getValue()));
-            case JS::BOOL:
-                return JS::Any(static_cast<double>(std::get<bool>(any.getValue())));
-            case JS::FUNCTION:
-                return JS::Any("null" + any.toString());
-            case JS::UNDEFINED:
-                return JS::Any(std::numeric_limits<double>::quiet_NaN());
-            case JS::NULL_TYPE:
-                return JS::Any(0);
-        }
-        return {};
+JS::Any operator+(JS::Null, JS::Any const& any) {
+    switch (any.getValue().index()) {
+        case JS::NUMBER:
+            return JS::Any(std::get<double>(any.getValue()));
+        case JS::STRING:
+            return JS::Any("null" + std::get<Rope>(any.getValue()));
+        case JS::BOOL:
+            return JS::Any(static_cast<double>(std::get<bool>(any.getValue())));
+        case JS::FUNCTION:
+            return JS::Any("null" + any.toString());
+        case JS::UNDEFINED:
+            return JS::Any(std::numeric_limits<double>::quiet_NaN());
+        case JS::NULL_TYPE:
+            return JS::Any(0);
     }
+    return {};
+}
 
-    JS::Any operator+(JS::Undefined, JS::Any const& any) {
-        switch (any.getValue().index()) {
-            case JS::NUMBER:
-                return JS::Any(std::numeric_limits<double>::quiet_NaN());
-            case JS::STRING:
-                return JS::Any("undefined" + std::get<Rope>(any.getValue()));
-            case JS::BOOL:
-                return JS::Any(std::numeric_limits<double>::quiet_NaN());
-            case JS::FUNCTION:
-                return JS::Any(std::string("undefined") + any.toString());
-            case JS::UNDEFINED:
-                return JS::Any(std::numeric_limits<double>::quiet_NaN());
-            case JS::NULL_TYPE:
-                return JS::Any(std::numeric_limits<double>::quiet_NaN());
-        }
-        return {};
+JS::Any operator+(JS::Undefined, JS::Any const& any) {
+    switch (any.getValue().index()) {
+        case JS::NUMBER:
+            return JS::Any(std::numeric_limits<double>::quiet_NaN());
+        case JS::STRING:
+            return JS::Any("undefined" + std::get<Rope>(any.getValue()));
+        case JS::BOOL:
+            return JS::Any(std::numeric_limits<double>::quiet_NaN());
+        case JS::FUNCTION:
+            return JS::Any(std::string("undefined") + any.toString());
+        case JS::UNDEFINED:
+            return JS::Any(std::numeric_limits<double>::quiet_NaN());
+        case JS::NULL_TYPE:
+            return JS::Any(std::numeric_limits<double>::quiet_NaN());
     }
+    return {};
+}
 } // namespace JS

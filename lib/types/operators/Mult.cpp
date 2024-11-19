@@ -128,7 +128,7 @@ JS::Any JS::Any::operator*(const char* value) const {
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Invalid type
         }
-    } catch (const std::invalid_argument &) {
+    } catch (const std::invalid_argument&) {
         return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Handle conversion errors
     }
 }

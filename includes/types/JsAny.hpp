@@ -79,6 +79,25 @@ public:
     ///@}
 
     /**
+     * @name Bitewise Operators
+     * These operators perform bitwise operations like in JavaScript
+     */
+    ///@{
+    /** @brief Bitwise AND operator a & b */
+    JS::Any operator&(const JS::Any& other) const;
+    /** @brief Bitwise OR operator a | b */
+    JS::Any operator|(const JS::Any& other) const;
+    /** @brief Bitwise XOR operator a ^ b */
+    JS::Any operator^(const JS::Any& other) const;
+    /** @brief Bitwise NOT operator ~a */
+    JS::Any operator~() const;
+    /** @brief Bitwise left shift operator a << b */
+    JS::Any operator<<(const JS::Any& other) const;
+    /** @brief Bitwise right shift operator a >> b */
+    JS::Any operator>>(const JS::Any& other) const;
+    ///@}
+
+    /**
      * @name Arithmetic Operators
      * These operators perform basic arithmetic like in JavaScript
      */

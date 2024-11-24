@@ -15,7 +15,6 @@
 
 class Helper {
 public:
-
     /**
      * @name String to Number
      * These functions convert a string to a number, if the string is empty, it returns 0.
@@ -55,7 +54,7 @@ public:
     /** @brief Convert a Rope to a string. */
     static std::string to_string(const Rope& rope) { return rope.toString(); }
     /** @brief Convert a bool to a string. */
-    static std::string to_string(bool value) { return value ? "true" : "false";}
+    static std::string to_string(bool value) { return value ? "true" : "false"; }
     /** @brief Convert a Null to a string. */
     static std::string to_string(const JS::Null&) { return "null"; }
     /** @brief Convert a Undefined to a string. */

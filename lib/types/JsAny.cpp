@@ -1,6 +1,7 @@
 #include "../../includes/types/JsAny.hpp"
 
-#include <cmath>
+#include "../class/Helper.hpp"
+
 #include <sstream>
 
 bool JS::Any::operator==(const JS::Any& other) const {
@@ -72,27 +73,19 @@ JS::Any JS::Any::operator()(std::vector<JS::Any>& args) {
 }
 
 std::string JS::Any::toString() const {
-    std::ostringstream strs;
     switch (this->value.index()) {
         case NUMBER:
-            if (std::isnan(std::get<double>(this->value))) {
-                return "NaN";
-            }
-            if (std::isinf(std::get<double>(this->value))) {
-                return std::get<double>(this->value) < 0 ? "-Infinity" : "Infinity";
-            }
-            strs << std::get<double>(this->value);
-            return strs.str();
+            return Helper::to_string(std::get<double>(this->value));
         case STRING:
-            return std::get<Rope>(this->value).toString();
+            return Helper::to_string(std::get<Rope>(this->value));
         case BOOL:
-            return std::get<bool>(this->value) ? "true" : "false";
+            return Helper::to_string(std::get<bool>(this->value));
         case FUNCTION:
             return "[Function]";
         case UNDEFINED:
-            return "undefined";
+            return Helper::to_string(JS::Undefined());
         case NULL_TYPE:
-            return "null";
+            return Helper::to_string(JS::Null());
         default:
             return "[Object]";
     }

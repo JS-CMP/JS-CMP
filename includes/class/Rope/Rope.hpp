@@ -73,6 +73,11 @@ public:
      * @return New Rope which is the result of the concatenation.
      */
     Rope operator+(const std::string& other) const;
+    /**
+     * @brief Concatenation operator for a rope with a temporary string.
+     * @param other The temporary string to concatenate.
+     * @return New Rope which is the result of the concatenation.
+     */
     Rope operator+(const std::string&& other) const;
 
     /**

@@ -1,5 +1,6 @@
 #include "../../includes/types/JsAny.hpp"
 
+#include <sstream>
 #include <cmath>
 
 bool JS::Any::operator==(const JS::Any& other) const {
@@ -71,12 +72,17 @@ JS::Any JS::Any::operator()(std::vector<JS::Any>& args) {
 }
 
 std::string JS::Any::toString() const {
+    std::ostringstream strs;
     switch (this->value.index()) {
         case NUMBER:
-            return std::isnan(std::get<double>(this->value)) ? "NaN"
-                   : std::isinf(std::get<double>(this->value))
-                       ? std::get<double>(this->value) < 0 ? "-Infinity" : "Infinity"
-                       : std::to_string(std::get<double>(this->value));
+            if (std::isnan(std::get<double>(this->value))) {
+                return "NaN";
+            }
+            if (std::isinf(std::get<double>(this->value))) {
+                return std::get<double>(this->value) < 0 ? "-Infinity" : "Infinity";
+            }
+            strs << std::get<double>(this->value);
+            return strs.str();
         case STRING:
             return std::get<Rope>(this->value).toString();
         case BOOL:

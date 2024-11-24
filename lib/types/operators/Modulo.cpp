@@ -1,4 +1,5 @@
 #include "../../../includes/types/JsAny.hpp"
+#include "../../class/Helper.hpp"
 
 JS::Any JS::Any::operator%(const JS::Any& other) const {
     try {
@@ -9,7 +10,7 @@ JS::Any JS::Any::operator%(const JS::Any& other) const {
                         return JS::Any(std::fmod(std::get<double>(this->value), std::get<double>(other.value)));
                     case STRING:
                         return JS::Any(std::fmod(std::get<double>(this->value),
-                                                 std::stod(std::get<Rope>(other.value).toString())));
+                                                 Helper::stod(std::get<Rope>(other.value))));
                     case BOOL:
                         return JS::Any(
                             std::fmod(std::get<double>(this->value), static_cast<double>(std::get<bool>(other.value))));
@@ -19,13 +20,13 @@ JS::Any JS::Any::operator%(const JS::Any& other) const {
             case STRING:
                 switch (other.value.index()) {
                     case NUMBER:
-                        return JS::Any(std::fmod(std::stod(std::get<Rope>(this->value).toString()),
+                        return JS::Any(std::fmod(Helper::stod(std::get<Rope>(this->value)),
                                                  std::get<double>(other.value)));
                     case STRING:
-                        return JS::Any(std::fmod(std::stod(std::get<Rope>(this->value).toString()),
-                                                 std::stod(std::get<Rope>(other.value).toString())));
+                        return JS::Any(std::fmod(Helper::stod(std::get<Rope>(this->value)),
+                                                 Helper::stod(std::get<Rope>(other.value))));
                     case BOOL:
-                        return JS::Any(std::fmod(std::stod(std::get<Rope>(this->value).toString()),
+                        return JS::Any(std::fmod(Helper::stod(std::get<Rope>(this->value)),
                                                  static_cast<double>(std::get<bool>(other.value))));
                     default:
                         return JS::Any(std::numeric_limits<double>::quiet_NaN());
@@ -37,7 +38,7 @@ JS::Any JS::Any::operator%(const JS::Any& other) const {
                             std::fmod(static_cast<double>(std::get<bool>(this->value)), std::get<double>(other.value)));
                     case STRING:
                         return JS::Any(std::fmod(static_cast<double>(std::get<bool>(this->value)),
-                                                 std::stod(std::get<Rope>(other.value).toString())));
+                                                 Helper::stod(std::get<Rope>(other.value))));
                     case BOOL:
                         return JS::Any(std::fmod(static_cast<double>(std::get<bool>(this->value)),
                                                  static_cast<double>(std::get<bool>(other.value))));
@@ -49,7 +50,7 @@ JS::Any JS::Any::operator%(const JS::Any& other) const {
                     case NUMBER:
                         return JS::Any(std::fmod(0, std::get<double>(other.value)));
                     case STRING:
-                        return JS::Any(std::fmod(0, std::stod(std::get<Rope>(other.value).toString())));
+                        return JS::Any(std::fmod(0, Helper::stod(std::get<Rope>(other.value))));
                     case BOOL:
                         return JS::Any(std::fmod(0, static_cast<double>(std::get<bool>(other.value))));
                     default:
@@ -58,7 +59,9 @@ JS::Any JS::Any::operator%(const JS::Any& other) const {
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
-    } catch (const std::invalid_argument&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+    } catch (const std::invalid_argument&) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
+    }
 }
 
 JS::Any JS::Any::operator%(int value) const {

@@ -20,8 +20,6 @@ JS::Any JS::Any::operator+(const JS::Any& other) const {
             break;
         case STRING:
             switch (other.value.index()) {
-                case NUMBER:
-                    return JS::Any(std::get<Rope>(this->value) + other.toString());
                 case STRING:
                     return JS::Any(std::get<Rope>(this->value) + std::get<Rope>(other.value));
                 default:
@@ -38,6 +36,8 @@ JS::Any JS::Any::operator+(const JS::Any& other) const {
                     return JS::Any(std::get<bool>(this->value) + std::get<bool>(other.value));
                 case FUNCTION: // TODO
                 // console.log(true + (() => {})) -> "true() =&gt; {}"
+                case UNDEFINED:
+                    return JS::Any(std::numeric_limits<double>::quiet_NaN());
                 case NULL_TYPE:
                     return JS::Any(static_cast<double>(std::get<bool>(this->value)));
             }

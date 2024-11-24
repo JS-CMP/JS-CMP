@@ -37,7 +37,7 @@ public:
         return strs.str();
     }
     static std::string to_string(const Rope& rope) { return rope.toString(); }
-    static std::string to_string(bool value) { return value ? "true" : "false";}
+    static std::string to_string(bool value) { return value ? "true" : "false"; }
     static std::string to_string(const JS::Null&) { return "null"; }
     static std::string to_string(const JS::Undefined&) { return "undefined"; }
 };

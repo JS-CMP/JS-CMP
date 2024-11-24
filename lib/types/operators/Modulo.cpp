@@ -68,8 +68,7 @@ JS::Any JS::Any::operator%(int value) const {
             case NUMBER:
                 return JS::Any(std::fmod(std::get<double>(this->value), static_cast<double>(value)));
             case STRING:
-                return JS::Any(
-                    std::fmod(Helper::stod(std::get<Rope>(this->value)), static_cast<double>(value)));
+                return JS::Any(std::fmod(Helper::stod(std::get<Rope>(this->value)), static_cast<double>(value)));
             case BOOL:
                 return JS::Any(std::fmod(static_cast<double>(std::get<bool>(this->value)), static_cast<double>(value)));
             case NULL_TYPE:
@@ -120,8 +119,7 @@ JS::Any JS::Any::operator%(bool value) const {
             case NUMBER:
                 return JS::Any(std::fmod(std::get<double>(this->value), static_cast<double>(value)));
             case STRING:
-                return JS::Any(
-                    std::fmod(Helper::stod(std::get<Rope>(this->value)), static_cast<double>(value)));
+                return JS::Any(std::fmod(Helper::stod(std::get<Rope>(this->value)), static_cast<double>(value)));
             case BOOL:
                 return JS::Any(std::fmod(static_cast<double>(std::get<bool>(this->value)), static_cast<double>(value)));
             case NULL_TYPE:
@@ -153,8 +151,8 @@ JS::Any JS::Any::operator%(JS::Undefined) const {
             case NUMBER:
                 return JS::Any(std::fmod(std::get<double>(this->value), std::numeric_limits<double>::quiet_NaN()));
             case STRING:
-                return JS::Any(std::fmod(Helper::stod(std::get<Rope>(this->value)),
-                                         std::numeric_limits<double>::quiet_NaN()));
+                return JS::Any(
+                    std::fmod(Helper::stod(std::get<Rope>(this->value)), std::numeric_limits<double>::quiet_NaN()));
             case BOOL:
                 return JS::Any(std::fmod(static_cast<double>(std::get<bool>(this->value)),
                                          std::numeric_limits<double>::quiet_NaN()));
@@ -246,8 +244,8 @@ Any operator%(JS::Undefined value, JS::Any const& any) {
             case NUMBER:
                 return JS::Any(std::fmod(std::numeric_limits<double>::quiet_NaN(), std::get<double>(any.value)));
             case STRING:
-                return JS::Any(std::fmod(std::numeric_limits<double>::quiet_NaN(),
-                                         Helper::stod(std::get<Rope>(any.value))));
+                return JS::Any(
+                    std::fmod(std::numeric_limits<double>::quiet_NaN(), Helper::stod(std::get<Rope>(any.value))));
             case BOOL:
                 return JS::Any(std::fmod(std::numeric_limits<double>::quiet_NaN(),
                                          static_cast<double>(std::get<bool>(any.value))));

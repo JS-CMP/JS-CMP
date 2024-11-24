@@ -9,8 +9,8 @@ JS::Any JS::Any::operator%(const JS::Any& other) const {
                     case NUMBER:
                         return JS::Any(std::fmod(std::get<double>(this->value), std::get<double>(other.value)));
                     case STRING:
-                        return JS::Any(std::fmod(std::get<double>(this->value),
-                                                 Helper::stod(std::get<Rope>(other.value))));
+                        return JS::Any(
+                            std::fmod(std::get<double>(this->value), Helper::stod(std::get<Rope>(other.value))));
                     case BOOL:
                         return JS::Any(
                             std::fmod(std::get<double>(this->value), static_cast<double>(std::get<bool>(other.value))));
@@ -20,8 +20,8 @@ JS::Any JS::Any::operator%(const JS::Any& other) const {
             case STRING:
                 switch (other.value.index()) {
                     case NUMBER:
-                        return JS::Any(std::fmod(Helper::stod(std::get<Rope>(this->value)),
-                                                 std::get<double>(other.value)));
+                        return JS::Any(
+                            std::fmod(Helper::stod(std::get<Rope>(this->value)), std::get<double>(other.value)));
                     case STRING:
                         return JS::Any(std::fmod(Helper::stod(std::get<Rope>(this->value)),
                                                  Helper::stod(std::get<Rope>(other.value))));
@@ -59,9 +59,7 @@ JS::Any JS::Any::operator%(const JS::Any& other) const {
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
-    } catch (const std::invalid_argument&) {
-        return JS::Any(std::numeric_limits<double>::quiet_NaN());
-    }
+    } catch (const std::invalid_argument&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
 }
 
 JS::Any JS::Any::operator%(int value) const {

@@ -10,7 +10,7 @@ JS::Any JS::Any::operator*(const JS::Any& other) const {
                 switch (other.value.index()) {
                     case NUMBER:
                         return JS::Any(std::get<double>(this->value) * std::get<double>(other.value));
-                    case STRING: 
+                    case STRING:
                         return JS::Any(std::get<double>(this->value) * Helper::stod(std::get<Rope>(other.value)));
                     case BOOL:
                         return JS::Any(std::get<double>(this->value) * std::get<bool>(other.value));

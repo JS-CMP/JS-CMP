@@ -57,7 +57,7 @@ JS::Any JS::Any::operator/(const JS::Any& other) const {
                 switch (other.value.index()) {
                     case NUMBER:
                         return JS::Any(std::get<double>(other.value) == 0 ? std::numeric_limits<double>::quiet_NaN()
-                                                                         : 0);
+                                                                          : 0);
                     case STRING:
                         return JS::Any(Helper::stod(std::get<Rope>(other.value).toString()) == 0
                                            ? std::numeric_limits<double>::quiet_NaN()

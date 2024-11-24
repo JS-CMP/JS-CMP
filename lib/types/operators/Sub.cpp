@@ -27,12 +27,14 @@ JS::Any JS::Any::operator-(const JS::Any& other) const {
                     case NUMBER:
                         return JS::Any(Helper::stod(std::get<Rope>(this->value)) - std::get<double>(other.value));
                     case STRING:
-                        return JS::Any(Helper::stod(std::get<Rope>(this->value)) - Helper::stod(std::get<Rope>(other.value)));
+                        return JS::Any(Helper::stod(std::get<Rope>(this->value)) -
+                                       Helper::stod(std::get<Rope>(other.value)));
                     case BOOL:
                         return JS::Any(Helper::stod(std::get<Rope>(this->value)) -
                                        static_cast<double>(std::get<bool>(other.value)));
                     case NULL_TYPE:
-                        return JS::Any(Helper::stod(std::get<Rope>(this->value))); // String - Null is String if String is not 0
+                        return JS::Any(
+                            Helper::stod(std::get<Rope>(this->value))); // String - Null is String if String is not 0
                     default:
                         return JS::Any(std::numeric_limits<double>::quiet_NaN());
                 }
@@ -42,11 +44,12 @@ JS::Any JS::Any::operator-(const JS::Any& other) const {
                     case NUMBER:
                         return JS::Any(std::get<bool>(this->value) - std::get<double>(other.value));
                     case STRING:
-                        return JS::Any(std::get<bool>(this->value)  - Helper::stod(std::get<Rope>(other.value)));
+                        return JS::Any(std::get<bool>(this->value) - Helper::stod(std::get<Rope>(other.value)));
                     case BOOL:
                         return JS::Any(std::get<bool>(this->value) - std::get<bool>(other.value));
                     case NULL_TYPE:
-                        return JS::Any(static_cast<double>(std::get<bool>(this->value))); // Boolean - Null is treated as Boolean
+                        return JS::Any(
+                            static_cast<double>(std::get<bool>(this->value))); // Boolean - Null is treated as Boolean
                     default:
                         return JS::Any(std::numeric_limits<double>::quiet_NaN());
                 }

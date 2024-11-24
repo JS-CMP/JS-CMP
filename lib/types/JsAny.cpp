@@ -1,7 +1,7 @@
 #include "../../includes/types/JsAny.hpp"
 
-#include <sstream>
 #include <cmath>
+#include <sstream>
 
 bool JS::Any::operator==(const JS::Any& other) const {
     switch (this->value.index()) {

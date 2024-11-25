@@ -170,7 +170,7 @@ JS::Any JS::Any::operator+(JS::Null) const {
         case NUMBER:
             return JS::Any(std::get<double>(this->value));
         case STRING:
-            return JS::Any(this->toString() +  Helper::to_string(JS::Null()));
+            return JS::Any(this->toString() + Helper::to_string(JS::Null()));
         case BOOL:
             return JS::Any(static_cast<double>(std::get<bool>(this->value)));
         case FUNCTION:

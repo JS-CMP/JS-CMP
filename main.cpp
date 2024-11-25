@@ -1,5 +1,6 @@
 #include "src/Builder.hpp"
 #include "src/Options.hpp"
+
 int main(int argc, char** argv, char** env) {
     Options options(argc, argv, env);
     try {

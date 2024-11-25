@@ -1,4 +1,5 @@
 #include <class/Rope/RopeConcat.hpp>
+
 RopeConcat::RopeConcat(std::shared_ptr<RopeNode> l, std::shared_ptr<RopeNode> r)
     : left(std::move(l)), right(std::move(r)), totalLength(left->length() + right->length()) {}
 

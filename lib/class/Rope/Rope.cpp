@@ -1,4 +1,5 @@
 #include <class/Rope/Rope.hpp>
+
 Rope::Rope(const std::string& str) : root(std::make_shared<RopeLeaf>(str)) {}
 
 Rope::Rope(const char* str) : root(std::make_shared<RopeLeaf>(std::string(str))) {}

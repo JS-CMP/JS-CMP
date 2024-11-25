@@ -13,6 +13,13 @@
 #include <sstream>
 #include <string>
 
+/**
+ * @class Helper
+ * @brief A class that provides helper functions for converting between types.
+ *
+ * This class provides static methods for converting between different types, such as strings and numbers.
+ * It is used to convert values between different types when performing operations on them.
+ */
 class Helper {
 public:
     /**

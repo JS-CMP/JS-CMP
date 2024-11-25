@@ -170,11 +170,11 @@ JS::Any JS::Any::operator+(JS::Null) const {
         case NUMBER:
             return JS::Any(std::get<double>(this->value));
         case STRING:
-            return JS::Any(this->toString() + std::string("null"));
+            return JS::Any(this->toString() +  Helper::to_string(JS::Null()));
         case BOOL:
             return JS::Any(static_cast<double>(std::get<bool>(this->value)));
         case FUNCTION:
-            return JS::Any(this->toString() + std::string("null"));
+            return JS::Any(this->toString() + Helper::to_string(JS::Null()));
         case UNDEFINED:
             return JS::Any(std::numeric_limits<double>::quiet_NaN());
         case NULL_TYPE:
@@ -188,11 +188,11 @@ JS::Any JS::Any::operator+(JS::Undefined) const {
         case NUMBER:
             return JS::Any(std::numeric_limits<double>::quiet_NaN());
         case STRING:
-            return JS::Any(this->toString() + std::string("undefined"));
+            return JS::Any(this->toString() + Helper::to_string(JS::Undefined()));
         case BOOL:
             return JS::Any(std::numeric_limits<double>::quiet_NaN());
         case FUNCTION:
-            return JS::Any(this->toString() + std::string("undefined"));
+            return JS::Any(this->toString() + Helper::to_string(JS::Undefined()));
         case UNDEFINED:
             return JS::Any(std::numeric_limits<double>::quiet_NaN());
         case NULL_TYPE:
@@ -305,7 +305,7 @@ JS::Any operator+(JS::Undefined, JS::Any const& any) {
         case JS::BOOL:
             return JS::Any(std::numeric_limits<double>::quiet_NaN());
         case JS::FUNCTION:
-            return JS::Any(std::string("undefined") + any.toString());
+            return JS::Any(Helper::to_string(JS::Undefined()) + any.toString());
         case JS::UNDEFINED:
             return JS::Any(std::numeric_limits<double>::quiet_NaN());
         case JS::NULL_TYPE:

@@ -110,9 +110,6 @@ $(document).ready(function(){initNavTree('classJS_1_1Any.html',''); initResizabl
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aee1b304d9130a25f84641f1c15a739b7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Any.html#aee1b304d9130a25f84641f1c15a739b7">operator()</a> (std::vector&lt; <a class="el" href="classJS_1_1Any.html">JS::Any</a> &gt; &amp;args)</td></tr>
-<tr class="memdesc:aee1b304d9130a25f84641f1c15a739b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the function stored in the <code><a class="el" href="classJS_1_1Any.html" title="Represents a JavaScript-like variant type in C++ that can hold multiple types of values.">Any</a></code> object with the given arguments.  <a href="classJS_1_1Any.html#aee1b304d9130a25f84641f1c15a739b7">More...</a><br /></td></tr>
-<tr class="separator:aee1b304d9130a25f84641f1c15a739b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9b57b8bd845158865128afe22d438b8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Any.html#ad9b57b8bd845158865128afe22d438b8">toString</a> () const</td></tr>
 <tr class="memdesc:ad9b57b8bd845158865128afe22d438b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the <code><a class="el" href="classJS_1_1Any.html" title="Represents a JavaScript-like variant type in C++ that can hold multiple types of values.">Any</a></code> object to a string.  <a href="classJS_1_1Any.html#ad9b57b8bd845158865128afe22d438b8">More...</a><br /></td></tr>
 <tr class="separator:ad9b57b8bd845158865128afe22d438b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,10 +148,6 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Any.html#a9667c66b2615165bdd05565356d79c5b">Any</a> (bool v)</td></tr>
 <tr class="memdesc:a9667c66b2615165bdd05565356d79c5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for bool. <br /></td></tr>
 <tr class="separator:a9667c66b2615165bdd05565356d79c5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22bedaf882aeef7dec1ceaf9dd7c7edc"><td class="memItemLeft" align="right" valign="top"><a id="a22bedaf882aeef7dec1ceaf9dd7c7edc"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Any.html#a22bedaf882aeef7dec1ceaf9dd7c7edc">Any</a> (JS::Function v)</td></tr>
-<tr class="memdesc:a22bedaf882aeef7dec1ceaf9dd7c7edc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for function. <br /></td></tr>
-<tr class="separator:a22bedaf882aeef7dec1ceaf9dd7c7edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8052815a783177f24f669fa87154db1a"><td class="memItemLeft" align="right" valign="top"><a id="a8052815a783177f24f669fa87154db1a"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Any.html#a8052815a783177f24f669fa87154db1a">Any</a> (JS::Undefined v)</td></tr>
 <tr class="memdesc:a8052815a783177f24f669fa87154db1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for undefined. <br /></td></tr>
@@ -163,6 +156,30 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Any.html#a7bf7509823a3b31512aceefd1acd922a">Any</a> (JS::Null v)</td></tr>
 <tr class="memdesc:a7bf7509823a3b31512aceefd1acd922a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for null. <br /></td></tr>
 <tr class="separator:a7bf7509823a3b31512aceefd1acd922a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a048e8ace49fe1ff438ae39a7465a532c"><td class="memItemLeft" align="right" valign="top"><a id="a048e8ace49fe1ff438ae39a7465a532c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Any.html#a048e8ace49fe1ff438ae39a7465a532c">Any</a> (std::shared_ptr&lt; <a class="el" href="classJS_1_1Object.html">JS::Object</a> &gt; v)</td></tr>
+<tr class="memdesc:a048e8ace49fe1ff438ae39a7465a532c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for object taking a shared_ptr. <br /></td></tr>
+<tr class="separator:a048e8ace49fe1ff438ae39a7465a532c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2762c8cc458d5d1d1e2da3e85a3ee000"><td class="memItemLeft" align="right" valign="top"><a id="a2762c8cc458d5d1d1e2da3e85a3ee000"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Any.html#a2762c8cc458d5d1d1e2da3e85a3ee000">Any</a> (const <a class="el" href="classJS_1_1Object.html">JS::Object</a> &amp;v)</td></tr>
+<tr class="memdesc:a2762c8cc458d5d1d1e2da3e85a3ee000"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for object. <br /></td></tr>
+<tr class="separator:a2762c8cc458d5d1d1e2da3e85a3ee000"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6096020a8d745051828af6e4d74f6ada"><td class="memItemLeft" align="right" valign="top"><a id="a6096020a8d745051828af6e4d74f6ada"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Any.html#a6096020a8d745051828af6e4d74f6ada">Any</a> (const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;v)</td></tr>
+<tr class="memdesc:a6096020a8d745051828af6e4d74f6ada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor. <br /></td></tr>
+<tr class="separator:a6096020a8d745051828af6e4d74f6ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5285a263d9618fb83cf152b3b8e41533"><td class="memItemLeft" align="right" valign="top"><a id="a5285a263d9618fb83cf152b3b8e41533"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Any.html#a5285a263d9618fb83cf152b3b8e41533">Any</a> (const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&amp;v) noexcept</td></tr>
+<tr class="memdesc:a5285a263d9618fb83cf152b3b8e41533"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor. <br /></td></tr>
+<tr class="separator:a5285a263d9618fb83cf152b3b8e41533"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87672f8e8377c6ae5dd4062adaf6e5cc"><td class="memItemLeft" align="right" valign="top"><a id="a87672f8e8377c6ae5dd4062adaf6e5cc"></a>
+<a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Any.html#a87672f8e8377c6ae5dd4062adaf6e5cc">operator=</a> (const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;other)</td></tr>
+<tr class="memdesc:a87672f8e8377c6ae5dd4062adaf6e5cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor. <br /></td></tr>
+<tr class="separator:a87672f8e8377c6ae5dd4062adaf6e5cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad20169541b096e0e21f865acf2313f80"><td class="memItemLeft" align="right" valign="top"><a id="ad20169541b096e0e21f865acf2313f80"></a>
+<a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Any.html#ad20169541b096e0e21f865acf2313f80">operator=</a> (<a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:ad20169541b096e0e21f865acf2313f80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor. <br /></td></tr>
+<tr class="separator:ad20169541b096e0e21f865acf2313f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Arithmetic Operators</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>These operators perform basic arithmetic like in JavaScript </p>
 </div></td></tr>
@@ -210,6 +227,22 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Any.html#aff3f30a42dcab50ccfb52f9b36de6d5d">operator==</a> (const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;other) const</td></tr>
 <tr class="memdesc:aff3f30a42dcab50ccfb52f9b36de6d5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modulus operator a == b. <br /></td></tr>
 <tr class="separator:aff3f30a42dcab50ccfb52f9b36de6d5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Accessors</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>These methods provide access to the properties of the object </p>
+</div></td></tr>
+<tr class="memitem:a0e0b261ce635df5f0b8afd04b3642bdb"><td class="memTemplParams" colspan="2"><a id="a0e0b261ce635df5f0b8afd04b3642bdb"></a>
+template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a0e0b261ce635df5f0b8afd04b3642bdb"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classJS_1_1Any.html#a0e0b261ce635df5f0b8afd04b3642bdb">operator()</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a0e0b261ce635df5f0b8afd04b3642bdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessors to call function stored in properties on an object stored in value. <br /></td></tr>
+<tr class="separator:a0e0b261ce635df5f0b8afd04b3642bdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8344e14a9939902d4e074927e32542e3"><td class="memItemLeft" align="right" valign="top"><a id="a8344e14a9939902d4e074927e32542e3"></a>
+<a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Any.html#a8344e14a9939902d4e074927e32542e3">operator[]</a> (const std::string &amp;key) const</td></tr>
+<tr class="memdesc:a8344e14a9939902d4e074927e32542e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessors to properties of object in stored in value. <br /></td></tr>
+<tr class="separator:a8344e14a9939902d4e074927e32542e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a238014c6c5bc9d22fe1a3f1eaf680567"><td class="memItemLeft" align="right" valign="top"><a id="a238014c6c5bc9d22fe1a3f1eaf680567"></a>
+<a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Any.html#a238014c6c5bc9d22fe1a3f1eaf680567">operator[]</a> (size_t index) const</td></tr>
+<tr class="memdesc:a238014c6c5bc9d22fe1a3f1eaf680567"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessors to properties of object in stored in value. <br /></td></tr>
+<tr class="separator:a238014c6c5bc9d22fe1a3f1eaf680567"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -221,33 +254,6 @@ Friends</h2></td></tr>
 <div class="textblock"><p>Represents a JavaScript-like variant type in C++ that can hold multiple types of values. </p>
 <p>The <code><a class="el" href="classJS_1_1Any.html" title="Represents a JavaScript-like variant type in C++ that can hold multiple types of values.">Any</a></code> class can hold values of various types, similar to JavaScript's dynamic typing. It provides overloaded operators for arithmetic and comparison, making it easy to work with in a JavaScript-like syntax. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="aee1b304d9130a25f84641f1c15a739b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee1b304d9130a25f84641f1c15a739b7">&#9670;&nbsp;</a></span>operator()()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::Any::operator() </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="classJS_1_1Any.html">JS::Any</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>args</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Calls the function stored in the <code><a class="el" href="classJS_1_1Any.html" title="Represents a JavaScript-like variant type in C++ that can hold multiple types of values.">Any</a></code> object with the given arguments. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">args</td><td>The arguments to pass to the function. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The result of the function call. </dd></dl>
-
-</div>
-</div>
 <a id="ad9b57b8bd845158865128afe22d438b8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad9b57b8bd845158865128afe22d438b8">&#9670;&nbsp;</a></span>toString()</h2>
 
@@ -317,6 +323,8 @@ Friends</h2></td></tr>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>includes/types/<a class="el" href="JsAny_8hpp_source.html">JsAny.hpp</a></li>
+<li>lib/types/accessor.cpp</li>
+<li>lib/types/constructor.cpp</li>
 <li>lib/types/JsAny.cpp</li>
 <li>lib/types/operators/Add.cpp</li>
 <li>lib/types/operators/Decr.cpp</li>

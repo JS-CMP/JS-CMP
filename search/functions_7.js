@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['read_5fall_83',['read_all',['../classBuilder.html#aa8bf12e396ef056aded88d2c66d486af',1,'Builder']]],
-  ['rope_84',['Rope',['../classRope.html#a908b311e35afb6be696945aaeea74402',1,'Rope::Rope(const std::string &amp;str)'],['../classRope.html#a6ceec32f4268c353bf55eb7edbf2dfa9',1,'Rope::Rope(const char *str)'],['../classRope.html#a456a4d733163de2f88e8fe8160355826',1,'Rope::Rope(std::shared_ptr&lt; RopeNode &gt; node)']]],
-  ['ropeconcat_85',['RopeConcat',['../classRopeConcat.html#aaaa9130c0cd9952265111c81ee2bc9a3',1,'RopeConcat::RopeConcat(std::shared_ptr&lt; RopeNode &gt; l, std::shared_ptr&lt; RopeNode &gt; r)'],['../classRopeConcat.html#ae91d9ce22fb1ddd2d3c53b3804b0d893',1,'RopeConcat::RopeConcat(std::shared_ptr&lt; RopeNode &gt; l, const std::string &amp;r)'],['../classRopeConcat.html#a6c175f80c23b56a6af7d829506329c88',1,'RopeConcat::RopeConcat(const std::string &amp;l, std::shared_ptr&lt; RopeNode &gt; r)']]],
-  ['ropeleaf_86',['RopeLeaf',['../classRopeLeaf.html#a735e8e06d33edc515a9468c107f94261',1,'RopeLeaf']]]
+  ['length_87',['length',['../classRope.html#a373aed65f017618c23a11ee153b21fc4',1,'Rope::length()'],['../classRopeConcat.html#a26596d031519ec2f017d95ea29d8370c',1,'RopeConcat::length()'],['../classRopeLeaf.html#a3898dbb3ea0784614236c3e8cc45f46f',1,'RopeLeaf::length()'],['../classRopeNode.html#a20749afe44e571f977d201a56116caf1',1,'RopeNode::length()']]],
+  ['log_88',['log',['../classconsole.html#a3b88baa22a5965b5a6dff9a2f5baa073',1,'console']]]
 ];

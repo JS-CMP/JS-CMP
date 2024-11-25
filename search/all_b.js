@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['_7eoptions_42',['~Options',['../classOptions.html#a0bf0757248a84e954165d21613308b86',1,'Options']]],
-  ['_7eropenode_43',['~RopeNode',['../classRopeNode.html#a6eaab31ba7910e144622bbc22ea59668',1,'RopeNode']]]
+  ['quality_20assurance_20plan_20for_20js_2dcmp_45',['Quality Assurance Plan for JS-CMP',['../md_CODE_OF_CONDUCT.html',1,'']]]
 ];

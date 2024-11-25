@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['parse_79',['parse',['../classOptions.html#af60d154a4c071355c1435f5891ef5fdd',1,'Options']]],
-  ['print_80',['print',['../classRope.html#a189d23a04d260952e6af19554417fc97',1,'Rope::print()'],['../classRopeConcat.html#a28107af7dec6811158bdf6f8b942d019',1,'RopeConcat::print()'],['../classRopeLeaf.html#a55013cff32e8f9c3723245444a7fe0ca',1,'RopeLeaf::print()'],['../classRopeNode.html#a517e55fe6ae0da703fcca48fd6d4a7f7',1,'RopeNode::print()']]],
-  ['printusage_81',['printUsage',['../classOptions.html#a5a64af47966f3c0a54a8c3a3385065e3',1,'Options']]],
-  ['printversion_82',['printVersion',['../classOptions.html#a7406a60e9cc9f2f08557a953105e23a4',1,'Options']]]
+  ['init_85',['init',['../classJS_1_1Array.html#afba1aff298238cbe4246753e8bd12993',1,'JS::Array::init()'],['../classJS_1_1Function.html#aed34bbf5d0fd21a2464afb6be65b300b',1,'JS::Function::init()'],['../classJS_1_1Object.html#af2801a40d1bdc4d8c7488fb95e57a305',1,'JS::Object::init()']]],
+  ['iscallable_86',['isCallable',['../classJS_1_1Array.html#a184316fdda84336728f481934afaa18f',1,'JS::Array::isCallable()'],['../classJS_1_1Function.html#aa423fe8bbdda1b1073e7a5b5b9cd056d',1,'JS::Function::isCallable()'],['../classJS_1_1Object.html#adc06abb1183505867580f818cbc26ad6',1,'JS::Object::isCallable()']]]
 ];

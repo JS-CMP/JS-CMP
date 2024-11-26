@@ -46,7 +46,9 @@ public:
     }
     /** @brief Convert an double to a string. */
     inline static std::string to_string(double value) {
-        return std::isnan(value) ? "NaN": std::isinf(value) ? value < 0 ? "-Infinity" : "Infinity" : static_cast<std::ostringstream>((std::ostringstream() << value)).str();
+        return std::isnan(value)   ? "NaN"
+               : std::isinf(value) ? value < 0 ? "-Infinity" : "Infinity"
+                                   : static_cast<std::ostringstream>((std::ostringstream() << value)).str();
     }
     /** @brief Convert a Rope to a string. */
     inline static std::string to_string(const Rope& rope) { return rope.toString(); }

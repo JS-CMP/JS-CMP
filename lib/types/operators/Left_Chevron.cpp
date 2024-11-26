@@ -1,6 +1,6 @@
-#include <types/JsAny.hpp>
 #include "../../class/Helper.hpp"
 
+#include <types/JsAny.hpp>
 
 bool JS::Any::operator<(const JS::Any& other) const {
     try {

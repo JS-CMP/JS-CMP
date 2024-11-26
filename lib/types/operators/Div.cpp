@@ -1,6 +1,6 @@
-#include <types/JsAny.hpp>
 #include "../../class/Helper.hpp"
 
+#include <types/JsAny.hpp>
 
 JS::Any JS::Any::operator/(const JS::Any& other) const {
     try {
@@ -72,9 +72,7 @@ JS::Any JS::Any::operator/(const JS::Any& other) const {
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
-    } catch (const std::invalid_argument& e) {
-        return JS::Any(std::numeric_limits<double>::quiet_NaN());
-    }
+    } catch (const std::invalid_argument& e) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
 }
 
 JS::Any JS::Any::operator/(int value) const {
@@ -211,7 +209,7 @@ Any operator/(const char* value, JS::Any const& any) {
             case STRING:
                 return JS::Any(Helper::stod(value) / Helper::stod(std::get<Rope>(any.value)));
             case BOOL:
-                return JS::Any(Helper::stod(value) / static_cast<double>(std::get<bool>(any.value)) );
+                return JS::Any(Helper::stod(value) / static_cast<double>(std::get<bool>(any.value)));
             case NULL_TYPE:
                 return JS::Any(Helper::stod(value) / 0.0);
             default:

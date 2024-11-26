@@ -1,6 +1,6 @@
-#include <types/JsAny.hpp>
 #include "../../class/Helper.hpp"
 
+#include <types/JsAny.hpp>
 
 JS::Any& JS::Any::operator++() {
     try {

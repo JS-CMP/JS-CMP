@@ -1,5 +1,6 @@
-#include <types/JsAny.hpp>
 #include "../../class/Helper.hpp"
+
+#include <types/JsAny.hpp>
 
 bool JS::Any::operator>(const JS::Any& other) const {
     try {
@@ -22,7 +23,7 @@ bool JS::Any::operator>(const JS::Any& other) const {
 
                 switch (other.value.index()) {
                     case NUMBER:
-                        return Helper::stod(std::get<Rope>(this->value))> std::get<double>(other.value);
+                        return Helper::stod(std::get<Rope>(this->value)) > std::get<double>(other.value);
                     case STRING:
                         return std::get<Rope>(this->value).compare(std::get<Rope>(other.value)) > 0;
                     case BOOL:
@@ -64,12 +65,9 @@ bool JS::Any::operator>(const JS::Any& other) const {
                         return false < std::get<bool>(other.value);
                     default:
                         return false;
-
                 }
             default:
                 return false;
         }
-    } catch (const std::invalid_argument&) {
-        return false;
-    }
+    } catch (const std::invalid_argument&) { return false; }
 }

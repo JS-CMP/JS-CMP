@@ -5,5 +5,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node0 [label="Rope",height=0.2,width=0.4,color="black",URL="$classRope.html",tooltip="Represents a rope, a data structure for efficiently manipulating and storing strings."];
+  Node0 [label="Options",height=0.2,width=0.4,color="black",URL="$classOptions.html",tooltip="Handles parsing and storage of command-line options and settings."];
 }

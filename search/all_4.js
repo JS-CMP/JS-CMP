@@ -8,5 +8,6 @@ var searchData=
   ['getflags_14',['getFlags',['../classOptions.html#a1a44a71f48d899ecf217e889e4c7399c',1,'Options']]],
   ['getleft_15',['getLeft',['../classRopeConcat.html#a378ba76ebb5dc510d2f059cef53ba8f5',1,'RopeConcat']]],
   ['getoutputfilename_16',['getOutputFilename',['../classOptions.html#a052efe080ac8745ae147f7a60e700ff0',1,'Options']]],
-  ['getright_17',['getRight',['../classRopeConcat.html#a801f0a5496629e65882a9bf248d4433d',1,'RopeConcat']]]
+  ['getright_17',['getRight',['../classRopeConcat.html#a801f0a5496629e65882a9bf248d4433d',1,'RopeConcat']]],
+  ['getvalue_18',['getValue',['../classJS_1_1Any.html#a1c2e799407b4d95891252c6ebd028220',1,'JS::Any']]]
 ];

@@ -8,6 +8,7 @@ var annotated_dup =
     ] ],
     [ "Builder", "classBuilder.html", "classBuilder" ],
     [ "console", "classconsole.html", null ],
+    [ "Helper", "classHelper.html", null ],
     [ "Options", "classOptions.html", "classOptions" ],
     [ "Rope", "classRope.html", "classRope" ],
     [ "RopeConcat", "classRopeConcat.html", "classRopeConcat" ],

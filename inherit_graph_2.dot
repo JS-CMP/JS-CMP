@@ -5,5 +5,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node0 [label="JS::Any",height=0.2,width=0.4,color="black",URL="$classJS_1_1Any.html",tooltip="Represents a JavaScript-like variant type in C++ that can hold multiple types of values."];
+  Node0 [label="Helper",height=0.2,width=0.4,color="black",URL="$classHelper.html",tooltip="A class that provides helper functions for converting between types."];
 }

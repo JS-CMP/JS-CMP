@@ -55,8 +55,172 @@ public:
     ///@}
 
     /**
-     * @name Arithmetic Operators
-     * These operators perform basic arithmetic like in JavaScript
+     * @name Arithmetic operators +
+     */
+    ///@{
+    /** @brief Addition operator Any + Any */
+    JS::Any operator+(const JS::Any& other) const;
+    /** @brief Addition operator Any + int */
+    JS::Any operator+(int value) const;
+    /** @brief Addition operator Any + double */
+    JS::Any operator+(double value) const;
+    /** @brief Addition operator Any + string */
+    JS::Any operator+(const char* value) const;
+    /** @brief Addition operator Any + bool */
+    JS::Any operator+(bool value) const;
+    /** @brief Addition operator Any + null */
+    JS::Any operator+(JS::Null) const;
+    /** @brief Addition operator Any + undefined */
+    JS::Any operator+(JS::Undefined) const;
+    /** @brief Addition operator int + Any */
+    friend JS::Any operator+(int value, JS::Any const& any);
+    /** @brief Addition operator double + Any */
+    friend JS::Any operator+(double value, JS::Any const& any);
+    /** @brief Addition operator string + Any */
+    friend JS::Any operator+(const char* value, JS::Any const& any);
+    /** @brief Addition operator bool + Any */
+    friend JS::Any operator+(bool value, JS::Any const& any);
+    /** @brief Addition operator null + Any */
+    friend JS::Any operator+(JS::Null, JS::Any const& any);
+    /** @brief Addition operator undefined + Any */
+    friend JS::Any operator+(JS::Undefined, JS::Any const& any);
+    ///@}
+
+    /**
+     * @name Subtraction operators -
+     * These operators perform subtraction operations on the value of the `Any` object.
+     */
+    ///@{
+    /** @brief Subtraction operator Any - Any */
+    JS::Any operator-(const JS::Any& other) const;
+    /** @brief Subtraction operator Any - int */
+    JS::Any operator-(int value) const;
+    /** @brief Subtraction operator Any - double */
+    JS::Any operator-(double value) const;
+    /** @brief Subtraction operator Any - string */
+    JS::Any operator-(const char* value) const;
+    /** @brief Subtraction operator Any - bool */
+    JS::Any operator-(bool value) const;
+    /** @brief Subtraction operator Any - null */
+    JS::Any operator-(JS::Null) const;
+    /** @brief Subtraction operator Any - undefined */
+    JS::Any operator-(JS::Undefined) const;
+    /** @brief Subtraction operator int - Any */
+    friend JS::Any operator-(int value, JS::Any const& any);
+    /** @brief Subtraction operator double - Any */
+    friend JS::Any operator-(double value, JS::Any const& any);
+    /** @brief Subtraction operator string - Any */
+    friend JS::Any operator-(const char* value, JS::Any const& any);
+    /** @brief Subtraction operator bool - Any */
+    friend JS::Any operator-(bool value, JS::Any const& any);
+    /** @brief Subtraction operator null - Any */
+    friend JS::Any operator-(JS::Null, JS::Any const& any);
+    /** @brief Subtraction operator undefined - Any */
+    friend JS::Any operator-(JS::Undefined, JS::Any const& any);
+    ///@}
+
+    /**
+     * @name Multiplication operators *
+     * These operators perform multiplication operations on the value of the `Any` object.
+     */
+    ///@{
+    /** @brief Multiplication operator Any * Any */
+    JS::Any operator*(const JS::Any& other) const;
+    /** @brief Multiplication operator Any * int */
+    JS::Any operator*(int value) const;
+    /** @brief Multiplication operator Any * double */
+    JS::Any operator*(double value) const;
+    /** @brief Multiplication operator Any * string */
+    JS::Any operator*(const char* value) const;
+    /** @brief Multiplication operator Any * bool */
+    JS::Any operator*(bool value) const;
+    /** @brief Multiplication operator Any * null */
+    JS::Any operator*(JS::Null) const;
+    /** @brief Multiplication operator Any * undefined */
+    JS::Any operator*(JS::Undefined) const;
+    /** @brief Multiplication operator int * Any */
+    friend JS::Any operator*(int value, JS::Any const& any);
+    /** @brief Multiplication operator double * Any */
+    friend JS::Any operator*(double value, JS::Any const& any);
+    /** @brief Multiplication operator string * Any */
+    friend JS::Any operator*(const char* value, JS::Any const& any);
+    /** @brief Multiplication operator bool * Any */
+    friend JS::Any operator*(bool value, JS::Any const& any);
+    /** @brief Multiplication operator null * Any */
+    friend JS::Any operator*(JS::Null value, JS::Any const& any);
+    /** @brief Multiplication operator undefined * Any */
+    friend JS::Any operator*(JS::Undefined value, JS::Any const& any);
+    ///@}
+
+    /**
+     * @name Division operators /
+     * These operators perform division operations on the value of the `Any` object.
+     */
+    ///@{
+    /** @brief Division operator Any / Any */
+    JS::Any operator/(const JS::Any& other) const;
+    /** @brief Division operator Any / int */
+    JS::Any operator/(int value) const;
+    /** @brief Division operator Any / double */
+    JS::Any operator/(double value) const;
+    /** @brief Division operator Any / string */
+    JS::Any operator/(const char* value) const;
+    /** @brief Division operator Any / bool */
+    JS::Any operator/(bool value) const;
+    /** @brief Division operator Any / null */
+    JS::Any operator/(JS::Null) const;
+    /** @brief Division operator Any / undefined */
+    JS::Any operator/(JS::Undefined) const;
+    /** @brief Division operator int / Any */
+    friend JS::Any operator/(int value, JS::Any const& any);
+    /** @brief Division operator double / Any */
+    friend JS::Any operator/(double value, JS::Any const& any);
+    /** @brief Division operator string / Any */
+    friend JS::Any operator/(const char* value, JS::Any const& any);
+    /** @brief Division operator bool / Any */
+    friend JS::Any operator/(bool value, JS::Any const& any);
+    /** @brief Division operator null / Any */
+    friend JS::Any operator/(JS::Null value, JS::Any const& any);
+    /** @brief Division operator undefined / Any */
+    friend JS::Any operator/(JS::Undefined value, JS::Any const& any);
+    ///@}
+
+    /**
+     * @name Modulus operators %
+     * These operators perform modulus operations on the value of the `Any` object.
+     */
+    ///@{
+    /** @brief Modulus operator Any % Any */
+    JS::Any operator%(const JS::Any& other) const;
+    /** @brief Modulus operator Any % int */
+    JS::Any operator%(int value) const;
+    /** @brief Modulus operator Any % double */
+    JS::Any operator%(double value) const;
+    /** @brief Modulus operator Any % string */
+    JS::Any operator%(const char* value) const;
+    /** @brief Modulus operator Any % bool */
+    JS::Any operator%(bool value) const;
+    /** @brief Modulus operator Any % null */
+    JS::Any operator%(JS::Null) const;
+    /** @brief Modulus operator Any % undefined */
+    JS::Any operator%(JS::Undefined) const;
+    /** @brief Modulus operator int % Any */
+    friend JS::Any operator%(int value, JS::Any const& any);
+    /** @brief Modulus operator double % Any */
+    friend JS::Any operator%(double value, JS::Any const& any);
+    /** @brief Modulus operator string % Any */
+    friend JS::Any operator%(const char* value, JS::Any const& any);
+    /** @brief Modulus operator bool % Any */
+    friend JS::Any operator%(bool value, JS::Any const& any);
+    /** @brief Modulus operator null % Any */
+    friend JS::Any operator%(JS::Null value, JS::Any const& any);
+    /** @brief Modulus operator undefined % Any */
+    friend JS::Any operator%(JS::Undefined value, JS::Any const& any);
+    ///@}
+
+    /**
+     * @name Arithmetic operators
+     * These operators perform arithmetic operations on the value of the `Any` object.
      */
     ///@{
     /** @brief Addition operator ++a */
@@ -67,15 +231,13 @@ public:
     JS::Any& operator--();
     /** @brief Subtraction operator a-- */
     const JS::Any& operator--(int);
-    /** @brief Addition operator a + b */
-    JS::Any operator+(const JS::Any& other) const;
-    /** @brief Subtraction operator a - b */
-    JS::Any operator-(const JS::Any& other) const;
-    /** @brief Multiplication operator a * b */
-    JS::Any operator*(const JS::Any& other) const;
-    /** @brief Division operator a / b */
-    JS::Any operator/(const JS::Any& other) const;
-    /** @brief Modulus operator a < b */
+    ///@}
+
+    /**
+     * @name Comparison operators
+     * These operators compare the value of the `Any` object with another `Any` object.
+     */
+    /** @brief Comparison operator a < b */
     bool operator<(const JS::Any& other) const;
     /** @brief Modulus operator a > b */
     bool operator>(const JS::Any& other) const;
@@ -109,6 +271,12 @@ public:
      * @return Output stream with `Any` value representation.
      */
     friend std::ostream& operator<<(std::ostream& os, const JS::Any& any);
+
+    /**
+     * @brief Gets the value of the `Any` object.
+     * @return The value of the `Any` object.
+     */
+    [[nodiscard]] JS::Value getValue() const;
     /**
      * @brief Converts the `Any` object to a string.
      * @return String representation of the `Any` value.

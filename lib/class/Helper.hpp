@@ -28,9 +28,9 @@ public:
      */
     ///@{
     /** @brief Convert a string to an double. */
-    static double stod(const std::string& str) { return !str.empty() ? std::stod(str) : 0; }
+    inline static double stod(const std::string& str) { return !str.empty() ? std::stod(str) : 0; }
     /** @brief Convert a Rope to an double. */
-    static double stod(const Rope& rope) { // TODO make it faster without the string conversion
+    inline static double stod(const Rope& rope) { // TODO make it faster without the string conversion
         return Helper::stod(rope.toString());
     }
     ///@}
@@ -41,31 +41,21 @@ public:
      */
     ///@{
     /** @brief Convert an int to a string. */
-    static std::string to_string(int value) {
-        std::ostringstream strs;
-        strs << value;
-        return strs.str();
+    inline static std::string to_string(int value) {
+        return static_cast<std::ostringstream>((std::ostringstream() << value)).str();
     }
     /** @brief Convert an double to a string. */
-    static std::string to_string(double value) {
-        if (std::isnan(value)) {
-            return "NaN";
-        }
-        if (std::isinf(value)) {
-            return value < 0 ? "-Infinity" : "Infinity";
-        }
-        std::ostringstream strs;
-        strs << value;
-        return strs.str();
+    inline static std::string to_string(double value) {
+        return std::isnan(value) ? "NaN": std::isinf(value) ? value < 0 ? "-Infinity" : "Infinity" : static_cast<std::ostringstream>((std::ostringstream() << value)).str();
     }
     /** @brief Convert a Rope to a string. */
-    static std::string to_string(const Rope& rope) { return rope.toString(); }
+    inline static std::string to_string(const Rope& rope) { return rope.toString(); }
     /** @brief Convert a bool to a string. */
-    static std::string to_string(bool value) { return value ? "true" : "false"; }
+    inline static std::string to_string(bool value) { return value ? "true" : "false"; }
     /** @brief Convert a Null to a string. */
-    static std::string to_string(const JS::Null&) { return "null"; }
+    inline static std::string to_string(const JS::Null&) { return "null"; }
     /** @brief Convert a Undefined to a string. */
-    static std::string to_string(const JS::Undefined&) { return "undefined"; }
+    inline static std::string to_string(const JS::Undefined&) { return "undefined"; }
     ///@}
 };
 

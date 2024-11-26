@@ -31,7 +31,7 @@ JS::Any JS::Any::operator*(const JS::Any& other) const {
                         return JS::Any(Helper::stod(std::get<Rope>(this->value)) * std::get<bool>(other.value));
                     case NULL_TYPE:
                         Helper::stod(std::get<Rope>(this->value));
-                        return JS::Any(0); // String * Null is String if String is not 0
+                        return JS::Any(0);
                     default:
                         return JS::Any(std::numeric_limits<double>::quiet_NaN());
                 }
@@ -55,7 +55,7 @@ JS::Any JS::Any::operator*(const JS::Any& other) const {
                         return JS::Any(0);
                     case STRING:
                         Helper::stod(std::get<Rope>(other.value));
-                        return JS::Any(0); // Null * String is 0 if String is not 0
+                        return JS::Any(0);
                     case BOOL:
                         return JS::Any(0);
                     case NULL_TYPE:
@@ -81,10 +81,10 @@ JS::Any JS::Any::operator*(int value) const {
             case NULL_TYPE:
                 return JS::Any(0.0);
             default:
-                return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Invalid type
+                return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
     } catch (const std::invalid_argument&) {
-        return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Handle conversion errors
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
     }
 }
 
@@ -100,10 +100,10 @@ JS::Any JS::Any::operator*(double value) const {
             case NULL_TYPE:
                 return JS::Any(0);
             default:
-                return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Invalid type
+                return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
     } catch (const std::invalid_argument&) {
-        return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Handle conversion errors
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
     }
 }
 
@@ -118,13 +118,13 @@ JS::Any JS::Any::operator*(const char* value) const {
                 return JS::Any(std::get<bool>(this->value) * Helper::stod(value));
             case NULL_TYPE: {
                 Helper::stod(value);
-                return JS::Any(0); // String * Null is String if String is not 0
+                return JS::Any(0);
             }
             default:
-                return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Invalid type
+                return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
     } catch (const std::invalid_argument&) {
-        return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Handle conversion errors
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
     }
 }
 
@@ -140,10 +140,10 @@ JS::Any JS::Any::operator*(bool value) const {
             case NULL_TYPE:
                 return JS::Any(0);
             default:
-                return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Invalid type
+                return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
     } catch (const std::invalid_argument&) {
-        return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Handle conversion errors
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
     }
 }
 
@@ -159,10 +159,10 @@ JS::Any JS::Any::operator*(JS::Null) const {
             case NULL_TYPE:
                 return JS::Any(0);
             default:
-                return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Invalid type
+                return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
     } catch (const std::invalid_argument&) {
-        return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Handle conversion errors
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
     }
 }
 
@@ -181,10 +181,10 @@ Any operator*(int value, const JS::Any& any) {
             case JS::NULL_TYPE:
                 return JS::Any(0);
             default:
-                return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Invalid type
+                return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
     } catch (const std::invalid_argument&) {
-        return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Handle conversion errors
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
     }
 }
 
@@ -200,10 +200,10 @@ Any operator*(double value, const JS::Any& any) {
             case JS::NULL_TYPE:
                 return JS::Any(0);
             default:
-                return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Invalid type
+                return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
     } catch (const std::invalid_argument&) {
-        return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Handle conversion errors
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
     }
 }
 
@@ -218,12 +218,12 @@ Any operator*(const char* value, const JS::Any& any) {
                 return JS::Any(Helper::stod(value) * std::get<bool>(any.getValue()));
             case JS::NULL_TYPE:
                 Helper::stod(value);
-                return JS::Any(0); // String * Null is String if String is not 0
+                return JS::Any(0);
             default:
-                return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Invalid type
+                return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
     } catch (const std::invalid_argument&) {
-        return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Handle conversion errors
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
     }
 }
 
@@ -239,10 +239,10 @@ Any operator*(bool value, const JS::Any& any) {
             case JS::NULL_TYPE:
                 return JS::Any(0);
             default:
-                return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Invalid type
+                return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
     } catch (const std::invalid_argument&) {
-        return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Handle conversion errors
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
     }
 }
 
@@ -258,10 +258,10 @@ Any operator*(JS::Null, const JS::Any& any) {
             case JS::NULL_TYPE:
                 return JS::Any(0);
             default:
-                return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Invalid type
+                return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
     } catch (const std::invalid_argument&) {
-        return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Handle conversion errors
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
     }
 }
 

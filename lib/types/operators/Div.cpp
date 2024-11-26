@@ -16,7 +16,7 @@ JS::Any JS::Any::operator/(const JS::Any& other) const {
                         return JS::Any(std::get<double>(this->value) == 0 ? std::numeric_limits<double>::quiet_NaN()
                                                                           : std::numeric_limits<double>::infinity());
                     default:
-                        return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Undefined case
+                        return JS::Any(std::numeric_limits<double>::quiet_NaN());
                 }
             case STRING:
 
@@ -69,10 +69,10 @@ JS::Any JS::Any::operator/(const JS::Any& other) const {
                 }
 
             default:
-                return JS::Any(std::numeric_limits<double>::quiet_NaN()); // For undefined cases, return NaN
+                return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
     } catch (const std::invalid_argument& e) {
-        return JS::Any(std::numeric_limits<double>::quiet_NaN()); // Catch invalid conversions
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
     }
 }
 
@@ -193,7 +193,7 @@ Any operator/(double value, JS::Any const& any) {
             case STRING:
                 return JS::Any(value / Helper::stod(std::get<Rope>(any.value)));
             case BOOL:
-                return JS::Any(value / std::get<bool>(any.value));
+                return JS::Any(value / static_cast<double>(std::get<bool>(any.value)));
             case NULL_TYPE:
                 return JS::Any(value / 0.0);
             default:
@@ -210,7 +210,7 @@ Any operator/(const char* value, JS::Any const& any) {
             case STRING:
                 return JS::Any(Helper::stod(value) / Helper::stod(std::get<Rope>(any.value)));
             case BOOL:
-                return JS::Any(Helper::stod(value) / std::get<bool>(any.value));
+                return JS::Any(Helper::stod(value) / static_cast<double>(std::get<bool>(any.value)) );
             case NULL_TYPE:
                 return JS::Any(Helper::stod(value) / 0.0);
             default:

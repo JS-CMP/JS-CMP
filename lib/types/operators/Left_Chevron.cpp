@@ -59,7 +59,7 @@ bool JS::Any::operator<(const JS::Any& other) const {
                     default:
                         return false;
                 }
-            default: // handle function and undefined
+            default:
                 return false;
         }
     } catch (const std::invalid_argument& e) { return false; }

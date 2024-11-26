@@ -47,8 +47,8 @@ bool JS::Any::operator>(const JS::Any& other) const {
                     case FUNCTION:
                         return this->toString().compare(other.toString()) > 0;
                     case NULL_TYPE:
-                        return std::get<bool>(this->value) > false; // Boolean > Null is treated as boolean >
-                                                                    // false
+                        return std::get<bool>(this->value) > false;
+
                     default:
                         return false;
                 }
@@ -62,13 +62,13 @@ bool JS::Any::operator>(const JS::Any& other) const {
                     case BOOL:
                         return false < std::get<bool>(other.value);
                     default:
-                        return false; // Null > Null is false, Null > Undefined
-                                      // is false, Null > Function is false
+                        return false;
+
                 }
             default:
-                return false; // handle function and undefined
+                return false;
         }
     } catch (const std::invalid_argument&) {
-        return false; // Handle conversion errors
+        return false;
     }
 }

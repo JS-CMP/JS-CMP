@@ -1,4 +1,4 @@
-#include <cmath>
+#include "../class/Helper.hpp"
 #include <types/JsAny.hpp>
 
 bool JS::Any::operator==(const JS::Any& other) const {
@@ -75,3 +75,5 @@ std::string JS::Any::toString() const {
             return "[Object]";
     }
 }
+
+JS::Value JS::Any::getValue() const { return this->value; }

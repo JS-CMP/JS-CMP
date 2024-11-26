@@ -81,6 +81,8 @@ public:
     bool operator>(const JS::Any& other) const;
     /** @brief Modulus operator a == b */
     bool operator==(const JS::Any& other) const;
+    /** @brief strict equality operator a === b */
+    bool strictEq(const JS::Any& other) const;
     ///@}
 
     /**
@@ -112,6 +114,16 @@ public:
      * @return String representation of the `Any` value.
      */
     [[nodiscard]] std::string toString() const;
+    /**
+     * @brief If value hold a double, check if it is NaN.
+     * @return True if value is NaN, false otherwise.
+     */
+    [[nodiscard]] bool isNan() const;
+    /**
+     * @brief Check if value is undefined.
+     * @return True if value is undefined, false otherwise.
+     */
+    [[nodiscard]] bool isUndefined() const;
 
 private:
     JS::Value value; /**< Holds the current value of this Any instance. */

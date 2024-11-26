@@ -78,3 +78,34 @@ std::string JS::Any::toString() const {
             return "[Object]";
     }
 }
+
+bool JS::Any::isNan() const {
+    return this->value.index() == NUMBER && std::isnan(std::get<double>(this->value));
+}
+
+bool JS::Any::isUndefined() const {
+    return this->value.index() == UNDEFINED;
+}
+
+bool JS::Any::strictEq(const JS::Any& other) const {
+    std::cout << value.index() << " " << other.value.index() << std::endl;
+    if (this->value.index() != other.value.index()) {
+        return false;
+    }
+    switch (this->value.index()) {
+        case NUMBER:
+            return std::get<double>(this->value) == std::get<double>(other.value);
+        case STRING:
+            return std::get<Rope>(this->value) == std::get<Rope>(other.value);
+        case BOOL:
+            return std::get<bool>(this->value) == std::get<bool>(other.value);
+        case UNDEFINED:
+            return true;
+        case NULL_TYPE:
+            return true;
+        case OBJECT:
+            return &std::get<std::shared_ptr<Object>>(this->value) == &std::get<std::shared_ptr<Object>>(other.value);
+        default:
+            return false;
+    }
+}

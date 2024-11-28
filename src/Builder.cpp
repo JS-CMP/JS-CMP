@@ -1,4 +1,5 @@
 #include "Builder.hpp"
+
 Builder::Builder(const Options& options) : options(options) {}
 
 void Builder::build() {

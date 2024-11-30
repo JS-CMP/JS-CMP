@@ -1,4 +1,6 @@
-#include "../../../includes/types/JsAny.hpp"
+#include "../../class/Helper.hpp"
+
+#include <types/JsAny.hpp>
 
 bool JS::Any::operator>(const JS::Any& other) const {
     try {
@@ -9,7 +11,7 @@ bool JS::Any::operator>(const JS::Any& other) const {
                     case NUMBER:
                         return std::get<double>(this->value) > std::get<double>(other.value);
                     case STRING:
-                        return std::get<double>(this->value) > std::stod(std::get<Rope>(other.value).toString());
+                        return std::get<double>(this->value) > Helper::stod(std::get<Rope>(other.value));
                     case BOOL:
                         return static_cast<long long int>(std::get<double>(this->value)) > std::get<bool>(other.value);
                     case NULL_TYPE:
@@ -21,11 +23,11 @@ bool JS::Any::operator>(const JS::Any& other) const {
 
                 switch (other.value.index()) {
                     case NUMBER:
-                        return std::stod(std::get<Rope>(this->value).toString()) > std::get<double>(other.value);
+                        return Helper::stod(std::get<Rope>(this->value)) > std::get<double>(other.value);
                     case STRING:
                         return std::get<Rope>(this->value).compare(std::get<Rope>(other.value)) > 0;
                     case BOOL:
-                        return static_cast<long long int>(std::stod(std::get<Rope>(this->value).toString())) >
+                        return static_cast<long long int>(Helper::stod(std::get<Rope>(this->value))) >
                                std::get<bool>(other.value);
                     case FUNCTION:
                         return this->toString().compare(other.toString()) > 0;
@@ -41,14 +43,14 @@ bool JS::Any::operator>(const JS::Any& other) const {
                         return std::get<bool>(this->value) > static_cast<long long int>(std::get<double>(other.value));
                     case STRING:
                         return std::get<bool>(this->value) >
-                               static_cast<long long int>(std::stod(std::get<Rope>(other.value).toString()));
+                               static_cast<long long int>(Helper::stod(std::get<Rope>(other.value)));
                     case BOOL:
                         return std::get<bool>(this->value) > std::get<bool>(other.value);
                     case FUNCTION:
                         return this->toString().compare(other.toString()) > 0;
                     case NULL_TYPE:
-                        return std::get<bool>(this->value) > false; // Boolean > Null is treated as boolean >
-                                                                    // false
+                        return std::get<bool>(this->value) > false;
+
                     default:
                         return false;
                 }
@@ -58,17 +60,14 @@ bool JS::Any::operator>(const JS::Any& other) const {
                     case NUMBER:
                         return 0.0 > std::get<double>(other.value);
                     case STRING:
-                        return 0.0 > std::stod(std::get<Rope>(other.value).toString());
+                        return 0.0 > Helper::stod(std::get<Rope>(other.value));
                     case BOOL:
                         return false < std::get<bool>(other.value);
                     default:
-                        return false; // Null > Null is false, Null > Undefined
-                                      // is false, Null > Function is false
+                        return false;
                 }
             default:
-                return false; // handle function and undefined
+                return false;
         }
-    } catch (const std::invalid_argument&) {
-        return false; // Handle conversion errors
-    }
+    } catch (const std::invalid_argument&) { return false; }
 }

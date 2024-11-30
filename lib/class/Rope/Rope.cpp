@@ -1,4 +1,5 @@
 #include <class/Rope/Rope.hpp>
+
 Rope::Rope(const std::string& str) : root(std::make_shared<RopeLeaf>(str)) {}
 
 Rope::Rope(const char* str) : root(std::make_shared<RopeLeaf>(std::string(str))) {}
@@ -18,7 +19,7 @@ void Rope::concat(const Rope& other) { root = std::make_shared<RopeConcat>(root,
 
 Rope Rope::operator+(const Rope& other) const { return Rope(std::make_shared<RopeConcat>(root, other.root)); }
 
-Rope Rope::operator+(const std::string& other) { return Rope(std::make_shared<RopeConcat>(root, other)); }
+Rope Rope::operator+(const std::string& other) const { return Rope(std::make_shared<RopeConcat>(root, other)); }
 
 Rope Rope::operator+(const std::string&& other) const { return Rope(std::make_shared<RopeConcat>(root, other)); }
 

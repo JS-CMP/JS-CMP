@@ -31,9 +31,7 @@ int stringToNumber(const std::string& str) {
         try {
             long long result = std::stoll(str);
             return static_cast<int>(result & 0xFFFFFFFF);
-        } catch (...) {
-            return 0;
-        }
+        } catch (...) { return 0; }
     }
 }
 
@@ -53,7 +51,5 @@ JS::Any JS::Any::operator~() const {
             default:
                 return JS::Any(0);
         }
-    } catch (const std::invalid_argument &e) {
-        return JS::Any(std::numeric_limits<double>::quiet_NaN());
-    }
+    } catch (const std::invalid_argument& e) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
 }

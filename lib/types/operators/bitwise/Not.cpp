@@ -41,24 +41,19 @@ JS::Any JS::Any::operator~() const {
     try {
         switch (this->value.index()) {
             case NUMBER: {
-                // Application de ~ sur un NUMBER
                 return JS::Any(~static_cast<int>(std::get<double>(this->value)));
             }
             case STRING: {
-                // Conversion de la chaîne en nombre, puis application de ~
                 int number = stringToNumber(std::get<Rope>(this->value).toString());
                 return JS::Any(~number);
             }
             case BOOL: {
-                // Conversion du booléen en int (true -> 1, false -> 0), puis application de ~
                 return JS::Any(~static_cast<int>(std::get<bool>(this->value)));
             }
             default:
-                // Retourne 0 pour les types non supportés
                 return JS::Any(0);
         }
     } catch (const std::invalid_argument &e) {
-        // En cas d'erreur de conversion, retourne NaN
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
     }
 }

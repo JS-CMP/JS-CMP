@@ -61,16 +61,142 @@ public:
     ///@{
     /** @brief Bitwise AND operator a & b */
     JS::Any operator&(const JS::Any& other) const;
+    /** @brief Bitwise AND operator a & int */
+    JS::Any operator&(int value) const;
+    /** @brief Bitwise AND operator a & double */
+    JS::Any operator&(double value) const;
+    /** @brief Bitwise AND operator a & string */
+    JS::Any operator&(const char* value) const;
+    /** @brief Bitwise AND operator a & bool */
+    JS::Any operator&(bool value) const;
+    /** @brief Bitwise AND operator a & null */
+    JS::Any operator&(JS::Null) const;
+    /** @brief Bitwise AND operator a & undefined */
+    JS::Any operator&(JS::Undefined) const;
+    /** @brief Bitwise AND operator int & Any */
+    friend JS::Any operator&(int value, JS::Any const& any);
+    /** @brief Bitwise AND operator double & Any */
+    friend JS::Any operator&(double value, JS::Any const& any);
+    /** @brief Bitwise AND operator string & Any */
+    friend JS::Any operator&(const char* value, JS::Any const& any);
+    /** @brief Bitwise AND operator bool & Any */
+    friend JS::Any operator&(bool value, JS::Any const& any);
+    /** @brief Bitwise AND operator null & Any */
+    friend JS::Any operator&(JS::Null value, JS::Any const& any);
+    /** @brief Bitwise AND operator undefined & Any */
+    friend JS::Any operator&(JS::Undefined value, JS::Any const& any);
+
     /** @brief Bitwise OR operator a | b */
     JS::Any operator|(const JS::Any& other) const;
+    /** @brief Bitwise OR operator a | int */
+    JS::Any operator|(int value) const;
+    /** @brief Bitwise OR operator a | double */
+    JS::Any operator|(double value) const;
+    /** @brief Bitwise OR operator a | string */
+    JS::Any operator|(const char* value) const;
+    /** @brief Bitwise OR operator a | bool */
+    JS::Any operator|(bool value) const;
+    /** @brief Bitwise OR operator a | null */
+    JS::Any operator|(JS::Null) const;
+    /** @brief Bitwise OR operator a | undefined */
+    JS::Any operator|(JS::Undefined) const;
+    /** @brief Bitwise OR operator int | Any */
+    friend JS::Any operator|(int value, JS::Any const& any);
+    /** @brief Bitwise OR operator double | Any */
+    friend JS::Any operator|(double value, JS::Any const& any);
+    /** @brief Bitwise OR operator string | Any */
+    friend JS::Any operator|(const char* value, JS::Any const& any);
+    /** @brief Bitwise OR operator bool | Any */
+    friend JS::Any operator|(bool value, JS::Any const& any);
+    /** @brief Bitwise OR operator null | Any */
+    friend JS::Any operator|(JS::Null value, JS::Any const& any);
+    /** @brief Bitwise OR operator undefined | Any */
+    friend JS::Any operator|(JS::Undefined value, JS::Any const& any);
+
     /** @brief Bitwise XOR operator a ^ b */
     JS::Any operator^(const JS::Any& other) const;
+    /** @brief Bitwise XOR operator a ^ int */
+    JS::Any operator^(int value) const;
+    /** @brief Bitwise XOR operator a ^ double */
+    JS::Any operator^(double value) const;
+    /** @brief Bitwise XOR operator a ^ string */
+    JS::Any operator^(const char* value) const;
+    /** @brief Bitwise XOR operator a ^ bool */
+    JS::Any operator^(bool value) const;
+    /** @brief Bitwise XOR operator a ^ null */
+    JS::Any operator^(JS::Null) const;
+    /** @brief Bitwise XOR operator a ^ undefined */
+    JS::Any operator^(JS::Undefined) const;
+    /** @brief Bitwise XOR operator int ^ Any */
+    friend JS::Any operator^(int value, JS::Any const& any);
+    /** @brief Bitwise XOR operator double ^ Any */
+    friend JS::Any operator^(double value, JS::Any const& any);
+    /** @brief Bitwise XOR operator string ^ Any */
+    friend JS::Any operator^(const char* value, JS::Any const& any);
+    /** @brief Bitwise XOR operator bool ^ Any */
+    friend JS::Any operator^(bool value, JS::Any const& any);
+    /** @brief Bitwise XOR operator null ^ Any */
+    friend JS::Any operator^(JS::Null value, JS::Any const& any);
+    /** @brief Bitwise XOR operator undefined ^ Any */
+    friend JS::Any operator^(JS::Undefined value, JS::Any const& any);
+
     /** @brief Bitwise NOT operator ~a */
     JS::Any operator~() const;
+
     /** @brief Bitwise left shift operator a << b */
     JS::Any operator<<(const JS::Any& other) const;
+    /** @brief Bitwise left shift operator a << int */
+    JS::Any operator<<(int value) const;
+    /** @brief Bitwise left shift operator a << double */
+    JS::Any operator<<(double value) const;
+    /** @brief Bitwise left shift operator a << string */
+    JS::Any operator<<(const char* value) const;
+    /** @brief Bitwise left shift operator a << bool */
+    JS::Any operator<<(bool value) const;
+    /** @brief Bitwise left shift operator a << null */
+    JS::Any operator<<(JS::Null) const;
+    /** @brief Bitwise left shift operator a << undefined */
+    JS::Any operator<<(JS::Undefined) const;
+    /** @brief Bitwise left shift operator int << Any */
+    friend JS::Any operator<<(int value, JS::Any const& any);
+    /** @brief Bitwise left shift operator double << Any */
+    friend JS::Any operator<<(double value, JS::Any const& any);
+    /** @brief Bitwise left shift operator string << Any */
+    friend JS::Any operator<<(const char* value, JS::Any const& any);
+    /** @brief Bitwise left shift operator bool << Any */
+    friend JS::Any operator<<(bool value, JS::Any const& any);
+    /** @brief Bitwise left shift operator null << Any */
+    friend JS::Any operator<<(JS::Null value, JS::Any const& any);
+    /** @brief Bitwise left shift operator undefined << Any */
+    friend JS::Any operator<<(JS::Undefined value, JS::Any const& any);
+
     /** @brief Bitwise right shift operator a >> b */
     JS::Any operator>>(const JS::Any& other) const;
+    /** @brief Bitwise right shift operator a >> int */
+    JS::Any operator>>(int value) const;
+    /** @brief Bitwise right shift operator a >> double */
+    JS::Any operator>>(double value) const;
+    /** @brief Bitwise right shift operator a >> string */
+    JS::Any operator>>(const char* value) const;
+    /** @brief Bitwise right shift operator a >> bool */
+    JS::Any operator>>(bool value) const;
+    /** @brief Bitwise right shift operator a >> null */
+    JS::Any operator>>(JS::Null) const;
+    /** @brief Bitwise right shift operator a >> undefined */
+    JS::Any operator>>(JS::Undefined) const;
+    /** @brief Bitwise right shift operator int >> Any */
+    friend JS::Any operator>>(int value, JS::Any const& any);
+    /** @brief Bitwise right shift operator double >> Any */
+    friend JS::Any operator>>(double value, JS::Any const& any);
+    /** @brief Bitwise right shift operator string >> Any */
+    friend JS::Any operator>>(const char* value, JS::Any const& any);
+    /** @brief Bitwise right shift operator bool >> Any */
+    friend JS::Any operator>>(bool value, JS::Any const& any);
+    /** @brief Bitwise right shift operator null >> Any */
+    friend JS::Any operator>>(JS::Null value, JS::Any const& any);
+    /** @brief Bitwise right shift operator undefined >> Any */
+    friend JS::Any operator>>(JS::Undefined value, JS::Any const& any);
+
     ///@}
 
     /**

@@ -1,7 +1,6 @@
 #ifndef JSANY_HPP
 #define JSANY_HPP
 
-#include "./objects/JsObject.hpp"
 #include "Types.hpp"
 
 namespace JS {
@@ -21,25 +20,25 @@ public:
      */
     ///@{
     /** @brief Default constructor initializes the value to undefined */
-    Any() : value(JS::Undefined{}){};
+    Any() : value(JS::Undefined{}) {};
     /** @brief Constructor for int */
-    explicit Any(int v) : value(static_cast<double>(v)){};
+    explicit Any(int v) : value(static_cast<double>(v)) {};
     /** @brief Constructor for double */
-    explicit Any(double v) : value(v){};
+    explicit Any(double v) : value(v) {};
     /** @brief Constructor for Rope */
-    explicit Any(Rope& v) : value(v){};
+    explicit Any(Rope& v) : value(v) {};
     /** @brief Constructor for Rope */
-    explicit Any(Rope v) : value(v){};
+    explicit Any(Rope v) : value(v) {};
     /** @brief Constructor for string */
-    explicit Any(const std::string& v) : value(Rope(v)){};
+    explicit Any(const std::string& v) : value(Rope(v)) {};
     /** @brief Constructor for string */
-    explicit Any(const char* v) : value(Rope(v)){};
+    explicit Any(const char* v) : value(Rope(v)) {};
     /** @brief Constructor for bool */
-    explicit Any(bool v) : value(v){};
+    explicit Any(bool v) : value(v) {};
     /** @brief Constructor for undefined */
-    explicit Any(JS::Undefined v) : value(JS::Undefined{}){};
+    explicit Any(JS::Undefined v) : value(JS::Undefined{}) {};
     /** @brief Constructor for null */
-    explicit Any(JS::Null v) : value(JS::Null{}){};
+    explicit Any(JS::Null v) : value(JS::Null{}) {};
     /** @brief Constructor for object taking a shared_ptr */
     explicit Any(std::shared_ptr<JS::Object> v);
     /** @brief Constructor for object */

@@ -1,3 +1,5 @@
+#include "utils/Convert.hpp"
+
 #include <types/JsAny.hpp>
 #include <types/objects/JsFunction.hpp>
 
@@ -18,14 +20,15 @@ JS::Any& JS::Any::operator[](size_t index) const {
 JS::Any JS::Any::helper(std::vector<JS::Any>& args) const {
     if (value.index() == JS::OBJECT && std::get<std::shared_ptr<JS::Object>>(value)->isCallable()) {
         // TODO: change if function is not the only callable object
-        return std::dynamic_pointer_cast<JS::Function>(std::get<std::shared_ptr<JS::Object>>(value))->operator()(args);
+        // reinterpret_cast<JS::Function*>(std::get<std::shared_ptr<JS::Object>>(value).get())->call(args);
+        return std::get<std::shared_ptr<JS::Object>>(value)->operator()(args);
     }
     throw std::runtime_error("Value is not a function");
 }
 
 namespace JS {
 std::ostream& operator<<(std::ostream& os, const Any& any) {
-    os << any.toString();
+    os << JS::CONVERT::ToString(any);
     return os;
 }
 } // namespace JS

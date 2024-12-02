@@ -1,4 +1,5 @@
 #include <types/JsAny.hpp>
+#include <types/objects/JsObject.hpp>
 
 JS::Any::Any(const std::shared_ptr<JS::Object> v) {
     v->init();

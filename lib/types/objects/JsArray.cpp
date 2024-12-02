@@ -7,17 +7,18 @@ Array::Array(JS::Array&& other) noexcept : Object(std::move(other)), elements(st
 Array::Array(const JS::Array& other) : Object(other), elements(other.elements) {}
 
 void Array::init() {
-    this->operator[]("length") = JS::Any(0);
-    this->operator[]("pop") = JS::Any(
-        std::make_shared<JS::Function>(JS::Function([self = shared_from_this()](const std::vector<JS::Any>& args) {
-            auto last = self->elements->back();
-            self->elements->pop_back();
-            self->operator[]("length") = self->operator[]("length") - JS::Any(1);
-            return last;
-        })));
+    //    this->operator[]("length") = JS::Any(0);
+    //    this->operator[]("pop") = JS::Any(
+    //        std::make_shared<JS::Function>(JS::Function([self = shared_from_this()](const std::vector<JS::Any>& args)
+    //        {
+    //            auto last = self->elements->back();
+    //            self->elements->pop_back();
+    //            self->operator[]("length") = self->operator[]("length") - JS::Any(1);
+    //            return last;
+    //        })));
 }
 
-JS::Any& Array::operator[](const std::string& key) { return properties->operator[](key); }
+JS::Any& Array::operator[](const std::string& key) { return (*properties)[key].value; }
 
 // TODO: https://github.com/JS-CMP/JS-CMP/issues/35
 JS::Any& Array::operator[](size_t index) {

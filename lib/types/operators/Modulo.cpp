@@ -1,6 +1,6 @@
+#include <cmath>
 #include <types/JsAny.hpp>
 #include <utils/Convert.hpp>
-#include <cmath>
 
 JS::Any JS::Any::operator%(const JS::Any& other) const {
     try {

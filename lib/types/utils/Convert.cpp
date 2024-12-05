@@ -62,7 +62,9 @@ double ToNumber(const JS::Any& any) { // https://262.ecma-international.org/5.1/
 }
 
 inline int ToInteger(int value) { return value; }
-inline int ToInteger(double value) { return std::isnan(value) ? 0 : value < 0 ? -std::floor(-value) : std::floor(value); }
+inline int ToInteger(double value) {
+    return std::isnan(value) ? 0 : value < 0 ? -std::floor(-value) : std::floor(value);
+}
 inline int ToInteger(const std::string& str) { return ToInteger(ToNumber(str)); }
 inline int ToInteger(const Rope& rope) { return ToInteger(rope.toString()); }
 inline int ToInteger(bool value) { return value ? 1 : 0; }
@@ -84,7 +86,6 @@ int ToInteger(const JS::Any& any) { // https://262.ecma-international.org/5.1/#s
             return 0;
     }
 }
-
 
 inline std::string ToString(int value) {
     return static_cast<std::ostringstream>((std::ostringstream() << value)).str();
@@ -116,8 +117,6 @@ std::string ToString(const JS::Any& any) { // https://262.ecma-international.org
             return "[Object]";
     }
 }
-
-
 
 JS::Any ToObject(const JS::Any& any) { // https://262.ecma-international.org/5.1/#sec-9.9
     if (any.getValue().index() == JS::OBJECT) {

@@ -1,0 +1,141 @@
+#include "../../../../includes/types/JsAny.hpp"
+
+int stringToNumber(const std::string& str) {
+    if (str.empty()) {
+        throw std::invalid_argument("La chaîne est vide");
+    }
+
+    if (str.size() > 2 && str[0] == '0' && (str[1] == 'x' || str[1] == 'X')) {
+        uint32_t result;
+        std::stringstream ss;
+        ss << std::hex << str.substr(2);
+        ss >> result;
+        if (ss.fail()) {
+            return 0;
+        }
+        return static_cast<int>(result & 0xFFFFFFFF);
+    }
+
+    else if (str.size() > 2 && str[0] == '0' && (str[1] == 'b' || str[1] == 'B')) {
+        uint32_t result = 0;
+        for (size_t i = 2; i < str.size(); ++i) {
+            if (str[i] != '0' && str[i] != '1') {
+                return 0;
+            }
+            result = (result << 1) | (str[i] - '0');
+        }
+        return static_cast<int>(result & 0xFFFFFFFF);
+    }
+
+    else {
+        try {
+            long long result = std::stoll(str);
+            return static_cast<int>(result & 0xFFFFFFFF);
+        } catch (...) { return 0; }
+    }
+}
+
+JS::Any JS::Any::operator|(const JS::Any& other) const {
+    try {
+        switch (this->value.index()) {
+            case NUMBER:
+                switch (other.value.index()) {
+                    case NUMBER:
+                        return JS::Any(static_cast<int>(std::get<double>(this->value)) |
+                                       static_cast<int>(std::get<double>(other.value)));
+                    case STRING:
+                        return JS::Any(static_cast<int>(std::get<double>(this->value)) |
+                                       stringToNumber(std::get<Rope>(other.value).toString()));
+                    case BOOL:
+                        return JS::Any(static_cast<int>(std::get<double>(this->value)) |
+                                       static_cast<int>(std::get<bool>(other.value)));
+                    default:
+                        return JS::Any(0);
+                }
+            case STRING:
+                switch (other.value.index()) {
+                    case NUMBER:
+                        return JS::Any(stringToNumber(std::get<Rope>(this->value).toString()) |
+                                       static_cast<int>(std::get<double>(other.value)));
+                    case STRING:
+                        return JS::Any(stringToNumber(std::get<Rope>(this->value).toString()) |
+                                       stringToNumber(std::get<Rope>(other.value).toString()));
+                    case BOOL:
+                        return JS::Any(stringToNumber(std::get<Rope>(this->value).toString()) |
+                                       static_cast<int>(std::get<bool>(other.value)));
+                    default:
+                        return JS::Any(0);
+                }
+            case BOOL:
+                switch (other.value.index()) {
+                    case NUMBER:
+                        return JS::Any(static_cast<int>(std::get<bool>(this->value)) |
+                                       static_cast<int>(std::get<double>(other.value)));
+                    case STRING:
+                        return JS::Any(static_cast<int>(std::get<bool>(this->value)) |
+                                       stringToNumber(std::get<Rope>(other.value).toString()));
+                    case BOOL:
+                        return JS::Any(static_cast<int>(std::get<bool>(this->value)) |
+                                       static_cast<int>(std::get<bool>(other.value)));
+                    default:
+                        return JS::Any(0);
+                }
+            default:
+                return JS::Any(0);
+        }
+    } catch (const std::invalid_argument& e) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+}
+
+JS::Any JS::Any::operator|(int value) const {
+    try {
+        switch (this->value.index()) {
+            case NUMBER: {
+                int lhs = static_cast<int>(std::get<double>(this->value));
+                return JS::Any(lhs | value);
+            }
+            case STRING: {
+                int lhs = stringToNumber(std::get<Rope>(this->value).toString());
+                return JS::Any(lhs | value);
+            }
+            case BOOL: {
+                int lhs = static_cast<int>(std::get<bool>(this->value));
+                return JS::Any(lhs | value);
+            }
+            default:
+                return JS::Any(value); // Si JS::Any est null/undefined, retourne `value`
+        }
+    } catch (const std::invalid_argument& e) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+}
+
+JS::Any JS::Any::operator|(double value) const { return *this | static_cast<int>(value); }
+
+JS::Any JS::Any::operator|(const char* value) const {
+    int rhs = stringToNumber(std::string(value));
+    return *this | rhs;
+}
+
+JS::Any JS::Any::operator|(bool value) const {
+    int rhs = static_cast<int>(value);
+    return *this | rhs;
+}
+
+JS::Any JS::Any::operator|(JS::Null) const { return *this | 0; }
+
+JS::Any JS::Any::operator|(JS::Undefined) const { return *this | 0; }
+
+namespace JS {
+JS::Any operator|(int value, const JS::Any& any) { return any | value; }
+
+JS::Any operator|(double value, const JS::Any& any) { return any | static_cast<int>(value); }
+
+JS::Any operator|(const char* value, const JS::Any& any) {
+    int lhs = stringToNumber(std::string(value));
+    return any | lhs;
+}
+
+JS::Any operator|(bool value, const JS::Any& any) { return any | static_cast<int>(value); }
+
+JS::Any operator|(JS::Null, const JS::Any& any) { return any | 0; }
+
+JS::Any operator|(JS::Undefined, const JS::Any& any) { return any | 0; }
+} // namespace JS

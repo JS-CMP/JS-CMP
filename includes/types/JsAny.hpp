@@ -256,9 +256,9 @@ public:
         return helper(arguments);
     }
     /** @brief Accessors to properties of object in stored in value */
-    JS::Any& operator[](const std::string& key) const;
+    JS::Any operator[](const std::string& key) const;
     /** @brief Accessors to properties of object in stored in value */
-    JS::Any& operator[](size_t index) const;
+    JS::Any operator[](size_t index) const;
     ///@}
 
     /**

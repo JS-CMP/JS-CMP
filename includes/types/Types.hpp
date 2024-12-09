@@ -29,6 +29,7 @@ enum Types {
 
 class Any;
 class Object;
+class Function;
 class Array;
 
 using FunctionType =

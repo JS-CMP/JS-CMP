@@ -47,7 +47,7 @@ void Object::init() {
 }
 
 JS::Any Object::getPrototype() { // TODO https://262.ecma-international.org/5.1/#sec-15.2.3.2
-    return {};
+    return JS::Any(this->prototype);
 }
 JS::Any Object::getPropertyDescriptor(std::string key) {
     if (properties->find(key) == properties->end()) {

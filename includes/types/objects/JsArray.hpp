@@ -40,7 +40,7 @@ public:
      * @param index Index of the element.
      * @return Reference to the `JS::Any` element at the specified index.
      */
-    JS::Any& operator[](size_t index) override;
+    JS::Any operator[](size_t index) override;
 
     /**
      * @brief Accesses an element by a string key.
@@ -48,7 +48,7 @@ public:
      * @param key String key of the element.
      * @return Reference to the `JS::Any` element associated with the key.
      */
-    JS::Any& operator[](const std::string& key) override;
+    JS::Any operator[](const std::string& key) override;
 
     /**
      * @brief Adds a new element to the end of the array.

@@ -18,10 +18,10 @@ void Array::init() {
     //        })));
 }
 
-JS::Any& Array::operator[](const std::string& key) { return (*properties)[key].value; }
+JS::Any Array::operator[](const std::string& key) { return this->get(key); }
 
 // TODO: https://github.com/JS-CMP/JS-CMP/issues/35
-JS::Any& Array::operator[](size_t index) {
+JS::Any Array::operator[](size_t index) {
     if (index >= elements->size()) {
         elements->resize(index + 1, JS::Any(JS::Undefined{}));
     }

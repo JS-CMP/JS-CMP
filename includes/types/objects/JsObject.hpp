@@ -2,22 +2,13 @@
 #define JSOBJECT_HPP
 
 #include "../Types.hpp"
+#include "types/Attribute.hpp"
 #include "types/JsAny.hpp"
 
+#include <optional>
 #include <utility>
 
 namespace JS {
-class Attribute {
-public:
-    Attribute() = default;
-    Attribute(const JS::Any& value) : value(value) {};
-    Attribute(std::shared_ptr<JS::Object> value) {};
-    JS::Any value;
-    bool writable = true;
-    bool enumerable = true;
-    bool configurable = true;
-};
-
 /**
  * @class Object
  * @brief Represents a JavaScript-like object in C++.
@@ -58,20 +49,58 @@ public:
      */
     ///@{
     /** @brief Accessors to properties with string of object in stored in value */
-    virtual JS::Any& operator[](const std::string& key);
+    virtual JS::Any operator[](const std::string& key);
     /** @brief Accessors to properties with number of object in stored in value */
-    virtual JS::Any& operator[](size_t index);
+    virtual JS::Any operator[](size_t index);
     ///@}
 
+    /**
+     * Call operator for the object
+     * @param args The arguments to pass to the function
+     * @return The result of the function call
+     */
     JS::Any operator()(const std::vector<JS::Any>& args);
 
+    /**
+     * @name Methods to make static methods of the Object built-in
+     */
+    ///@{
+    /** @brief Get the prototype of the object */
     JS::Any getPrototype();
+    /** @brief Get the property descriptor of the object */
     JS::Any getPropertyDescriptor(std::string key);
+    /** @brief Get the property names of the object */
     JS::Any create();
+    /** @brief Create a new object */
     JS::Any create(std::shared_ptr<JS::Object> properties);
+    ///@}
 
-    // internal methods
-    JS::Any defineOwnProperty(std::string key, Attribute attribute, bool is_throw = false);
+    /**
+     * @name Internal Properties Common to All Objects
+     * These methods provide access to the internal properties of the object
+     */
+    ///@{
+    /** @brief Get a property of the object https://262.ecma-international.org/5.1/#sec-8.12.1 */
+    std::optional<JS::Attribute> getOwnProperty(const std::string& key) const;
+    /** @brief Get a property of the object with all the parent included https://262.ecma-international.org/5.1/#sec-8.12.2 */
+    std::optional<JS::Attribute> getProperty(const std::string& key) const;
+    /** @brief Get a property of the object with all the parent included and all the checks for descriptor https://262.ecma-international.org/5.1/#sec-8.12.3 */
+    JS::Any get(const std::string& key) const;
+    /** @brief Check if a property can be put in the object https://262.ecma-international.org/5.1/#sec-8.12.4 */
+    bool canPut(const std::string& key) const;
+    /** @brief Put a property in the object https://262.ecma-international.org/5.1/#sec-8.12.5 */
+    void put(const std::string& key, const JS::Any& value, bool is_throw = false);
+    /** @brief Check if a property exists in the object https://262.ecma-international.org/5.1/#sec-8.12.6 */
+    bool hasProperty(const std::string& key) const;
+    /** @brief Delete a property in the object https://262.ecma-international.org/5.1/#sec-8.12.7 */
+    bool deleteProperty(const std::string& key, bool is_throw = false);
+    /** @brief Get the default value of the object https://262.ecma-international.org/5.1/#sec-8.12.8 */
+    JS::Any defaultValue(const JS::Types& hint) const;
+    /** @brief Get the default value of the object https://262.ecma-international.org/5.1/#sec-8.12.8 */
+    JS::Any defaultValue() const;
+    /** @brief Define a property in the object https://262.ecma-international.org/5.1/#sec-8.12.9 */
+    bool defineOwnProperty(const std::string& key, Attribute attribute, bool is_throw = false);
+    ///@}
 
     /**
      * @name Methods
@@ -80,12 +109,18 @@ public:
     ///@{
     /** @brief init functions in the properties, made for inherited class */
     virtual void init();
-
+    /** @brief Check if the object is callable */
     virtual bool isCallable() const;
+    ///@}
 
 protected:
     std::shared_ptr<std::unordered_map<std::string, JS::Attribute>> properties =
         std::make_shared<std::unordered_map<std::string, JS::Attribute>>(); /**< The properties of the object. */
+
+    // Internal Properties Common to All Objects
+    std::shared_ptr<JS::Object> prototype = nullptr; /**< The prototype of the object. */
+    std::string class_name = "Object";               /**< The class name of the object. */
+    bool extensible = true;                          /**< Whether the object is extensible. */
 };
 } // namespace JS
 

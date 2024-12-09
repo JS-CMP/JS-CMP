@@ -3,14 +3,14 @@
 #include <types/JsAny.hpp>
 #include <types/objects/JsFunction.hpp>
 
-JS::Any& JS::Any::operator[](const std::string& key) const {
+JS::Any JS::Any::operator[](const std::string& key) const {
     if (this->value.index() == OBJECT) {
         return std::get<std::shared_ptr<JS::Object>>(this->value)->operator[](key);
     }
     throw std::runtime_error("Value is not an object");
 }
 
-JS::Any& JS::Any::operator[](size_t index) const {
+JS::Any JS::Any::operator[](size_t index) const {
     if (this->value.index() == OBJECT) {
         return std::get<std::shared_ptr<JS::Object>>(this->value)->operator[](index);
     }

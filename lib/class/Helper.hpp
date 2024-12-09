@@ -58,6 +58,25 @@ public:
     inline static std::string to_string(const JS::Null&) { return "null"; }
     /** @brief Convert a Undefined to a string. */
     inline static std::string to_string(const JS::Undefined&) { return "undefined"; }
+    /** @brief Check if Any is undefined */
+    inline static bool isUndefined(const JS::Any& any) { return any.getValue().index() == JS::UNDEFINED; }
+    /** @brief Check if Any is nan */
+    inline static bool isNaN(const JS::Any& any) {
+        return any.getValue().index() == JS::NUMBER && std::isnan(std::get<double>(any.getValue()));
+    }
+    /** @brief return the typeof the value in Any */
+    inline static std::string type_of(const JS::Any& any) {
+        switch (any.getValue().index()) {
+            case JS::NUMBER: return "number";
+            case JS::STRING: return "string";
+            case JS::BOOL: return "boolean";
+            case JS::UNDEFINED: return "undefined";
+            case JS::NULL_TYPE: return "object";
+            case JS::OBJECT: return "object";
+            default: return "undefined";
+        }
+    }
+
     ///@}
 };
 

@@ -9,6 +9,7 @@
 #include "types/objects/JsFunction.hpp"
 #include "exceptions/TypeError.hpp"
 #include "exceptions/AssertionError.hpp"
+#include "../lib/class/Helper.hpp"
 #include <cmath>
 
 /** List of assertion to do (inverse of thoses function are also to do)
@@ -37,10 +38,13 @@ public:
     Assert();
     static JS::Any equal(const std::vector<JS::Any>& args);
     static JS::Any notEqual(const std::vector<JS::Any>& args);
+    static JS::Any deepEqual(const std::vector<JS::Any>& args);
+    static JS::Any notDeepEqual(const std::vector<JS::Any>& args);
 private:
     // TODO: add handling stackStartFn
     static void innerFail(const JS::Any& actual, const JS::Any &expected,
                           const JS::Any &message, const std::string& operator_);
+    static bool isDeepEqual(const JS::Any& actual, const JS::Any& expected);
 };
 
 #endif //JS_CMP_ASSERT_HPP

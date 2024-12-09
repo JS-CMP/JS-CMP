@@ -53,38 +53,16 @@ bool JS::Any::operator==(const JS::Any& other) const {
                 default:
                     return false; // Invalid type
             }
+        case OBJECT:
+            switch (other.value.index()) {
+                case OBJECT:
+                    return &std::get<std::shared_ptr<Object>>(this->value) == &std::get<std::shared_ptr<Object>>(other.value);
+                default:
+                    return false; // Invalid type
+            }
         default:
             return false; // Invalid type
     }
-}
-
-std::string JS::Any::toString() const {
-    switch (this->value.index()) {
-        case NUMBER:
-            return Helper::to_string(std::get<double>(this->value));
-        case STRING:
-            return Helper::to_string(std::get<Rope>(this->value));
-        case BOOL:
-            return Helper::to_string(std::get<bool>(this->value));
-        case FUNCTION:
-            return "[Function]";
-        case UNDEFINED:
-            return Helper::to_string(JS::Undefined());
-        case NULL_TYPE:
-            return Helper::to_string(JS::Null());
-        default:
-            return "[Object]";
-    }
-}
-
-JS::Value JS::Any::getValue() const { return this->value; }
-
-bool JS::Any::isNan() const {
-    return this->value.index() == NUMBER && std::isnan(std::get<double>(this->value));
-}
-
-bool JS::Any::isUndefined() const {
-    return this->value.index() == UNDEFINED;
 }
 
 bool JS::Any::strictEq(const JS::Any& other) const {
@@ -109,3 +87,26 @@ bool JS::Any::strictEq(const JS::Any& other) const {
             return false;
     }
 }
+
+bool JS::Any::strictNeq(const JS::Any& other) const { return !this->strictEq(other); }
+
+std::string JS::Any::toString() const {
+    switch (this->value.index()) {
+        case NUMBER:
+            return Helper::to_string(std::get<double>(this->value));
+        case STRING:
+            return Helper::to_string(std::get<Rope>(this->value));
+        case BOOL:
+            return Helper::to_string(std::get<bool>(this->value));
+        case FUNCTION:
+            return "[Function]";
+        case UNDEFINED:
+            return Helper::to_string(JS::Undefined());
+        case NULL_TYPE:
+            return Helper::to_string(JS::Null());
+        default:
+            return "[Object]";
+    }
+}
+
+JS::Value JS::Any::getValue() const { return this->value; }

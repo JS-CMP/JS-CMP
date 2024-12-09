@@ -42,6 +42,39 @@ JS::Any Assert::notEqual(const std::vector<JS::Any>& args) {
     return {};
 }
 
+// stictEquals
+JS::Any Assert::strictEqual(const std::vector<JS::Any> &args) {
+    if (args.size() < 2) {
+        throw TypeError(JS::Any(JS::Undefined()),
+                        JS::Any(JS::Undefined()),
+                        R"(The "actual" and "expected" arguments must be specified.)",
+                        "ERR_MISSING_ARGS");
+    }
+    if (!Helper::ObjectIs(args[0], args[1])) {
+        innerFail(args[0],
+                  args[1],
+                  args.size() == 3 ? args[2] : JS::Any(JS::Undefined()),
+                  "strictEqual");
+    }
+    return {};
+}
+
+JS::Any Assert::notStrictEqual(const std::vector<JS::Any> &args) {
+    if (args.size() < 2) {
+        throw TypeError(JS::Any(JS::Undefined()),
+                        JS::Any(JS::Undefined()),
+                        R"(The "actual" and "expected" arguments must be specified.)",
+                        "ERR_MISSING_ARGS");
+    }
+    if (Helper::ObjectIs(args[0], args[1])) {
+        innerFail(args[0],
+                  args[1],
+                  args.size() == 3 ? args[2] : JS::Any(JS::Undefined()),
+                  "notStrictEqual");
+    }
+    return {};
+}
+
 // deepEquals TODO: make the message automatique depending on the ope
 JS::Any Assert::deepEqual(const std::vector<JS::Any>& args) {
     if (args.size() < 2) {
@@ -58,9 +91,6 @@ JS::Any Assert::deepEqual(const std::vector<JS::Any>& args) {
     }
     return {};
 }
-
-
-
 
 // private
 void Assert::innerFail(const JS::Any& actual, const JS::Any &expected,

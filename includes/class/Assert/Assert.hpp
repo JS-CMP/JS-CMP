@@ -13,23 +13,18 @@
 #include <cmath>
 
 /** List of assertion to do (inverse of thoses function are also to do)
+- [x] assert.equal(actual, expected[, message])
+- [x] assert.strictEqual(actual, expected[, message])
 - [ ] assert.deepEqual(actual, expected[, message])
 - [ ] assert.deepStrictEqual(actual, expected[, message])
 - [ ] assert.doesNotMatch(string, regexp[, message])
 - [ ] assert.doesNotReject(asyncFn[, error][, message])
 - [ ] assert.doesNotThrow(fn[, error][, message])
-- [x] assert.equal(actual, expected[, message])
 - [ ] assert.fail([message])
 - [ ] assert.fail(actual, expected[, message[, operator[, stackStartFn]]])
 - [ ] assert.ifError(value)
-- [ ] assert.match(string, regexp[, message])
-- [ ] assert.notDeepEqual(actual, expected[, message])
-- [ ] assert.notDeepStrictEqual(actual, expected[, message])
-- [ ] assert.notEqual(actual, expected[, message])
-- [ ] assert.notStrictEqual(actual, expected[, message])
 - [ ] assert.ok(value[, message])
 - [ ] assert.rejects(asyncFn[, error][, message])
-- [ ] assert.strictEqual(actual, expected[, message])
 - [ ] assert.throws(fn[, error][, message])
 */
 
@@ -38,6 +33,8 @@ public:
     Assert();
     static JS::Any equal(const std::vector<JS::Any>& args);
     static JS::Any notEqual(const std::vector<JS::Any>& args);
+    static JS::Any strictEqual(const std::vector<JS::Any>& args);
+    static JS::Any notStrictEqual(const std::vector<JS::Any>& args);
     static JS::Any deepEqual(const std::vector<JS::Any>& args);
     static JS::Any notDeepEqual(const std::vector<JS::Any>& args);
 private:

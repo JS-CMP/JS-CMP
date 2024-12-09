@@ -66,6 +66,7 @@ bool JS::Any::operator==(const JS::Any& other) const {
 }
 
 bool JS::Any::strictEq(const JS::Any& other) const {
+    // TODO: handle identity
     std::cout << value.index() << " " << other.value.index() << std::endl;
     if (this->value.index() != other.value.index()) {
         return false;

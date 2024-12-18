@@ -1,5 +1,3 @@
-#include "../class/Helper.hpp"
-
 #include <types/JsAny.hpp>
 
 bool JS::Any::operator==(const JS::Any& other) const {
@@ -55,25 +53,6 @@ bool JS::Any::operator==(const JS::Any& other) const {
             }
         default:
             return false; // Invalid type
-    }
-}
-
-std::string JS::Any::toString() const {
-    switch (this->value.index()) {
-        case NUMBER:
-            return Helper::to_string(std::get<double>(this->value));
-        case STRING:
-            return Helper::to_string(std::get<Rope>(this->value));
-        case BOOL:
-            return Helper::to_string(std::get<bool>(this->value));
-        case FUNCTION:
-            return "[Function]";
-        case UNDEFINED:
-            return Helper::to_string(JS::Undefined());
-        case NULL_TYPE:
-            return Helper::to_string(JS::Null());
-        default:
-            return "[Object]";
     }
 }
 

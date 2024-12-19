@@ -89,6 +89,11 @@ public:
         if (x == y) return true;
         return false;
     }
+    inline static bool isNumber(const JS::Any &x) { return x.getValue().index() == JS::NUMBER; }
+    inline static bool isObject(const JS::Any &x) { return x.getValue().index() == JS::OBJECT; }
+    inline static bool isArray(const JS::Any &x) { return x.getValue().index() == JS::OBJECT; }
+    inline static bool NumberIsNaN(const JS::Any &x) { return isNaN(x); }
+
     inline static bool sameValueNonNumber(const JS::Any& x, const JS::Any& y) {
         // https://tc39.es/ecma262/#sec-samevaluenonnumber
         // TODO: add throw if x and y not same type

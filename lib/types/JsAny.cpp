@@ -91,6 +91,25 @@ bool JS::Any::strictEq(const JS::Any& other) const {
 
 bool JS::Any::strictNeq(const JS::Any& other) const { return !this->strictEq(other); }
 
+bool JS::Any::operator!() const {
+    switch (this->value.index()) {
+        case NUMBER:
+            return std::get<double>(this->value) == 0;
+        case STRING:
+            return std::get<Rope>(this->value).toString().empty();
+        case BOOL:
+            return !std::get<bool>(this->value);
+        case UNDEFINED:
+            return true;
+        case NULL_TYPE:
+            return true;
+        case OBJECT:
+            return false;
+        default:
+            return false;
+    }
+}
+
 std::string JS::Any::toString() const {
     switch (this->value.index()) {
         case NUMBER:

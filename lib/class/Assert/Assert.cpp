@@ -141,7 +141,7 @@ JS::Any Assert::notStrictDeepEqual(const std::vector<JS::Any> &args) {
     return {};
 }
 
-// othe
+// other
 JS::Any Assert::ok(const std::vector<JS::Any> &args) {
     if (args.empty()) {
         throw TypeError(JS::Any(JS::Undefined()),
@@ -187,6 +187,34 @@ JS::Any Assert::ifError(const std::vector<JS::Any>& args) {
                   "ifError");
     }
     return {};
+}
+
+JS::Any Assert::throws(const std::vector<JS::Any>& args) {
+    // TODO:: handle obj properties, regexp class
+    if (args.size() < 1) {
+        throw TypeError(JS::Any(JS::Undefined()),
+                        JS::Any(JS::Undefined()),
+                        R"(The "fn" argument must be specified.)",
+                        "ERR_MISSING_ARGS");
+    }
+    if (Helper::type_of(args[0]) != "function") {
+        throw TypeError(JS::Any(JS::Undefined()),
+                        JS::Any(JS::Undefined()),
+                        R"(The "fn" argument must be a function.)",
+                        "ERR_INVALID_ARG_TYPE");
+    }
+    JS::Any fn = args[0];
+    if (args.size() == 1) {
+        try {
+            fn();
+        } catch (const JS::Any& e) {
+            return {};
+        }
+        innerFail(JS::Any(JS::Undefined()),
+                  JS::Any(JS::Undefined()),
+                  JS::Any("Missing expected exception"),
+                  "throws");
+    }
 }
 
 

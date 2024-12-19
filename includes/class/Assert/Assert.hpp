@@ -20,7 +20,7 @@
 - [x] assert.ok(value[, message])
 - [x] assert.fail([message])
 - [x] assert.ifError(value)
-- [ ] assert.throws(fn[, error][, message])
+- [x] assert.throws(fn[, error][, message])
 
 - [ ] assert.doesNotMatch(string, regexp[, message]) -> need regexp
 - [ ] assert.doesNotReject(asyncFn[, error][, message]) -> need async
@@ -43,10 +43,9 @@ public:
     static JS::Any notStrictDeepEqual(const std::vector<JS::Any>& args);
 
     static JS::Any ok(const std::vector<JS::Any>& args);
-
     static JS::Any fail(const std::vector<JS::Any>& args);
-
     static JS::Any ifError(const std::vector<JS::Any>& args);
+    static JS::Any throws(const std::vector<JS::Any>& args);
 
 private:
     // TODO: add handling stackStartFn

@@ -1,6 +1,6 @@
-#include "../class/Helper.hpp"
-
 #include <types/JsAny.hpp>
+#include "../../lib/class/Helper.hpp"
+
 
 bool JS::Any::operator==(const JS::Any& other) const {
     switch (this->value.index()) {

@@ -9,14 +9,9 @@
 
 class AssertionError : public IAssertion {
 public:
-    explicit AssertionError(const JS::Any &actual, const JS::Any &expected,
-                            const std::string& message, const std::string &ope, const std::string &code = "ERR_ASSERTION")
-    : IAssertion(actual,
-                 expected,
-                 message,
-                 ope,
-                 code,
-                 "AssertionError") {}
+    explicit AssertionError(const JS::Any& actual, const JS::Any& expected, const std::string& message,
+                            const std::string& ope, const std::string& code = "ERR_ASSERTION")
+        : IAssertion(actual, expected, message, ope, code, "AssertionError") {}
 };
 
-#endif //JS_CMP_ASSERTIONERROR_HPP
+#endif // JS_CMP_ASSERTIONERROR_HPP

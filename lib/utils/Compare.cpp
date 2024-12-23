@@ -1,5 +1,6 @@
-#include "types/objects/JsObject.hpp"
 #include "utils/Compare.hpp"
+
+#include "types/objects/JsObject.hpp"
 
 namespace JS::COMPARE {
 bool Type(const JS::Any& a, const JS::Any& b) { return a.getValue().index() == b.getValue().index(); }

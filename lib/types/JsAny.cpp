@@ -1,6 +1,6 @@
-#include <types/JsAny.hpp>
 #include "../../lib/class/Helper.hpp"
 
+#include <types/JsAny.hpp>
 
 bool JS::Any::operator==(const JS::Any& other) const {
     switch (this->value.index()) {
@@ -56,7 +56,8 @@ bool JS::Any::operator==(const JS::Any& other) const {
         case OBJECT:
             switch (other.value.index()) {
                 case OBJECT:
-                    return &std::get<std::shared_ptr<Object>>(this->value) == &std::get<std::shared_ptr<Object>>(other.value);
+                    return &std::get<std::shared_ptr<Object>>(this->value) ==
+                           &std::get<std::shared_ptr<Object>>(other.value);
                 default:
                     return false; // Invalid type
             }

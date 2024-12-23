@@ -5,11 +5,12 @@
 #ifndef JS_CMP_ASSERT_HPP
 #define JS_CMP_ASSERT_HPP
 
-#include "types/objects/JsObject.hpp"
-#include "types/objects/JsFunction.hpp"
-#include "exceptions/TypeError.hpp"
-#include "exceptions/AssertionError.hpp"
 #include "../lib/class/Helper.hpp"
+#include "exceptions/AssertionError.hpp"
+#include "exceptions/TypeError.hpp"
+#include "types/objects/JsFunction.hpp"
+#include "types/objects/JsObject.hpp"
+
 #include <cmath>
 
 /** List of assertion to do (inverse of thoses function are also to do)
@@ -49,9 +50,9 @@ public:
 
 private:
     // TODO: add handling stackStartFn
-    static void innerFail(const JS::Any& actual, const JS::Any &expected,
-                          const JS::Any &message, const std::string& operator_);
+    static void innerFail(const JS::Any& actual, const JS::Any& expected, const JS::Any& message,
+                          const std::string& operator_);
     static bool isDeepEqual(const JS::Any& actual, const JS::Any& expected, bool strict = false);
 };
 
-#endif //JS_CMP_ASSERT_HPP
+#endif // JS_CMP_ASSERT_HPP

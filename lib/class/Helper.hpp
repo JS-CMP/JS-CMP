@@ -69,13 +69,20 @@ public:
     /** @brief return the typeof the value in Any */
     inline static std::string type_of(const JS::Any& any) {
         switch (any.getValue().index()) {
-            case JS::NUMBER: return "number";
-            case JS::STRING: return "string";
-            case JS::BOOL: return "boolean";
-            case JS::UNDEFINED: return "undefined";
-            case JS::NULL_TYPE: return "object";
-            case JS::OBJECT: return "object";
-            default: return "undefined";
+            case JS::NUMBER:
+                return "number";
+            case JS::STRING:
+                return "string";
+            case JS::BOOL:
+                return "boolean";
+            case JS::UNDEFINED:
+                return "undefined";
+            case JS::NULL_TYPE:
+                return "object";
+            case JS::OBJECT:
+                return "object";
+            default:
+                return "undefined";
         }
     }
     /** @brief Check if Any is negative */
@@ -84,37 +91,40 @@ public:
     }
     /** @brief Check if x and y are the same number */
     inline static bool sameValueNumber(const JS::Any& x, const JS::Any& y) {
-        if (isNaN(x) && isNaN(y)) return true;
-        if (std::signbit(std::get<double>(x.getValue())) != std::signbit(std::get<double>(y.getValue()))) return false;
-        if (x == y) return true;
+        if (isNaN(x) && isNaN(y))
+            return true;
+        if (std::signbit(std::get<double>(x.getValue())) != std::signbit(std::get<double>(y.getValue())))
+            return false;
+        if (x == y)
+            return true;
         return false;
     }
     /** @brief Check if x is a number */
-    inline static bool isNumber(const JS::Any &x) { return x.getValue().index() == JS::NUMBER; }
+    inline static bool isNumber(const JS::Any& x) { return x.getValue().index() == JS::NUMBER; }
     /** @brief Check if x is an object */
-    inline static bool isObject(const JS::Any &x) { return x.getValue().index() == JS::OBJECT; }
+    inline static bool isObject(const JS::Any& x) { return x.getValue().index() == JS::OBJECT; }
     /** @brief Check if x is an array */
-    inline static bool isArray(const JS::Any &x) { return false; }
+    inline static bool isArray(const JS::Any& x) { return false; }
     /** @brief Check if x is not nan */
-    inline static bool NumberIsNaN(const JS::Any &x) { return isNaN(x); }
+    inline static bool NumberIsNaN(const JS::Any& x) { return isNaN(x); }
     /** @brief Check if x and y are the same non-number */
     inline static bool sameValueNonNumber(const JS::Any& x, const JS::Any& y) {
         // TODO: add throw if x and y not same type
-        if (isUndefined(x) || isNull(x)) return true;
+        if (isUndefined(x) || isNull(x))
+            return true;
         // TODO: bigint
         return x.strictEq(y); // does not respect https://tc39.es/ecma262/#sec-identity
     }
     /** @brief Check if x and y are the same */
     inline static bool sameValue(const JS::Any& x, const JS::Any& y) {
-        if (type_of(x) != type_of(y)) return false;
+        if (type_of(x) != type_of(y))
+            return false;
         if (x.getValue().index() == JS::NUMBER)
             return sameValueNumber(x, y);
         return sameValueNonNumber(x, y);
     }
     /** @brief Check if x and y are the same */
-    inline static bool ObjectIs(const JS::Any& x, const JS::Any& y) {
-        return sameValue(x, y);
-    }
+    inline static bool ObjectIs(const JS::Any& x, const JS::Any& y) { return sameValue(x, y); }
     ///@}
 };
 

@@ -254,7 +254,7 @@ public:
     template <typename... Args>
     JS::Any operator()(Args&&... args) {
         std::vector<JS::Any> arguments = {JS::Any(std::forward<Args>(args))...};
-        return helper(arguments);
+        return callableHelper(arguments);
     }
     /** @brief Accessors to properties of object in stored in value */
     JS::Any& operator[](const std::string& key) const;
@@ -283,7 +283,7 @@ public:
 
 private:
     JS::Value value; /**< Holds the current value of this Any instance. */
-    JS::Any helper(std::vector<JS::Any>& args) const;
+    JS::Any callableHelper(std::vector<JS::Any>& args) const;
 };
 } // namespace JS
 

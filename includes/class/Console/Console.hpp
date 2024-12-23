@@ -39,7 +39,7 @@ public:
      * Example usage:
      * @code
      * auto console = Console();
-     * console.log("Hello,", "world!", 42);
+     * console.log({"Hello,", "world!", 42});
      * @endcode
      */
     static JS::Any log(const std::vector<JS::Any>& args);
@@ -54,7 +54,7 @@ public:
      * Example usage:
      * @code
      * auto console = Console();
-     * console.error("Hello,", "world!", 42);
+     * console.error({"Hello,", "world!", 42});
      * @endcode
      */
     static JS::Any error(const std::vector<JS::Any>& args);
@@ -69,10 +69,13 @@ public:
      * Example usage:
      * @code
      * auto console = Console();
-     * console.clear();
+     * console.clear({});
      * @endcode
      */
     static JS::Any clear(const std::vector<JS::Any>& args);
+private:
+    static void print_with_space(const JS::Any& arg, bool is_last, std::ostream& os);
+
 };
 
 #endif // JS_CMP_ALPHA_CONSOLE_HPP

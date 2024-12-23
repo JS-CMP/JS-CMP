@@ -15,7 +15,7 @@ JS::Any& JS::Any::operator[](size_t index) const {
     throw std::runtime_error("Value is not an object");
 }
 
-JS::Any JS::Any::helper(std::vector<JS::Any>& args) const {
+JS::Any JS::Any::callableHelper(std::vector<JS::Any>& args) const {
     if (value.index() == JS::OBJECT && std::get<std::shared_ptr<JS::Object>>(value)->isCallable()) {
         // TODO: change if function is not the only callable object
         return std::dynamic_pointer_cast<JS::Function>(std::get<std::shared_ptr<JS::Object>>(value))->operator()(args);

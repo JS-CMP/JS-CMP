@@ -1,18 +1,18 @@
 #include "class/Console/Console.hpp"
 
-JS::Any Console::log(const std::vector<JS::Any>& args) {
-    auto print_with_space = [](const JS::Any& arg, bool is_last) {
-        std::cout << arg.toString();
-        if (!is_last) {
-            std::cout << " ";
-        }
-    };
+void Console::print_with_space(const JS::Any& arg, bool is_last, std::ostream& os) {
+    os << arg.toString();
+    if (!is_last) {
+        os << " ";
+    }
+}
 
+JS::Any Console::log(const std::vector<JS::Any>& args) {
     size_t num_args = args.size();
     size_t counter = 0;
 
     for (const auto& arg : args) {
-        print_with_space(arg, ++counter == num_args);
+        print_with_space(arg, ++counter == num_args, std::cout);
     }
 
     std::cout << "\n";
@@ -20,18 +20,11 @@ JS::Any Console::log(const std::vector<JS::Any>& args) {
 }
 
 JS::Any Console::error(const std::vector<JS::Any>& args) {
-    auto print_with_space = [](const JS::Any& arg, bool is_last) {
-        std::cerr << arg.toString();
-        if (!is_last) {
-            std::cerr << " ";
-        }
-    };
-
     size_t num_args = args.size();
     size_t counter = 0;
 
     for (const auto& arg : args) {
-        print_with_space(arg, ++counter == num_args);
+        print_with_space(arg, ++counter == num_args, std::cerr);
     }
 
     std::cerr << "\n";

@@ -215,6 +215,7 @@ JS::Any Assert::throws(const std::vector<JS::Any>& args) {
                   JS::Any("Missing expected exception"),
                   "throws");
     }
+    return {};
 }
 
 

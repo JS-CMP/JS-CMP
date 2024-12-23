@@ -84,36 +84,37 @@ public:
     }
     /** @brief Check if x and y are the same number */
     inline static bool sameValueNumber(const JS::Any& x, const JS::Any& y) {
-        // https://tc39.es/ecma262/#sec-numeric-types-number-sameValue
         if (isNaN(x) && isNaN(y)) return true;
+        if (std::signbit(std::get<double>(x.getValue())) != std::signbit(std::get<double>(y.getValue()))) return false;
         if (x == y) return true;
         return false;
     }
+    /** @brief Check if x is a number */
     inline static bool isNumber(const JS::Any &x) { return x.getValue().index() == JS::NUMBER; }
+    /** @brief Check if x is an object */
     inline static bool isObject(const JS::Any &x) { return x.getValue().index() == JS::OBJECT; }
-    inline static bool isArray(const JS::Any &x) { return x.getValue().index() == JS::OBJECT; }
+    /** @brief Check if x is an array */
+    inline static bool isArray(const JS::Any &x) { return false; }
+    /** @brief Check if x is not nan */
     inline static bool NumberIsNaN(const JS::Any &x) { return isNaN(x); }
-
+    /** @brief Check if x and y are the same non-number */
     inline static bool sameValueNonNumber(const JS::Any& x, const JS::Any& y) {
-        // https://tc39.es/ecma262/#sec-samevaluenonnumber
         // TODO: add throw if x and y not same type
         if (isUndefined(x) || isNull(x)) return true;
         // TODO: bigint
         return x.strictEq(y); // does not respect https://tc39.es/ecma262/#sec-identity
     }
-    /** @brief Check if x and y same args */
+    /** @brief Check if x and y are the same */
     inline static bool sameValue(const JS::Any& x, const JS::Any& y) {
-        // https://tc39.es/ecma262/#sec-samevalue
         if (type_of(x) != type_of(y)) return false;
         if (x.getValue().index() == JS::NUMBER)
             return sameValueNumber(x, y);
         return sameValueNonNumber(x, y);
     }
+    /** @brief Check if x and y are the same */
     inline static bool ObjectIs(const JS::Any& x, const JS::Any& y) {
-        // https://tc39.es/ecma262/#sec-object.is
         return sameValue(x, y);
     }
-
     ///@}
 };
 

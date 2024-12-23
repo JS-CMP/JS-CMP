@@ -1,6 +1,5 @@
-#include "../../class/Helper.hpp"
-
 #include <types/JsAny.hpp>
+#include <utils/Convert.hpp>
 
 JS::Any& JS::Any::operator--() {
     try {
@@ -9,7 +8,7 @@ JS::Any& JS::Any::operator--() {
                 --std::get<double>(this->value);
                 break;
             case STRING:
-                this->value = static_cast<double>(Helper::stod(std::get<Rope>(this->value)) - 1);
+                this->value = static_cast<double>(JS::CONVERT::ToNumber(std::get<Rope>(this->value)) - 1);
                 break;
             case BOOL:
                 this->value = static_cast<double>(std::get<bool>(this->value) - 1);
@@ -31,7 +30,7 @@ const JS::Any& JS::Any::operator--(int) {
                 std::get<double>(this->value)--;
                 break;
             case STRING:
-                this->value = static_cast<double>(Helper::stod(std::get<Rope>(this->value)) - 1);
+                this->value = static_cast<double>(JS::CONVERT::ToNumber(std::get<Rope>(this->value)) - 1);
                 break;
             case BOOL:
                 this->value = static_cast<double>(std::get<bool>(this->value) - 1);

@@ -1,3 +1,5 @@
+#include "utils/Convert.hpp"
+
 #include <types/JsAny.hpp>
 #include <types/objects/JsFunction.hpp>
 
@@ -25,7 +27,7 @@ JS::Any JS::Any::callableHelper(std::vector<JS::Any>& args) const {
 
 namespace JS {
 std::ostream& operator<<(std::ostream& os, const Any& any) {
-    os << any.toString();
+    os << JS::CONVERT::ToString(any);
     return os;
 }
 } // namespace JS

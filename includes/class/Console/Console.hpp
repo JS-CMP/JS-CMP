@@ -73,9 +73,9 @@ public:
      * @endcode
      */
     static JS::Any clear(const std::vector<JS::Any>& args);
+
 private:
     static void print_with_space(const JS::Any& arg, bool is_last, std::ostream& os);
-
 };
 
 #endif // JS_CMP_ALPHA_CONSOLE_HPP

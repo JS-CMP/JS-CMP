@@ -62,14 +62,14 @@ private:
      */
     [[nodiscard]] static std::string encode(std::string uri, const std::string& unescapedSet);
     /**
-     * @brief Decodes a UTF-8 string.
-     * @param utf8 The UTF-8 string to decode.
+     * @brief Decodes a UTF string.
+     * @param utf The UTF string to decode.
      * @param reservedSet The reserved set of characters.
      * @return The decoded string.
      */
-    [[nodiscard]] static std::string decode(std::string utf8, const std::string& reservedSet);
+    [[nodiscard]] static std::string decode(std::string utf, const std::string& reservedSet);
     /**
-     * @brief Encodes a char to UTF-8.
+     * @brief Encodes a char to UTF.
      * @param V The character to encode.
      * @return The encoded character.
      */

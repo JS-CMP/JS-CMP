@@ -21,18 +21,18 @@ std::string URI::encode(std::string uri, const std::string& unescapedSet) {
     return res;
 }
 
-std::string URI::decode(std::string utf8, const std::string& reservedSet) {
+std::string URI::decode(std::string utf, const std::string& reservedSet) {
     std::ostringstream decoded;
-    for (int i = 0; i < utf8.size(); ++i) {
-        if (reservedSet.contains(utf8[i])) {
-            if (!(i + 2 < utf8.size() && std::isxdigit(utf8[i + 1]) && std::isxdigit(utf8[i + 2])))
+    for (int i = 0; i < utf.size(); ++i) {
+        if (reservedSet.contains(utf[i])) {
+            if (!(i + 2 < utf.size() && std::isxdigit(utf[i + 1]) && std::isxdigit(utf[i + 2])))
                 throw URIException("Invalid percent-encoding in utf8 string.");
 
-            std::string hexValue = utf8.substr(i + 1, 2);
+            std::string hexValue = utf.substr(i + 1, 2);
             decoded << static_cast<char>(std::stoi(hexValue, nullptr, 16));;
             i += 2;
         } else {
-            decoded << utf8[i];
+            decoded << utf[i];
         }
     }
     return decoded.str();

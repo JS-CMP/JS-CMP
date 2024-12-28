@@ -8,10 +8,23 @@ std::string URI::toUtf8(int V) {
     return encoded.str();
 }
 
-std::string URI::fromUtf8(const std::string &utf8) {
+std::string URI::encode(std::string uri, const std::string& unescapedSet) {
+    std::string res;
+    for (int k = 0; k < uri.length(); k++) {
+        unsigned char c = uri[k];
+        if (unescapedSet.contains(c)) {
+            res += c;
+        } else {
+            res += toUtf8(c);
+        }
+    }
+    return res;
+}
+
+std::string URI::decode(std::string utf8, const std::string& reservedSet) {
     std::ostringstream decoded;
     for (int i = 0; i < utf8.size(); ++i) {
-        if (utf8[i] == '%') {
+        if (reservedSet.contains(utf8[i])) {
             if (!(i + 2 < utf8.size() && std::isxdigit(utf8[i + 1]) && std::isxdigit(utf8[i + 2])))
                 throw URIException("Invalid percent-encoding in utf8 string.");
 
@@ -25,20 +38,19 @@ std::string URI::fromUtf8(const std::string &utf8) {
     return decoded.str();
 }
 
-std::string URI::encode(std::string uri) {
-    std::string res;
-    for (int k = 0; k < uri.length(); k++) {
-        unsigned char c = uri[k];
-        if (UNRESERVED.contains(c) || RESERVED.contains(c)) {
-            res += c;
-        } else {
-            std::string Octets = toUtf8(c);
-            res += Octets;
-        }
-    }
-    return res;
+std::string URI::encodeURI(const std::string& uri) {
+    return encode(uri, RESERVED + UNESCAPED + "%");
 }
 
-std::string URI::decode(std::string utf8) {
-    return fromUtf8(utf8);
+std::string URI::decodeURI(const std::string& uri) {
+    return decode(uri, "%#");
 }
+
+std::string URI::encodeURIComponent(const std::string& uri) {
+    return encode(uri, UNESCAPED);
+}
+
+std::string URI::decodeURIComponent(const std::string& uri) {
+    return decode(uri, "");
+}
+

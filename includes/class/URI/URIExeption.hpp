@@ -29,5 +29,4 @@ private:
     std::string message;
 };
 
-
-#endif //JS_CMP_URIEXEPTION_HPP
+#endif // JS_CMP_URIEXEPTION_HPP

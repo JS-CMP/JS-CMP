@@ -1,13 +1,13 @@
 #ifndef JS_CMP_URI_HPP
 #define JS_CMP_URI_HPP
 
-#include <string>
-#include <iostream>
-#include <iomanip>
-#include <sstream>
-#include <cctype>
-
 #include "URIExeption.hpp"
+
+#include <cctype>
+#include <iomanip>
+#include <iostream>
+#include <sstream>
+#include <string>
 
 /**
  * Representations of the URI components.
@@ -76,5 +76,4 @@ private:
     [[nodiscard]] static std::string toUtf8(int V);
 };
 
-
-#endif //JS_CMP_URI_HPP
+#endif // JS_CMP_URI_HPP

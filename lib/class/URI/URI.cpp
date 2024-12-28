@@ -29,7 +29,8 @@ std::string URI::decode(std::string utf, const std::string& reservedSet) {
                 throw URIException("Invalid percent-encoding in utf8 string.");
 
             std::string hexValue = utf.substr(i + 1, 2);
-            decoded << static_cast<char>(std::stoi(hexValue, nullptr, 16));;
+            decoded << static_cast<char>(std::stoi(hexValue, nullptr, 16));
+            ;
             i += 2;
         } else {
             decoded << utf[i];
@@ -38,19 +39,10 @@ std::string URI::decode(std::string utf, const std::string& reservedSet) {
     return decoded.str();
 }
 
-std::string URI::encodeURI(const std::string& uri) {
-    return encode(uri, RESERVED + UNESCAPED + "%");
-}
+std::string URI::encodeURI(const std::string& uri) { return encode(uri, RESERVED + UNESCAPED + "%"); }
 
-std::string URI::decodeURI(const std::string& uri) {
-    return decode(uri, "%#");
-}
+std::string URI::decodeURI(const std::string& uri) { return decode(uri, "%#"); }
 
-std::string URI::encodeURIComponent(const std::string& uri) {
-    return encode(uri, UNESCAPED);
-}
+std::string URI::encodeURIComponent(const std::string& uri) { return encode(uri, UNESCAPED); }
 
-std::string URI::decodeURIComponent(const std::string& uri) {
-    return decode(uri, "");
-}
-
+std::string URI::decodeURIComponent(const std::string& uri) { return decode(uri, ""); }

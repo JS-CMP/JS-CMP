@@ -1,15 +1,17 @@
+#include "internals/Object.hpp"
 #include "types/objects/JsObject.hpp"
 #include "utils/Compare.hpp"
 
 namespace JS {
-std::optional<JS::Attribute> JS::Object::getOwnProperty(const std::string& key) const {
+std::optional<JS::Attribute> JS::InternalObject::getOwnProperty(const std::string& key) const {
+
     if (!properties->contains(key)) {
         return std::nullopt;
     }
     return properties->at(key);
 }
 
-std::optional<JS::Attribute> Object::getProperty(const std::string& key) const {
+std::optional<JS::Attribute> InternalObject::getProperty(const std::string& key) const {
     auto prop = this->getOwnProperty(key);
     if (prop.has_value()) {
         return prop;
@@ -20,7 +22,7 @@ std::optional<JS::Attribute> Object::getProperty(const std::string& key) const {
     return this->prototype->getProperty(key);
 }
 
-JS::Any Object::get(const std::string& key) const {
+JS::Any InternalObject::get(const std::string& key) const {
     auto desc = this->getProperty(key);
     if (!desc.has_value()) {
         return JS::Any(JS::Undefined{});
@@ -35,7 +37,7 @@ JS::Any Object::get(const std::string& key) const {
     throw std::runtime_error("Descriptor type cannot be determined");
 }
 
-bool Object::canPut(const std::string& key) const {
+bool InternalObject::canPut(const std::string& key) const {
     auto desc = this->getOwnProperty(key);
     if (desc.has_value()) {
         if (JS::COMPARE::IsAccessorDescriptor(desc.value())) {
@@ -62,7 +64,7 @@ bool Object::canPut(const std::string& key) const {
     throw std::runtime_error("Unexpected descriptor type");
 }
 
-void Object::put(const std::string& key, const Any& value, bool is_throw) {
+void InternalObject::put(const std::string& key, const Any& value, bool is_throw) {
     bool canPut = this->canPut(key);
     if (!canPut) {
         if (is_throw) {
@@ -88,9 +90,9 @@ void Object::put(const std::string& key, const Any& value, bool is_throw) {
     }
 }
 
-bool Object::hasProperty(const std::string& key) const { return this->getProperty(key).has_value(); }
+bool InternalObject::hasProperty(const std::string& key) const { return this->getProperty(key).has_value(); }
 
-bool Object::deleteProperty(const std::string& key, bool is_throw) {
+bool InternalObject::deleteProperty(const std::string& key, bool is_throw) {
     auto desc = this->getOwnProperty(key);
     if (!desc.has_value()) {
         return true;
@@ -106,7 +108,7 @@ bool Object::deleteProperty(const std::string& key, bool is_throw) {
     }
     return false;
 }
-JS::Any Object::defaultValue(const Types& hint) const {
+JS::Any InternalObject::defaultValue(const Types& hint) {
     switch (hint) {
         case STRING: {
             JS::Any toString = this->get("toString");
@@ -147,14 +149,14 @@ JS::Any Object::defaultValue(const Types& hint) const {
     }
 }
 
-JS::Any Object::defaultValue() const {
+JS::Any InternalObject::defaultValue() {
     if (this->class_name == "Date") {
         return this->defaultValue(JS::STRING);
     }
     return this->defaultValue(JS::NUMBER);
 }
 
-bool Object::defineOwnProperty(const std::string& key, Attribute desc, bool is_throw) {
+bool InternalObject::defineOwnProperty(const std::string& key, Attribute desc, bool is_throw) {
     auto current = this->getOwnProperty(key);
     bool extensible = this->extensible;
 
@@ -168,18 +170,12 @@ bool Object::defineOwnProperty(const std::string& key, Attribute desc, bool is_t
     if (!current.has_value() && extensible) {
         if (JS::COMPARE::IsGenericDescriptor(desc) || JS::COMPARE::IsDataDescriptor(desc)) {
             (*properties)[key] = JS::DataDescriptor{
-                std::get<JS::DataDescriptor>(desc).value,
-                std::get<JS::DataDescriptor>(desc).writable,
-                std::get<JS::DataDescriptor>(desc).enumerable,
-                std::get<JS::DataDescriptor>(desc).configurable
-            };
+                std::get<JS::DataDescriptor>(desc).value, std::get<JS::DataDescriptor>(desc).writable,
+                std::get<JS::DataDescriptor>(desc).enumerable, std::get<JS::DataDescriptor>(desc).configurable};
         } else {
             (*properties)[key] = JS::AccessorDescriptor{
-                std::get<JS::AccessorDescriptor>(desc).get,
-                std::get<JS::AccessorDescriptor>(desc).set,
-                std::get<JS::AccessorDescriptor>(desc).enumerable,
-                std::get<JS::AccessorDescriptor>(desc).configurable
-            };
+                std::get<JS::AccessorDescriptor>(desc).get, std::get<JS::AccessorDescriptor>(desc).set,
+                std::get<JS::AccessorDescriptor>(desc).enumerable, std::get<JS::AccessorDescriptor>(desc).configurable};
         }
         return true;
     }
@@ -204,12 +200,8 @@ bool Object::defineOwnProperty(const std::string& key, Attribute desc, bool is_t
                 }
             }
         }
-        properties->operator[](key) = JS::DataDescriptor{
-            newDesc.value,
-            newDesc.writable,
-            newDesc.enumerable,
-            newDesc.configurable
-        };
+        properties->operator[](key) =
+            JS::DataDescriptor{newDesc.value, newDesc.writable, newDesc.enumerable, newDesc.configurable};
     } else if (JS::COMPARE::IsAccessorDescriptor(current.value()) && JS::COMPARE::IsAccessorDescriptor(desc)) {
         JS::AccessorDescriptor currentDesc = std::get<JS::AccessorDescriptor>(current.value());
         JS::AccessorDescriptor newDesc = std::get<JS::AccessorDescriptor>(desc);
@@ -223,12 +215,8 @@ bool Object::defineOwnProperty(const std::string& key, Attribute desc, bool is_t
                 }
             }
         }
-        properties->operator[](key) = JS::AccessorDescriptor{
-            newDesc.get,
-            newDesc.set,
-            newDesc.enumerable,
-            newDesc.configurable
-        };
+        properties->operator[](key) =
+            JS::AccessorDescriptor{newDesc.get, newDesc.set, newDesc.enumerable, newDesc.configurable};
 
     } else {
         if (JS::COMPARE::IsDataDescriptor(current.value())) {
@@ -240,12 +228,8 @@ bool Object::defineOwnProperty(const std::string& key, Attribute desc, bool is_t
                 return false;
             }
             JS::AccessorDescriptor newDesc = std::get<JS::AccessorDescriptor>(desc);
-            (*properties)[key] = JS::AccessorDescriptor{
-                newDesc.get,
-                newDesc.set,
-                currentDesc.enumerable,
-                currentDesc.configurable
-            };
+            (*properties)[key] =
+                JS::AccessorDescriptor{newDesc.get, newDesc.set, currentDesc.enumerable, currentDesc.configurable};
         } else {
             JS::AccessorDescriptor currentDesc = std::get<JS::AccessorDescriptor>(current.value());
             if (!currentDesc.configurable) {
@@ -255,14 +239,11 @@ bool Object::defineOwnProperty(const std::string& key, Attribute desc, bool is_t
                 return false;
             }
             JS::DataDescriptor newDesc = std::get<JS::DataDescriptor>(desc);
-            (*properties)[key] = JS::DataDescriptor{
-                newDesc.value,
-                false,
-                currentDesc.enumerable,
-                currentDesc.configurable
-            };
+            (*properties)[key] =
+                JS::DataDescriptor{newDesc.value, false, currentDesc.enumerable, currentDesc.configurable};
         }
     }
     return true;
 }
+
 } // namespace JS

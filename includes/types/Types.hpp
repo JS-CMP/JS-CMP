@@ -2,7 +2,6 @@
 #define TYPES_HPP
 
 #include "../class/Rope/Rope.hpp"
-
 #include <functional>
 #include <limits>
 #include <memory>
@@ -28,9 +27,12 @@ enum Types {
 };
 
 class Any;
+class InternalObject;
+
 class Object;
 class Function;
 class Array;
+
 
 using FunctionType =
     std::function<JS::Any(const std::vector<JS::Any>&)>; /**< Type alias for JavaScript-like functions. */

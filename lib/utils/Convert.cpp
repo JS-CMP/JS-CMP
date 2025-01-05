@@ -1,8 +1,11 @@
+#include "utils/Convert.hpp"
+
+#include "types/objects/JsObject.hpp"
+#include "utils/Compare.hpp"
+
 #include <cmath>
 #include <sstream>
 #include <string>
-#include <utils/Compare.hpp>
-#include <utils/Convert.hpp>
 
 namespace JS::CONVERT {
 
@@ -62,7 +65,9 @@ double ToNumber(const JS::Any& any) { // https://262.ecma-international.org/5.1/
 }
 
 inline int ToInteger(int value) { return value; }
-inline int ToInteger(double value) { return std::isnan(value) ? 0 : value < 0 ? -std::floor(-value) : std::floor(value); }
+inline int ToInteger(double value) {
+    return std::isnan(value) ? 0 : value < 0 ? -std::floor(-value) : std::floor(value);
+}
 inline int ToInteger(const std::string& str) { return ToInteger(ToNumber(str)); }
 inline int ToInteger(const Rope& rope) { return ToInteger(rope.toString()); }
 inline int ToInteger(bool value) { return value ? 1 : 0; }
@@ -84,7 +89,6 @@ int ToInteger(const JS::Any& any) { // https://262.ecma-international.org/5.1/#s
             return 0;
     }
 }
-
 
 inline std::string ToString(int value) {
     return static_cast<std::ostringstream>((std::ostringstream() << value)).str();
@@ -117,13 +121,90 @@ std::string ToString(const JS::Any& any) { // https://262.ecma-international.org
     }
 }
 
-
-
 JS::Any ToObject(const JS::Any& any) { // https://262.ecma-international.org/5.1/#sec-9.9
     if (any.getValue().index() == JS::OBJECT) {
         return any;
     }
     return JS::Any(any); // TODO should return the Object kind like Boolean primitive with value
+}
+JS::Any FromPropertyDescriptor(const AccessorDescriptor& desc) { // https://262.ecma-international.org/5.1/#sec-8.10.4
+    if (desc.get == nullptr && desc.set == nullptr) {
+        return {};
+    }
+    JS::Object obj;
+    obj.put("get", desc.get == nullptr ? JS::Any(JS::Undefined{}) : JS::Any(*desc.get));
+    obj.put("set", desc.set == nullptr ? JS::Any(JS::Undefined{}) : JS::Any(*desc.set));
+    obj.put("enumerable", JS::Any(desc.enumerable));
+    obj.put("configurable", JS::Any(desc.configurable));
+    return JS::Any(obj);
+}
+
+JS::Any FromPropertyDescriptor(const JS::Attribute& desc) { // https://262.ecma-international.org/5.1/#sec-8.10.4
+    if (desc.index() == JS::DATA_DESCRIPTOR) {
+        return FromPropertyDescriptor(std::get<JS::DataDescriptor>(desc));
+    }
+    if (desc.index() == JS::ACCESSOR_DESCRIPTOR) {
+        return FromPropertyDescriptor(std::get<JS::AccessorDescriptor>(desc));
+    }
+    return {};
+}
+
+JS::Any FromPropertyDescriptor(const JS::DataDescriptor& desc) { // https://262.ecma-international.org/5.1/#sec-8.10.4
+    JS::Object obj;
+    obj.put("value", desc.value);
+    obj.put("writable", JS::Any(desc.writable));
+    obj.put("enumerable", JS::Any(desc.enumerable));
+    obj.put("configurable", JS::Any(desc.configurable));
+    return JS::Any(obj);
+}
+JS::Attribute ToPropertyDescriptor(const Any& desc) {
+    if (!COMPARE::Type(desc, OBJECT)) {
+        throw std::runtime_error("TypeError: Property descriptor must be an object"); // TODO: make this a JS error
+    }
+    std::shared_ptr<JS::Object> obj = std::get<std::shared_ptr<JS::Object>>(desc.getValue());
+    JS::DataDescriptor data;
+    JS::AccessorDescriptor accessor;
+    bool get_or_set = false;
+    bool value_or_writable = false;
+    if (obj->hasProperty("enumerable")) {
+        data.enumerable = ToBoolean(obj->get("value"));
+        accessor.enumerable = ToBoolean(obj->get("value"));
+    }
+    if (obj->hasProperty("configurable")) {
+        data.configurable = ToBoolean(obj->get("configurable"));
+        accessor.configurable = ToBoolean(obj->get("configurable"));
+    }
+    if ((value_or_writable = value_or_writable || obj->hasProperty("value"))) {
+        data.value = obj->get("value");
+    }
+    if ((value_or_writable = value_or_writable || obj->hasProperty("writable"))) {
+        data.writable = ToBoolean(obj->get("writable"));
+    }
+    if ((get_or_set = get_or_set || obj->hasProperty("get"))) {
+        JS::Any tmp = obj->get("get");
+        if (COMPARE::Type(tmp, UNDEFINED) || COMPARE::IsCallable(tmp)) {
+            accessor.get = std::make_shared<JS::Object>(tmp);
+        } else {
+            throw std::runtime_error("TypeError: get must be callable or undefined"); // TODO: make this a JS error
+        }
+    }
+    if ((get_or_set = get_or_set || obj->hasProperty("set"))) {
+        JS::Any tmp = obj->get("set");
+        if (COMPARE::Type(tmp, UNDEFINED) || COMPARE::IsCallable(tmp)) {
+            accessor.set = std::make_shared<JS::Object>(tmp);
+        } else {
+            throw std::runtime_error("TypeError: set must be callable or undefined"); // TODO: make this a JS error
+        }
+    }
+    if (get_or_set) {
+        if (value_or_writable) {
+            throw std::runtime_error(
+                "TypeError: Property descriptor cannot be both accessor and data descriptor"); // TODO: make this a JS
+                                                                                               // error
+        }
+        return accessor;
+    }
+    return data;
 }
 
 } // namespace JS::CONVERT

@@ -1,5 +1,6 @@
+#include "types/objects/JsObject.hpp"
+
 #include <types/JsAny.hpp>
-#include <types/objects/JsObject.hpp>
 
 JS::Any::Any(const std::shared_ptr<JS::Object> v) {
     v->init();
@@ -14,7 +15,7 @@ JS::Any::Any(const JS::Object& v) {
 
 JS::Any::Any(const JS::Any& v) { value = v.value; }
 
-JS::Any::Any(const JS::Any&& v) noexcept { value = std::move(v.value); }
+JS::Any::Any(const JS::Any&& v) noexcept { value = v.value; }
 
 JS::Any& JS::Any::operator=(JS::Any&& other) noexcept {
     value = std::move(other.value);

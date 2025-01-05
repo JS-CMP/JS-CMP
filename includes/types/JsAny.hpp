@@ -2,6 +2,7 @@
 #define JSANY_HPP
 
 #include "Types.hpp"
+#include "internals/PropertyProxy.hpp"
 
 namespace JS {
 /**
@@ -256,9 +257,9 @@ public:
         return helper(arguments);
     }
     /** @brief Accessors to properties of object in stored in value */
-    JS::Any operator[](const std::string& key) const;
+    JS::PropertyProxy  operator[](const std::string& key) const;
     /** @brief Accessors to properties of object in stored in value */
-    JS::Any operator[](size_t index) const;
+    JS::PropertyProxy  operator[](size_t index) const;
     ///@}
 
     /**

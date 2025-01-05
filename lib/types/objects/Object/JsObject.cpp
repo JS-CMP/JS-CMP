@@ -1,4 +1,4 @@
-#include "types/objects/JsObject.hpp"
+#include "internals/Object.hpp"
 #include "types/objects/JsFunction.hpp"
 #include "utils/Convert.hpp"
 
@@ -47,7 +47,7 @@ void Object::init() {
 }
 
 JS::Any Object::getPrototype() { // TODO https://262.ecma-international.org/5.1/#sec-15.2.3.2
-    return JS::Any(this->prototype);
+    return JS::Any(std::make_shared<JS::Object>(*this->prototype));
 }
 JS::Any Object::getPropertyDescriptor(std::string key) {
     if (properties->find(key) == properties->end()) {

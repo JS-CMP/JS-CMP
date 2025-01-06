@@ -87,6 +87,41 @@ int ToInteger(const JS::Any& any) { // https://262.ecma-international.org/5.1/#s
     }
 }
 
+inline uint32_t ApplyModulo(uint64_t value) { return value % 0x100000000; }
+inline uint32_t ToUint32(int value) { return ApplyModulo(value < 0 ? -static_cast<int64_t>(value) : value); }
+inline uint32_t ToUint32(double value) {
+    try {
+        if (std::isnan(value) || value == 0 || !std::isfinite(value)) {
+            return 0;
+        }
+        double posInt = std::signbit(value) ? -std::floor(std::abs(value)) : std::floor(std::abs(value));
+        return ApplyModulo(static_cast<int64_t>(posInt));
+    } catch (const std::exception& e) {
+        std::cerr << e.what() << '\n';
+    }
+}
+inline uint32_t ToUint32(const std::string& str) { return ToUint32(ToNumber(str)); }
+inline uint32_t ToUint32(const Rope& rope) { return ToUint32(rope.toString()); }
+inline uint32_t ToUint32(bool value) { return value ? 1 : 0; }
+inline uint32_t ToUint32(const JS::Null&) { return 0; }
+inline uint32_t ToUint32(const JS::Undefined&) { return 0; }
+uint32_t ToUint32(const JS::Any& any) { // https://262.ecma-international.org/5.1/#sec-9.6
+    switch (any.getValue().index()) {
+        case NUMBER:
+            return ToUint32(std::get<double>(any.getValue()));
+        case STRING:
+            return ToUint32(std::get<Rope>(any.getValue()));
+        case BOOL:
+            return ToUint32(std::get<bool>(any.getValue()));
+        case UNDEFINED:
+            return ToUint32(JS::Undefined());
+        case NULL_TYPE:
+            return ToUint32(JS::Null());
+        default:
+            return 0;
+    }
+}
+
 inline std::string ToString(int value) {
     return static_cast<std::ostringstream>((std::ostringstream() << value)).str();
 }

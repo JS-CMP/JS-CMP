@@ -90,11 +90,15 @@ int ToInteger(const JS::Any& any) { // https://262.ecma-international.org/5.1/#s
 inline uint32_t ApplyModulo(uint64_t value) { return value % 0x100000000; }
 inline uint32_t ToUint32(int value) { return ApplyModulo(value < 0 ? -static_cast<int64_t>(value) : value); }
 inline uint32_t ToUint32(double value) {
-    if (std::isnan(value) || value == 0 || !std::isfinite(value)) {
-        return 0;
+    try {
+        if (std::isnan(value) || value == 0 || !std::isfinite(value)) {
+            return 0;
+        }
+        double posInt = std::signbit(value) ? -std::floor(std::abs(value)) : std::floor(std::abs(value));
+        return ApplyModulo(static_cast<int64_t>(posInt));
+    } catch (const std::exception& e) {
+        std::cerr << e.what() << '\n';
     }
-    double posInt = std::signbit(value) ? -std::floor(std::abs(value)) : std::floor(std::abs(value));
-    return ApplyModulo(static_cast<int64_t>(posInt));
 }
 inline uint32_t ToUint32(const std::string& str) { return ToUint32(ToNumber(str)); }
 inline uint32_t ToUint32(const Rope& rope) { return ToUint32(rope.toString()); }

@@ -13,7 +13,7 @@
 
 #include <cmath>
 
-/** List of assertion to do (inverse of thoses function are also to do)
+/** List of assertion to do (inverse of those function are also to do)
 - [x] assert.equal(actual, expected[, message])
 - [x] assert.strictEqual(actual, expected[, message])
 - [x] assert.deepEqual(actual, expected[, message])
@@ -28,9 +28,9 @@
 - [ ] assert.rejects(asyncFn[, error][, message]) -> need async
 */
 
-class Assert : public JS::Object {
+class assert : public JS::Object {
 public:
-    Assert();
+    assert();
     static JS::Any equal(const std::vector<JS::Any>& args);
     static JS::Any notEqual(const std::vector<JS::Any>& args);
 

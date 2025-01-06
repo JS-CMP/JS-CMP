@@ -10,4 +10,5 @@ int main() {
     JS::Any Object3 = Object2["key2"];
     console::log(Object3, Object2["key2"]);
     console::log("B3");
+
 }

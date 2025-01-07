@@ -91,12 +91,12 @@ int ToInteger(const JS::Any& any) { // https://262.ecma-international.org/5.1/#s
 }
 
 inline std::string ToString(int value) {
-    return static_cast<std::ostringstream>((std::ostringstream() << value)).str();
+    return (std::ostringstream() << value).str();
 }
 inline std::string ToString(double value) {
     return std::isnan(value)   ? "NaN"
            : std::isinf(value) ? value < 0 ? "-Infinity" : "Infinity"
-                               : static_cast<std::ostringstream>((std::ostringstream() << value)).str();
+                               : (std::ostringstream() << value).str();
 }
 inline std::string ToString(const Rope& rope) { return rope.toString(); }
 inline std::string ToString(bool value) { return value ? "true" : "false"; }

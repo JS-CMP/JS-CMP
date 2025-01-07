@@ -41,20 +41,28 @@ public:
      */
     JS::Any operator()(const std::vector<JS::Any>& args);
 
+
+
     /**
      * @name Methods to make static methods of the Object built-in
      */
     ///@{
-    /** @brief Get the prototype of the object */
-    JS::Any getPrototype();
-    /** @brief Get the property descriptor of the object */
-    JS::Any getPropertyDescriptor(std::string key);
-    /** @brief Get the property names of the object */
-    JS::Any create();
-    /** @brief Create a new object */
-    JS::Any create(std::shared_ptr<JS::Object> properties);
+    static JS::Any getPropertyOf(const std::vector<JS::Any>& args);
+    static JS::Any getOwnPropertyDescriptor(const std::vector<JS::Any>& args);
+    static JS::Any getOwnPropertyNames(const std::vector<JS::Any>& args);
+    static JS::Any create(const std::vector<JS::Any>& args);
+    static JS::Any defineProperty(const std::vector<JS::Any>& args);
+    static JS::Any defineProperties(const std::vector<JS::Any>& args);
+    static JS::Any seal(const std::vector<JS::Any>& args);
+    static JS::Any freeze(const std::vector<JS::Any>& args);
+    static JS::Any preventExtensions(const std::vector<JS::Any>& args);
+    static JS::Any isSealed(const std::vector<JS::Any>& args);
+    static JS::Any isFrozen(const std::vector<JS::Any>& args);
+    static JS::Any isExtensible(const std::vector<JS::Any>& args);
+    static JS::Any keys(const std::vector<JS::Any>& args);
+    /** @brief Constructor a new object */
+    JS::Any constuctor(std::vector<JS::Any> args);
     ///@}
-
     /**
      * @name Methods
      * These methods provide additional functionality to the object
@@ -62,6 +70,28 @@ public:
     ///@{
     /** @brief init functions in the properties, made for inherited class */
     virtual void init();
+    ///@}
+
+
+
+
+
+private:
+    std::vector<std::pair<std::string,FunctionType>> functions = {
+        {"getPropertyOf", std::bind(&Object::getPropertyOf, std::placeholders::_1)},
+        {"getOwnPropertyDescriptor", std::bind(&Object::getOwnPropertyDescriptor, std::placeholders::_1)},
+        {"getOwnPropertyNames", std::bind(&Object::getOwnPropertyNames, std::placeholders::_1)},
+        {"create", std::bind(&Object::create, std::placeholders::_1)},
+        {"defineProperty", std::bind(&Object::defineProperty, std::placeholders::_1)},
+        {"defineProperties", std::bind(&Object::defineProperties, std::placeholders::_1)},
+        {"seal", std::bind(&Object::seal, std::placeholders::_1)},
+        {"freeze", std::bind(&Object::freeze, std::placeholders::_1)},
+        {"preventExtensions", std::bind(&Object::preventExtensions, std::placeholders::_1)},
+        {"isSealed", std::bind(&Object::isSealed, std::placeholders::_1)},
+        {"isFrozen", std::bind(&Object::isFrozen, std::placeholders::_1)},
+        {"isExtensible", std::bind(&Object::isExtensible, std::placeholders::_1)},
+        {"keys", std::bind(&Object::keys, std::placeholders::_1)},
+    };
 };
 } // namespace JS
 

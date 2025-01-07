@@ -10,7 +10,7 @@ assert::assert() : JS::Object() {
 }
 
 // equals
-JS::Any assert::equalHelper(const std::vector<JS::Any> &args) {
+JS::Any assert::equalHelper(const std::vector<JS::Any>& args) {
     if (args.size() < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "actual" and "expected" arguments must be specified.)", "ERR_MISSING_ARGS");
@@ -21,7 +21,7 @@ JS::Any assert::equalHelper(const std::vector<JS::Any> &args) {
     return {};
 }
 
-JS::Any assert::notEqualHelper(const std::vector<JS::Any> &args) {
+JS::Any assert::notEqualHelper(const std::vector<JS::Any>& args) {
     if (args.size() < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "actual" and "expected" arguments must be specified.)", "ERR_MISSING_ARGS");
@@ -33,7 +33,7 @@ JS::Any assert::notEqualHelper(const std::vector<JS::Any> &args) {
 }
 
 // stictEquals
-JS::Any assert::strictEqualHelper(const std::vector<JS::Any> &args) {
+JS::Any assert::strictEqualHelper(const std::vector<JS::Any>& args) {
     if (args.size() < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "actual" and "expected" arguments must be specified.)", "ERR_MISSING_ARGS");
@@ -44,7 +44,7 @@ JS::Any assert::strictEqualHelper(const std::vector<JS::Any> &args) {
     return {};
 }
 
-JS::Any assert::notStrictEqualHelper(const std::vector<JS::Any> &args) {
+JS::Any assert::notStrictEqualHelper(const std::vector<JS::Any>& args) {
     if (args.size() < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "actual" and "expected" arguments must be specified.)", "ERR_MISSING_ARGS");
@@ -56,7 +56,7 @@ JS::Any assert::notStrictEqualHelper(const std::vector<JS::Any> &args) {
 }
 
 // deepEquals TODO: make the message automatique depending on the ope
-JS::Any assert::deepEqualHelper(const std::vector<JS::Any> &args) {
+JS::Any assert::deepEqualHelper(const std::vector<JS::Any>& args) {
     if (args.size() < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "actual" and "expected" arguments must be specified.)", "ERR_MISSING_ARGS");
@@ -67,7 +67,7 @@ JS::Any assert::deepEqualHelper(const std::vector<JS::Any> &args) {
     return {};
 }
 
-JS::Any assert::notDeepEqualHelper(const std::vector<JS::Any> &args) {
+JS::Any assert::notDeepEqualHelper(const std::vector<JS::Any>& args) {
     if (args.size() < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "actual" and "expected" arguments must be specified.)", "ERR_MISSING_ARGS");
@@ -79,7 +79,7 @@ JS::Any assert::notDeepEqualHelper(const std::vector<JS::Any> &args) {
 }
 
 // deep strict equals
-JS::Any assert::deepStrictEqualHelper(const std::vector<JS::Any> &args) {
+JS::Any assert::deepStrictEqualHelper(const std::vector<JS::Any>& args) {
     if (args.size() < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "actual" and "expected" arguments must be specified.)", "ERR_MISSING_ARGS");
@@ -90,7 +90,7 @@ JS::Any assert::deepStrictEqualHelper(const std::vector<JS::Any> &args) {
     return {};
 }
 
-JS::Any assert::notStrictDeepEqualHelper(const std::vector<JS::Any> &args) {
+JS::Any assert::notStrictDeepEqualHelper(const std::vector<JS::Any>& args) {
     if (args.size() < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "actual" and "expected" arguments must be specified.)", "ERR_MISSING_ARGS");
@@ -102,7 +102,7 @@ JS::Any assert::notStrictDeepEqualHelper(const std::vector<JS::Any> &args) {
 }
 
 // other
-JS::Any assert::okHelper(const std::vector<JS::Any> &args) {
+JS::Any assert::okHelper(const std::vector<JS::Any>& args) {
     if (args.empty()) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(No value argument passed to `assert.ok()`)", "ERR_MISSING_ARGS");
@@ -114,7 +114,7 @@ JS::Any assert::okHelper(const std::vector<JS::Any> &args) {
     return {};
 }
 
-JS::Any assert::failHelper(const std::vector<JS::Any> &args) {
+JS::Any assert::failHelper(const std::vector<JS::Any>& args) {
     // TODO : handle if args[0] is a throwable, make throwable js::any
     if (args.size() == 1) {
         innerFail(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()), args[0], "fail");
@@ -123,7 +123,7 @@ JS::Any assert::failHelper(const std::vector<JS::Any> &args) {
     return {};
 }
 
-JS::Any assert::ifErrorHelper(const std::vector<JS::Any> &args) {
+JS::Any assert::ifErrorHelper(const std::vector<JS::Any>& args) {
     if (args.size() != 1) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "value" argument must be specified.)", "ERR_MISSING_ARGS");
@@ -135,7 +135,7 @@ JS::Any assert::ifErrorHelper(const std::vector<JS::Any> &args) {
     return {};
 }
 
-JS::Any assert::throwsHelper(const std::vector<JS::Any> &args) {
+JS::Any assert::throwsHelper(const std::vector<JS::Any>& args) {
     // TODO:: handle obj properties, regexp class
     if (args.size() < 1) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()), R"(The "fn" argument must be specified.)",

@@ -27,28 +27,76 @@
 - [ ] assert.doesNotReject(asyncFn[, error][, message]) -> need async
 - [ ] assert.rejects(asyncFn[, error][, message]) -> need async
 */
-
 class assert : public JS::Object {
 public:
-    assert();
-    static JS::Any equal(const std::vector<JS::Any>& args);
-    static JS::Any notEqual(const std::vector<JS::Any>& args);
+    template <typename... Args>
+    static JS::Any equal(Args&&... args) {
+        return equalHelper({std::forward<Args>(args)...});
+    }
+    template <typename... Args>
+    static JS::Any notEqual(Args&&... args) {
+        return notEqualHelper({std::forward<Args>(args)...});
+    }
+    static JS::Any equalHelper(const std::vector<JS::Any>& args);
+    static JS::Any notEqualHelper(const std::vector<JS::Any>& args);
 
-    static JS::Any strictEqual(const std::vector<JS::Any>& args);
-    static JS::Any notStrictEqual(const std::vector<JS::Any>& args);
+    template <typename... Args>
+    static JS::Any strictEqual(Args&&... args) {
+        return strictEqualHelper({std::forward<Args>(args)...});
+    }
+    template <typename... Args>
+    static JS::Any notStrictEqual(Args&&... args) {
+        return notStrictEqualHelper({std::forward<Args>(args)...});
+    }
+    static JS::Any strictEqualHelper(const std::vector<JS::Any>& args);
+    static JS::Any notStrictEqualHelper(const std::vector<JS::Any>& args);
 
-    static JS::Any deepEqual(const std::vector<JS::Any>& args);
-    static JS::Any notDeepEqual(const std::vector<JS::Any>& args);
+    template <typename... Args>
+    static JS::Any deepEqual(Args&&... args) {
+        return deepEqualHelper({std::forward<Args>(args)...});
+    }
+    template <typename... Args>
+    static JS::Any notDeepEqual(Args&&... args) {
+        return notDeepEqualHelper({std::forward<Args>(args)...});
+    }
+    static JS::Any deepEqualHelper(const std::vector<JS::Any>& args);
+    static JS::Any notDeepEqualHelper(const std::vector<JS::Any>& args);
 
-    static JS::Any deepStrictEqual(const std::vector<JS::Any>& args);
-    static JS::Any notStrictDeepEqual(const std::vector<JS::Any>& args);
+    template <typename... Args>
+    static JS::Any deepStrictEqual(Args&&... args) {
+        return deepStrictEqualHelper({std::forward<Args>(args)...});
+    }
+    template <typename... Args>
+    static JS::Any notStrictDeepEqual(Args&&... args) {
+        return notStrictDeepEqualHelper({std::forward<Args>(args)...});
+    }
+    static JS::Any deepStrictEqualHelper(const std::vector<JS::Any>& args);
+    static JS::Any notStrictDeepEqualHelper(const std::vector<JS::Any>& args);
 
-    static JS::Any ok(const std::vector<JS::Any>& args);
-    static JS::Any fail(const std::vector<JS::Any>& args);
-    static JS::Any ifError(const std::vector<JS::Any>& args);
-    static JS::Any throws(const std::vector<JS::Any>& args);
+    template <typename... Args>
+    static JS::Any ok(Args&&... args) {
+        return okHelper({std::forward<Args>(args)...});
+    }
+    template <typename... Args>
+    static JS::Any fail(Args&&... args) {
+        return failHelper({std::forward<Args>(args)...});
+    }
+    template <typename... Args>
+    static JS::Any ifError(Args&&... args) {
+        return ifErrorHelper({std::forward<Args>(args)...});
+    }
+    template <typename... Args>
+    static JS::Any throws(Args&&... args) {
+        return throwsHelper({std::forward<Args>(args)...});
+    }
+    static JS::Any okHelper(const std::vector<JS::Any>& args);
+    static JS::Any failHelper(const std::vector<JS::Any>& args);
+    static JS::Any ifErrorHelper(const std::vector<JS::Any>& args);
+    static JS::Any throwsHelper(const std::vector<JS::Any>& args);
 
 private:
+    assert();
+    ~assert() = default;
     // TODO: add handling stackStartFn
     static void innerFail(const JS::Any& actual, const JS::Any& expected, const JS::Any& message,
                           const std::string& operator_);

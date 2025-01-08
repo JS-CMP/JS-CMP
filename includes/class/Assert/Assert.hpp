@@ -81,6 +81,7 @@ public:
     static JS::Any sameValue(Args&&... args) {
         return sameValue({std::forward<Args>(args)...});
     }
+
 private:
     static JS::Any equalHelper(const std::vector<JS::Any>& args);
     static JS::Any notEqualHelper(const std::vector<JS::Any>& args);

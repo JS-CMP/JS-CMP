@@ -163,9 +163,7 @@ JS::Any assert::sameValueHelper(const JS::Any& actual, const JS::Any& expected) 
         } else {
             innerFail(actual, expected, JS::Any(JS::Undefined()), "sameValue");
         }
-    } catch (const JS::Any& e) {
-        innerFail(actual, expected, e, "sameValue");
-    }
+    } catch (const JS::Any& e) { innerFail(actual, expected, e, "sameValue"); }
     return {};
 }
 

@@ -156,7 +156,13 @@ JS::Any assert::throwsHelper(const std::vector<JS::Any>& args) {
 }
 
 // Test262 asserts
-JS::Any assert::sameValueHelper(const JS::Any& actual, const JS::Any& expected) {
+JS::Any assert::sameValueHelper(const std::vector<JS::Any>& args) {
+    if (args.size() < 2) {
+        throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
+                        R"(The "actual" and "expected" arguments must be specified.)", "ERR_MISSING_ARGS");
+    }
+    JS::Any actual = args[0];
+    JS::Any expected = args[1];
     try {
         if (_sameValue(actual, expected)) {
             return {};

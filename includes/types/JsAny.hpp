@@ -265,6 +265,8 @@ public:
     JS::Any& operator[](const std::string& key) const;
     /** @brief Accessors to properties of object in stored in value */
     JS::Any& operator[](size_t index) const;
+    /** @brief Accessors to properties of object in stored in value */
+    JS::Any& operator[](const JS::Any& key) const;
     ///@}
 
     /**

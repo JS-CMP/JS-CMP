@@ -79,7 +79,7 @@ public:
     }
     template <typename... Args>
     static JS::Any sameValue(Args&&... args) {
-        return sameValue({std::forward<Args>(args)...});
+        return sameValueHelper({std::forward<Args>(args)...});
     }
 private:
     static JS::Any equalHelper(const std::vector<JS::Any>& args);
@@ -100,7 +100,7 @@ private:
     static JS::Any throwsHelper(const std::vector<JS::Any>& args);
 
     // test262 asserts
-    static JS::Any sameValueHelper(const JS::Any& actual, const JS::Any& expected);
+    static JS::Any sameValueHelper(const std::vector<JS::Any>& args);
     static bool _sameValue(const JS::Any& actual, const JS::Any& expected);
 
     assert();

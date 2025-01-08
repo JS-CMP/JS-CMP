@@ -17,6 +17,13 @@ JS::Any& JS::Any::operator[](size_t index) const {
     throw std::runtime_error("Value is not an object");
 }
 
+JS::Any& JS::Any::operator[](const JS::Any& key) const {
+    if (this->value.index() == OBJECT && key.value.index() == STRING) {
+        return std::get<std::shared_ptr<JS::Object>>(this->value)->operator[](std::get<Rope>(key.value).toString());
+    }
+    throw std::runtime_error("Value is not an object");
+}
+
 JS::Any JS::Any::helper(std::vector<JS::Any>& args) const {
     if (value.index() == JS::OBJECT && std::get<std::shared_ptr<JS::Object>>(value)->isCallable()) {
         // TODO: change if function is not the only callable object

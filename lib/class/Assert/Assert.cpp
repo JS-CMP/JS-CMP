@@ -26,7 +26,7 @@ JS::Any assert::notEqualHelper(const std::vector<JS::Any>& args) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "actual" and "expected" arguments must be specified.)", "ERR_MISSING_ARGS");
     }
-    if (args[0] == args[1] && (Helper::isNaN(args[0]) && Helper::isNaN(args[1]))) {
+    if (args[0] == args[1] || (Helper::isNaN(args[0]) && Helper::isNaN(args[1]))) {
         innerFail(args[0], args[1], args.size() == 3 ? args[2] : JS::Any(JS::Undefined()), "!=");
     }
     return {};

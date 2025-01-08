@@ -134,6 +134,7 @@ JS::Any Object::preventExtensions(const std::vector<JS::Any>& args) {
 }
 
 JS::Any Object::isSealed(const std::vector<JS::Any>& args) {
+    std::cerr << "isSealed" << std::endl;
     if (args.empty() || args[0].getValue().index() != JS::OBJECT) {
         throw std::runtime_error("TypeError: Object.isSealed called on non-object");
     }
@@ -172,6 +173,7 @@ JS::Any Object::isExtensible(const std::vector<JS::Any>& args) {
 }
 
 JS::Any Object::keys(const std::vector<JS::Any>& args) { // TODO implement array to fix this
+    std::cerr << "keys" << std::endl;
     if (args.empty() || args[0].getValue().index() != JS::OBJECT) {
         throw std::runtime_error("TypeError: Object.keys called on non-object");
     }

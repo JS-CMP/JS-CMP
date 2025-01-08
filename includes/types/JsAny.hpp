@@ -2,7 +2,6 @@
 #define JSANY_HPP
 
 #include "Types.hpp"
-#include "internals/PropertyProxy.hpp"
 
 namespace JS {
 /**
@@ -253,9 +252,12 @@ public:
     /** @brief Accessors to call function stored in properties on an object stored in value */
     template <typename... Args>
     JS::Any operator()(Args&&... args) {
-        std::vector<JS::Any> arguments = {JS::Any(std::forward<Args>(args))...};
-        return helper(arguments);
+        std::vector<JS::Any> arguments = {std::forward<Args>(args)...};
+        return call(arguments);
     }
+    /** @brief Accessors to call function stored in properties on an object stored in value */
+    JS::Any call(const std::vector<JS::Any>& args) const;
+
     /** @brief Accessors to properties of object in stored in value */
     JS::PropertyProxy  operator[](const std::string& key) const;
     /** @brief Accessors to properties of object in stored in value */
@@ -283,7 +285,6 @@ public:
 
 private:
     JS::Value value; /**< Holds the current value of this Any instance. */
-    JS::Any helper(std::vector<JS::Any>& args) const;
 };
 } // namespace JS
 

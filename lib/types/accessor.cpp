@@ -18,11 +18,12 @@ JS::PropertyProxy  JS::Any::operator[](size_t index) const {
     throw std::runtime_error("Value is not an object");
 }
 
-JS::Any JS::Any::helper(std::vector<JS::Any>& args) const {
+JS::Any JS::Any::call(const std::vector<JS::Any>& args) const {
     if (value.index() == JS::OBJECT && std::get<std::shared_ptr<JS::Object>>(value)->isCallable()) {
+        std::cerr << "calling function" << std::endl;
         // TODO: change if function is not the only callable object
         // reinterpret_cast<JS::Function*>(std::get<std::shared_ptr<JS::Object>>(value).get())->call(args);
-        return std::get<std::shared_ptr<JS::Object>>(value)->operator()(args);
+        return reinterpret_cast<JS::Function*>(std::get<std::shared_ptr<JS::Object>>(value).get())->operator()(args);
     }
     throw std::runtime_error("Value is not a function");
 }

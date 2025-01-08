@@ -21,6 +21,10 @@ PropertyProxy PropertyProxy::operator[](const std::string& key) {
     }
     throw std::runtime_error("Property is not an object");
 }
+JS::Any PropertyProxy::call(const std::vector<JS::Any>& args) const {
+    JS::Any any = obj_.get(key_);
+    return any.call(args);
+}
 
 std::ostream& operator<<(std::ostream& os, const PropertyProxy& proxy) {
     os << static_cast<JS::Any>(proxy);

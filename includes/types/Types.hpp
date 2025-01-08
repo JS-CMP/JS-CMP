@@ -28,6 +28,7 @@ enum Types {
 
 class Any;
 class InternalObject;
+class PropertyProxy;
 
 class Object;
 class Function;

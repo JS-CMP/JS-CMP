@@ -90,18 +90,18 @@ int ToInteger(const JS::Any& any) { // https://262.ecma-international.org/5.1/#s
     }
 }
 
-inline std::string ToString(int value) {
+std::string ToString(int value) {
     return (std::ostringstream() << value).str();
 }
-inline std::string ToString(double value) {
+std::string ToString(double value) {
     return std::isnan(value)   ? "NaN"
            : std::isinf(value) ? value < 0 ? "-Infinity" : "Infinity"
                                : (std::ostringstream() << value).str();
 }
-inline std::string ToString(const Rope& rope) { return rope.toString(); }
-inline std::string ToString(bool value) { return value ? "true" : "false"; }
-inline std::string ToString(const JS::Null&) { return "null"; }
-inline std::string ToString(const JS::Undefined&) { return "undefined"; }
+std::string ToString(const Rope& rope) { return rope.toString(); }
+std::string ToString(bool value) { return value ? "true" : "false"; }
+std::string ToString(const JS::Null&) { return "null"; }
+std::string ToString(const JS::Undefined&) { return "undefined"; }
 
 std::string ToString(const JS::Any& any) { // https://262.ecma-international.org/5.1/#sec-9.8
 

@@ -1,5 +1,5 @@
 #include "internals/Object.hpp"
-#include "utils/Convert.hpp"
+#include "internals/PropertyProxy.hpp"
 namespace JS {
 
 JS::PropertyProxy  InternalObject::operator[](const std::string& key) {

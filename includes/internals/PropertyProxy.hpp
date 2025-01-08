@@ -1,6 +1,7 @@
 #ifndef PROPERTIESPROXY_HPP
 #define PROPERTIESPROXY_HPP
 #include "types/Types.hpp"
+#include "types/JsAny.hpp"
 
 namespace JS {
 class PropertyProxy {
@@ -17,6 +18,13 @@ public:
 
     PropertyProxy operator[](const std::string& key);
 
+    // Overload operator() to cast to JS::Any and call operator()
+    template <typename... Args>
+    JS::Any operator()(Args&&... args) {
+        std::vector<JS::Any> arguments = {std::forward<Args>(args)...};
+        return call(arguments);
+    }
+    JS::Any call(const std::vector<JS::Any>& args) const;
 private:
     JS::InternalObject& obj_;
     std::string key_;

@@ -3,6 +3,7 @@
 
 #include "internals/Attribute.hpp"
 #include "internals/Object.hpp"
+#include "internals/PropertyProxy.hpp"
 
 namespace JS {
 

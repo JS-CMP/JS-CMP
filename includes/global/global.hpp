@@ -1,0 +1,6 @@
+#ifndef JS_CMP_GLOBAL_HPP
+#define JS_CMP_GLOBAL_HPP
+
+
+
+#endif //JS_CMP_GLOBAL_HPP

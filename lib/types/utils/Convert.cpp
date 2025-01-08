@@ -100,9 +100,7 @@ double ToNumber(const JS::Any& any) { // https://262.ecma-international.org/5.1/
 }
 
 int ToInteger(int value) { return value; }
-int ToInteger(double value) {
-    return std::isnan(value) ? 0 : value < 0 ? -std::floor(-value) : std::floor(value);
-}
+int ToInteger(double value) { return std::isnan(value) ? 0 : value < 0 ? -std::floor(-value) : std::floor(value); }
 int ToInteger(const std::string& str) { return ToInteger(ToNumber(str)); }
 int ToInteger(const Rope& rope) { return ToInteger(rope.toString()); }
 int ToInteger(bool value) { return value ? 1 : 0; }
@@ -134,9 +132,7 @@ uint32_t ToUint32(double value) {
         }
         double posInt = std::signbit(value) ? -std::floor(std::abs(value)) : std::floor(std::abs(value));
         return ApplyModulo(static_cast<int64_t>(posInt));
-    } catch (const std::exception& e) {
-        std::cerr << e.what() << '\n';
-    }
+    } catch (const std::exception& e) { std::cerr << e.what() << '\n'; }
     return 0;
 }
 uint32_t ToUint32(const std::string& str) { return ToUint32(ToNumber(str)); }
@@ -161,9 +157,7 @@ uint32_t ToUint32(const JS::Any& any) { // https://262.ecma-international.org/5.
     }
 }
 
-std::string ToString(int value) {
-    return static_cast<std::ostringstream>((std::ostringstream() << value)).str();
-}
+std::string ToString(int value) { return static_cast<std::ostringstream>((std::ostringstream() << value)).str(); }
 std::string ToString(double value) {
     return std::isnan(value)   ? "NaN"
            : std::isinf(value) ? value < 0 ? "-Infinity" : "Infinity"

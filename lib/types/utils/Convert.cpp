@@ -13,13 +13,13 @@ JS::Any ToPrimitive(const JS::Any& any) { // https://262.ecma-international.org/
     return any;
 }
 
-inline bool ToBoolean(int value) { return value != 0; }
-inline bool ToBoolean(double value) { return !std::isnan(value) && value != 0; }
-inline bool ToBoolean(const std::string& str) { return !str.empty(); }
-inline bool ToBoolean(const Rope& rope) { return ToBoolean(rope.toString()); }
-inline bool ToBoolean(bool value) { return value; }
-inline bool ToBoolean(const JS::Null&) { return false; }
-inline bool ToBoolean(const JS::Undefined&) { return false; }
+bool ToBoolean(int value) { return value != 0; }
+bool ToBoolean(double value) { return !std::isnan(value) && value != 0; }
+bool ToBoolean(const std::string& str) { return !str.empty(); }
+bool ToBoolean(const Rope& rope) { return ToBoolean(rope.toString()); }
+bool ToBoolean(bool value) { return value; }
+bool ToBoolean(const JS::Null&) { return false; }
+bool ToBoolean(const JS::Undefined&) { return false; }
 bool ToBoolean(const JS::Any& any) { // https://262.ecma-international.org/5.1/#sec-9.2
     switch (any.getValue().index()) {
         case NUMBER:
@@ -37,13 +37,51 @@ bool ToBoolean(const JS::Any& any) { // https://262.ecma-international.org/5.1/#
     }
 }
 
-inline double ToNumber(int value) { return static_cast<double>(value); }
-inline double ToNumber(double value) { return value; }
-inline double ToNumber(const std::string& str) { return !str.empty() ? std::stod(str) : 0; }
-inline double ToNumber(const Rope& rope) { return ToNumber(rope.toString()); }
-inline double ToNumber(bool value) { return static_cast<double>(value); }
-inline double ToNumber(const JS::Null&) { return 0; }
-inline double ToNumber(const JS::Undefined&) { return std::numeric_limits<double>::quiet_NaN(); }
+double ToNumber(int value) { return static_cast<double>(value); }
+double ToNumber(double value) { return value; }
+double ToNumber(const std::string& str) {
+    if (str.empty()) {
+        throw std::invalid_argument("La chaîne est vide");
+    }
+
+    if (str.size() > 2 && str[0] == '0' && (str[1] == 'x' || str[1] == 'X')) {
+        int result;
+        std::stringstream ss;
+        ss << std::hex << str.substr(2);
+        ss >> result;
+        if (ss.fail()) {
+            return 0;
+        }
+        return result;
+    }
+
+    else if (str.size() > 2 && str[0] == '0' && (str[1] == 'b' || str[1] == 'B')) {
+        int result = 0;
+        for (size_t i = 2; i < str.size(); ++i) {
+            if (str[i] != '0' && str[i] != '1') {
+                return 0;
+            }
+            result = (result << 1) | (str[i] - '0');
+        }
+        return result;
+    }
+
+    else {
+        try {
+            if (str.find('.') != std::string::npos) {
+                double result = std::stod(str);
+                return static_cast<int>(result);
+            } else {
+                long long result = std::stoll(str);
+                return static_cast<int>(result);
+            }
+        } catch (...) { return 0; }
+    }
+}
+double ToNumber(const Rope& rope) { return ToNumber(rope.toString()); }
+double ToNumber(bool value) { return static_cast<double>(value); }
+double ToNumber(const JS::Null&) { return 0; }
+double ToNumber(const JS::Undefined&) { return std::numeric_limits<double>::quiet_NaN(); }
 double ToNumber(const JS::Any& any) { // https://262.ecma-international.org/5.1/#sec-9.3
     switch (any.getValue().index()) {
         case NUMBER:
@@ -61,15 +99,15 @@ double ToNumber(const JS::Any& any) { // https://262.ecma-international.org/5.1/
     }
 }
 
-inline int ToInteger(int value) { return value; }
-inline int ToInteger(double value) {
+int ToInteger(int value) { return value; }
+int ToInteger(double value) {
     return std::isnan(value) ? 0 : value < 0 ? -std::floor(-value) : std::floor(value);
 }
-inline int ToInteger(const std::string& str) { return ToInteger(ToNumber(str)); }
-inline int ToInteger(const Rope& rope) { return ToInteger(rope.toString()); }
-inline int ToInteger(bool value) { return value ? 1 : 0; }
-inline int ToInteger(const JS::Null&) { return 0; }
-inline int ToInteger(const JS::Undefined&) { return 0; }
+int ToInteger(const std::string& str) { return ToInteger(ToNumber(str)); }
+int ToInteger(const Rope& rope) { return ToInteger(rope.toString()); }
+int ToInteger(bool value) { return value ? 1 : 0; }
+int ToInteger(const JS::Null&) { return 0; }
+int ToInteger(const JS::Undefined&) { return 0; }
 int ToInteger(const JS::Any& any) { // https://262.ecma-international.org/5.1/#sec-9.4
     switch (any.getValue().index()) {
         case NUMBER:
@@ -87,9 +125,9 @@ int ToInteger(const JS::Any& any) { // https://262.ecma-international.org/5.1/#s
     }
 }
 
-inline uint32_t ApplyModulo(uint64_t value) { return value % 0x100000000; }
-inline uint32_t ToUint32(int value) { return ApplyModulo(value < 0 ? -static_cast<int64_t>(value) : value); }
-inline uint32_t ToUint32(double value) {
+uint32_t ApplyModulo(uint64_t value) { return value % 0x100000000; }
+uint32_t ToUint32(int value) { return ApplyModulo(value < 0 ? -static_cast<int64_t>(value) : value); }
+uint32_t ToUint32(double value) {
     try {
         if (std::isnan(value) || value == 0 || !std::isfinite(value)) {
             return 0;
@@ -99,12 +137,13 @@ inline uint32_t ToUint32(double value) {
     } catch (const std::exception& e) {
         std::cerr << e.what() << '\n';
     }
+    return 0;
 }
-inline uint32_t ToUint32(const std::string& str) { return ToUint32(ToNumber(str)); }
-inline uint32_t ToUint32(const Rope& rope) { return ToUint32(rope.toString()); }
-inline uint32_t ToUint32(bool value) { return value ? 1 : 0; }
-inline uint32_t ToUint32(const JS::Null&) { return 0; }
-inline uint32_t ToUint32(const JS::Undefined&) { return 0; }
+uint32_t ToUint32(const std::string& str) { return ToUint32(ToNumber(str)); }
+uint32_t ToUint32(const Rope& rope) { return ToUint32(rope.toString()); }
+uint32_t ToUint32(bool value) { return value ? 1 : 0; }
+uint32_t ToUint32(const JS::Null&) { return 0; }
+uint32_t ToUint32(const JS::Undefined&) { return 0; }
 uint32_t ToUint32(const JS::Any& any) { // https://262.ecma-international.org/5.1/#sec-9.6
     switch (any.getValue().index()) {
         case NUMBER:
@@ -122,19 +161,18 @@ uint32_t ToUint32(const JS::Any& any) { // https://262.ecma-international.org/5.
     }
 }
 
-inline std::string ToString(int value) {
+std::string ToString(int value) {
     return static_cast<std::ostringstream>((std::ostringstream() << value)).str();
 }
-inline std::string ToString(double value) {
+std::string ToString(double value) {
     return std::isnan(value)   ? "NaN"
            : std::isinf(value) ? value < 0 ? "-Infinity" : "Infinity"
                                : static_cast<std::ostringstream>((std::ostringstream() << value)).str();
 }
-inline std::string ToString(const Rope& rope) { return rope.toString(); }
-inline std::string ToString(bool value) { return value ? "true" : "false"; }
-inline std::string ToString(const JS::Null&) { return "null"; }
-inline std::string ToString(const JS::Undefined&) { return "undefined"; }
-
+std::string ToString(const Rope& rope) { return rope.toString(); }
+std::string ToString(bool value) { return value ? "true" : "false"; }
+std::string ToString(const JS::Null&) { return "null"; }
+std::string ToString(const JS::Undefined&) { return "undefined"; }
 std::string ToString(const JS::Any& any) { // https://262.ecma-international.org/5.1/#sec-9.8
 
     switch (any.getValue().index()) {

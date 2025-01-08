@@ -1,39 +1,5 @@
 #include "../../../../includes/types/JsAny.hpp"
-
-int stringToNumber(const std::string& str) {
-    if (str.empty()) {
-        throw std::invalid_argument("La chaîne est vide");
-    }
-
-    if (str.size() > 2 && str[0] == '0' && (str[1] == 'x' || str[1] == 'X')) {
-        uint32_t result;
-        std::stringstream ss;
-        ss << std::hex << str.substr(2);
-        ss >> result;
-        if (ss.fail()) {
-            return 0;
-        }
-        return static_cast<int>(result & 0xFFFFFFFF);
-    }
-
-    else if (str.size() > 2 && str[0] == '0' && (str[1] == 'b' || str[1] == 'B')) {
-        uint32_t result = 0;
-        for (size_t i = 2; i < str.size(); ++i) {
-            if (str[i] != '0' && str[i] != '1') {
-                return 0;
-            }
-            result = (result << 1) | (str[i] - '0');
-        }
-        return static_cast<int>(result & 0xFFFFFFFF);
-    }
-
-    else {
-        try {
-            long long result = std::stoll(str);
-            return static_cast<int>(result & 0xFFFFFFFF);
-        } catch (...) { return 0; }
-    }
-}
+#include "../../../../includes/utils/Convert.hpp"
 
 JS::Any JS::Any::operator<<(const JS::Any& other) const {
     try {
@@ -45,7 +11,7 @@ JS::Any JS::Any::operator<<(const JS::Any& other) const {
                                        << static_cast<int>(std::get<double>(other.value)));
                     case STRING:
                         return JS::Any(static_cast<int>(std::get<double>(this->value))
-                                       << stringToNumber(std::get<Rope>(other.value).toString()));
+                                       << JS::CONVERT::ToInteger(std::get<Rope>(other.value).toString()));
                     case BOOL:
                         return JS::Any(static_cast<int>(std::get<double>(this->value))
                                        << static_cast<int>(std::get<bool>(other.value)));
@@ -55,13 +21,13 @@ JS::Any JS::Any::operator<<(const JS::Any& other) const {
             case STRING:
                 switch (other.value.index()) {
                     case NUMBER:
-                        return JS::Any(stringToNumber(std::get<Rope>(this->value).toString())
+                        return JS::Any(JS::CONVERT::ToInteger(std::get<Rope>(this->value).toString())
                                        << static_cast<int>(std::get<double>(other.value)));
                     case STRING:
-                        return JS::Any(stringToNumber(std::get<Rope>(this->value).toString())
-                                       << stringToNumber(std::get<Rope>(other.value).toString()));
+                        return JS::Any(JS::CONVERT::ToInteger(std::get<Rope>(this->value).toString())
+                                       << JS::CONVERT::ToInteger(std::get<Rope>(other.value).toString()));
                     case BOOL:
-                        return JS::Any(stringToNumber(std::get<Rope>(this->value).toString())
+                        return JS::Any(JS::CONVERT::ToInteger(std::get<Rope>(this->value).toString())
                                        << static_cast<int>(std::get<bool>(other.value)));
                     default:
                         return JS::Any(0);
@@ -73,7 +39,7 @@ JS::Any JS::Any::operator<<(const JS::Any& other) const {
                                        << static_cast<int>(std::get<double>(other.value)));
                     case STRING:
                         return JS::Any(static_cast<int>(std::get<bool>(this->value))
-                                       << stringToNumber(std::get<Rope>(other.value).toString()));
+                                       << JS::CONVERT::ToInteger(std::get<Rope>(other.value).toString()));
                     case BOOL:
                         return JS::Any(static_cast<int>(std::get<bool>(this->value))
                                        << static_cast<int>(std::get<bool>(other.value)));
@@ -94,7 +60,7 @@ JS::Any JS::Any::operator<<(int value) const {
                 return JS::Any(lhs << value);
             }
             case STRING: {
-                int lhs = stringToNumber(std::get<Rope>(this->value).toString());
+                int lhs = JS::CONVERT::ToInteger(std::get<Rope>(this->value).toString());
                 return JS::Any(lhs << value);
             }
             case BOOL: {
@@ -110,7 +76,7 @@ JS::Any JS::Any::operator<<(int value) const {
 JS::Any JS::Any::operator<<(double value) const { return *this << static_cast<int>(value); }
 
 JS::Any JS::Any::operator<<(const char* value) const {
-    int rhs = stringToNumber(std::string(value));
+    int rhs = JS::CONVERT::ToInteger(std::string(value));
     return *this << rhs;
 }
 
@@ -132,7 +98,7 @@ JS::Any operator<<(int value, const JS::Any& any) {
                 return JS::Any(value << rhs);
             }
             case STRING: {
-                int rhs = stringToNumber(std::get<Rope>(any.value).toString());
+                int rhs = JS::CONVERT::ToInteger(std::get<Rope>(any.value).toString());
                 return JS::Any(value << rhs);
             }
             case BOOL: {
@@ -148,7 +114,7 @@ JS::Any operator<<(int value, const JS::Any& any) {
 JS::Any operator<<(double value, const JS::Any& any) { return static_cast<int>(value) << any; }
 
 JS::Any operator<<(const char* value, const JS::Any& any) {
-    int lhs = stringToNumber(std::string(value));
+    int lhs = JS::CONVERT::ToInteger(std::string(value));
     return lhs << any;
 }
 

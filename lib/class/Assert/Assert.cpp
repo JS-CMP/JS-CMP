@@ -155,7 +155,28 @@ JS::Any assert::throwsHelper(const std::vector<JS::Any>& args) {
     return {};
 }
 
+// Test262 asserts
+JS::Any assert::sameValueHelper(const JS::Any& actual, const JS::Any& expected) {
+    try {
+        if (_sameValue(actual, expected)) {
+            return {};
+        } else {
+            innerFail(actual, expected, JS::Any(JS::Undefined()), "sameValue");
+        }
+    } catch (const JS::Any& e) {
+        innerFail(actual, expected, e, "sameValue");
+    }
+    return {};
+}
+
 // private
+bool assert::_sameValue(const JS::Any& actual, const JS::Any& expected) {
+    if (Helper::isNaN(actual) && Helper::isNaN(expected)) {
+        return true;
+    }
+    return Helper::sameValue(actual, expected);
+}
+
 void assert::innerFail(const JS::Any& actual, const JS::Any& expected, const JS::Any& message,
                        const std::string& operator_) {
     auto msg = Helper::isUndefined(message) ? actual.toString() + " " + operator_ + " " + expected.toString()

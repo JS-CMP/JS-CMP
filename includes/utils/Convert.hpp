@@ -31,6 +31,14 @@ int ToInteger(const JS::Undefined& value);
 int ToInteger(const JS::Null& value);
 int ToInteger(const JS::Any& any);
 
+uint32_t ToUint32(int value);
+uint32_t ToUint32(double value);
+uint32_t ToUint32(const std::string& value);
+uint32_t ToUint32(const Rope& value);
+uint32_t ToUint32(const JS::Undefined& value);
+uint32_t ToUint32(const JS::Null& value);
+uint32_t ToUint32(const JS::Any& any);
+
 std::string ToString(int value);
 std::string ToString(double value);
 std::string ToString(const std::string& value);

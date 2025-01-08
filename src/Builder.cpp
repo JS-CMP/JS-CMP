@@ -22,6 +22,7 @@ void Builder::build() {
     std::cout << "Compiler Found: " << this->options.getCompiler() << std::endl;
     std::cout << "Compiling " << this->options.getFilename() << " to " << this->options.getOutputFilename()
               << std::endl;
+    inputFilename = "testt.js.cpp";
     compiling(inputFilename);
 }
 

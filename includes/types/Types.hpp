@@ -3,9 +3,12 @@
 
 #include "../class/Rope/Rope.hpp"
 
+#include <cstdint>
 #include <functional>
+#include <iostream>
 #include <limits>
 #include <memory>
+#include <sstream>
 #include <string>
 #include <unordered_map>
 #include <variant>

@@ -143,6 +143,9 @@ public:
     /** @brief Bitwise NOT operator ~a */
     JS::Any operator~() const;
 
+    /** @brief Logical NOT operator !a */
+    JS::Any operator!() const;
+
     /** @brief Bitwise left shift operator a << b */
     JS::Any operator<<(const JS::Any& other) const;
     /** @brief Bitwise left shift operator a << int */

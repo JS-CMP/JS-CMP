@@ -39,7 +39,17 @@ bool ToBoolean(const JS::Any& any) { // https://262.ecma-international.org/5.1/#
 
 inline double ToNumber(int value) { return static_cast<double>(value); }
 inline double ToNumber(double value) { return value; }
-inline double ToNumber(const std::string& str) { return !str.empty() ? std::stod(str) : 0; }
+inline double ToNumber(const std::string& str) {
+    if (!str.empty()){
+        try {
+            return std::stod(str);
+        } catch (const std::exception&){
+            return std::numeric_limits<double>::quiet_NaN();
+        }
+        return std::stod(str);
+    }
+    return 0;
+}
 inline double ToNumber(const Rope& rope) { return ToNumber(rope.toString()); }
 inline double ToNumber(bool value) { return static_cast<double>(value); }
 inline double ToNumber(const JS::Null&) { return 0; }

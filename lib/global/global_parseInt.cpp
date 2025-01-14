@@ -32,7 +32,7 @@ JS::Any global_parseInt(const std::string& inputString, int radix = 0) {
         }
 
         std::string Z;
-        for (char c: S) {
+        for (char c : S) {
             int digit;
             if (std::isdigit(c)) {
                 digit = c - '0';
@@ -53,7 +53,7 @@ JS::Any global_parseInt(const std::string& inputString, int radix = 0) {
         }
 
         int mathInt = 0;
-        for (char c: Z) {
+        for (char c : Z) {
             int digit = (std::isdigit(c)) ? c - '0' : std::tolower(c) - 'a' + 10;
             mathInt = mathInt * radix + digit;
         }
@@ -61,7 +61,5 @@ JS::Any global_parseInt(const std::string& inputString, int radix = 0) {
         int result = sign * mathInt;
         /*std::cout << result << std::endl;*/
         return JS::Any(result);
-    } catch (const std::exception& e) {
-        return JS::Any(std::numeric_limits<double>::quiet_NaN());
-    }
+    } catch (const std::exception& e) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
 }

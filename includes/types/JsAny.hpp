@@ -243,6 +243,11 @@ public:
     bool operator>(const JS::Any& other) const;
     /** @brief Modulus operator a == b */
     bool operator==(const JS::Any& other) const;
+    /** @brief strict equality operator a === b */
+    [[nodiscard]] bool strictEq(const JS::Any& other) const;
+    /** @brief strict inequality operator a !== b */
+    [[nodiscard]] bool strictNeq(const JS::Any& other) const;
+    [[nodiscard]] bool operator!() const;
     ///@}
 
     /**

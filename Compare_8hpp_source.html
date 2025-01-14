@@ -109,9 +109,10 @@ $(document).ready(function(){initNavTree('Compare_8hpp_source.html',''); initRes
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keywordtype">bool</span> Type(<span class="keyword">const</span> <a class="code" href="classJS_1_1Any.html">JS::Any</a>&amp; a, <span class="keyword">const</span> JS::Types&amp; b);</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keywordtype">bool</span> Type(<span class="keyword">const</span> JS::Types&amp; a, <span class="keyword">const</span> <a class="code" href="classJS_1_1Any.html">JS::Any</a>&amp; b);</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keywordtype">bool</span> IsCallable(<span class="keyword">const</span> <a class="code" href="classJS_1_1Any.html">JS::Any</a>&amp; a);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;} <span class="comment">// namespace JS::COMPARE</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// COMPARE_HPP</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">bool</span> SameValue(<span class="keyword">const</span> <a class="code" href="classJS_1_1Any.html">JS::Any</a>&amp; a, <span class="keyword">const</span> <a class="code" href="classJS_1_1Any.html">JS::Any</a>&amp; b); <span class="comment">// https://262.ecma-international.org/5.1/#sec-9.12</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;} <span class="comment">// namespace JS::COMPARE</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// COMPARE_HPP</span></div>
 <div class="ttc" id="aclassJS_1_1Any_html"><div class="ttname"><a href="classJS_1_1Any.html">JS::Any</a></div><div class="ttdoc">Represents a JavaScript-like variant type in C++ that can hold multiple types of values.</div><div class="ttdef"><b>Definition:</b> JsAny.hpp:16</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

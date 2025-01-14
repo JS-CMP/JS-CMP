@@ -5,8 +5,5 @@
 namespace JS {
 
 void Object::init() {
-    for (const auto& func : functions) {
-        this->put(func.first, JS::Any(std::make_shared<JS::Function>(func.second)), true);
-    }
 }
 } // namespace JS

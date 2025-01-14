@@ -27,10 +27,10 @@ enum Types {
 };
 
 class Any;
+class Object;
 class InternalObject;
 class PropertyProxy;
 
-class Object;
 class Function;
 class Array;
 
@@ -42,7 +42,7 @@ struct Undefined {};                                     /**< Represents an unde
 /** @endcond */
 using Null = std::nullptr_t; /**< Type alias for a null value. */
 using Value = std::variant<double, Rope, bool, JS::Undefined, JS::Null,
-                           std::shared_ptr<JS::Object>>; /**< Union of all possible types Any can hold. */
+                           std::shared_ptr<JS::InternalObject>>; /**< Union of all possible types Any can hold. */
 } // namespace JS
 
 #endif // TYPES_HPP

@@ -34,7 +34,7 @@ public:
      * @brief Constructor with a shared pointer to a JavaScript object value.
      * @param value The initial value of the property.
      */
-    DataDescriptor(std::shared_ptr<JS::Object> value) : value(value) {};
+    DataDescriptor(std::shared_ptr<JS::InternalObject> value) : value(value) {};
 
     JS::Any value = JS::Any(JS::Undefined{}); /**< The value of the property. */
     bool writable = false;                    /**< Whether the property value can be changed. */
@@ -60,11 +60,11 @@ public:
      * @param enumerable Whether the property will be included in enumeration operations.
      * @param configurable Whether the property can be deleted or changed to a data property.
      */
-    AccessorDescriptor(std::shared_ptr<JS::Object> get, std::shared_ptr<JS::Object> set, bool enumerable, bool configurable)
+    AccessorDescriptor(std::shared_ptr<JS::InternalObject> get, std::shared_ptr<JS::InternalObject> set, bool enumerable, bool configurable)
         : get(std::move(get)), set(std::move(set)), enumerable(enumerable), configurable(configurable) {};
 
-    std::shared_ptr<JS::Object> get;   /**< The getter function for the property. */
-    std::shared_ptr<JS::Object> set;   /**< The setter function for the property. */
+    std::shared_ptr<JS::InternalObject> get;   /**< The getter function for the property. */
+    std::shared_ptr<JS::InternalObject> set;   /**< The setter function for the property. */
     bool enumerable = false;           /**< Whether the property will be included in enumeration operations. */
     bool configurable = false;         /**< Whether the property can be deleted or changed to a data property. */
 };

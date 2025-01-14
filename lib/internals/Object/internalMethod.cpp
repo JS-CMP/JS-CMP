@@ -32,7 +32,7 @@ JS::Any InternalObject::get(const std::string& key) const {
     }
     if (JS::COMPARE::IsAccessorDescriptor(desc.value())) {
         JS::AccessorDescriptor accessor = std::get<JS::AccessorDescriptor>(desc.value());
-        return accessor.get == nullptr ? JS::Any(JS::Undefined{}) : (*accessor.get)({});
+        return accessor.get == nullptr ? JS::Any(JS::Undefined{}) : (*accessor.get)();
     }
     throw std::runtime_error("Descriptor type cannot be determined");
 }
@@ -83,7 +83,7 @@ void InternalObject::put(const std::string& key, const Any& value, bool is_throw
         if (accessor.set == nullptr) {
             throw std::runtime_error("Unexpected descriptor type set of accessor descriptor is null");
         }
-        (*accessor.set)({value});
+        (*accessor.set)(value);
         return;
     } else {
         this->defineOwnProperty(key, JS::DataDescriptor{value, true, true, true}, is_throw);
@@ -245,5 +245,4 @@ bool InternalObject::defineOwnProperty(const std::string& key, Attribute desc, b
     }
     return true;
 }
-
 } // namespace JS

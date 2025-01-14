@@ -40,9 +40,9 @@ public:
     /** @brief Constructor for null */
     explicit Any(JS::Null v) : value(JS::Null{}) {};
     /** @brief Constructor for object taking a shared_ptr */
-    explicit Any(std::shared_ptr<JS::Object> v);
+    explicit Any(std::shared_ptr<JS::InternalObject> v);
     /** @brief Constructor for object */
-    explicit Any(const JS::Object& v);
+    explicit Any(const JS::InternalObject& v);
     /** @brief Copy constructor */
     Any(const JS::Any& v);
     /** @brief Move constructor */
@@ -259,9 +259,9 @@ public:
     JS::Any call(const std::vector<JS::Any>& args) const;
 
     /** @brief Accessors to properties of object in stored in value */
-    JS::PropertyProxy  operator[](const std::string& key) const;
+    JS::PropertyProxy operator[](const std::string& key) const;
     /** @brief Accessors to properties of object in stored in value */
-    JS::PropertyProxy  operator[](size_t index) const;
+    JS::PropertyProxy operator[](size_t index) const;
     ///@}
 
     /**

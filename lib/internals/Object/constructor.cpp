@@ -3,11 +3,15 @@
 namespace JS {
 InternalObject::InternalObject(Properties properties, std::shared_ptr<InternalObject> prototype, std::string class_name,
                                bool extensible)
-    : properties(std::make_shared<Properties>(std::move(properties))), prototype(std::move(prototype)),
-      class_name(std::move(class_name)), extensible(extensible) {}
+    : properties(std::make_shared<Properties>(std::move(properties))),
+      prototype(std::move(prototype)),
+      call(nullptr),
+      construct(nullptr),
+      class_name(std::move(class_name)),
+      extensible(extensible) {}
 
 InternalObject::InternalObject(const Attribute& attribute)
-    : properties(std::make_shared<std::unordered_map<std::string, JS::Attribute>>()) {
+    : properties(std::make_shared<std::unordered_map<std::string, JS::Attribute>>()), extensible(true) {
     switch (attribute.index()) {
         case DATA_DESCRIPTOR: {
             JS::DataDescriptor desc = std::get<JS::DataDescriptor>(attribute);
@@ -23,6 +27,8 @@ InternalObject::InternalObject(const Attribute& attribute)
             (*properties)["enumerable"] = JS::Any(desc.enumerable);
             (*properties)["configurable"] = JS::Any(desc.configurable);
         }
+        default:
+            throw std::runtime_error("Cannot convert to property descriptor");
     }
 }
 
@@ -48,7 +54,4 @@ InternalObject& InternalObject::operator=(InternalObject&& other) noexcept {
     extensible = other.extensible;
     return *this;
 }
-
-
-bool InternalObject::isCallable() const { return true; }
 } // namespace JS

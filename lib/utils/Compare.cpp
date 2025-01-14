@@ -17,7 +17,7 @@ bool IsPrimitive(const JS::Any& a) {
 
 bool IsCallable(const JS::Any& a) {
     if (JS::COMPARE::Type(a, JS::OBJECT)) {
-        return std::get<std::shared_ptr<JS::Object>>(a.getValue())->isCallable();
+        return std::get<std::shared_ptr<JS::InternalObject>>(a.getValue())->isCallable();
     } else {
         return false;
     }
@@ -65,8 +65,8 @@ bool SameValue(const JS::Any& a, const JS::Any& b) {
         case JS::NULL_TYPE:
             return true;
         case JS::OBJECT:
-            return std::get<std::shared_ptr<JS::Object>>(a.getValue()).get() ==
-                   std::get<std::shared_ptr<JS::Object>>(b.getValue()).get();
+            return std::get<std::shared_ptr<JS::InternalObject>>(a.getValue()).get() ==
+                   std::get<std::shared_ptr<JS::InternalObject>>(b.getValue()).get();
     }
     return false;
 }

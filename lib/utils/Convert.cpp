@@ -11,7 +11,7 @@ namespace JS::CONVERT {
 
 JS::Any ToPrimitive(const JS::Any& any) { // https://262.ecma-international.org/5.1/#sec-9.1
     if (JS::COMPARE::Type(any, JS::OBJECT)) {
-        return JS::Any(std::get<std::shared_ptr<JS::Object>>(any.getValue())); // TODO
+        return JS::Any(std::get<std::shared_ptr<JS::InternalObject>>(any.getValue())); // TODO
     }
     return any;
 }
@@ -161,7 +161,7 @@ JS::Attribute ToPropertyDescriptor(const Any& desc) {
     if (!COMPARE::Type(desc, OBJECT)) {
         throw std::runtime_error("TypeError: Property descriptor must be an object"); // TODO: make this a JS error
     }
-    std::shared_ptr<JS::Object> obj = std::get<std::shared_ptr<JS::Object>>(desc.getValue());
+    std::shared_ptr<JS::InternalObject> obj = std::get<std::shared_ptr<JS::InternalObject>>(desc.getValue());
     JS::DataDescriptor data;
     JS::AccessorDescriptor accessor;
     bool get_or_set = false;

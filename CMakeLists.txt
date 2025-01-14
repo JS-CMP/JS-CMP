@@ -25,6 +25,7 @@ file(GLOB_RECURSE SOURCES_LIB
         "lib/class/**/*.cpp"
         "lib/types/*.cpp"
         "lib/types/**/*.cpp"
+        "lib/global/*.cpp"
 )
 
 file(GLOB_RECURSE SOURCES

@@ -17,7 +17,7 @@ namespace JS {
  * The `InternalObject` class represents a JavaScript-like object in C++. It provides methods to access and modify
  * properties of the object. It also provides methods to check if a property exists, and if it's callable.
  */
-class InternalObject : public JS::IObject {
+class InternalObject : public JS::IObject, public std::enable_shared_from_this<JS::InternalObject> {
 public:
     /**
      * @name Constructors

@@ -19,13 +19,8 @@ JS::PropertyProxy  JS::Any::operator[](size_t index) const {
 }
 
 JS::Any JS::Any::call(const std::vector<JS::Any>& args) const {
-    std::cerr << " in JS::Any call" << std::endl;
-    std::cerr << this << std::endl;
     if (value.index() == JS::OBJECT && std::get<std::shared_ptr<JS::InternalObject>>(value)->isCallable()) {
-        std::cerr << "calling function" << std::endl;
-        // TODO: change if function is not the only callable object
-        // reinterpret_cast<JS::Function*>(std::get<std::shared_ptr<JS::InternalObject>>(value).get())->call(args);
-        return reinterpret_cast<JS::Function*>(std::get<std::shared_ptr<JS::InternalObject>>(value).get())->operator()(args);
+        return std::get<std::shared_ptr<JS::InternalObject>>(value)->operator()(args);
     }
     throw std::runtime_error("Value is not a function");
 }

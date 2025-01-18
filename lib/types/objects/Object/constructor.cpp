@@ -7,23 +7,21 @@
 namespace JS {
 
 std::unordered_map<std::string, JS::Any> properties_prototype = {
-    {"toString", JS::Any(std::make_shared<JS::Function>([](const std::vector<JS::Any>& args) { return std::bind(&Object::toString, std::placeholders::_1)(args); }))},
-    {"toLocaleString", JS::Any(std::make_shared<JS::Function>([](const std::vector<JS::Any>& args) { return std::bind(&Object::toLocaleString, std::placeholders::_1)(args); }))},
-    {"valueOf", JS::Any(std::make_shared<JS::Function>([](const std::vector<JS::Any>& args) { return std::bind(&Object::valueOf, std::placeholders::_1)(args); }))},
-    {"hasOwnProperty", JS::Any(std::make_shared<JS::Function>([](const std::vector<JS::Any>& args) { return std::bind(&Object::hasOwnProperty, std::placeholders::_1)(args); }))},
-    {"isPrototypeOf", JS::Any(std::make_shared<JS::Function>([](const std::vector<JS::Any>& args) { return std::bind(&Object::isPrototypeOf, std::placeholders::_1)(args); }))},
-    {"propertyIsEnumerable", JS::Any(std::make_shared<JS::Function>([](const std::vector<JS::Any>& args) { return std::bind(&Object::propertyIsEnumerable, std::placeholders::_1)(args); }))},
+    {"toString", JS::Any(std::make_shared<JS::Function>(Object::toString))},
+    {"toLocaleString", JS::Any(std::make_shared<JS::Function>(Object::toLocaleString))},
+    {"valueOf", JS::Any(std::make_shared<JS::Function>(Object::valueOf))},
+    {"hasOwnProperty", JS::Any(std::make_shared<JS::Function>(Object::hasOwnProperty))},
+    {"isPrototypeOf", JS::Any(std::make_shared<JS::Function>(Object::isPrototypeOf))},
+    {"propertyIsEnumerable", JS::Any(std::make_shared<JS::Function>(Object::propertyIsEnumerable))},
 };
-std::shared_ptr<JS::InternalObject> prototype = std::make_shared<JS::InternalObject>({}, properties_prototype);
+std::shared_ptr<JS::InternalObject> prototype = std::make_shared<JS::Object>(properties_prototype);
 
 Object::Object()
     : JS::InternalObject({}, JS::prototype, "Object", true) {
 }
 
-Object::Object(std::unordered_map<std::string, JS::Any> properties) : JS::InternalObject({}, JS::prototype, "Object", true) {
-    std::cerr << "Object constructor" << std::endl;
+Object::Object(const std::unordered_map<std::string, JS::Any>& properties) : JS::InternalObject({}, JS::prototype, "Object", true) {
     for (const auto& [key, value] : properties) {
-        std::cerr << "key: " << key << " value: " << value << std::endl;
         this->InternalObject::put(key, value);
     }
 }

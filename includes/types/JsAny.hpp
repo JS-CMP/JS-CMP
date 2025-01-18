@@ -252,7 +252,7 @@ public:
     /** @brief Accessors to call function stored in properties on an object stored in value */
     template <typename... Args>
     JS::Any operator()(Args&&... args) {
-        std::vector<JS::Any> arguments = {std::forward<Args>(args)...};
+        std::vector<JS::Any> arguments = {JS::Any(JS::Null{}), std::forward<Args>(args)...};
         return call(arguments);
     }
     /** @brief Accessors to call function stored in properties on an object stored in value */

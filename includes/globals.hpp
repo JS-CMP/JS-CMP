@@ -4,9 +4,9 @@
 #include "types/objects/JsObject.hpp"
 #include "types/objects/JsFunction.hpp"
 
-
+// TODO fix this create Object to inherit from Function
 std::unordered_map<std::string, JS::Any> properties = {
-    	{"getPropertyOf", JS::Any(std::make_shared<JS::Function>(JS::Object::getPrototypeOf))},
+    	{"getPrototypeOf", JS::Any(std::make_shared<JS::Function>(JS::Object::getPrototypeOf))},
         {"getOwnPropertyDescriptor", JS::Any(std::make_shared<JS::Function>(JS::Object::getOwnPropertyDescriptor))},
         {"getOwnPropertyNames", JS::Any(std::make_shared<JS::Function>(JS::Object::getOwnPropertyNames))},
         {"create", JS::Any(std::make_shared<JS::Function>(JS::Object::create))},
@@ -22,5 +22,4 @@ std::unordered_map<std::string, JS::Any> properties = {
 };
 JS::Any Object = JS::Any(std::make_shared<JS::Object>(properties));
 
-Object();
 #endif //GLOBALS_HPP

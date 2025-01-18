@@ -14,7 +14,7 @@ PropertyProxy::operator JS::Any() { return obj_->get(key_); }
 
 PropertyProxy::operator JS::Any() const { return obj_->get(key_); }
 
-PropertyProxy PropertyProxy::operator[](const std::string& key) {
+PropertyProxy PropertyProxy::operator[](const std::string& key) const {
     JS::Any any = obj_->get(key_);
     if (any.getValue().index() == JS::OBJECT) {
         return PropertyProxy(std::get<std::shared_ptr<JS::InternalObject>>(any.getValue()), key);
@@ -23,7 +23,14 @@ PropertyProxy PropertyProxy::operator[](const std::string& key) {
 }
 JS::Any PropertyProxy::call(const std::vector<JS::Any>& args) const {
     JS::Any any = obj_->get(key_);
-    return any.call(args);
+    JS::Value value = any.getValue();
+    if (value.index() == JS::OBJECT && std::get<std::shared_ptr<JS::InternalObject>>(value)->isCallable()) {
+        JS::Any thisArg = JS::Any(obj_);
+        std::vector<JS::Any> arguments = {thisArg};
+        arguments.insert(arguments.end(), args.begin(), args.end());
+        return std::get<std::shared_ptr<JS::InternalObject>>(value)->operator()(arguments);
+    }
+    throw std::runtime_error("Value is not a function");
 }
 
 std::ostream& operator<<(std::ostream& os, const PropertyProxy& proxy) {

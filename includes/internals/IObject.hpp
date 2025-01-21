@@ -2,6 +2,7 @@
 #define IOBJECT_HPP
 
 #include "Attribute.hpp"
+
 #include <optional>
 
 namespace JS {

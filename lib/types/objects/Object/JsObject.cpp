@@ -4,6 +4,5 @@
 
 namespace JS {
 
-void Object::init() {
-}
+void Object::init() {}
 } // namespace JS

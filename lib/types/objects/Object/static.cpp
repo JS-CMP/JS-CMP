@@ -8,7 +8,8 @@ JS::Any Object::getPrototypeOf(const std::vector<JS::Any>& args) {
     if (args.size() < 2 || args[1].getValue().index() != JS::OBJECT) {
         throw std::runtime_error("TypeError: Object.getPrototypeOf called on non-object"); // TODO: make this a JS error
     }
-    std::shared_ptr<JS::InternalObject> prototype = std::get<std::shared_ptr<JS::InternalObject>>(args[1].getValue())->prototype;
+    std::shared_ptr<JS::InternalObject> prototype =
+        std::get<std::shared_ptr<JS::InternalObject>>(args[1].getValue())->prototype;
     if (prototype == nullptr) {
         return JS::Any(JS::Null{});
     }

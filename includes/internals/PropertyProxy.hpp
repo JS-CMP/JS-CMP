@@ -1,7 +1,7 @@
 #ifndef PROPERTIESPROXY_HPP
 #define PROPERTIESPROXY_HPP
-#include "types/Types.hpp"
 #include "types/JsAny.hpp"
+#include "types/Types.hpp"
 
 namespace JS {
 class PropertyProxy {
@@ -25,10 +25,11 @@ public:
         return call(arguments);
     }
     JS::Any call(const std::vector<JS::Any>& args) const;
+
 private:
     std::shared_ptr<JS::InternalObject> obj_;
     std::string key_;
 };
 std::ostream& operator<<(std::ostream& os, const PropertyProxy& proxy);
-}
+} // namespace JS
 #endif // PROPERTIESPROXY_HPP

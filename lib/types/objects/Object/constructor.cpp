@@ -1,8 +1,7 @@
 #include "types/objects/JsFunction.hpp"
+#include "types/objects/JsObject.hpp"
 
 #include <utility>
-
-#include "types/objects/JsObject.hpp"
 
 namespace JS {
 
@@ -16,11 +15,10 @@ std::unordered_map<std::string, JS::Any> properties_prototype = {
 };
 std::shared_ptr<JS::InternalObject> prototype = std::make_shared<JS::Object>(properties_prototype);
 
-Object::Object()
-    : JS::InternalObject({}, JS::prototype, "Object", true) {
-}
+Object::Object() : JS::InternalObject({}, JS::prototype, "Object", true) {}
 
-Object::Object(const std::unordered_map<std::string, JS::Any>& properties) : JS::InternalObject({}, JS::prototype, "Object", true) {
+Object::Object(const std::unordered_map<std::string, JS::Any>& properties)
+    : JS::InternalObject({}, JS::prototype, "Object", true) {
     for (const auto& [key, value] : properties) {
         this->InternalObject::put(key, value);
     }
@@ -45,6 +43,5 @@ Object::Object(const Attribute& attribute) : JS::InternalObject(attribute) {
     }
 }
 
-Object::Object(const InternalObject& internalObject)
-    : JS::InternalObject(internalObject) {}
+Object::Object(const InternalObject& internalObject) : JS::InternalObject(internalObject) {}
 } // namespace JS

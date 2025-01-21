@@ -7,10 +7,9 @@
 namespace JS::COMPARE {
 bool Type(const JS::Any& a, const JS::Any& b) { return a.getValue().index() == b.getValue().index(); }
 
-bool Type(const JS::Any& a, JS::Types b) { return a.getValue().index() == b; }
+bool Type(const JS::Any& a, const JS::Types& b) { return a.getValue().index() == b; }
 
-bool Type(JS::Types a, const JS::Any& b) { return a == b.getValue().index(); }
-
+bool Type(const JS::Types& a, const JS::Any& b) { return a == b.getValue().index(); }
 bool IsPrimitive(const JS::Any& a) {
     return a.getValue().index() == JS::NUMBER || a.getValue().index() == JS::STRING || a.getValue().index() == JS::BOOL;
 }

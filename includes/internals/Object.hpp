@@ -6,7 +6,6 @@
 #include "types/JsAny.hpp"
 #include "types/Types.hpp"
 
-#include <optional>
 #include <utility>
 
 namespace JS {

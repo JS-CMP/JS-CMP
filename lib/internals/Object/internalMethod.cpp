@@ -113,14 +113,14 @@ JS::Any InternalObject::defaultValue(const Types& hint) {
         case STRING: {
             JS::Any toString = this->get("toString");
             if (JS::COMPARE::IsCallable(toString)) {
-                JS::Any str = toString();
+                JS::Any str = toString(JS::Any(shared_from_this()));
                 if (JS::COMPARE::IsPrimitive(str)) {
                     return str;
                 }
             }
             JS::Any valueOf = this->get("valueOf");
             if (JS::COMPARE::IsCallable(valueOf)) {
-                JS::Any val = valueOf();
+                JS::Any val = valueOf(JS::Any(shared_from_this()));
                 if (JS::COMPARE::IsPrimitive(val)) {
                     return val;
                 }
@@ -130,14 +130,14 @@ JS::Any InternalObject::defaultValue(const Types& hint) {
         case NUMBER: {
             JS::Any valueOf = this->get("valueOf");
             if (JS::COMPARE::IsCallable(valueOf)) {
-                JS::Any val = valueOf();
+                JS::Any val = valueOf(JS::Any(shared_from_this()));
                 if (JS::COMPARE::IsPrimitive(val)) {
                     return val;
                 }
             }
             JS::Any toString = this->get("toString");
             if (JS::COMPARE::IsCallable(toString)) {
-                JS::Any str = toString();
+                JS::Any str = toString(JS::Any(shared_from_this()));
                 if (JS::COMPARE::IsPrimitive(str)) {
                     return str;
                 }

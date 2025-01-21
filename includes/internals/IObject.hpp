@@ -30,9 +30,9 @@ public:
     ///@}
 
     /**
-    * @name Internal Properties Common to All Objects
-    * These methods provide access to the internal properties of the object
-    */
+     * @name Internal Properties Common to All Objects
+     * These methods provide access to the internal properties of the object
+     */
     ///@{
     /** @brief Get a property of the object https://262.ecma-international.org/5.1/#sec-8.12.1 */
     [[nodiscard]] virtual std::optional<JS::Attribute> getOwnProperty(const std::string& key) const = 0;
@@ -59,12 +59,12 @@ public:
     ///@}
 
     /**
-    * @name Internal Utility Methods
-    */
+     * @name Internal Utility Methods
+     */
     ///@{
     /** @brief check if the object is callable */
     [[nodiscard]] virtual bool isCallable() const = 0;
     ///@}
 };
 } // namespace JS
-#endif //IOBJECT_HPP
+#endif // IOBJECT_HPP

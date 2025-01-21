@@ -36,7 +36,6 @@ public:
      */
     ~Object() = default;
 
-
     /**
      * @name Methods to make static methods of the Object built-in
      */

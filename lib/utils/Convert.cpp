@@ -1,7 +1,8 @@
+#include "types/objects/JsObject.hpp"
+
 #include <cmath>
 #include <sstream>
 #include <string>
-#include "types/objects/JsObject.hpp"
 #include <utils/Compare.hpp>
 #include <utils/Convert.hpp>
 
@@ -88,9 +89,7 @@ int ToInteger(const JS::Any& any) { // https://262.ecma-international.org/5.1/#s
     }
 }
 
-std::string ToString(int value) {
-    return (std::ostringstream() << value).str();
-}
+std::string ToString(int value) { return (std::ostringstream() << value).str(); }
 std::string ToString(double value) {
     return std::isnan(value)   ? "NaN"
            : std::isinf(value) ? value < 0 ? "-Infinity" : "Infinity"

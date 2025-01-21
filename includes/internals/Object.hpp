@@ -2,9 +2,9 @@
 #define OBJECT_HPP
 
 #include "Attribute.hpp"
+#include "IObject.hpp"
 #include "types/JsAny.hpp"
 #include "types/Types.hpp"
-#include "IObject.hpp"
 
 #include <optional>
 #include <utility>
@@ -38,7 +38,6 @@ public:
     InternalObject& operator=(JS::InternalObject&& other) noexcept;
     ///@}
 
-
     /**
      * @name Accessors
      * These methods provide access to the properties of the object
@@ -58,9 +57,9 @@ public:
     ///@}
 
     /**
-    * @name Internal Properties Common to All Objects
-    * These methods provide access to the internal properties of the object
-    */
+     * @name Internal Properties Common to All Objects
+     * These methods provide access to the internal properties of the object
+     */
     ///@{
     /** @brief Get a property of the object https://262.ecma-international.org/5.1/#sec-8.12.1 */
     [[nodiscard]] std::optional<JS::Attribute> getOwnProperty(const std::string& key) const override;

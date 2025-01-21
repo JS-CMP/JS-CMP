@@ -11,7 +11,7 @@ JS::PropertyProxy JS::Any::operator[](const std::string& key) const {
     throw std::runtime_error("Value is not an object");
 }
 
-JS::PropertyProxy  JS::Any::operator[](size_t index) const {
+JS::PropertyProxy JS::Any::operator[](size_t index) const {
     if (this->value.index() == OBJECT) {
         return std::get<std::shared_ptr<JS::InternalObject>>(this->value)->operator[](index);
     }

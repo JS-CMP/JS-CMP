@@ -1,8 +1,8 @@
 #ifndef CONVERT_HPP
 #define CONVERT_HPP
 
-#include "types/JsAny.hpp"
 #include "internals/Attribute.hpp"
+#include "types/JsAny.hpp"
 
 namespace JS::CONVERT {
 

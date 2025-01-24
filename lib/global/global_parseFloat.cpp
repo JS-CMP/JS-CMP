@@ -1,6 +1,7 @@
 #include "../../includes/global/global_parseFloat.hpp"
 
-JS::Any global_parseFloat(const std::string& inputString) {
+JS::Any global_parseFloat(JS::Any inputStringAny) {
+    std::string inputString = JS::CONVERT::ToString(inputStringAny);
     try {
         size_t start = inputString.find_first_not_of(" \t\n\r");
         if (start == std::string::npos) {

@@ -53,7 +53,7 @@ public:
      */
     ///@{
     /** @brief init functions in the properties, made for inherited class */
-    virtual void init(){};
+    virtual void init() {};
     /** @brief Check if the object is callable */
     [[nodiscard]] virtual bool isCallable() const;
     /** @brief Check if the object has a property */

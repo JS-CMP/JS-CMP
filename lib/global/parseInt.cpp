@@ -1,10 +1,11 @@
 #include "../../includes/global/globalFunctions.hpp"
 #include "../../includes/types/JsAny.hpp"
 #include "../../includes/utils/Convert.hpp"
+
 #include <cctype>
-#include <stdexcept>
 #include <cmath>
 #include <iostream>
+#include <stdexcept>
 
 JS::Any global_parseInt(const JS::Any& inputStringAny, const JS::Any& radixAny) {
     std::string inputString = JS::CONVERT::ToString(inputStringAny);
@@ -68,7 +69,5 @@ JS::Any global_parseInt(const JS::Any& inputStringAny, const JS::Any& radixAny) 
         }
 
         return JS::Any(sign * mathInt);
-    } catch (const std::exception&) {
-        return JS::Any(std::numeric_limits<double>::quiet_NaN());
-    }
+    } catch (const std::exception&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
 }

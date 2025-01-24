@@ -9,4 +9,4 @@ std::string global_typeof(const JS::Any& any);
 bool global_isFinite(const JS::Any& number);
 JS::Undefined global_void(const JS::Any& args);
 
-#endif //JS_CMP_GLOBALFUNCTIONS_HPP
+#endif // JS_CMP_GLOBALFUNCTIONS_HPP

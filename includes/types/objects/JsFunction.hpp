@@ -50,7 +50,7 @@ public:
      * @brief Initializes the function object.
      * An empty method that can be overridden by subclasses if needed.
      */
-    void init() override{};
+    void init() override {};
 
     /**
      * @brief Checks if the object is callable.

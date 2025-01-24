@@ -1,6 +1,7 @@
-#include "../../includes/global/global_typeof.hpp"
+#include "../../includes/global/globalFunctions.hpp"
+#include "../../includes/types/JsAny.hpp"
 
-std::string global_typeof(const JS::Any any) {
+std::string global_typeof(const JS::Any& any) {
     switch (any.getValue().index()) {
         case JS::NUMBER:
             return "number";

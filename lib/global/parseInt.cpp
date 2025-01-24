@@ -1,6 +1,12 @@
-#include "../../includes/global/global_parseInt.hpp"
+#include "../../includes/global/globalFunctions.hpp"
+#include "../../includes/types/JsAny.hpp"
+#include "../../includes/utils/Convert.hpp"
+#include <cctype>
+#include <stdexcept>
+#include <cmath>
+#include <iostream>
 
-JS::Any global_parseInt(JS::Any inputStringAny, JS::Any radixAny) {
+JS::Any global_parseInt(const JS::Any& inputStringAny, const JS::Any& radixAny) {
     std::string inputString = JS::CONVERT::ToString(inputStringAny);
     int radix = JS::CONVERT::ToInteger(radixAny);
 

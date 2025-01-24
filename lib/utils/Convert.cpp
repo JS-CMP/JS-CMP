@@ -1,5 +1,4 @@
 #include "utils/Convert.hpp"
-
 #include "utils/Compare.hpp"
 
 #include <cmath>

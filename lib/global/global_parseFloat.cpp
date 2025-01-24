@@ -68,11 +68,8 @@ JS::Any global_parseFloat(const std::string& inputString) {
 
             return JS::Any(result);
         } catch (const std::out_of_range&) {
-            return JS::Any((sign > 0) ? std::numeric_limits<double>::infinity() : -std::numeric_limits<double>::infinity());
-        } catch (const std::exception&) {
-            return JS::Any(std::numeric_limits<double>::quiet_NaN());
-        }
-    } catch (const std::exception&) {
-        return JS::Any(std::numeric_limits<double>::quiet_NaN());
-    }
+            return JS::Any((sign > 0) ? std::numeric_limits<double>::infinity()
+                                      : -std::numeric_limits<double>::infinity());
+        } catch (const std::exception&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+    } catch (const std::exception&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
 }

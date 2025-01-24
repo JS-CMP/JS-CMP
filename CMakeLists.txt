@@ -23,6 +23,8 @@ file(GLOB_RECURSE SOURCES_LIB
         "includes/**/*.hpp"
         "lib/class/**/*.hpp"
         "lib/class/**/*.cpp"
+        "lib/utils/*.cpp"
+        "lib/utils/*.hpp"
         "lib/types/*.cpp"
         "lib/types/**/*.cpp"
         "lib/global/*.cpp"

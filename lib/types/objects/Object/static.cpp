@@ -1,18 +1,19 @@
 #include "internals/Object.hpp"
-#include "types/objects/JsFunction.hpp"
 #include "types/JsAny.hpp"
+#include "types/objects/JsFunction.hpp"
 #include "utils/Compare.hpp"
 #include "utils/Convert.hpp"
 
 namespace JS {
 JS::Any Object::getPrototypeOf(const JS::Any& thisArg, const JS::Any& args) {
     if (!JS::COMPARE::Type(args["0"], JS::OBJECT)) {
-        throw std::runtime_error(
-            "TypeError: Object.getPrototypeOf called on non-object"); // TODO: make this a JS error
+        throw std::runtime_error("TypeError: Object.getPrototypeOf called on non-object"); // TODO: make this a JS error
     }
     std::shared_ptr<JS::InternalObject> prototype =
         std::get<std::shared_ptr<JS::InternalObject>>(args["0"].getValue())->prototype;
-    if (prototype == nullptr) { return JS::Any(JS::Null{}); }
+    if (prototype == nullptr) {
+        return JS::Any(JS::Null{});
+    }
     return JS::Any(prototype);
 }
 
@@ -24,7 +25,9 @@ JS::Any Object::getOwnPropertyDescriptor(const JS::Any& thisArg, const JS::Any& 
     const std::shared_ptr<JS::InternalObject> O = std::get<std::shared_ptr<JS::InternalObject>>(args["0"].getValue());
     const std::string P = JS::CONVERT::ToString(args["1"]);
     std::optional<Attribute> desc = O->getOwnProperty(P);
-    if (desc.has_value()) { return JS::CONVERT::FromPropertyDescriptor(desc.value()); }
+    if (desc.has_value()) {
+        return JS::CONVERT::FromPropertyDescriptor(desc.value());
+    }
     return JS::Any(JS::Undefined{});
 }
 
@@ -51,15 +54,16 @@ JS::Any Object::create(const JS::Any& thisArg, const JS::Any& args) {
     std::shared_ptr<JS::InternalObject> obj = std::make_shared<JS::Object>();
     obj->prototype = O;
     if (!JS::COMPARE::Type(args["1"], JS::UNDEFINED)) {
-        Object::defineProperties(JS::Any(JS::Null{}), JS::Arguments::CreateArgumentsObject(std::vector<JS::Any>{JS::Any(obj), args[2]}));
+        Object::defineProperties(JS::Any(JS::Null{}),
+                                 JS::Arguments::CreateArgumentsObject(std::vector<JS::Any>{JS::Any(obj), args[2]}));
     }
     return JS::Any(obj);
 }
 
 JS::Any Object::defineProperty(const JS::Any& thisArg, const JS::Any& args) {
-        if (!JS::COMPARE::Type(args["0"], JS::OBJECT)) {
-                throw std::runtime_error("TypeError: Object.defineProperty called on non-object"); // TODO: make this a JS error
-        }
+    if (!JS::COMPARE::Type(args["0"], JS::OBJECT)) {
+        throw std::runtime_error("TypeError: Object.defineProperty called on non-object"); // TODO: make this a JS error
+    }
     std::shared_ptr<JS::InternalObject> O = std::get<std::shared_ptr<JS::InternalObject>>(args["0"].getValue());
     const std::string& name = JS::CONVERT::ToString(args["1"]);
     JS::Attribute desc = JS::CONVERT::ToPropertyDescriptor(args["2"]);
@@ -69,7 +73,8 @@ JS::Any Object::defineProperty(const JS::Any& thisArg, const JS::Any& args) {
 
 JS::Any Object::defineProperties(const JS::Any& thisArg, const JS::Any& args) {
     if (!JS::COMPARE::Type(args["0"], JS::OBJECT)) {
-        throw std::runtime_error("TypeError: Object.defineProperties called on non-object"); // TODO: make this a JS error
+        throw std::runtime_error(
+            "TypeError: Object.defineProperties called on non-object"); // TODO: make this a JS error
     }
     std::shared_ptr<JS::InternalObject> O = std::get<std::shared_ptr<JS::InternalObject>>(args["0"].getValue());
     std::shared_ptr<JS::InternalObject> props =
@@ -91,8 +96,7 @@ JS::Any Object::seal(const JS::Any& thisArg, const JS::Any& args) {
         throw std::runtime_error("TypeError: Object.seal called on non-object"); // TODO: make this a JS error
     }
     std::shared_ptr<JS::InternalObject> O = std::get<std::shared_ptr<JS::InternalObject>>(args["0"].getValue());
-    for (const auto& [key, value] :
-         *O->properties) {
+    for (const auto& [key, value] : *O->properties) {
         // TODO can be optimized with a genericDescriptor with configurable
         if (JS::COMPARE::IsDataDescriptor(value)) {
             JS::DataDescriptor desc = std::get<JS::DataDescriptor>(value);
@@ -113,8 +117,7 @@ JS::Any Object::freeze(const JS::Any& thisArg, const JS::Any& args) {
         throw std::runtime_error("TypeError: Object.freeze called on non-object"); // TODO: make this a JS error
     }
     std::shared_ptr<JS::InternalObject> O = std::get<std::shared_ptr<JS::InternalObject>>(args["0"].getValue());
-    for (const auto& [key, value] :
-         *O->properties) {
+    for (const auto& [key, value] : *O->properties) {
         // TODO can be optimized with a genericDescriptor with configurable
         if (JS::COMPARE::IsDataDescriptor(value)) {
             JS::DataDescriptor desc = std::get<JS::DataDescriptor>(value);
@@ -133,7 +136,8 @@ JS::Any Object::freeze(const JS::Any& thisArg, const JS::Any& args) {
 
 JS::Any Object::preventExtensions(const JS::Any& thisArg, const JS::Any& args) {
     if (!JS::COMPARE::Type(args["0"], JS::OBJECT)) {
-        throw std::runtime_error("TypeError: Object.preventExtensions called on non-object"); // TODO: make this a JS error
+        throw std::runtime_error(
+            "TypeError: Object.preventExtensions called on non-object"); // TODO: make this a JS error
     }
     std::get<std::shared_ptr<JS::InternalObject>>(args["0"].getValue())->extensible = false;
     return args[0];
@@ -144,8 +148,7 @@ JS::Any Object::isSealed(const JS::Any& thisArg, const JS::Any& args) {
         throw std::runtime_error("TypeError: Object.isSealed called on non-object");
     }
     std::shared_ptr<JS::InternalObject> O = std::get<std::shared_ptr<JS::InternalObject>>(args["0"].getValue());
-    for (const auto& [key, value] :
-         *O->properties) {
+    for (const auto& [key, value] : *O->properties) {
         // TODO can be optimized with a genericDescriptor with configurable
         if (JS::COMPARE::IsDataDescriptor(value) && std::get<JS::DataDescriptor>(value).configurable ||
             JS::COMPARE::IsAccessorDescriptor(value) && std::get<JS::AccessorDescriptor>(value).configurable) {
@@ -160,11 +163,10 @@ JS::Any Object::isFrozen(const JS::Any& thisArg, const JS::Any& args) {
         throw std::runtime_error("TypeError: Object.isFrozen called on non-object");
     }
     std::shared_ptr<JS::InternalObject> O = std::get<std::shared_ptr<JS::InternalObject>>(args["0"].getValue());
-    for (const auto& [key, value] :
-         *O->properties) {
+    for (const auto& [key, value] : *O->properties) {
         // TODO can be optimized with a genericDescriptor with configurable
         if (JS::COMPARE::IsDataDescriptor(value) &&
-            (std::get<JS::DataDescriptor>(value).configurable || std::get<JS::DataDescriptor>(value).writable) ||
+                (std::get<JS::DataDescriptor>(value).configurable || std::get<JS::DataDescriptor>(value).writable) ||
             JS::COMPARE::IsAccessorDescriptor(value) && std::get<JS::AccessorDescriptor>(value).configurable) {
             return JS::Any(false);
         }

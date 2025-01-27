@@ -1,7 +1,7 @@
 #ifndef PROPERTIESPROXY_HPP
 #define PROPERTIESPROXY_HPP
-#include "types/JsAny.hpp"
 #include "internals/Arguments.hpp"
+#include "types/JsAny.hpp"
 #include "types/Types.hpp"
 
 namespace JS {
@@ -27,6 +27,7 @@ public:
     JS::Any call(const JS::Any& args) const;
 
     JS::Value getValue() const;
+
 private:
     std::shared_ptr<JS::InternalObject> obj_;
     std::string key_;

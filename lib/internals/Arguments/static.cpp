@@ -1,15 +1,12 @@
 #include "internals/Arguments.hpp"
-#include "types/objects/JsFunction.hpp"
 #include "types/JsAny.hpp"
+#include "types/objects/JsFunction.hpp"
 #include "utils/Convert.hpp"
 
-
 namespace JS::Arguments { // TODO Implement non-strict mode
-JS::Any CreateArgumentsObject(const std::vector<JS::Any>& args,
-                                         const std::shared_ptr<JS::InternalObject>& func,
-                                         const std::vector<std::string>& names,
-                                         const std::shared_ptr<JS::InternalObject>& env,
-                                         bool strict) {
+JS::Any CreateArgumentsObject(const std::vector<JS::Any>& args, const std::shared_ptr<JS::InternalObject>& func,
+                              const std::vector<std::string>& names, const std::shared_ptr<JS::InternalObject>& env,
+                              bool strict) {
     int len = static_cast<int>(args.size());
     std::shared_ptr<JS::InternalObject> obj = std::make_shared<JS::Object>();
     obj->class_name = "Arguments";
@@ -22,28 +19,29 @@ JS::Any CreateArgumentsObject(const std::vector<JS::Any>& args,
         std::string indxStr = JS::CONVERT::ToString(indx);
         obj->defineOwnProperty(indxStr, JS::DataDescriptor{val, true, true, true}, false);
         // theoretically, this should always be false in strict mode
-        //if (!strict && indx < names.size()) {
-            // const std::string& name = names[indx];
-            // if (std::find(mappedNames.begin(), mappedNames.end(), name) == mappedNames.end()) {
-            //     mappedNames.push_back(name);
-            //     std::shared_ptr<JS::InternalObject> g = std::make_shared<JS::Function>(
-            //         [name, env](const std::vector<JS::Any>& args) -> JS::Any { return env->get(name); });
-            //     std::shared_ptr<JS::InternalObject> p = std::make_shared<JS::Function>(
-            //         [name, env](const std::vector<JS::Any>& args) -> JS::Any {
-            //             env->put(name, args[0]);
-            //             return JS::Any(JS::Undefined{});
-            //         });
-            //     map->defineOwnProperty(indxStr, JS::AccessorDescriptor{p, g, true, true}, false);
-            // }
+        // if (!strict && indx < names.size()) {
+        // const std::string& name = names[indx];
+        // if (std::find(mappedNames.begin(), mappedNames.end(), name) == mappedNames.end()) {
+        //     mappedNames.push_back(name);
+        //     std::shared_ptr<JS::InternalObject> g = std::make_shared<JS::Function>(
+        //         [name, env](const std::vector<JS::Any>& args) -> JS::Any { return env->get(name); });
+        //     std::shared_ptr<JS::InternalObject> p = std::make_shared<JS::Function>(
+        //         [name, env](const std::vector<JS::Any>& args) -> JS::Any {
+        //             env->put(name, args[0]);
+        //             return JS::Any(JS::Undefined{});
+        //         });
+        //     map->defineOwnProperty(indxStr, JS::AccessorDescriptor{p, g, true, true}, false);
+        // }
         //}
         indx--;
     }
     // theoretically, this should always be false in strict mode
-    //if (!mappedNames.empty()) {
-        // TODO: set the [[ParameterMap]] internal property of obj to map
-        // TODO: set the [[Get]], [[GetOwnProperty]], [[DefineOwnProperty]], and [[Delete]] internal methods of obj to the definitions provided below with the class Arguments
+    // if (!mappedNames.empty()) {
+    // TODO: set the [[ParameterMap]] internal property of obj to map
+    // TODO: set the [[Get]], [[GetOwnProperty]], [[DefineOwnProperty]], and [[Delete]] internal methods of obj to the
+    // definitions provided below with the class Arguments
     //}
-    if (!strict) {// theoretically, this should always be false in strict mode
+    if (!strict) { // theoretically, this should always be false in strict mode
         obj->defineOwnProperty("callee", JS::DataDescriptor{JS::Any(func), true, false, true}, false);
     } else {
         std::shared_ptr<JS::InternalObject> thrower = std::make_shared<JS::Function>(

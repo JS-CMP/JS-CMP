@@ -1,5 +1,5 @@
-#include "internals/Object.hpp"
 #include "internals/Attribute.hpp"
+#include "internals/Object.hpp"
 
 namespace JS {
 InternalObject::InternalObject(Properties properties, std::shared_ptr<InternalObject> prototype, std::string class_name,

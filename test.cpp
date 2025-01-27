@@ -1,7 +1,7 @@
+#include "globals.hpp"
 #include "includes/class/Console.hpp"
 #include "includes/types/JsAny.hpp"
 #include "types/objects/JsObject.hpp"
-#include "globals.hpp"
 
 void displayPrototypeChain(JS::Any obj) {
     JS::Any currentObj = obj;
@@ -14,16 +14,11 @@ void displayPrototypeChain(JS::Any obj) {
     }
 }
 
-
 int main() {
-    JS::Any Person = JS::Any(JS::Object({
-        {"age", JS::Any(18)},
-        {"name", JS::Any("John")},
-        {"address", JS::Any(JS::Object({
-            {"city", JS::Any("New York")},
-            {"street", JS::Any("Wall Street")}
-        }))}
-    }));
+    JS::Any Person = JS::Any(JS::Object(
+        {{"age", JS::Any(18)},
+         {"name", JS::Any("John")},
+         {"address", JS::Any(JS::Object({{"city", JS::Any("New York")}, {"street", JS::Any("Wall Street")}}))}}));
 
     JS::Any age = Person["age"];
     JS::Any name = Person["name"];
@@ -42,12 +37,11 @@ int main() {
 
     console::log("Person age not updated:", Person["age"]);
 
-    Object["defineProperty"](Person, JS::Any("data"), JS::Any(JS::Object({
-        {"value", JS::Any("Data")},
-        {"writable", JS::Any(true)},
-        {"enumerable", JS::Any(true)},
-        {"configurable", JS::Any(true)}
-    })));
+    Object["defineProperty"](Person, JS::Any("data"),
+                             JS::Any(JS::Object({{"value", JS::Any("Data")},
+                                                 {"writable", JS::Any(true)},
+                                                 {"enumerable", JS::Any(true)},
+                                                 {"configurable", JS::Any(true)}})));
 
     console::log("Person data does not exist: ", Person["hasOwnProperty"](JS::Any("data")));
 
@@ -60,8 +54,6 @@ int main() {
     console::log("Person age exists:", Person["hasOwnProperty"](JS::Any("age")));
     console::log("Person city exists:", Person["address"]["hasOwnProperty"](JS::Any("city")));
 
-
-
     console::log("\n-----------------Object PropertyIsEnumerable-----------------");
     console::log("Person age is enumerable:", Person["propertyIsEnumerable"](JS::Any("age")));
 
@@ -71,7 +63,8 @@ int main() {
 
     console::log("\n-----------------Object isPrototypeOf-----------------");
     console::log("Person prototype is prototype of Person:", Object["getPrototypeOf"](Person)["isPrototypeOf"](Person));
-    console::log("Person prototype is prototype of Person address:", Object["getPrototypeOf"](Person)["isPrototypeOf"](Person["address"]));
+    console::log("Person prototype is prototype of Person address:",
+                 Object["getPrototypeOf"](Person)["isPrototypeOf"](Person["address"]));
 
     console::log("\n-----------------Object Prototype Chains-----------------");
     displayPrototypeChain(Person);

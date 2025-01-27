@@ -45,7 +45,6 @@ class AccessorDescriptor;
  */
 using Attribute = std::variant<DataDescriptor, AccessorDescriptor>;
 
-
 class InternalObject;
 class PropertyProxy;
 
@@ -56,9 +55,9 @@ class Array;
 class Any;
 
 using FunctionType =
-    std::function<JS::Any(const JS::Any&,const JS::Any&)>; /**< Type alias for JavaScript-like functions. */
-/** @cond */                                             // Hide from Doxygen
-struct Undefined {};                                     /**< Represents an undefined value. */
+    std::function<JS::Any(const JS::Any&, const JS::Any&)>; /**< Type alias for JavaScript-like functions. */
+/** @cond */                                                // Hide from Doxygen
+struct Undefined {};                                        /**< Represents an undefined value. */
 /** @endcond */
 using Null = std::nullptr_t; /**< Type alias for a null value. */
 using Value = std::variant<double, Rope, bool, JS::Undefined, JS::Null,

@@ -1,5 +1,5 @@
-#include "internals/Object.hpp"
 #include "internals/Attribute.hpp"
+#include "internals/Object.hpp"
 #include "utils/Compare.hpp"
 
 namespace JS {

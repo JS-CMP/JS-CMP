@@ -1,9 +1,9 @@
 #include "utils/Convert.hpp"
 #include "utils/Compare.hpp"
-
 #include <cmath>
 #include <sstream>
 #include <string>
+#define APPLY_MODULO_UINT32(value) ((uint32_t)((value) % 0x100000000))
 
 namespace JS::CONVERT {
 
@@ -124,15 +124,14 @@ int ToInteger(const JS::Any& any) { // https://262.ecma-international.org/5.1/#s
     }
 }
 
-uint32_t ApplyModulo(uint64_t value) { return value % 0x100000000; }
-uint32_t ToUint32(int value) { return ApplyModulo(value < 0 ? -static_cast<int64_t>(value) : value); }
+uint32_t ToUint32(int value) { return APPLY_MODULO_UINT32(value < 0 ? -static_cast<int64_t>(value) : value); }
 uint32_t ToUint32(double value) {
     try {
         if (std::isnan(value) || value == 0 || !std::isfinite(value)) {
             return 0;
         }
         double posInt = std::signbit(value) ? -std::floor(std::abs(value)) : std::floor(std::abs(value));
-        return ApplyModulo(static_cast<int64_t>(posInt));
+        return APPLY_MODULO_UINT32(static_cast<int64_t>(posInt));
     } catch (const std::exception& e) { std::cerr << e.what() << '\n'; }
     return 0;
 }
@@ -157,6 +156,33 @@ uint32_t ToUint32(const JS::Any& any) { // https://262.ecma-international.org/5.
             return 0;
     }
 }
+
+template <typename T>
+int32_t ToInt32(T value) {
+    double temp = ToNumber(value);
+
+    if (!std::isfinite(temp) || std::isnan(temp) || temp == 0) {
+        return 0;
+    }
+    double posInt = std::copysign(std::floor(std::fabs(temp)), temp);
+    constexpr double two32 = 4294967296.0;
+    double int32bit = std::fmod(posInt, two32);
+    if (int32bit < 0) {
+        int32bit += two32;
+    }
+    constexpr double two31 = 2147483648.0;
+    if (int32bit >= two31) {
+        return static_cast<int32_t>(int32bit - two32);
+    }
+    return static_cast<int32_t>(int32bit);
+}
+template int32_t ToInt32(int);
+template int32_t ToInt32(double);
+template int32_t ToInt32(std::string);
+template int32_t ToInt32(Rope);
+template int32_t ToInt32(JS::Null);
+template int32_t ToInt32(JS::Undefined);
+template int32_t ToInt32(JS::Any);
 
 std::string ToString(int value) { return static_cast<std::ostringstream>((std::ostringstream() << value)).str(); }
 std::string ToString(double value) {

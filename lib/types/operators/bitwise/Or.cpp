@@ -48,6 +48,5 @@ JS::Any operator|(JS::Null value, const JS::Any& any) {
 
 JS::Any operator|(JS::Undefined value, const JS::Any& any) {
     return JS::Any(JS::CONVERT::ToInt32(value) | JS::CONVERT::ToInt32(any));
-
 }
 } // namespace JS

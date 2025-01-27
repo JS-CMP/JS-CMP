@@ -28,6 +28,7 @@ file(GLOB_RECURSE SOURCES_LIB
         "lib/types/*.cpp"
         "lib/types/**/*.cpp"
         "lib/global/*.cpp"
+        "lib/math/*.cpp"
 )
 
 file(GLOB_RECURSE SOURCES

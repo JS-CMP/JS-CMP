@@ -17,6 +17,7 @@ bool ToBoolean(const JS::Any& any);
 
 double ToNumber(int value);
 double ToNumber(double value);
+double ToNumber(bool value);
 double ToNumber(const std::string& value);
 double ToNumber(const Rope& value);
 double ToNumber(const JS::Undefined& value);

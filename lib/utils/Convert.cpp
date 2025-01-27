@@ -179,7 +179,9 @@ int32_t ToInt32(T value) {
 }
 template int32_t ToInt32(int);
 template int32_t ToInt32(double);
+template int32_t ToInt32(bool);
 template int32_t ToInt32(std::string);
+template int32_t ToInt32(char const*);
 template int32_t ToInt32(Rope);
 template int32_t ToInt32(JS::Null);
 template int32_t ToInt32(JS::Undefined);

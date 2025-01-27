@@ -97,9 +97,9 @@ public:
     /** @brief Bitwise OR operator a | bool */
     JS::Any operator|(bool value) const;
     /** @brief Bitwise OR operator a | null */
-    JS::Any operator|(JS::Null) const;
+    JS::Any operator|(JS::Null value) const;
     /** @brief Bitwise OR operator a | undefined */
-    JS::Any operator|(JS::Undefined) const;
+    JS::Any operator|(JS::Undefined value) const;
     /** @brief Bitwise OR operator int | Any */
     friend JS::Any operator|(int value, JS::Any const& any);
     /** @brief Bitwise OR operator double | Any */
@@ -124,9 +124,9 @@ public:
     /** @brief Bitwise XOR operator a ^ bool */
     JS::Any operator^(bool value) const;
     /** @brief Bitwise XOR operator a ^ null */
-    JS::Any operator^(JS::Null) const;
+    JS::Any operator^(JS::Null value) const;
     /** @brief Bitwise XOR operator a ^ undefined */
-    JS::Any operator^(JS::Undefined) const;
+    JS::Any operator^(JS::Undefined value) const;
     /** @brief Bitwise XOR operator int ^ Any */
     friend JS::Any operator^(int value, JS::Any const& any);
     /** @brief Bitwise XOR operator double ^ Any */
@@ -157,9 +157,9 @@ public:
     /** @brief Bitwise left shift operator a << bool */
     JS::Any operator<<(bool value) const;
     /** @brief Bitwise left shift operator a << null */
-    JS::Any operator<<(JS::Null) const;
+    JS::Any operator<<(JS::Null value) const;
     /** @brief Bitwise left shift operator a << undefined */
-    JS::Any operator<<(JS::Undefined) const;
+    JS::Any operator<<(JS::Undefined value) const;
     /** @brief Bitwise left shift operator int << Any */
     friend JS::Any operator<<(int value, JS::Any const& any);
     /** @brief Bitwise left shift operator double << Any */
@@ -184,9 +184,9 @@ public:
     /** @brief Bitwise right shift operator a >> bool */
     JS::Any operator>>(bool value) const;
     /** @brief Bitwise right shift operator a >> null */
-    JS::Any operator>>(JS::Null) const;
+    JS::Any operator>>(JS::Null value) const;
     /** @brief Bitwise right shift operator a >> undefined */
-    JS::Any operator>>(JS::Undefined) const;
+    JS::Any operator>>(JS::Undefined value) const;
     /** @brief Bitwise right shift operator int >> Any */
     friend JS::Any operator>>(int value, JS::Any const& any);
     /** @brief Bitwise right shift operator double >> Any */
@@ -250,7 +250,7 @@ public:
     /** @brief Subtraction operator Any - bool */
     JS::Any operator-(bool value) const;
     /** @brief Subtraction operator Any - null */
-    JS::Any operator-(JS::Null) const;
+    JS::Any operator-(JS::Null value) const;
     /** @brief Subtraction operator Any - undefined */
     JS::Any operator-(JS::Undefined) const;
     /** @brief Subtraction operator int - Any */
@@ -262,7 +262,7 @@ public:
     /** @brief Subtraction operator bool - Any */
     friend JS::Any operator-(bool value, JS::Any const& any);
     /** @brief Subtraction operator null - Any */
-    friend JS::Any operator-(JS::Null, JS::Any const& any);
+    friend JS::Any operator-(JS::Null value, JS::Any const& any);
     /** @brief Subtraction operator undefined - Any */
     friend JS::Any operator-(JS::Undefined, JS::Any const& any);
     ///@}

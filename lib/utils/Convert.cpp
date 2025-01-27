@@ -160,6 +160,34 @@ uint32_t ToUint32(const JS::Any& any) { // https://262.ecma-international.org/5.
 }
 
 template <typename T>
+int16_t ToInt16(T value) {
+    double temp = ToNumber(value);
+
+    if (!std::isfinite(temp) || std::isnan(temp) || temp == 0) {
+        return 0;
+    }
+
+    double posInt = std::copysign(std::floor(std::fabs(temp)), temp);
+    constexpr double two16 = 65536.0;
+    double int16bit = std::fmod(posInt, two16);
+
+    if (int16bit < 0) {
+        int16bit += two16;
+    }
+
+    return static_cast<uint16_t>(int16bit);
+}
+template int16_t ToInt16(int);
+template int16_t ToInt16(double);
+template int16_t ToInt16(bool);
+template int16_t ToInt16(std::string);
+template int16_t ToInt16(char const*);
+template int16_t ToInt16(Rope);
+template int16_t ToInt16(JS::Null);
+template int16_t ToInt16(JS::Undefined);
+template int16_t ToInt16(JS::Any);
+
+template <typename T>
 int32_t ToInt32(T value) {
     double temp = ToNumber(value);
 

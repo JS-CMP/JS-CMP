@@ -18,9 +18,9 @@ JS::PropertyProxy JS::Any::operator[](size_t index) const {
     throw std::runtime_error("Value is not an object");
 }
 
-JS::Any JS::Any::call(const std::vector<JS::Any>& args) const {
+JS::Any JS::Any::call(const JS::Any &args) const {
     if (value.index() == JS::OBJECT && std::get<std::shared_ptr<JS::InternalObject>>(value)->isCallable()) {
-        return std::get<std::shared_ptr<JS::InternalObject>>(value)->operator()(args);
+        return std::get<std::shared_ptr<JS::InternalObject>>(value)->call(JS::Any(JS::Undefined{}), args); // TODO fix this to pass the correct this aka global object
     }
     throw std::runtime_error("Value is not a function");
 }

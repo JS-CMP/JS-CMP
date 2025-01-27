@@ -1,5 +1,5 @@
 #include "internals/Object.hpp"
-#include "types/objects/JsObject.hpp"
+#include "internals/Attribute.hpp"
 #include "utils/Compare.hpp"
 
 namespace JS {
@@ -174,7 +174,7 @@ bool InternalObject::defineOwnProperty(const std::string& key, Attribute desc, b
                 std::get<JS::DataDescriptor>(desc).enumerable, std::get<JS::DataDescriptor>(desc).configurable};
         } else {
             (*properties)[key] = JS::AccessorDescriptor{
-                std::get<JS::AccessorDescriptor>(desc).get, std::get<JS::AccessorDescriptor>(desc).set,
+                std::get<JS::AccessorDescriptor>(desc).set, std::get<JS::AccessorDescriptor>(desc).get,
                 std::get<JS::AccessorDescriptor>(desc).enumerable, std::get<JS::AccessorDescriptor>(desc).configurable};
         }
         return true;
@@ -216,7 +216,7 @@ bool InternalObject::defineOwnProperty(const std::string& key, Attribute desc, b
             }
         }
         properties->operator[](key) =
-            JS::AccessorDescriptor{newDesc.get, newDesc.set, newDesc.enumerable, newDesc.configurable};
+            JS::AccessorDescriptor{newDesc.set, newDesc.get, newDesc.enumerable, newDesc.configurable};
 
     } else {
         if (JS::COMPARE::IsDataDescriptor(current.value())) {

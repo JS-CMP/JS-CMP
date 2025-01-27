@@ -1,6 +1,7 @@
 #ifndef PROPERTIESPROXY_HPP
 #define PROPERTIESPROXY_HPP
 #include "types/JsAny.hpp"
+#include "internals/Arguments.hpp"
 #include "types/Types.hpp"
 
 namespace JS {
@@ -21,11 +22,11 @@ public:
     // Overload operator() to cast to JS::Any and call operator()
     template <typename... Args>
     JS::Any operator()(Args&&... args) {
-        std::vector<JS::Any> arguments = {std::forward<Args>(args)...};
-        return call(arguments);
+        return call(JS::Arguments::CreateArgumentsObject(std::vector<JS::Any>{args...}));
     }
-    JS::Any call(const std::vector<JS::Any>& args) const;
+    JS::Any call(const JS::Any& args) const;
 
+    JS::Value getValue() const;
 private:
     std::shared_ptr<JS::InternalObject> obj_;
     std::string key_;

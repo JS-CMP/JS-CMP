@@ -5,25 +5,24 @@
 
 class Math {
 public:
-    JS::Any abs(const JS::Any &x);
-    JS::Any acos(const JS::Any &x);
-    JS::Any asin(const JS::Any &x);
-    JS::Any atan(const JS::Any &x);
-    JS::Any atan2(const JS::Any &y, const JS::Any &x);
-    JS::Any ceil(const JS::Any &x);
-    JS::Any cos(const JS::Any &x);
-    JS::Any exp(const JS::Any &x);
-    JS::Any floor(const JS::Any &x);
-    JS::Any log(const JS::Any &x);
-    JS::Any max(const std::vector<JS::Any> &x);
-    JS::Any min(const std::vector<JS::Any> &x);
-    JS::Any pow(const JS::Any &x, const JS::Any &y);
-    JS::Any random();
-    JS::Any round(const JS::Any &x);
-    JS::Any sin(const JS::Any &x);
-    JS::Any sqrt(const JS::Any &x);
-    JS::Any tan(const JS::Any &x);
-private:
+    static JS::Any abs(const JS::Any &x);
+    static JS::Any acos(const JS::Any &x);
+    static JS::Any asin(const JS::Any &x);
+    static JS::Any atan(const JS::Any &x);
+    static JS::Any atan2(const JS::Any &y, const JS::Any &x);
+    static JS::Any ceil(const JS::Any &x);
+    static JS::Any cos(const JS::Any &x);
+    static JS::Any exp(const JS::Any &x);
+    static JS::Any floor(const JS::Any &x);
+    static JS::Any log(const JS::Any &x);
+    static JS::Any max(const std::vector<JS::Any> &x);
+    static JS::Any min(const std::vector<JS::Any> &x);
+    static JS::Any pow(const JS::Any &x, const JS::Any &y);
+    static JS::Any random();
+    static JS::Any round(const JS::Any &x);
+    static JS::Any sin(const JS::Any &x);
+    static JS::Any sqrt(const JS::Any &x);
+    static JS::Any tan(const JS::Any &x);
     constexpr static double e = 2.7182818284590452354;
     constexpr static double ln10 = 2.302585092994046;
     constexpr static double ln2 = 0.6931471805599453;

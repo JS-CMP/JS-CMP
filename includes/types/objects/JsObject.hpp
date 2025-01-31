@@ -26,7 +26,7 @@ public:
     /** @brief Constructor for properties */
     explicit Object(const std::unordered_map<std::string, JS::Any>& properties);
     /** @brief InternalObject constructor */
-    explicit Object(const JS::InternalObject& internalObject);
+    explicit Object(const JS::InternalObject&& internalObject);
     /** @brief Attribute constructor */
     explicit Object(const JS::Attribute& attribute);
     ///@}
@@ -34,7 +34,7 @@ public:
     /**
      * @brief The destructor for the object defaulted
      */
-    ~Object() = default;
+    ~Object() override = default;
 
     /**
      * @name Methods to make static methods of the Object built-in
@@ -85,15 +85,6 @@ public:
     static JS::Any isPrototypeOf(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Returns if the property is enumerable https://262.ecma-international.org/5.1/#sec-15.2.4.7 */
     static JS::Any propertyIsEnumerable(const JS::Any& thisArg, const JS::Any& args);
-    ///@}
-
-    /**
-     * @name Methods
-     * These methods provide additional functionality to the object
-     */
-    ///@{
-    /** @brief init functions in the properties, made for inherited class */
-    virtual void init();
     ///@}
 };
 

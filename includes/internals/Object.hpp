@@ -36,6 +36,9 @@ public:
     InternalObject& operator=(JS::InternalObject&& other) noexcept;
     ///@}
 
+    /** @brief The destructor for the object defaulted */
+    ~InternalObject() override = default;
+
     /**
      * @name Accessors
      * These methods provide access to the properties of the object

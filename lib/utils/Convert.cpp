@@ -1,4 +1,5 @@
 #include "types/objects/JsObject.hpp"
+#include "utils/Is.hpp"
 
 #include <cmath>
 #include <sstream>
@@ -179,7 +180,7 @@ JS::Attribute ToPropertyDescriptor(const Any& desc) {
     }
     if ((get_or_set = get_or_set || obj->hasProperty("get"))) {
         JS::Any tmp = obj->get("get");
-        if (COMPARE::Type(tmp, UNDEFINED) || COMPARE::IsCallable(tmp)) {
+        if (COMPARE::Type(tmp, UNDEFINED) || JS::IS::Callable(tmp)) {
             accessor.get = std::make_shared<JS::Object>(tmp);
         } else {
             throw std::runtime_error("TypeError: get must be callable or undefined"); // TODO: make this a JS error
@@ -187,7 +188,7 @@ JS::Attribute ToPropertyDescriptor(const Any& desc) {
     }
     if ((get_or_set = get_or_set || obj->hasProperty("set"))) {
         JS::Any tmp = obj->get("set");
-        if (COMPARE::Type(tmp, UNDEFINED) || COMPARE::IsCallable(tmp)) {
+        if (COMPARE::Type(tmp, UNDEFINED) || JS::IS::Callable(tmp)) {
             accessor.set = std::make_shared<JS::Object>(tmp);
         } else {
             throw std::runtime_error("TypeError: set must be callable or undefined"); // TODO: make this a JS error

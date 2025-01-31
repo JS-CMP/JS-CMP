@@ -10,62 +10,66 @@ bool Type(const JS::Any& a, const JS::Any& b) { return a.getValue().index() == b
 bool Type(const JS::Any& a, const JS::Types& b) { return a.getValue().index() == b; }
 
 bool Type(const JS::Types& a, const JS::Any& b) { return a == b.getValue().index(); }
-bool IsPrimitive(const JS::Any& a) {
-    return a.getValue().index() == JS::NUMBER || a.getValue().index() == JS::STRING || a.getValue().index() == JS::BOOL;
-}
 
-bool IsCallable(const JS::Any& a) {
-    if (JS::COMPARE::Type(a, JS::OBJECT)) {
-        return std::get<std::shared_ptr<JS::InternalObject>>(a.getValue())->isCallable();
-    } else {
-        return false;
+bool SameValue(const double &a,const double &b) {
+    if (std::isnan(a) && std::isnan(b)) {
+        return true;
     }
-}
-
-bool IsAccessorDescriptor(const JS::Attribute& a) {
-    if (a.index() == JS::ACCESSOR_DESCRIPTOR) {
-        JS::AccessorDescriptor ad = std::get<JS::AccessorDescriptor>(a);
-        return ad.get != nullptr || ad.set != nullptr;
+    if (a == 0.0 && b == 0.0) {
+        return std::signbit(a) == std::signbit(b);
     }
-    return false;
+    return a == b;
 }
 
-bool IsDataDescriptor(const JS::Attribute& a) {
-    if (a.index() == JS::DATA_DESCRIPTOR) {
-        return !JS::COMPARE::Type(std::get<JS::DataDescriptor>(a).value, JS::UNDEFINED);
-    }
-    return false;
-}
+bool SameValue(const Rope &a,const Rope &b) { return a == b; }
 
-bool IsGenericDescriptor(const JS::Attribute& a) { return !IsDataDescriptor(a) && !IsAccessorDescriptor(a); }
+bool SameValue(const bool &a,const bool &b) { return a == b; }
+
+bool SameValue(const JS::Undefined &a,const JS::Undefined &b) { return true; }
+
+bool SameValue(const JS::Null &a,const JS::Null &b) { return true; }
+
+bool SameValue(const std::shared_ptr<JS::InternalObject> &a,const std::shared_ptr<JS::InternalObject> &b) { return a.get() == b.get(); }
 
 bool SameValue(const JS::Any& a, const JS::Any& b) {
     if (!JS::COMPARE::Type(a, b)) {
         return false;
     }
     switch (a.getValue().index()) {
-        case JS::NUMBER: {
-            double a_val = std::get<double>(a.getValue());
-            double b_val = std::get<double>(b.getValue());
-            if (std::isnan(a_val) && std::isnan(b_val)) {
-                return true;
-            }
-            if (a_val == 0.0 && b_val == 0.0) {
-                return std::signbit(a_val) == std::signbit(b_val);
-            }
-            return a_val == b_val;
-        }
+        case JS::NUMBER:
+            return SameValue(std::get<double>(a.getValue()), std::get<double>(b.getValue()));
         case JS::STRING:
-            return std::get<Rope>(a.getValue()) == std::get<Rope>(b.getValue());
+            return SameValue(std::get<Rope>(a.getValue()), std::get<Rope>(b.getValue()));
         case JS::BOOL:
-            return std::get<bool>(a.getValue()) == std::get<bool>(b.getValue());
+            return SameValue(std::get<bool>(a.getValue()), std::get<bool>(b.getValue()));
         case JS::UNDEFINED:
             return true;
         case JS::NULL_TYPE:
             return true;
         case JS::OBJECT:
-            return std::get<std::shared_ptr<JS::InternalObject>>(a.getValue()).get() ==
-                   std::get<std::shared_ptr<JS::InternalObject>>(b.getValue()).get();
+            return SameValue(std::get<std::shared_ptr<JS::InternalObject>>(a.getValue()),
+                             std::get<std::shared_ptr<JS::InternalObject>>(b.getValue()));
+    }
+    return false;
+}
+
+bool SameValue(const JS::Attribute& a, const JS::Attribute& b) {
+    if (a.index() != b.index()) {
+        return false;
+    }
+    switch (a.index()) {
+        case JS::DATA_DESCRIPTOR: {
+            JS::DataDescriptor ad_a = std::get<JS::DataDescriptor>(a);
+            JS::DataDescriptor ad_b = std::get<JS::DataDescriptor>(b);
+            return SameValue(ad_a.value, ad_b.value) && ad_a.writable == ad_b.writable &&
+                   ad_a.enumerable == ad_b.enumerable && ad_a.configurable == ad_b.configurable;
+        }
+        case JS::ACCESSOR_DESCRIPTOR: {
+            JS::AccessorDescriptor ad_a = std::get<JS::AccessorDescriptor>(a);
+            JS::AccessorDescriptor ad_b = std::get<JS::AccessorDescriptor>(b);
+            return SameValue(ad_a.get, ad_b.get) && SameValue(ad_a.set, ad_b.set) && ad_a.enumerable == ad_b.enumerable &&
+                   ad_a.configurable == ad_b.configurable;
+        }
     }
     return false;
 }

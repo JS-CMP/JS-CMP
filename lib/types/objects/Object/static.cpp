@@ -154,7 +154,7 @@ JS::Any Object::isSealed(const JS::Any& thisArg, const JS::Any& args) {
         if (JS::IS::DataDescriptor(value) && std::get<JS::DataDescriptor>(value).configurable ||
             JS::IS::AccessorDescriptor(value) && std::get<JS::AccessorDescriptor>(value).configurable) {
             return JS::Any(false);
-            }
+        }
     }
     return JS::Any(!O->extensible);
 }
@@ -170,7 +170,7 @@ JS::Any Object::isFrozen(const JS::Any& thisArg, const JS::Any& args) {
                 (std::get<JS::DataDescriptor>(value).configurable || std::get<JS::DataDescriptor>(value).writable) ||
             JS::IS::AccessorDescriptor(value) && std::get<JS::AccessorDescriptor>(value).configurable) {
             return JS::Any(false);
-            }
+        }
     }
     return JS::Any(!O->extensible);
 }
@@ -192,11 +192,11 @@ JS::Any Object::keys(const JS::Any& thisArg, const JS::Any& args) {
     for (const auto& [key, value] : *O->properties) {
         // TODO can be optimized with a genericDescriptor with enumerable
         if (JS::IS::DataDescriptor(value) && std::get<JS::DataDescriptor>(value).enumerable ||
-           JS::IS::AccessorDescriptor(value) && std::get<JS::AccessorDescriptor>(value).enumerable) {
+            JS::IS::AccessorDescriptor(value) && std::get<JS::AccessorDescriptor>(value).enumerable) {
             array->defineOwnProperty(JS::CONVERT::ToString(index), JS::DataDescriptor{JS::Any(key), true, true, true},
                                      false);
             index++;
-           }
+        }
     }
     return JS::Any(array);
 }

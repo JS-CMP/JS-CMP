@@ -1,6 +1,7 @@
 #include "internals/Object.hpp"
 #include "types/objects/JsFunction.hpp"
 #include "utils/Compare.hpp"
+#include "utils/Is.hpp"
 #include "utils/Convert.hpp"
 
 namespace JS {
@@ -35,7 +36,7 @@ JS::Any Object::toLocaleString(const std::vector<JS::Any>& args) {
                                                                                                            // happen
     }
     JS::Any toString = std::get<std::shared_ptr<JS::InternalObject>>(O.getValue())->get("toString");
-    if (COMPARE::IsCallable(toString)) {
+    if (JS::IS::Callable(toString)) {
         return toString();
     }
     throw std::runtime_error("TypeError: Object.prototype.toLocaleString called on non-object");
@@ -106,9 +107,9 @@ JS::Any Object::propertyIsEnumerable(const std::vector<JS::Any>& args) {
     if (!desc.has_value()) {
         return JS::Any(false);
     }
-    return JS::Any(JS::COMPARE::IsDataDescriptor(desc.value()) &&
+    return JS::Any(JS::IS::DataDescriptor(desc.value()) &&
                        std::get<JS::DataDescriptor>(desc.value()).enumerable ||
-                   JS::COMPARE::IsAccessorDescriptor(desc.value()) &&
+                   JS::IS::AccessorDescriptor(desc.value()) &&
                        std::get<JS::AccessorDescriptor>(desc.value())
                            .enumerable); // TODO can be optimized with a genericDescriptor with enumerable
 }

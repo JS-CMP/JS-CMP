@@ -1,4 +1,5 @@
 #include "types/objects/JsObject.hpp"
+#include "utils/Is.hpp"
 
 #include <cmath>
 #include <sstream>

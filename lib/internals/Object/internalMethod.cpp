@@ -6,21 +6,31 @@
 namespace JS {
 std::optional<JS::Attribute> JS::InternalObject::getOwnProperty(const std::string& key) const {
 
-    if (!properties->contains(key)) { return std::nullopt; }
+    if (!properties->contains(key)) {
+        return std::nullopt;
+    }
     return properties->at(key);
 }
 
 std::optional<JS::Attribute> InternalObject::getProperty(const std::string& key) const {
     auto prop = this->getOwnProperty(key);
-    if (prop.has_value()) { return prop; }
-    if (this->prototype == nullptr) { return std::nullopt; }
+    if (prop.has_value()) {
+        return prop;
+    }
+    if (this->prototype == nullptr) {
+        return std::nullopt;
+    }
     return this->prototype->getProperty(key);
 }
 
 JS::Any InternalObject::get(const std::string& key) const {
     auto desc = this->getProperty(key);
-    if (!desc.has_value()) { return JS::Any(JS::Undefined{}); }
-    if (JS::IS::DataDescriptor(desc.value())) { return std::get<JS::DataDescriptor>(desc.value()).value; }
+    if (!desc.has_value()) {
+        return JS::Any(JS::Undefined{});
+    }
+    if (JS::IS::DataDescriptor(desc.value())) {
+        return std::get<JS::DataDescriptor>(desc.value()).value;
+    }
     if (JS::IS::AccessorDescriptor(desc.value())) {
         JS::AccessorDescriptor accessor = std::get<JS::AccessorDescriptor>(desc.value());
         return accessor.get == nullptr ? JS::Any(JS::Undefined{}) : (*accessor.get)();
@@ -34,12 +44,18 @@ bool InternalObject::canPut(const std::string& key) const {
         if (JS::IS::AccessorDescriptor(desc.value())) {
             return std::get<JS::AccessorDescriptor>(desc.value()).set != nullptr;
         }
-        if (JS::IS::DataDescriptor(desc.value())) { return std::get<JS::DataDescriptor>(desc.value()).writable; }
+        if (JS::IS::DataDescriptor(desc.value())) {
+            return std::get<JS::DataDescriptor>(desc.value()).writable;
+        }
         throw std::runtime_error("Unexpected descriptor type");
     }
-    if (this->prototype == nullptr) { return this->extensible; }
+    if (this->prototype == nullptr) {
+        return this->extensible;
+    }
     auto inherited = this->prototype->getProperty(key);
-    if (!inherited.has_value()) { return this->extensible; }
+    if (!inherited.has_value()) {
+        return this->extensible;
+    }
     if (JS::IS::AccessorDescriptor(inherited.value())) {
         return std::get<JS::AccessorDescriptor>(inherited.value()).set != nullptr;
     }
@@ -78,7 +94,9 @@ bool InternalObject::hasProperty(const std::string& key) const { return this->ge
 
 bool InternalObject::deleteProperty(const std::string& key, bool is_throw) {
     auto desc = this->getOwnProperty(key);
-    if (!desc.has_value()) { return true; }
+    if (!desc.has_value()) {
+        return true;
+    }
     if ((desc.value().index() == JS::DATA_DESCRIPTOR && !std::get<JS::DataDescriptor>(desc.value()).configurable) ||
         (desc.value().index() == JS::ACCESSOR_DESCRIPTOR &&
          !std::get<JS::AccessorDescriptor>(desc.value()).configurable)) {
@@ -97,12 +115,16 @@ JS::Any InternalObject::defaultValue(const Types& hint) {
             JS::Any toString = this->get("toString");
             if (JS::IS::Callable(toString)) {
                 JS::Any str = toString(JS::Any(shared_from_this()));
-                if (JS::IS::Primitive(str)) { return str; }
+                if (JS::IS::Primitive(str)) {
+                    return str;
+                }
             }
             JS::Any valueOf = this->get("valueOf");
             if (JS::IS::Callable(valueOf)) {
                 JS::Any val = valueOf(JS::Any(shared_from_this()));
-                if (JS::IS::Primitive(val)) { return val; }
+                if (JS::IS::Primitive(val)) {
+                    return val;
+                }
             }
             throw std::runtime_error("Cannot convert to primitive"); // TODO: TypeError
         }
@@ -110,12 +132,16 @@ JS::Any InternalObject::defaultValue(const Types& hint) {
             JS::Any valueOf = this->get("valueOf");
             if (JS::IS::Callable(valueOf)) {
                 JS::Any val = valueOf(JS::Any(shared_from_this()));
-                if (JS::IS::Primitive(val)) { return val; }
+                if (JS::IS::Primitive(val)) {
+                    return val;
+                }
             }
             JS::Any toString = this->get("toString");
             if (JS::IS::Callable(toString)) {
                 JS::Any str = toString(JS::Any(shared_from_this()));
-                if (JS::IS::Primitive(str)) { return str; }
+                if (JS::IS::Primitive(str)) {
+                    return str;
+                }
             }
             throw std::runtime_error("Cannot convert to primitive"); // TODO: TypeError
         }
@@ -125,7 +151,9 @@ JS::Any InternalObject::defaultValue(const Types& hint) {
 }
 
 JS::Any InternalObject::defaultValue() {
-    if (this->class_name == "Date") { return this->defaultValue(JS::STRING); }
+    if (this->class_name == "Date") {
+        return this->defaultValue(JS::STRING);
+    }
     return this->defaultValue(JS::NUMBER);
 }
 
@@ -143,32 +171,28 @@ bool InternalObject::defineOwnProperty(const std::string& key, Attribute desc, b
     if (!current.has_value() && extensible) {
         if (JS::IS::GenericDescriptor(desc) || JS::IS::DataDescriptor(desc)) {
             (*properties)[key] = JS::DataDescriptor{
-                std::get<JS::DataDescriptor>(desc).value,
-                std::get<JS::DataDescriptor>(desc).writable,
-                std::get<JS::DataDescriptor>(desc).enumerable,
-                std::get<JS::DataDescriptor>(desc).configurable};
+                std::get<JS::DataDescriptor>(desc).value, std::get<JS::DataDescriptor>(desc).writable,
+                std::get<JS::DataDescriptor>(desc).enumerable, std::get<JS::DataDescriptor>(desc).configurable};
         } else {
             (*properties)[key] = JS::AccessorDescriptor{
-                std::get<JS::AccessorDescriptor>(desc).get,
-                std::get<JS::AccessorDescriptor>(desc).set,
-                std::get<JS::AccessorDescriptor>(desc).enumerable,
-                std::get<JS::AccessorDescriptor>(desc).configurable};
+                std::get<JS::AccessorDescriptor>(desc).get, std::get<JS::AccessorDescriptor>(desc).set,
+                std::get<JS::AccessorDescriptor>(desc).enumerable, std::get<JS::AccessorDescriptor>(desc).configurable};
         }
         return true;
     }
 
-    if (JS::COMPARE::SameValue(desc, current.value())) { return true; }
+    if (JS::COMPARE::SameValue(desc, current.value())) {
+        return true;
+    }
     auto currentDesc = current.value();
 
-    bool descEnumerable = JS::IS::DataDescriptor(desc)
-                              ? std::get<JS::DataDescriptor>(desc).enumerable
-                              : std::get<JS::AccessorDescriptor>(desc).enumerable;
+    bool descEnumerable = JS::IS::DataDescriptor(desc) ? std::get<JS::DataDescriptor>(desc).enumerable
+                                                       : std::get<JS::AccessorDescriptor>(desc).enumerable;
     bool currentEnumerable = JS::IS::DataDescriptor(currentDesc)
                                  ? std::get<JS::DataDescriptor>(currentDesc).enumerable
                                  : std::get<JS::AccessorDescriptor>(currentDesc).enumerable;
-    bool descConfigurable = JS::IS::DataDescriptor(desc)
-                                ? std::get<JS::DataDescriptor>(desc).configurable
-                                : std::get<JS::AccessorDescriptor>(desc).configurable;
+    bool descConfigurable = JS::IS::DataDescriptor(desc) ? std::get<JS::DataDescriptor>(desc).configurable
+                                                         : std::get<JS::AccessorDescriptor>(desc).configurable;
     bool currentConfigurable = JS::IS::DataDescriptor(currentDesc)
                                    ? std::get<JS::DataDescriptor>(currentDesc).configurable
                                    : std::get<JS::AccessorDescriptor>(currentDesc).configurable;
@@ -207,8 +231,7 @@ bool InternalObject::defineOwnProperty(const std::string& key, Attribute desc, b
                     throw std::runtime_error("Cannot redefine property"); // TypeError
                 return false;
             }
-            if (!oldDesc.writable && !
-                JS::COMPARE::SameValue(newDesc.value, oldDesc.value)) {
+            if (!oldDesc.writable && !JS::COMPARE::SameValue(newDesc.value, oldDesc.value)) {
                 if (is_throw)
                     throw std::runtime_error("Cannot redefine property"); // TypeError
                 return false;

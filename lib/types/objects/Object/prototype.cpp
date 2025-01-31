@@ -1,8 +1,8 @@
 #include "internals/Object.hpp"
 #include "types/objects/JsFunction.hpp"
 #include "utils/Compare.hpp"
-#include "utils/Is.hpp"
 #include "utils/Convert.hpp"
+#include "utils/Is.hpp"
 
 namespace JS {
 
@@ -107,8 +107,7 @@ JS::Any Object::propertyIsEnumerable(const std::vector<JS::Any>& args) {
     if (!desc.has_value()) {
         return JS::Any(false);
     }
-    return JS::Any(JS::IS::DataDescriptor(desc.value()) &&
-                       std::get<JS::DataDescriptor>(desc.value()).enumerable ||
+    return JS::Any(JS::IS::DataDescriptor(desc.value()) && std::get<JS::DataDescriptor>(desc.value()).enumerable ||
                    JS::IS::AccessorDescriptor(desc.value()) &&
                        std::get<JS::AccessorDescriptor>(desc.value())
                            .enumerable); // TODO can be optimized with a genericDescriptor with enumerable

@@ -11,7 +11,7 @@ bool Type(const JS::Any& a, const JS::Types& b) { return a.getValue().index() ==
 
 bool Type(const JS::Types& a, const JS::Any& b) { return a == b.getValue().index(); }
 
-bool SameValue(const double &a,const double &b) {
+bool SameValue(const double& a, const double& b) {
     if (std::isnan(a) && std::isnan(b)) {
         return true;
     }
@@ -21,15 +21,17 @@ bool SameValue(const double &a,const double &b) {
     return a == b;
 }
 
-bool SameValue(const Rope &a,const Rope &b) { return a == b; }
+bool SameValue(const Rope& a, const Rope& b) { return a == b; }
 
-bool SameValue(const bool &a,const bool &b) { return a == b; }
+bool SameValue(const bool& a, const bool& b) { return a == b; }
 
-bool SameValue(const JS::Undefined &a,const JS::Undefined &b) { return true; }
+bool SameValue(const JS::Undefined& a, const JS::Undefined& b) { return true; }
 
-bool SameValue(const JS::Null &a,const JS::Null &b) { return true; }
+bool SameValue(const JS::Null& a, const JS::Null& b) { return true; }
 
-bool SameValue(const std::shared_ptr<JS::InternalObject> &a,const std::shared_ptr<JS::InternalObject> &b) { return a.get() == b.get(); }
+bool SameValue(const std::shared_ptr<JS::InternalObject>& a, const std::shared_ptr<JS::InternalObject>& b) {
+    return a.get() == b.get();
+}
 
 bool SameValue(const JS::Any& a, const JS::Any& b) {
     if (!JS::COMPARE::Type(a, b)) {
@@ -67,8 +69,8 @@ bool SameValue(const JS::Attribute& a, const JS::Attribute& b) {
         case JS::ACCESSOR_DESCRIPTOR: {
             JS::AccessorDescriptor ad_a = std::get<JS::AccessorDescriptor>(a);
             JS::AccessorDescriptor ad_b = std::get<JS::AccessorDescriptor>(b);
-            return SameValue(ad_a.get, ad_b.get) && SameValue(ad_a.set, ad_b.set) && ad_a.enumerable == ad_b.enumerable &&
-                   ad_a.configurable == ad_b.configurable;
+            return SameValue(ad_a.get, ad_b.get) && SameValue(ad_a.set, ad_b.set) &&
+                   ad_a.enumerable == ad_b.enumerable && ad_a.configurable == ad_b.configurable;
         }
     }
     return false;

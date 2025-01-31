@@ -1,11 +1,11 @@
 #include "types/objects/JsObject.hpp"
+#include "utils/Is.hpp"
 
 #include <cmath>
 #include <sstream>
 #include <string>
 #include <utils/Compare.hpp>
 #include <utils/Convert.hpp>
-#include "utils/Is.hpp"
 
 namespace JS::CONVERT {
 

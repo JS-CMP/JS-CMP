@@ -1,6 +1,5 @@
-#include "utils/Compare.hpp"
-
 #include "types/objects/JsObject.hpp"
+#include "utils/Compare.hpp"
 
 #include <cmath>
 

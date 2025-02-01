@@ -200,7 +200,6 @@ public:
     /** @brief Bitwise right shift operator undefined >> Any */
     friend JS::Any operator>>(JS::Undefined value, JS::Any const& any);
 
-
     ///@}
 
     /**
@@ -366,7 +365,6 @@ public:
     /** @brief Modulus operator undefined % Any */
     friend JS::Any operator%(JS::Undefined value, JS::Any const& any);
     ///@}
-
 
     /**
      * @name Binary Logical operators

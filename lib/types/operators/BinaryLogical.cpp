@@ -1,7 +1,7 @@
 #include "../includes/types/JsAny.hpp"
 #include "../includes/utils/Convert.hpp"
 
-JS::Any JS::Any::operator&&(const JS::Any &other) const {
+JS::Any JS::Any::operator&&(const JS::Any& other) const {
     if (!JS::CONVERT::ToBoolean(*this))
         return *this;
     return other;
@@ -43,41 +43,41 @@ JS::Any JS::Any::operator&&(JS::Undefined value) const {
     return JS::Any(value);
 }
 
-namespace JS{
+namespace JS {
 
-    Any operator%(int value, JS::Any const& any) {
-        if (!JS::CONVERT::ToBoolean(value))
-            return JS::Any(value);
-        return JS::Any(any);
-    }
-
-    Any operator%(double value, JS::Any const& any) {
-        if (!JS::CONVERT::ToBoolean(value))
-            return JS::Any(value);
-        return JS::Any(any);
-    }
-
-    Any operator%(const char* value, JS::Any const& any) {
-        if (!JS::CONVERT::ToBoolean(value))
-            return JS::Any(value);
-        return JS::Any(any);
-    }
-
-    Any operator%(bool value, JS::Any const& any) {
-        if (!JS::CONVERT::ToBoolean(value))
-            return JS::Any(value);
-        return JS::Any(any);
-    }
-
-    Any operator%(Null value, JS::Any const& any) {
-        if (!JS::CONVERT::ToBoolean(value))
-            return JS::Any(value);
-        return JS::Any(any);
-    }
-
-    Any operator%(Undefined value, JS::Any const& any) {
-        if (!JS::CONVERT::ToBoolean(value))
-            return JS::Any(value);
-        return JS::Any(any);
-    }
+Any operator%(int value, JS::Any const& any) {
+    if (!JS::CONVERT::ToBoolean(value))
+        return JS::Any(value);
+    return JS::Any(any);
 }
+
+Any operator%(double value, JS::Any const& any) {
+    if (!JS::CONVERT::ToBoolean(value))
+        return JS::Any(value);
+    return JS::Any(any);
+}
+
+Any operator%(const char* value, JS::Any const& any) {
+    if (!JS::CONVERT::ToBoolean(value))
+        return JS::Any(value);
+    return JS::Any(any);
+}
+
+Any operator%(bool value, JS::Any const& any) {
+    if (!JS::CONVERT::ToBoolean(value))
+        return JS::Any(value);
+    return JS::Any(any);
+}
+
+Any operator%(Null value, JS::Any const& any) {
+    if (!JS::CONVERT::ToBoolean(value))
+        return JS::Any(value);
+    return JS::Any(any);
+}
+
+Any operator%(Undefined value, JS::Any const& any) {
+    if (!JS::CONVERT::ToBoolean(value))
+        return JS::Any(value);
+    return JS::Any(any);
+}
+} // namespace JS

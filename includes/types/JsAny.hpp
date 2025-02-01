@@ -200,6 +200,7 @@ public:
     /** @brief Bitwise right shift operator undefined >> Any */
     friend JS::Any operator>>(JS::Undefined value, JS::Any const& any);
 
+
     ///@}
 
     /**
@@ -364,6 +365,40 @@ public:
     friend JS::Any operator%(JS::Null value, JS::Any const& any);
     /** @brief Modulus operator undefined % Any */
     friend JS::Any operator%(JS::Undefined value, JS::Any const& any);
+    ///@}
+
+
+    /**
+     * @name Binary Logical operators
+     * These operators perform binary logical operations on the value of the 'Any' object.
+     */
+    ///@{
+    /** @brief And operator Any / Any*/
+    JS::Any operator&&(const JS::Any& other) const;
+    /** @brief And operator Any / int */
+    JS::Any operator&&(int value) const;
+    /** @brief And operator Any / double */
+    JS::Any operator&&(double value) const;
+    /** @brief And operator Any / str */
+    JS::Any operator&&(const char* value) const;
+    /** @brief And operator  Any / bool*/
+    JS::Any operator&&(bool value) const;
+    /** @brief And operator Any / Null */
+    JS::Any operator&&(JS::Null value) const;
+    /** @brief And operator Any / Undefined*/
+    JS::Any operator&&(JS::Undefined value) const;
+    /** @brief And operator int / Any */
+    friend JS::Any operator%(int value, JS::Any const& any);
+    /** @brief And operator double / Any */
+    friend JS::Any operator%(double value, JS::Any const& any);
+    /** @brief And operator str / Any */
+    friend JS::Any operator%(const char* value, JS::Any const& any);
+    /** @brief And operator bool / Any */
+    friend JS::Any operator%(bool value, JS::Any const& any);
+    /** @brief And operator Null / Any */
+    friend JS::Any operator%(JS::Null value, JS::Any const& any);
+    /** @brief And operator  Undefined / Any */
+    friend JS::Any operator%(JS::Undefined, JS::Any const& any);
     ///@}
 
     /**

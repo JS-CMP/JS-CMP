@@ -1,11 +1,10 @@
 #ifndef JS_CMP_GLOBAL_HPP
 #define JS_CMP_GLOBAL_HPP
 
+#include "globalFunctions.hpp"
 #include "types/JsAny.hpp"
 #include "types/objects/JsFunction.hpp"
 #include "types/objects/JsObject.hpp"
-
-#include "globalFunctions.hpp"
 
 // TODO fix this create Object to inherit from Function
 JS::Any Object = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::string, JS::Any>{
@@ -23,7 +22,6 @@ JS::Any Object = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::st
     {"isExtensible", JS::Any(std::make_shared<JS::Function>(JS::Object::isExtensible))},
     {"keys", JS::Any(std::make_shared<JS::Function>(JS::Object::keys))},
 }));
-
 
 JS::Any NaN = JS::Any(std::numeric_limits<double>::quiet_NaN());
 JS::Any Infinity = JS::Any(std::numeric_limits<double>::infinity());

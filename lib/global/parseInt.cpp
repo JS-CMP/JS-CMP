@@ -1,5 +1,6 @@
 #include "types/JsAny.hpp"
 #include "utils/Convert.hpp"
+
 #include <iostream>
 
 namespace JS::GLOBAL {
@@ -66,8 +67,6 @@ JS::Any parseInt(const std::vector<JS::Any>& args) {
         }
 
         return JS::Any(sign * mathInt);
-    } catch (const std::exception&) {
-        return JS::Any(std::numeric_limits<double>::quiet_NaN());
-    }
+    } catch (const std::exception&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
 }
 } // namespace JS::GLOBAL

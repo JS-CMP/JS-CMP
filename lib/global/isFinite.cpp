@@ -1,5 +1,7 @@
-#include "../../includes/global/globalFunctions.hpp"
-#include "../../includes/types/JsAny.hpp"
-#include "../../includes/utils/Convert.hpp"
+#include "types/JsAny.hpp"
+#include "utils/Convert.hpp"
+#include <cmath>
 
-bool global_isFinite(const JS::Any& number) { return std::isfinite(JS::CONVERT::ToNumber(number)); }
+JS::Any isFinite(const std::vector<JS::Any>& args) {
+    return JS::Any(std::isfinite(JS::CONVERT::ToNumber(args[0])));
+}

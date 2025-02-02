@@ -1,4 +1,5 @@
-#include "../../includes/global/globalFunctions.hpp"
-#include "../../includes/utils/Convert.hpp"
+#include "types/JsAny.hpp"
+#include "utils/Convert.hpp"
+#include <cmath>
 
-bool global_isNaN(const JS::Any& number) { return std::isnan(JS::CONVERT::ToNumber(number)); }
+JS::Any isNaN(const std::vector<JS::Any>& args) { return JS::Any(std::isnan(JS::CONVERT::ToNumber(args[0]))); }

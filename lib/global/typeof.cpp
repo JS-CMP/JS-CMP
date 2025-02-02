@@ -1,19 +1,18 @@
-#include "../../includes/global/globalFunctions.hpp"
-#include "../../includes/types/JsAny.hpp"
+#include "types/JsAny.hpp"
 
-std::string global_typeof(const JS::Any& any) {
-    switch (any.getValue().index()) {
+JS::Any global_typeof(const std::vector<JS::Any>& args) {
+    switch (args[0].getValue().index()) {
         case JS::NUMBER:
-            return "number";
+            return JS::Any("number");
         case JS::STRING:
-            return "string";
+            return JS::Any("string");
         case JS::BOOL:
-            return "boolean";
+            return JS::Any("boolean");
         case JS::UNDEFINED:
-            return "undefined";
+            return JS::Any("undefined");
         case JS::NULL_TYPE:
-            return "object";
+            return JS::Any("object");
         default:
-            return "object";
+            return JS::Any("object");
     }
 }

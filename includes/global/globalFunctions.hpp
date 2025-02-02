@@ -3,10 +3,10 @@
 
 #include "../types/Types.hpp"
 
-bool global_isNaN(const JS::Any& number);
-JS::Any global_parseInt(const JS::Any& inputStringAny, const JS::Any& radixAny);
-std::string global_typeof(const JS::Any& any);
-bool global_isFinite(const JS::Any& number);
-JS::Undefined global_void(const JS::Any& args);
+JS::Any isNaN(const std::vector<JS::Any>& args);
+JS::Any parseInt(const std::vector<JS::Any>& args);
+JS::Any global_typeof(const std::vector<JS::Any>& args);
+JS::Any isFinite(const std::vector<JS::Any>& args);
+JS::Any global_void(const std::vector<JS::Any>& args);
 
 #endif // JS_CMP_GLOBALFUNCTIONS_HPP

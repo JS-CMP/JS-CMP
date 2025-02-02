@@ -1,8 +1,6 @@
-#include "../../includes/global/globalFunctions.hpp"
-#include "../../includes/types/JsAny.hpp"
+#include "types/JsAny.hpp"
 
-JS::Undefined global_void(const JS::Any& args) {
-    JS::Any value = args[0];
-    (void)value;
-    return JS::Undefined();
+JS::Any global_void(const std::vector<JS::Any>& args) {
+    static_cast<void>(args[0]);
+    return JS::Any(JS::Undefined{}); // undefined
 }

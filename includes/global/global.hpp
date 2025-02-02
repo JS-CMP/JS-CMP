@@ -23,7 +23,6 @@ JS::Any Object = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::st
     {"keys", JS::Any(std::make_shared<JS::Function>(JS::Object::keys))},
 }));
 
-
 JS::Any NaN = JS::Any(std::numeric_limits<double>::quiet_NaN());
 JS::Any Infinity = JS::Any(std::numeric_limits<double>::infinity());
 JS::Any undefined = JS::Any(JS::Undefined{});

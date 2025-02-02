@@ -1,5 +1,13 @@
 var searchData=
 [
-  ['any_0',['Any',['../classJS_1_1Any.html#a5285a263d9618fb83cf152b3b8e41533',1,'JS::Any::Any(const JS::Any &amp;&amp;v) noexcept'],['../classJS_1_1Any.html#ade7043b455736b39dc03137753a41712',1,'JS::Any::Any()'],['../classJS_1_1Any.html#a5611a3aab8288d90a81f68b88bd14a14',1,'JS::Any::Any(int v)'],['../classJS_1_1Any.html#a0b57196e58d19e41789282549accaef6',1,'JS::Any::Any(double v)'],['../classJS_1_1Any.html#a79eb6992fd140ffae258e4a831fe3a19',1,'JS::Any::Any(Rope &amp;v)'],['../classJS_1_1Any.html#a8ffeac71f73a25f166cceaee5cf17e0f',1,'JS::Any::Any(Rope v)'],['../classJS_1_1Any.html#a3526e46be891460a0d3a3055927f4a0c',1,'JS::Any::Any(const std::string &amp;v)'],['../classJS_1_1Any.html#a655f4921ecfc68d3078ecaad7b3838d5',1,'JS::Any::Any(const char *v)'],['../classJS_1_1Any.html#a9667c66b2615165bdd05565356d79c5b',1,'JS::Any::Any(bool v)'],['../classJS_1_1Any.html#a8052815a783177f24f669fa87154db1a',1,'JS::Any::Any(JS::Undefined v)'],['../classJS_1_1Any.html#a7bf7509823a3b31512aceefd1acd922a',1,'JS::Any::Any(JS::Null v)'],['../classJS_1_1Any.html#a048e8ace49fe1ff438ae39a7465a532c',1,'JS::Any::Any(std::shared_ptr&lt; JS::Object &gt; v)'],['../classJS_1_1Any.html#a2762c8cc458d5d1d1e2da3e85a3ee000',1,'JS::Any::Any(const JS::Object &amp;v)'],['../classJS_1_1Any.html#a6096020a8d745051828af6e4d74f6ada',1,'JS::Any::Any(const JS::Any &amp;v)'],['../classJS_1_1Any.html',1,'JS::Any']]],
-  ['array_1',['Array',['../classJS_1_1Array.html#aa6a2bc244e90ce31b1403dea16fc1c82',1,'JS::Array::Array(JS::Array &amp;&amp;) noexcept'],['../classJS_1_1Array.html#ada3de596a43c87e4007fbc466ece7a7f',1,'JS::Array::Array(const JS::Array &amp;)'],['../classJS_1_1Array.html#a1638ebc9aedec0aba660f2ed27eb1c48',1,'JS::Array::Array()'],['../classJS_1_1Array.html',1,'JS::Array']]]
+  ['1_20automated_20testing_0',['1. Automated Testing',['../md_CODE__OF__CONDUCT.html#autotoc_md45',1,'']]],
+  ['1_20clone_20the_20repository_1',['1. Clone the Repository',['../index.html#autotoc_md4',1,'']]],
+  ['1_20code_20review_20checklist_2',['1. Code Review Checklist',['../md_CODE__OF__CONDUCT.html#autotoc_md26',1,'']]],
+  ['1_20documentation_20review_3',['1. Documentation Review',['../md_CODE__OF__CONDUCT.html#autotoc_md37',1,'']]],
+  ['1_20feedback_20integration_4',['1. Feedback Integration',['../md_CODE__OF__CONDUCT.html#autotoc_md41',1,'']]],
+  ['1_20functional_20testing_5',['1. Functional Testing',['../md_CODE__OF__CONDUCT.html#autotoc_md21',1,'']]],
+  ['1_20regular_20reviews_6',['1. Regular Reviews',['../md_CODE__OF__CONDUCT.html#autotoc_md52',1,'']]],
+  ['1_20release_20frequency_7',['1. Release Frequency',['../md_CODE__OF__CONDUCT.html#autotoc_md30',1,'']]],
+  ['1_20test_20passing_20rate_8',['1. Test Passing Rate',['../md_CODE__OF__CONDUCT.html#autotoc_md48',1,'']]],
+  ['1_20vulnerability_20management_9',['1. Vulnerability Management',['../md_CODE__OF__CONDUCT.html#autotoc_md34',1,'']]]
 ];

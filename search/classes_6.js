@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['rope_70',['Rope',['../classRope.html',1,'']]],
-  ['ropeconcat_71',['RopeConcat',['../classRopeConcat.html',1,'']]],
-  ['ropeleaf_72',['RopeLeaf',['../classRopeLeaf.html',1,'']]],
-  ['ropenode_73',['RopeNode',['../classRopeNode.html',1,'']]]
+  ['object_0',['Object',['../classJS_1_1Object.html',1,'JS']]],
+  ['options_1',['Options',['../classOptions.html',1,'']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['init_92',['init',['../classJS_1_1Array.html#afba1aff298238cbe4246753e8bd12993',1,'JS::Array::init()'],['../classJS_1_1Function.html#aed34bbf5d0fd21a2464afb6be65b300b',1,'JS::Function::init()'],['../classJS_1_1Object.html#af2801a40d1bdc4d8c7488fb95e57a305',1,'JS::Object::init()']]],
-  ['iscallable_93',['isCallable',['../classJS_1_1Array.html#a184316fdda84336728f481934afaa18f',1,'JS::Array::isCallable()'],['../classJS_1_1Function.html#aa423fe8bbdda1b1073e7a5b5b9cd056d',1,'JS::Function::isCallable()'],['../classJS_1_1Object.html#adc06abb1183505867580f818cbc26ad6',1,'JS::Object::isCallable()']]]
+  ['hasownproperty_0',['hasOwnProperty',['../classJS_1_1Object.html#ae8e524ea889cd45fe15459aa83f5e425',1,'JS::Object']]],
+  ['hasproperty_1',['hasproperty',['../classJS_1_1IObject.html#af498ceedd6ad4445f89a9518ba411b46',1,'JS::IObject::hasProperty()'],['../classJS_1_1InternalObject.html#a8ce30fcb411e6aa0c3664b613231a405',1,'JS::InternalObject::hasProperty()']]]
 ];

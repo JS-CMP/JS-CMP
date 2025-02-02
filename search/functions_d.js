@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['_7earray_123',['~Array',['../classJS_1_1Array.html#a5995d4eb515b69a958309240660ad822',1,'JS::Array']]],
-  ['_7efunction_124',['~Function',['../classJS_1_1Function.html#a1bceb737b30e3e31d1c223344319b5cf',1,'JS::Function']]],
-  ['_7eobject_125',['~Object',['../classJS_1_1Object.html#ab39f772cd5238db0eb1a0ea289861fb0',1,'JS::Object']]],
-  ['_7eoptions_126',['~Options',['../classOptions.html#a0bf0757248a84e954165d21613308b86',1,'Options']]],
-  ['_7eropenode_127',['~RopeNode',['../classRopeNode.html#a6eaab31ba7910e144622bbc22ea59668',1,'RopeNode']]]
+  ['samevalue_0',['samevalue',['../namespaceJS_1_1COMPARE.html#a6417bd75d76dee6cad5232448eb0cd0c',1,'JS::COMPARE::SameValue(const double &amp;a, const double &amp;b)'],['../namespaceJS_1_1COMPARE.html#acc5b0d047e2b4a66544968e166fe6404',1,'JS::COMPARE::SameValue(const Rope &amp;a, const Rope &amp;b)'],['../namespaceJS_1_1COMPARE.html#a09ad29071ad75fa9f05fb1385a4e3b02',1,'JS::COMPARE::SameValue(const bool &amp;a, const bool &amp;b)'],['../namespaceJS_1_1COMPARE.html#a5bdf4c7360cd6c2e1205d78c678314f2',1,'JS::COMPARE::SameValue(const JS::Undefined &amp;a, const JS::Undefined &amp;b)'],['../namespaceJS_1_1COMPARE.html#a424049cf06bf2ded060252e170649f1e',1,'JS::COMPARE::SameValue(const JS::Null &amp;a, const JS::Null &amp;b)'],['../namespaceJS_1_1COMPARE.html#ab6a8b21acf36a89df3ade288f90b4d50',1,'JS::COMPARE::SameValue(const JS::Any &amp;a, const JS::Any &amp;b)'],['../namespaceJS_1_1COMPARE.html#acafc04a868797ff2a740fe3bda69ce63',1,'JS::COMPARE::SameValue(const JS::Attribute &amp;a, const JS::Attribute &amp;b)'],['../namespaceJS_1_1COMPARE.html#aaae7c44715e5101249880491f0a992af',1,'JS::COMPARE::SameValue(const std::shared_ptr&lt; JS::InternalObject &gt; &amp;a, const std::shared_ptr&lt; JS::InternalObject &gt; &amp;b)']]],
+  ['seal_1',['seal',['../classJS_1_1Object.html#a153ed1423f8d19d585949fa36c77cc94',1,'JS::Object']]]
 ];

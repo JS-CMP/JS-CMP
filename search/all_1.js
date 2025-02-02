@@ -1,5 +1,11 @@
 var searchData=
 [
-  ['build_2',['build',['../classBuilder.html#a25ec46356d5e6a386638ff05ddfa4c04',1,'Builder']]],
-  ['builder_3',['Builder',['../classBuilder.html',1,'Builder'],['../classBuilder.html#a0b29fc39e4fea19e0172bb25bcc0932c',1,'Builder::Builder()']]]
+  ['2_20branching_20strategy_0',['2. Branching Strategy',['../md_CODE__OF__CONDUCT.html#autotoc_md27',1,'']]],
+  ['2_20changelog_1',['2. Changelog',['../md_CODE__OF__CONDUCT.html#autotoc_md31',1,'']]],
+  ['2_20feedback_20loop_2',['2. Feedback Loop',['../md_CODE__OF__CONDUCT.html#autotoc_md53',1,'']]],
+  ['2_20future_20binary_20distribution_3',['2. Future Binary Distribution',['../md_CODE__OF__CONDUCT.html#autotoc_md38',1,'']]],
+  ['2_20navigate_20to_20the_20project_20directory_4',['2. Navigate to the Project Directory',['../index.html#autotoc_md5',1,'']]],
+  ['2_20performance_20benchmarks_5',['2. Performance Benchmarks',['../md_CODE__OF__CONDUCT.html#autotoc_md49',1,'']]],
+  ['2_20performance_20testing_6',['2. Performance Testing',['../md_CODE__OF__CONDUCT.html#autotoc_md22',1,'']]],
+  ['2_20team_20knowledge_20sharing_7',['2. Team Knowledge Sharing',['../md_CODE__OF__CONDUCT.html#autotoc_md42',1,'']]]
 ];

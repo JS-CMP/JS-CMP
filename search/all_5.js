@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['hasproperty_19',['hasProperty',['../classJS_1_1Object.html#afa5d6ec0dfbd4249f9600db66575a347',1,'JS::Object']]],
-  ['helper_20',['Helper',['../classHelper.html',1,'']]]
+  ['6_20build_20the_20documentation_0',['6. Build the Documentation',['../index.html#autotoc_md11',1,'']]]
 ];

@@ -8,5 +8,6 @@ var classOptions =
     [ "getFlags", "classOptions.html#a1a44a71f48d899ecf217e889e4c7399c", null ],
     [ "getOutputFilename", "classOptions.html#a052efe080ac8745ae147f7a60e700ff0", null ],
     [ "parse", "classOptions.html#af60d154a4c071355c1435f5891ef5fdd", null ],
-    [ "printUsage", "classOptions.html#a5a64af47966f3c0a54a8c3a3385065e3", null ]
+    [ "printUsage", "classOptions.html#a5a64af47966f3c0a54a8c3a3385065e3", null ],
+    [ "printVersion", "classOptions.html#a7406a60e9cc9f2f08557a953105e23a4", null ]
 ];

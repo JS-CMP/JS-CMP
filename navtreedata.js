@@ -40,43 +40,43 @@ var NAVTREE =
     ] ],
     [ "Usage", "index.html#autotoc_md12", null ],
     [ "Platform Support", "index.html#autotoc_md13", null ],
-    [ "Quality Assurance Plan for JS-CMP", "md_CODE_OF_CONDUCT.html", [
-      [ "Quality Assurance Objectives", "md_CODE_OF_CONDUCT.html#autotoc_md18", null ],
-      [ "Testing Strategy", "md_CODE_OF_CONDUCT.html#autotoc_md20", [
-        [ "Project Overview", "md_CODE_OF_CONDUCT.html#autotoc_md16", null ],
-        [ "1. Functional Testing", "md_CODE_OF_CONDUCT.html#autotoc_md21", null ],
-        [ "2. Performance Testing", "md_CODE_OF_CONDUCT.html#autotoc_md22", null ],
-        [ "3. Compatibility Testing", "md_CODE_OF_CONDUCT.html#autotoc_md23", null ]
+    [ "Quality Assurance Plan for JS-CMP", "md_CODE__OF__CONDUCT.html", [
+      [ "Quality Assurance Objectives", "md_CODE__OF__CONDUCT.html#autotoc_md18", null ],
+      [ "Testing Strategy", "md_CODE__OF__CONDUCT.html#autotoc_md20", [
+        [ "Project Overview", "md_CODE__OF__CONDUCT.html#autotoc_md16", null ],
+        [ "1. Functional Testing", "md_CODE__OF__CONDUCT.html#autotoc_md21", null ],
+        [ "2. Performance Testing", "md_CODE__OF__CONDUCT.html#autotoc_md22", null ],
+        [ "3. Compatibility Testing", "md_CODE__OF__CONDUCT.html#autotoc_md23", null ]
       ] ],
-      [ "Code Quality and Review Process", "md_CODE_OF_CONDUCT.html#autotoc_md25", [
-        [ "1. Code Review Checklist", "md_CODE_OF_CONDUCT.html#autotoc_md26", null ],
-        [ "2. Branching Strategy", "md_CODE_OF_CONDUCT.html#autotoc_md27", null ]
+      [ "Code Quality and Review Process", "md_CODE__OF__CONDUCT.html#autotoc_md25", [
+        [ "1. Code Review Checklist", "md_CODE__OF__CONDUCT.html#autotoc_md26", null ],
+        [ "2. Branching Strategy", "md_CODE__OF__CONDUCT.html#autotoc_md27", null ]
       ] ],
-      [ "Release Management", "md_CODE_OF_CONDUCT.html#autotoc_md29", [
-        [ "1. Release Frequency", "md_CODE_OF_CONDUCT.html#autotoc_md30", null ],
-        [ "2. Changelog", "md_CODE_OF_CONDUCT.html#autotoc_md31", null ]
+      [ "Release Management", "md_CODE__OF__CONDUCT.html#autotoc_md29", [
+        [ "1. Release Frequency", "md_CODE__OF__CONDUCT.html#autotoc_md30", null ],
+        [ "2. Changelog", "md_CODE__OF__CONDUCT.html#autotoc_md31", null ]
       ] ],
-      [ "Security Considerations", "md_CODE_OF_CONDUCT.html#autotoc_md33", [
-        [ "1. Vulnerability Management", "md_CODE_OF_CONDUCT.html#autotoc_md34", null ]
+      [ "Security Considerations", "md_CODE__OF__CONDUCT.html#autotoc_md33", [
+        [ "1. Vulnerability Management", "md_CODE__OF__CONDUCT.html#autotoc_md34", null ]
       ] ],
-      [ "Documentation and Usability", "md_CODE_OF_CONDUCT.html#autotoc_md36", [
-        [ "1. Documentation Review", "md_CODE_OF_CONDUCT.html#autotoc_md37", null ],
-        [ "2. Future Binary Distribution", "md_CODE_OF_CONDUCT.html#autotoc_md38", null ]
+      [ "Documentation and Usability", "md_CODE__OF__CONDUCT.html#autotoc_md36", [
+        [ "1. Documentation Review", "md_CODE__OF__CONDUCT.html#autotoc_md37", null ],
+        [ "2. Future Binary Distribution", "md_CODE__OF__CONDUCT.html#autotoc_md38", null ]
       ] ],
-      [ "Community Engagement and Continuous Improvement", "md_CODE_OF_CONDUCT.html#autotoc_md40", [
-        [ "1. Feedback Integration", "md_CODE_OF_CONDUCT.html#autotoc_md41", null ],
-        [ "2. Team Knowledge Sharing", "md_CODE_OF_CONDUCT.html#autotoc_md42", null ]
+      [ "Community Engagement and Continuous Improvement", "md_CODE__OF__CONDUCT.html#autotoc_md40", [
+        [ "1. Feedback Integration", "md_CODE__OF__CONDUCT.html#autotoc_md41", null ],
+        [ "2. Team Knowledge Sharing", "md_CODE__OF__CONDUCT.html#autotoc_md42", null ]
       ] ],
-      [ "Continuous Integration/Continuous Deployment (CI/CD)", "md_CODE_OF_CONDUCT.html#autotoc_md44", [
-        [ "1. Automated Testing", "md_CODE_OF_CONDUCT.html#autotoc_md45", null ]
+      [ "Continuous Integration/Continuous Deployment (CI/CD)", "md_CODE__OF__CONDUCT.html#autotoc_md44", [
+        [ "1. Automated Testing", "md_CODE__OF__CONDUCT.html#autotoc_md45", null ]
       ] ],
-      [ "Quality Metrics and Reporting", "md_CODE_OF_CONDUCT.html#autotoc_md47", [
-        [ "1. Test Passing Rate", "md_CODE_OF_CONDUCT.html#autotoc_md48", null ],
-        [ "2. Performance Benchmarks", "md_CODE_OF_CONDUCT.html#autotoc_md49", null ]
+      [ "Quality Metrics and Reporting", "md_CODE__OF__CONDUCT.html#autotoc_md47", [
+        [ "1. Test Passing Rate", "md_CODE__OF__CONDUCT.html#autotoc_md48", null ],
+        [ "2. Performance Benchmarks", "md_CODE__OF__CONDUCT.html#autotoc_md49", null ]
       ] ],
-      [ "Continuous Improvement", "md_CODE_OF_CONDUCT.html#autotoc_md51", [
-        [ "1. Regular Reviews", "md_CODE_OF_CONDUCT.html#autotoc_md52", null ],
-        [ "2. Feedback Loop", "md_CODE_OF_CONDUCT.html#autotoc_md53", null ]
+      [ "Continuous Improvement", "md_CODE__OF__CONDUCT.html#autotoc_md51", [
+        [ "1. Regular Reviews", "md_CODE__OF__CONDUCT.html#autotoc_md52", null ],
+        [ "2. Feedback Loop", "md_CODE__OF__CONDUCT.html#autotoc_md53", null ]
       ] ]
     ] ],
     [ "Contributing to JS-CMP", "md_CONTRIBUTING.html", [
@@ -86,27 +86,47 @@ var NAVTREE =
       [ "Review Process", "md_CONTRIBUTING.html#autotoc_md58", null ],
       [ "Community and Discussions", "md_CONTRIBUTING.html#autotoc_md59", null ]
     ] ],
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Functions", "namespacemembers_func.html", null ],
+        [ "Variables", "namespacemembers_vars.html", null ],
+        [ "Typedefs", "namespacemembers_type.html", null ],
+        [ "Enumerations", "namespacemembers_enum.html", null ],
+        [ "Enumerator", "namespacemembers_eval.html", null ]
+      ] ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
-        [ "Related Functions", "functions_rela.html", null ]
+        [ "Related Symbols", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
+      [ "File List", "files.html", "files_dup" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Functions", "globals_func.html", null ],
+        [ "Variables", "globals_vars.html", null ],
+        [ "Enumerations", "globals_enum.html", null ],
+        [ "Enumerator", "globals_eval.html", null ]
+      ] ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"Builder_8hpp_source.html",
-"md_CODE_OF_CONDUCT.html#autotoc_md45"
+"Add_8cpp.html",
+"classJS_1_1Any.html#a11bef5dcb571e6e43a5d01799a212a2e",
+"classJS_1_1InternalObject.html#a2e9b2d0c1090871982163357999a0c2f",
+"md_CODE__OF__CONDUCT.html#autotoc_md44"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

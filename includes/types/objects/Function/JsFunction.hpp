@@ -20,6 +20,8 @@ public:
      * These constructors create a new Function object.
      */
     ///@{
+    /** @brief Default constructor initializes the object with an empty map */
+    Function();
     /** @brief Constructs a Function object with a callable `FunctionType`. */
     explicit Function(FunctionType f);
     /** @brief Copy constructor */
@@ -36,10 +38,21 @@ public:
     ~Function() = default;
 
     /**
-     * @brief Initializes the function object.
-     * An empty method that can be overridden by subclasses if needed.
-     */
-    void init() {};
+    * @name Methods to make prototype methods of the Function built-in
+    */
+    ///@{
+    /** @brief return the stringified version of the function https://262.ecma-international.org/5.1/#sec-15.3.4.2 */
+    static JS::Any toString(const JS::Any& thisArg, const JS::Any& args);
+    /** @brief apply given arguments to the function https://262.ecma-international.org/5.1/#sec-15.3.4.3 */
+    static JS::Any apply(const JS::Any& thisArg, const JS::Any& args);
+    /** @brief call the function with given arguments https://262.ecma-international.org/5.1/#sec-15.3.4.4 */
+    static JS::Any call(const JS::Any& thisArg, const JS::Any& args);
+    /** @brief bind the function to a given object https://262.ecma-international.org/5.1/#sec-15.3.4.5 */
+    static JS::Any bind(const JS::Any& thisArg, const JS::Any& args);
+    ///@}
+
+
+
 };
 
 } // namespace JS

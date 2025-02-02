@@ -61,6 +61,11 @@ public:
     ///@}
 
     /**
+     * @name Internal Properties Only Defined for Some Objects
+     */
+
+
+    /**
      * @name Internal Utility Methods
      */
     ///@{

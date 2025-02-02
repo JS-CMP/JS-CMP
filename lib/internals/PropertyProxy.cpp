@@ -24,7 +24,7 @@ PropertyProxy PropertyProxy::operator[](const std::string& key) const {
 JS::Any PropertyProxy::call(const JS::Any& args) const {
     JS::Value value = obj_->get(key_).getValue();
     if (value.index() == JS::OBJECT && std::get<std::shared_ptr<JS::InternalObject>>(value)->isCallable()) {
-        return std::get<std::shared_ptr<JS::InternalObject>>(value)->call(JS::Any(obj_), args);
+        return std::get<std::shared_ptr<JS::InternalObject>>(value)->call_function(JS::Any(obj_), args);
     }
     throw std::runtime_error("Value is not a function");
 }

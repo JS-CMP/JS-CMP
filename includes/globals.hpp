@@ -1,7 +1,7 @@
 #ifndef GLOBALS_HPP
 #define GLOBALS_HPP
 #include "types/JsAny.hpp"
-#include "types/objects/JsFunction.hpp"
+#include "types/objects/Function/JsFunction.hpp"
 #include "types/objects/JsObject.hpp"
 
 // TODO fix this create Object to inherit from Function

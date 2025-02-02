@@ -1,0 +1,55 @@
+#include "utils/Convert.hpp"
+
+#include <types/objects/Function/JsFunctionBinded.hpp>
+
+namespace JS {
+
+FunctionBinded::FunctionBinded(const std::shared_ptr<JS::InternalObject>& TargetFunction, const JS::Any& BoundThis, const std::vector<JS::Any>& BoundArguments)
+: targetFunction(TargetFunction), boundThis(BoundThis), boundArguments(BoundArguments) {
+    this->call_function = [TargetFunction, BoundThis, BoundArguments](const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
+        std::cout << "Calling bound function" << std::endl;
+        std::vector<JS::Any> newArgs;
+        std::cout << "Calling bound function" << std::endl;
+        int n = JS::CONVERT::ToInteger(args["length"]); // TODO: replace ToInteger with ToUint32
+        newArgs.reserve(BoundArguments.size() + n);
+        for (const auto& arg : BoundArguments) {
+            newArgs.push_back(arg);
+        }
+        int index = 0;
+        while (index < n) {
+            newArgs.push_back(args[index]);
+            index++;
+        }
+        return TargetFunction->call_function(BoundThis, JS::Arguments::CreateArgumentsObject(newArgs));
+    };
+}
+
+FunctionBinded::FunctionBinded(const FunctionBinded& f): JS::Function(f) {
+    this->targetFunction = f.targetFunction;
+    this->boundThis = f.boundThis;
+    this->boundArguments = f.boundArguments;
+}
+
+FunctionBinded::FunctionBinded(FunctionBinded&& f) noexcept : JS::Function(std::move(f)) {
+    this->targetFunction = std::move(f.targetFunction);
+    this->boundThis = std::move(f.boundThis);
+    this->boundArguments = std::move(f.boundArguments);
+}
+
+FunctionBinded& FunctionBinded::operator=(const FunctionBinded& function) {
+    JS::Function::operator=(function);
+    this->targetFunction = function.targetFunction;
+    this->boundThis = function.boundThis;
+    this->boundArguments = function.boundArguments;
+    return *this;
+}
+
+FunctionBinded& FunctionBinded::operator=(FunctionBinded&& f) noexcept {
+    JS::Function::operator=(std::move(f));
+    this->targetFunction = std::move(f.targetFunction);
+    this->boundThis = std::move(f.boundThis);
+    this->boundArguments = std::move(f.boundArguments);
+    return *this;
+}
+
+} // namespace JS

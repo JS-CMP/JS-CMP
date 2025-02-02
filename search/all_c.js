@@ -18,6 +18,10 @@ var searchData=
   ['getright_15',['getRight',['../classRopeConcat.html#a801f0a5496629e65882a9bf248d4433d',1,'RopeConcat']]],
   ['getvalue_16',['getValue',['../classJS_1_1Any.html#a1c2e799407b4d95891252c6ebd028220',1,'JS::Any']]],
   ['git_20submodules_17',['3. Initialize Git Submodules',['../index.html#autotoc_md6',1,'']]],
-  ['globals_2ehpp_18',['globals.hpp',['../globals_8hpp.html',1,'']]],
-  ['guidelines_19',['Contribution Guidelines',['../md_CONTRIBUTING.html#autotoc_md56',1,'']]]
+  ['global_18',['global',['../global_8hpp.html#a0367ff1ec4d051794bc2cb7f5e610b89',1,'global.hpp']]],
+  ['global_2ehpp_19',['global.hpp',['../global_8hpp.html',1,'']]],
+  ['global_5ftypeof_20',['global_typeof',['../typeof_8cpp.html#ab49630e2617cba8c69b7b5473c353279',1,'typeof.cpp']]],
+  ['global_5fvoid_21',['global_void',['../void_8cpp.html#a3d48e1f61f1c81ab76af7dd0ed928f2b',1,'void.cpp']]],
+  ['globalfunctions_2ehpp_22',['globalFunctions.hpp',['../globalFunctions_8hpp.html',1,'']]],
+  ['guidelines_23',['Contribution Guidelines',['../md_CONTRIBUTING.html#autotoc_md56',1,'']]]
 ];

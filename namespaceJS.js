@@ -53,6 +53,12 @@ var namespaceJS =
       [ "ToString", "namespaceJS_1_1CONVERT.html#a8cb2953d7d1989980e2345aa42a7a2ec", null ],
       [ "ToString", "namespaceJS_1_1CONVERT.html#abc3a29b90213c8243fab36951ac3ad8e", null ]
     ] ],
+    [ "GLOBAL", "namespaceJS_1_1GLOBAL.html", [
+      [ "isFinite", "namespaceJS_1_1GLOBAL.html#a98ea65fdacf5b3df26eb94aa04bd6d4b", null ],
+      [ "isNaN", "namespaceJS_1_1GLOBAL.html#af5329ccadd9a06543276487a06f5a031", null ],
+      [ "parseFloat", "namespaceJS_1_1GLOBAL.html#a9765e77ac8ca7f89e590cb27a123a0b0", null ],
+      [ "parseInt", "namespaceJS_1_1GLOBAL.html#aacaa66352771219db0c7db107e98458e", null ]
+    ] ],
     [ "IS", "namespaceJS_1_1IS.html", [
       [ "AccessorDescriptor", "namespaceJS_1_1IS.html#a0887696e5a17c03b67a91ef28f41bcd7", null ],
       [ "Callable", "namespaceJS_1_1IS.html#aa6dda07e5ad567cf38e37634e78ec50b", null ],

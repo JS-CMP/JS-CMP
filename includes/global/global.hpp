@@ -4,7 +4,6 @@
 #include "types/JsAny.hpp"
 #include "types/objects/JsFunction.hpp"
 #include "types/objects/JsObject.hpp"
-
 #include "globalFunctions.hpp"
 
 // TODO fix this create Object to inherit from Function
@@ -29,10 +28,16 @@ JS::Any NaN = JS::Any(std::numeric_limits<double>::quiet_NaN());
 JS::Any Infinity = JS::Any(std::numeric_limits<double>::infinity());
 JS::Any undefined = JS::Any(JS::Undefined{});
 
+JS::Any isNaN = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::isNaN));
+JS::Any parseInt = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::parseInt));
+JS::Any parseFloat = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::parseFloat));
+JS::Any isFinite = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::isFinite));
+
 JS::Any global = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::string, JS::Any>{
-    {"isNaN", JS::Any(std::make_shared<JS::Function>(isNaN))},
-    {"parseInt", JS::Any(std::make_shared<JS::Function>(parseInt))},
-    {"isFinite", JS::Any(std::make_shared<JS::Function>(isFinite))},
+    {"isNaN", isNaN},
+    {"parseInt", parseInt},
+    {"parseFloat", parseFloat},
+    {"isFinite", isFinite},
     {"NaN", NaN},
     {"Infinity", Infinity},
     {"undefined", undefined},

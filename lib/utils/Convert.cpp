@@ -47,7 +47,6 @@ inline double ToNumber(const std::string& str) {
         try {
             return std::stod(str);
         } catch (const std::exception&) { return std::numeric_limits<double>::quiet_NaN(); }
-        return std::stod(str);
     }
     return 0;
 }

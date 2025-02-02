@@ -59,20 +59,3 @@ bool JS::Any::operator==(const JS::Any& other) const {
 }
 
 JS::Value JS::Any::getValue() const { return this->value; }
-
-std::string JS::Any::toString() const {
-    switch (this->value.index()) {
-        case NUMBER:
-            return std::to_string(std::get<double>(this->value));
-        case STRING:
-            return std::get<Rope>(this->value).toString();
-        case BOOL:
-            return std::get<bool>(this->value) ? "true" : "false";
-        case UNDEFINED:
-            return "undefined";
-        case NULL_TYPE:
-            return "null";
-        default:
-            return "Invalid type";
-    }
-}

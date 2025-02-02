@@ -1,7 +1,8 @@
 #ifndef CONVERT_HPP
 #define CONVERT_HPP
 
-#include "../types/JsAny.hpp"
+#include "internals/Attribute.hpp"
+#include "types/JsAny.hpp"
 
 namespace JS::CONVERT {
 
@@ -40,6 +41,12 @@ std::string ToString(const JS::Null& value);
 std::string ToString(const JS::Any& any);
 
 JS::Any ToObject(const JS::Any& any);
+
+JS::Any FromPropertyDescriptor(const JS::Attribute& desc);
+JS::Any FromPropertyDescriptor(const JS::DataDescriptor& desc);
+JS::Any FromPropertyDescriptor(const JS::AccessorDescriptor& desc);
+
+JS::Attribute ToPropertyDescriptor(const JS::Any& desc);
 
 } // namespace JS::CONVERT
 

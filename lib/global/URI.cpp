@@ -1,9 +1,8 @@
-#include <types/JsAny.hpp>
-#include <utils/Convert.hpp>
-
 #include <cctype>
 #include <iomanip>
 #include <sstream>
+#include <types/JsAny.hpp>
+#include <utils/Convert.hpp>
 
 const std::string MARK = R"(-_.!~*'())";
 const std::string RESERVED = R"(;/?:@&=+$, )";
@@ -51,23 +50,23 @@ std::string decode(std::string utf, const std::string& reservedSet) {
 }
 
 namespace JS::GLOBAL {
-    JS::Any encodeURI(const std::vector<JS::Any> &args) {
-        auto uriStr = JS::CONVERT::ToString(args[0]);
-        return JS::Any(encode(uriStr, RESERVED + UNESCAPED + "%"));
-    }
-
-    JS::Any decodeURI(const std::vector<JS::Any> &args) {
-        auto uriStr = JS::CONVERT::ToString(args[0]);
-        return JS::Any(decode(uriStr, "%#"));
-    }
-
-    JS::Any encodeURIComponent(const std::vector<JS::Any> &args) {
-        auto uriStr = JS::CONVERT::ToString(args[0]);
-        return JS::Any(encode(uriStr, UNESCAPED));
-    }
-
-    JS::Any decodeURIComponent(const std::vector<JS::Any> &args) {
-        auto uriStr = JS::CONVERT::ToString(args[0]);
-        return JS::Any(decode(uriStr, ""));
-    }
+JS::Any encodeURI(const std::vector<JS::Any>& args) {
+    auto uriStr = JS::CONVERT::ToString(args[0]);
+    return JS::Any(encode(uriStr, RESERVED + UNESCAPED + "%"));
 }
+
+JS::Any decodeURI(const std::vector<JS::Any>& args) {
+    auto uriStr = JS::CONVERT::ToString(args[0]);
+    return JS::Any(decode(uriStr, "%#"));
+}
+
+JS::Any encodeURIComponent(const std::vector<JS::Any>& args) {
+    auto uriStr = JS::CONVERT::ToString(args[0]);
+    return JS::Any(encode(uriStr, UNESCAPED));
+}
+
+JS::Any decodeURIComponent(const std::vector<JS::Any>& args) {
+    auto uriStr = JS::CONVERT::ToString(args[0]);
+    return JS::Any(decode(uriStr, ""));
+}
+} // namespace JS::GLOBAL

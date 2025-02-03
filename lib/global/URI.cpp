@@ -1,9 +1,8 @@
-#include <types/JsAny.hpp>
-#include <utils/Convert.hpp>
-
 #include <cctype>
 #include <iomanip>
 #include <sstream>
+#include <types/JsAny.hpp>
+#include <utils/Convert.hpp>
 
 const std::string MARK = R"(-_.!~*'())";
 const std::string RESERVED = R"(;/?:@&=+$, )";
@@ -70,3 +69,4 @@ namespace JS::GLOBAL {
         return JS::Any(decode(uriStr, ""));
     }
 }
+} // namespace JS::GLOBAL

@@ -69,4 +69,3 @@ namespace JS::GLOBAL {
         return JS::Any(decode(uriStr, ""));
     }
 }
-} // namespace JS::GLOBAL

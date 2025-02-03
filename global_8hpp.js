@@ -1,5 +1,9 @@
 var global_8hpp =
 [
+    [ "decodeURI", "global_8hpp.html#ad893b5be58a1568114cd68346c193e4f", null ],
+    [ "decodeURIComponent", "global_8hpp.html#adf0f48272cb6af3dc7e87f954cfd0f24", null ],
+    [ "encodeURI", "global_8hpp.html#ad45fb6f060f4e0a9cc2439c370f934dc", null ],
+    [ "encodeURIComponent", "global_8hpp.html#a1aa6eb88c47dfd8564ef1dde08848c4f", null ],
     [ "global", "global_8hpp.html#a0367ff1ec4d051794bc2cb7f5e610b89", null ],
     [ "Infinity", "global_8hpp.html#a7204152d864133825e6e650d83bc670e", null ],
     [ "isFinite", "global_8hpp.html#a8ff6a194c25c5515d0a1e9896f4f6000", null ],

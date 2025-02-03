@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['object_0',['Object',['../global_8hpp.html#a40d8fa8ffaba1502e945db93164125de',1,'global.hpp']]]
+  ['hex_5fdigit_0',['HEX_DIGIT',['../URI_8cpp.html#a1bf5f370f8f283062f2a3aeea7f286fd',1,'URI.cpp']]]
 ];

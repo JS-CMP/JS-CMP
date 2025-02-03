@@ -54,6 +54,10 @@ var namespaceJS =
       [ "ToString", "namespaceJS_1_1CONVERT.html#abc3a29b90213c8243fab36951ac3ad8e", null ]
     ] ],
     [ "GLOBAL", "namespaceJS_1_1GLOBAL.html", [
+      [ "decodeURI", "namespaceJS_1_1GLOBAL.html#ae27dfb122561f955c01b687802a87b57", null ],
+      [ "decodeURIComponent", "namespaceJS_1_1GLOBAL.html#a7d650e535dd9c2c44810502bbfa28ee9", null ],
+      [ "encodeURI", "namespaceJS_1_1GLOBAL.html#a8f2615eaedf2ae28e381946dcd042d2a", null ],
+      [ "encodeURIComponent", "namespaceJS_1_1GLOBAL.html#aac3b07f811211202886badc38c7e4244", null ],
       [ "isFinite", "namespaceJS_1_1GLOBAL.html#a98ea65fdacf5b3df26eb94aa04bd6d4b", null ],
       [ "isNaN", "namespaceJS_1_1GLOBAL.html#af5329ccadd9a06543276487a06f5a031", null ],
       [ "parseFloat", "namespaceJS_1_1GLOBAL.html#a9765e77ac8ca7f89e590cb27a123a0b0", null ],

@@ -41,7 +41,6 @@ std::string decode(std::string utf, const std::string& reservedSet) {
 
             std::string hexValue = utf.substr(i + 1, 2);
             decoded << static_cast<char>(std::stoi(hexValue, nullptr, 16));
-            ;
             i += 2;
         } else {
             decoded << utf[i];

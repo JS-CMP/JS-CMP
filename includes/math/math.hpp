@@ -7,146 +7,146 @@
 
 /**
  * @class Math
- * @brief Fournit des fonctions mathématiques similaires à l'objet Math de JavaScript.
+ * @brief Provides mathematical functions similar to JavaScript's Math object.
  *
- * La classe Math offre un ensemble de méthodes statiques qui imitent le comportement de l'objet Math en JavaScript.
- * Chaque fonction accepte un vecteur d'arguments de type JS::Any pour simuler le typage dynamique de JavaScript.
- * Les méthodes implémentent des opérations mathématiques telles que les fonctions trigonométriques, l'exponentiation,
- * le logarithme, l'arrondi, et la génération de nombres aléatoires.
+ * The Math class offers a set of static methods that mimic the behavior of the JavaScript Math object.
+ * Each function accepts a vector of JS::Any arguments to simulate JavaScript's dynamic typing.
+ * The methods implement mathematical operations such as trigonometric functions, exponentiation,
+ * logarithm, rounding, and random number generation.
  */
 class Math {
 public:
     /**
-     * @brief Renvoie la valeur absolue du nombre donné.
-     * @param args Vecteur contenant un seul élément JS::Any représentant le nombre.
-     * @return JS::Any contenant la valeur absolue.
+     * @brief Returns the absolute value of the given number.
+     * @param args A vector containing a single JS::Any element representing the number.
+     * @return A JS::Any containing the absolute value.
      */
     static JS::Any abs(const std::vector<JS::Any>& args);
 
     /**
-     * @brief Renvoie l'arc cosinus (en radians) du nombre donné.
-     * @param args Vecteur contenant un seul élément JS::Any représentant le nombre.
-     * @return JS::Any contenant l'arc cosinus.
+     * @brief Returns the arccosine (in radians) of the given number.
+     * @param args A vector containing a single JS::Any element representing the number.
+     * @return A JS::Any containing the arccosine.
      */
     static JS::Any acos(const std::vector<JS::Any>& args);
 
     /**
-     * @brief Renvoie l'arc sinus (en radians) du nombre donné.
-     * @param args Vecteur contenant un seul élément JS::Any représentant le nombre.
-     * @return JS::Any contenant l'arc sinus.
+     * @brief Returns the arcsine (in radians) of the given number.
+     * @param args A vector containing a single JS::Any element representing the number.
+     * @return A JS::Any containing the arcsine.
      */
     static JS::Any asin(const std::vector<JS::Any>& args);
 
     /**
-     * @brief Renvoie l'arc tangente (en radians) du nombre donné.
-     * @param args Vecteur contenant un seul élément JS::Any représentant le nombre.
-     * @return JS::Any contenant l'arc tangente.
+     * @brief Returns the arctangent (in radians) of the given number.
+     * @param args A vector containing a single JS::Any element representing the number.
+     * @return A JS::Any containing the arctangent.
      */
     static JS::Any atan(const std::vector<JS::Any>& args);
 
     /**
-     * @brief Renvoie une approximation de l'arc tangente du quotient y/x.
+     * @brief Returns an approximation of the arctangent of the quotient y/x.
      *
-     * Le premier argument est interprété comme y et le second comme x. Les signes de y et x sont utilisés
-     * pour déterminer le quadrant du résultat. La valeur renvoyée est en radians et se situe dans l'intervalle [-π, +π].
+     * The first argument is interpreted as y and the second as x. The signs of y and x are used
+     * to determine the quadrant of the result. The returned value is in radians and lies within the range [-π, +π].
      *
-     * @param args Vecteur contenant deux éléments JS::Any : [y, x].
-     * @return JS::Any contenant le résultat.
+     * @param args A vector containing two JS::Any elements: [y, x].
+     * @return A JS::Any containing the result.
      */
     static JS::Any atan2(const std::vector<JS::Any>& args);
 
     /**
-     * @brief Renvoie le plus petit entier supérieur ou égal au nombre donné.
-     * @param args Vecteur contenant un seul élément JS::Any représentant le nombre.
-     * @return JS::Any contenant la valeur plafond.
+     * @brief Returns the smallest integer greater than or equal to the given number.
+     * @param args A vector containing a single JS::Any element representing the number.
+     * @return A JS::Any containing the ceiling value.
      */
     static JS::Any ceil(const std::vector<JS::Any>& args);
 
     /**
-     * @brief Renvoie le cosinus de l'angle (en radians) donné.
-     * @param args Vecteur contenant un seul élément JS::Any représentant l'angle.
-     * @return JS::Any contenant la valeur du cosinus.
+     * @brief Returns the cosine of the given angle (in radians).
+     * @param args A vector containing a single JS::Any element representing the angle.
+     * @return A JS::Any containing the cosine value.
      */
     static JS::Any cos(const std::vector<JS::Any>& args);
 
     /**
-     * @brief Renvoie l'exponentielle du nombre donné.
-     * @param args Vecteur contenant un seul élément JS::Any représentant l'exposant.
-     * @return JS::Any contenant e élevé à la puissance du nombre donné.
+     * @brief Returns the exponential of the given number.
+     * @param args A vector containing a single JS::Any element representing the exponent.
+     * @return A JS::Any containing e raised to the power of the given number.
      */
     static JS::Any exp(const std::vector<JS::Any>& args);
 
     /**
-     * @brief Renvoie le plus grand entier inférieur ou égal au nombre donné.
-     * @param args Vecteur contenant un seul élément JS::Any représentant le nombre.
-     * @return JS::Any contenant la valeur plancher.
+     * @brief Returns the largest integer less than or equal to the given number.
+     * @param args A vector containing a single JS::Any element representing the number.
+     * @return A JS::Any containing the floor value.
      */
     static JS::Any floor(const std::vector<JS::Any>& args);
 
     /**
-     * @brief Renvoie le logarithme naturel (base e) du nombre donné.
-     * @param args Vecteur contenant un seul élément JS::Any représentant le nombre.
-     * @return JS::Any contenant le logarithme.
+     * @brief Returns the natural logarithm (base e) of the given number.
+     * @param args A vector containing a single JS::Any element representing the number.
+     * @return A JS::Any containing the logarithm.
      */
     static JS::Any log(const std::vector<JS::Any>& args);
 
     /**
-     * @brief Renvoie la valeur maximale parmi les arguments donnés.
-     * @param args Vecteur de JS::Any représentant les nombres.
-     * @return JS::Any contenant la valeur maximale.
+     * @brief Returns the maximum value among the given arguments.
+     * @param args A vector of JS::Any elements representing numbers.
+     * @return A JS::Any containing the maximum value.
      */
     static JS::Any max(const std::vector<JS::Any>& args);
 
     /**
-     * @brief Renvoie la valeur minimale parmi les arguments donnés.
-     * @param args Vecteur de JS::Any représentant les nombres.
-     * @return JS::Any contenant la valeur minimale.
+     * @brief Returns the minimum value among the given arguments.
+     * @param args A vector of JS::Any elements representing numbers.
+     * @return A JS::Any containing the minimum value.
      */
     static JS::Any min(const std::vector<JS::Any>& args);
 
     /**
-     * @brief Renvoie le résultat de l'élévation de la base à la puissance de l'exposant.
-     * @param args Vecteur contenant deux éléments JS::Any : [base, exposant].
-     * @return JS::Any contenant le résultat.
+     * @brief Returns the result of raising the base to the power of the exponent.
+     * @param args A vector containing two JS::Any elements: [base, exponent].
+     * @return A JS::Any containing the result.
      */
     static JS::Any pow(const std::vector<JS::Any>& args);
 
     /**
-     * @brief Renvoie un nombre pseudo-aléatoire dans l'intervalle [0, 1).
-     * @param args Vecteur de JS::Any (les arguments sont ignorés).
-     * @return JS::Any contenant un nombre pseudo-aléatoire.
+     * @brief Returns a pseudo-random number in the interval [0, 1).
+     * @param args A vector of JS::Any (arguments are ignored).
+     * @return A JS::Any containing a pseudo-random number.
      */
     static JS::Any random(const std::vector<JS::Any>& args);
 
     /**
-     * @brief Renvoie la valeur du nombre arrondi à l'entier le plus proche.
-     * @param args Vecteur contenant un seul élément JS::Any représentant le nombre.
-     * @return JS::Any contenant le nombre arrondi.
+     * @brief Returns the given number rounded to the nearest integer.
+     * @param args A vector containing a single JS::Any element representing the number.
+     * @return A JS::Any containing the rounded number.
      */
     static JS::Any round(const std::vector<JS::Any>& args);
 
     /**
-     * @brief Renvoie le sinus de l'angle (en radians) donné.
-     * @param args Vecteur contenant un seul élément JS::Any représentant l'angle.
-     * @return JS::Any contenant la valeur du sinus.
+     * @brief Returns the sine of the given angle (in radians).
+     * @param args A vector containing a single JS::Any element representing the angle.
+     * @return A JS::Any containing the sine value.
      */
     static JS::Any sin(const std::vector<JS::Any>& args);
 
     /**
-     * @brief Renvoie la racine carrée du nombre donné.
-     * @param args Vecteur contenant un seul élément JS::Any représentant le nombre.
-     * @return JS::Any contenant la racine carrée.
+     * @brief Returns the square root of the given number.
+     * @param args A vector containing a single JS::Any element representing the number.
+     * @return A JS::Any containing the square root.
      */
     static JS::Any sqrt(const std::vector<JS::Any>& args);
 
     /**
-     * @brief Renvoie la tangente de l'angle (en radians) donné.
-     * @param args Vecteur contenant un seul élément JS::Any représentant l'angle.
-     * @return JS::Any contenant la valeur de la tangente.
+     * @brief Returns the tangent of the given angle (in radians).
+     * @param args A vector containing a single JS::Any element representing the angle.
+     * @return A JS::Any containing the tangent value.
      */
     static JS::Any tan(const std::vector<JS::Any>& args);
 
-    // Constantes mathématiques accessibles en lecture seule
+    // Read-only mathematical constants
     constexpr static double E = 2.7182818284590452354;
     constexpr static double LN10 = 2.302585092994046;
     constexpr static double LN2 = 0.6931471805599453;

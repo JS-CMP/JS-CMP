@@ -2,6 +2,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <limits>
+#include <random>
 
 JS::Any Math::abs(const std::vector<JS::Any>& args) {
     if (args.empty())
@@ -151,7 +152,12 @@ JS::Any Math::log(const std::vector<JS::Any>& args) {
 
 JS::Any Math::random(const std::vector<JS::Any>& args) {
     (void)args;
-    return JS::Any(static_cast<double>(std::rand()) / static_cast<double>(RAND_MAX));
+
+    static std::random_device rd;
+    static std::mt19937 gen(rd());
+    static std::uniform_real_distribution<double> dis(0.0, 1.0);
+
+    return JS::Any(dis(gen));
 }
 
 JS::Any Math::max(const std::vector<JS::Any>& args) {

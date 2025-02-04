@@ -7,7 +7,7 @@
 JS::Any Math::abs(const std::vector<JS::Any>& args) {
     if (args.empty())
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
-    double value = JS::CONVERT::ToNumber(args[0]);
+    double value = JS::CONVERT::ToNumber(args[1]);
     if (std::isnan(value))
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
     if (!std::isfinite(value))
@@ -18,7 +18,7 @@ JS::Any Math::abs(const std::vector<JS::Any>& args) {
 JS::Any Math::acos(const std::vector<JS::Any>& args) {
     if (args.empty())
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
-    double value = JS::CONVERT::ToNumber(args[0]);
+    double value = JS::CONVERT::ToNumber(args[1]);
     if (std::isnan(value) || value > 1 || value < -1)
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
     return JS::Any(std::acos(value));
@@ -27,7 +27,7 @@ JS::Any Math::acos(const std::vector<JS::Any>& args) {
 JS::Any Math::asin(const std::vector<JS::Any>& args) {
     if (args.empty())
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
-    double value = JS::CONVERT::ToNumber(args[0]);
+    double value = JS::CONVERT::ToNumber(args[1]);
     if (std::isnan(value) || value > 1 || value < -1)
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
     return JS::Any(std::asin(value));
@@ -36,7 +36,7 @@ JS::Any Math::asin(const std::vector<JS::Any>& args) {
 JS::Any Math::atan(const std::vector<JS::Any>& args) {
     if (args.empty())
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
-    double value = JS::CONVERT::ToNumber(args[0]);
+    double value = JS::CONVERT::ToNumber(args[1]);
     if (std::isnan(value))
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
     if (value == 0.0 || value == -0.0)
@@ -45,24 +45,27 @@ JS::Any Math::atan(const std::vector<JS::Any>& args) {
 }
 
 JS::Any Math::atan2(const std::vector<JS::Any>& args) {
-    if (args.size() < 2)
+    if (args.size() < 3)
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
 
-    double y = JS::CONVERT::ToNumber(args[0]);
-    double x = JS::CONVERT::ToNumber(args[1]);
+    double y = JS::CONVERT::ToNumber(args[1]);
+    double x = JS::CONVERT::ToNumber(args[2]);
 
-    if (std::isnan(y) || std::isnan(x))
+    if (std::isnan(y) || std::isnan(x) && y != 0)
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
 
     if (y == 0.0) {
         bool yPositive = !std::signbit(y);
-        bool xIsZero   = (x == 0.0);
-        if (x > 0.0 || (xIsZero && !std::signbit(x))) {
+        if (x == 0.0) {
+            if (!std::signbit(x))
+                return JS::Any(yPositive ? 0.0 : -0.0);
+            else
+                return JS::Any(yPositive ? Math::PI : -Math::PI);
+        }
+        if (x > 0.0)
             return JS::Any(yPositive ? 0.0 : -0.0);
-        }
-        else if (x < 0.0 || (xIsZero && std::signbit(x))) {
+        else if (x < 0.0)
             return JS::Any(yPositive ? Math::PI : -Math::PI);
-        }
     }
 
     if (x == 0.0) {
@@ -70,11 +73,10 @@ JS::Any Math::atan2(const std::vector<JS::Any>& args) {
     }
 
     if (std::isfinite(y) && std::isinf(x)) {
-        if (x > 0) {
+        if (x > 0)
             return JS::Any(y > 0.0 ? 0.0 : -0.0);
-        } else {
+        else
             return JS::Any(y > 0.0 ? Math::PI : -Math::PI);
-        }
     }
 
     if (std::isinf(y) && std::isfinite(x)) {
@@ -92,14 +94,16 @@ JS::Any Math::atan2(const std::vector<JS::Any>& args) {
             return JS::Any(-3.0 * Math::PI / 4.0);
     }
 
-    return JS::Any(std::atan2(y, x));
+    double result = std::atan2(y, x);
+
+    return JS::Any(result);
 }
 
 
 JS::Any Math::ceil(const std::vector<JS::Any>& args) {
     if (args.empty())
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
-    double value = JS::CONVERT::ToNumber(args[0]);
+    double value = JS::CONVERT::ToNumber(args[1]);
     if (std::isnan(value))
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
     return JS::Any(std::ceil(value));
@@ -108,7 +112,7 @@ JS::Any Math::ceil(const std::vector<JS::Any>& args) {
 JS::Any Math::cos(const std::vector<JS::Any>& args) {
     if (args.empty())
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
-    double value = JS::CONVERT::ToNumber(args[0]);
+    double value = JS::CONVERT::ToNumber(args[1]);
     if (std::isnan(value) || !std::isfinite(value))
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
     return JS::Any(std::cos(value));
@@ -117,7 +121,7 @@ JS::Any Math::cos(const std::vector<JS::Any>& args) {
 JS::Any Math::exp(const std::vector<JS::Any>& args) {
     if (args.empty())
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
-    double value = JS::CONVERT::ToNumber(args[0]);
+    double value = JS::CONVERT::ToNumber(args[1]);
     if (std::isnan(value))
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
     if (value == 0.0)
@@ -133,7 +137,7 @@ JS::Any Math::exp(const std::vector<JS::Any>& args) {
 JS::Any Math::floor(const std::vector<JS::Any>& args) {
     if (args.empty())
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
-    double value = JS::CONVERT::ToNumber(args[0]);
+    double value = JS::CONVERT::ToNumber(args[1]);
     if (std::isnan(value))
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
     return JS::Any(std::floor(value));
@@ -142,7 +146,7 @@ JS::Any Math::floor(const std::vector<JS::Any>& args) {
 JS::Any Math::log(const std::vector<JS::Any>& args) {
     if (args.empty())
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
-    double value = JS::CONVERT::ToNumber(args[0]);
+    double value = JS::CONVERT::ToNumber(args[1]);
     if (std::isnan(value) || value < 0)
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
     if (value == 0.0)
@@ -166,8 +170,8 @@ JS::Any Math::max(const std::vector<JS::Any>& args) {
     }
 
     double maxValue = -std::numeric_limits<double>::infinity();
-    for (const auto &val : args) {
-        double num = JS::CONVERT::ToNumber(val);
+    for (size_t i = 1; i < args.size(); ++i) {
+        double num = JS::CONVERT::ToNumber(args[i]);
         if (std::isnan(num)) {
             return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
@@ -184,8 +188,8 @@ JS::Any Math::min(const std::vector<JS::Any>& args) {
     }
 
     double minValue = std::numeric_limits<double>::infinity();
-    for (const auto &val : args) {
-        double num = JS::CONVERT::ToNumber(val);
+    for (size_t i = 1; i < args.size(); ++i) {
+        double num = JS::CONVERT::ToNumber(args[i]);
         if (std::isnan(num)) {
             return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
@@ -199,8 +203,8 @@ JS::Any Math::min(const std::vector<JS::Any>& args) {
 JS::Any Math::pow(const std::vector<JS::Any>& args) {
     if (args.size() < 2)
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
-    double base = JS::CONVERT::ToNumber(args[0]);
-    double exponent = JS::CONVERT::ToNumber(args[1]);
+    double base = JS::CONVERT::ToNumber(args[1]);
+    double exponent = JS::CONVERT::ToNumber(args[2]);
 
     if (std::isnan(exponent))
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
@@ -260,7 +264,7 @@ JS::Any Math::pow(const std::vector<JS::Any>& args) {
 JS::Any Math::round(const std::vector<JS::Any>& args) {
     if (args.empty())
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
-    double value = JS::CONVERT::ToNumber(args[0]);
+    double value = JS::CONVERT::ToNumber(args[1]);
     if (std::isnan(value))
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
     return JS::Any(std::round(value));
@@ -269,7 +273,7 @@ JS::Any Math::round(const std::vector<JS::Any>& args) {
 JS::Any Math::sin(const std::vector<JS::Any>& args) {
     if (args.empty())
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
-    double value = JS::CONVERT::ToNumber(args[0]);
+    double value = JS::CONVERT::ToNumber(args[1]);
     if (std::isnan(value) || !std::isfinite(value))
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
     return JS::Any(std::sin(value));
@@ -278,7 +282,7 @@ JS::Any Math::sin(const std::vector<JS::Any>& args) {
 JS::Any Math::sqrt(const std::vector<JS::Any>& args) {
     if (args.empty())
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
-    double value = JS::CONVERT::ToNumber(args[0]);
+    double value = JS::CONVERT::ToNumber(args[1]);
     if (std::isnan(value) || value < 0)
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
     return JS::Any(std::sqrt(value));
@@ -287,7 +291,7 @@ JS::Any Math::sqrt(const std::vector<JS::Any>& args) {
 JS::Any Math::tan(const std::vector<JS::Any>& args) {
     if (args.empty())
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
-    double value = JS::CONVERT::ToNumber(args[0]);
+    double value = JS::CONVERT::ToNumber(args[1]);
     if (std::isnan(value) || !std::isfinite(value))
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
     return JS::Any(std::tan(value));

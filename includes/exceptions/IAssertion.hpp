@@ -6,12 +6,11 @@
 #define JS_CMP_AASSERTION_HPP
 
 #include "types/JsAny.hpp"
+#include "utils/Convert.hpp"
 
 #include <exception>
 #include <string>
 #include <utility>
-#include "utils/Convert.hpp"
-
 
 // TODO: declaration in cpp
 class IAssertion : public std::exception {

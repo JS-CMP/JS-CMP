@@ -129,8 +129,8 @@ JS::Any assert::ifErrorHelper(const std::vector<JS::Any>& args) {
                         R"(The "value" argument must be specified.)", "ERR_MISSING_ARGS");
     }
     if (!JS::COMPARE::Type(args[0], JS::UNDEFINED) && !JS::COMPARE::Type(args[0], JS::NULL_TYPE)) {
-        innerFail(args[0], JS::Any(JS::Undefined()), JS::Any("ifError got unwanted exception" + JS::CONVERT::ToString(args[0])),
-                  "ifError");
+        innerFail(args[0], JS::Any(JS::Undefined()),
+                  JS::Any("ifError got unwanted exception" + JS::CONVERT::ToString(args[0])), "ifError");
     }
     return {};
 }
@@ -141,7 +141,8 @@ JS::Any assert::throwsHelper(const std::vector<JS::Any>& args) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()), R"(The "fn" argument must be specified.)",
                         "ERR_MISSING_ARGS");
     }
-    if (JS::COMPARE::Type(args[0], JS::OBJECT) && std::get<std::shared_ptr<JS::InternalObject>>(args[0].getValue())->class_name == "Function") {
+    if (JS::COMPARE::Type(args[0], JS::OBJECT) &&
+        std::get<std::shared_ptr<JS::InternalObject>>(args[0].getValue())->class_name == "Function") {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()), R"(The "fn" argument must be a function.)",
                         "ERR_INVALID_ARG_TYPE");
     }
@@ -177,9 +178,9 @@ bool assert::_sameValue(const JS::Any& actual, const JS::Any& expected) {
 
 void assert::innerFail(const JS::Any& actual, const JS::Any& expected, const JS::Any& message,
                        const std::string& operator_) {
-    auto msg = JS::COMPARE::Type(message, JS::UNDEFINED) ?
-            JS::CONVERT::ToString(actual) + " " + operator_ + " " + JS::CONVERT::ToString(expected)
-            : JS::CONVERT::ToString(message);
+    auto msg = JS::COMPARE::Type(message, JS::UNDEFINED)
+                   ? JS::CONVERT::ToString(actual) + " " + operator_ + " " + JS::CONVERT::ToString(expected)
+                   : JS::CONVERT::ToString(message);
     throw AssertionError(actual, expected, msg, operator_);
 }
 
@@ -200,8 +201,7 @@ bool assert::isDeepEqual(const JS::Any& actual, const JS::Any& expected, bool st
     bool actualNull = JS::COMPARE::Type(actual, JS::NULL_TYPE);
     bool expectedNull = JS::COMPARE::Type(expected, JS::NULL_TYPE);
     if (strict) {
-        if (!actualObj || !expectedObj ||
-            actualNull || expectedNull) {
+        if (!actualObj || !expectedObj || actualNull || expectedNull) {
             return false;
         }
         // TODO: prototype check

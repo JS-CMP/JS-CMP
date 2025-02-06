@@ -1,7 +1,3 @@
-//
-// Created by Simon BANDIERA on 24/11/2024.
-//
-
 #ifndef JS_CMP_TYPEERROR_HPP
 #define JS_CMP_TYPEERROR_HPP
 

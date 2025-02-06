@@ -3,10 +3,9 @@
 
 #include "exceptions/AssertionError.hpp"
 #include "exceptions/TypeError.hpp"
+#include "global/global.hpp"
 #include "types/objects/JsFunction.hpp"
 #include "types/objects/JsObject.hpp"
-
-#include "global/global.hpp"
 #include "utils/Compare.hpp"
 
 #include <cmath>

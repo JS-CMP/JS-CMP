@@ -84,7 +84,8 @@ bool JS::Any::strictEq(const JS::Any& other) const {
         case NULL_TYPE:
             return true;
         case OBJECT:
-            return &std::get<std::shared_ptr<InternalObject>>(this->value) == &std::get<std::shared_ptr<InternalObject>>(other.value);
+            return &std::get<std::shared_ptr<InternalObject>>(this->value) ==
+                   &std::get<std::shared_ptr<InternalObject>>(other.value);
         default:
             return false;
     }

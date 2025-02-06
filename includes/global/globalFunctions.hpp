@@ -8,6 +8,10 @@ JS::Any isNaN(const std::vector<JS::Any>& args);
 JS::Any parseInt(const std::vector<JS::Any>& args);
 JS::Any parseFloat(const std::vector<JS::Any>& args);
 JS::Any isFinite(const std::vector<JS::Any>& args);
+JS::Any encodeURI(const std::vector<JS::Any>& args);
+JS::Any decodeURI(const std::vector<JS::Any>& args);
+JS::Any encodeURIComponent(const std::vector<JS::Any>& args);
+JS::Any decodeURIComponent(const std::vector<JS::Any>& args);
 JS::Any global_typeof(const std::vector<JS::Any>& args);
 } // namespace JS::GLOBAL
 

@@ -32,6 +32,10 @@ JS::Any parseInt = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::parseInt))
 JS::Any parseFloat = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::parseFloat));
 JS::Any isFinite = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::isFinite));
 JS::Any global_typeof = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::global_typeof));
+JS::Any encodeURI = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::encodeURI));
+JS::Any decodeURI = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::decodeURI));
+JS::Any encodeURIComponent = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::encodeURIComponent));
+JS::Any decodeURIComponent = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::decodeURIComponent));
 
 JS::Any global = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::string, JS::Any>{
     {"isNaN", isNaN},
@@ -42,6 +46,10 @@ JS::Any global = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::st
     {"Infinity", Infinity},
     {"undefined", undefined},
     {"Object", Object},
+    {"encodeURI", encodeURI},
+    {"decodeURI", decodeURI},
+    {"encodeURIComponent", encodeURIComponent},
+    {"decodeURIComponent", decodeURIComponent},
 }));
 
 #endif // JS_CMP_GLOBAL_HPP

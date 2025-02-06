@@ -10,6 +10,8 @@
 #include <exception>
 #include <string>
 #include <utility>
+#include "utils/Convert.hpp"
+
 
 // TODO: declaration in cpp
 class IAssertion : public std::exception {
@@ -25,8 +27,8 @@ public:
     [[nodiscard]] const char* getMessage() const noexcept { return message.c_str(); }
     [[nodiscard]] const char* getName() const noexcept { return name.c_str(); }
     [[nodiscard]] const char* getOperator() const noexcept { return operator_.c_str(); }
-    [[nodiscard]] std::string getActual() const noexcept { return actual.toString(); }
-    [[nodiscard]] std::string getExpected() const noexcept { return expected.toString(); }
+    [[nodiscard]] std::string getActual() const noexcept { return JS::CONVERT::ToString(actual); }
+    [[nodiscard]] std::string getExpected() const noexcept { return JS::CONVERT::ToString(expected); }
     [[nodiscard]] std::string errMessage() const noexcept { return name + " [" + code + "]: " + message; }
 
 protected:

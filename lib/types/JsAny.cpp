@@ -1,4 +1,4 @@
-#include "../../lib/class/Helper.hpp"
+#include "utils/Convert.hpp"
 
 #include <types/JsAny.hpp>
 
@@ -56,8 +56,8 @@ bool JS::Any::operator==(const JS::Any& other) const {
         case OBJECT:
             switch (other.value.index()) {
                 case OBJECT:
-                    return &std::get<std::shared_ptr<Object>>(this->value) ==
-                           &std::get<std::shared_ptr<Object>>(other.value);
+                    return &std::get<std::shared_ptr<InternalObject>>(this->value) ==
+                           &std::get<std::shared_ptr<InternalObject>>(other.value);
                 default:
                     return false; // Invalid type
             }
@@ -84,7 +84,7 @@ bool JS::Any::strictEq(const JS::Any& other) const {
         case NULL_TYPE:
             return true;
         case OBJECT:
-            return &std::get<std::shared_ptr<Object>>(this->value) == &std::get<std::shared_ptr<Object>>(other.value);
+            return &std::get<std::shared_ptr<InternalObject>>(this->value) == &std::get<std::shared_ptr<InternalObject>>(other.value);
         default:
             return false;
     }
@@ -108,25 +108,6 @@ bool JS::Any::operator!() const {
             return false;
         default:
             return false;
-    }
-}
-
-std::string JS::Any::toString() const {
-    switch (this->value.index()) {
-        case NUMBER:
-            return Helper::to_string(std::get<double>(this->value));
-        case STRING:
-            return Helper::to_string(std::get<Rope>(this->value));
-        case BOOL:
-            return Helper::to_string(std::get<bool>(this->value));
-        case FUNCTION:
-            return "[Function]";
-        case UNDEFINED:
-            return Helper::to_string(JS::Undefined());
-        case NULL_TYPE:
-            return Helper::to_string(JS::Null());
-        default:
-            return "[Object]";
     }
 }
 

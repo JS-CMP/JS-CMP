@@ -15,7 +15,7 @@ JS::Any assert::equalHelper(const std::vector<JS::Any>& args) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "actual" and "expected" arguments must be specified.)", "ERR_MISSING_ARGS");
     }
-    if (args[0] != args[1] && (!Helper::isNaN(args[0]) || !Helper::isNaN(args[1]))) {
+    if (args[0] != args[1] && (!isNaN(args[0]) || !isNaN(args[1]))) {
         innerFail(args[0], args[1], args.size() == 3 ? args[2] : JS::Any(JS::Undefined()), "==");
     }
     return {};
@@ -26,7 +26,7 @@ JS::Any assert::notEqualHelper(const std::vector<JS::Any>& args) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "actual" and "expected" arguments must be specified.)", "ERR_MISSING_ARGS");
     }
-    if (args[0] == args[1] || (Helper::isNaN(args[0]) && Helper::isNaN(args[1]))) {
+    if (args[0] == args[1] || (isNaN(args[0]) && isNaN(args[1]))) {
         innerFail(args[0], args[1], args.size() == 3 ? args[2] : JS::Any(JS::Undefined()), "!=");
     }
     return {};
@@ -38,7 +38,7 @@ JS::Any assert::strictEqualHelper(const std::vector<JS::Any>& args) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "actual" and "expected" arguments must be specified.)", "ERR_MISSING_ARGS");
     }
-    if (!Helper::ObjectIs(args[0], args[1])) {
+    if (!JS::COMPARE::SameValue(args[0], args[1])) {
         innerFail(args[0], args[1], args.size() == 3 ? args[2] : JS::Any(JS::Undefined()), "strictEqual");
     }
     return {};
@@ -49,7 +49,7 @@ JS::Any assert::notStrictEqualHelper(const std::vector<JS::Any>& args) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "actual" and "expected" arguments must be specified.)", "ERR_MISSING_ARGS");
     }
-    if (Helper::ObjectIs(args[0], args[1])) {
+    if (JS::COMPARE::SameValue(args[0], args[1])) {
         innerFail(args[0], args[1], args.size() == 3 ? args[2] : JS::Any(JS::Undefined()), "notStrictEqual");
     }
     return {};
@@ -128,8 +128,8 @@ JS::Any assert::ifErrorHelper(const std::vector<JS::Any>& args) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "value" argument must be specified.)", "ERR_MISSING_ARGS");
     }
-    if (!(Helper::type_of(args[0]) == "undefined") && !Helper::isNull(args[0])) {
-        innerFail(args[0], JS::Any(JS::Undefined()), JS::Any("ifError got unwanted exception" + args[0].toString()),
+    if (!JS::COMPARE::Type(args[0], JS::UNDEFINED) && !JS::COMPARE::Type(args[0], JS::NULL_TYPE)) {
+        innerFail(args[0], JS::Any(JS::Undefined()), JS::Any("ifError got unwanted exception" + JS::CONVERT::ToString(args[0])),
                   "ifError");
     }
     return {};
@@ -141,7 +141,7 @@ JS::Any assert::throwsHelper(const std::vector<JS::Any>& args) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()), R"(The "fn" argument must be specified.)",
                         "ERR_MISSING_ARGS");
     }
-    if (Helper::type_of(args[0]) != "function") {
+    if (JS::COMPARE::Type(args[0], JS::OBJECT) && std::get<std::shared_ptr<JS::InternalObject>>(args[0].getValue())->class_name == "Function") {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()), R"(The "fn" argument must be a function.)",
                         "ERR_INVALID_ARG_TYPE");
     }
@@ -169,34 +169,39 @@ JS::Any assert::sameValueHelper(const JS::Any& actual, const JS::Any& expected) 
 
 // private
 bool assert::_sameValue(const JS::Any& actual, const JS::Any& expected) {
-    if (Helper::isNaN(actual) && Helper::isNaN(expected)) {
+    if (isNaN(actual) && isNaN(expected)) {
         return true;
     }
-    return Helper::sameValue(actual, expected);
+    return JS::COMPARE::SameValue(actual, expected);
 }
 
 void assert::innerFail(const JS::Any& actual, const JS::Any& expected, const JS::Any& message,
                        const std::string& operator_) {
-    auto msg = Helper::isUndefined(message) ? actual.toString() + " " + operator_ + " " + expected.toString()
-                                            : message.toString();
+    auto msg = JS::COMPARE::Type(message, JS::UNDEFINED) ?
+            JS::CONVERT::ToString(actual) + " " + operator_ + " " + JS::CONVERT::ToString(expected)
+            : JS::CONVERT::ToString(message);
     throw AssertionError(actual, expected, msg, operator_);
 }
 
 bool assert::isDeepEqual(const JS::Any& actual, const JS::Any& expected, bool strict) {
     // Check for strict equality (===).
     if (actual.strictEq(expected)) {
-        return actual.strictNeq(JS::Any(0)) || Helper::ObjectIs(actual, expected) || !strict;
+        return actual.strictNeq(JS::Any(0)) || JS::COMPARE::SameValue(actual, expected) || !strict;
     }
 
     // Handle NaN
-    if (strict && Helper::isNumber(actual) && Helper::isNumber(expected)) {
-        return Helper::NumberIsNaN(actual) && Helper::NumberIsNaN(expected);
+    if (strict && JS::COMPARE::Type(actual, JS::NUMBER) && JS::COMPARE::Type(expected, JS::NUMBER)) {
+        return isNaN(actual) && isNaN(expected);
     }
 
     // Type and null
+    bool actualObj = JS::COMPARE::Type(actual, JS::OBJECT);
+    bool expectedObj = JS::COMPARE::Type(expected, JS::OBJECT);
+    bool actualNull = JS::COMPARE::Type(actual, JS::NULL_TYPE);
+    bool expectedNull = JS::COMPARE::Type(expected, JS::NULL_TYPE);
     if (strict) {
-        if (!Helper::isObject(actual) || !Helper::isObject(expected) || Helper::isNull(actual) ||
-            Helper::isNull(expected)) {
+        if (!actualObj || !expectedObj ||
+            actualNull || expectedNull) {
             return false;
         }
         // TODO: prototype check
@@ -205,20 +210,20 @@ bool assert::isDeepEqual(const JS::Any& actual, const JS::Any& expected, bool st
         //        }
     } else {
         // Loose comparison - handle primitives and null.
-        if (Helper::isNull(actual) || Helper::isObject(actual)) {
-            if (Helper::isNull(expected) || Helper::isObject(expected)) {
-                return actual == expected || (Helper::NumberIsNaN(actual) && Helper::NumberIsNaN(expected));
+        if (actualNull || actualObj) {
+            if (expectedNull || expectedObj) {
+                return actual == expected || (isNaN(actual) && isNaN(expected));
             }
             return false;
         }
-        if (Helper::isNull(expected) || !Helper::isObject(expected)) {
+        if (expectedNull || !expectedObj) {
             return false;
         }
     }
 
     // TODO: replace by type tag [object x] (Object.prototype.toString.call behavior) to differentiate between objects
-    std::string actualTag = Helper::type_of(actual);
-    std::string expectedTag = Helper::type_of(expected);
+    JS::Any actualTag = actual["toString"]();
+    JS::Any expectedTag = expected["toString"]();
     if (actualTag != expectedTag) {
         return false;
     }

@@ -29,7 +29,7 @@ bool JS::Any::operator>(const JS::Any& other) const {
                         return static_cast<long long int>(JS::CONVERT::ToNumber(std::get<Rope>(this->value))) >
                                std::get<bool>(other.value);
                     case FUNCTION:
-                        return this->toString().compare(other.toString()) > 0;
+                        return JS::CONVERT::ToString(*this).compare(JS::CONVERT::ToString(other)) > 0;
                     case NULL_TYPE: // TODO: fix narrowing conversion
                         return std::numeric_limits<double>::quiet_NaN();
                     default:
@@ -46,7 +46,7 @@ bool JS::Any::operator>(const JS::Any& other) const {
                     case BOOL:
                         return std::get<bool>(this->value) > std::get<bool>(other.value);
                     case FUNCTION:
-                        return this->toString().compare(other.toString()) > 0;
+                        return JS::CONVERT::ToString(*this).compare(JS::CONVERT::ToString(other)) > 0;
                     case NULL_TYPE:
                         return std::get<bool>(this->value) > false;
 

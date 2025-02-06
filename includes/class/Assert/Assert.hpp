@@ -1,15 +1,13 @@
-//
-// Created by Simon BANDIERA on 24/11/2024.
-//
-
 #ifndef JS_CMP_ASSERT_HPP
 #define JS_CMP_ASSERT_HPP
 
-#include "../lib/class/Helper.hpp"
 #include "exceptions/AssertionError.hpp"
 #include "exceptions/TypeError.hpp"
 #include "types/objects/JsFunction.hpp"
 #include "types/objects/JsObject.hpp"
+
+#include "global/global.hpp"
+#include "utils/Compare.hpp"
 
 #include <cmath>
 

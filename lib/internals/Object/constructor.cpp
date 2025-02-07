@@ -6,6 +6,15 @@ InternalObject::InternalObject(Properties properties, std::shared_ptr<InternalOb
     : properties(std::make_shared<Properties>(std::move(properties))), prototype(std::move(prototype)), call(nullptr),
       construct(nullptr), class_name(std::move(class_name)), extensible(extensible) {}
 
+InternalObject::InternalObject(const std::unordered_map<std::string, JS::Any>& properties)
+        : properties(std::make_shared<Properties>()), prototype(nullptr), call(nullptr),
+          construct(nullptr), class_name("Object"), extensible(true) {
+
+    for (const auto& [key, value] : properties) {
+        this->put(key, value);
+    }
+}
+
 InternalObject::InternalObject(const Attribute& attribute)
     : properties(std::make_shared<std::unordered_map<std::string, JS::Attribute>>()), extensible(true) {
     switch (attribute.index()) {

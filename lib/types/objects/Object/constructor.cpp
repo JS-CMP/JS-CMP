@@ -1,27 +1,30 @@
 #include "types/objects/JsFunction.hpp"
 #include "types/objects/JsObject.hpp"
-
+#include "types/objects/Proto.hpp"
 #include <utility>
 
 namespace JS {
 
-std::unordered_map<std::string, JS::Any> properties_prototype = {
-    {"toString", JS::Any(std::make_shared<JS::Function>(Object::toString))},
-    {"toLocaleString", JS::Any(std::make_shared<JS::Function>(Object::toLocaleString))},
-    {"valueOf", JS::Any(std::make_shared<JS::Function>(Object::valueOf))},
-    {"hasOwnProperty", JS::Any(std::make_shared<JS::Function>(Object::hasOwnProperty))},
-    {"isPrototypeOf", JS::Any(std::make_shared<JS::Function>(Object::isPrototypeOf))},
-    {"propertyIsEnumerable", JS::Any(std::make_shared<JS::Function>(Object::propertyIsEnumerable))},
-};
-std::shared_ptr<JS::InternalObject> prototype = std::make_shared<JS::Object>(properties_prototype);
-
-Object::Object() : JS::InternalObject({}, JS::prototype, "Object", true) {}
+Object::Object() : JS::InternalObject({}, JS::Prototype::get(), "Object", true) {
+    this->defineOwnProperty("prototype", DataDescriptor({
+            JS::Any(JS::Prototype::get()),
+            false,
+            false,
+            false,
+    }));
+}
 
 Object::Object(const std::unordered_map<std::string, JS::Any>& properties)
-    : JS::InternalObject({}, JS::prototype, "Object", true) {
+    : JS::InternalObject({}, JS::Prototype::get(), "Object", true) {
     for (const auto& [key, value] : properties) {
         this->InternalObject::put(key, value);
     }
+    this->defineOwnProperty("prototype", DataDescriptor({
+        JS::Any(JS::Prototype::get()),
+        false,
+        false,
+        false,
+    }));
 }
 
 Object::Object(const Attribute& attribute) : JS::InternalObject(attribute) {
@@ -41,6 +44,12 @@ Object::Object(const Attribute& attribute) : JS::InternalObject(attribute) {
             (*properties)["configurable"] = JS::Any(desc.configurable);
         }
     }
+    this->defineOwnProperty("prototype", DataDescriptor({
+            JS::Any(JS::Prototype::get()),
+            false,
+            false,
+            false,
+    }));
 }
 
 Object::Object(const InternalObject&& internalObject) : JS::InternalObject(internalObject) {}

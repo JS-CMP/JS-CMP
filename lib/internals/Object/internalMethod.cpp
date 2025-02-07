@@ -1,5 +1,5 @@
 #include "internals/Object.hpp"
-#include "types/objects/JsObject.hpp"
+#include "types/objects/Object/JsObject.hpp"
 #include "utils/Compare.hpp"
 #include "utils/Is.hpp"
 

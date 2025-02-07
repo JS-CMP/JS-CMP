@@ -1,11 +1,12 @@
 #include "internals/Object.hpp"
+#include "types/objects/Object/StaticMethods.hpp"
 #include "types/objects/JsFunction.hpp"
 #include "utils/Compare.hpp"
 #include "utils/Convert.hpp"
 #include "utils/Is.hpp"
 
-namespace JS {
-JS::Any Object::getPrototypeOf(const std::vector<JS::Any>& args) {
+namespace JS::OBJ {
+JS::Any StaticMethods::getPrototypeOf(const std::vector<JS::Any>& args) {
     if (args.size() < 2 || args[1].getValue().index() != JS::OBJECT) {
         throw std::runtime_error("TypeError: Object.getPrototypeOf called on non-object"); // TODO: make this a JS error
     }
@@ -17,7 +18,7 @@ JS::Any Object::getPrototypeOf(const std::vector<JS::Any>& args) {
     return JS::Any(prototype);
 }
 
-JS::Any Object::getOwnPropertyDescriptor(const std::vector<JS::Any>& args) {
+JS::Any StaticMethods::getOwnPropertyDescriptor(const std::vector<JS::Any>& args) {
     if (args.size() < 2 || args[1].getValue().index() != JS::OBJECT) {
         throw std::runtime_error(
             "TypeError: Object.getOwnPropertyDescriptor called on non-object"); // TODO: make this a JS error
@@ -31,7 +32,7 @@ JS::Any Object::getOwnPropertyDescriptor(const std::vector<JS::Any>& args) {
     return JS::Any(JS::Undefined{});
 }
 
-JS::Any Object::getOwnPropertyNames(const std::vector<JS::Any>& args) {
+JS::Any StaticMethods::getOwnPropertyNames(const std::vector<JS::Any>& args) {
     if (args.size() < 2 || !JS::COMPARE::Type(args[1], JS::OBJECT)) {
         throw std::runtime_error(
             "TypeError: Object.getOwnPropertyNames called on non-object"); // TODO: make this a JS error
@@ -46,7 +47,7 @@ JS::Any Object::getOwnPropertyNames(const std::vector<JS::Any>& args) {
     return JS::Any(array);
 }
 
-JS::Any Object::create(const std::vector<JS::Any>& args) {
+JS::Any StaticMethods::create(const std::vector<JS::Any>& args) {
     if (args.size() < 2 || (!JS::COMPARE::Type(args[1], JS::OBJECT) && !JS::COMPARE::Type(args[1], JS::NULL_TYPE))) {
         throw std::runtime_error("TypeError: Object.create called on non-object"); // TODO: make this a JS error
     }
@@ -54,12 +55,12 @@ JS::Any Object::create(const std::vector<JS::Any>& args) {
     std::shared_ptr<JS::InternalObject> obj = std::make_shared<JS::Object>();
     obj->prototype = O;
     if (args.size() > 2 && !JS::COMPARE::Type(args[2], JS::UNDEFINED)) {
-        Object::defineProperties({JS::Any(JS::Null{}), JS::Any(obj), args[2]});
+        StaticMethods::defineProperties({JS::Any(JS::Null{}), JS::Any(obj), args[2]});
     }
     return JS::Any(obj);
 }
 
-JS::Any Object::defineProperty(const std::vector<JS::Any>& args) {
+JS::Any StaticMethods::defineProperty(const std::vector<JS::Any>& args) {
     if (args.size() < 2 || args[1].getValue().index() != JS::OBJECT) {
         throw std::runtime_error("TypeError: Object.defineProperty called on non-object");
     }
@@ -70,7 +71,7 @@ JS::Any Object::defineProperty(const std::vector<JS::Any>& args) {
     return args[0];
 }
 
-JS::Any Object::defineProperties(const std::vector<JS::Any>& args) {
+JS::Any StaticMethods::defineProperties(const std::vector<JS::Any>& args) {
     // TODO handle if args is not full fill like args[1] or args[2] is undefined basically handle std::out_of_range
     if (args.size() < 2 || args[1].getValue().index() != JS::OBJECT) {
         throw std::runtime_error("TypeError: Object.defineProperties called on non-object");
@@ -90,7 +91,7 @@ JS::Any Object::defineProperties(const std::vector<JS::Any>& args) {
     return args[0];
 } // namespace JS
 
-JS::Any Object::seal(const std::vector<JS::Any>& args) {
+JS::Any StaticMethods::seal(const std::vector<JS::Any>& args) {
     if (args.size() < 2 || args[1].getValue().index() != JS::OBJECT) {
         throw std::runtime_error("TypeError: Object.seal called on non-object");
     }
@@ -111,7 +112,7 @@ JS::Any Object::seal(const std::vector<JS::Any>& args) {
     return args[0];
 }
 
-JS::Any Object::freeze(const std::vector<JS::Any>& args) {
+JS::Any StaticMethods::freeze(const std::vector<JS::Any>& args) {
     if (args.size() < 2 || args[1].getValue().index() != JS::OBJECT) {
         throw std::runtime_error("TypeError: Object.freeze called on non-object");
     }
@@ -133,7 +134,7 @@ JS::Any Object::freeze(const std::vector<JS::Any>& args) {
     return args[0];
 }
 
-JS::Any Object::preventExtensions(const std::vector<JS::Any>& args) {
+JS::Any StaticMethods::preventExtensions(const std::vector<JS::Any>& args) {
     if (args.size() < 2 || args[1].getValue().index() != JS::OBJECT) {
         throw std::runtime_error("TypeError: Object.preventExtensions called on non-object");
     }
@@ -141,7 +142,7 @@ JS::Any Object::preventExtensions(const std::vector<JS::Any>& args) {
     return args[0];
 }
 
-JS::Any Object::isSealed(const std::vector<JS::Any>& args) {
+JS::Any StaticMethods::isSealed(const std::vector<JS::Any>& args) {
     if (args.size() < 2 || args[1].getValue().index() != JS::OBJECT) {
         throw std::runtime_error("TypeError: Object.isSealed called on non-object");
     }
@@ -156,7 +157,7 @@ JS::Any Object::isSealed(const std::vector<JS::Any>& args) {
     return JS::Any(!O->extensible);
 }
 
-JS::Any Object::isFrozen(const std::vector<JS::Any>& args) {
+JS::Any StaticMethods::isFrozen(const std::vector<JS::Any>& args) {
     if (args.size() < 2 || args[1].getValue().index() != JS::OBJECT) {
         throw std::runtime_error("TypeError: Object.isFrozen called on non-object");
     }
@@ -172,14 +173,14 @@ JS::Any Object::isFrozen(const std::vector<JS::Any>& args) {
     return JS::Any(!O->extensible);
 }
 
-JS::Any Object::isExtensible(const std::vector<JS::Any>& args) {
+JS::Any StaticMethods::isExtensible(const std::vector<JS::Any>& args) {
     if (args.size() < 2 || args[1].getValue().index() != JS::OBJECT) {
         throw std::runtime_error("TypeError: Object.isExtensible called on non-object");
     }
     return JS::Any(std::get<std::shared_ptr<JS::InternalObject>>(args[1].getValue())->extensible);
 }
 
-JS::Any Object::keys(const std::vector<JS::Any>& args) { // TODO implement array to fix this
+JS::Any StaticMethods::keys(const std::vector<JS::Any>& args) { // TODO implement array to fix this
     if (args.size() < 2 || args[1].getValue().index() != JS::OBJECT) {
         throw std::runtime_error("TypeError: Object.keys called on non-object");
     }

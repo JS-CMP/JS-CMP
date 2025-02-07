@@ -2,25 +2,26 @@
 #define JS_CMP_GLOBAL_HPP
 
 #include "globalFunctions.hpp"
+#include "types/objects/Object/StaticMethods.hpp"
 #include "types/JsAny.hpp"
 #include "types/objects/JsFunction.hpp"
-#include "types/objects/JsObject.hpp"
+#include "types/objects/Object/JsObject.hpp"
 
 // TODO fix this create Object to inherit from Function
 JS::Any Object = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::string, JS::Any>{
-    {"getPrototypeOf", JS::Any(std::make_shared<JS::Function>(JS::Object::getPrototypeOf))},
-    {"getOwnPropertyDescriptor", JS::Any(std::make_shared<JS::Function>(JS::Object::getOwnPropertyDescriptor))},
-    {"getOwnPropertyNames", JS::Any(std::make_shared<JS::Function>(JS::Object::getOwnPropertyNames))},
-    {"create", JS::Any(std::make_shared<JS::Function>(JS::Object::create))},
-    {"defineProperty", JS::Any(std::make_shared<JS::Function>(JS::Object::defineProperty))},
-    {"defineProperties", JS::Any(std::make_shared<JS::Function>(JS::Object::defineProperties))},
-    {"seal", JS::Any(std::make_shared<JS::Function>(JS::Object::seal))},
-    {"freeze", JS::Any(std::make_shared<JS::Function>(JS::Object::freeze))},
-    {"preventExtensions", JS::Any(std::make_shared<JS::Function>(JS::Object::preventExtensions))},
-    {"isSealed", JS::Any(std::make_shared<JS::Function>(JS::Object::isSealed))},
-    {"isFrozen", JS::Any(std::make_shared<JS::Function>(JS::Object::isFrozen))},
-    {"isExtensible", JS::Any(std::make_shared<JS::Function>(JS::Object::isExtensible))},
-    {"keys", JS::Any(std::make_shared<JS::Function>(JS::Object::keys))},
+    {"getPrototypeOf", JS::Any(std::make_shared<JS::Function>(JS::OBJ::StaticMethods::getPrototypeOf))},
+    {"getOwnPropertyDescriptor", JS::Any(std::make_shared<JS::Function>(JS::OBJ::StaticMethods::getOwnPropertyDescriptor))},
+    {"getOwnPropertyNames", JS::Any(std::make_shared<JS::Function>(JS::OBJ::StaticMethods::getOwnPropertyNames))},
+    {"create", JS::Any(std::make_shared<JS::Function>(JS::OBJ::StaticMethods::create))},
+    {"defineProperty", JS::Any(std::make_shared<JS::Function>(JS::OBJ::StaticMethods::defineProperty))},
+    {"defineProperties", JS::Any(std::make_shared<JS::Function>(JS::OBJ::StaticMethods::defineProperties))},
+    {"seal", JS::Any(std::make_shared<JS::Function>(JS::OBJ::StaticMethods::seal))},
+    {"freeze", JS::Any(std::make_shared<JS::Function>(JS::OBJ::StaticMethods::freeze))},
+    {"preventExtensions", JS::Any(std::make_shared<JS::Function>(JS::OBJ::StaticMethods::preventExtensions))},
+    {"isSealed", JS::Any(std::make_shared<JS::Function>(JS::OBJ::StaticMethods::isSealed))},
+    {"isFrozen", JS::Any(std::make_shared<JS::Function>(JS::OBJ::StaticMethods::isFrozen))},
+    {"isExtensible", JS::Any(std::make_shared<JS::Function>(JS::OBJ::StaticMethods::isExtensible))},
+    {"keys", JS::Any(std::make_shared<JS::Function>(JS::OBJ::StaticMethods::keys))},
 }));
 
 JS::Any NaN = JS::Any(std::numeric_limits<double>::quiet_NaN());

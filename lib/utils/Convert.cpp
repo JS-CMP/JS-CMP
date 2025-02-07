@@ -1,4 +1,4 @@
-#include "types/objects/JsObject.hpp"
+#include "types/objects/Object/JsObject.hpp"
 #include "utils/Is.hpp"
 
 #include <cmath>

@@ -1,4 +1,5 @@
 #include "types/objects/JsObject.hpp"
+
 #include <utils/Compare.hpp>
 #include <utils/Convert.hpp>
 #include <utils/Is.hpp>

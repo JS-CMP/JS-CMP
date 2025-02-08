@@ -1,5 +1,6 @@
-#include <cmath>
 #include "types/JsAny.hpp"
+
+#include <cmath>
 
 namespace JS::CONVERT {
 bool ToBoolean(int value) { return value != 0; }

@@ -13,7 +13,6 @@ template JS::Any JS::Any::operator<<(bool) const;
 template JS::Any JS::Any::operator<<(JS::Null) const;
 template JS::Any JS::Any::operator<<(JS::Undefined) const;
 
-
 namespace JS {
 template <typename T>
 JS::Any operator<<(T value, const JS::Any& any) {

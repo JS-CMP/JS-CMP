@@ -1,5 +1,6 @@
-#include <cmath>
 #include "types/JsAny.hpp"
+
+#include <cmath>
 #include <utils/Convert.hpp>
 
 #define APPLY_MODULO_UINT32(value) ((uint32_t)((value) % 0x100000000))
@@ -7,7 +8,9 @@
 namespace JS::CONVERT {
 uint32_t ToUint32(int value) { return APPLY_MODULO_UINT32(value < 0 ? -static_cast<int64_t>(value) : value); }
 uint32_t ToUint32(double value) {
-    if (std::isnan(value) || value == 0 || !std::isfinite(value)) { return 0; }
+    if (std::isnan(value) || value == 0 || !std::isfinite(value)) {
+        return 0;
+    }
     double posInt = std::signbit(value) ? -std::floor(std::abs(value)) : std::floor(std::abs(value));
     return APPLY_MODULO_UINT32(static_cast<int64_t>(posInt));
 }

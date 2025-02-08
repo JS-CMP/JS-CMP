@@ -19,5 +19,3 @@ template JS::Any UnsignedRightShiftOperator(const char*, const JS::Any&);
 template JS::Any UnsignedRightShiftOperator(bool, const JS::Any&);
 template JS::Any UnsignedRightShiftOperator(JS::Null, const JS::Any&);
 template JS::Any UnsignedRightShiftOperator(JS::Undefined, const JS::Any&);
-
-

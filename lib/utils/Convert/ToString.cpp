@@ -1,17 +1,13 @@
-#include <cmath>
 #include "types/JsAny.hpp"
+
+#include <cmath>
 
 namespace JS::CONVERT {
 std::string ToString(int value) { return (std::ostringstream() << value).str(); }
 std::string ToString(double value) {
-    return
-        std::isnan(value)
-            ? "NaN"
-            : std::isinf(value)
-            ? value < 0
-                  ? "-Infinity"
-                  : "Infinity"
-            : (std::ostringstream() << value).str();
+    return std::isnan(value)   ? "NaN"
+           : std::isinf(value) ? value < 0 ? "-Infinity" : "Infinity"
+                               : (std::ostringstream() << value).str();
 }
 std::string ToString(const Rope& rope) { return rope.toString(); }
 std::string ToString(bool value) { return value ? "true" : "false"; }

@@ -1,23 +1,30 @@
-#include <cmath>
 #include "types/JsAny.hpp"
+
+#include <cmath>
 
 namespace JS::CONVERT {
 double ToNumber(int value) { return value; }
 double ToNumber(double value) { return value; }
 double ToNumber(const std::string& str) {
-    if (str.empty()) { throw std::invalid_argument("La chaîne est vide"); }
+    if (str.empty()) {
+        throw std::invalid_argument("La chaîne est vide");
+    }
 
     if (str.size() > 2 && str[0] == '0' && (str[1] == 'x' || str[1] == 'X')) {
         int result;
         std::stringstream ss;
         ss << std::hex << str.substr(2);
         ss >> result;
-        if (ss.fail()) { return 0; }
+        if (ss.fail()) {
+            return 0;
+        }
         return result;
     } else if (str.size() > 2 && str[0] == '0' && (str[1] == 'b' || str[1] == 'B')) {
         int result = 0;
         for (size_t i = 2; i < str.size(); ++i) {
-            if (str[i] != '0' && str[i] != '1') { return 0; }
+            if (str[i] != '0' && str[i] != '1') {
+                return 0;
+            }
             result = (result << 1) | (str[i] - '0');
         }
         return result;

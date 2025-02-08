@@ -3,7 +3,7 @@
 
 template <typename T>
 JS::Any JS::Any::operator>>(T other) const {
-    return JS::Any(JS::CONVERT::ToInt32(*this) >> ( JS::CONVERT::ToUint32(other) & 0x1F));
+    return JS::Any(JS::CONVERT::ToInt32(*this) >> (JS::CONVERT::ToUint32(other) & 0x1F));
 }
 
 template JS::Any JS::Any::operator>>(const JS::Any&) const;

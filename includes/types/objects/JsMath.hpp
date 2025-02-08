@@ -2,9 +2,9 @@
 #define JS_CMP_MATH_HPP
 
 #include <vector>
-#include "../includes/types/Types.hpp"
-#include "../includes/utils/Convert.hpp"
+#include "utils/Convert.hpp"
 
+namespace JS {
 /**
  * @class Math
  * @brief Provides mathematical functions similar to JavaScript's Math object.
@@ -156,5 +156,6 @@ public:
     constexpr static double SQRT1_2 = 0.7071067811865476;
     constexpr static double SQRT2 = 1.4142135623730951;
 };
+} // namespace JS
 
 #endif // JS_CMP_MATH_HPP

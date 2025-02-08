@@ -1,9 +1,10 @@
-#include "../includes/math/math.hpp"
+#include "types/objects/JsMath.hpp"
 #include <cmath>
 #include <cstdlib>
 #include <limits>
 #include <random>
 
+namespace JS {
 JS::Any Math::abs(const std::vector<JS::Any>& args) {
     if (args.empty())
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
@@ -296,3 +297,4 @@ JS::Any Math::tan(const std::vector<JS::Any>& args) {
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
     return JS::Any(std::tan(value));
 }
+}  // namespace JS

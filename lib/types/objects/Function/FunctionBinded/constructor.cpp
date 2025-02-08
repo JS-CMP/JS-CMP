@@ -1,3 +1,4 @@
+#include "internals/Object.hpp"
 #include "utils/Convert.hpp"
 
 #include <types/objects/Function/JsFunctionBinded.hpp>

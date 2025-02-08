@@ -32,5 +32,5 @@ int main() {
     JS::Any personBinded = Person["bind"](JS::Any(JS::Null{}), JS::Any("Mike"), JS::Any(40));
     JS::Any mike = personBinded();
     console::log(mike["name"], mike["age"]);
-    JS::Any caller = mike["caller"]; // should throw
+    JS::Any caller = personBinded["caller"]; // should throw
 }

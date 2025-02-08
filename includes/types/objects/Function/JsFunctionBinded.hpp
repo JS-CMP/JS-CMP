@@ -2,7 +2,7 @@
 #define JSFUNCTIONBINDED_HPP
 
 
-#include "types/objects/Function/JsFunction.hpp"
+#include "JsFunction.hpp"
 
 namespace JS {
 

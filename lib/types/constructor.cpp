@@ -1,6 +1,7 @@
 #include "types/objects/JsObject.hpp"
 
 #include <types/JsAny.hpp>
+#include <utils/Convert.hpp>
 
 JS::Any::Any(const std::shared_ptr<JS::InternalObject> v) { value = v; }
 
@@ -22,3 +23,5 @@ JS::Any& JS::Any::operator=(const JS::Any& other) {
     value = other.value;
     return *this;
 }
+
+JS::Any::operator bool() const { return JS::CONVERT::ToBoolean(*this); }

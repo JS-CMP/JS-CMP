@@ -14,7 +14,7 @@ bool JS::Any::operator<(const JS::Any& other) const {
                     case BOOL:
                         return std::get<double>(this->value) < static_cast<double>(std::get<bool>(other.value));
                     case FUNCTION:
-                        return this->toString().compare(other.toString()) < 0;
+                        return JS::CONVERT::ToString(*this).compare(JS::CONVERT::ToString(other)) < 0;
                     default:
                         return false;
                 }
@@ -44,7 +44,7 @@ bool JS::Any::operator<(const JS::Any& other) const {
                     case BOOL:
                         return std::get<bool>(this->value) < std::get<bool>(other.value);
                     case FUNCTION:
-                        return this->toString().compare(other.toString()) < 0;
+                        return JS::CONVERT::ToString(*this).compare(JS::CONVERT::ToString(other)) < 0;
                     default:
                         return false;
                 }

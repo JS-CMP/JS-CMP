@@ -1,4 +1,5 @@
 #include "types/objects/JsMath.hpp"
+
 #include <cmath>
 #include <cstdlib>
 #include <limits>
@@ -99,7 +100,6 @@ JS::Any Math::atan2(const std::vector<JS::Any>& args) {
 
     return JS::Any(result);
 }
-
 
 JS::Any Math::ceil(const std::vector<JS::Any>& args) {
     if (args.empty())
@@ -237,8 +237,7 @@ JS::Any Math::pow(const std::vector<JS::Any>& args) {
                                                : JS::Any(std::numeric_limits<double>::infinity());
     }
     if (base == -std::numeric_limits<double>::infinity() && exponent < 0) {
-        return std::fmod(exponent, 2.0) == 1.0 ? JS::Any(-0.0)
-                                               : JS::Any(0.0);
+        return std::fmod(exponent, 2.0) == 1.0 ? JS::Any(-0.0) : JS::Any(0.0);
     }
 
     if (base == 0.0 && exponent > 0)
@@ -247,8 +246,7 @@ JS::Any Math::pow(const std::vector<JS::Any>& args) {
         return JS::Any(std::numeric_limits<double>::infinity());
 
     if (base == -0.0 && exponent > 0) {
-        return std::fmod(exponent, 2.0) == 1.0 ? JS::Any(-0.0)
-                                               : JS::Any(0.0);
+        return std::fmod(exponent, 2.0) == 1.0 ? JS::Any(-0.0) : JS::Any(0.0);
     }
     if (base == -0.0 && exponent < 0) {
         return std::fmod(exponent, 2.0) == 1.0 ? JS::Any(-std::numeric_limits<double>::infinity())
@@ -297,4 +295,4 @@ JS::Any Math::tan(const std::vector<JS::Any>& args) {
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
     return JS::Any(std::tan(value));
 }
-}  // namespace JS
+} // namespace JS

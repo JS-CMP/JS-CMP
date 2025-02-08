@@ -1,8 +1,9 @@
 #ifndef JS_CMP_MATH_HPP
 #define JS_CMP_MATH_HPP
 
-#include <vector>
 #include "utils/Convert.hpp"
+
+#include <vector>
 
 namespace JS {
 /**

@@ -1,81 +1,23 @@
-#include "../../../../includes/types/JsAny.hpp"
-#include "../../../../includes/utils/Convert.hpp"
+#include <types/JsAny.hpp>
+#include <utils/Convert.hpp>
 
-JS::Any UnsignedRightShiftOperator(const JS::Any& any, const JS::Any& other) {
-    uint32_t lnum = JS::CONVERT::ToUint32(any);
-    uint32_t shiftCount = JS::CONVERT::ToUint32(other) & 0x1F;
-    return JS::Any(static_cast<int>(lnum >> shiftCount));
+template <typename T, typename U>
+JS::Any UnsignedRightShiftOperator(T any, U other) {
+    return JS::Any(static_cast<int>(JS::CONVERT::ToUint32(any) >> (JS::CONVERT::ToUint32(other) & 0x1F)));
 }
 
-JS::Any UnsignedRightShiftOperator(const JS::Any& any, int value) {
-    uint32_t lnum = JS::CONVERT::ToUint32(any);
-    uint32_t shiftCount = JS::CONVERT::ToUint32(value) & 0x1F;
-    return JS::Any(static_cast<int>(lnum >> shiftCount));
-}
+template JS::Any UnsignedRightShiftOperator(const JS::Any&, const JS::Any&);
+template JS::Any UnsignedRightShiftOperator(const JS::Any&, int);
+template JS::Any UnsignedRightShiftOperator(const JS::Any&, double);
+template JS::Any UnsignedRightShiftOperator(const JS::Any&, const char*);
+template JS::Any UnsignedRightShiftOperator(const JS::Any&, bool);
+template JS::Any UnsignedRightShiftOperator(const JS::Any&, JS::Null);
+template JS::Any UnsignedRightShiftOperator(const JS::Any&, JS::Undefined);
+template JS::Any UnsignedRightShiftOperator(int, const JS::Any&);
+template JS::Any UnsignedRightShiftOperator(double, const JS::Any&);
+template JS::Any UnsignedRightShiftOperator(const char*, const JS::Any&);
+template JS::Any UnsignedRightShiftOperator(bool, const JS::Any&);
+template JS::Any UnsignedRightShiftOperator(JS::Null, const JS::Any&);
+template JS::Any UnsignedRightShiftOperator(JS::Undefined, const JS::Any&);
 
-JS::Any UnsignedRightShiftOperator(const JS::Any& any, double value) {
-    uint32_t lnum = JS::CONVERT::ToUint32(any);
-    uint32_t shiftCount = JS::CONVERT::ToUint32(value) & 0x1F;
-    return JS::Any(static_cast<int>(lnum >> shiftCount));
-}
-
-JS::Any UnsignedRightShiftOperator(const JS::Any& any, const char* value) {
-    uint32_t lnum = JS::CONVERT::ToUint32(any);
-    uint32_t shiftCount = JS::CONVERT::ToUint32(value) & 0x1F;
-    return JS::Any(static_cast<int>(lnum >> shiftCount));
-}
-
-JS::Any UnsignedRightShiftOperator(const JS::Any& any, bool value) {
-    uint32_t lnum = JS::CONVERT::ToUint32(any);
-    uint32_t shiftCount = JS::CONVERT::ToUint32(value) & 0x1F;
-    return JS::Any(static_cast<int>(lnum >> shiftCount));
-}
-
-JS::Any UnsignedRightShiftOperator(const JS::Any& any, JS::Null value) {
-    uint32_t lnum = JS::CONVERT::ToUint32(any);
-    uint32_t shiftCount = JS::CONVERT::ToUint32(value) & 0x1F;
-    return JS::Any(static_cast<int>(lnum >> shiftCount));
-}
-
-JS::Any UnsignedRightShiftOperator(const JS::Any& any, JS::Undefined value) {
-    uint32_t lnum = JS::CONVERT::ToUint32(any);
-    uint32_t shiftCount = JS::CONVERT::ToUint32(value) & 0x1F;
-    return JS::Any(static_cast<int>(lnum >> shiftCount));
-}
-
-JS::Any UnsignedRightShiftOperator(int value, const JS::Any& other) {
-    uint32_t lnum = JS::CONVERT::ToUint32(value);
-    uint32_t shiftCount = JS::CONVERT::ToUint32(other) & 0x1F;
-    return JS::Any(static_cast<int>(lnum >> shiftCount));
-}
-
-JS::Any UnsignedRightShiftOperator(double value, const JS::Any& other) {
-    uint32_t lnum = JS::CONVERT::ToUint32(value);
-    uint32_t shiftCount = JS::CONVERT::ToUint32(other) & 0x1F;
-    return JS::Any(static_cast<int>(lnum >> shiftCount));
-}
-
-JS::Any UnsignedRightShiftOperator(const char* value, const JS::Any& other) {
-    uint32_t lnum = JS::CONVERT::ToUint32(value);
-    uint32_t shiftCount = JS::CONVERT::ToUint32(other) & 0x1F;
-    return JS::Any(static_cast<int>(lnum >> shiftCount));
-}
-
-JS::Any UnsignedRightShiftOperator(bool value, const JS::Any& other) {
-    uint32_t lnum = JS::CONVERT::ToUint32(value);
-    uint32_t shiftCount = JS::CONVERT::ToUint32(other) & 0x1F;
-    return JS::Any(static_cast<int>(lnum >> shiftCount));
-}
-
-JS::Any UnsignedRightShiftOperator(JS::Null value, const JS::Any& other) {
-    uint32_t lnum = JS::CONVERT::ToUint32(value);
-    uint32_t shiftCount = JS::CONVERT::ToUint32(other) & 0x1F;
-    return JS::Any(static_cast<int>(lnum >> shiftCount));
-}
-
-JS::Any UnsignedRightShiftOperator(JS::Undefined value, const JS::Any& other) {
-    uint32_t lnum = JS::CONVERT::ToUint32(value);
-    uint32_t shiftCount = JS::CONVERT::ToUint32(other) & 0x1F;
-    return JS::Any(static_cast<int>(lnum >> shiftCount));
-}
 

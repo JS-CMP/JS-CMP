@@ -59,85 +59,25 @@ public:
      */
     ///@{
     /** @brief Bitwise AND operator a & b */
-    JS::Any operator&(const JS::Any& other) const;
-    /** @brief Bitwise AND operator a & int */
-    JS::Any operator&(int value) const;
-    /** @brief Bitwise AND operator a & double */
-    JS::Any operator&(double value) const;
-    /** @brief Bitwise AND operator a & string */
-    JS::Any operator&(const char* value) const;
-    /** @brief Bitwise AND operator a & bool */
-    JS::Any operator&(bool value) const;
-    /** @brief Bitwise AND operator a & null */
-    JS::Any operator&(JS::Null) const;
-    /** @brief Bitwise AND operator a & undefined */
-    JS::Any operator&(JS::Undefined) const;
-    /** @brief Bitwise AND operator int & Any */
-    friend JS::Any operator&(int value, JS::Any const& any);
-    /** @brief Bitwise AND operator double & Any */
-    friend JS::Any operator&(double value, JS::Any const& any);
-    /** @brief Bitwise AND operator string & Any */
-    friend JS::Any operator&(const char* value, JS::Any const& any);
-    /** @brief Bitwise AND operator bool & Any */
-    friend JS::Any operator&(bool value, JS::Any const& any);
-    /** @brief Bitwise AND operator null & Any */
-    friend JS::Any operator&(JS::Null value, JS::Any const& any);
-    /** @brief Bitwise AND operator undefined & Any */
-    friend JS::Any operator&(JS::Undefined value, JS::Any const& any);
+    template <typename T>
+    JS::Any operator&(T other) const;
+    /** @brief Bitwise AND operator T & Any */
+    template <typename T>
+    friend JS::Any operator&(T value, JS::Any const& any);
 
     /** @brief Bitwise OR operator a | b */
-    JS::Any operator|(const JS::Any& other) const;
-    /** @brief Bitwise OR operator a | int */
-    JS::Any operator|(int value) const;
-    /** @brief Bitwise OR operator a | double */
-    JS::Any operator|(double value) const;
-    /** @brief Bitwise OR operator a | string */
-    JS::Any operator|(const char* value) const;
-    /** @brief Bitwise OR operator a | bool */
-    JS::Any operator|(bool value) const;
-    /** @brief Bitwise OR operator a | null */
-    JS::Any operator|(JS::Null value) const;
-    /** @brief Bitwise OR operator a | undefined */
-    JS::Any operator|(JS::Undefined value) const;
-    /** @brief Bitwise OR operator int | Any */
-    friend JS::Any operator|(int value, JS::Any const& any);
-    /** @brief Bitwise OR operator double | Any */
-    friend JS::Any operator|(double value, JS::Any const& any);
-    /** @brief Bitwise OR operator string | Any */
-    friend JS::Any operator|(const char* value, JS::Any const& any);
-    /** @brief Bitwise OR operator bool | Any */
-    friend JS::Any operator|(bool value, JS::Any const& any);
-    /** @brief Bitwise OR operator null | Any */
-    friend JS::Any operator|(JS::Null value, JS::Any const& any);
-    /** @brief Bitwise OR operator undefined | Any */
-    friend JS::Any operator|(JS::Undefined value, JS::Any const& any);
+    template <typename T>
+    JS::Any operator|(T other) const;
+    /** @brief Bitwise OR operator T | Any */
+    template <typename T>
+    friend JS::Any operator|(T value, JS::Any const& any);
 
     /** @brief Bitwise XOR operator a ^ b */
-    JS::Any operator^(const JS::Any& other) const;
-    /** @brief Bitwise XOR operator a ^ int */
-    JS::Any operator^(int value) const;
-    /** @brief Bitwise XOR operator a ^ double */
-    JS::Any operator^(double value) const;
-    /** @brief Bitwise XOR operator a ^ string */
-    JS::Any operator^(const char* value) const;
-    /** @brief Bitwise XOR operator a ^ bool */
-    JS::Any operator^(bool value) const;
-    /** @brief Bitwise XOR operator a ^ null */
-    JS::Any operator^(JS::Null value) const;
-    /** @brief Bitwise XOR operator a ^ undefined */
-    JS::Any operator^(JS::Undefined value) const;
-    /** @brief Bitwise XOR operator int ^ Any */
-    friend JS::Any operator^(int value, JS::Any const& any);
-    /** @brief Bitwise XOR operator double ^ Any */
-    friend JS::Any operator^(double value, JS::Any const& any);
-    /** @brief Bitwise XOR operator string ^ Any */
-    friend JS::Any operator^(const char* value, JS::Any const& any);
-    /** @brief Bitwise XOR operator bool ^ Any */
-    friend JS::Any operator^(bool value, JS::Any const& any);
-    /** @brief Bitwise XOR operator null ^ Any */
-    friend JS::Any operator^(JS::Null value, JS::Any const& any);
-    /** @brief Bitwise XOR operator undefined ^ Any */
-    friend JS::Any operator^(JS::Undefined value, JS::Any const& any);
+    template <typename T>
+    JS::Any operator^(T other) const;
+    /** @brief Bitwise XOR operator T ^ Any */
+    template <typename T>
+    friend JS::Any operator^(T value, JS::Any const& any);
 
     /** @brief Bitwise NOT operator ~a */
     JS::Any operator~() const;
@@ -146,58 +86,18 @@ public:
     JS::Any operator!() const;
 
     /** @brief Bitwise left shift operator a << b */
-    JS::Any operator<<(const JS::Any& other) const;
-    /** @brief Bitwise left shift operator a << int */
-    JS::Any operator<<(int value) const;
-    /** @brief Bitwise left shift operator a << double */
-    JS::Any operator<<(double value) const;
-    /** @brief Bitwise left shift operator a << string */
-    JS::Any operator<<(const char* value) const;
-    /** @brief Bitwise left shift operator a << bool */
-    JS::Any operator<<(bool value) const;
-    /** @brief Bitwise left shift operator a << null */
-    JS::Any operator<<(JS::Null value) const;
-    /** @brief Bitwise left shift operator a << undefined */
-    JS::Any operator<<(JS::Undefined value) const;
-    /** @brief Bitwise left shift operator int << Any */
-    friend JS::Any operator<<(int value, JS::Any const& any);
-    /** @brief Bitwise left shift operator double << Any */
-    friend JS::Any operator<<(double value, JS::Any const& any);
-    /** @brief Bitwise left shift operator string << Any */
-    friend JS::Any operator<<(const char* value, JS::Any const& any);
-    /** @brief Bitwise left shift operator bool << Any */
-    friend JS::Any operator<<(bool value, JS::Any const& any);
-    /** @brief Bitwise left shift operator null << Any */
-    friend JS::Any operator<<(JS::Null value, JS::Any const& any);
-    /** @brief Bitwise left shift operator undefined << Any */
-    friend JS::Any operator<<(JS::Undefined value, JS::Any const& any);
+    template <typename T>
+    JS::Any operator<<(T other) const;
+    /** @brief Bitwise left shift operator T << Any */
+    template <typename T>
+    friend JS::Any operator<<(T value, JS::Any const& any);
 
     /** @brief Bitwise right shift operator a >> b */
-    JS::Any operator>>(const JS::Any& other) const;
-    /** @brief Bitwise right shift operator a >> int */
-    JS::Any operator>>(int value) const;
-    /** @brief Bitwise right shift operator a >> double */
-    JS::Any operator>>(double value) const;
-    /** @brief Bitwise right shift operator a >> string */
-    JS::Any operator>>(const char* value) const;
-    /** @brief Bitwise right shift operator a >> bool */
-    JS::Any operator>>(bool value) const;
-    /** @brief Bitwise right shift operator a >> null */
-    JS::Any operator>>(JS::Null value) const;
-    /** @brief Bitwise right shift operator a >> undefined */
-    JS::Any operator>>(JS::Undefined value) const;
+    template <typename T>
+    JS::Any operator>>(T other) const;
     /** @brief Bitwise right shift operator int >> Any */
-    friend JS::Any operator>>(int value, JS::Any const& any);
-    /** @brief Bitwise right shift operator double >> Any */
-    friend JS::Any operator>>(double value, JS::Any const& any);
-    /** @brief Bitwise right shift operator string >> Any */
-    friend JS::Any operator>>(const char* value, JS::Any const& any);
-    /** @brief Bitwise right shift operator bool >> Any */
-    friend JS::Any operator>>(bool value, JS::Any const& any);
-    /** @brief Bitwise right shift operator null >> Any */
-    friend JS::Any operator>>(JS::Null value, JS::Any const& any);
-    /** @brief Bitwise right shift operator undefined >> Any */
-    friend JS::Any operator>>(JS::Undefined value, JS::Any const& any);
+    template <typename T>
+    friend JS::Any operator>>(T value, JS::Any const& any);
 
     ///@}
 
@@ -239,30 +139,14 @@ public:
      */
     ///@{
     /** @brief Subtraction operator Any - Any */
-    JS::Any operator-(const JS::Any& other) const;
-    /** @brief Subtraction operator Any - int */
-    JS::Any operator-(int value) const;
-    /** @brief Subtraction operator Any - double */
-    JS::Any operator-(double value) const;
-    /** @brief Subtraction operator Any - string */
-    JS::Any operator-(const char* value) const;
-    /** @brief Subtraction operator Any - bool */
-    JS::Any operator-(bool value) const;
-    /** @brief Subtraction operator Any - null */
-    JS::Any operator-(JS::Null value) const;
-    /** @brief Subtraction operator Any - undefined */
+    template <typename T>
+    JS::Any operator-(T other) const;
+    /** @brief Subtraction operator Any - Undefined */
     JS::Any operator-(JS::Undefined) const;
-    /** @brief Subtraction operator int - Any */
-    friend JS::Any operator-(int value, JS::Any const& any);
-    /** @brief Subtraction operator double - Any */
-    friend JS::Any operator-(double value, JS::Any const& any);
-    /** @brief Subtraction operator string - Any */
-    friend JS::Any operator-(const char* value, JS::Any const& any);
-    /** @brief Subtraction operator bool - Any */
-    friend JS::Any operator-(bool value, JS::Any const& any);
-    /** @brief Subtraction operator null - Any */
-    friend JS::Any operator-(JS::Null value, JS::Any const& any);
-    /** @brief Subtraction operator undefined - Any */
+    /** @brief Subtraction operator T - Any */
+    template <typename T>
+    friend JS::Any operator-(T value, JS::Any const& any);
+    /** @brief Subtraction operator Undefined - Any */
     friend JS::Any operator-(JS::Undefined, JS::Any const& any);
     ///@}
 
@@ -370,32 +254,19 @@ public:
      * These operators perform binary logical operations on the value of the 'Any' object.
      */
     ///@{
-    /** @brief And operator Any / Any*/
-    JS::Any operator&&(const JS::Any& other) const;
-    /** @brief And operator Any / int */
-    JS::Any operator&&(int value) const;
-    /** @brief And operator Any / double */
-    JS::Any operator&&(double value) const;
-    /** @brief And operator Any / str */
-    JS::Any operator&&(const char* value) const;
-    /** @brief And operator  Any / bool*/
-    JS::Any operator&&(bool value) const;
-    /** @brief And operator Any / Null */
-    JS::Any operator&&(JS::Null value) const;
-    /** @brief And operator Any / Undefined*/
-    JS::Any operator&&(JS::Undefined value) const;
-    /** @brief And operator int / Any */
-    friend JS::Any operator%(int value, JS::Any const& any);
-    /** @brief And operator double / Any */
-    friend JS::Any operator%(double value, JS::Any const& any);
-    /** @brief And operator str / Any */
-    friend JS::Any operator%(const char* value, JS::Any const& any);
-    /** @brief And operator bool / Any */
-    friend JS::Any operator%(bool value, JS::Any const& any);
-    /** @brief And operator Null / Any */
-    friend JS::Any operator%(JS::Null value, JS::Any const& any);
-    /** @brief And operator  Undefined / Any */
-    friend JS::Any operator%(JS::Undefined, JS::Any const& any);
+    /** @brief And operator Any && T*/
+    template <typename T>
+    JS::Any operator&&(T other) const;
+    /** @brief And operator T && Any */
+    template <typename T>
+    friend JS::Any operator&&(T value, JS::Any const& any);
+
+    /** @brief Or operator Any || T */
+    template <typename T>
+    JS::Any operator||(T other) const;
+    /** @brief Or operator T || Any */
+    template <typename T>
+    friend JS::Any operator||(T value, JS::Any const& any);
     ///@}
 
     /**
@@ -406,11 +277,11 @@ public:
     /** @brief Addition operator ++a */
     JS::Any& operator++();
     /** @brief Addition operator a++ */
-    const JS::Any& operator++(int);
+    JS::Any operator++(int);
     /** @brief Subtraction operator --a */
     JS::Any& operator--();
     /** @brief Subtraction operator a-- */
-    const JS::Any& operator--(int);
+    JS::Any operator--(int);
     ///@}
 
     /**

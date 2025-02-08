@@ -42,10 +42,10 @@ uint32_t ToUint32(const JS::Null& value);
 uint32_t ToUint32(const JS::Any& any);
 
 template <typename T>
-int16_t ToInt16(T value);
+int16_t ToInt16(const T &value);
 
 template <typename T>
-int32_t ToInt32(T value);
+int32_t ToInt32(const T &value);
 
 std::string ToString(int value);
 std::string ToString(double value);

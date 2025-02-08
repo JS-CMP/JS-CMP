@@ -7,7 +7,7 @@ add_compile_definitions(
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pedantic")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 include_directories(${PROJECT_SOURCE_DIR}/includes)
 add_subdirectory(submodules/Lexer)
 
@@ -27,7 +27,15 @@ file(GLOB_RECURSE SOURCES_LIB
         "lib/utils/*.hpp"
         "lib/types/*.cpp"
         "lib/types/**/*.cpp"
+        "lib/global/*.cpp"
         "lib/utils/*.cpp"
+        "lib/utils/**/*.cpp"
+        "lib/utils/*.hpp"
+        "lib/utils/**/*.hpp"
+        "lib/internals/*.cpp"
+        "lib/internals/**/*.cpp"
+        "lib/internals/*.hpp"
+        "lib/internals/**/*.hpp"
 )
 
 file(GLOB_RECURSE SOURCES

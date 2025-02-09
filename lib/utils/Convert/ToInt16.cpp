@@ -4,8 +4,7 @@
 #include <utils/Convert.hpp>
 
 namespace JS::CONVERT {
-
-template <typename T>
+template <JS::AllowedType T>
 int16_t ToInt16(const T& value) {
     double temp = ToNumber(value);
 
@@ -23,13 +22,4 @@ int16_t ToInt16(const T& value) {
 
     return static_cast<uint16_t>(int16bit);
 }
-
-template int16_t ToInt16(const int&);
-template int16_t ToInt16(const double&);
-template int16_t ToInt16(const bool&);
-template int16_t ToInt16(const std::string&);
-template int16_t ToInt16(const Rope&);
-template int16_t ToInt16(const JS::Null&);
-template int16_t ToInt16(const JS::Undefined&);
-template int16_t ToInt16(const JS::Any&);
 } // namespace JS::CONVERT

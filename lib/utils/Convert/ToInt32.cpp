@@ -25,4 +25,5 @@ int32_t ToInt32(T value) {
     return static_cast<int32_t>(int32bit);
 }
 
+
 } // namespace JS::CONVERT

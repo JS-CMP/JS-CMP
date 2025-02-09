@@ -1,10 +1,12 @@
 #include <types/JsAny.hpp>
 #include <utils/Convert.hpp>
 
+
 template <JS::AllowedType T>
 JS::Any JS::Any::operator||(T other) const {
     return JS::CONVERT::ToBoolean(*this) ? *this : JS::Any(other);
 }
+
 
 namespace JS {
 template <JS::AllowedType T>

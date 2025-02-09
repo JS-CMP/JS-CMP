@@ -46,14 +46,6 @@ struct Undefined {};                                     /**< Represents an unde
 using Null = std::nullptr_t; /**< Type alias for a null value. */
 using Value = std::variant<double, Rope, bool, JS::Undefined, JS::Null,
                            std::shared_ptr<JS::InternalObject>>; /**< Union of all possible types Any can hold. */
-template <typename T>
-concept AllowedType = std::same_as<T, int> ||
-                      std::same_as<T, double> ||
-                      std::same_as<T, std::string> ||
-                      std::same_as<T, Rope> ||
-                      std::same_as<T, JS::Null> ||
-                      std::same_as<T, JS::Undefined> ||
-                      std::same_as<T, const JS::Any&>;
 } // namespace JS
 
 #endif // TYPES_HPP

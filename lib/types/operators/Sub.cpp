@@ -1,14 +1,30 @@
 #include <types/JsAny.hpp>
 #include <utils/Convert.hpp>
 
-template <JS::AllowedType T>
+template <typename T>
 JS::Any JS::Any::operator-(T other) const {
     return JS::Any(JS::CONVERT::ToNumber(*this) - JS::CONVERT::ToNumber(other));
 }
 
+template JS::Any JS::Any::operator-(int) const;
+template JS::Any JS::Any::operator-(double) const;
+template JS::Any JS::Any::operator-(const char*) const;
+template JS::Any JS::Any::operator-(bool) const;
+template JS::Any JS::Any::operator-(JS::Null) const;
+
+JS::Any JS::Any::operator-(JS::Undefined) const { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+
 namespace JS {
-template <JS::AllowedType T>
+template <typename T>
 JS::Any operator-(T value, JS::Any const& any) {
     return JS::Any(JS::CONVERT::ToNumber(value) - JS::CONVERT::ToNumber(any));
 }
+
+template JS::Any operator-(int, JS::Any const&);
+template JS::Any operator-(double, JS::Any const&);
+template JS::Any operator-(const char*, JS::Any const&);
+template JS::Any operator-(bool, JS::Any const&);
+template JS::Any operator-(JS::Null, JS::Any const&);
+
+JS::Any operator-(JS::Undefined, JS::Any const&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
 } // namespace JS

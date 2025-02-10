@@ -4,11 +4,10 @@
 #include "utils/Convert.hpp"
 #include "utils/Is.hpp"
 
-namespace JS::OBJ {
 
 // TODO Implement correctly ToObject to make all the methods work (ToObject should always return an object so the
 // compare type should always be true)
-JS::Any PrototypeMethods::toString(const std::vector<JS::Any>& args) {
+JS::Any JS::OBJ::PrototypeMethods::toString(const std::vector<JS::Any>& args) {
     switch (args[0].getValue().index()) {
         case JS::UNDEFINED:
             return JS::Any("[object Undefined]");
@@ -25,7 +24,7 @@ JS::Any PrototypeMethods::toString(const std::vector<JS::Any>& args) {
     return JS::Any("[object " + std::get<std::shared_ptr<JS::InternalObject>>(O.getValue())->class_name + "]");
 }
 
-JS::Any PrototypeMethods::toLocaleString(const std::vector<JS::Any>& args) {
+JS::Any JS::OBJ::PrototypeMethods::toLocaleString(const std::vector<JS::Any>& args) {
     JS::Any O = JS::CONVERT::ToObject(args[0]);
     // TODO to remove when ToObject is implemented correctly
     if (!JS::COMPARE::Type(O, JS::OBJECT)) {
@@ -42,7 +41,7 @@ JS::Any PrototypeMethods::toLocaleString(const std::vector<JS::Any>& args) {
     throw std::runtime_error("TypeError: Object.prototype.toLocaleString called on non-object");
 }
 
-JS::Any PrototypeMethods::valueOf(const std::vector<JS::Any>& args) {
+JS::Any JS::OBJ::PrototypeMethods::valueOf(const std::vector<JS::Any>& args) {
     JS::Any O = JS::CONVERT::ToObject(args[0]);
     // TODO to remove when ToObject is implemented correctly
     if (!JS::COMPARE::Type(O, JS::OBJECT)) {
@@ -53,7 +52,7 @@ JS::Any PrototypeMethods::valueOf(const std::vector<JS::Any>& args) {
     return O;
 }
 
-JS::Any PrototypeMethods::hasOwnProperty(const std::vector<JS::Any>& args) {
+JS::Any JS::OBJ::PrototypeMethods::hasOwnProperty(const std::vector<JS::Any>& args) {
     std::string P = JS::CONVERT::ToString(args[1]);
     JS::Any O = JS::CONVERT::ToObject(args[0]);
     // TODO to remove when ToObject is implemented correctly
@@ -71,7 +70,7 @@ JS::Any PrototypeMethods::hasOwnProperty(const std::vector<JS::Any>& args) {
     return JS::Any(false);
 }
 
-JS::Any PrototypeMethods::isPrototypeOf(const std::vector<JS::Any>& args) {
+JS::Any JS::OBJ::PrototypeMethods::isPrototypeOf(const std::vector<JS::Any>& args) {
     if (args.empty() || args[1].getValue().index() != JS::OBJECT) {
         return JS::Any(false);
     }
@@ -94,7 +93,7 @@ JS::Any PrototypeMethods::isPrototypeOf(const std::vector<JS::Any>& args) {
     return JS::Any(false);
 }
 
-JS::Any PrototypeMethods::propertyIsEnumerable(const std::vector<JS::Any>& args) {
+JS::Any JS::OBJ::PrototypeMethods::propertyIsEnumerable(const std::vector<JS::Any>& args) {
     std::string P = JS::CONVERT::ToString(args[1]);
     JS::Any O = JS::CONVERT::ToObject(args[0]);
     // TODO to remove when ToObject is implemented correctly
@@ -112,4 +111,3 @@ JS::Any PrototypeMethods::propertyIsEnumerable(const std::vector<JS::Any>& args)
                        std::get<JS::AccessorDescriptor>(desc.value())
                            .enumerable); // TODO can be optimized with a genericDescriptor with enumerable
 }
-} // namespace JS

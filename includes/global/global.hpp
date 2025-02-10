@@ -3,6 +3,7 @@
 
 #include "globalFunctions.hpp"
 #include "types/objects/Object/StaticMethods.hpp"
+#include "types/objects/String/StaticMethods.hpp"
 #include "types/JsAny.hpp"
 #include "types/objects/JsFunction.hpp"
 #include "types/objects/Object/JsObject.hpp"
@@ -22,6 +23,10 @@ JS::Any Object = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::st
     {"isFrozen", JS::Any(std::make_shared<JS::Function>(JS::OBJ::StaticMethods::isFrozen))},
     {"isExtensible", JS::Any(std::make_shared<JS::Function>(JS::OBJ::StaticMethods::isExtensible))},
     {"keys", JS::Any(std::make_shared<JS::Function>(JS::OBJ::StaticMethods::keys))},
+}));
+
+JS::Any String = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::string, JS::Any>{
+    {"fromCharCode", JS::Any(std::make_shared<JS::Function>(JS::STR::StaticMethods::fromCharCode))}
 }));
 
 JS::Any NaN = JS::Any(std::numeric_limits<double>::quiet_NaN());

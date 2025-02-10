@@ -1,5 +1,5 @@
-#ifndef JS_CMP_PROTOTYPEPROPERTIES_HPP
-#define JS_CMP_PROTOTYPEPROPERTIES_HPP
+#ifndef JS_CMP_PROTOTYPEPROPERTIESOBJECT_HPP
+#define JS_CMP_PROTOTYPEPROPERTIESOBJECT_HPP
 
 #include <memory>
 #include <unordered_map>
@@ -7,7 +7,7 @@
 #include "types/objects/JsFunction.hpp"
 #include "types/objects/Object/PrototypeMethods.hpp"
 
-namespace JS {
+namespace JS::OBJ {
     class PrototypeProperties {
     public:
         static std::shared_ptr<JS::InternalObject>& get() {
@@ -25,7 +25,6 @@ namespace JS {
         }
     };
 
-    // Access using JS::Prototype::get()
 }
 
-#endif //JS_CMP_PROTOTYPEPROPERTIES_HPP
+#endif //JS_CMP_PROTOTYPEPROPERTIESOBJECT_HPP

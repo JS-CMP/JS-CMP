@@ -5,9 +5,9 @@
 
 namespace JS {
 
-Object::Object() : JS::InternalObject({}, JS::PrototypeProperties::get(), "Object", true) {
+Object::Object() : JS::InternalObject({}, OBJ::PrototypeProperties::get(), "Object", true) {
     this->defineOwnProperty("prototype", DataDescriptor({
-            JS::Any(JS::PrototypeProperties::get()),
+            JS::Any(OBJ::PrototypeProperties::get()),
             false,
             false,
             false,
@@ -15,12 +15,12 @@ Object::Object() : JS::InternalObject({}, JS::PrototypeProperties::get(), "Objec
 }
 
 Object::Object(const std::unordered_map<std::string, JS::Any>& properties)
-    : JS::InternalObject({}, JS::PrototypeProperties::get(), "Object", true) {
+    : JS::InternalObject({}, OBJ::PrototypeProperties::get(), "Object", true) {
     for (const auto& [key, value] : properties) {
         this->InternalObject::put(key, value);
     }
     this->defineOwnProperty("prototype", DataDescriptor({
-        JS::Any(JS::PrototypeProperties::get()),
+        JS::Any(OBJ::PrototypeProperties::get()),
         false,
         false,
         false,
@@ -45,7 +45,7 @@ Object::Object(const Attribute& attribute) : JS::InternalObject(attribute) {
         }
     }
     this->defineOwnProperty("prototype", DataDescriptor({
-            JS::Any(JS::PrototypeProperties::get()),
+            JS::Any(OBJ::PrototypeProperties::get()),
             false,
             false,
             false,

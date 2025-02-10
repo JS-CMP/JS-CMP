@@ -1,9 +1,5 @@
-//
-// Created by Simon BANDIERA on 07/02/2025.
-//
-
-#ifndef JS_CMP_STATICMETHODS_HPP
-#define JS_CMP_STATICMETHODS_HPP
+#ifndef JS_CMP_STATICMETHODSSTRING_HPP
+#define JS_CMP_STATICMETHODSSTRING_HPP
 
 #include "types/JsAny.hpp"
 
@@ -19,4 +15,4 @@ namespace JS::STR {
     };
 }
 
-#endif //JS_CMP_STATICMETHODS_HPP
+#endif //JS_CMP_STATICMETHODSSTRING_HPP

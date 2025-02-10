@@ -1,7 +1,7 @@
 #ifndef JS_CMP_PROTOTYPEMETHODSSTRING_HPP
 #define JS_CMP_PROTOTYPEMETHODSSTRING_HPP
 
-#include "types/JsAny.hpp"
+#include "types/Types.hpp"
 
 namespace JS::STR {
     class PrototypeMethods {

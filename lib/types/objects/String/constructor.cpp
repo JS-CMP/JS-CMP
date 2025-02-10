@@ -4,11 +4,12 @@
 
 namespace JS {
     String::String() : JS::InternalObject({}, STR::PrototypeProperties::get(), "String", true) {
-        this->defineOwnProperty("length",JS::DataDescriptor{JS::Any(0),
-                                                   false,
-                                                   false,
-                                                   false});
         this->primitiveValue = Rope("");
+        this->defineOwnProperty("length",JS::DataDescriptor{
+            JS::Any(0),
+            false,
+            false,
+            false});
         this->defineOwnProperty("prototype",JS::DataDescriptor{
                 JS::Any(STR::PrototypeProperties::get()),
                 false,
@@ -16,11 +17,14 @@ namespace JS {
                 false});
     }
 
-    String::String(JS::Any value) : JS::InternalObject({}, STR::PrototypeProperties::get(), "String", true) {
-        auto v = Rope(JS::CONVERT::ToString(value));
-        auto length = JS::Any(int(v.length()));
-        this->defineOwnProperty("length",JS::DataDescriptor{ length,false,false,false});
+    String::String(const JS::Any& value) : JS::InternalObject({}, STR::PrototypeProperties::get(), "String", true) {
+        Rope v = Rope(JS::CONVERT::ToString(value));
         this->primitiveValue = v;
+        this->defineOwnProperty("length",JS::DataDescriptor{
+            JS::Any(int(v.length())),
+            false,
+            false,
+            false});
         this->defineOwnProperty("prototype",JS::DataDescriptor{
             JS::Any(STR::PrototypeProperties::get()),
             false,

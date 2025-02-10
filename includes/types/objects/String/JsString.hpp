@@ -20,9 +20,7 @@ namespace JS {
         ///@{
         /** @brief Default constructor initializes the object with an empty map */
         String();
-        explicit String(JS::Any value);
-        /** @brief Constructor for properties */
-        explicit String(const std::unordered_map<std::string, JS::Any>& properties);
+        explicit String(const JS::Any& value);
         ///@}
 
         /**

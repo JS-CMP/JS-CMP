@@ -23,7 +23,7 @@ public:
     /** @brief Default constructor initializes the object with an empty map */
     Function();
     /** @brief Constructs a Function object with a callable `FunctionType`. */
-    explicit Function(FunctionType f);
+    explicit Function(FunctionType f, int length = 0);
     /** @brief Copy constructor */
     Function(const Function& f);
     /** @brief Move constructor */
@@ -49,6 +49,18 @@ public:
     static JS::Any call(const JS::Any& thisArg, const JS::Any& args);
     /** @brief bind the function to a given object https://262.ecma-international.org/5.1/#sec-15.3.4.5 */
     static JS::Any bind(const JS::Any& thisArg, const JS::Any& args);
+    ///@}
+
+    /**
+    * @name Internal Properties Overriden from Function
+    * These methods provide access to the properties of the object
+    */
+    ///@{
+    /** @brief Get a property of the object with all the parent included and all the checks for descriptor
+    * https://262.ecma-international.org/5.1/#sec-15.3.5.4 */
+    [[nodiscard]] JS::Any get(const std::string& key) const final;
+    /** @brief Check if the object is an instance of another object */
+    [[nodiscard]] bool hasInstance(const JS::Any& value) const override;
     ///@}
 
 

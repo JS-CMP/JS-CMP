@@ -17,9 +17,10 @@ Function::Function() : JS::InternalObject({}, JS::function_prototype, "Function"
     JS::InternalObject::defineOwnProperty("length", JS::DataDescriptor{JS::Any(0), false, false, false}, false);
 }
 
-Function::Function(FunctionType f) : JS::InternalObject({}, JS::function_prototype, "Function", true) {
+// TODO: Implement the correct call to constructor
+Function::Function(FunctionType f, int length) : JS::InternalObject({}, JS::function_prototype, "Function", true) {
     call_function = std::move(f);
-    JS::InternalObject::defineOwnProperty("length", JS::DataDescriptor{JS::Any(0), false, false, false}, false);
+    JS::InternalObject::defineOwnProperty("length", JS::DataDescriptor{JS::Any(length), false, false, false}, false);
 }
 
 Function::Function(const Function& f) : JS::InternalObject(f) {}

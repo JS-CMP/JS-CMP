@@ -86,6 +86,15 @@ public:
     ///@}
 
     /**
+     * @name Internal Methods Specific to certain Objects
+     * All of this methods throw a TypeError if the object is not of the correct type
+     */
+    ///@{
+    /** @brief check if the object is likely created by this object, only Function implements this */
+    [[nodiscard]] virtual bool hasInstance(const JS::Any& value) const;
+    ///@}
+
+    /**
      * @name Internal Utility Methods
      */
     ///@{

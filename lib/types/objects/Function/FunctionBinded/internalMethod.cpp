@@ -2,11 +2,7 @@
 
 
 namespace JS {
-JS::Any FunctionBinded::get(const std::string& key) const {
-    std::cout << "Getting property " << key << " from binded function" << std::endl;
-    if (key == "caller") {
-        throw std::runtime_error("TypeError: Cannot access 'caller' or 'arguments.callee' in strict mode"); // TypeError
-    }
-    return InternalObject::get(key);
+bool FunctionBinded::hasInstance(const JS::Any& value) const {
+    return targetFunction->hasInstance(value);
 }
 } // namespace JS

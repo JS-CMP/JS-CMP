@@ -5,7 +5,7 @@
 #include "types/objects/Object/StaticMethods.hpp"
 #include "types/objects/String/StaticMethods.hpp"
 #include "types/JsAny.hpp"
-#include "types/objects/JsFunction.hpp"
+#include "types/objects/Function/JsFunction.hpp"
 #include "types/objects/Object/JsObject.hpp"
 
 // TODO fix this create Object to inherit from Function

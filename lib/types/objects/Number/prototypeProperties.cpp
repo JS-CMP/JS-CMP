@@ -1,6 +1,6 @@
 #include "types/objects/Number/PrototypeProperties.hpp"
 #include "types/objects/Number/PrototypeMethods.hpp"
-#include "types/objects/JsFunction.hpp"
+#include "types/objects/Function/JsFunction.hpp"
 #include "types/objects/Object/PrototypeProperties.hpp"
 
 namespace JS::NUM {

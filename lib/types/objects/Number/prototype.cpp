@@ -1,5 +1,5 @@
 #include "types/objects/Number/PrototypeMethods.hpp"
-#include "types/objects/JsFunction.hpp"
+#include "types/objects/Function/JsFunction.hpp"
 
 namespace JS::NUM {
     JS::Any PrototypeMethods::toString(const std::vector<JS::Any>& args) {

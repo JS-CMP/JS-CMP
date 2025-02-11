@@ -1,5 +1,5 @@
 #include "types/objects/Object/PrototypeProperties.hpp"
-#include "types/objects/JsFunction.hpp"
+#include "types/objects/Function/JsFunction.hpp"
 #include "types/objects/Object/PrototypeMethods.hpp"
 
 std::shared_ptr<JS::InternalObject> &JS::OBJ::PrototypeProperties::get() {

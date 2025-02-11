@@ -1,5 +1,5 @@
 #include "types/objects/String/JsString.hpp"
-#include "types/objects/JsFunction.hpp"
+#include "types/objects/Function/JsFunction.hpp"
 #include "types/objects/String/PrototypeProperties.hpp"
 
 namespace JS {

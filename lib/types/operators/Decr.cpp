@@ -10,7 +10,7 @@ JS::Any& JS::Any::operator--() {
             case STRING:
                 this->value = static_cast<double>(JS::CONVERT::ToNumber(std::get<Rope>(this->value)) - 1);
                 break;
-            case BOOL:
+            case BOOLEAN:
                 this->value = static_cast<double>(std::get<bool>(this->value) - 1);
                 break;
             case NULL_TYPE:
@@ -32,7 +32,7 @@ const JS::Any& JS::Any::operator--(int) {
             case STRING:
                 this->value = static_cast<double>(JS::CONVERT::ToNumber(std::get<Rope>(this->value)) - 1);
                 break;
-            case BOOL:
+            case BOOLEAN:
                 this->value = static_cast<double>(std::get<bool>(this->value) - 1);
                 break;
             case NULL_TYPE:

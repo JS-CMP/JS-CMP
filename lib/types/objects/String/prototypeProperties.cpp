@@ -1,6 +1,6 @@
 #include "types/objects/String/PrototypeProperties.hpp"
 
-#include "types/objects/JsFunction.hpp"
+#include "types/objects/Function/JsFunction.hpp"
 #include "types/objects/String/PrototypeMethods.hpp"
 #include "types/objects/Object/PrototypeProperties.hpp"
 

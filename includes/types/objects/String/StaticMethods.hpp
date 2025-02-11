@@ -15,4 +15,5 @@ namespace JS::STR {
     };
 }
 
+
 #endif //JS_CMP_STATICMETHODSSTRING_HPP

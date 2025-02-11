@@ -29,7 +29,7 @@ bool ToBoolean(const JS::Any& any) { // https://262.ecma-international.org/5.1/#
             return ToBoolean(std::get<double>(any.getValue()));
         case STRING:
             return ToBoolean(std::get<Rope>(any.getValue()));
-        case BOOL:
+        case BOOLEAN:
             return ToBoolean(std::get<bool>(any.getValue()));
         case UNDEFINED:
             return ToBoolean(JS::Undefined());
@@ -60,7 +60,7 @@ double ToNumber(const JS::Any& any) { // https://262.ecma-international.org/5.1/
             return std::get<double>(any.getValue());
         case STRING:
             return ToNumber(std::get<Rope>(any.getValue()));
-        case BOOL:
+        case BOOLEAN:
             return ToNumber(std::get<bool>(any.getValue()));
         case UNDEFINED:
             return ToNumber(JS::Undefined());
@@ -86,7 +86,7 @@ int ToInteger(const JS::Any& any) { // https://262.ecma-international.org/5.1/#s
             return ToInteger(std::get<double>(any.getValue()));
         case STRING:
             return ToInteger(std::get<Rope>(any.getValue()));
-        case BOOL:
+        case BOOLEAN:
             return ToInteger(std::get<bool>(any.getValue()));
         case UNDEFINED:
             return ToInteger(JS::Undefined());
@@ -115,7 +115,7 @@ std::string ToString(const JS::Any& any) { // https://262.ecma-international.org
             return JS::CONVERT::ToString(std::get<double>(any.getValue()));
         case STRING:
             return ToString(std::get<Rope>(any.getValue()));
-        case BOOL:
+        case BOOLEAN:
             return ToString(std::get<bool>(any.getValue()));
         case UNDEFINED:
             return ToString(JS::Undefined());

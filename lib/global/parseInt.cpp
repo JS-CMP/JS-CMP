@@ -1,12 +1,12 @@
+#include "internals/PropertyProxy.hpp"
 #include "types/JsAny.hpp"
 #include "utils/Convert.hpp"
-#include "internals/PropertyProxy.hpp"
 
 #include <iostream>
 
 namespace JS::GLOBAL {
 
-JS::Any parseInt(const JS::Any &thisArgs, const JS::Any &args) {
+JS::Any parseInt(const JS::Any& thisArgs, const JS::Any& args) {
     std::string inputString = JS::CONVERT::ToString(args["0"]);
     int radix = JS::CONVERT::ToInteger(args["1"]);
 

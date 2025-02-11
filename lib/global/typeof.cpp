@@ -1,7 +1,7 @@
-#include "types/JsAny.hpp"
 #include "internals/PropertyProxy.hpp"
+#include "types/JsAny.hpp"
 
-JS::Any global_typeof(const JS::Any &thisArgs, const JS::Any &args) {
+JS::Any global_typeof(const JS::Any& thisArgs, const JS::Any& args) {
     switch (args["0"].getValue().index()) {
         case JS::NUMBER:
             return JS::Any("number");

@@ -1,10 +1,10 @@
+#include "internals/PropertyProxy.hpp"
+
 #include <cctype>
 #include <iomanip>
 #include <sstream>
 #include <types/JsAny.hpp>
 #include <utils/Convert.hpp>
-#include "internals/PropertyProxy.hpp"
-
 
 const std::string MARK = R"(-_.!~*'())";
 const std::string RESERVED = R"(;/?:@&=+$, )";
@@ -51,22 +51,22 @@ std::string decode(std::string utf, const std::string& reservedSet) {
 }
 
 namespace JS::GLOBAL {
-JS::Any encodeURI(const JS::Any &thisArgs, const JS::Any &args) {
+JS::Any encodeURI(const JS::Any& thisArgs, const JS::Any& args) {
     auto uriStr = JS::CONVERT::ToString(args[1]);
     return JS::Any(encode(uriStr, RESERVED + UNESCAPED + "%"));
 }
 
-JS::Any decodeURI(const JS::Any &thisArgs, const JS::Any &args) {
+JS::Any decodeURI(const JS::Any& thisArgs, const JS::Any& args) {
     auto uriStr = JS::CONVERT::ToString(args["0"]);
     return JS::Any(decode(uriStr, "%#"));
 }
 
-JS::Any encodeURIComponent(const JS::Any &thisArgs, const JS::Any &args) {
+JS::Any encodeURIComponent(const JS::Any& thisArgs, const JS::Any& args) {
     auto uriStr = JS::CONVERT::ToString(args["0"]);
     return JS::Any(encode(uriStr, UNESCAPED));
 }
 
-JS::Any decodeURIComponent(const JS::Any &thisArgs, const JS::Any &args) {
+JS::Any decodeURIComponent(const JS::Any& thisArgs, const JS::Any& args) {
     auto uriStr = JS::CONVERT::ToString(args["0"]);
     return JS::Any(decode(uriStr, ""));
 }

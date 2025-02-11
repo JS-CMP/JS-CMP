@@ -41,4 +41,7 @@ digraph "includes/types/JsAny.hpp"
   Node14 [id="Node000014",label="variant",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
   Node2 -> Node15 [id="edge22_Node000002_Node000015",color="steelblue1",style="solid",tooltip=" "];
   Node15 [id="Node000015",label="vector",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node1 -> Node16 [id="edge23_Node000001_Node000016",color="steelblue1",style="solid",tooltip=" "];
+  Node16 [id="Node000016",label="internals/Arguments.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Arguments_8hpp.html",tooltip=" "];
+  Node16 -> Node2 [id="edge24_Node000016_Node000002",color="steelblue1",style="solid",tooltip=" "];
 }

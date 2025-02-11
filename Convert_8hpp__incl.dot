@@ -45,5 +45,8 @@ digraph "includes/utils/Convert.hpp"
   Node16 [id="Node000016",label="variant",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
   Node4 -> Node17 [id="edge24_Node000004_Node000017",color="steelblue1",style="solid",tooltip=" "];
   Node17 [id="Node000017",label="vector",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
-  Node1 -> Node3 [id="edge25_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 -> Node18 [id="edge25_Node000003_Node000018",color="steelblue1",style="solid",tooltip=" "];
+  Node18 [id="Node000018",label="internals/Arguments.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Arguments_8hpp.html",tooltip=" "];
+  Node18 -> Node4 [id="edge26_Node000018_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node3 [id="edge27_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
 }

@@ -24,6 +24,7 @@ var classJS_1_1InternalObject =
     [ "class_name", "classJS_1_1InternalObject.html#a7c44d3ff1aca8de5571b160f6db0c927", null ],
     [ "construct", "classJS_1_1InternalObject.html#ae5830cfb9a2898087b614f4475abfb2f", null ],
     [ "extensible", "classJS_1_1InternalObject.html#a606758e8b6d1fe1ee6e7c3e6ecc4371b", null ],
+    [ "parameter_map", "classJS_1_1InternalObject.html#a50157f7e03a302993ba61e5ec30dc44a", null ],
     [ "properties", "classJS_1_1InternalObject.html#abef4f3f77ac76498e72b5ff219e84333", null ],
     [ "prototype", "classJS_1_1InternalObject.html#a39a67333eb860a30d744c9d99ae89eba", null ]
 ];

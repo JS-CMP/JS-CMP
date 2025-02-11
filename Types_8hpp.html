@@ -137,8 +137,11 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a23045c9c20c676e209df1efd7a810f2a" id="r_a23045c9c20c676e209df1efd7a810f2a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a23045c9c20c676e209df1efd7a810f2a">JS::FunctionType</a> = std::function&lt; <a class="el" href="classJS_1_1Any.html">JS::Any</a>(const std::vector&lt; <a class="el" href="classJS_1_1Any.html">JS::Any</a> &gt; &amp;)&gt;</td></tr>
-<tr class="separator:a23045c9c20c676e209df1efd7a810f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a045e2f5d691414608a9f6d2350e90811" id="r_a045e2f5d691414608a9f6d2350e90811"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a045e2f5d691414608a9f6d2350e90811">JS::Attribute</a> = std::variant&lt; <a class="el" href="classJS_1_1DataDescriptor.html">DataDescriptor</a>, <a class="el" href="classJS_1_1AccessorDescriptor.html">AccessorDescriptor</a> &gt;</td></tr>
+<tr class="memdesc:a045e2f5d691414608a9f6d2350e90811"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a JavaScript object property, which can be a data property or an accessor property.  <br /></td></tr>
+<tr class="separator:a045e2f5d691414608a9f6d2350e90811"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc8f80ef0014008191a79c36ae5eb341" id="r_afc8f80ef0014008191a79c36ae5eb341"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#afc8f80ef0014008191a79c36ae5eb341">JS::FunctionType</a> = std::function&lt; <a class="el" href="classJS_1_1Any.html">JS::Any</a>(const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)&gt;</td></tr>
+<tr class="separator:afc8f80ef0014008191a79c36ae5eb341"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91ba0307edda1efdfb101d5dc978e53e" id="r_a91ba0307edda1efdfb101d5dc978e53e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a> = std::nullptr_t</td></tr>
 <tr class="separator:a91ba0307edda1efdfb101d5dc978e53e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdf8cc2ade0f7f3ab5544f56ba5c422f" id="r_afdf8cc2ade0f7f3ab5544f56ba5c422f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#afdf8cc2ade0f7f3ab5544f56ba5c422f">JS::Value</a> = std::variant&lt; double, <a class="el" href="classRope.html">Rope</a>, bool, JS::Undefined, <a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>, std::shared_ptr&lt; <a class="el" href="classJS_1_1InternalObject.html">JS::InternalObject</a> &gt; &gt;</td></tr>
@@ -158,6 +161,11 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:a24dafc265586f725eeb7012cf759b670"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71d803173e42e0f155502c5915659a70" id="r_a71d803173e42e0f155502c5915659a70"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a71d803173e42e0f155502c5915659a70">JS::AttributeTypes</a> { <a class="el" href="namespaceJS.html#a71d803173e42e0f155502c5915659a70aab8500695d3a901a1213c945bd7f18ad">JS::DATA_DESCRIPTOR</a>
+, <a class="el" href="namespaceJS.html#a71d803173e42e0f155502c5915659a70a51d5975129b4a6d9ca0c1292da98f70b">JS::ACCESSOR_DESCRIPTOR</a>
+ }</td></tr>
+<tr class="memdesc:a71d803173e42e0f155502c5915659a70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the types of JavaScript object properties.  <a href="namespaceJS.html#a71d803173e42e0f155502c5915659a70">More...</a><br /></td></tr>
+<tr class="separator:a71d803173e42e0f155502c5915659a70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

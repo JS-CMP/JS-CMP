@@ -16,12 +16,12 @@ var searchData=
   ['is_2ecpp_13',['Is.cpp',['../Is_8cpp.html',1,'']]],
   ['is_2ehpp_14',['Is.hpp',['../Is_8hpp.html',1,'']]],
   ['iscallable_15',['iscallable',['../classJS_1_1InternalObject.html#a5c590279e765a7acfbf1b31e49813235',1,'JS::InternalObject::isCallable()'],['../classJS_1_1IObject.html#ac96714cfb8e698140dfa0ee72d7d92b4',1,'JS::IObject::isCallable()']]],
-  ['isextensible_16',['isExtensible',['../classJS_1_1Object.html#a8e642c58647dba179ee806ba81e38717',1,'JS::Object']]],
-  ['isfinite_17',['isfinite',['../global_8hpp.html#a8ff6a194c25c5515d0a1e9896f4f6000',1,'isFinite:&#160;global.hpp'],['../namespaceJS_1_1GLOBAL.html#a98ea65fdacf5b3df26eb94aa04bd6d4b',1,'JS::GLOBAL::isFinite()']]],
+  ['isextensible_16',['isExtensible',['../classJS_1_1Object.html#a8b155f0240f62b3ab59e2dc2a01e2c1a',1,'JS::Object']]],
+  ['isfinite_17',['isfinite',['../global_8hpp.html#a8ff6a194c25c5515d0a1e9896f4f6000',1,'isFinite:&#160;global.hpp'],['../namespaceJS_1_1GLOBAL.html#a8f6f8ab971ce0d743cd815ede76108be',1,'JS::GLOBAL::isFinite()']]],
   ['isfinite_2ecpp_18',['isFinite.cpp',['../isFinite_8cpp.html',1,'']]],
-  ['isfrozen_19',['isFrozen',['../classJS_1_1Object.html#a6b4ebd87da1b4621ffcf184c38c12ef1',1,'JS::Object']]],
-  ['isnan_20',['isnan',['../global_8hpp.html#a7051f21d84f9b852c30d670ff39c437e',1,'isNaN:&#160;global.hpp'],['../namespaceJS_1_1GLOBAL.html#af5329ccadd9a06543276487a06f5a031',1,'JS::GLOBAL::isNaN()']]],
+  ['isfrozen_19',['isFrozen',['../classJS_1_1Object.html#acefea3548d7869dac1bb28120cd5907b',1,'JS::Object']]],
+  ['isnan_20',['isnan',['../global_8hpp.html#a7051f21d84f9b852c30d670ff39c437e',1,'isNaN:&#160;global.hpp'],['../namespaceJS_1_1GLOBAL.html#a859adfb2b7340df23afa12a6493345ef',1,'JS::GLOBAL::isNaN()']]],
   ['isnan_2ecpp_21',['IsNaN.cpp',['../IsNaN_8cpp.html',1,'']]],
-  ['isprototypeof_22',['isPrototypeOf',['../classJS_1_1Object.html#a62f013754049071cccf914f0d5455cb2',1,'JS::Object']]],
-  ['issealed_23',['isSealed',['../classJS_1_1Object.html#a26734325c207987cf489fe4907230684',1,'JS::Object']]]
+  ['isprototypeof_22',['isPrototypeOf',['../classJS_1_1Object.html#a9ccfb21a08668d71625ad4b934f52d7a',1,'JS::Object']]],
+  ['issealed_23',['isSealed',['../classJS_1_1Object.html#a5f3f9efad4336cb8e140cb53cbfb7863',1,'JS::Object']]]
 ];

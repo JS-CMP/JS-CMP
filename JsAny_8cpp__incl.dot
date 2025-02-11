@@ -47,6 +47,9 @@ digraph "lib/types/JsAny.cpp"
   Node17 [id="Node000017",label="variant",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
   Node5 -> Node18 [id="edge25_Node000005_Node000018",color="steelblue1",style="solid",tooltip=" "];
   Node18 [id="Node000018",label="vector",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
-  Node2 -> Node4 [id="edge26_Node000002_Node000004",color="steelblue1",style="solid",tooltip=" "];
-  Node1 -> Node4 [id="edge27_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 -> Node19 [id="edge26_Node000004_Node000019",color="steelblue1",style="solid",tooltip=" "];
+  Node19 [id="Node000019",label="internals/Arguments.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Arguments_8hpp.html",tooltip=" "];
+  Node19 -> Node5 [id="edge27_Node000019_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node2 -> Node4 [id="edge28_Node000002_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node4 [id="edge29_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
 }

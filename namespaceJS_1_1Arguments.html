@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9"/>
     <meta name="generator" content="Doxygen 1.9.8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>JS-CMP: lib/types/objects/Object/static.cpp File Reference</title>
+    <title>JS-CMP: JS::Arguments Namespace Reference</title>
     <link href="tabs.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="dynsections.js"></script>
@@ -76,7 +76,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('static_8cpp.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('namespaceJS_1_1Arguments.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -103,32 +103,83 @@ $(document).ready(function(){initNavTree('static_8cpp.html',''); initResizable()
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
-  <div class="headertitle"><div class="title">static.cpp File Reference</div></div>
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">JS::Arguments Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="Object_8hpp_source.html">internals/Object.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="JsFunction_8hpp_source.html">types/objects/JsFunction.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Compare_8hpp_source.html">utils/Compare.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Convert_8hpp_source.html">utils/Convert.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Is_8hpp_source.html">utils/Is.hpp</a>&quot;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for static.cpp:</div>
-<div class="dyncontent">
-<div class="center"><!-- SVG 0 --></div>
-</div>
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespaceJS" id="r_namespaceJS"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html">JS</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a6bd6606cc25dfead966117cfbb51d5b7" id="r_a6bd6606cc25dfead966117cfbb51d5b7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS_1_1Arguments.html#a6bd6606cc25dfead966117cfbb51d5b7">CreateArgumentsObject</a> (const std::vector&lt; <a class="el" href="classJS_1_1Any.html">JS::Any</a> &gt; &amp;args, const std::shared_ptr&lt; <a class="el" href="classJS_1_1InternalObject.html">JS::InternalObject</a> &gt; &amp;func=nullptr, const std::vector&lt; std::string &gt; &amp;names={}, const std::shared_ptr&lt; <a class="el" href="classJS_1_1InternalObject.html">JS::InternalObject</a> &gt; &amp;env=nullptr, bool strict=true)</td></tr>
+<tr class="memdesc:a6bd6606cc25dfead966117cfbb51d5b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an arguments object from a list of arguments, a function, and an environment.  <br /></td></tr>
+<tr class="separator:a6bd6606cc25dfead966117cfbb51d5b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a6bd6606cc25dfead966117cfbb51d5b7" name="a6bd6606cc25dfead966117cfbb51d5b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bd6606cc25dfead966117cfbb51d5b7">&#9670;&#160;</a></span>CreateArgumentsObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::Arguments::CreateArgumentsObject </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classJS_1_1Any.html">JS::Any</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>args</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="classJS_1_1InternalObject.html">JS::InternalObject</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>func</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>names</em> = <code>{}</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="classJS_1_1InternalObject.html">JS::InternalObject</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>env</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>strict</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates an arguments object from a list of arguments, a function, and an environment. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>The list of arguments to create the arguments object from. </td></tr>
+    <tr><td class="paramname">func</td><td>The function that the arguments object is associated with. (unused if strict is true) </td></tr>
+    <tr><td class="paramname">names</td><td>The names of the arguments. (unused if strict is true) </td></tr>
+    <tr><td class="paramname">env</td><td>The environment of the function. (unused if strict is true) </td></tr>
+    <tr><td class="paramname">strict</td><td>Whether the arguments object is in strict mode. (default is true) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The arguments object created from the list of arguments. </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_560694f03ee5bf1136d79e4f1ca1ca37.html">types</a></li><li class="navelem"><a class="el" href="dir_5cf2d1decf7560474321a2736fa1e755.html">objects</a></li><li class="navelem"><a class="el" href="dir_1fe854bcec9b56b8f4dc10d84ac4f9dd.html">Object</a></li><li class="navelem"><a class="el" href="static_8cpp.html">static.cpp</a></li>
+    <li class="navelem"><a class="el" href="namespaceJS.html">JS</a></li><li class="navelem"><a class="el" href="namespaceJS_1_1Arguments.html">Arguments</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>

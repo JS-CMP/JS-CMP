@@ -1,4 +1,4 @@
-#include "types/objects/String/JsString.hpp"
+#include "types/objects/JsFunction.hpp"
 #include "types/objects/String/PrototypeMethods.hpp"
 
 namespace JS::STR {

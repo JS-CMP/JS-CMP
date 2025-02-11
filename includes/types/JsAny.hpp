@@ -277,11 +277,6 @@ public:
      * @return The value of the `Any` object.
      */
     [[nodiscard]] JS::Value getValue() const;
-    /**
-     * @brief Converts the `Any` object to a string.
-     * @return String representation of the `Any` value.
-     */
-    [[nodiscard]] std::string toString() const;
 
 private:
     JS::Value value; /**< Holds the current value of this Any instance. */

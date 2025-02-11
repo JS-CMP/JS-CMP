@@ -1,7 +1,8 @@
+#include "internals/PropertyProxy.hpp"
 #include "types/JsAny.hpp"
 
-JS::Any global_typeof(const std::vector<JS::Any>& args) {
-    switch (args[0].getValue().index()) {
+JS::Any global_typeof(const JS::Any& thisArgs, const JS::Any& args) {
+    switch (args["0"].getValue().index()) {
         case JS::NUMBER:
             return JS::Any("number");
         case JS::STRING:

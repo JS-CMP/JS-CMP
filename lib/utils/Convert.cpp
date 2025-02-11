@@ -163,7 +163,7 @@ JS::Any FromPropertyDescriptor(const JS::DataDescriptor& desc) { // https://262.
     return JS::Any(obj);
 }
 JS::Attribute ToPropertyDescriptor(const Any& desc) {
-    if (!COMPARE::Type(desc, OBJECT)) {
+    if (!COMPARE::Type(desc, JS::OBJECT)) {
         throw std::runtime_error("TypeError: Property descriptor must be an object"); // TODO: make this a JS error
     }
     std::shared_ptr<JS::InternalObject> obj = std::get<std::shared_ptr<JS::InternalObject>>(desc.getValue());

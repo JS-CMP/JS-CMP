@@ -1,13 +1,14 @@
 #include "types/JsAny.hpp"
 #include "utils/Convert.hpp"
+#include "internals/PropertyProxy.hpp"
 
 #include <iostream>
 
 namespace JS::GLOBAL {
 
-JS::Any parseInt(const std::vector<JS::Any>& args) {
-    std::string inputString = JS::CONVERT::ToString(args[1]);
-    int radix = JS::CONVERT::ToInteger(args[2]);
+JS::Any parseInt(const JS::Any &thisArgs, const JS::Any &args) {
+    std::string inputString = JS::CONVERT::ToString(args["0"]);
+    int radix = JS::CONVERT::ToInteger(args["1"]);
 
     try {
         size_t start = inputString.find_first_not_of(" \t\n\r");

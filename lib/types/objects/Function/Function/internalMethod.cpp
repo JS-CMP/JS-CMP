@@ -4,7 +4,6 @@
 
 namespace JS {
 JS::Any Function::get(const std::string& key) const {
-    std::cout << "Getting property " << key << " from binded function" << std::endl;
     if (key == "caller") {
         throw std::runtime_error("TypeError: Cannot access 'caller' or 'arguments.callee' in strict mode"); // TypeError
     }

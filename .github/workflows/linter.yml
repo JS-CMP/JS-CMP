@@ -57,4 +57,4 @@ jobs:
         run: |
           git submodule update --init --recursive
           git submodule foreach git pull origin main
-          git ls-files '*.cpp' '*.hpp' | xargs -I{} clang-tidy {} -quiet -checks='boost-*,cert-*,clang-analyzer-*,hicpp-*,performance-*,portability-*' -- -std=c++20 -I./includes -I./submodules/Lexer/include -DJS_CMP_VERSION="\"DUMB\""
+          git ls-files '*.cpp' '*.hpp' | xargs -I{} clang-tidy {} -quiet -checks='boost-*,cert-*,clang-analyzer-*,hicpp-*,performance-*,portability-*' -- -std=c++23 -I./includes -I./submodules/Lexer/include -DJS_CMP_VERSION="\"DUMB\""

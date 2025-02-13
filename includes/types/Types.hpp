@@ -28,18 +28,37 @@ enum Types {
     FUNCTION,
 };
 
-class Any;
-class Object;
+/**
+ * @enum AttributeTypes
+ * @brief Represents the types of JavaScript object properties.
+ */
+enum AttributeTypes {
+    DATA_DESCRIPTOR,    /**< Represents a data property. */
+    ACCESSOR_DESCRIPTOR /**< Represents an accessor property. */
+};
+
+class DataDescriptor;
+class AccessorDescriptor;
+
+/**
+ * @typedef Attribute
+ * @brief Represents a JavaScript object property, which can be a data property or an accessor property.
+ */
+using Attribute = std::variant<DataDescriptor, AccessorDescriptor>;
+
 class InternalObject;
 class PropertyProxy;
 
+class Object;
 class Function;
 class Array;
 
+class Any;
+
 using FunctionType =
-    std::function<JS::Any(const std::vector<JS::Any>&)>; /**< Type alias for JavaScript-like functions. */
-/** @cond */                                             // Hide from Doxygen
-struct Undefined {};                                     /**< Represents an undefined value. */
+    std::function<JS::Any(const JS::Any&, const JS::Any&)>; /**< Type alias for JavaScript-like functions. */
+/** @cond */                                                // Hide from Doxygen
+struct Undefined {};                                        /**< Represents an undefined value. */
 /** @endcond */
 using Null = std::nullptr_t; /**< Type alias for a null value. */
 using Value = std::variant<double, Rope, bool, JS::Undefined, JS::Null,

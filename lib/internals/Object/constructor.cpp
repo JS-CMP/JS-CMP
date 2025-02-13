@@ -1,3 +1,4 @@
+#include "internals/Attribute.hpp"
 #include "internals/Object.hpp"
 
 namespace JS {

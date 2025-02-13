@@ -12,6 +12,7 @@ class Number : public JS::InternalObject {
     public:
         Number();
         explicit Number(const JS::Any& value);
+        explicit Number(const std::unordered_map<std::string, JS::Attribute>& properties);
 
         ~Number() override = default;
     };

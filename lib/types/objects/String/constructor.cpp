@@ -31,4 +31,22 @@ namespace JS {
             false,
             false});
     }
+
+    String::String(const std::unordered_map<std::string, JS::Any>& properties) : InternalObject({}, STR::PrototypeProperties::get(), "Boolean", true) {
+        this->primitiveValue = Rope("");
+        for (const auto& [key, value] : properties) {
+            this->InternalObject::put(key, value);
+        }
+        this->defineOwnProperty("length",JS::DataDescriptor{
+            JS::Any(0),
+            false,
+            false,
+            false});
+        this->defineOwnProperty("prototype", DataDescriptor({
+            JS::Any(STR::PrototypeProperties::get()),
+            false,
+            false,
+            false,
+        }));
+    }
 }

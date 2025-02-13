@@ -11,7 +11,7 @@ namespace JS::BOOL {
                 {"valueOf", DataDescriptor{Any(std::make_shared<JS::Function>(PrototypeMethods::valueOf)), true, true, true}},
         };
         static std::shared_ptr<InternalObject> instance =
-                std::make_shared<InternalObject>(properties_prototype, JS::OBJ::PrototypeProperties::get(), "Number", true);
+                std::make_shared<InternalObject>(properties_prototype, JS::OBJ::PrototypeProperties::get(), "Boolean", true);
 
         return instance;
     }

@@ -1,16 +1,17 @@
 #include "types/objects/JsFunction.hpp"
 #include "types/objects/JsObject.hpp"
+
 #include <utility>
 
 namespace JS {
 
 Object::Object() : JS::InternalObject({}, getPrototypeProperties(), "Object", true) {
     this->defineOwnProperty("prototype", DataDescriptor({
-            JS::Any(getPrototypeProperties()),
-            false,
-            false,
-            false,
-    }));
+                                             JS::Any(getPrototypeProperties()),
+                                             false,
+                                             false,
+                                             false,
+                                         }));
 }
 
 Object::Object(const std::unordered_map<std::string, JS::Any>& properties)
@@ -19,11 +20,11 @@ Object::Object(const std::unordered_map<std::string, JS::Any>& properties)
         this->InternalObject::put(key, value);
     }
     this->defineOwnProperty("prototype", DataDescriptor({
-        JS::Any(getPrototypeProperties()),
-        false,
-        false,
-        false,
-    }));
+                                             JS::Any(getPrototypeProperties()),
+                                             false,
+                                             false,
+                                             false,
+                                         }));
 }
 
 Object::Object(const Attribute& attribute) : JS::InternalObject(attribute) {
@@ -44,11 +45,11 @@ Object::Object(const Attribute& attribute) : JS::InternalObject(attribute) {
         }
     }
     this->defineOwnProperty("prototype", DataDescriptor({
-            JS::Any(getPrototypeProperties()),
-            false,
-            false,
-            false,
-    }));
+                                             JS::Any(getPrototypeProperties()),
+                                             false,
+                                             false,
+                                             false,
+                                         }));
 }
 
 Object::Object(const InternalObject&& internalObject) : JS::InternalObject(internalObject) {}

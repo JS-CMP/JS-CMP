@@ -2,7 +2,7 @@
 #include "utils/Convert.hpp"
 
 // override
-std::optional<JS::Attribute> JS::String::getOwnProperty(const std::string &key) const {
+std::optional<JS::Attribute> JS::String::getOwnProperty(const std::string& key) const {
     auto desc = JS::InternalObject::getOwnProperty(key);
     if (desc.has_value()) {
         return desc;

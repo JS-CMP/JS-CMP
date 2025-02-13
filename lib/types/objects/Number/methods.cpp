@@ -1,5 +1,5 @@
-#include "types/objects/JsNumber.hpp"
 #include "types/objects/JsFunction.hpp"
+#include "types/objects/JsNumber.hpp"
 
 JS::Any JS::Number::toString(const JS::Any& thisArg, const JS::Any& args) {
     throw std::runtime_error("not implemented");

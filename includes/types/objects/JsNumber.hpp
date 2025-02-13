@@ -8,8 +8,9 @@ namespace JS {
  * @class Number
  * @brief Represent the number object in C++
  *
- * The `Number` class represents a JavaScript-like number object in C++. It provides the different methods define in the ECMA of
- * the number. It also provides a method to get an internal object that hold the methods of the property prototype.
+ * The `Number` class represents a JavaScript-like number object in C++. It provides the different methods define in the
+ * ECMA of the number. It also provides a method to get an internal object that hold the methods of the property
+ * prototype.
  *
  * https://262.ecma-international.org/5.1/#sec-15.7
  */
@@ -32,8 +33,8 @@ public:
     ~Number() override = default;
 
     /**
-    * @name Methods to make prototype methods of the Object built-in
-    */
+     * @name Methods to make prototype methods of the Object built-in
+     */
     ///@{
     /** @brief Returns the prototype of the boolean https://262.ecma-international.org/5.1/#sec-15.7.4.2 */
     static JS::Any toString(const JS::Any& thisArg, const JS::Any& args);
@@ -51,20 +52,20 @@ public:
 
     // const variable
     /**
-    * @name Static variable of the Number object
-    */
+     * @name Static variable of the Number object
+     */
     ///@{
-    constexpr static double MAX_VALUE = 1.7976931348623157e308; /**< Represents the maximum value of a number in JavaScript */
+    constexpr static double MAX_VALUE =
+        1.7976931348623157e308;                 /**< Represents the maximum value of a number in JavaScript */
     constexpr static double MIN_VALUE = 5e-324; /**< Represents the minimum value of a number in JavaScript */
-    constexpr static double NaN = NAN; /**< Represents NaN in JavaScript */
+    constexpr static double NaN = NAN;          /**< Represents NaN in JavaScript */
     constexpr static double NEGATIVE_INFINITY = -INFINITY; /**< Represents the negative infinity in JavaScript */
-    constexpr static double POSITIVE_INFINITY = INFINITY; /**< Represents the positive infinity in JavaScript */
+    constexpr static double POSITIVE_INFINITY = INFINITY;  /**< Represents the positive infinity in JavaScript */
     ///@}
 
     /** @brief Function to get the methods of the property prototype */
-    static std::shared_ptr<JS::InternalObject> &getPrototypeProperties();
+    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
 };
 } // namespace JS
 
-
-#endif //JS_CMP_JSNUMBER_HPP
+#endif // JS_CMP_JSNUMBER_HPP

@@ -9,8 +9,9 @@ namespace JS {
  * @class String
  * @brief Represents the string object in C++
  *
- * The `String` class represents a JavaScript-like string object in C++. It provides the different methods defined in the ECMAScript specification
- * for the String object. It also provides a method to get an internal object that holds the methods of the property prototype.
+ * The `String` class represents a JavaScript-like string object in C++. It provides the different methods defined in
+ * the ECMAScript specification for the String object. It also provides a method to get an internal object that holds
+ * the methods of the property prototype.
  *
  * https://262.ecma-international.org/5.1/#sec-15.5
  */
@@ -95,8 +96,8 @@ public:
     ///@}
 
     /** @brief Returns a shared pointer to the prototype properties of the String object. */
-    static std::shared_ptr<JS::InternalObject> &getPrototypeProperties();
+    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
 };
 } // namespace JS
 
-#endif //JS_CMP_JSSTRING_HPP
+#endif // JS_CMP_JSSTRING_HPP

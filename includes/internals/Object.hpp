@@ -40,7 +40,6 @@ public:
     /** @brief The destructor for the object defaulted */
     ~InternalObject() override = default;
 
-
     /**
      * @name Accessors
      * These methods provide access to the properties of the object
@@ -101,7 +100,7 @@ public:
     FunctionType construct;                        /**< The construct function of the object. */
     std::string class_name;                        /**< The class name of the object. */
     bool extensible;                               /**< Whether the object is extensible. */
-    JS::Value primitiveValue;                      /**< The primitive value of the object. (Only Defined for Some Objects) */
+    JS::Value primitiveValue; /**< The primitive value of the object. (Only Defined for Some Objects) */
 };
 } // namespace JS
 

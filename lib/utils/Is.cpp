@@ -5,7 +5,8 @@
 
 namespace JS::IS {
 bool Primitive(const JS::Any& a) {
-    return a.getValue().index() == JS::NUMBER || a.getValue().index() == JS::STRING || a.getValue().index() == JS::BOOLEAN;
+    return a.getValue().index() == JS::NUMBER || a.getValue().index() == JS::STRING ||
+           a.getValue().index() == JS::BOOLEAN;
 }
 
 bool Callable(const JS::Any& a) {

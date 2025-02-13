@@ -2,6 +2,7 @@
 #define JS_CMP_JSNUMBER_HPP
 
 #include "internals/Object.hpp"
+
 #include <cmath>
 
 namespace JS {

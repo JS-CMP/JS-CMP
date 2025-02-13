@@ -24,4 +24,3 @@ JS::Any JS::Number::toExponential(const JS::Any& thisArg, const JS::Any& args) {
 JS::Any JS::Number::toPrecision(const JS::Any& thisArg, const JS::Any& args) {
     throw std::runtime_error("not implemented");
 }
-

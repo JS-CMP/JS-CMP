@@ -32,17 +32,13 @@ JS::Any JS::String::valueOf(const JS::Any& thisArg, const JS::Any& args) {
     throw std::runtime_error("not implemented");
 }
 
-JS::Any JS::String::charAt(const JS::Any& thisArg, const JS::Any& args) {
-    throw std::runtime_error("not implemented");
-}
+JS::Any JS::String::charAt(const JS::Any& thisArg, const JS::Any& args) { throw std::runtime_error("not implemented"); }
 
 JS::Any JS::String::charCodeAt(const JS::Any& thisArg, const JS::Any& args) {
     throw std::runtime_error("not implemented");
 }
 
-JS::Any JS::String::concat(const JS::Any& thisArg, const JS::Any& args) {
-    throw std::runtime_error("not implemented");
-}
+JS::Any JS::String::concat(const JS::Any& thisArg, const JS::Any& args) { throw std::runtime_error("not implemented"); }
 
 JS::Any JS::String::indexOf(const JS::Any& thisArg, const JS::Any& args) {
     throw std::runtime_error("not implemented");
@@ -56,25 +52,17 @@ JS::Any JS::String::localeCompare(const JS::Any& thisArg, const JS::Any& args) {
     throw std::runtime_error("not implemented");
 }
 
-JS::Any JS::String::match(const JS::Any& thisArg, const JS::Any& args) {
-    throw std::runtime_error("not implemented");
-}
+JS::Any JS::String::match(const JS::Any& thisArg, const JS::Any& args) { throw std::runtime_error("not implemented"); }
 
 JS::Any JS::String::replace(const JS::Any& thisArg, const JS::Any& args) {
     throw std::runtime_error("not implemented");
 }
 
-JS::Any JS::String::search(const JS::Any& thisArg, const JS::Any& args) {
-    throw std::runtime_error("not implemented");
-}
+JS::Any JS::String::search(const JS::Any& thisArg, const JS::Any& args) { throw std::runtime_error("not implemented"); }
 
-JS::Any JS::String::slice(const JS::Any& thisArg, const JS::Any& args) {
-    throw std::runtime_error("not implemented");
-}
+JS::Any JS::String::slice(const JS::Any& thisArg, const JS::Any& args) { throw std::runtime_error("not implemented"); }
 
-JS::Any JS::String::split(const JS::Any& thisArg, const JS::Any& args) {
-    throw std::runtime_error("not implemented");
-}
+JS::Any JS::String::split(const JS::Any& thisArg, const JS::Any& args) { throw std::runtime_error("not implemented"); }
 
 JS::Any JS::String::substring(const JS::Any& thisArg, const JS::Any& args) {
     throw std::runtime_error("not implemented");
@@ -96,7 +84,4 @@ JS::Any JS::String::toLocaleUpperCase(const JS::Any& thisArg, const JS::Any& arg
     throw std::runtime_error("not implemented");
 }
 
-JS::Any JS::String::trim(const JS::Any& thisArg, const JS::Any& args) {
-    throw std::runtime_error("not implemented");
-}
-
+JS::Any JS::String::trim(const JS::Any& thisArg, const JS::Any& args) { throw std::runtime_error("not implemented"); }

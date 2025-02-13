@@ -1,6 +1,6 @@
-#include <types/objects/Boolean/JsBoolean.hpp>
+#include <types/objects/JsBoolean.hpp>
 
-#include "types/objects/Function/JsFunction.hpp"
+#include "types/objects/JsFunction.hpp"
 
 std::shared_ptr<JS::InternalObject> &JS::Boolean::getPrototypeProperties() {
     static std::unordered_map<std::string, Attribute> properties_prototype = {

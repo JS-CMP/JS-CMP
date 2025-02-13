@@ -1,5 +1,5 @@
-#include "types/objects/Boolean/JsBoolean.hpp"
-#include "types/objects/Function/JsFunction.hpp"
+#include "types/objects/JsBoolean.hpp"
+#include "types/objects/JsFunction.hpp"
 
 JS::Any JS::Boolean::toString(const std::vector<JS::Any>& args) {
     return JS::Any("bool");

@@ -1,5 +1,5 @@
-#include "types/objects/String/JsString.hpp"
-#include "types/objects/Function/JsFunction.hpp"
+#include "types/objects/JsString.hpp"
+#include "types/objects/JsFunction.hpp"
 
 std::shared_ptr<JS::InternalObject> &JS::String::getPrototypeProperties() {
     static std::unordered_map<std::string, JS::Attribute> properties_prototype = {

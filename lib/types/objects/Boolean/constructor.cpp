@@ -1,6 +1,6 @@
 #include <utils/Convert.hpp>
 
-#include "types/objects/Boolean/JsBoolean.hpp"
+#include "types/objects/JsBoolean.hpp"
 
 namespace JS {
     Boolean::Boolean() : InternalObject({}, getPrototypeProperties(), "Boolean", true) {

@@ -1,5 +1,5 @@
-#include "types/objects/Function/JsFunction.hpp"
-#include "types/objects/Object/JsObject.hpp"
+#include "types/objects/JsFunction.hpp"
+#include "types/objects/JsObject.hpp"
 #include <utility>
 
 namespace JS {

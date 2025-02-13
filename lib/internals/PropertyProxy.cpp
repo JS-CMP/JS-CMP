@@ -1,7 +1,7 @@
 #include "internals/PropertyProxy.hpp"
 
 #include "internals/Object.hpp"
-#include "types/objects/Object/JsObject.hpp"
+#include "types/objects/JsObject.hpp"
 
 namespace JS {
 

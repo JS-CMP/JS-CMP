@@ -1,5 +1,5 @@
-#include "types/objects/String/JsString.hpp"
-#include "types/objects/Function/JsFunction.hpp"
+#include "types/objects/JsString.hpp"
+#include "types/objects/JsFunction.hpp"
 
 namespace JS {
     String::String() : JS::InternalObject({}, getPrototypeProperties(), "String", true) {

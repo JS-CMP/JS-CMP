@@ -1,7 +1,7 @@
 #ifndef JSFUNCTION_HPP
 #define JSFUNCTION_HPP
 
-#include "types/objects/Object/JsObject.hpp"
+#include "types/objects/JsObject.hpp"
 
 namespace JS {
 

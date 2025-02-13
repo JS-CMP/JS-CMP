@@ -1,4 +1,4 @@
-#include "types/objects/String/JsString.hpp"
+#include "types/objects/JsString.hpp"
 
 // override
 std::optional<JS::Attribute> JS::String::getOwnProperty(const std::string &key) const {

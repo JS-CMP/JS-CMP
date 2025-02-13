@@ -1,4 +1,4 @@
-#include "types/objects/Number/JsNumber.hpp"
+#include "types/objects/JsNumber.hpp"
 
 #include "utils/Convert.hpp"
 

@@ -1,4 +1,4 @@
-#include "types/objects/Object/JsObject.hpp"
+#include "types/objects/JsObject.hpp"
 #include "utils/Convert.hpp"
 
 namespace JS {

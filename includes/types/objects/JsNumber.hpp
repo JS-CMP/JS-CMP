@@ -36,17 +36,17 @@ public:
     */
     ///@{
     /** @brief Returns the prototype of the boolean https://262.ecma-international.org/5.1/#sec-15.7.4.2 */
-    static JS::Any toString(const std::vector<JS::Any>& args);
+    static JS::Any toString(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Returns the locale string of it https://262.ecma-international.org/5.1/#sec-15.7.4.3 */
-    static JS::Any toLocaleString(const std::vector<JS::Any>& args);
+    static JS::Any toLocaleString(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Returns the value of the number https://262.ecma-international.org/5.1/#sec-15.7.4.4 */
-    static JS::Any valueOf(const std::vector<JS::Any>& args);
+    static JS::Any valueOf(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Return a String containing this Number value represented in decimal fixed-point https://262.ecma-international.org/5.1/#sec-15.7.4.5 */
-    static JS::Any toFixed(const std::vector<JS::Any>& args);
+    static JS::Any toFixed(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Return a String containing this Number value represented in decimal exponential notation https://262.ecma-international.org/5.1/#sec-15.7.4.6 */
-    static JS::Any toExponential(const std::vector<JS::Any>& args);
+    static JS::Any toExponential(const JS::Any& thisArg, const JS::Any& args);
     /** @brief eturn a String containing this Number value represented either in decimal exponential notation  https://262.ecma-international.org/5.1/#sec-15.7.4.7 */
-    static JS::Any toPrecision(const std::vector<JS::Any>& args);
+    static JS::Any toPrecision(const JS::Any& thisArg, const JS::Any& args);
     ///@}
 
     // const variable

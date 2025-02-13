@@ -35,9 +35,9 @@ public:
     */
     ///@{
     /** @brief Returns the prototype of the boolean https://262.ecma-international.org/5.1/#sec-15.6.4.2 */
-    static JS::Any toString(const std::vector<JS::Any>& args);
+    static JS::Any toString(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Returns the value of the boolean https://262.ecma-international.org/5.1/#sec-15.6.4.3 */
-    static JS::Any valueOf(const std::vector<JS::Any>& args);
+    static JS::Any valueOf(const JS::Any& thisArg, const JS::Any& args);
     ///@}
 
     /** @brief Function to get the methods of the property prototype */

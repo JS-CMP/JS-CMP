@@ -1,27 +1,27 @@
 #include "types/objects/JsNumber.hpp"
 #include "types/objects/JsFunction.hpp"
 
-JS::Any JS::Number::toString(const std::vector<JS::Any>& args) {
+JS::Any JS::Number::toString(const JS::Any& thisArg, const JS::Any& args) {
     throw std::runtime_error("not implemented");
 }
 
-JS::Any JS::Number::toLocaleString(const std::vector<JS::Any>& args) {
+JS::Any JS::Number::toLocaleString(const JS::Any& thisArg, const JS::Any& args) {
     throw std::runtime_error("not implemented");
 }
 
-JS::Any JS::Number::valueOf(const std::vector<JS::Any>& args) {
+JS::Any JS::Number::valueOf(const JS::Any& thisArg, const JS::Any& args) {
     throw std::runtime_error("not implemented");
 }
 
-JS::Any JS::Number::toFixed(const std::vector<JS::Any>& args) {
+JS::Any JS::Number::toFixed(const JS::Any& thisArg, const JS::Any& args) {
     throw std::runtime_error("not implemented");
 }
 
-JS::Any JS::Number::toExponential(const std::vector<JS::Any>& args) {
+JS::Any JS::Number::toExponential(const JS::Any& thisArg, const JS::Any& args) {
     throw std::runtime_error("not implemented");
 }
 
-JS::Any JS::Number::toPrecision(const std::vector<JS::Any>& args) {
+JS::Any JS::Number::toPrecision(const JS::Any& thisArg, const JS::Any& args) {
     throw std::runtime_error("not implemented");
 }
 

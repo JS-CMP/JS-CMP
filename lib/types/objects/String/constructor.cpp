@@ -1,5 +1,6 @@
 #include "types/objects/JsString.hpp"
 #include "types/objects/JsFunction.hpp"
+#include "utils/Convert.hpp"
 
 namespace JS {
     String::String() : JS::InternalObject({}, getPrototypeProperties(), "String", true) {

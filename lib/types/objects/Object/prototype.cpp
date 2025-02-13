@@ -1,5 +1,4 @@
-#include "types/objects/Object/PrototypeMethods.hpp"
-#include "types/objects/Function/JsFunction.hpp"
+#include "types/objects/Object/JsObject.hpp"
 #include "utils/Compare.hpp"
 #include "utils/Convert.hpp"
 #include "utils/Is.hpp"
@@ -7,7 +6,7 @@
 
 // TODO Implement correctly ToObject to make all the methods work (ToObject should always return an object so the
 // compare type should always be true)
-JS::Any JS::OBJ::PrototypeMethods::toString(const std::vector<JS::Any>& args) {
+JS::Any JS::Object::toString(const std::vector<JS::Any>& args) {
     switch (args[0].getValue().index()) {
         case JS::UNDEFINED:
             return JS::Any("[object Undefined]");
@@ -24,7 +23,7 @@ JS::Any JS::OBJ::PrototypeMethods::toString(const std::vector<JS::Any>& args) {
     return JS::Any("[object " + std::get<std::shared_ptr<JS::InternalObject>>(O.getValue())->class_name + "]");
 }
 
-JS::Any JS::OBJ::PrototypeMethods::toLocaleString(const std::vector<JS::Any>& args) {
+JS::Any JS::Object::toLocaleString(const std::vector<JS::Any>& args) {
     JS::Any O = JS::CONVERT::ToObject(args[0]);
     // TODO to remove when ToObject is implemented correctly
     if (!JS::COMPARE::Type(O, JS::OBJECT)) {
@@ -41,7 +40,7 @@ JS::Any JS::OBJ::PrototypeMethods::toLocaleString(const std::vector<JS::Any>& ar
     throw std::runtime_error("TypeError: Object.prototype.toLocaleString called on non-object");
 }
 
-JS::Any JS::OBJ::PrototypeMethods::valueOf(const std::vector<JS::Any>& args) {
+JS::Any JS::Object::valueOf(const std::vector<JS::Any>& args) {
     JS::Any O = JS::CONVERT::ToObject(args[0]);
     // TODO to remove when ToObject is implemented correctly
     if (!JS::COMPARE::Type(O, JS::OBJECT)) {
@@ -52,7 +51,7 @@ JS::Any JS::OBJ::PrototypeMethods::valueOf(const std::vector<JS::Any>& args) {
     return O;
 }
 
-JS::Any JS::OBJ::PrototypeMethods::hasOwnProperty(const std::vector<JS::Any>& args) {
+JS::Any JS::Object::hasOwnProperty(const std::vector<JS::Any>& args) {
     std::string P = JS::CONVERT::ToString(args[1]);
     JS::Any O = JS::CONVERT::ToObject(args[0]);
     // TODO to remove when ToObject is implemented correctly
@@ -70,7 +69,7 @@ JS::Any JS::OBJ::PrototypeMethods::hasOwnProperty(const std::vector<JS::Any>& ar
     return JS::Any(false);
 }
 
-JS::Any JS::OBJ::PrototypeMethods::isPrototypeOf(const std::vector<JS::Any>& args) {
+JS::Any JS::Object::isPrototypeOf(const std::vector<JS::Any>& args) {
     if (args.empty() || args[1].getValue().index() != JS::OBJECT) {
         return JS::Any(false);
     }
@@ -93,7 +92,7 @@ JS::Any JS::OBJ::PrototypeMethods::isPrototypeOf(const std::vector<JS::Any>& arg
     return JS::Any(false);
 }
 
-JS::Any JS::OBJ::PrototypeMethods::propertyIsEnumerable(const std::vector<JS::Any>& args) {
+JS::Any JS::Object::propertyIsEnumerable(const std::vector<JS::Any>& args) {
     std::string P = JS::CONVERT::ToString(args[1]);
     JS::Any O = JS::CONVERT::ToObject(args[0]);
     // TODO to remove when ToObject is implemented correctly

@@ -1,12 +1,10 @@
-#include "types/objects/Boolean/PrototypeMethods.hpp"
+#include "types/objects/Boolean/JsBoolean.hpp"
 #include "types/objects/Function/JsFunction.hpp"
 
-namespace JS::BOOL {
-    Any PrototypeMethods::toString(const std::vector<JS::Any>& args) {
-        return JS::Any("bool");
-    }
+JS::Any JS::Boolean::toString(const std::vector<JS::Any>& args) {
+    return JS::Any("bool");
+}
 
-    Any PrototypeMethods::valueOf(const std::vector<JS::Any>& args) {
-        throw std::runtime_error("not implemented");
-    }
+JS::Any JS::Boolean::valueOf(const std::vector<JS::Any>& args) {
+    throw std::runtime_error("not implemented");
 }

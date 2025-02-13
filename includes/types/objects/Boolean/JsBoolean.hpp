@@ -1,7 +1,3 @@
-//
-// Created by Simon BANDIERA on 11/02/2025.
-//
-
 #ifndef JS_CMP_JSBOOLEAN_HPP
 #define JS_CMP_JSBOOLEAN_HPP
 
@@ -14,6 +10,9 @@ namespace JS {
         explicit Boolean(const JS::Any& value);
 
         ~Boolean() override = default;
+
+        static JS::Any toString(const std::vector<JS::Any>& args);
+        static JS::Any valueOf(const std::vector<JS::Any>& args);
     };
 }
 

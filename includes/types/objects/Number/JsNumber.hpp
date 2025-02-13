@@ -25,6 +25,8 @@ class Number : public JS::InternalObject {
         constexpr static double NaN = NAN;
         constexpr static double NEGATIVE_INFINITY = -INFINITY;
         constexpr static double POSITIVE_INFINITY = INFINITY;
+
+        static std::shared_ptr<JS::InternalObject> &getPrototypeProperties();
 };
 }
 

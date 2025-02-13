@@ -67,6 +67,8 @@ namespace JS {
         ///@{
         [[nodiscard]] static JS::Any fromCharCode(const std::vector<JS::Any>& args);
         ///@}
+
+        static std::shared_ptr<JS::InternalObject> &getPrototypeProperties();
     };
 }
 

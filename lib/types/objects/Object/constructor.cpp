@@ -1,13 +1,12 @@
 #include "types/objects/Function/JsFunction.hpp"
 #include "types/objects/Object/JsObject.hpp"
-#include "types/objects/Object/PrototypeProperties.hpp"
 #include <utility>
 
 namespace JS {
 
-Object::Object() : JS::InternalObject({}, OBJ::PrototypeProperties::get(), "Object", true) {
+Object::Object() : JS::InternalObject({}, getPrototypeProperties(), "Object", true) {
     this->defineOwnProperty("prototype", DataDescriptor({
-            JS::Any(OBJ::PrototypeProperties::get()),
+            JS::Any(getPrototypeProperties()),
             false,
             false,
             false,
@@ -15,12 +14,12 @@ Object::Object() : JS::InternalObject({}, OBJ::PrototypeProperties::get(), "Obje
 }
 
 Object::Object(const std::unordered_map<std::string, JS::Any>& properties)
-    : JS::InternalObject({}, OBJ::PrototypeProperties::get(), "Object", true) {
+    : JS::InternalObject({}, getPrototypeProperties(), "Object", true) {
     for (const auto& [key, value] : properties) {
         this->InternalObject::put(key, value);
     }
     this->defineOwnProperty("prototype", DataDescriptor({
-        JS::Any(OBJ::PrototypeProperties::get()),
+        JS::Any(getPrototypeProperties()),
         false,
         false,
         false,
@@ -45,7 +44,7 @@ Object::Object(const Attribute& attribute) : JS::InternalObject(attribute) {
         }
     }
     this->defineOwnProperty("prototype", DataDescriptor({
-            JS::Any(OBJ::PrototypeProperties::get()),
+            JS::Any(getPrototypeProperties()),
             false,
             false,
             false,

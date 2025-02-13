@@ -1,10 +1,9 @@
 #include <utils/Convert.hpp>
 
 #include "types/objects/Boolean/JsBoolean.hpp"
-#include "types/objects/Boolean/PrototypeProperties.hpp"
 
 namespace JS {
-    Boolean::Boolean() : InternalObject({}, BOOL::PrototypeProperties::get(), "Boolean", true) {
+    Boolean::Boolean() : InternalObject({}, getPrototypeProperties(), "Boolean", true) {
         this->primitiveValue = true;
         this->defineOwnProperty("length",JS::DataDescriptor{
                 Any(1),
@@ -12,13 +11,13 @@ namespace JS {
                 false,
                 false});
         this->defineOwnProperty("prototype",JS::DataDescriptor{
-                Any(BOOL::PrototypeProperties::get()),
+                Any(getPrototypeProperties()),
                 false,
                 false,
                 false});
     }
 
-    Boolean::Boolean(const JS::Any &value) : InternalObject({}, BOOL::PrototypeProperties::get(), "Boolean", true) {
+    Boolean::Boolean(const JS::Any &value) : InternalObject({}, getPrototypeProperties(), "Boolean", true) {
         bool v = CONVERT::ToBoolean(value);
         this->primitiveValue = v;
         this->defineOwnProperty("length",JS::DataDescriptor{
@@ -27,7 +26,7 @@ namespace JS {
                 false,
                 false});
         this->defineOwnProperty("prototype",JS::DataDescriptor{
-                Any(BOOL::PrototypeProperties::get()),
+                Any(getPrototypeProperties()),
                 false,
                 false,
                 false});

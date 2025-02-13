@@ -1,10 +1,9 @@
 #include "types/objects/Number/JsNumber.hpp"
-#include "types/objects/Number/PrototypeProperties.hpp"
 
 #include "utils/Convert.hpp"
 
 namespace JS {
-    Number::Number() : JS::InternalObject({}, NUM::PrototypeProperties::get(), "Number", true) {
+    Number::Number() : JS::InternalObject({}, getPrototypeProperties(), "Number", true) {
         this->primitiveValue = 0.0;
         this->defineOwnProperty("length",JS::DataDescriptor{
                 JS::Any(1),
@@ -12,13 +11,13 @@ namespace JS {
                 false,
                 false});
         this->defineOwnProperty("prototype",JS::DataDescriptor{
-                JS::Any(NUM::PrototypeProperties::get()),
+                JS::Any(getPrototypeProperties()),
                 false,
                 false,
                 false});
     }
 
-    Number::Number(const JS::Any &value) : JS::InternalObject({}, NUM::PrototypeProperties::get(), "Number", true) {
+    Number::Number(const JS::Any &value) : JS::InternalObject({}, getPrototypeProperties(), "Number", true) {
         double v = JS::CONVERT::ToNumber(value);
         this->primitiveValue = v;
         this->defineOwnProperty("length",JS::DataDescriptor{
@@ -27,13 +26,13 @@ namespace JS {
                 false,
                 false});
         this->defineOwnProperty("prototype",JS::DataDescriptor{
-                JS::Any(NUM::PrototypeProperties::get()),
+                JS::Any(getPrototypeProperties()),
                 false,
                 false,
                 false});
     }
 
-    Number::Number(const std::unordered_map<std::string, JS::Attribute>& properties) : InternalObject({}, NUM::PrototypeProperties::get(), "Boolean", true) {
+    Number::Number(const std::unordered_map<std::string, JS::Attribute>& properties) : InternalObject({}, getPrototypeProperties(), "Boolean", true) {
         this->primitiveValue = 0.0;
         for (const auto& [key, value] : properties) {
             this->InternalObject::defineOwnProperty(key, value);
@@ -44,7 +43,7 @@ namespace JS {
                 false,
                 false});
         this->defineOwnProperty("prototype", DataDescriptor({
-            JS::Any(NUM::PrototypeProperties::get()),
+            JS::Any(getPrototypeProperties()),
             false,
             false,
             false,

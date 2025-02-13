@@ -13,6 +13,8 @@ namespace JS {
 
         static JS::Any toString(const std::vector<JS::Any>& args);
         static JS::Any valueOf(const std::vector<JS::Any>& args);
+
+        static std::shared_ptr<JS::InternalObject> &getPrototypeProperties();
     };
 }
 

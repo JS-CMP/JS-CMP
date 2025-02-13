@@ -85,6 +85,8 @@ public:
     /** @brief Returns the keys of the object https://262.ecma-international.org/5.1/#sec-15.2.3.13 */
     static JS::Any keys(const std::vector<JS::Any>& args);
     ///@}
+
+    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
 };
 
 } // namespace JS

@@ -1,10 +1,7 @@
-#include "types/objects/String/PrototypeProperties.hpp"
-#include "types/objects/Object/PrototypeProperties.hpp"
-
 #include "types/objects/String/JsString.hpp"
 #include "types/objects/Function/JsFunction.hpp"
 
-std::shared_ptr<JS::InternalObject> &JS::STR::PrototypeProperties::get() {
+std::shared_ptr<JS::InternalObject> &JS::String::getPrototypeProperties() {
     static std::unordered_map<std::string, JS::Attribute> properties_prototype = {
             {"toString", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::String::toString)), true, true, true}},
             {"valueOf", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::String::valueOf)), true, true, true}},
@@ -26,7 +23,7 @@ std::shared_ptr<JS::InternalObject> &JS::STR::PrototypeProperties::get() {
             {"toLocaleUpperCase", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::String::toLocaleUpperCase)), true, true, true}},
             {"trim", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::String::trim)), true, true, true}},
     };
-    static std::shared_ptr<JS::InternalObject> instance = std::make_shared<JS::InternalObject>(properties_prototype, JS::OBJ::PrototypeProperties::get(), "String", true);
+    static std::shared_ptr<JS::InternalObject> instance = std::make_shared<JS::InternalObject>(properties_prototype, JS::Object::getPrototypeProperties(), "String", true);
 
     return instance;
 }

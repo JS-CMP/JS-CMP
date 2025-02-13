@@ -6,7 +6,6 @@
 #include "internals/PropertyProxy.hpp"
 
 namespace JS {
-
 /**
  * @class Object
  * @brief Represents a JavaScript-like object in C++.
@@ -31,9 +30,7 @@ public:
     explicit Object(const JS::Attribute& attribute);
     ///@}
 
-    /**
-     * @brief The destructor for the object defaulted
-     */
+    /** @brief The destructor for the object defaulted */
     ~Object() override = default;
 
     /**
@@ -86,6 +83,7 @@ public:
     static JS::Any keys(const std::vector<JS::Any>& args);
     ///@}
 
+    /** @brief Function to get the methods of the property prototype */
     static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
 };
 

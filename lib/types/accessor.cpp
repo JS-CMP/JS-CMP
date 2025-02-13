@@ -1,8 +1,8 @@
 #include "internals/PropertyProxy.hpp"
+#include "types/objects/JsFunction.hpp"
 #include "utils/Convert.hpp"
 
 #include <types/JsAny.hpp>
-#include <types/objects/JsFunction.hpp>
 
 JS::PropertyProxy JS::Any::operator[](const std::string& key) const {
     if (this->value.index() == OBJECT) {

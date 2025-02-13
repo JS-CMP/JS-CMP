@@ -1,5 +1,4 @@
 #include "internals/Object.hpp"
-#include "types/JsAny.hpp"
 #include "types/objects/JsFunction.hpp"
 #include "utils/Compare.hpp"
 #include "utils/Convert.hpp"
@@ -90,7 +89,7 @@ JS::Any Object::defineProperties(const JS::Any& thisArg, const JS::Any& args) {
         O->defineOwnProperty(key, JS::CONVERT::ToPropertyDescriptor(props->get(key)), true);
     }
     return args[0];
-} // namespace JS
+}
 
 JS::Any Object::seal(const JS::Any& thisArg, const JS::Any& args) {
     if (!JS::COMPARE::Type(args["0"], JS::OBJECT)) {

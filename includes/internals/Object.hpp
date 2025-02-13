@@ -25,6 +25,7 @@ public:
     /** @brief Default constructor initializes the object with an empty map */
     explicit InternalObject(JS::Properties properties = {}, std::shared_ptr<JS::InternalObject> prototype = nullptr,
                             std::string class_name = "Object", bool extensible = true);
+    explicit InternalObject(const std::unordered_map<std::string, JS::Any>& properties = {});
     /** @brief Attribute constructor */
     explicit InternalObject(const JS::Attribute& attribute);
 
@@ -93,13 +94,13 @@ public:
     [[nodiscard]] bool isCallable() const override;
     ///@}
 
-    std::shared_ptr<JS::Properties> properties;        /**< The properties of the object. */
-    std::shared_ptr<JS::InternalObject> prototype;     /**< The prototype of the object. */
-    FunctionType call;                                 /**< The call function of the object. */
-    FunctionType construct;                            /**< The construct function of the object. */
-    std::string class_name;                            /**< The class name of the object. */
-    bool extensible;                                   /**< Whether the object is extensible. */
-    std::shared_ptr<JS::InternalObject> parameter_map; /**< The parameter map of the object. */
+    std::shared_ptr<JS::Properties> properties;    /**< The properties of the object. */
+    std::shared_ptr<JS::InternalObject> prototype; /**< The prototype of the object. */
+    FunctionType call;                             /**< The call function of the object. */
+    FunctionType construct;                        /**< The construct function of the object. */
+    std::string class_name;                        /**< The class name of the object. */
+    bool extensible;                               /**< Whether the object is extensible. */
+    JS::Value primitiveValue; /**< The primitive value of the object. (Only Defined for Some Objects) */
 };
 } // namespace JS
 

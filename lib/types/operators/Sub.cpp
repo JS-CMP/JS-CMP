@@ -14,7 +14,7 @@ JS::Any JS::Any::operator-(const JS::Any& other) const {
                     case STRING:
                         return JS::Any(std::get<double>(this->value) -
                                        JS::CONVERT::ToNumber(std::get<Rope>(other.value)));
-                    case BOOL:
+                    case BOOLEAN:
                         return JS::Any(std::get<double>(this->value) -
                                        static_cast<double>(std::get<bool>(other.value)));
                     case NULL_TYPE:
@@ -31,7 +31,7 @@ JS::Any JS::Any::operator-(const JS::Any& other) const {
                     case STRING:
                         return JS::Any(JS::CONVERT::ToNumber(std::get<Rope>(this->value)) -
                                        JS::CONVERT::ToNumber(std::get<Rope>(other.value)));
-                    case BOOL:
+                    case BOOLEAN:
                         return JS::Any(JS::CONVERT::ToNumber(std::get<Rope>(this->value)) -
                                        static_cast<double>(std::get<bool>(other.value)));
                     case NULL_TYPE:
@@ -39,7 +39,7 @@ JS::Any JS::Any::operator-(const JS::Any& other) const {
                     default:
                         return JS::Any(std::numeric_limits<double>::quiet_NaN());
                 }
-            case BOOL:
+            case BOOLEAN:
 
                 switch (other.value.index()) {
                     case NUMBER:
@@ -47,7 +47,7 @@ JS::Any JS::Any::operator-(const JS::Any& other) const {
                     case STRING:
                         return JS::Any(std::get<bool>(this->value) -
                                        JS::CONVERT::ToNumber(std::get<Rope>(other.value)));
-                    case BOOL:
+                    case BOOLEAN:
                         return JS::Any(std::get<bool>(this->value) - std::get<bool>(other.value));
                     case NULL_TYPE:
                         return JS::Any(static_cast<double>(std::get<bool>(this->value)));
@@ -64,7 +64,7 @@ JS::Any JS::Any::operator-(const JS::Any& other) const {
                         double num = JS::CONVERT::ToNumber(std::get<Rope>(other.value));
                         return JS::Any(num == 0 ? 0 : -num);
                     }
-                    case BOOL: {
+                    case BOOLEAN: {
                         double num = static_cast<double>(std::get<bool>(other.value));
                         return JS::Any(num == 0 ? 0 : -num);
                     }
@@ -86,7 +86,7 @@ JS::Any JS::Any::operator-(int value) const {
                 return JS::Any(std::get<double>(this->value) - value);
             case STRING:
                 return JS::Any(JS::CONVERT::ToNumber(std::get<Rope>(this->value)) - value);
-            case BOOL:
+            case BOOLEAN:
                 return JS::Any(static_cast<double>(std::get<bool>(this->value)) - value);
             case NULL_TYPE: {
                 return JS::Any(value == 0 ? 0 : -value);
@@ -104,7 +104,7 @@ JS::Any JS::Any::operator-(double value) const {
                 return JS::Any(std::get<double>(this->value) - value);
             case STRING:
                 return JS::Any(JS::CONVERT::ToNumber(std::get<Rope>(this->value)) - value);
-            case BOOL:
+            case BOOLEAN:
                 return JS::Any(static_cast<double>(std::get<bool>(this->value)) - value);
             case NULL_TYPE: {
                 return JS::Any(value == 0 ? 0 : -value);
@@ -122,7 +122,7 @@ JS::Any JS::Any::operator-(const char* value) const {
                 return JS::Any(std::get<double>(this->value) - JS::CONVERT::ToNumber(value));
             case STRING:
                 return JS::Any(JS::CONVERT::ToNumber(std::get<Rope>(this->value)) - JS::CONVERT::ToNumber(value));
-            case BOOL:
+            case BOOLEAN:
                 return JS::Any(static_cast<double>(std::get<bool>(this->value)) - JS::CONVERT::ToNumber(value));
             case NULL_TYPE: {
                 double num = JS::CONVERT::ToNumber(value);
@@ -141,7 +141,7 @@ JS::Any JS::Any::operator-(bool value) const {
                 return JS::Any(std::get<double>(this->value) - static_cast<double>(value));
             case STRING:
                 return JS::Any(JS::CONVERT::ToNumber(std::get<Rope>(this->value)) - static_cast<double>(value));
-            case BOOL:
+            case BOOLEAN:
                 return JS::Any(static_cast<double>(std::get<bool>(this->value)) - static_cast<double>(value));
             case NULL_TYPE: {
                 double num = static_cast<double>(value);
@@ -160,7 +160,7 @@ JS::Any JS::Any::operator-(JS::Null) const {
                 return JS::Any(std::get<double>(this->value));
             case STRING:
                 return JS::Any(JS::CONVERT::ToNumber(std::get<Rope>(this->value)));
-            case BOOL:
+            case BOOLEAN:
                 return JS::Any(static_cast<double>(std::get<bool>(this->value)));
             case NULL_TYPE:
                 return JS::Any(0);
@@ -179,7 +179,7 @@ JS::Any operator-(int value, JS::Any const& any) {
                 return JS::Any(value - std::get<double>(any.getValue()));
             case STRING:
                 return JS::Any(value - JS::CONVERT::ToNumber(std::get<Rope>(any.getValue())));
-            case BOOL:
+            case BOOLEAN:
                 return JS::Any(static_cast<double>(value) - std::get<bool>(any.getValue()));
             case NULL_TYPE:
                 return JS::Any(value);
@@ -196,7 +196,7 @@ JS::Any operator-(double value, JS::Any const& any) {
                 return JS::Any(value - std::get<double>(any.getValue()));
             case STRING:
                 return JS::Any(value - JS::CONVERT::ToNumber(std::get<Rope>(any.getValue())));
-            case BOOL:
+            case BOOLEAN:
                 return JS::Any(value - static_cast<double>(std::get<bool>(any.getValue())));
             case NULL_TYPE:
                 return JS::Any(value);
@@ -213,7 +213,7 @@ JS::Any operator-(bool value, JS::Any const& any) {
                 return JS::Any(static_cast<double>(value) - std::get<double>(any.getValue()));
             case STRING:
                 return JS::Any(static_cast<double>(value) - JS::CONVERT::ToNumber(std::get<Rope>(any.getValue())));
-            case BOOL:
+            case BOOLEAN:
                 return JS::Any(static_cast<double>(value) - static_cast<double>(std::get<bool>(any.getValue())));
             case NULL_TYPE:
                 return JS::Any(static_cast<double>(value));
@@ -230,7 +230,7 @@ JS::Any operator-(const char* value, JS::Any const& any) {
                 return JS::Any(JS::CONVERT::ToNumber(value) - std::get<double>(any.getValue()));
             case STRING:
                 return JS::Any(JS::CONVERT::ToNumber(value) - JS::CONVERT::ToNumber(std::get<Rope>(any.getValue())));
-            case BOOL:
+            case BOOLEAN:
                 return JS::Any(JS::CONVERT::ToNumber(value) - static_cast<double>(std::get<bool>(any.getValue())));
             case NULL_TYPE:
                 return JS::Any(JS::CONVERT::ToNumber(value));
@@ -251,7 +251,7 @@ JS::Any operator-(JS::Null, JS::Any const& any) {
                 double num = JS::CONVERT::ToNumber(std::get<Rope>(any.getValue()));
                 return JS::Any(num == 0 ? 0 : -num);
             }
-            case BOOL: {
+            case BOOLEAN: {
                 double num = static_cast<double>(std::get<bool>(any.getValue()));
                 return JS::Any(num == 0 ? 0 : -num);
             }

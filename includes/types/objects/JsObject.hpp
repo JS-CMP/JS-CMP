@@ -31,9 +31,7 @@ public:
     explicit Object(const JS::Attribute& attribute);
     ///@}
 
-    /**
-     * @brief The destructor for the object defaulted
-     */
+    /** @brief The destructor for the object defaulted */
     ~Object() override = default;
 
     /**
@@ -68,6 +66,9 @@ public:
     /** @brief Returns the keys of the object https://262.ecma-international.org/5.1/#sec-15.2.3.13 */
     static JS::Any keys(const JS::Any& thisArg, const JS::Any& args);
     ///@}
+
+    /** @brief Function to get the methods of the property prototype */
+    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
 
     /**
      * @name Methods to make prototype methods of the Object built-in

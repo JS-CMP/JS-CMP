@@ -11,7 +11,7 @@ JS::Any JS::Any::operator/(const JS::Any& other) const {
                     case STRING:
                         return JS::Any(std::get<double>(this->value) /
                                        JS::CONVERT::ToNumber(std::get<Rope>(other.value)));
-                    case BOOL:
+                    case BOOLEAN:
                         return JS::Any(std::get<double>(this->value) / std::get<bool>(other.value));
                     case NULL_TYPE:
                         return JS::Any(std::get<double>(this->value) == 0 ? std::numeric_limits<double>::quiet_NaN()
@@ -28,7 +28,7 @@ JS::Any JS::Any::operator/(const JS::Any& other) const {
                     case STRING:
                         return JS::Any(JS::CONVERT::ToNumber(std::get<Rope>(this->value).toString()) /
                                        JS::CONVERT::ToNumber(std::get<Rope>(other.value).toString()));
-                    case BOOL:
+                    case BOOLEAN:
                         return JS::Any(JS::CONVERT::ToNumber(std::get<Rope>(this->value).toString()) /
                                        std::get<bool>(other.value));
                     case NULL_TYPE:
@@ -38,7 +38,7 @@ JS::Any JS::Any::operator/(const JS::Any& other) const {
                     default:
                         return JS::Any(std::numeric_limits<double>::quiet_NaN());
                 }
-            case BOOL:
+            case BOOLEAN:
 
                 switch (other.value.index()) {
                     case NUMBER:
@@ -46,7 +46,7 @@ JS::Any JS::Any::operator/(const JS::Any& other) const {
                     case STRING:
                         return JS::Any(std::get<bool>(this->value) /
                                        JS::CONVERT::ToNumber(std::get<Rope>(other.value).toString()));
-                    case BOOL:
+                    case BOOLEAN:
                         return JS::Any(std::get<bool>(this->value) / static_cast<double>(std::get<bool>(other.value)));
                     case NULL_TYPE:
                         return JS::Any(std::get<bool>(this->value) ? std::numeric_limits<double>::infinity()
@@ -63,7 +63,7 @@ JS::Any JS::Any::operator/(const JS::Any& other) const {
                         return JS::Any(JS::CONVERT::ToNumber(std::get<Rope>(other.value).toString()) == 0
                                            ? std::numeric_limits<double>::quiet_NaN()
                                            : 0);
-                    case BOOL:
+                    case BOOLEAN:
                         return JS::Any(std::get<bool>(other.value) ? 0 : std::numeric_limits<double>::quiet_NaN());
                     case NULL_TYPE:
                         return JS::Any(std::numeric_limits<double>::quiet_NaN());
@@ -82,7 +82,7 @@ JS::Any JS::Any::operator/(int value) const {
                 return JS::Any(std::get<double>(this->value) / value);
             case STRING:
                 return JS::Any(JS::CONVERT::ToNumber(std::get<Rope>(this->value)) / value);
-            case BOOL:
+            case BOOLEAN:
                 return value == 0 ? !std::get<bool>(this->value) ? JS::Any(std::numeric_limits<double>::quiet_NaN())
                                                                  : JS::Any(std::numeric_limits<double>::infinity())
                                   : JS::Any(std::get<bool>(this->value) / value);
@@ -101,7 +101,7 @@ JS::Any JS::Any::operator/(double value) const {
                 return JS::Any(std::get<double>(this->value) / value);
             case STRING:
                 return JS::Any(JS::CONVERT::ToNumber(std::get<Rope>(this->value)) / value);
-            case BOOL:
+            case BOOLEAN:
                 return value == 0 ? !std::get<bool>(this->value) ? JS::Any(std::numeric_limits<double>::quiet_NaN())
                                                                  : JS::Any(std::numeric_limits<double>::infinity())
                                   : JS::Any(std::get<bool>(this->value) / value);
@@ -120,7 +120,7 @@ JS::Any JS::Any::operator/(const char* value) const {
                 return JS::Any(std::get<double>(this->value) / JS::CONVERT::ToNumber(value));
             case STRING:
                 return JS::Any(JS::CONVERT::ToNumber(std::get<Rope>(this->value)) / JS::CONVERT::ToNumber(value));
-            case BOOL:
+            case BOOLEAN:
                 return JS::Any(std::get<bool>(this->value) / JS::CONVERT::ToNumber(value));
             case NULL_TYPE:
                 return JS::Any(0.0 / JS::CONVERT::ToNumber(value));
@@ -137,7 +137,7 @@ JS::Any JS::Any::operator/(bool value) const {
                 return JS::Any(std::get<double>(this->value) / static_cast<double>(value));
             case STRING:
                 return JS::Any(JS::CONVERT::ToNumber(std::get<Rope>(this->value)) / static_cast<double>(value));
-            case BOOL:
+            case BOOLEAN:
                 return JS::Any(std::get<bool>(this->value) / static_cast<double>(value));
             case NULL_TYPE:
                 return JS::Any(0.0 / static_cast<double>(value));
@@ -154,7 +154,7 @@ JS::Any JS::Any::operator/(JS::Null) const {
                 return JS::Any(std::get<double>(this->value) / 0.0);
             case STRING:
                 return JS::Any(JS::CONVERT::ToNumber(std::get<Rope>(this->value)) / 0.0);
-            case BOOL:
+            case BOOLEAN:
                 return JS::Any(std::get<bool>(this->value) / 0.0);
             case NULL_TYPE:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
@@ -174,7 +174,7 @@ Any operator/(int value, JS::Any const& any) {
                 return JS::Any(value / std::get<double>(any.value));
             case STRING:
                 return JS::Any(value / JS::CONVERT::ToNumber(std::get<Rope>(any.value)));
-            case BOOL:
+            case BOOLEAN:
                 return JS::Any(value / static_cast<double>(std::get<bool>(any.value)));
             case NULL_TYPE:
                 return JS::Any(value / 0.0);
@@ -191,7 +191,7 @@ Any operator/(double value, JS::Any const& any) {
                 return JS::Any(value / std::get<double>(any.value));
             case STRING:
                 return JS::Any(value / JS::CONVERT::ToNumber(std::get<Rope>(any.value)));
-            case BOOL:
+            case BOOLEAN:
                 return JS::Any(value / static_cast<double>(std::get<bool>(any.value)));
             case NULL_TYPE:
                 return JS::Any(value / 0.0);
@@ -208,7 +208,7 @@ Any operator/(const char* value, JS::Any const& any) {
                 return JS::Any(JS::CONVERT::ToNumber(value) / std::get<double>(any.value));
             case STRING:
                 return JS::Any(JS::CONVERT::ToNumber(value) / JS::CONVERT::ToNumber(std::get<Rope>(any.value)));
-            case BOOL:
+            case BOOLEAN:
                 return JS::Any(JS::CONVERT::ToNumber(value) / static_cast<double>(std::get<bool>(any.value)));
             case NULL_TYPE:
                 return JS::Any(JS::CONVERT::ToNumber(value) / 0.0);
@@ -225,7 +225,7 @@ Any operator/(bool value, JS::Any const& any) {
                 return JS::Any(static_cast<double>(value) / std::get<double>(any.value));
             case STRING:
                 return JS::Any(static_cast<double>(value) / JS::CONVERT::ToNumber(std::get<Rope>(any.value)));
-            case BOOL:
+            case BOOLEAN:
                 return JS::Any(value / static_cast<double>(std::get<bool>(any.value)));
             case NULL_TYPE:
                 return JS::Any(value / 0.0);
@@ -242,7 +242,7 @@ Any operator/(JS::Null, JS::Any const& any) {
                 return JS::Any(0 / std::get<double>(any.value));
             case STRING:
                 return JS::Any(0 / JS::CONVERT::ToNumber(std::get<Rope>(any.value)));
-            case BOOL:
+            case BOOLEAN:
                 return JS::Any(0 / static_cast<double>(std::get<bool>(any.value)));
             case NULL_TYPE:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());

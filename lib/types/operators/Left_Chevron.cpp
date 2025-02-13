@@ -11,7 +11,7 @@ bool JS::Any::operator<(const JS::Any& other) const {
                         return std::get<double>(this->value) < std::get<double>(other.value);
                     case STRING:
                         return std::get<double>(this->value) < JS::CONVERT::ToNumber(std::get<Rope>(other.value));
-                    case BOOL:
+                    case BOOLEAN:
                         return std::get<double>(this->value) < static_cast<double>(std::get<bool>(other.value));
                     case FUNCTION:
                         return JS::CONVERT::ToString(*this).compare(JS::CONVERT::ToString(other)) < 0;
@@ -25,7 +25,7 @@ bool JS::Any::operator<(const JS::Any& other) const {
                         return JS::CONVERT::ToNumber(std::get<Rope>(this->value)) < std::get<double>(other.value);
                     case STRING:
                         return std::get<Rope>(this->value).compare(std::get<Rope>(other.value)) < 0;
-                    case BOOL:
+                    case BOOLEAN:
                         return JS::CONVERT::ToNumber(std::get<Rope>(this->value)) < std::get<bool>(other.value);
                     case FUNCTION:
                         return std::get<Rope>(this->value).toString().compare(std::get<Rope>(other.value).toString()) <
@@ -33,7 +33,7 @@ bool JS::Any::operator<(const JS::Any& other) const {
                     default:
                         return false;
                 }
-            case BOOL:
+            case BOOLEAN:
 
                 switch (other.value.index()) {
                     case NUMBER:
@@ -41,7 +41,7 @@ bool JS::Any::operator<(const JS::Any& other) const {
                     case STRING:
                         return std::get<bool>(this->value) <
                                static_cast<long long int>(JS::CONVERT::ToNumber(std::get<Rope>(other.value)));
-                    case BOOL:
+                    case BOOLEAN:
                         return std::get<bool>(this->value) < std::get<bool>(other.value);
                     case FUNCTION:
                         return JS::CONVERT::ToString(*this).compare(JS::CONVERT::ToString(other)) < 0;
@@ -55,7 +55,7 @@ bool JS::Any::operator<(const JS::Any& other) const {
                         return 0.0 < std::get<double>(other.value);
                     case STRING:
                         return 0.0 < JS::CONVERT::ToNumber(std::get<Rope>(other.value));
-                    case BOOL:
+                    case BOOLEAN:
                         return 0 < std::get<bool>(other.value);
                     default:
                         return false;

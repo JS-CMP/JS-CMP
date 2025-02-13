@@ -10,7 +10,7 @@ bool JS::Any::operator==(const JS::Any& other) const {
                     return std::get<double>(this->value) == std::get<double>(other.value);
                 case STRING:
                     return std::get<double>(this->value) == std::stod(std::get<Rope>(other.value).toString());
-                case BOOL:
+                case BOOLEAN:
                     return std::get<double>(this->value) == static_cast<double>(std::get<bool>(other.value));
                 default:
                     return false; // Invalid type
@@ -21,20 +21,20 @@ bool JS::Any::operator==(const JS::Any& other) const {
                     return std::stod(std::get<Rope>(this->value).toString()) == std::get<double>(other.value);
                 case STRING:
                     return std::get<Rope>(this->value) == std::get<Rope>(other.value);
-                case BOOL:
+                case BOOLEAN:
                     return std::stod(std::get<Rope>(this->value).toString()) ==
                            static_cast<double>(std::get<bool>(other.value));
                 default:
                     return false; // Invalid type
             }
-        case BOOL:
+        case BOOLEAN:
             switch (other.value.index()) {
                 case NUMBER:
                     return static_cast<double>(std::get<bool>(this->value)) == std::get<double>(other.value);
                 case STRING:
                     return static_cast<double>(std::get<bool>(this->value)) ==
                            std::stod(std::get<Rope>(other.value).toString());
-                case BOOL:
+                case BOOLEAN:
                     return std::get<bool>(this->value) == std::get<bool>(other.value);
                 default:
                     return false; // Invalid type

@@ -7,7 +7,7 @@ JS::Any global_typeof(const JS::Any& thisArgs, const JS::Any& args) {
             return JS::Any("number");
         case JS::STRING:
             return JS::Any("string");
-        case JS::BOOL:
+        case JS::BOOLEAN:
             return JS::Any("boolean");
         case JS::UNDEFINED:
             return JS::Any("undefined");

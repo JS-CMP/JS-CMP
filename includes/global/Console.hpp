@@ -28,7 +28,7 @@ public:
      * console::log("Hello,", "world!", 42);
      * @endcode
      */
-    static void log(const JS::Any& thisArg, const JS::Any& args);
+    static JS::Any log(const JS::Any& thisArg, const JS::Any& args);
 
 private:
     Console() = default;  ///< Private constructor to prevent instantiation.

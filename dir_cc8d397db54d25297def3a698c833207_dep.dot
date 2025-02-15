@@ -7,8 +7,15 @@ digraph "lib/types/operators"
   compound=true
   subgraph clusterdir_560694f03ee5bf1136d79e4f1ca1ca37 {
     graph [ bgcolor="#daedff", pencolor="grey50", label="types", fontname=Helvetica,fontsize=10 style="filled,dashed", URL="dir_560694f03ee5bf1136d79e4f1ca1ca37.html",tooltip=""]
-  dir_cc8d397db54d25297def3a698c833207 [label="operators", fillcolor="#daedff", color="grey25", style="filled,bold", URL="dir_cc8d397db54d25297def3a698c833207.html",tooltip=""];
+  subgraph clusterdir_cc8d397db54d25297def3a698c833207 {
+    graph [ bgcolor="#daedff", pencolor="grey25", label="", fontname=Helvetica,fontsize=10 style="filled,bold", URL="dir_cc8d397db54d25297def3a698c833207.html",tooltip=""]
+    dir_cc8d397db54d25297def3a698c833207 [shape=plaintext, label="operators"];
+  dir_f1cebc03feb444306a0443b04057d30c [label="bitwise", fillcolor="#4ea9ff", color="grey25", style="filled", URL="dir_f1cebc03feb444306a0443b04057d30c.html",tooltip=""];
+  dir_407075bd378e66716ff5edd0eafa66b6 [label="Logical", fillcolor="#4ea9ff", color="grey25", style="filled", URL="dir_407075bd378e66716ff5edd0eafa66b6.html",tooltip=""];
+  }
   }
   dir_09e761304027c904456130627fd4dcf5 [label="includes", fillcolor="#daedff", color="red", style="filled", URL="dir_09e761304027c904456130627fd4dcf5.html",tooltip=""];
-  dir_cc8d397db54d25297def3a698c833207->dir_09e761304027c904456130627fd4dcf5 [headlabel="18", labeldistance=1.5 headhref="dir_000013_000005.html" href="dir_000013_000005.html" color="steelblue1" fontcolor="steelblue1"];
+  dir_cc8d397db54d25297def3a698c833207->dir_09e761304027c904456130627fd4dcf5 [headlabel="38", labeldistance=1.5 headhref="dir_000016_000007.html" href="dir_000016_000007.html" color="steelblue1" fontcolor="steelblue1"];
+  dir_f1cebc03feb444306a0443b04057d30c->dir_09e761304027c904456130627fd4dcf5 [headlabel="14", labeldistance=1.5 headhref="dir_000001_000007.html" href="dir_000001_000007.html" color="steelblue1" fontcolor="steelblue1"];
+  dir_407075bd378e66716ff5edd0eafa66b6->dir_09e761304027c904456130627fd4dcf5 [headlabel="6", labeldistance=1.5 headhref="dir_000011_000007.html" href="dir_000011_000007.html" color="steelblue1" fontcolor="steelblue1"];
 }

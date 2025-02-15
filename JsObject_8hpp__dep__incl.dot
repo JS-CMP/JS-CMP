@@ -32,7 +32,9 @@ digraph "includes/types/objects/JsObject.hpp"
   Node1 -> Node13 [id="edge14_Node000001_Node000013",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node13 [id="Node000013",label="lib/utils/Compare.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Compare_8cpp.html",tooltip=" "];
   Node1 -> Node14 [id="edge15_Node000001_Node000014",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node14 [id="Node000014",label="lib/utils/Convert.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Convert_8cpp.html",tooltip=" "];
+  Node14 [id="Node000014",label="lib/utils/Convert/FromProperty\lDescriptor.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$FromPropertyDescriptor_8cpp.html",tooltip=" "];
   Node1 -> Node15 [id="edge16_Node000001_Node000015",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node15 [id="Node000015",label="lib/utils/Is.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Is_8cpp.html",tooltip=" "];
+  Node15 [id="Node000015",label="lib/utils/Convert/ToProperty\lDescriptor.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$ToPropertyDescriptor_8cpp.html",tooltip=" "];
+  Node1 -> Node16 [id="edge17_Node000001_Node000016",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node16 [id="Node000016",label="lib/utils/Is.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Is_8cpp.html",tooltip=" "];
 }

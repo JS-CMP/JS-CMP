@@ -7,6 +7,5 @@ var searchData=
   ['console_2ehpp_4',['Console.hpp',['../Console_8hpp.html',1,'']]],
   ['constructor_2ecpp_5',['constructor.cpp',['../internals_2Object_2constructor_8cpp.html',1,'(Global Namespace)'],['../types_2constructor_8cpp.html',1,'(Global Namespace)'],['../types_2objects_2Object_2constructor_8cpp.html',1,'(Global Namespace)']]],
   ['contributing_2emd_6',['CONTRIBUTING.md',['../CONTRIBUTING_8md.html',1,'']]],
-  ['convert_2ecpp_7',['Convert.cpp',['../Convert_8cpp.html',1,'']]],
-  ['convert_2ehpp_8',['Convert.hpp',['../Convert_8hpp.html',1,'']]]
+  ['convert_2ehpp_7',['Convert.hpp',['../Convert_8hpp.html',1,'']]]
 ];

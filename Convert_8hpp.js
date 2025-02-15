@@ -10,6 +10,8 @@ var Convert_8hpp =
     [ "ToBoolean", "Convert_8hpp.html#a2478ead98caa44ef590726fc1eb3b017", null ],
     [ "ToBoolean", "Convert_8hpp.html#a9fdedebb496f8db314942536023a3cb9", null ],
     [ "ToBoolean", "Convert_8hpp.html#a9c4966449f576cfa6de345e758b51dd1", null ],
+    [ "ToInt16", "Convert_8hpp.html#a3017a1b10071403b6398866e7f3f12fb", null ],
+    [ "ToInt32", "Convert_8hpp.html#ab3be02a679228b4d9afb745c972e3143", null ],
     [ "ToInteger", "Convert_8hpp.html#ac478b775f7669d535edf2df8bb5955da", null ],
     [ "ToInteger", "Convert_8hpp.html#a519bbd30d4e115ec74ff4b789ba28fef", null ],
     [ "ToInteger", "Convert_8hpp.html#a192cd744adc6561fd3b1ff51746385bd", null ],
@@ -17,6 +19,7 @@ var Convert_8hpp =
     [ "ToInteger", "Convert_8hpp.html#ae88a1b7fd35be9bff220e097ba2a2f03", null ],
     [ "ToInteger", "Convert_8hpp.html#a64e3331ff321e4061a8076e12f5b84be", null ],
     [ "ToInteger", "Convert_8hpp.html#a3c67b25580f1af08349aaa584fe4af09", null ],
+    [ "ToNumber", "Convert_8hpp.html#aba99f0e63fa31409c1278633804edebb", null ],
     [ "ToNumber", "Convert_8hpp.html#af7f71a890449cf4d40b8c7800a19c46d", null ],
     [ "ToNumber", "Convert_8hpp.html#ad77902f3db728b6a2a41118d1eef68d0", null ],
     [ "ToNumber", "Convert_8hpp.html#ad9bd3dd9e8f48117cec8d093b83bce5f", null ],
@@ -33,5 +36,12 @@ var Convert_8hpp =
     [ "ToString", "Convert_8hpp.html#aa3063017470b6caea9b5d2e4b81ed144", null ],
     [ "ToString", "Convert_8hpp.html#a98fccd24556eab58d3dcf1222e72441a", null ],
     [ "ToString", "Convert_8hpp.html#a8cb2953d7d1989980e2345aa42a7a2ec", null ],
-    [ "ToString", "Convert_8hpp.html#abc3a29b90213c8243fab36951ac3ad8e", null ]
+    [ "ToString", "Convert_8hpp.html#abc3a29b90213c8243fab36951ac3ad8e", null ],
+    [ "ToUint32", "Convert_8hpp.html#afb8db55c725b6ea0bc29a88477635ca1", null ],
+    [ "ToUint32", "Convert_8hpp.html#a0fc52ebeecff1eb0d2dac140a3a0e1b4", null ],
+    [ "ToUint32", "Convert_8hpp.html#a3257855a18b4b568b095ea6fd0e16f3e", null ],
+    [ "ToUint32", "Convert_8hpp.html#aa78b741f20abd98be0aef03261ea6209", null ],
+    [ "ToUint32", "Convert_8hpp.html#abab33758612b3a7425012777c45692c0", null ],
+    [ "ToUint32", "Convert_8hpp.html#a63dcd1d28e1747dc1131475e68fcea15", null ],
+    [ "ToUint32", "Convert_8hpp.html#a917a0b01c511e6f92d8aaf554e282be2", null ]
 ];

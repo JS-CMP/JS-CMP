@@ -1,6 +1,8 @@
 #include <types/JsAny.hpp>
 #include <utils/Convert.hpp>
 
+// TODO when ToPrimitive is implemented refactor this
+
 JS::Any JS::Any::operator+(const JS::Any& other) const {
     switch (this->value.index()) {
         case NUMBER:

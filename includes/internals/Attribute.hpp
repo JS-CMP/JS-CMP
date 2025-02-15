@@ -60,30 +60,15 @@ public:
      * @param enumerable Whether the property will be included in enumeration operations.
      * @param configurable Whether the property can be deleted or changed to a data property.
      */
-    AccessorDescriptor(std::shared_ptr<JS::InternalObject> get, std::shared_ptr<JS::InternalObject> set,
+    AccessorDescriptor(std::shared_ptr<JS::InternalObject> set, std::shared_ptr<JS::InternalObject> get,
                        bool enumerable, bool configurable)
-        : get(std::move(get)), set(std::move(set)), enumerable(enumerable), configurable(configurable){};
+        : set(std::move(set)), get(std::move(get)), enumerable(enumerable), configurable(configurable){};
 
     std::shared_ptr<JS::InternalObject> get; /**< The getter function for the property. */
     std::shared_ptr<JS::InternalObject> set; /**< The setter function for the property. */
     bool enumerable = false;                 /**< Whether the property will be included in enumeration operations. */
     bool configurable = false;               /**< Whether the property can be deleted or changed to a data property. */
 };
-
-/**
- * @enum AttributeTypes
- * @brief Represents the types of JavaScript object properties.
- */
-enum AttributeTypes {
-    DATA_DESCRIPTOR,    /**< Represents a data property. */
-    ACCESSOR_DESCRIPTOR /**< Represents an accessor property. */
-};
-
-/**
- * @typedef Attribute
- * @brief Represents a JavaScript object property, which can be a data property or an accessor property.
- */
-using Attribute = std::variant<DataDescriptor, AccessorDescriptor>;
 
 } // namespace JS
 

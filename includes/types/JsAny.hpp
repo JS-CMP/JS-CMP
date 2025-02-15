@@ -2,6 +2,7 @@
 #define JSANY_HPP
 
 #include "Types.hpp"
+#include "internals/Arguments.hpp"
 
 namespace JS {
 /**
@@ -304,11 +305,10 @@ public:
     /** @brief Accessors to call function stored in properties on an object stored in value */
     template <typename... Args>
     JS::Any operator()(Args&&... args) {
-        std::vector<JS::Any> arguments = {JS::Any(JS::Null{}), std::forward<Args>(args)...};
-        return call(arguments);
+        return call(JS::Arguments::CreateArgumentsObject(std::vector<JS::Any>{args...}));
     }
     /** @brief Accessors to call function stored in properties on an object stored in value */
-    JS::Any call(const std::vector<JS::Any>& args) const;
+    JS::Any call(const JS::Any& args) const;
 
     /** @brief Accessors to properties of object in stored in value */
     JS::PropertyProxy operator[](const std::string& key) const;

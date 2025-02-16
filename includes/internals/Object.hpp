@@ -46,8 +46,6 @@ public:
     ///@{
     /** @brief Accessors to properties with string of object in stored in value */
     JS::PropertyProxy operator[](const std::string& key) override;
-    /** @brief Accessors to properties with number of object in stored in value */
-    JS::PropertyProxy operator[](size_t index) override;
     /** @brief Call operator for the object */
     template <typename... Args>
     JS::Any operator()(Args... args) {

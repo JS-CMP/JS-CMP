@@ -5,6 +5,10 @@
 #include "internals/Arguments.hpp"
 
 namespace JS {
+
+template <typename T>
+using JSAnyAmbiguous = std::enable_if_t<!std::is_same_v<T, JS::Any>, JS::Any>;
+
 /**
  * @class Any
  * @brief Represents a JavaScript-like variant type in C++ that can hold multiple types of values.
@@ -21,25 +25,25 @@ public:
      */
     ///@{
     /** @brief Default constructor initializes the value to undefined */
-    Any() : value(JS::Undefined{}){};
+    Any() : value(JS::Undefined{}) {};
     /** @brief Constructor for int */
-    explicit Any(int v) : value(static_cast<double>(v)){};
+    explicit Any(int v) : value(static_cast<double>(v)) {};
     /** @brief Constructor for double */
-    explicit Any(double v) : value(v){};
+    explicit Any(double v) : value(v) {};
     /** @brief Constructor for Rope */
-    explicit Any(Rope& v) : value(v){};
+    explicit Any(Rope& v) : value(v) {};
     /** @brief Constructor for Rope */
-    explicit Any(Rope v) : value(v){};
+    explicit Any(Rope v) : value(v) {};
     /** @brief Constructor for string */
-    explicit Any(const std::string& v) : value(Rope(v)){};
+    explicit Any(const std::string& v) : value(Rope(v)) {};
     /** @brief Constructor for string */
-    explicit Any(const char* v) : value(Rope(v)){};
+    explicit Any(const char* v) : value(Rope(v)) {};
     /** @brief Constructor for bool */
-    explicit Any(bool v) : value(v){};
+    explicit Any(bool v) : value(v) {};
     /** @brief Constructor for undefined */
-    explicit Any(JS::Undefined v) : value(JS::Undefined{}){};
+    explicit Any(JS::Undefined v) : value(JS::Undefined{}) {};
     /** @brief Constructor for null */
-    explicit Any(JS::Null v) : value(JS::Null{}){};
+    explicit Any(JS::Null v) : value(JS::Null{}) {};
     /** @brief Constructor for object taking a shared_ptr */
     explicit Any(std::shared_ptr<JS::InternalObject> v);
     /** @brief Constructor for object */
@@ -64,21 +68,21 @@ public:
     JS::Any operator&(T other) const;
     /** @brief Bitwise AND operator T & Any */
     template <typename T>
-    friend JS::Any operator&(T value, JS::Any const& any);
+    friend JSAnyAmbiguous<T> operator&(T value, JS::Any const& any);
 
     /** @brief Bitwise OR operator a | b */
     template <typename T>
     JS::Any operator|(T other) const;
     /** @brief Bitwise OR operator T | Any */
     template <typename T>
-    friend JS::Any operator|(T value, JS::Any const& any);
+    friend JSAnyAmbiguous<T> operator|(T value, JS::Any const& any);
 
     /** @brief Bitwise XOR operator a ^ b */
     template <typename T>
     JS::Any operator^(T other) const;
     /** @brief Bitwise XOR operator T ^ Any */
     template <typename T>
-    friend JS::Any operator^(T value, JS::Any const& any);
+    friend JSAnyAmbiguous<T> operator^(T value, JS::Any const& any);
 
     /** @brief Bitwise NOT operator ~a */
     JS::Any operator~() const;
@@ -91,14 +95,14 @@ public:
     JS::Any operator<<(T other) const;
     /** @brief Bitwise left shift operator T << Any */
     template <typename T>
-    friend JS::Any operator<<(T value, JS::Any const& any);
+    friend JSAnyAmbiguous<T> operator<<(T value, JS::Any const& any);
 
     /** @brief Bitwise right shift operator a >> b */
     template <typename T>
     JS::Any operator>>(T other) const;
     /** @brief Bitwise right shift operator int >> Any */
     template <typename T>
-    friend JS::Any operator>>(T value, JS::Any const& any);
+    friend JSAnyAmbiguous<T> operator>>(T value, JS::Any const& any);
 
     ///@}
 
@@ -135,6 +139,12 @@ public:
     ///@}
 
     /**
+     * @name Unary + operator
+     * This operator returns the value of the `Any` object as a number.
+     */
+    JS::Any operator+() const;
+
+    /**
      * @name Subtraction operators -
      * These operators perform subtraction operations on the value of the `Any` object.
      */
@@ -146,10 +156,16 @@ public:
     JS::Any operator-(JS::Undefined) const;
     /** @brief Subtraction operator T - Any */
     template <typename T>
-    friend JS::Any operator-(T value, JS::Any const& any);
+    friend JSAnyAmbiguous<T> operator-(T value, JS::Any const& any);
     /** @brief Subtraction operator Undefined - Any */
     friend JS::Any operator-(JS::Undefined, JS::Any const& any);
     ///@}
+
+    /**
+     * @name Unary - operator
+     * This operator returns the negation of the value of the `Any` object.
+     */
+    JS::Any operator-() const;
 
     /**
      * @name Multiplication operators *
@@ -260,14 +276,14 @@ public:
     JS::Any operator&&(T other) const;
     /** @brief And operator T && Any */
     template <typename T>
-    friend JS::Any operator&&(T value, JS::Any const& any);
+    friend JSAnyAmbiguous<T> operator&&(T value, JS::Any const& any);
 
     /** @brief Or operator Any || T */
     template <typename T>
     JS::Any operator||(T other) const;
     /** @brief Or operator T || Any */
     template <typename T>
-    friend JS::Any operator||(T value, JS::Any const& any);
+    friend JSAnyAmbiguous<T> operator||(T value, JS::Any const& any);
     ///@}
 
     /**
@@ -286,15 +302,17 @@ public:
     ///@}
 
     /**
-     * @name Comparison operators
+     * @name Comparaison operators
      * These operators compare the value of the `Any` object with another `Any` object.
      */
-    /** @brief Comparison operator a < b */
-    bool operator<(const JS::Any& other) const;
-    /** @brief Modulus operator a > b */
-    bool operator>(const JS::Any& other) const;
-    /** @brief Modulus operator a == b */
-    bool operator==(const JS::Any& other) const;
+    /** @brief Comparaison operator a < b */
+    JS::Any operator<(const JS::Any& other) const;
+    /** @brief Comparaison operator a > b */
+    JS::Any operator>(const JS::Any& other) const;
+    /** @brief Comparaison operator a == b */
+    JS::Any operator==(const JS::Any& other) const;
+    /** @brief Comparaison operator a != b */
+    JS::Any operator!=(const JS::Any& other) const;
     ///@}
 
     /**
@@ -311,10 +329,19 @@ public:
     JS::Any call(const JS::Any& args) const;
 
     /** @brief Accessors to properties of object in stored in value */
-    JS::PropertyProxy operator[](const std::string& key) const;
-    /** @brief Accessors to properties of object in stored in value */
-    JS::PropertyProxy operator[](size_t index) const;
+    template <typename T>
+    JS::PropertyProxy operator[](T key) const;
+
     ///@}
+
+    /**
+     * @name Conversion operators
+     * These operators convert the value of the `Any` object to another type.
+     */
+    ///@{
+    /** @brief Conversion operator to bool */
+    operator bool() const;
+    /** @brief Conversion operator to double */
 
     /**
      * @brief Friend function for outputting `Any` object to a stream.

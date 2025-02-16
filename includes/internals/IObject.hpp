@@ -27,8 +27,6 @@ public:
     ///@{
     /** @brief Accessors to properties with string of object in stored in value */
     virtual JS::PropertyProxy operator[](const std::string& key) = 0;
-    /** @brief Accessors to properties with number of object in stored in value */
-    virtual JS::PropertyProxy operator[](size_t index) = 0;
     ///@}
 
     /**

@@ -17,6 +17,8 @@ bool SameValue(const JS::Null& a, const JS::Null& b);
 bool SameValue(const JS::Any& a, const JS::Any& b); // https://262.ecma-international.org/5.1/#sec-9.12
 
 bool SameValue(const JS::Attribute& a, const JS::Attribute& b);
+
+void CheckObjectCoercible(const JS::Any& a); // https://262.ecma-international.org/5.1/#sec-9.10
 } // namespace JS::COMPARE
 
 #endif // COMPARE_HPP

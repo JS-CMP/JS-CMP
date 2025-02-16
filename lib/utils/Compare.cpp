@@ -75,4 +75,15 @@ bool SameValue(const JS::Attribute& a, const JS::Attribute& b) {
     }
     return false;
 }
+
+void CheckObjectCoercible(const JS::Any& a) {
+    switch (a.getValue().index()) {
+        case JS::UNDEFINED:
+        case JS::NULL_TYPE:
+            throw std::runtime_error("TypeError: Cannot convert undefined or null to object"); // TypeError
+        default:
+            return;
+    }
+}
+
 } // namespace JS::COMPARE

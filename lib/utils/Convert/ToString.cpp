@@ -9,8 +9,10 @@ std::string ToString(double value) {
            : std::isinf(value) ? value < 0 ? "-Infinity" : "Infinity"
                                : (std::ostringstream() << value).str();
 }
-std::string ToString(const Rope& rope) { return rope.toString(); }
 std::string ToString(bool value) { return value ? "true" : "false"; }
+std::string ToString(const char* value) { return value; }
+std::string ToString(const std::string& value) { return value; }
+std::string ToString(const Rope& rope) { return rope.toString(); }
 std::string ToString(const JS::Null&) { return "null"; }
 std::string ToString(const JS::Undefined&) { return "undefined"; }
 std::string ToString(const JS::Any& any) {

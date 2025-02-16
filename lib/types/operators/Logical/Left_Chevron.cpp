@@ -10,7 +10,7 @@ JS::Any JS::Any::operator<(const JS::Any& other) const {
                         return JS::Any(std::get<double>(this->value) < std::get<double>(other.value));
                     case STRING:
                         return JS::Any(std::get<double>(this->value) <
-                                           JS::CONVERT::ToNumber(std::get<Rope>(other.value)));
+                                       JS::CONVERT::ToNumber(std::get<Rope>(other.value)));
                     case BOOL:
                         return JS::Any(std::get<double>(this->value) <
                                        static_cast<double>(std::get<bool>(other.value)));

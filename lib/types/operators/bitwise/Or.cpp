@@ -15,7 +15,6 @@ template JS::Any JS::Any::operator|(JS::Undefined) const;
 template JS::Any JS::Any::operator|(JS::Any) const;
 template JS::Any JS::Any::operator|(const JS::Any&) const;
 
-
 namespace JS {
 template <typename T>
 JS::Any operator|(T value, const JS::Any& any) {

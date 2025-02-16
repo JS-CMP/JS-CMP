@@ -9,7 +9,8 @@ template <typename T>
 JS::PropertyProxy JS::Any::operator[](T key) const {
     JS::COMPARE::CheckObjectCoercible(*this);
     JS::Any value = JS::CONVERT::ToObject(*this);
-    return JS::PropertyProxy(std::get<std::shared_ptr<JS::InternalObject>>(value.getValue()), JS::CONVERT::ToString(key));
+    return JS::PropertyProxy(std::get<std::shared_ptr<JS::InternalObject>>(value.getValue()),
+                             JS::CONVERT::ToString(key));
 }
 template JS::PropertyProxy JS::Any::operator[](const int&) const;
 template JS::PropertyProxy JS::Any::operator[](const double&) const;
@@ -19,10 +20,9 @@ template JS::PropertyProxy JS::Any::operator[](const std::string&) const;
 template JS::PropertyProxy JS::Any::operator[](const JS::Null&) const;
 template JS::PropertyProxy JS::Any::operator[](const JS::Undefined&) const;
 template JS::PropertyProxy JS::Any::operator[](const JS::Any&) const;
-template JS::PropertyProxy JS::Any::operator[](const JS::PropertyProxy &) const;
+template JS::PropertyProxy JS::Any::operator[](const JS::PropertyProxy&) const;
 template JS::PropertyProxy JS::Any::operator[](JS::Any) const;
 template JS::PropertyProxy JS::Any::operator[](JS::PropertyProxy) const;
-
 
 JS::Any JS::Any::call(const JS::Any& args) const {
     if (value.index() == JS::OBJECT && std::get<std::shared_ptr<JS::InternalObject>>(value)->isCallable()) {

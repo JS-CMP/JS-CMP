@@ -21,7 +21,7 @@ JS::Any JS::Any::operator==(const JS::Any& other) const {
                     return JS::Any(std::get<Rope>(this->value) == std::get<Rope>(other.value));
                 case BOOL:
                     return JS::Any(std::stod(std::get<Rope>(this->value).toString()) ==
-                           static_cast<double>(std::get<bool>(other.value)));
+                                   static_cast<double>(std::get<bool>(other.value)));
                 default:
                     return JS::Any(false); // Invalid type
             }
@@ -31,7 +31,7 @@ JS::Any JS::Any::operator==(const JS::Any& other) const {
                     return JS::Any(static_cast<double>(std::get<bool>(this->value)) == std::get<double>(other.value));
                 case STRING:
                     return JS::Any(static_cast<double>(std::get<bool>(this->value)) ==
-                           std::stod(std::get<Rope>(other.value).toString()));
+                                   std::stod(std::get<Rope>(other.value).toString()));
                 case BOOL:
                     return JS::Any(std::get<bool>(this->value) == std::get<bool>(other.value));
                 default:

@@ -19,9 +19,9 @@ public:
      * These constructors create a new Array object with the given value
      */
     ///@{
-    explicit Array(const std::vector<JS::Any>& data) {};
+    explicit Array(const std::vector<JS::Any>& data){};
     ///@}
 };
 
 } // namespace JS
-#endif //JSARRAY_HPP
+#endif // JSARRAY_HPP

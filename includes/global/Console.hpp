@@ -1,8 +1,9 @@
 #ifndef JS_CMP_ALPHA_CONSOLE_HPP
 #define JS_CMP_ALPHA_CONSOLE_HPP
 
-#include <iostream>
 #include "types/JsAny.hpp"
+
+#include <iostream>
 
 namespace JS {
 /**

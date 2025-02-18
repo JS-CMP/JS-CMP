@@ -1,11 +1,11 @@
 #ifndef JS_CMP_GLOBAL_HPP
 #define JS_CMP_GLOBAL_HPP
 
+#include "global/Console.hpp"
 #include "globalFunctions.hpp"
 #include "types/JsAny.hpp"
 #include "types/objects/JsFunction.hpp"
 #include "types/objects/JsObject.hpp"
-#include "global/Console.hpp"
 
 // TODO fix this create Object to inherit from Function
 JS::Any Object = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::string, JS::Any>{

@@ -20,6 +20,7 @@ class Math {
 public:
     /**
      * @brief Returns the absolute value of the given number.
+     * @param thisArg Ignored for this method.
      * @param args A vector containing a single JS::Any element representing the number.
      * @return A JS::Any containing the absolute value.
      */
@@ -27,6 +28,7 @@ public:
 
     /**
      * @brief Returns the arccosine (in radians) of the given number.
+     * @param thisArg Ignored for this method.
      * @param args A vector containing a single JS::Any element representing the number.
      * @return A JS::Any containing the arccosine.
      */
@@ -34,6 +36,7 @@ public:
 
     /**
      * @brief Returns the arcsine (in radians) of the given number.
+     * @param thisArg Ignored for this method.
      * @param args A vector containing a single JS::Any element representing the number.
      * @return A JS::Any containing the arcsine.
      */
@@ -41,6 +44,7 @@ public:
 
     /**
      * @brief Returns the arctangent (in radians) of the given number.
+     * @param thisArg Ignored for this method.
      * @param args A vector containing a single JS::Any element representing the number.
      * @return A JS::Any containing the arctangent.
      */
@@ -51,7 +55,7 @@ public:
      *
      * The first argument is interpreted as y and the second as x. The signs of y and x are used
      * to determine the quadrant of the result. The returned value is in radians and lies within the range [-π, +π].
-     *
+     * @param thisArg Ignored for this method.
      * @param args A vector containing two JS::Any elements: [y, x].
      * @return A JS::Any containing the result.
      */
@@ -59,6 +63,7 @@ public:
 
     /**
      * @brief Returns the smallest integer greater than or equal to the given number.
+     * @param thisArg Ignored for this method.
      * @param args A vector containing a single JS::Any element representing the number.
      * @return A JS::Any containing the ceiling value.
      */
@@ -66,6 +71,7 @@ public:
 
     /**
      * @brief Returns the cosine of the given angle (in radians).
+     * @param thisArg Ignored for this method.
      * @param args A vector containing a single JS::Any element representing the angle.
      * @return A JS::Any containing the cosine value.
      */
@@ -73,6 +79,7 @@ public:
 
     /**
      * @brief Returns the exponential of the given number.
+     * @param thisArg Ignored for this method.
      * @param args A vector containing a single JS::Any element representing the exponent.
      * @return A JS::Any containing e raised to the power of the given number.
      */
@@ -80,6 +87,7 @@ public:
 
     /**
      * @brief Returns the largest integer less than or equal to the given number.
+     * @param thisArg Ignored for this method.
      * @param args A vector containing a single JS::Any element representing the number.
      * @return A JS::Any containing the floor value.
      */
@@ -87,6 +95,7 @@ public:
 
     /**
      * @brief Returns the natural logarithm (base e) of the given number.
+     * @param thisArg Ignored for this method.
      * @param args A vector containing a single JS::Any element representing the number.
      * @return A JS::Any containing the logarithm.
      */
@@ -94,6 +103,7 @@ public:
 
     /**
      * @brief Returns the maximum value among the given arguments.
+     * @param thisArg Ignored for this method.
      * @param args A vector of JS::Any elements representing numbers.
      * @return A JS::Any containing the maximum value.
      */
@@ -101,6 +111,7 @@ public:
 
     /**
      * @brief Returns the minimum value among the given arguments.
+     * @param thisArg Ignored for this method.
      * @param args A vector of JS::Any elements representing numbers.
      * @return A JS::Any containing the minimum value.
      */
@@ -108,13 +119,15 @@ public:
 
     /**
      * @brief Returns the result of raising the base to the power of the exponent.
+     * @param thisArg Ignored for this method.
      * @param args A vector containing two JS::Any elements: [base, exponent].
      * @return A JS::Any containing the result.
      */
     static JS::Any pow(const JS::Any& thisArg, const JS::Any& args);
 
     /**
-     * @brief Returns a pseudo-random number in the interval [0, 1).
+     * @brief Returns a pseudo-random number in the interval [0, 1].
+     * @param thisArg Ignored for this method.
      * @param args A vector of JS::Any (arguments are ignored).
      * @return A JS::Any containing a pseudo-random number.
      */
@@ -122,6 +135,7 @@ public:
 
     /**
      * @brief Returns the given number rounded to the nearest integer.
+     * @param thisArg Ignored for this method.
      * @param args A vector containing a single JS::Any element representing the number.
      * @return A JS::Any containing the rounded number.
      */
@@ -129,6 +143,7 @@ public:
 
     /**
      * @brief Returns the sine of the given angle (in radians).
+     * @param thisArg Ignored for this method.
      * @param args A vector containing a single JS::Any element representing the angle.
      * @return A JS::Any containing the sine value.
      */
@@ -136,6 +151,7 @@ public:
 
     /**
      * @brief Returns the square root of the given number.
+     * @param thisArg Ignored for this method.
      * @param args A vector containing a single JS::Any element representing the number.
      * @return A JS::Any containing the square root.
      */
@@ -143,6 +159,7 @@ public:
 
     /**
      * @brief Returns the tangent of the given angle (in radians).
+     * @param thisArg Ignored for this method.
      * @param args A vector containing a single JS::Any element representing the angle.
      * @return A JS::Any containing the tangent value.
      */

@@ -117,8 +117,8 @@ JS::Any assert::okHelper(const JS::Any& thisArgs, const JS::Any& args) {
                         R"(No value argument passed to `assert.ok()`)", "ERR_MISSING_ARGS");
     }
     if (!args[0]) {
-        innerFail(args[0], JS::Any(true),
-                  length == 2 ? args[1] : JS::Any("The expression evaluated to a falsy value"), "ok");
+        innerFail(args[0], JS::Any(true), length == 2 ? args[1] : JS::Any("The expression evaluated to a falsy value"),
+                  "ok");
     }
     return {};
 }

@@ -28,8 +28,9 @@ public:
 
     JS::Value getValue() const;
 
-    bool operator==(const PropertyProxy & property_proxy) const;
+    bool operator==(const PropertyProxy& property_proxy) const;
     JS::Any operator!() const;
+
 private:
     std::shared_ptr<JS::InternalObject> obj_;
     std::string key_;

@@ -1,5 +1,5 @@
+#include "internals/Attribute.hpp"
 #include "internals/Object.hpp"
-#include "types/objects/JsObject.hpp"
 #include "utils/Compare.hpp"
 #include "utils/Is.hpp"
 
@@ -84,7 +84,7 @@ void InternalObject::put(const std::string& key, const Any& value, bool is_throw
         if (accessor.set == nullptr || !JS::IS::Callable(accessor.set)) {
             throw std::runtime_error("Unexpected descriptor type set of accessor descriptor is null");
         }
-        accessor.set->call({JS::Any(shared_from_this()), value});
+        accessor.set->call(JS::Any(shared_from_this()), JS::Arguments::CreateArgumentsObject({JS::Any(value)}));
         return;
     }
     this->defineOwnProperty(key, JS::DataDescriptor{value, true, true, true}, is_throw);
@@ -175,7 +175,7 @@ bool InternalObject::defineOwnProperty(const std::string& key, Attribute desc, b
                 std::get<JS::DataDescriptor>(desc).enumerable, std::get<JS::DataDescriptor>(desc).configurable};
         } else {
             (*properties)[key] = JS::AccessorDescriptor{
-                std::get<JS::AccessorDescriptor>(desc).get, std::get<JS::AccessorDescriptor>(desc).set,
+                std::get<JS::AccessorDescriptor>(desc).set, std::get<JS::AccessorDescriptor>(desc).get,
                 std::get<JS::AccessorDescriptor>(desc).enumerable, std::get<JS::AccessorDescriptor>(desc).configurable};
         }
         return true;

@@ -41,31 +41,32 @@ public:
      */
     ///@{
     /** @brief Returns the prototype of the object https://262.ecma-international.org/5.1/#sec-15.2.3.1 */
-    static JS::Any getPrototypeOf(const std::vector<JS::Any>& args);
+    // [this, x]
+    static JS::Any getPrototypeOf(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Returns a property descriptor of the object https://262.ecma-international.org/5.1/#sec-15.2.3.2 */
-    static JS::Any getOwnPropertyDescriptor(const std::vector<JS::Any>& args);
+    static JS::Any getOwnPropertyDescriptor(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Returns the property names of the object https://262.ecma-international.org/5.1/#sec-15.2.3.3 */
-    static JS::Any getOwnPropertyNames(const std::vector<JS::Any>& args);
+    static JS::Any getOwnPropertyNames(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Creates a new object with the given prototype https://262.ecma-international.org/5.1/#sec-15.2.3.4 */
-    static JS::Any create(const std::vector<JS::Any>& args);
+    static JS::Any create(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Defines a property on the object https://262.ecma-international.org/5.1/#sec-15.2.3.5 */
-    static JS::Any defineProperty(const std::vector<JS::Any>& args);
+    static JS::Any defineProperty(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Defines multiple properties on the object https://262.ecma-international.org/5.1/#sec-15.2.3.6 */
-    static JS::Any defineProperties(const std::vector<JS::Any>& args);
+    static JS::Any defineProperties(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Seals the object https://262.ecma-international.org/5.1/#sec-15.2.3.7 */
-    static JS::Any seal(const std::vector<JS::Any>& args);
+    static JS::Any seal(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Freezes the object https://262.ecma-international.org/5.1/#sec-15.2.3.8 */
-    static JS::Any freeze(const std::vector<JS::Any>& args);
+    static JS::Any freeze(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Prevents extensions on the object https://262.ecma-international.org/5.1/#sec-15.2.3.9 */
-    static JS::Any preventExtensions(const std::vector<JS::Any>& args);
+    static JS::Any preventExtensions(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Checks if the object is sealed https://262.ecma-international.org/5.1/#sec-15.2.3.10 */
-    static JS::Any isSealed(const std::vector<JS::Any>& args);
+    static JS::Any isSealed(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Checks if the object is frozen https://262.ecma-international.org/5.1/#sec-15.2.3.11 */
-    static JS::Any isFrozen(const std::vector<JS::Any>& args);
+    static JS::Any isFrozen(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Checks if the object is extensible https://262.ecma-international.org/5.1/#sec-15.2.3.12 */
-    static JS::Any isExtensible(const std::vector<JS::Any>& args);
+    static JS::Any isExtensible(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Returns the keys of the object https://262.ecma-international.org/5.1/#sec-15.2.3.13 */
-    static JS::Any keys(const std::vector<JS::Any>& args);
+    static JS::Any keys(const JS::Any& thisArg, const JS::Any& args);
     ///@}
 
     /**
@@ -73,17 +74,17 @@ public:
      */
     ///@{
     /** @brief Returns the prototype of the object https://262.ecma-international.org/5.1/#sec-15.2.4.2 */
-    static JS::Any toString(const std::vector<JS::Any>& args);
+    static JS::Any toString(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Returns the locale string of it https://262.ecma-international.org/5.1/#sec-15.2.4.3 */
-    static JS::Any toLocaleString(const std::vector<JS::Any>& args);
+    static JS::Any toLocaleString(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Returns the value of the object https://262.ecma-international.org/5.1/#sec-15.2.4.4 */
-    static JS::Any valueOf(const std::vector<JS::Any>& args);
+    static JS::Any valueOf(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Returns if the object has a property https://262.ecma-international.org/5.1/#sec-15.2.4.5 */
-    static JS::Any hasOwnProperty(const std::vector<JS::Any>& args);
+    static JS::Any hasOwnProperty(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Returns if the object is in the prototype chain https://262.ecma-international.org/5.1/#sec-15.2.4.6 */
-    static JS::Any isPrototypeOf(const std::vector<JS::Any>& args);
+    static JS::Any isPrototypeOf(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Returns if the property is enumerable https://262.ecma-international.org/5.1/#sec-15.2.4.7 */
-    static JS::Any propertyIsEnumerable(const std::vector<JS::Any>& args);
+    static JS::Any propertyIsEnumerable(const JS::Any& thisArg, const JS::Any& args);
     ///@}
 };
 

@@ -55,7 +55,6 @@ public:
     static JS::Any toPrecision(const JS::Any& thisArg, const JS::Any& args);
     ///@}
 
-    // const variable
     /**
      * @name Static variable of the Number object
      */

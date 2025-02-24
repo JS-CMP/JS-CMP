@@ -10,121 +10,132 @@ assert::assert() : JS::Object() {
 }
 
 // equals
-JS::Any assert::equalHelper(const std::vector<JS::Any>& args) {
-    if (args.size() < 2) {
+JS::Any assert::equalHelper(const JS::Any& thisArgs, const JS::Any& args) {
+    const double length = JS::CONVERT::ToNumber(args["length"]);
+    if (length < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "actual" and "expected" arguments must be specified.)", "ERR_MISSING_ARGS");
     }
-    if (args[0] != args[1] && (!isNaN(args[0]) || !isNaN(args[1]))) {
-        innerFail(args[0], args[1], args.size() == 3 ? args[2] : JS::Any(JS::Undefined()), "==");
+    if (args["0"] != args["1"] && (!isNaN(args[0]) || !isNaN(args[1]))) {
+        innerFail(args[0], args[1], length == 3 ? args[2] : JS::Any(JS::Undefined()), "==");
     }
     return {};
 }
 
-JS::Any assert::notEqualHelper(const std::vector<JS::Any>& args) {
-    if (args.size() < 2) {
+JS::Any assert::notEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
+    const double length = JS::CONVERT::ToNumber(args["length"]);
+    if (length < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "actual" and "expected" arguments must be specified.)", "ERR_MISSING_ARGS");
     }
     if (args[0] == args[1] || (isNaN(args[0]) && isNaN(args[1]))) {
-        innerFail(args[0], args[1], args.size() == 3 ? args[2] : JS::Any(JS::Undefined()), "!=");
+        innerFail(args[0], args[1], length == 3 ? args[2] : JS::Any(JS::Undefined()), "!=");
     }
     return {};
 }
 
 // stictEquals
-JS::Any assert::strictEqualHelper(const std::vector<JS::Any>& args) {
-    if (args.size() < 2) {
+JS::Any assert::strictEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
+    const double length = JS::CONVERT::ToNumber(args["length"]);
+    if (length < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "actual" and "expected" arguments must be specified.)", "ERR_MISSING_ARGS");
     }
     if (!JS::COMPARE::SameValue(args[0], args[1])) {
-        innerFail(args[0], args[1], args.size() == 3 ? args[2] : JS::Any(JS::Undefined()), "strictEqual");
+        innerFail(args[0], args[1], length == 3 ? args[2] : JS::Any(JS::Undefined()), "strictEqual");
     }
     return {};
 }
 
-JS::Any assert::notStrictEqualHelper(const std::vector<JS::Any>& args) {
-    if (args.size() < 2) {
+JS::Any assert::notStrictEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
+    const double length = JS::CONVERT::ToNumber(args["length"]);
+    if (length < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "actual" and "expected" arguments must be specified.)", "ERR_MISSING_ARGS");
     }
     if (JS::COMPARE::SameValue(args[0], args[1])) {
-        innerFail(args[0], args[1], args.size() == 3 ? args[2] : JS::Any(JS::Undefined()), "notStrictEqual");
+        innerFail(args[0], args[1], length == 3 ? args[2] : JS::Any(JS::Undefined()), "notStrictEqual");
     }
     return {};
 }
 
 // deepEquals TODO: make the message automatique depending on the ope
-JS::Any assert::deepEqualHelper(const std::vector<JS::Any>& args) {
-    if (args.size() < 2) {
+JS::Any assert::deepEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
+    const double length = JS::CONVERT::ToNumber(args["length"]);
+    if (length < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "actual" and "expected" arguments must be specified.)", "ERR_MISSING_ARGS");
     }
     if (isDeepEqual(args[0], args[1])) {
-        innerFail(args[0], args[1], args.size() == 3 ? args[2] : JS::Any(JS::Undefined()), "deepEqual");
+        innerFail(args[0], args[1], length == 3 ? args[2] : JS::Any(JS::Undefined()), "deepEqual");
     }
     return {};
 }
 
-JS::Any assert::notDeepEqualHelper(const std::vector<JS::Any>& args) {
-    if (args.size() < 2) {
+JS::Any assert::notDeepEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
+    const double length = JS::CONVERT::ToNumber(args["length"]);
+    if (length < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "actual" and "expected" arguments must be specified.)", "ERR_MISSING_ARGS");
     }
     if (!isDeepEqual(args[0], args[1])) {
-        innerFail(args[0], args[1], args.size() == 3 ? args[2] : JS::Any(JS::Undefined()), "notDeepEqual");
+        innerFail(args[0], args[1], length == 3 ? args[2] : JS::Any(JS::Undefined()), "notDeepEqual");
     }
     return {};
 }
 
 // deep strict equals
-JS::Any assert::deepStrictEqualHelper(const std::vector<JS::Any>& args) {
-    if (args.size() < 2) {
+JS::Any assert::deepStrictEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
+    const double length = JS::CONVERT::ToNumber(args["length"]);
+    if (length < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "actual" and "expected" arguments must be specified.)", "ERR_MISSING_ARGS");
     }
     if (!isDeepEqual(args[0], args[1], true)) {
-        innerFail(args[0], args[1], args.size() == 3 ? args[2] : JS::Any(JS::Undefined()), "deepStrictEqual");
+        innerFail(args[0], args[1], length == 3 ? args[2] : JS::Any(JS::Undefined()), "deepStrictEqual");
     }
     return {};
 }
 
-JS::Any assert::notStrictDeepEqualHelper(const std::vector<JS::Any>& args) {
-    if (args.size() < 2) {
+JS::Any assert::notStrictDeepEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
+    const double length = JS::CONVERT::ToNumber(args["length"]);
+    if (length < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "actual" and "expected" arguments must be specified.)", "ERR_MISSING_ARGS");
     }
     if (isDeepEqual(args[0], args[1], true)) {
-        innerFail(args[0], args[1], args.size() == 3 ? args[2] : JS::Any(JS::Undefined()), "notDeepStrictEqual");
+        innerFail(args[0], args[1], length == 3 ? args[2] : JS::Any(JS::Undefined()), "notDeepStrictEqual");
     }
     return {};
 }
 
 // other
-JS::Any assert::okHelper(const std::vector<JS::Any>& args) {
-    if (args.empty()) {
+JS::Any assert::okHelper(const JS::Any& thisArgs, const JS::Any& args) {
+    const double length = JS::CONVERT::ToNumber(args["length"]);
+    if (length == 0) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(No value argument passed to `assert.ok()`)", "ERR_MISSING_ARGS");
     }
     if (!args[0]) {
         innerFail(args[0], JS::Any(true),
-                  args.size() == 2 ? args[1] : JS::Any("The expression evaluated to a falsy value"), "ok");
+                  length == 2 ? args[1] : JS::Any("The expression evaluated to a falsy value"), "ok");
     }
     return {};
 }
 
-JS::Any assert::failHelper(const std::vector<JS::Any>& args) {
+JS::Any assert::failHelper(const JS::Any& thisArgs, const JS::Any& args) {
     // TODO : handle if args[0] is a throwable, make throwable js::any
-    if (args.size() == 1) {
+    const double length = JS::CONVERT::ToNumber(args["length"]);
+    if (length == 1) {
         innerFail(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()), args[0], "fail");
     }
     innerFail(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()), JS::Any(JS::Undefined()), "fail");
     return {};
 }
 
-JS::Any assert::ifErrorHelper(const std::vector<JS::Any>& args) {
-    if (args.size() != 1) {
+JS::Any assert::ifErrorHelper(const JS::Any& thisArgs, const JS::Any& args) {
+    const double length = JS::CONVERT::ToNumber(args["length"]);
+    if (length != 1) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "value" argument must be specified.)", "ERR_MISSING_ARGS");
     }
@@ -135,9 +146,10 @@ JS::Any assert::ifErrorHelper(const std::vector<JS::Any>& args) {
     return {};
 }
 
-JS::Any assert::throwsHelper(const std::vector<JS::Any>& args) {
+JS::Any assert::throwsHelper(const JS::Any& thisArgs, const JS::Any& args) {
     // TODO:: handle obj properties, regexp class
-    if (args.size() < 1) {
+    const double length = JS::CONVERT::ToNumber(args["length"]);
+    if (length < 1) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()), R"(The "fn" argument must be specified.)",
                         "ERR_MISSING_ARGS");
     }
@@ -147,7 +159,7 @@ JS::Any assert::throwsHelper(const std::vector<JS::Any>& args) {
                         "ERR_INVALID_ARG_TYPE");
     }
     JS::Any fn = args[0];
-    if (args.size() == 1) {
+    if (length == 1) {
         try {
             fn();
         } catch (const JS::Any& e) { return {}; }

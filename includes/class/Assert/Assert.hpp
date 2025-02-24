@@ -80,22 +80,22 @@ public:
     }
 
 private:
-    static JS::Any equalHelper(const std::vector<JS::Any>& args);
-    static JS::Any notEqualHelper(const std::vector<JS::Any>& args);
+    static JS::Any equalHelper(const JS::Any& thisArgs, const JS::Any& args);
+    static JS::Any notEqualHelper(const JS::Any& thisArgs, const JS::Any& args);
 
-    static JS::Any strictEqualHelper(const std::vector<JS::Any>& args);
-    static JS::Any notStrictEqualHelper(const std::vector<JS::Any>& args);
+    static JS::Any strictEqualHelper(const JS::Any& thisArgs, const JS::Any& args);
+    static JS::Any notStrictEqualHelper(const JS::Any& thisArgs, const JS::Any& args);
 
-    static JS::Any deepEqualHelper(const std::vector<JS::Any>& args);
-    static JS::Any notDeepEqualHelper(const std::vector<JS::Any>& args);
+    static JS::Any deepEqualHelper(const JS::Any& thisArgs, const JS::Any& args);
+    static JS::Any notDeepEqualHelper(const JS::Any& thisArgs, const JS::Any& args);
 
-    static JS::Any deepStrictEqualHelper(const std::vector<JS::Any>& args);
-    static JS::Any notStrictDeepEqualHelper(const std::vector<JS::Any>& args);
+    static JS::Any deepStrictEqualHelper(const JS::Any& thisArgs, const JS::Any& args);
+    static JS::Any notStrictDeepEqualHelper(const JS::Any& thisArgs, const JS::Any& args);
 
-    static JS::Any okHelper(const std::vector<JS::Any>& args);
-    static JS::Any failHelper(const std::vector<JS::Any>& args);
-    static JS::Any ifErrorHelper(const std::vector<JS::Any>& args);
-    static JS::Any throwsHelper(const std::vector<JS::Any>& args);
+    static JS::Any okHelper(const JS::Any& thisArgs, const JS::Any& args);
+    static JS::Any failHelper(const JS::Any& thisArgs, const JS::Any& args);
+    static JS::Any ifErrorHelper(const JS::Any& thisArgs, const JS::Any& args);
+    static JS::Any throwsHelper(const JS::Any& thisArgs, const JS::Any& args);
 
     // test262 asserts
     static JS::Any sameValueHelper(const JS::Any& actual, const JS::Any& expected);

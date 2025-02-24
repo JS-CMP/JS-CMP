@@ -2,11 +2,12 @@
 #include "types/objects/JsNumber.hpp"
 #include "types/objects/JsString.hpp"
 #include "types/objects/JsBoolean.hpp"
+#include "utils/Compare.hpp"
 
 namespace JS::CONVERT {
 
 std::shared_ptr<JS::InternalObject> ToObject(const JS::Any& any) { // https://262.ecma-international.org/5.1/#sec-9.9
-    if (any.getValue().index() == JS::UNDEFINED || any.getValue().index() == JS::NULL_TYPE) {
+    if (JS::COMPARE::Type(any, UNDEFINED) || JS::COMPARE::Type(any, NULL_TYPE)) {
         throw std::invalid_argument("Cannot convert undefined or null to object");
     }
     switch (any.getValue().index()) {

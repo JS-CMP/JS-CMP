@@ -25,7 +25,7 @@ uint32_t ToUint32(const JS::Any& any) { // https://262.ecma-international.org/5.
             return ToUint32(std::get<double>(any.getValue()));
         case STRING:
             return ToUint32(std::get<Rope>(any.getValue()));
-        case BOOL:
+        case BOOLEAN:
             return ToUint32(std::get<bool>(any.getValue()));
         case UNDEFINED:
             return ToUint32(JS::Undefined());

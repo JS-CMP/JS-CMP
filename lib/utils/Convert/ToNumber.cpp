@@ -51,7 +51,7 @@ double ToNumber(const JS::Any& any) { // https://262.ecma-international.org/5.1/
             return std::get<double>(any.getValue());
         case STRING:
             return ToNumber(std::get<Rope>(any.getValue()));
-        case BOOL:
+        case BOOLEAN:
             return ToNumber(std::get<bool>(any.getValue()));
         case UNDEFINED:
             return ToNumber(JS::Undefined());

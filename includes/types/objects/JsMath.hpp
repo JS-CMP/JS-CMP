@@ -154,7 +154,7 @@ public:
     constexpr static double LOG2e = std::numbers::log2e;
     constexpr static double LOG10E = std::numbers::log10e;
     constexpr static double PI = std::numbers::pi;
-    constexpr static double SQRT1_2 = 0.7071067811865476;
+    constexpr static double SQRT1_2 = 0.7071067811865476; // TODO change when c++ 26 is available and std::sqrt is constexpr
     constexpr static double SQRT2 = std::numbers::sqrt2;
 };
 } // namespace JS

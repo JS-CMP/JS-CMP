@@ -55,7 +55,7 @@ std::string ToString(const JS::Undefined& value);
 std::string ToString(const JS::Null& value);
 std::string ToString(const JS::Any& any);
 
-JS::Any ToObject(const JS::Any& any);
+std::shared_ptr<JS::InternalObject> ToObject(const JS::Any& any);
 
 JS::Any FromPropertyDescriptor(const JS::Attribute& desc);
 JS::Any FromPropertyDescriptor(const JS::DataDescriptor& desc);

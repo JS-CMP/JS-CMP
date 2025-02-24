@@ -8,6 +8,7 @@ var global_8hpp =
     [ "Infinity", "global_8hpp.html#a7204152d864133825e6e650d83bc670e", null ],
     [ "isFinite", "global_8hpp.html#a8ff6a194c25c5515d0a1e9896f4f6000", null ],
     [ "isNaN", "global_8hpp.html#a7051f21d84f9b852c30d670ff39c437e", null ],
+    [ "Math", "global_8hpp.html#a1e6aec879f95bae80104ce500ef93f73", null ],
     [ "NaN", "global_8hpp.html#a6e8172661a167bd1350fe1c05f8fd536", null ],
     [ "Object", "global_8hpp.html#a40d8fa8ffaba1502e945db93164125de", null ],
     [ "parseFloat", "global_8hpp.html#ac02cd475abe7faea61ec5d0a3eae37dd", null ],

@@ -11,5 +11,6 @@ var searchData=
   ['jsany_2ehpp_8',['JsAny.hpp',['../JsAny_8hpp.html',1,'']]],
   ['jsfunction_2ecpp_9',['JsFunction.cpp',['../JsFunction_8cpp.html',1,'']]],
   ['jsfunction_2ehpp_10',['JsFunction.hpp',['../JsFunction_8hpp.html',1,'']]],
-  ['jsobject_2ehpp_11',['JsObject.hpp',['../JsObject_8hpp.html',1,'']]]
+  ['jsmath_2ehpp_11',['JsMath.hpp',['../JsMath_8hpp.html',1,'']]],
+  ['jsobject_2ehpp_12',['JsObject.hpp',['../JsObject_8hpp.html',1,'']]]
 ];

@@ -77,5 +77,14 @@ digraph "includes/global/global.hpp"
   Node28 -> Node20 [id="edge43_Node000028_Node000020",color="steelblue1",style="solid",tooltip=" "];
   Node28 -> Node19 [id="edge44_Node000028_Node000019",color="steelblue1",style="solid",tooltip=" "];
   Node28 -> Node3 [id="edge45_Node000028_Node000003",color="steelblue1",style="solid",tooltip=" "];
-  Node1 -> Node22 [id="edge46_Node000001_Node000022",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node29 [id="edge46_Node000001_Node000029",color="steelblue1",style="solid",tooltip=" "];
+  Node29 [id="Node000029",label="types/objects/JsMath.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$JsMath_8hpp.html",tooltip=" "];
+  Node29 -> Node30 [id="edge47_Node000029_Node000030",color="steelblue1",style="solid",tooltip=" "];
+  Node30 [id="Node000030",label="utils/Convert.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Convert_8hpp.html",tooltip=" "];
+  Node30 -> Node23 [id="edge48_Node000030_Node000023",color="steelblue1",style="solid",tooltip=" "];
+  Node30 -> Node19 [id="edge49_Node000030_Node000019",color="steelblue1",style="solid",tooltip=" "];
+  Node29 -> Node31 [id="edge50_Node000029_Node000031",color="steelblue1",style="solid",tooltip=" "];
+  Node31 [id="Node000031",label="numbers",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node29 -> Node18 [id="edge51_Node000029_Node000018",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node22 [id="edge52_Node000001_Node000022",color="steelblue1",style="solid",tooltip=" "];
 }

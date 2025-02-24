@@ -124,11 +124,13 @@ var NAVTREEINDEX0 =
 "JsAny_8cpp.html":[8,0,1,3,4],
 "JsAny_8hpp.html":[8,0,0,3,1],
 "JsAny_8hpp_source.html":[8,0,0,3,1],
-"JsFunction_8cpp.html":[8,0,1,3,0,1],
+"JsFunction_8cpp.html":[8,0,1,3,0,2],
 "JsFunction_8hpp.html":[8,0,0,3,0,0],
 "JsFunction_8hpp_source.html":[8,0,0,3,0,0],
-"JsObject_8hpp.html":[8,0,0,3,0,1],
-"JsObject_8hpp_source.html":[8,0,0,3,0,1],
+"JsMath_8hpp.html":[8,0,0,3,0,1],
+"JsMath_8hpp_source.html":[8,0,0,3,0,1],
+"JsObject_8hpp.html":[8,0,0,3,0,2],
+"JsObject_8hpp_source.html":[8,0,0,3,0,2],
 "Left__Chevron_8cpp.html":[8,0,1,3,1,6],
 "Left__Shift_8cpp.html":[8,0,1,3,1,0,1],
 "Left__Shift_8cpp.html#a02b2949a2cc1760a109767932dc011d0":[8,0,1,3,1,0,1,6],
@@ -247,7 +249,5 @@ var NAVTREEINDEX0 =
 "ToInteger_8cpp.html#a3c67b25580f1af08349aaa584fe4af09":[8,0,1,4,0,4,7],
 "ToInteger_8cpp.html#a519bbd30d4e115ec74ff4b789ba28fef":[8,0,1,4,0,4,2],
 "ToInteger_8cpp.html#a64e3331ff321e4061a8076e12f5b84be":[8,0,1,4,0,4,6],
-"ToInteger_8cpp.html#ac478b775f7669d535edf2df8bb5955da":[8,0,1,4,0,4,1],
-"ToInteger_8cpp.html#ae88a1b7fd35be9bff220e097ba2a2f03":[8,0,1,4,0,4,5],
-"ToInteger_8cpp.html#afd126d54285259dc80bd93c213eabc36":[8,0,1,4,0,4,0]
+"ToInteger_8cpp.html#ac478b775f7669d535edf2df8bb5955da":[8,0,1,4,0,4,1]
 };

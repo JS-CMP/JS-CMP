@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['nan_0',['NaN',['../global_8hpp.html#a6e8172661a167bd1350fe1c05f8fd536',1,'global.hpp']]]
+  ['mark_0',['MARK',['../URI_8cpp.html#afcbe37d69a6d071b9749a594542f2834',1,'URI.cpp']]],
+  ['math_1',['Math',['../global_8hpp.html#a1e6aec879f95bae80104ce500ef93f73',1,'global.hpp']]]
 ];

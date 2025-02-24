@@ -14,6 +14,7 @@ var hierarchy =
     [ "JS::IObject", "classJS_1_1IObject.html", [
       [ "JS::InternalObject", "classJS_1_1InternalObject.html", null ]
     ] ],
+    [ "JS::Math", "classJS_1_1Math.html", null ],
     [ "Options", "classOptions.html", null ],
     [ "JS::PropertyProxy", "classJS_1_1PropertyProxy.html", null ],
     [ "Rope", "classRope.html", null ],

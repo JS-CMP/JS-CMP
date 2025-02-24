@@ -106,6 +106,7 @@ var namespaceJS =
     [ "Function", "classJS_1_1Function.html", "classJS_1_1Function" ],
     [ "InternalObject", "classJS_1_1InternalObject.html", "classJS_1_1InternalObject" ],
     [ "IObject", "classJS_1_1IObject.html", "classJS_1_1IObject" ],
+    [ "Math", "classJS_1_1Math.html", "classJS_1_1Math" ],
     [ "Object", "classJS_1_1Object.html", "classJS_1_1Object" ],
     [ "PropertyProxy", "classJS_1_1PropertyProxy.html", "classJS_1_1PropertyProxy" ],
     [ "Attribute", "namespaceJS.html#a045e2f5d691414608a9f6d2350e90811", null ],

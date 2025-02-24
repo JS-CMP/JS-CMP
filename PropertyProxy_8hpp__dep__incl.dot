@@ -57,4 +57,6 @@ digraph "includes/internals/PropertyProxy.hpp"
   Node25 [id="Node000025",label="lib/internals/Object\l/accessor.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$internals_2Object_2accessor_8cpp.html",tooltip=" "];
   Node1 -> Node11 [id="edge27_Node000001_Node000011",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node1 -> Node6 [id="edge28_Node000001_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node26 [id="edge29_Node000001_Node000026",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node26 [id="Node000026",label="lib/types/objects/Math\l/static.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$types_2objects_2Math_2static_8cpp.html",tooltip=" "];
 }

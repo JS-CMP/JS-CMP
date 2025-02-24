@@ -2,6 +2,7 @@
 #define JSANY_HPP
 
 #include "Types.hpp"
+#include "internals/Arguments.hpp"
 
 namespace JS {
 /**
@@ -54,6 +55,54 @@ public:
     ///@}
 
     /**
+     * @name Bitewise Operators
+     * These operators perform bitwise operations like in JavaScript
+     */
+    ///@{
+    /** @brief Bitwise AND operator a & b */
+    template <typename T>
+    JS::Any operator&(T other) const;
+    /** @brief Bitwise AND operator T & Any */
+    template <typename T>
+    friend JS::Any operator&(T value, JS::Any const& any);
+
+    /** @brief Bitwise OR operator a | b */
+    template <typename T>
+    JS::Any operator|(T other) const;
+    /** @brief Bitwise OR operator T | Any */
+    template <typename T>
+    friend JS::Any operator|(T value, JS::Any const& any);
+
+    /** @brief Bitwise XOR operator a ^ b */
+    template <typename T>
+    JS::Any operator^(T other) const;
+    /** @brief Bitwise XOR operator T ^ Any */
+    template <typename T>
+    friend JS::Any operator^(T value, JS::Any const& any);
+
+    /** @brief Bitwise NOT operator ~a */
+    JS::Any operator~() const;
+
+    /** @brief Logical NOT operator !a */
+    JS::Any operator!() const;
+
+    /** @brief Bitwise left shift operator a << b */
+    template <typename T>
+    JS::Any operator<<(T other) const;
+    /** @brief Bitwise left shift operator T << Any */
+    template <typename T>
+    friend JS::Any operator<<(T value, JS::Any const& any);
+
+    /** @brief Bitwise right shift operator a >> b */
+    template <typename T>
+    JS::Any operator>>(T other) const;
+    /** @brief Bitwise right shift operator int >> Any */
+    template <typename T>
+    friend JS::Any operator>>(T value, JS::Any const& any);
+
+    ///@}
+
+    /**
      * @name Arithmetic operators +
      */
     ///@{
@@ -91,30 +140,14 @@ public:
      */
     ///@{
     /** @brief Subtraction operator Any - Any */
-    JS::Any operator-(const JS::Any& other) const;
-    /** @brief Subtraction operator Any - int */
-    JS::Any operator-(int value) const;
-    /** @brief Subtraction operator Any - double */
-    JS::Any operator-(double value) const;
-    /** @brief Subtraction operator Any - string */
-    JS::Any operator-(const char* value) const;
-    /** @brief Subtraction operator Any - bool */
-    JS::Any operator-(bool value) const;
-    /** @brief Subtraction operator Any - null */
-    JS::Any operator-(JS::Null) const;
-    /** @brief Subtraction operator Any - undefined */
+    template <typename T>
+    JS::Any operator-(T other) const;
+    /** @brief Subtraction operator Any - Undefined */
     JS::Any operator-(JS::Undefined) const;
-    /** @brief Subtraction operator int - Any */
-    friend JS::Any operator-(int value, JS::Any const& any);
-    /** @brief Subtraction operator double - Any */
-    friend JS::Any operator-(double value, JS::Any const& any);
-    /** @brief Subtraction operator string - Any */
-    friend JS::Any operator-(const char* value, JS::Any const& any);
-    /** @brief Subtraction operator bool - Any */
-    friend JS::Any operator-(bool value, JS::Any const& any);
-    /** @brief Subtraction operator null - Any */
-    friend JS::Any operator-(JS::Null, JS::Any const& any);
-    /** @brief Subtraction operator undefined - Any */
+    /** @brief Subtraction operator T - Any */
+    template <typename T>
+    friend JS::Any operator-(T value, JS::Any const& any);
+    /** @brief Subtraction operator Undefined - Any */
     friend JS::Any operator-(JS::Undefined, JS::Any const& any);
     ///@}
 
@@ -218,6 +251,26 @@ public:
     ///@}
 
     /**
+     * @name Binary Logical operators
+     * These operators perform binary logical operations on the value of the 'Any' object.
+     */
+    ///@{
+    /** @brief And operator Any && T*/
+    template <typename T>
+    JS::Any operator&&(T other) const;
+    /** @brief And operator T && Any */
+    template <typename T>
+    friend JS::Any operator&&(T value, JS::Any const& any);
+
+    /** @brief Or operator Any || T */
+    template <typename T>
+    JS::Any operator||(T other) const;
+    /** @brief Or operator T || Any */
+    template <typename T>
+    friend JS::Any operator||(T value, JS::Any const& any);
+    ///@}
+
+    /**
      * @name Arithmetic operators
      * These operators perform arithmetic operations on the value of the `Any` object.
      */
@@ -225,11 +278,11 @@ public:
     /** @brief Addition operator ++a */
     JS::Any& operator++();
     /** @brief Addition operator a++ */
-    const JS::Any& operator++(int);
+    JS::Any operator++(int);
     /** @brief Subtraction operator --a */
     JS::Any& operator--();
     /** @brief Subtraction operator a-- */
-    const JS::Any& operator--(int);
+    JS::Any operator--(int);
     ///@}
 
     /**
@@ -252,11 +305,10 @@ public:
     /** @brief Accessors to call function stored in properties on an object stored in value */
     template <typename... Args>
     JS::Any operator()(Args&&... args) {
-        std::vector<JS::Any> arguments = {JS::Any(JS::Null{}), std::forward<Args>(args)...};
-        return call(arguments);
+        return call(JS::Arguments::CreateArgumentsObject(std::vector<JS::Any>{args...}));
     }
     /** @brief Accessors to call function stored in properties on an object stored in value */
-    JS::Any call(const std::vector<JS::Any>& args) const;
+    JS::Any call(const JS::Any& args) const;
 
     /** @brief Accessors to properties of object in stored in value */
     JS::PropertyProxy operator[](const std::string& key) const;

@@ -6,6 +6,7 @@
 #include "types/objects/JsBoolean.hpp"
 #include "types/objects/JsFunction.hpp"
 #include "types/objects/JsNumber.hpp"
+#include "types/objects/JsMath.hpp"
 #include "types/objects/JsObject.hpp"
 #include "types/objects/JsString.hpp"
 
@@ -37,6 +38,37 @@ JS::Any Number = JS::Any(std::make_shared<JS::Number>(std::unordered_map<std::st
 }));
 JS::Any Boolean = JS::Any(std::make_shared<JS::Boolean>());
 
+JS::Any Math = JS::Any(std::make_shared<JS::InternalObject>(
+    std::unordered_map<std::string, JS::Attribute>{
+        {"abs", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::abs)), true, true, true}},
+        {"acos", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::acos)), true, true, true}},
+        {"asin", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::asin)), true, true, true}},
+        {"atan", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::atan)), true, true, true}},
+        {"atan2", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::atan2)), true, true, true}},
+        {"ceil", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::ceil)), true, true, true}},
+        {"cos", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::cos)), true, true, true}},
+        {"exp", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::exp)), true, true, true}},
+        {"floor", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::floor)), true, true, true}},
+        {"log", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::log)), true, true, true}},
+        {"max", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::max)), true, true, true}},
+        {"min", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::min)), true, true, true}},
+        {"pow", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::pow)), true, true, true}},
+        {"random", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::random)), true, true, true}},
+        {"round", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::round)), true, true, true}},
+        {"sin", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::sin)), true, true, true}},
+        {"sqrt", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::sqrt)), true, true, true}},
+        {"tan", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::tan)), true, true, true}},
+        {"PI", JS::DataDescriptor{JS::Any(M_PI), false, false, false}},
+        {"E", JS::DataDescriptor{JS::Any(M_E), false, false, false}},
+        {"LN2", JS::DataDescriptor{JS::Any(M_LN2), false, false, false}},
+        {"LN10", JS::DataDescriptor{JS::Any(M_LN10), false, false, false}},
+        {"LOG2E", JS::DataDescriptor{JS::Any(M_LOG2E), false, false, false}},
+        {"LOG10E", JS::DataDescriptor{JS::Any(M_LOG10E), false, false, false}},
+        {"SQRT1_2", JS::DataDescriptor{JS::Any(M_SQRT1_2), false, false, false}},
+        {"SQRT2", JS::DataDescriptor{JS::Any(M_SQRT2), false, false, false}},
+    },
+    nullptr, "Math", true)); // TODO Make math inherit from Object
+
 JS::Any NaN = JS::Any(std::numeric_limits<double>::quiet_NaN());
 JS::Any Infinity = JS::Any(std::numeric_limits<double>::infinity());
 JS::Any undefined = JS::Any(JS::Undefined{});
@@ -59,6 +91,7 @@ JS::Any global = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::st
     {"Infinity", Infinity},
     {"undefined", undefined},
     {"Object", Object},
+    {"Math", Math},
     {"encodeURI", encodeURI},
     {"decodeURI", decodeURI},
     {"encodeURIComponent", encodeURIComponent},

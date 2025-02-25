@@ -2,7 +2,7 @@ var searchData=
 [
   ['benchmarks_0',['2. Performance Benchmarks',['../md_CODE__OF__CONDUCT.html#autotoc_md49',1,'']]],
   ['binary_20distribution_1',['2. Future Binary Distribution',['../md_CODE__OF__CONDUCT.html#autotoc_md38',1,'']]],
-  ['bool_2',['BOOL',['../namespaceJS.html#a24dafc265586f725eeb7012cf759b670a535d9fb035e0e44dce11c8eb4201ae1d',1,'JS']]],
+  ['boolean_2',['boolean',['../classJS_1_1Boolean.html',1,'JS::Boolean'],['../classJS_1_1Boolean.html#a80dbbba22c3b9162c8113a6033d4a122',1,'JS::Boolean::Boolean()'],['../classJS_1_1Boolean.html#adfc591e66be4c2599f29d556f7666a60',1,'JS::Boolean::Boolean(const JS::Any &amp;value)'],['../global_8hpp.html#abe8245232b8ca228a9b885133b8899dd',1,'Boolean:&#160;global.hpp'],['../namespaceJS.html#a24dafc265586f725eeb7012cf759b670a89d5cfd6573d08cf5291d977c0383ac7',1,'JS::BOOLEAN']]],
   ['branching_20strategy_3',['2. Branching Strategy',['../md_CODE__OF__CONDUCT.html#autotoc_md27',1,'']]],
   ['build_4',['build',['../classBuilder.html#a25ec46356d5e6a386638ff05ddfa4c04',1,'Builder']]],
   ['build_20instructions_5',['Build Instructions',['../index.html#autotoc_md2',1,'']]],

@@ -102,13 +102,16 @@ var namespaceJS =
     ] ],
     [ "AccessorDescriptor", "classJS_1_1AccessorDescriptor.html", "classJS_1_1AccessorDescriptor" ],
     [ "Any", "classJS_1_1Any.html", "classJS_1_1Any" ],
+    [ "Boolean", "classJS_1_1Boolean.html", "classJS_1_1Boolean" ],
     [ "DataDescriptor", "classJS_1_1DataDescriptor.html", "classJS_1_1DataDescriptor" ],
     [ "Function", "classJS_1_1Function.html", "classJS_1_1Function" ],
     [ "InternalObject", "classJS_1_1InternalObject.html", "classJS_1_1InternalObject" ],
     [ "IObject", "classJS_1_1IObject.html", "classJS_1_1IObject" ],
     [ "Math", "classJS_1_1Math.html", "classJS_1_1Math" ],
+    [ "Number", "classJS_1_1Number.html", "classJS_1_1Number" ],
     [ "Object", "classJS_1_1Object.html", "classJS_1_1Object" ],
     [ "PropertyProxy", "classJS_1_1PropertyProxy.html", "classJS_1_1PropertyProxy" ],
+    [ "String", "classJS_1_1String.html", "classJS_1_1String" ],
     [ "Attribute", "namespaceJS.html#a045e2f5d691414608a9f6d2350e90811", null ],
     [ "FunctionType", "namespaceJS.html#afc8f80ef0014008191a79c36ae5eb341", null ],
     [ "Null", "namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e", null ],
@@ -121,7 +124,7 @@ var namespaceJS =
     [ "Types", "namespaceJS.html#a24dafc265586f725eeb7012cf759b670", [
       [ "NUMBER", "namespaceJS.html#a24dafc265586f725eeb7012cf759b670a05b9a4a74ecfad2d6b5bbf883b6b0c6e", null ],
       [ "STRING", "namespaceJS.html#a24dafc265586f725eeb7012cf759b670a37d59818cfa309f8fc183d2ed312a493", null ],
-      [ "BOOL", "namespaceJS.html#a24dafc265586f725eeb7012cf759b670a535d9fb035e0e44dce11c8eb4201ae1d", null ],
+      [ "BOOLEAN", "namespaceJS.html#a24dafc265586f725eeb7012cf759b670a89d5cfd6573d08cf5291d977c0383ac7", null ],
       [ "UNDEFINED", "namespaceJS.html#a24dafc265586f725eeb7012cf759b670aa57a565499ae18f10742bb8fa01d6215", null ],
       [ "NULL_TYPE", "namespaceJS.html#a24dafc265586f725eeb7012cf759b670a8679fd1cc65fe417fb82f9a115297368", null ],
       [ "OBJECT", "namespaceJS.html#a24dafc265586f725eeb7012cf759b670adc230ffcd6c08e05df0f72cd6ec35002", null ],
@@ -208,7 +211,5 @@ var namespaceJS =
     [ "operator||", "namespaceJS.html#a5110d3f45e8d82550fd8b2ef8a0c2d12", null ],
     [ "operator||", "namespaceJS.html#a674f01c3386e5113b09efb5510335137", null ],
     [ "operator||", "namespaceJS.html#afb0aac3a0f0bc806c7b5ff6cde6262fd", null ],
-    [ "operator||", "namespaceJS.html#a5f1373739fbaac723dc29762114b64af", null ],
-    [ "properties_prototype", "namespaceJS.html#abf2e1f898f831de5e0b0117cbd1abd2d", null ],
-    [ "prototype", "namespaceJS.html#a364658b7bee99f6fd63115ae0e71204c", null ]
+    [ "operator||", "namespaceJS.html#a5f1373739fbaac723dc29762114b64af", null ]
 ];

@@ -1,10 +1,10 @@
-digraph "lib/types/objects/Object/static.cpp"
+digraph "includes/types/objects/JsBoolean.hpp"
 {
  // LATEX_PDF_SIZE
   bgcolor="transparent";
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
-  Node1 [id="Node000001",label="lib/types/objects/Object\l/static.cpp",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 [id="Node000001",label="includes/types/objects\l/JsBoolean.hpp",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
   Node2 [id="Node000002",label="internals/Object.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Object_8hpp.html",tooltip=" "];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
@@ -61,30 +61,4 @@ digraph "lib/types/objects/Object/static.cpp"
   Node2 -> Node4 [id="edge33_Node000002_Node000004",color="steelblue1",style="solid",tooltip=" "];
   Node2 -> Node23 [id="edge34_Node000002_Node000023",color="steelblue1",style="solid",tooltip=" "];
   Node23 [id="Node000023",label="utility",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
-  Node1 -> Node21 [id="edge35_Node000001_Node000021",color="steelblue1",style="solid",tooltip=" "];
-  Node1 -> Node24 [id="edge36_Node000001_Node000024",color="steelblue1",style="solid",tooltip=" "];
-  Node24 [id="Node000024",label="types/objects/JsFunction.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$JsFunction_8hpp.html",tooltip=" "];
-  Node24 -> Node25 [id="edge37_Node000024_Node000025",color="steelblue1",style="solid",tooltip=" "];
-  Node25 [id="Node000025",label="types/objects/JsObject.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$JsObject_8hpp.html",tooltip=" "];
-  Node25 -> Node26 [id="edge38_Node000025_Node000026",color="steelblue1",style="solid",tooltip=" "];
-  Node26 [id="Node000026",label="internals/Attribute.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Attribute_8hpp.html",tooltip=" "];
-  Node26 -> Node21 [id="edge39_Node000026_Node000021",color="steelblue1",style="solid",tooltip=" "];
-  Node25 -> Node2 [id="edge40_Node000025_Node000002",color="steelblue1",style="solid",tooltip=" "];
-  Node25 -> Node27 [id="edge41_Node000025_Node000027",color="steelblue1",style="solid",tooltip=" "];
-  Node27 [id="Node000027",label="internals/PropertyProxy.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$PropertyProxy_8hpp.html",tooltip=" "];
-  Node27 -> Node22 [id="edge42_Node000027_Node000022",color="steelblue1",style="solid",tooltip=" "];
-  Node27 -> Node21 [id="edge43_Node000027_Node000021",color="steelblue1",style="solid",tooltip=" "];
-  Node27 -> Node4 [id="edge44_Node000027_Node000004",color="steelblue1",style="solid",tooltip=" "];
-  Node1 -> Node28 [id="edge45_Node000001_Node000028",color="steelblue1",style="solid",tooltip=" "];
-  Node28 [id="Node000028",label="utils/Compare.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Compare_8hpp.html",tooltip=" "];
-  Node28 -> Node26 [id="edge46_Node000028_Node000026",color="steelblue1",style="solid",tooltip=" "];
-  Node28 -> Node4 [id="edge47_Node000028_Node000004",color="steelblue1",style="solid",tooltip=" "];
-  Node1 -> Node29 [id="edge48_Node000001_Node000029",color="steelblue1",style="solid",tooltip=" "];
-  Node29 [id="Node000029",label="utils/Convert.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Convert_8hpp.html",tooltip=" "];
-  Node29 -> Node26 [id="edge49_Node000029_Node000026",color="steelblue1",style="solid",tooltip=" "];
-  Node29 -> Node21 [id="edge50_Node000029_Node000021",color="steelblue1",style="solid",tooltip=" "];
-  Node1 -> Node30 [id="edge51_Node000001_Node000030",color="steelblue1",style="solid",tooltip=" "];
-  Node30 [id="Node000030",label="utils/Is.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Is_8hpp.html",tooltip=" "];
-  Node30 -> Node26 [id="edge52_Node000030_Node000026",color="steelblue1",style="solid",tooltip=" "];
-  Node30 -> Node4 [id="edge53_Node000030_Node000004",color="steelblue1",style="solid",tooltip=" "];
 }

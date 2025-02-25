@@ -1,6 +1,7 @@
 var classJS_1_1InternalObject =
 [
     [ "InternalObject", "classJS_1_1InternalObject.html#ae04350c910520d9ee5b54eaff147cd5d", null ],
+    [ "InternalObject", "classJS_1_1InternalObject.html#ae5e06a20c034e2ea8ff2226aa5640db3", null ],
     [ "InternalObject", "classJS_1_1InternalObject.html#a0692e2406cd1a143234db5c165e887c8", null ],
     [ "InternalObject", "classJS_1_1InternalObject.html#a21b930556865e6bb5af312377de8e331", null ],
     [ "InternalObject", "classJS_1_1InternalObject.html#a9dfe191ca24ecf84be9776f7e03601fc", null ],
@@ -24,7 +25,7 @@ var classJS_1_1InternalObject =
     [ "class_name", "classJS_1_1InternalObject.html#a7c44d3ff1aca8de5571b160f6db0c927", null ],
     [ "construct", "classJS_1_1InternalObject.html#ae5830cfb9a2898087b614f4475abfb2f", null ],
     [ "extensible", "classJS_1_1InternalObject.html#a606758e8b6d1fe1ee6e7c3e6ecc4371b", null ],
-    [ "parameter_map", "classJS_1_1InternalObject.html#a50157f7e03a302993ba61e5ec30dc44a", null ],
+    [ "primitiveValue", "classJS_1_1InternalObject.html#accef381901579e7e0f47c3487181b0d9", null ],
     [ "properties", "classJS_1_1InternalObject.html#abef4f3f77ac76498e72b5ff219e84333", null ],
     [ "prototype", "classJS_1_1InternalObject.html#a39a67333eb860a30d744c9d99ae89eba", null ]
 ];

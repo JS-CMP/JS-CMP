@@ -9,8 +9,11 @@ var searchData=
   ['js_3a_3ais_6',['IS',['../namespaceJS_1_1IS.html',1,'JS']]],
   ['jsany_2ecpp_7',['JsAny.cpp',['../JsAny_8cpp.html',1,'']]],
   ['jsany_2ehpp_8',['JsAny.hpp',['../JsAny_8hpp.html',1,'']]],
-  ['jsfunction_2ecpp_9',['JsFunction.cpp',['../JsFunction_8cpp.html',1,'']]],
-  ['jsfunction_2ehpp_10',['JsFunction.hpp',['../JsFunction_8hpp.html',1,'']]],
-  ['jsmath_2ehpp_11',['JsMath.hpp',['../JsMath_8hpp.html',1,'']]],
-  ['jsobject_2ehpp_12',['JsObject.hpp',['../JsObject_8hpp.html',1,'']]]
+  ['jsboolean_2ehpp_9',['JsBoolean.hpp',['../JsBoolean_8hpp.html',1,'']]],
+  ['jsfunction_2ecpp_10',['JsFunction.cpp',['../JsFunction_8cpp.html',1,'']]],
+  ['jsfunction_2ehpp_11',['JsFunction.hpp',['../JsFunction_8hpp.html',1,'']]],
+  ['jsmath_2ehpp_12',['JsMath.hpp',['../JsMath_8hpp.html',1,'']]],
+  ['jsnumber_2ehpp_13',['JsNumber.hpp',['../JsNumber_8hpp.html',1,'']]],
+  ['jsobject_2ehpp_14',['JsObject.hpp',['../JsObject_8hpp.html',1,'']]],
+  ['jsstring_2ehpp_15',['JsString.hpp',['../JsString_8hpp.html',1,'']]]
 ];

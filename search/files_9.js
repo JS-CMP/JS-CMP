@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['modulo_2ecpp_0',['Modulo.cpp',['../Modulo_8cpp.html',1,'']]],
-  ['mult_2ecpp_1',['Mult.cpp',['../Mult_8cpp.html',1,'']]]
+  ['methods_2ecpp_0',['methods.cpp',['../Object_2methods_8cpp.html',1,'(Global Namespace)'],['../String_2methods_8cpp.html',1,'(Global Namespace)']]],
+  ['modulo_2ecpp_1',['Modulo.cpp',['../Modulo_8cpp.html',1,'']]],
+  ['mult_2ecpp_2',['Mult.cpp',['../Mult_8cpp.html',1,'']]]
 ];

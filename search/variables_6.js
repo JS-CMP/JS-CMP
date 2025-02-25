@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['infinity_0',['Infinity',['../global_8hpp.html#a7204152d864133825e6e650d83bc670e',1,'global.hpp']]],
-  ['isfinite_1',['isFinite',['../global_8hpp.html#a8ff6a194c25c5515d0a1e9896f4f6000',1,'global.hpp']]],
-  ['isnan_2',['isNaN',['../global_8hpp.html#a7051f21d84f9b852c30d670ff39c437e',1,'global.hpp']]]
+  ['hex_5fdigit_0',['HEX_DIGIT',['../URI_8cpp.html#a1bf5f370f8f283062f2a3aeea7f286fd',1,'URI.cpp']]]
 ];

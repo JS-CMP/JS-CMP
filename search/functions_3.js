@@ -5,8 +5,8 @@ var searchData=
   ['decodeuri_2',['decodeURI',['../namespaceJS_1_1GLOBAL.html#a710ebef92c6cc9b506799a9d6e2bf7d7',1,'JS::GLOBAL']]],
   ['decodeuricomponent_3',['decodeURIComponent',['../namespaceJS_1_1GLOBAL.html#a7ee1db0b18eb6199440ab3b89814884b',1,'JS::GLOBAL']]],
   ['defaultvalue_4',['defaultvalue',['../classJS_1_1InternalObject.html#a06c1ce1c550596a7b4986133b6710ea0',1,'JS::InternalObject::defaultValue() override'],['../classJS_1_1InternalObject.html#ad1245cc7d85d2a1ed5919db798e432ad',1,'JS::InternalObject::defaultValue(const JS::Types &amp;hint) override'],['../classJS_1_1IObject.html#adf326172c0adfa0df3d56b6b1adacdfd',1,'JS::IObject::defaultValue()=0'],['../classJS_1_1IObject.html#aa907372e9745ff9a460aff346d0cff06',1,'JS::IObject::defaultValue(const JS::Types &amp;hint)=0']]],
-  ['defineownproperty_5',['defineownproperty',['../classJS_1_1IObject.html#a6013275b8f0b32edfb233470e3b2eef8',1,'JS::IObject::defineOwnProperty()'],['../classJS_1_1InternalObject.html#a9095ad0320fc50eae1ad563dbf0a8f92',1,'JS::InternalObject::defineOwnProperty()']]],
+  ['defineownproperty_5',['defineownproperty',['../classJS_1_1IObject.html#aa24a1ea26db04b5f2c148ec8d70fcbbb',1,'JS::IObject::defineOwnProperty()'],['../classJS_1_1InternalObject.html#a9095ad0320fc50eae1ad563dbf0a8f92',1,'JS::InternalObject::defineOwnProperty()']]],
   ['defineproperties_6',['defineProperties',['../classJS_1_1Object.html#a4112140262b3411c017ae9e4c0e314c3',1,'JS::Object']]],
   ['defineproperty_7',['defineProperty',['../classJS_1_1Object.html#a56d481addde7bad938cc3357f55213df',1,'JS::Object']]],
-  ['deleteproperty_8',['deleteproperty',['../classJS_1_1IObject.html#a4894cd73129af141cf68b39edbc8a23b',1,'JS::IObject::deleteProperty()'],['../classJS_1_1InternalObject.html#a2e9b2d0c1090871982163357999a0c2f',1,'JS::InternalObject::deleteProperty()']]]
+  ['deleteproperty_8',['deleteproperty',['../classJS_1_1IObject.html#a0d386b6eff85bc268f4caa5c61cf8bee',1,'JS::IObject::deleteProperty()'],['../classJS_1_1InternalObject.html#a2e9b2d0c1090871982163357999a0c2f',1,'JS::InternalObject::deleteProperty()']]]
 ];

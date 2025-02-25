@@ -136,6 +136,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae04350c910520d9ee5b54eaff147cd5d" id="r_ae04350c910520d9ee5b54eaff147cd5d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#ae04350c910520d9ee5b54eaff147cd5d">InternalObject</a> (<a class="el" href="namespaceJS.html#a7a13a86ce74cf91ccbb32734eaf77483">JS::Properties</a> <a class="el" href="classJS_1_1InternalObject.html#abef4f3f77ac76498e72b5ff219e84333">properties</a>={}, std::shared_ptr&lt; <a class="el" href="classJS_1_1InternalObject.html">JS::InternalObject</a> &gt; <a class="el" href="classJS_1_1InternalObject.html#a39a67333eb860a30d744c9d99ae89eba">prototype</a>=nullptr, std::string <a class="el" href="classJS_1_1InternalObject.html#a7c44d3ff1aca8de5571b160f6db0c927">class_name</a>=&quot;Object&quot;, bool <a class="el" href="classJS_1_1InternalObject.html#a606758e8b6d1fe1ee6e7c3e6ecc4371b">extensible</a>=true)</td></tr>
 <tr class="memdesc:ae04350c910520d9ee5b54eaff147cd5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor initializes the object with an empty map.  <br /></td></tr>
 <tr class="separator:ae04350c910520d9ee5b54eaff147cd5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5e06a20c034e2ea8ff2226aa5640db3" id="r_ae5e06a20c034e2ea8ff2226aa5640db3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#ae5e06a20c034e2ea8ff2226aa5640db3">InternalObject</a> (const std::unordered_map&lt; std::string, <a class="el" href="classJS_1_1Any.html">JS::Any</a> &gt; &amp;<a class="el" href="classJS_1_1InternalObject.html#abef4f3f77ac76498e72b5ff219e84333">properties</a>={})</td></tr>
+<tr class="separator:ae5e06a20c034e2ea8ff2226aa5640db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0692e2406cd1a143234db5c165e887c8" id="r_a0692e2406cd1a143234db5c165e887c8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a0692e2406cd1a143234db5c165e887c8">InternalObject</a> (const <a class="el" href="namespaceJS.html#a045e2f5d691414608a9f6d2350e90811">JS::Attribute</a> &amp;attribute)</td></tr>
 <tr class="memdesc:a0692e2406cd1a143234db5c165e887c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attribute constructor.  <br /></td></tr>
 <tr class="separator:a0692e2406cd1a143234db5c165e887c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -216,15 +218,15 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a7c44d3ff1aca8de5571b160f6db0c927"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a606758e8b6d1fe1ee6e7c3e6ecc4371b" id="r_a606758e8b6d1fe1ee6e7c3e6ecc4371b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a606758e8b6d1fe1ee6e7c3e6ecc4371b">extensible</a></td></tr>
 <tr class="separator:a606758e8b6d1fe1ee6e7c3e6ecc4371b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50157f7e03a302993ba61e5ec30dc44a" id="r_a50157f7e03a302993ba61e5ec30dc44a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classJS_1_1InternalObject.html">JS::InternalObject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a50157f7e03a302993ba61e5ec30dc44a">parameter_map</a></td></tr>
-<tr class="separator:a50157f7e03a302993ba61e5ec30dc44a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accef381901579e7e0f47c3487181b0d9" id="r_accef381901579e7e0f47c3487181b0d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceJS.html#afdf8cc2ade0f7f3ab5544f56ba5c422f">JS::Value</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#accef381901579e7e0f47c3487181b0d9">primitiveValue</a></td></tr>
+<tr class="separator:accef381901579e7e0f47c3487181b0d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a base object for all JavaScript-like objects in C++. </p>
 <p>The <code><a class="el" href="classJS_1_1InternalObject.html" title="Represents a base object for all JavaScript-like objects in C++.">InternalObject</a></code> class represents a JavaScript-like object in C++. It provides methods to access and modify properties of the object. It also provides methods to check if a property exists, and if it's callable. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae04350c910520d9ee5b54eaff147cd5d" name="ae04350c910520d9ee5b54eaff147cd5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae04350c910520d9ee5b54eaff147cd5d">&#9670;&#160;</a></span>InternalObject() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae04350c910520d9ee5b54eaff147cd5d">&#9670;&#160;</a></span>InternalObject() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -273,8 +275,34 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ae5e06a20c034e2ea8ff2226aa5640db3" name="ae5e06a20c034e2ea8ff2226aa5640db3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5e06a20c034e2ea8ff2226aa5640db3">&#9670;&#160;</a></span>InternalObject() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">JS::InternalObject::InternalObject </td>
+          <td>(</td>
+          <td class="paramtype">const std::unordered_map&lt; std::string, <a class="el" href="classJS_1_1Any.html">JS::Any</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>properties</em> = <code>{}</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a0692e2406cd1a143234db5c165e887c8" name="a0692e2406cd1a143234db5c165e887c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0692e2406cd1a143234db5c165e887c8">&#9670;&#160;</a></span>InternalObject() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0692e2406cd1a143234db5c165e887c8">&#9670;&#160;</a></span>InternalObject() <span class="overload">[3/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -302,7 +330,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a21b930556865e6bb5af312377de8e331" name="a21b930556865e6bb5af312377de8e331"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21b930556865e6bb5af312377de8e331">&#9670;&#160;</a></span>InternalObject() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a21b930556865e6bb5af312377de8e331">&#9670;&#160;</a></span>InternalObject() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -322,7 +350,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a9dfe191ca24ecf84be9776f7e03601fc" name="a9dfe191ca24ecf84be9776f7e03601fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9dfe191ca24ecf84be9776f7e03601fc">&#9670;&#160;</a></span>InternalObject() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dfe191ca24ecf84be9776f7e03601fc">&#9670;&#160;</a></span>InternalObject() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -508,7 +536,7 @@ Public Attributes</h2></td></tr>
 
 <p>Define a property in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.9">https://262.ecma-international.org/5.1/#sec-8.12.9</a>. </p>
 
-<p>Implements <a class="el" href="classJS_1_1IObject.html#a6013275b8f0b32edfb233470e3b2eef8">JS::IObject</a>.</p>
+<p>Implements <a class="el" href="classJS_1_1IObject.html#aa24a1ea26db04b5f2c148ec8d70fcbbb">JS::IObject</a>.</p>
 
 </div>
 </div>
@@ -548,7 +576,7 @@ Public Attributes</h2></td></tr>
 
 <p>Delete a property in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.7">https://262.ecma-international.org/5.1/#sec-8.12.7</a>. </p>
 
-<p>Implements <a class="el" href="classJS_1_1IObject.html#a4894cd73129af141cf68b39edbc8a23b">JS::IObject</a>.</p>
+<p>Implements <a class="el" href="classJS_1_1IObject.html#a0d386b6eff85bc268f4caa5c61cf8bee">JS::IObject</a>.</p>
 
 </div>
 </div>
@@ -609,6 +637,8 @@ Public Attributes</h2></td></tr>
 <p>Get a property of the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.1">https://262.ecma-international.org/5.1/#sec-8.12.1</a>. </p>
 
 <p>Implements <a class="el" href="classJS_1_1IObject.html#a8b7780dc0d925e12d374665c720b37ca">JS::IObject</a>.</p>
+
+<p>Reimplemented in <a class="el" href="classJS_1_1String.html#a5ade392a4e92fa550a00c6108c13f3c0">JS::String</a>.</p>
 
 </div>
 </div>
@@ -861,7 +891,7 @@ template&lt;typename... Args&gt; </div>
 
 <p>Put a property in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.5">https://262.ecma-international.org/5.1/#sec-8.12.5</a>. </p>
 
-<p>Implements <a class="el" href="classJS_1_1IObject.html#ab4feee546719b914da3d80bce067b13f">JS::IObject</a>.</p>
+<p>Implements <a class="el" href="classJS_1_1IObject.html#a701222bdf06d7e544d1f084f2c870654">JS::IObject</a>.</p>
 
 </div>
 </div>
@@ -926,18 +956,18 @@ template&lt;typename... Args&gt; </div>
 
 </div>
 </div>
-<a id="a50157f7e03a302993ba61e5ec30dc44a" name="a50157f7e03a302993ba61e5ec30dc44a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50157f7e03a302993ba61e5ec30dc44a">&#9670;&#160;</a></span>parameter_map</h2>
+<a id="accef381901579e7e0f47c3487181b0d9" name="accef381901579e7e0f47c3487181b0d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accef381901579e7e0f47c3487181b0d9">&#9670;&#160;</a></span>primitiveValue</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="classJS_1_1InternalObject.html">JS::InternalObject</a>&gt; JS::InternalObject::parameter_map</td>
+          <td class="memname"><a class="el" href="namespaceJS.html#afdf8cc2ade0f7f3ab5544f56ba5c422f">JS::Value</a> JS::InternalObject::primitiveValue</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The parameter map of the object. </p>
+<p>The primitive value of the object. (Only Defined for Some Objects) </p>
 
 </div>
 </div>

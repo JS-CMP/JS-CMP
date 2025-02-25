@@ -4,3 +4,6 @@
 [submodule "submodules/Doxygen-Theme"]
 	path = submodules/Doxygen-Theme
 	url = https://github.com/jothepro/doxygen-awesome-css.git
+[submodule "submodules/SyntaxSmith"]
+	path = submodules/SyntaxSmith
+	url = git@github.com:SimonBandiera/SyntaxSmith.git

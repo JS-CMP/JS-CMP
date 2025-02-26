@@ -1,12 +1,9 @@
-//
-// Created by Simon BANDIERA on 26/02/2025.
-//
-
 #ifndef IN_HPP
 #define IN_HPP
 
 #include "SyntaxSmith.hpp"
 #include <types/JsAny.hpp>
+#include <internals/Object.hpp>
 #include <utils/Compare.hpp>
 #include <utils/Convert.hpp>
 
@@ -16,7 +13,7 @@ inline JS::Any inFunction(JS::Any a, JS::Any b) {
     }
 
     auto obj = std::get<std::shared_ptr<JS::InternalObject>>(a.getValue());
-//    return JS::Any(obj->hasProperty(JS::CONVERT::ToString(b))); TODO: uncomment when merging functions
+    return JS::Any(obj->hasProperty(JS::CONVERT::ToString(b)));
     return {};
 }
 

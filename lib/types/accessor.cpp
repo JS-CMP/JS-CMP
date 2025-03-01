@@ -1,5 +1,4 @@
 #include "internals/PropertyProxy.hpp"
-#include "utils/Compare.hpp"
 #include "utils/Convert.hpp"
 
 #include <types/JsAny.hpp>

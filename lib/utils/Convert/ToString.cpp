@@ -22,7 +22,7 @@ std::string ToString(const JS::Any& any) {
             return JS::CONVERT::ToString(std::get<double>(any.getValue()));
         case STRING:
             return ToString(std::get<Rope>(any.getValue()));
-        case BOOL:
+        case BOOLEAN:
             return ToString(std::get<bool>(any.getValue()));
         case UNDEFINED:
             return ToString(JS::Undefined());

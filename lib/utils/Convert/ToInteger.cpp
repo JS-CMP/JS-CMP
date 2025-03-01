@@ -18,7 +18,7 @@ int ToInteger(const JS::Any& any) { // https://262.ecma-international.org/5.1/#s
             return ToInteger(std::get<double>(any.getValue()));
         case STRING:
             return ToInteger(std::get<Rope>(any.getValue()));
-        case BOOL:
+        case BOOLEAN:
             return ToInteger(std::get<bool>(any.getValue()));
         case UNDEFINED:
             return ToInteger(JS::Undefined());

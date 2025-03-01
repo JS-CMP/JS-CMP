@@ -45,17 +45,17 @@ public:
     /** @brief Check if a property can be put in the object https://262.ecma-international.org/5.1/#sec-8.12.4 */
     [[nodiscard]] virtual bool canPut(const std::string& key) const = 0;
     /** @brief Put a property in the object https://262.ecma-international.org/5.1/#sec-8.12.5 */
-    virtual void put(const std::string& key, const JS::Any& value, bool is_throw) = 0;
+    virtual void put(const std::string& key, const JS::Any& value, bool is_throw = false) = 0;
     /** @brief Check if a property exists in the object https://262.ecma-international.org/5.1/#sec-8.12.6 */
     [[nodiscard]] virtual bool hasProperty(const std::string& key) const = 0;
     /** @brief Delete a property in the object https://262.ecma-international.org/5.1/#sec-8.12.7 */
-    virtual bool deleteProperty(const std::string& key, bool is_throw) = 0;
+    virtual bool deleteProperty(const std::string& key, bool is_throw = false) = 0;
     /** @brief Get the default value of the object https://262.ecma-international.org/5.1/#sec-8.12.8 */
     virtual JS::Any defaultValue(const JS::Types& hint) = 0;
     /** @brief Get the default value of the object https://262.ecma-international.org/5.1/#sec-8.12.8 */
     virtual JS::Any defaultValue() = 0;
     /** @brief Define a property in the object https://262.ecma-international.org/5.1/#sec-8.12.9 */
-    virtual bool defineOwnProperty(const std::string& key, JS::Attribute attribute, bool is_throw) = 0;
+    virtual bool defineOwnProperty(const std::string& key, JS::Attribute attribute, bool is_throw = false) = 0;
     ///@}
 
     /**

@@ -1,6 +1,6 @@
 #include "internals/PropertyProxy.hpp"
-#include "utils/Convert.hpp"
 #include "utils/Compare.hpp"
+#include "utils/Convert.hpp"
 
 #include <types/JsAny.hpp>
 #include <types/objects/JsFunction.hpp>

@@ -21,7 +21,7 @@ public:
      * This method accepts a variable number of arguments of any type and prints them to the console
      * with a space separating each argument. A newline is printed at the end.
      *
-     * @param this The `this` object.
+     * @param thisArg The `this` object.
      * @param args The arguments to log.
      *
      * Example usage:

@@ -3,7 +3,8 @@ var hierarchy =
     [ "JS::AccessorDescriptor", "classJS_1_1AccessorDescriptor.html", null ],
     [ "JS::Any", "classJS_1_1Any.html", null ],
     [ "Builder", "classBuilder.html", null ],
-    [ "console", "classconsole.html", null ],
+    [ "Console", "classConsole.html", null ],
+    [ "JS::console", "classJS_1_1console.html", null ],
     [ "JS::DataDescriptor", "classJS_1_1DataDescriptor.html", null ],
     [ "std::enable_shared_from_this", null, [
       [ "JS::InternalObject", "classJS_1_1InternalObject.html", [

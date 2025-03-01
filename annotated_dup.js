@@ -5,6 +5,7 @@ var annotated_dup =
       [ "Any", "classJS_1_1Any.html", "classJS_1_1Any" ],
       [ "Array", "classJS_1_1Array.html", "classJS_1_1Array" ],
       [ "Boolean", "classJS_1_1Boolean.html", "classJS_1_1Boolean" ],
+      [ "console", "classJS_1_1console.html", "classJS_1_1console" ],
       [ "DataDescriptor", "classJS_1_1DataDescriptor.html", "classJS_1_1DataDescriptor" ],
       [ "Function", "classJS_1_1Function.html", "classJS_1_1Function" ],
       [ "InternalObject", "classJS_1_1InternalObject.html", "classJS_1_1InternalObject" ],
@@ -16,7 +17,7 @@ var annotated_dup =
       [ "String", "classJS_1_1String.html", "classJS_1_1String" ]
     ] ],
     [ "Builder", "classBuilder.html", "classBuilder" ],
-    [ "console", "classconsole.html", "classconsole" ],
+    [ "Console", "classConsole.html", null ],
     [ "Options", "classOptions.html", "classOptions" ],
     [ "Rope", "classRope.html", "classRope" ],
     [ "RopeConcat", "classRopeConcat.html", "classRopeConcat" ],

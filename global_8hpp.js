@@ -1,6 +1,7 @@
 var global_8hpp =
 [
     [ "Boolean", "global_8hpp.html#abe8245232b8ca228a9b885133b8899dd", null ],
+    [ "console", "global_8hpp.html#a1dd8007728513403154ad5a8d75d8bed", null ],
     [ "decodeURI", "global_8hpp.html#ad893b5be58a1568114cd68346c193e4f", null ],
     [ "decodeURIComponent", "global_8hpp.html#adf0f48272cb6af3dc7e87f954cfd0f24", null ],
     [ "encodeURI", "global_8hpp.html#ad45fb6f060f4e0a9cc2439c370f934dc", null ],

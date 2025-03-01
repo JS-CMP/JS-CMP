@@ -8,7 +8,7 @@ var searchData=
   ['ln10_5',['LN10',['../classJS_1_1Math.html#aa17c421b51f4cb2bf967c94ad84af304',1,'JS::Math']]],
   ['ln2_6',['LN2',['../classJS_1_1Math.html#a2aeff4089beecab27429f85324eb052c',1,'JS::Math']]],
   ['localecompare_7',['localeCompare',['../classJS_1_1String.html#afdea19e4a9a46740be03af45cf186e31',1,'JS::String']]],
-  ['log_8',['log',['../classconsole.html#a3b88baa22a5965b5a6dff9a2f5baa073',1,'console::log()'],['../classJS_1_1Math.html#abd0a84e342333ff94894e9c06c974a14',1,'JS::Math::log(const JS::Any &amp;thisArg, const JS::Any &amp;args)']]],
+  ['log_8',['log',['../classJS_1_1console.html#a8437af6e4d5c0ff5640fb0407cf9c91b',1,'JS::console::log()'],['../classJS_1_1Math.html#abd0a84e342333ff94894e9c06c974a14',1,'JS::Math::log(const JS::Any &amp;thisArg, const JS::Any &amp;args)']]],
   ['log10e_9',['LOG10E',['../classJS_1_1Math.html#a0514eb414b03de85dee0303040faa1c9',1,'JS::Math']]],
   ['log2e_10',['LOG2e',['../classJS_1_1Math.html#a06481cd36b756678c35d503dffc0fb99',1,'JS::Math']]],
   ['loop_11',['2. Feedback Loop',['../md_CODE__OF__CONDUCT.html#autotoc_md53',1,'']]]

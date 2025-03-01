@@ -5,5 +5,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="JS::Math",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classJS_1_1Math.html",tooltip="Provides mathematical functions similar to JavaScript's Math object."];
+  Node0 [id="Node000000",label="JS::DataDescriptor",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classJS_1_1DataDescriptor.html",tooltip="Represents data properties of a JavaScript object."];
 }

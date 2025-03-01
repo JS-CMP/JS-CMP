@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9"/>
     <meta name="generator" content="Doxygen 1.9.8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>JS-CMP: includes/class/Console.hpp File Reference</title>
+    <title>JS-CMP: JS::console Class Reference</title>
     <link href="tabs.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="dynsections.js"></script>
@@ -76,7 +76,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('Console_8hpp.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('classJS_1_1console.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -103,36 +103,79 @@ $(document).ready(function(){initNavTree('Console_8hpp.html',''); initResizable(
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
-  <div class="headertitle"><div class="title">Console.hpp File Reference</div></div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="classJS_1_1console-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">JS::console Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for Console.hpp:</div>
-<div class="dyncontent">
-<div class="center"><!-- SVG 0 --></div>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><!-- SVG 1 --></div>
-</div>
-</div>
-<p><a href="Console_8hpp_source.html">Go to the source code of this file.</a></p>
+
+<p><code>#include &lt;<a class="el" href="console_8hpp_source.html">console.hpp</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconsole.html">console</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple logging class that provides static methods to print messages to the console.  <a href="classconsole.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a8437af6e4d5c0ff5640fb0407cf9c91b" id="r_a8437af6e4d5c0ff5640fb0407cf9c91b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1console.html#a8437af6e4d5c0ff5640fb0407cf9c91b">log</a> (const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;thisArg, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;args)</td></tr>
+<tr class="memdesc:a8437af6e4d5c0ff5640fb0407cf9c91b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs messages to the console.  <br /></td></tr>
+<tr class="separator:a8437af6e4d5c0ff5640fb0407cf9c91b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8437af6e4d5c0ff5640fb0407cf9c91b" name="a8437af6e4d5c0ff5640fb0407cf9c91b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8437af6e4d5c0ff5640fb0407cf9c91b">&#9670;&#160;</a></span>log()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::console::log </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
+          <td class="paramname"><em>thisArg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Logs messages to the console. </p>
+<p>This method accepts a variable number of arguments of any type and prints them to the console with a space separating each argument. A newline is printed at the end.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thisArg</td><td>The <code>this</code> object. </td></tr>
+    <tr><td class="paramname">args</td><td>The arguments to log.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Example usage: </p><div class="fragment"><div class="line"><a class="code hl_function" href="classJS_1_1console.html#a8437af6e4d5c0ff5640fb0407cf9c91b">console::log</a>(<span class="stringliteral">&quot;Hello,&quot;</span>, <span class="stringliteral">&quot;world!&quot;</span>, 42);</div>
+<div class="ttc" id="aclassJS_1_1console_html_a8437af6e4d5c0ff5640fb0407cf9c91b"><div class="ttname"><a href="classJS_1_1console.html#a8437af6e4d5c0ff5640fb0407cf9c91b">JS::console::log</a></div><div class="ttdeci">static JS::Any log(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Logs messages to the console.</div><div class="ttdef"><b>Definition</b> console.cpp:7</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>includes/global/<a class="el" href="console_8hpp_source.html">console.hpp</a></li>
+<li>lib/global/<a class="el" href="console_8cpp.html">console.cpp</a></li>
+</ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_09e761304027c904456130627fd4dcf5.html">includes</a></li><li class="navelem"><a class="el" href="dir_6b079f5d9ee168c5f829c0b23b1fe689.html">class</a></li><li class="navelem"><a class="el" href="Console_8hpp.html">Console.hpp</a></li>
+    <li class="navelem"><a class="el" href="namespaceJS.html">JS</a></li><li class="navelem"><a class="el" href="classJS_1_1console.html">console</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>

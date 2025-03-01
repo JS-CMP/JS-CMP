@@ -9,6 +9,7 @@ std::string ToString(double value) {
            : std::isinf(value) ? value < 0 ? "-Infinity" : "Infinity"
                                : (std::ostringstream() << value).str();
 }
+std::string ToString(unsigned int value) { return (std::ostringstream() << value).str(); }
 std::string ToString(bool value) { return value ? "true" : "false"; }
 std::string ToString(const char* value) { return value; }
 std::string ToString(const std::string& value) { return value; }

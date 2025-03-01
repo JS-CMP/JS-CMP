@@ -12,9 +12,10 @@ JS::PropertyProxy JS::Any::operator[](T key) const {
     return JS::PropertyProxy(std::get<std::shared_ptr<JS::InternalObject>>(value.getValue()),
                              JS::CONVERT::ToString(key));
 }
-template JS::PropertyProxy JS::Any::operator[](const int&) const;
-template JS::PropertyProxy JS::Any::operator[](const double&) const;
-template JS::PropertyProxy JS::Any::operator[](const bool&) const;
+template JS::PropertyProxy JS::Any::operator[](int) const;
+template JS::PropertyProxy JS::Any::operator[](unsigned int) const;
+template JS::PropertyProxy JS::Any::operator[](double) const;
+template JS::PropertyProxy JS::Any::operator[](bool) const;
 template JS::PropertyProxy JS::Any::operator[](const char*) const;
 template JS::PropertyProxy JS::Any::operator[](const std::string&) const;
 template JS::PropertyProxy JS::Any::operator[](const JS::Null&) const;

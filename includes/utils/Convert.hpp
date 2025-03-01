@@ -50,6 +50,7 @@ int32_t ToInt32(T value);
 std::string ToString(int value);
 std::string ToString(double value);
 std::string ToString(bool value);
+std::string ToString(unsigned int value);
 std::string ToString(const char* value);
 std::string ToString(const std::string& value);
 std::string ToString(const Rope& value);

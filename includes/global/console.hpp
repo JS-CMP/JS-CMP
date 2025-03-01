@@ -13,7 +13,7 @@ namespace JS {
  * This class encapsulates the logging functionality and provides a single method to log messages
  * of various types. It ensures that the output is formatted correctly with spaces between arguments.
  */
-class Console { // TODO: change initial to capital letter
+class console {
 public:
     /**
      * @brief Logs messages to the console.
@@ -32,8 +32,8 @@ public:
     static JS::Any log(const JS::Any& thisArg, const JS::Any& args);
 
 private:
-    Console() = default;  ///< Private constructor to prevent instantiation.
-    ~Console() = default; ///< Private destructor to prevent deletion.
+    console() = default;  ///< Private constructor to prevent instantiation.
+    ~console() = default; ///< Private destructor to prevent deletion.
 };
 
 #endif // JS_CMP_ALPHA_CONSOLE_HPP

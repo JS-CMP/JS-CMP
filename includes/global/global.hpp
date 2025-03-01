@@ -1,7 +1,7 @@
 #ifndef JS_CMP_GLOBAL_HPP
 #define JS_CMP_GLOBAL_HPP
 
-#include "global/Console.hpp"
+#include "global/console.hpp"
 #include "globalFunctions.hpp"
 #include "types/JsAny.hpp"
 #include "types/objects/JsBoolean.hpp"
@@ -71,7 +71,7 @@ JS::Any Math = JS::Any(std::make_shared<JS::InternalObject>(
     nullptr, "Math", true)); // TODO Make math inherit from Object
 
 JS::Any console = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::string, JS::Any>{
-    {"log", JS::Any(std::make_shared<JS::Function>(JS::Console::log))},
+    {"log", JS::Any(std::make_shared<JS::Function>(JS::console::log))},
 }));
 
 JS::Any NaN = JS::Any(std::numeric_limits<double>::quiet_NaN());

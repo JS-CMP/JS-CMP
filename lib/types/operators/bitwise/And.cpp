@@ -5,13 +5,14 @@ template <typename T>
 JS::Any JS::Any::operator&(T other) const {
     return JS::Any(JS::CONVERT::ToInt32(*this) & JS::CONVERT::ToInt32(other));
 }
-template JS::Any JS::Any::operator&(const JS::Any&) const;
 template JS::Any JS::Any::operator&(int) const;
 template JS::Any JS::Any::operator&(double) const;
 template JS::Any JS::Any::operator&(const char*) const;
 template JS::Any JS::Any::operator&(bool) const;
 template JS::Any JS::Any::operator&(JS::Null) const;
 template JS::Any JS::Any::operator&(JS::Undefined) const;
+template JS::Any JS::Any::operator&(JS::Any) const;
+template JS::Any JS::Any::operator&(const JS::Any&) const;
 
 namespace JS {
 template <typename T>

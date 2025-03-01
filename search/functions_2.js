@@ -6,9 +6,10 @@ var searchData=
   ['ceil_3',['ceil',['../classJS_1_1Math.html#a245ab98c33dfa9c3117e8883e625e035',1,'JS::Math']]],
   ['charat_4',['charAt',['../classJS_1_1String.html#a3524d98cdca17341c91606e653037c97',1,'JS::String']]],
   ['charcodeat_5',['charCodeAt',['../classJS_1_1String.html#a381b435a06423070c7703157780fe5ba',1,'JS::String']]],
-  ['compare_6',['compare',['../classRope.html#a251108c602a9d3bfee7b7c1a0c730c0d',1,'Rope']]],
-  ['concat_7',['concat',['../classRope.html#a4ffe8f1dbe59157a040ee2d6e98ad891',1,'Rope::concat()'],['../classJS_1_1String.html#ab5bc39d7f8eb03f356f25bb9c1793bca',1,'JS::String::concat()']]],
-  ['cos_8',['cos',['../classJS_1_1Math.html#a65ea6c653b1cdc60cd5b9d36aadcd467',1,'JS::Math']]],
-  ['create_9',['create',['../classJS_1_1Object.html#a6e7cbd4044f630b4e00fa1ac9daef9fc',1,'JS::Object']]],
-  ['createargumentsobject_10',['CreateArgumentsObject',['../namespaceJS_1_1Arguments.html#a6bd6606cc25dfead966117cfbb51d5b7',1,'JS::Arguments']]]
+  ['checkobjectcoercible_6',['CheckObjectCoercible',['../namespaceJS_1_1COMPARE.html#aaf0fbf149c0287e7b368bf7e5477f025',1,'JS::COMPARE']]],
+  ['compare_7',['compare',['../classRope.html#a251108c602a9d3bfee7b7c1a0c730c0d',1,'Rope']]],
+  ['concat_8',['concat',['../classRope.html#a4ffe8f1dbe59157a040ee2d6e98ad891',1,'Rope::concat()'],['../classJS_1_1String.html#ab5bc39d7f8eb03f356f25bb9c1793bca',1,'JS::String::concat()']]],
+  ['cos_9',['cos',['../classJS_1_1Math.html#a65ea6c653b1cdc60cd5b9d36aadcd467',1,'JS::Math']]],
+  ['create_10',['create',['../classJS_1_1Object.html#a6e7cbd4044f630b4e00fa1ac9daef9fc',1,'JS::Object']]],
+  ['createargumentsobject_11',['CreateArgumentsObject',['../namespaceJS_1_1Arguments.html#a6bd6606cc25dfead966117cfbb51d5b7',1,'JS::Arguments']]]
 ];

@@ -30,7 +30,7 @@ var searchData=
   ['propertyproxy_2ecpp_27',['PropertyProxy.cpp',['../PropertyProxy_8cpp.html',1,'']]],
   ['propertyproxy_2ehpp_28',['PropertyProxy.hpp',['../PropertyProxy_8hpp.html',1,'']]],
   ['prototype_29',['prototype',['../classJS_1_1InternalObject.html#a39a67333eb860a30d744c9d99ae89eba',1,'JS::InternalObject']]],
-  ['prototype_2ecpp_30',['prototype.cpp',['../Object_2prototype_8cpp.html',1,'(Global Namespace)'],['../String_2prototype_8cpp.html',1,'(Global Namespace)'],['../Number_2prototype_8cpp.html',1,'(Global Namespace)'],['../Boolean_2prototype_8cpp.html',1,'(Global Namespace)']]],
+  ['prototype_2ecpp_30',['prototype.cpp',['../String_2prototype_8cpp.html',1,'(Global Namespace)'],['../Object_2prototype_8cpp.html',1,'(Global Namespace)'],['../Number_2prototype_8cpp.html',1,'(Global Namespace)'],['../Boolean_2prototype_8cpp.html',1,'(Global Namespace)']]],
   ['prototypeproperties_2ecpp_31',['prototypeproperties.cpp',['../Boolean_2prototypeProperties_8cpp.html',1,'(Global Namespace)'],['../Number_2prototypeProperties_8cpp.html',1,'(Global Namespace)'],['../String_2prototypeProperties_8cpp.html',1,'(Global Namespace)']]],
   ['protoypeproperties_2ecpp_32',['protoypeProperties.cpp',['../protoypeProperties_8cpp.html',1,'']]],
   ['put_33',['put',['../classJS_1_1InternalObject.html#a447ac2dd10c1aa26379df02669849735',1,'JS::InternalObject::put()'],['../classJS_1_1IObject.html#a701222bdf06d7e544d1f084f2c870654',1,'JS::IObject::put()']]]

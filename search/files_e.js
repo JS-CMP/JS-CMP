@@ -1,5 +1,13 @@
 var searchData=
 [
-  ['static_2ecpp_0',['static.cpp',['../internals_2Arguments_2static_8cpp.html',1,'(Global Namespace)'],['../types_2objects_2Math_2static_8cpp.html',1,'(Global Namespace)']]],
-  ['sub_2ecpp_1',['Sub.cpp',['../Sub_8cpp.html',1,'']]]
+  ['readme_2emd_0',['README.md',['../README_8md.html',1,'']]],
+  ['right_5fchevron_2ecpp_1',['right_chevron.cpp',['../Logical_2Right__Chevron_8cpp.html',1,'(Global Namespace)'],['../Right__Chevron_8cpp.html',1,'(Global Namespace)']]],
+  ['right_5fshift_2ecpp_2',['Right_Shift.cpp',['../Right__Shift_8cpp.html',1,'']]],
+  ['rope_2ecpp_3',['Rope.cpp',['../Rope_8cpp.html',1,'']]],
+  ['rope_2ehpp_4',['Rope.hpp',['../Rope_8hpp.html',1,'']]],
+  ['ropeconcat_2ecpp_5',['RopeConcat.cpp',['../RopeConcat_8cpp.html',1,'']]],
+  ['ropeconcat_2ehpp_6',['RopeConcat.hpp',['../RopeConcat_8hpp.html',1,'']]],
+  ['ropeleaf_2ecpp_7',['RopeLeaf.cpp',['../RopeLeaf_8cpp.html',1,'']]],
+  ['ropeleaf_2ehpp_8',['RopeLeaf.hpp',['../RopeLeaf_8hpp.html',1,'']]],
+  ['ropenode_2ehpp_9',['RopeNode.hpp',['../RopeNode_8hpp.html',1,'']]]
 ];

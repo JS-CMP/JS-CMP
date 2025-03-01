@@ -1,5 +1,6 @@
 var Compare_8hpp =
 [
+    [ "CheckObjectCoercible", "Compare_8hpp.html#aaf0fbf149c0287e7b368bf7e5477f025", null ],
     [ "SameValue", "Compare_8hpp.html#a09ad29071ad75fa9f05fb1385a4e3b02", null ],
     [ "SameValue", "Compare_8hpp.html#a6417bd75d76dee6cad5232448eb0cd0c", null ],
     [ "SameValue", "Compare_8hpp.html#ab6a8b21acf36a89df3ade288f90b4d50", null ],

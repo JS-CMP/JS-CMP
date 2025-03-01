@@ -1,7 +1,7 @@
 var searchData=
 [
   ['lastindexof_0',['lastIndexOf',['../classJS_1_1String.html#a63f4381711fbf70b6b4f6ad845c78740',1,'JS::String']]],
-  ['left_5fchevron_2ecpp_1',['Left_Chevron.cpp',['../Left__Chevron_8cpp.html',1,'']]],
+  ['left_5fchevron_2ecpp_1',['left_chevron.cpp',['../Left__Chevron_8cpp.html',1,'(Global Namespace)'],['../Logical_2Left__Chevron_8cpp.html',1,'(Global Namespace)']]],
   ['left_5fshift_2ecpp_2',['Left_Shift.cpp',['../Left__Shift_8cpp.html',1,'']]],
   ['length_3',['length',['../classRope.html#a373aed65f017618c23a11ee153b21fc4',1,'Rope::length()'],['../classRopeConcat.html#a26596d031519ec2f017d95ea29d8370c',1,'RopeConcat::length()'],['../classRopeLeaf.html#a3898dbb3ea0784614236c3e8cc45f46f',1,'RopeLeaf::length()'],['../classRopeNode.html#a20749afe44e571f977d201a56116caf1',1,'RopeNode::length()']]],
   ['linux_4',['Linux',['../index.html#autotoc_md8',1,'']]],

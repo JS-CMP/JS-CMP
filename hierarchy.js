@@ -7,6 +7,7 @@ var hierarchy =
     [ "JS::DataDescriptor", "classJS_1_1DataDescriptor.html", null ],
     [ "std::enable_shared_from_this", null, [
       [ "JS::InternalObject", "classJS_1_1InternalObject.html", [
+        [ "JS::Array", "classJS_1_1Array.html", null ],
         [ "JS::Boolean", "classJS_1_1Boolean.html", null ],
         [ "JS::Function", "classJS_1_1Function.html", null ],
         [ "JS::Number", "classJS_1_1Number.html", null ],

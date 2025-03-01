@@ -12,6 +12,5 @@ var classJS_1_1IObject =
     [ "hasProperty", "classJS_1_1IObject.html#af498ceedd6ad4445f89a9518ba411b46", null ],
     [ "isCallable", "classJS_1_1IObject.html#ac96714cfb8e698140dfa0ee72d7d92b4", null ],
     [ "operator[]", "classJS_1_1IObject.html#ae598fda511492ad6a219d275f8b48f53", null ],
-    [ "operator[]", "classJS_1_1IObject.html#afd8c4b3a747c34e7f19af50f300fe95d", null ],
     [ "put", "classJS_1_1IObject.html#a701222bdf06d7e544d1f084f2c870654", null ]
 ];

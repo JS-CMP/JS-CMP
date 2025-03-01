@@ -19,7 +19,6 @@ var classJS_1_1InternalObject =
     [ "operator()", "classJS_1_1InternalObject.html#ace845e0bb9a098e2cbc4df430385ddbb", null ],
     [ "operator=", "classJS_1_1InternalObject.html#acd21bca904cc1f13901b42000fb3fefc", null ],
     [ "operator[]", "classJS_1_1InternalObject.html#afe26e800e05fe61a6881f75d049a3856", null ],
-    [ "operator[]", "classJS_1_1InternalObject.html#a7b893ecc3f3aa87e3d0958f0bb48e566", null ],
     [ "put", "classJS_1_1InternalObject.html#a447ac2dd10c1aa26379df02669849735", null ],
     [ "call", "classJS_1_1InternalObject.html#a0978deeb73747b59c3c65444d784bf3c", null ],
     [ "class_name", "classJS_1_1InternalObject.html#a7c44d3ff1aca8de5571b160f6db0c927", null ],

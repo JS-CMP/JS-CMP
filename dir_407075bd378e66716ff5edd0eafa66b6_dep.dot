@@ -7,8 +7,13 @@ digraph "lib/types/operators/Logical"
   compound=true
   subgraph clusterdir_cc8d397db54d25297def3a698c833207 {
     graph [ bgcolor="#daedff", pencolor="grey50", label="operators", fontname=Helvetica,fontsize=10 style="filled,dashed", URL="dir_cc8d397db54d25297def3a698c833207.html",tooltip=""]
-  dir_407075bd378e66716ff5edd0eafa66b6 [label="Logical", fillcolor="#daedff", color="grey25", style="filled,bold", URL="dir_407075bd378e66716ff5edd0eafa66b6.html",tooltip=""];
+  subgraph clusterdir_407075bd378e66716ff5edd0eafa66b6 {
+    graph [ bgcolor="#daedff", pencolor="grey25", label="", fontname=Helvetica,fontsize=10 style="filled,bold", URL="dir_407075bd378e66716ff5edd0eafa66b6.html",tooltip=""]
+    dir_407075bd378e66716ff5edd0eafa66b6 [shape=plaintext, label="Logical"];
+  dir_2f544c3a8287f54aafeff173ff77d4c8 [label="unary", fillcolor="#4ea9ff", color="grey25", style="filled", URL="dir_2f544c3a8287f54aafeff173ff77d4c8.html",tooltip=""];
+  }
   }
   dir_09e761304027c904456130627fd4dcf5 [label="includes", fillcolor="#daedff", color="red", style="filled", URL="dir_09e761304027c904456130627fd4dcf5.html",tooltip=""];
-  dir_407075bd378e66716ff5edd0eafa66b6->dir_09e761304027c904456130627fd4dcf5 [headlabel="6", labeldistance=1.5 headhref="dir_000013_000009.html" href="dir_000013_000009.html" color="steelblue1" fontcolor="steelblue1"];
+  dir_407075bd378e66716ff5edd0eafa66b6->dir_09e761304027c904456130627fd4dcf5 [headlabel="14", labeldistance=1.5 headhref="dir_000013_000009.html" href="dir_000013_000009.html" color="steelblue1" fontcolor="steelblue1"];
+  dir_2f544c3a8287f54aafeff173ff77d4c8->dir_09e761304027c904456130627fd4dcf5 [headlabel="4", labeldistance=1.5 headhref="dir_000028_000009.html" href="dir_000028_000009.html" color="steelblue1" fontcolor="steelblue1"];
 }

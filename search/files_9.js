@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['methods_2ecpp_0',['methods.cpp',['../Object_2methods_8cpp.html',1,'(Global Namespace)'],['../String_2methods_8cpp.html',1,'(Global Namespace)']]],
-  ['modulo_2ecpp_1',['Modulo.cpp',['../Modulo_8cpp.html',1,'']]],
-  ['mult_2ecpp_2',['Mult.cpp',['../Mult_8cpp.html',1,'']]]
+  ['left_5fchevron_2ecpp_0',['left_chevron.cpp',['../Left__Chevron_8cpp.html',1,'(Global Namespace)'],['../Logical_2Left__Chevron_8cpp.html',1,'(Global Namespace)']]],
+  ['left_5fshift_2ecpp_1',['Left_Shift.cpp',['../Left__Shift_8cpp.html',1,'']]]
 ];

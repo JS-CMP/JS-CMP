@@ -133,6 +133,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Any.html">Any</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a JavaScript-like variant type in C++ that can hold multiple types of values.  <a href="classJS_1_1Any.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Array.html">Array</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a JavaScript-like array object in C++.  <a href="classJS_1_1Array.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Boolean.html">Boolean</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represent the boolean object in C++.  <a href="classJS_1_1Boolean.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -167,6 +170,9 @@ Classes</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:a7a13a86ce74cf91ccbb32734eaf77483" id="r_a7a13a86ce74cf91ccbb32734eaf77483"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a7a13a86ce74cf91ccbb32734eaf77483">Properties</a> = std::unordered_map&lt; std::string, <a class="el" href="namespaceJS.html#a045e2f5d691414608a9f6d2350e90811">JS::Attribute</a> &gt;</td></tr>
 <tr class="separator:a7a13a86ce74cf91ccbb32734eaf77483"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04e94438474aa77f16f83ae247063a23" id="r_a04e94438474aa77f16f83ae247063a23"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a04e94438474aa77f16f83ae247063a23"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a04e94438474aa77f16f83ae247063a23">JSAnyAmbiguous</a> = std::enable_if_t&lt;!std::is_same_v&lt; T, <a class="el" href="classJS_1_1Any.html">JS::Any</a> &gt;, <a class="el" href="classJS_1_1Any.html">JS::Any</a> &gt;</td></tr>
+<tr class="separator:a04e94438474aa77f16f83ae247063a23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a045e2f5d691414608a9f6d2350e90811" id="r_a045e2f5d691414608a9f6d2350e90811"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a045e2f5d691414608a9f6d2350e90811">Attribute</a> = std::variant&lt; <a class="el" href="classJS_1_1DataDescriptor.html">DataDescriptor</a>, <a class="el" href="classJS_1_1AccessorDescriptor.html">AccessorDescriptor</a> &gt;</td></tr>
 <tr class="memdesc:a045e2f5d691414608a9f6d2350e90811"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a JavaScript object property, which can be a data property or an accessor property.  <br /></td></tr>
 <tr class="separator:a045e2f5d691414608a9f6d2350e90811"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -203,18 +209,6 @@ Functions</h2></td></tr>
 <tr class="separator:afc3d14ccb6b59dac36c7bb93e21abdb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2efcc411b684d052e72abf8795ce860" id="r_ab2efcc411b684d052e72abf8795ce860"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#ab2efcc411b684d052e72abf8795ce860">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classJS_1_1Any.html">Any</a> &amp;any)</td></tr>
 <tr class="separator:ab2efcc411b684d052e72abf8795ce860"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c42568ea4176ab6b4d9f7db17dd6bd9" id="r_a5c42568ea4176ab6b4d9f7db17dd6bd9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a5c42568ea4176ab6b4d9f7db17dd6bd9">operator+</a> (int value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
-<tr class="separator:a5c42568ea4176ab6b4d9f7db17dd6bd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af30fe8d4c74a52f188f0e4c43e0bb3ba" id="r_af30fe8d4c74a52f188f0e4c43e0bb3ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#af30fe8d4c74a52f188f0e4c43e0bb3ba">operator+</a> (double value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
-<tr class="separator:af30fe8d4c74a52f188f0e4c43e0bb3ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad734e4b208858250bff3ed3ceae892fc" id="r_ad734e4b208858250bff3ed3ceae892fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#ad734e4b208858250bff3ed3ceae892fc">operator+</a> (const char *value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
-<tr class="separator:ad734e4b208858250bff3ed3ceae892fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a3e7c2326d56f865d643742f3199363" id="r_a0a3e7c2326d56f865d643742f3199363"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a0a3e7c2326d56f865d643742f3199363">operator+</a> (bool value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
-<tr class="separator:a0a3e7c2326d56f865d643742f3199363"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a397f6854b570bb2469c201201d9e84f3" id="r_a397f6854b570bb2469c201201d9e84f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a397f6854b570bb2469c201201d9e84f3">operator+</a> (<a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
-<tr class="separator:a397f6854b570bb2469c201201d9e84f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a912c2c97953250cb835d63ae7ed86a97" id="r_a912c2c97953250cb835d63ae7ed86a97"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a912c2c97953250cb835d63ae7ed86a97">operator+</a> (JS::Undefined, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
-<tr class="separator:a912c2c97953250cb835d63ae7ed86a97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28011b21158a5e9fcc3366025e728411" id="r_a28011b21158a5e9fcc3366025e728411"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a28011b21158a5e9fcc3366025e728411"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a28011b21158a5e9fcc3366025e728411">operator&amp;</a> (T value, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;any)</td></tr>
 <tr class="separator:a28011b21158a5e9fcc3366025e728411"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -290,18 +284,6 @@ Functions</h2></td></tr>
 <tr class="separator:a25b409b4db795ddbe73108869dfe392f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa35a59f48e4bd63306ab56a59b66f12c" id="r_aa35a59f48e4bd63306ab56a59b66f12c"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#aa35a59f48e4bd63306ab56a59b66f12c">operator^</a> (JS::Undefined, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
 <tr class="separator:aa35a59f48e4bd63306ab56a59b66f12c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa5d7539890698bfb2b38d9d2084e73a" id="r_aaa5d7539890698bfb2b38d9d2084e73a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#aaa5d7539890698bfb2b38d9d2084e73a">operator/</a> (int value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
-<tr class="separator:aaa5d7539890698bfb2b38d9d2084e73a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52e1abc140370e2bfd75e9050ed292c5" id="r_a52e1abc140370e2bfd75e9050ed292c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a52e1abc140370e2bfd75e9050ed292c5">operator/</a> (double value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
-<tr class="separator:a52e1abc140370e2bfd75e9050ed292c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f7521815d6215c771ae796c33d5b012" id="r_a1f7521815d6215c771ae796c33d5b012"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a1f7521815d6215c771ae796c33d5b012">operator/</a> (const char *value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
-<tr class="separator:a1f7521815d6215c771ae796c33d5b012"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a169488ee998473672413be8c18507f24" id="r_a169488ee998473672413be8c18507f24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a169488ee998473672413be8c18507f24">operator/</a> (bool value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
-<tr class="separator:a169488ee998473672413be8c18507f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad55475e951a8567e992da0fae9357d9c" id="r_ad55475e951a8567e992da0fae9357d9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#ad55475e951a8567e992da0fae9357d9c">operator/</a> (<a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
-<tr class="separator:ad55475e951a8567e992da0fae9357d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84605a2303ddb1252afdbf081ccf9eea" id="r_a84605a2303ddb1252afdbf081ccf9eea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a84605a2303ddb1252afdbf081ccf9eea">operator/</a> (JS::Undefined, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;)</td></tr>
-<tr class="separator:a84605a2303ddb1252afdbf081ccf9eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00b406cbbfcecfa4540af76ce557e7aa" id="r_a00b406cbbfcecfa4540af76ce557e7aa"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a00b406cbbfcecfa4540af76ce557e7aa"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a00b406cbbfcecfa4540af76ce557e7aa">operator&amp;&amp;</a> (T value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
 <tr class="separator:a00b406cbbfcecfa4540af76ce557e7aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -332,6 +314,30 @@ Functions</h2></td></tr>
 <tr class="separator:a674f01c3386e5113b09efb5510335137"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb0aac3a0f0bc806c7b5ff6cde6262fd" id="r_afb0aac3a0f0bc806c7b5ff6cde6262fd"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#afb0aac3a0f0bc806c7b5ff6cde6262fd">operator||</a> (JS::Undefined, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;)</td></tr>
 <tr class="separator:afb0aac3a0f0bc806c7b5ff6cde6262fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c42568ea4176ab6b4d9f7db17dd6bd9" id="r_a5c42568ea4176ab6b4d9f7db17dd6bd9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a5c42568ea4176ab6b4d9f7db17dd6bd9">operator+</a> (int value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
+<tr class="separator:a5c42568ea4176ab6b4d9f7db17dd6bd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af30fe8d4c74a52f188f0e4c43e0bb3ba" id="r_af30fe8d4c74a52f188f0e4c43e0bb3ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#af30fe8d4c74a52f188f0e4c43e0bb3ba">operator+</a> (double value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
+<tr class="separator:af30fe8d4c74a52f188f0e4c43e0bb3ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad734e4b208858250bff3ed3ceae892fc" id="r_ad734e4b208858250bff3ed3ceae892fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#ad734e4b208858250bff3ed3ceae892fc">operator+</a> (const char *value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
+<tr class="separator:ad734e4b208858250bff3ed3ceae892fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a3e7c2326d56f865d643742f3199363" id="r_a0a3e7c2326d56f865d643742f3199363"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a0a3e7c2326d56f865d643742f3199363">operator+</a> (bool value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
+<tr class="separator:a0a3e7c2326d56f865d643742f3199363"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a397f6854b570bb2469c201201d9e84f3" id="r_a397f6854b570bb2469c201201d9e84f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a397f6854b570bb2469c201201d9e84f3">operator+</a> (<a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
+<tr class="separator:a397f6854b570bb2469c201201d9e84f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a912c2c97953250cb835d63ae7ed86a97" id="r_a912c2c97953250cb835d63ae7ed86a97"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a912c2c97953250cb835d63ae7ed86a97">operator+</a> (JS::Undefined, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
+<tr class="separator:a912c2c97953250cb835d63ae7ed86a97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa5d7539890698bfb2b38d9d2084e73a" id="r_aaa5d7539890698bfb2b38d9d2084e73a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#aaa5d7539890698bfb2b38d9d2084e73a">operator/</a> (int value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
+<tr class="separator:aaa5d7539890698bfb2b38d9d2084e73a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52e1abc140370e2bfd75e9050ed292c5" id="r_a52e1abc140370e2bfd75e9050ed292c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a52e1abc140370e2bfd75e9050ed292c5">operator/</a> (double value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
+<tr class="separator:a52e1abc140370e2bfd75e9050ed292c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f7521815d6215c771ae796c33d5b012" id="r_a1f7521815d6215c771ae796c33d5b012"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a1f7521815d6215c771ae796c33d5b012">operator/</a> (const char *value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
+<tr class="separator:a1f7521815d6215c771ae796c33d5b012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a169488ee998473672413be8c18507f24" id="r_a169488ee998473672413be8c18507f24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a169488ee998473672413be8c18507f24">operator/</a> (bool value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
+<tr class="separator:a169488ee998473672413be8c18507f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad55475e951a8567e992da0fae9357d9c" id="r_ad55475e951a8567e992da0fae9357d9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#ad55475e951a8567e992da0fae9357d9c">operator/</a> (<a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
+<tr class="separator:ad55475e951a8567e992da0fae9357d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84605a2303ddb1252afdbf081ccf9eea" id="r_a84605a2303ddb1252afdbf081ccf9eea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a84605a2303ddb1252afdbf081ccf9eea">operator/</a> (JS::Undefined, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;)</td></tr>
+<tr class="separator:a84605a2303ddb1252afdbf081ccf9eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b37a9e5927849d3af1303d2b3423aae" id="r_a5b37a9e5927849d3af1303d2b3423aae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a5b37a9e5927849d3af1303d2b3423aae">operator%</a> (int value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
 <tr class="separator:a5b37a9e5927849d3af1303d2b3423aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adefbf9f29e3394221be2b6155314ab27" id="r_adefbf9f29e3394221be2b6155314ab27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#adefbf9f29e3394221be2b6155314ab27">operator%</a> (double value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
@@ -401,6 +407,22 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Type alias for JavaScript-like functions. </p>
+
+</div>
+</div>
+<a id="a04e94438474aa77f16f83ae247063a23" name="a04e94438474aa77f16f83ae247063a23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04e94438474aa77f16f83ae247063a23">&#9670;&#160;</a></span>JSAnyAmbiguous</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceJS.html#a04e94438474aa77f16f83ae247063a23">JS::JSAnyAmbiguous</a> = typedef std::enable_if_t&lt;!std::is_same_v&lt;T, <a class="el" href="classJS_1_1Any.html">JS::Any</a>&gt;, <a class="el" href="classJS_1_1Any.html">JS::Any</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -1961,7 +1983,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Friend function for outputting <code><a class="el" href="classJS_1_1Any.html" title="Represents a JavaScript-like variant type in C++ that can hold multiple types of values.">Any</a></code> object to a stream. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">os</td><td>Output stream. </td></tr>
     <tr><td class="paramname">any</td><td>The <code><a class="el" href="classJS_1_1Any.html" title="Represents a JavaScript-like variant type in C++ that can hold multiple types of values.">Any</a></code> object to output. </td></tr>

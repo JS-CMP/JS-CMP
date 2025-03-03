@@ -57,7 +57,7 @@ public:
     /** @brief Move constructor */
     JS::Any& operator=(JS::Any&& other) noexcept;
     /** @brief boolean conversion operator */
-    explicit operator bool() const;
+    operator bool() const;
     ///@}
 
     /**
@@ -321,7 +321,7 @@ public:
     /** @brief strict equality operator a === b */
     [[nodiscard]] bool strictEq(const JS::Any& other) const;
     /** @brief strict inequality operator a !== b */
-    [[nodiscard]] bool strictNeq(const JS::Any& other)
+    [[nodiscard]] bool strictNeq(const JS::Any& other) const;
 
     /**
      * @name Accessors
@@ -347,9 +347,6 @@ public:
      * These operators convert the value of the `Any` object to another type.
      */
     ///@{
-    /** @brief Conversion operator to bool */
-    operator bool() const;
-    /** @brief Conversion operator to double */
 
     /**
      * @brief Friend function for outputting `Any` object to a stream.

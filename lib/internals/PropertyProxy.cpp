@@ -42,6 +42,7 @@ bool PropertyProxy::operator==(const PropertyProxy& property_proxy) const {
     return lhs == rhs;
 }
 
+
 JS::Any PropertyProxy::operator!() const {
     const JS::Any any = obj_->get(key_);
     return !any;

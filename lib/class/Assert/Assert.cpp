@@ -16,7 +16,9 @@ JS::Any assert::equalHelper(const JS::Any& thisArgs, const JS::Any& args) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         R"(The "actual" and "expected" arguments must be specified.)", "ERR_MISSING_ARGS");
     }
-    if (args["0"] != args["1"] && (!isNaN(args[0]) || !isNaN(args[1]))) {
+    JS::Any a = args[0]; // done to fix property proxy issues
+    JS::Any b = args[1];
+    if (a != b && (!isNaN(args[0]) || !isNaN(args[1]))) {
         innerFail(args[0], args[1], length == 3 ? args[2] : JS::Any(JS::Undefined()), "==");
     }
     return {};

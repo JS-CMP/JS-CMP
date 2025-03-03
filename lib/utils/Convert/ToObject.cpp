@@ -1,7 +1,7 @@
 #include "types/JsAny.hpp"
+#include "types/objects/JsBoolean.hpp"
 #include "types/objects/JsNumber.hpp"
 #include "types/objects/JsString.hpp"
-#include "types/objects/JsBoolean.hpp"
 #include "utils/Compare.hpp"
 
 namespace JS::CONVERT {

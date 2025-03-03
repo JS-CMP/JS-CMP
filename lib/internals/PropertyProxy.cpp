@@ -35,4 +35,16 @@ std::ostream& operator<<(std::ostream& os, const PropertyProxy& proxy) {
     os << static_cast<JS::Any>(proxy);
     return os;
 }
+
+bool PropertyProxy::operator==(const PropertyProxy& property_proxy) const {
+    JS::Any lhs = obj_->get(key_);
+    JS::Any rhs = property_proxy.obj_->get(property_proxy.key_);
+    return lhs == rhs;
+}
+
+JS::Any PropertyProxy::operator!() const {
+    const JS::Any any = obj_->get(key_);
+    return !any;
+}
+
 } // namespace JS

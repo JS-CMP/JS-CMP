@@ -16,11 +16,15 @@ var annotated_dup =
       [ "PropertyProxy", "classJS_1_1PropertyProxy.html", "classJS_1_1PropertyProxy" ],
       [ "String", "classJS_1_1String.html", "classJS_1_1String" ]
     ] ],
+    [ "assert", "classassert.html", "classassert" ],
+    [ "AssertionError", "classAssertionError.html", "classAssertionError" ],
     [ "Builder", "classBuilder.html", "classBuilder" ],
     [ "Console", "classConsole.html", null ],
+    [ "IAssertion", "classIAssertion.html", "classIAssertion" ],
     [ "Options", "classOptions.html", "classOptions" ],
     [ "Rope", "classRope.html", "classRope" ],
     [ "RopeConcat", "classRopeConcat.html", "classRopeConcat" ],
     [ "RopeLeaf", "classRopeLeaf.html", "classRopeLeaf" ],
-    [ "RopeNode", "classRopeNode.html", "classRopeNode" ]
+    [ "RopeNode", "classRopeNode.html", "classRopeNode" ],
+    [ "TypeError", "classTypeError.html", "classTypeError" ]
 ];

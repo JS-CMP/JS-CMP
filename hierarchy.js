@@ -12,8 +12,16 @@ var hierarchy =
         [ "JS::Boolean", "classJS_1_1Boolean.html", null ],
         [ "JS::Function", "classJS_1_1Function.html", null ],
         [ "JS::Number", "classJS_1_1Number.html", null ],
-        [ "JS::Object", "classJS_1_1Object.html", null ],
+        [ "JS::Object", "classJS_1_1Object.html", [
+          [ "assert", "classassert.html", null ]
+        ] ],
         [ "JS::String", "classJS_1_1String.html", null ]
+      ] ]
+    ] ],
+    [ "std::exception", null, [
+      [ "IAssertion", "classIAssertion.html", [
+        [ "AssertionError", "classAssertionError.html", null ],
+        [ "TypeError", "classTypeError.html", null ]
       ] ]
     ] ],
     [ "JS::IObject", "classJS_1_1IObject.html", [

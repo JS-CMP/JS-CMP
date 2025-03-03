@@ -70,6 +70,8 @@ var classJS_1_1Any =
     [ "operator|", "classJS_1_1Any.html#abb17bb8daba60593d007f2e6f20d51bf", null ],
     [ "operator||", "classJS_1_1Any.html#a40dba86dfed9a1430ef48f75ef760713", null ],
     [ "operator~", "classJS_1_1Any.html#a7e9be7303d7cbe565c1c24237975b4cb", null ],
+    [ "strictEq", "classJS_1_1Any.html#af06ac14f5c68f74b8b70ab4429fb9bf3", null ],
+    [ "strictNeq", "classJS_1_1Any.html#a5ff1e0fbf06442ec3268d9cef3719a80", null ],
     [ "operator%", "classJS_1_1Any.html#aa84081b253be6d49d6edf8e883077cbe", null ],
     [ "operator%", "classJS_1_1Any.html#a6199bdd0c1107c7732ba21326537cdaf", null ],
     [ "operator%", "classJS_1_1Any.html#a9bae7ce4a4e2e163942099bdc6cb62fc", null ],

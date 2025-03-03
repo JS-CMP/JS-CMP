@@ -1,22 +1,29 @@
 #include "internals/PropertyProxy.hpp"
+#include "utils/Compare.hpp"
 #include "utils/Convert.hpp"
 
 #include <types/JsAny.hpp>
 #include <types/objects/JsFunction.hpp>
 
-JS::PropertyProxy JS::Any::operator[](const std::string& key) const {
-    if (this->value.index() == OBJECT) {
-        return std::get<std::shared_ptr<JS::InternalObject>>(this->value)->operator[](key);
-    }
-    throw std::runtime_error("Value is not an object");
+template <typename T>
+JS::PropertyProxy JS::Any::operator[](T key) const {
+    JS::COMPARE::CheckObjectCoercible(*this);
+    JS::Any value = JS::CONVERT::ToObject(*this);
+    return JS::PropertyProxy(std::get<std::shared_ptr<JS::InternalObject>>(value.getValue()),
+                             JS::CONVERT::ToString(key));
 }
-
-JS::PropertyProxy JS::Any::operator[](size_t index) const {
-    if (this->value.index() == OBJECT) {
-        return std::get<std::shared_ptr<JS::InternalObject>>(this->value)->operator[](index);
-    }
-    throw std::runtime_error("Value is not an object");
-}
+template JS::PropertyProxy JS::Any::operator[](int) const;
+template JS::PropertyProxy JS::Any::operator[](unsigned int) const;
+template JS::PropertyProxy JS::Any::operator[](double) const;
+template JS::PropertyProxy JS::Any::operator[](bool) const;
+template JS::PropertyProxy JS::Any::operator[](const char*) const;
+template JS::PropertyProxy JS::Any::operator[](const std::string&) const;
+template JS::PropertyProxy JS::Any::operator[](const JS::Null&) const;
+template JS::PropertyProxy JS::Any::operator[](const JS::Undefined&) const;
+template JS::PropertyProxy JS::Any::operator[](const JS::Any&) const;
+template JS::PropertyProxy JS::Any::operator[](const JS::PropertyProxy&) const;
+template JS::PropertyProxy JS::Any::operator[](JS::Any) const;
+template JS::PropertyProxy JS::Any::operator[](JS::PropertyProxy) const;
 
 JS::Any JS::Any::call(const JS::Any& args) const {
     if (value.index() == JS::OBJECT && std::get<std::shared_ptr<JS::InternalObject>>(value)->isCallable()) {
@@ -25,10 +32,3 @@ JS::Any JS::Any::call(const JS::Any& args) const {
     }
     throw std::runtime_error("Value is not a function");
 }
-
-namespace JS {
-std::ostream& operator<<(std::ostream& os, const Any& any) {
-    os << JS::CONVERT::ToString(any);
-    return os;
-}
-} // namespace JS

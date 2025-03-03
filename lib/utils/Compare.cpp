@@ -42,7 +42,7 @@ bool SameValue(const JS::Any& a, const JS::Any& b) {
             return SameValue(std::get<double>(a.getValue()), std::get<double>(b.getValue()));
         case JS::STRING:
             return SameValue(std::get<Rope>(a.getValue()), std::get<Rope>(b.getValue()));
-        case JS::BOOL:
+        case JS::BOOLEAN:
             return SameValue(std::get<bool>(a.getValue()), std::get<bool>(b.getValue()));
         case JS::UNDEFINED:
             return true;
@@ -84,4 +84,15 @@ bool SameValue(const JS::Attribute& a, const JS::Attribute& b) {
     }
     return false;
 }
+
+void CheckObjectCoercible(const JS::Any& a) {
+    switch (a.getValue().index()) {
+        case JS::UNDEFINED:
+        case JS::NULL_TYPE:
+            throw std::runtime_error("TypeError: Cannot convert undefined or null to object"); // TypeError
+        default:
+            return;
+    }
+}
+
 } // namespace JS::COMPARE

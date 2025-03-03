@@ -16,7 +16,7 @@ bool ToBoolean(const JS::Any& any) { // https://262.ecma-international.org/5.1/#
             return ToBoolean(std::get<double>(any.getValue()));
         case STRING:
             return ToBoolean(std::get<Rope>(any.getValue()));
-        case BOOL:
+        case BOOLEAN:
             return ToBoolean(std::get<bool>(any.getValue()));
         case UNDEFINED:
             return ToBoolean(JS::Undefined());

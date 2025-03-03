@@ -55,6 +55,15 @@ bool SameValue(const JS::Any& a, const JS::Any& b) {
     return false;
 }
 
+// TODO: remove if useless after merge
+//    bool IsCallable(const JS::Any& a) {
+//        if (Type(a, JS::OBJECT)) {
+//            return std::get<std::shared_ptr<JS::Object>>(a.getValue())->isCallable();
+//        } else {
+//            return false;
+//        }
+//    }
+
 bool SameValue(const JS::Attribute& a, const JS::Attribute& b) {
     if (a.index() != b.index()) {
         return false;
@@ -75,4 +84,15 @@ bool SameValue(const JS::Attribute& a, const JS::Attribute& b) {
     }
     return false;
 }
+
+void CheckObjectCoercible(const JS::Any& a) {
+    switch (a.getValue().index()) {
+        case JS::UNDEFINED:
+        case JS::NULL_TYPE:
+            throw std::runtime_error("TypeError: Cannot convert undefined or null to object"); // TypeError
+        default:
+            return;
+    }
+}
+
 } // namespace JS::COMPARE

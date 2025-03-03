@@ -1,6 +1,7 @@
 #include "internals/PropertyProxy.hpp"
 #include "types/JsAny.hpp"
 
+namespace JS::GLOBAL {
 JS::Any global_typeof(const JS::Any& thisArgs, const JS::Any& args) {
     switch (args["0"].getValue().index()) {
         case JS::NUMBER:
@@ -17,3 +18,4 @@ JS::Any global_typeof(const JS::Any& thisArgs, const JS::Any& args) {
             return JS::Any("object");
     }
 }
+} // namespace JS::GLOBAL

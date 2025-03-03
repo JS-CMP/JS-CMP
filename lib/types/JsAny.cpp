@@ -2,60 +2,39 @@
 
 #include <types/JsAny.hpp>
 
-bool JS::Any::operator==(const JS::Any& other) const {
+JS::Value JS::Any::getValue() const { return this->value; }
+
+namespace JS {
+std::ostream& operator<<(std::ostream& os, const Any& any) {
+    os << JS::CONVERT::ToString(any);
+    return os;
+}
+
+// TODO: remove and rework assert when custom operator merged
+bool JS::Any::strictEq(const JS::Any& other) const {
+    // TODO: handle identity
+    std::cout << value.index() << " " << other.value.index() << std::endl;
+    if (this->value.index() != other.value.index()) {
+        return false;
+    }
     switch (this->value.index()) {
         case NUMBER:
-            switch (other.value.index()) {
-                case NUMBER:
-                    return std::get<double>(this->value) == std::get<double>(other.value);
-                case STRING:
-                    return std::get<double>(this->value) == std::stod(std::get<Rope>(other.value).toString());
-                case BOOLEAN:
-                    return std::get<double>(this->value) == static_cast<double>(std::get<bool>(other.value));
-                default:
-                    return false; // Invalid type
-            }
+            return std::get<double>(this->value) == std::get<double>(other.value);
         case STRING:
-            switch (other.value.index()) {
-                case NUMBER:
-                    return std::stod(std::get<Rope>(this->value).toString()) == std::get<double>(other.value);
-                case STRING:
-                    return std::get<Rope>(this->value) == std::get<Rope>(other.value);
-                case BOOLEAN:
-                    return std::stod(std::get<Rope>(this->value).toString()) ==
-                           static_cast<double>(std::get<bool>(other.value));
-                default:
-                    return false; // Invalid type
-            }
+            return std::get<Rope>(this->value) == std::get<Rope>(other.value);
         case BOOLEAN:
-            switch (other.value.index()) {
-                case NUMBER:
-                    return static_cast<double>(std::get<bool>(this->value)) == std::get<double>(other.value);
-                case STRING:
-                    return static_cast<double>(std::get<bool>(this->value)) ==
-                           std::stod(std::get<Rope>(other.value).toString());
-                case BOOLEAN:
-                    return std::get<bool>(this->value) == std::get<bool>(other.value);
-                default:
-                    return false; // Invalid type
-            }
+            return std::get<bool>(this->value) == std::get<bool>(other.value);
         case UNDEFINED:
-            switch (other.value.index()) {
-                case UNDEFINED:
-                    return true;
-                default:
-                    return false; // Invalid type
-            }
+            return true;
         case NULL_TYPE:
-            switch (other.value.index()) {
-                case NULL_TYPE:
-                    return true;
-                default:
-                    return false; // Invalid type
-            }
+            return true;
+        case OBJECT:
+            return &std::get<std::shared_ptr<InternalObject>>(this->value) ==
+                   &std::get<std::shared_ptr<InternalObject>>(other.value);
         default:
-            return false; // Invalid type
+            return false;
     }
 }
 
-JS::Value JS::Any::getValue() const { return this->value; }
+bool JS::Any::strictNeq(const JS::Any& other) const { return !this->strictEq(other); }
+} // namespace JS

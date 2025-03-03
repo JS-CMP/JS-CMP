@@ -11,6 +11,8 @@ template JS::Any JS::Any::operator-(double) const;
 template JS::Any JS::Any::operator-(const char*) const;
 template JS::Any JS::Any::operator-(bool) const;
 template JS::Any JS::Any::operator-(JS::Null) const;
+template JS::Any JS::Any::operator-(JS::Any) const;
+template JS::Any JS::Any::operator-(const JS::Any&) const;
 
 JS::Any JS::Any::operator-(JS::Undefined) const { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
 

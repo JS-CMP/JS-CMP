@@ -1,3 +1,4 @@
+#include "internals/PropertyProxy.hpp"
 #include "types/JsAny.hpp"
 
 #include <utils/Compare.hpp>

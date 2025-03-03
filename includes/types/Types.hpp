@@ -18,10 +18,11 @@ namespace JS {
 /**
  * Enum representing the types that can be held by an instance of JS::Any.
  */
+
 enum Types {
     NUMBER,    /**< Represents a numeric type (double). */
     STRING,    /**< Represents a string type. */
-    BOOL,      /**< Represents a boolean type. */
+    BOOLEAN,   /**< Represents a boolean type. */
     UNDEFINED, /**< Represents an undefined type. */
     NULL_TYPE, /**< Represents a null type. */
     OBJECT,    /**< Represents an object type. */

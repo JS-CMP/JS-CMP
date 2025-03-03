@@ -5,7 +5,6 @@
 #include "utils/Is.hpp"
 
 namespace JS {
-
 // TODO Implement correctly ToObject to make all the methods work (ToObject should always return an object so the
 // compare type should always be true)
 JS::Any Object::toString(const JS::Any& thisArg, const JS::Any& args) {

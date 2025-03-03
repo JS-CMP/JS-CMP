@@ -323,14 +323,14 @@ public:
     /** @brief strict inequality operator a !== b */
     [[nodiscard]] bool strictNeq(const JS::Any& other)
 
-    /**
-     * @name Accessors
-     * These methods provide access to the properties of the object
-     */
-    ///@{
-    /** @brief Accessors to call function stored in properties on an object stored in value */
-    template <typename... Args>
-    JS::Any operator()(Args&&... args) {
+        /**
+         * @name Accessors
+         * These methods provide access to the properties of the object
+         */
+        ///@{
+        /** @brief Accessors to call function stored in properties on an object stored in value */
+        template <typename... Args>
+        JS::Any operator()(Args&&... args) {
         return call(JS::Arguments::CreateArgumentsObject(std::vector<JS::Any>{args...}));
     }
     /** @brief Accessors to call function stored in properties on an object stored in value */

@@ -10,7 +10,7 @@ std::ostream& operator<<(std::ostream& os, const Any& any) {
     return os;
 }
 
-//TODO: remove and rework assert when custom operator merged
+// TODO: remove and rework assert when custom operator merged
 bool JS::Any::strictEq(const JS::Any& other) const {
     // TODO: handle identity
     std::cout << value.index() << " " << other.value.index() << std::endl;
@@ -36,5 +36,5 @@ bool JS::Any::strictEq(const JS::Any& other) const {
     }
 }
 
-    bool JS::Any::strictNeq(const JS::Any& other) const { return !this->strictEq(other); }
+bool JS::Any::strictNeq(const JS::Any& other) const { return !this->strictEq(other); }
 } // namespace JS

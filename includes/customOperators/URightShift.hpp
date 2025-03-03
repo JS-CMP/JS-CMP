@@ -1,8 +1,9 @@
 #ifndef URIGHTSHIFT_HPP
 #define URIGHTSHIFT_HPP
 
-#include <types/JsAny.hpp>
 #include "SyntaxSmith.hpp"
+
+#include <types/JsAny.hpp>
 #include <utils/Convert.hpp>
 
 // TODO: by essence, custom operators can't be templated since a templated function cant be called with & \
@@ -29,14 +30,11 @@
 // template JS::Any UnsignedRightShiftOperatorFunction(JS::Null, const JS::Any&);
 // template JS::Any UnsignedRightShiftOperatorFunction(JS::Undefined, const JS::Any&);
 
- JS::Any UnsignedRightShiftOperatorFunction(JS::Any any, JS::Any other) {
-     return JS::Any(static_cast<int>(JS::CONVERT::ToUint32(any) >> (JS::CONVERT::ToUint32(other) & 0x1F)));
- }
-
+JS::Any UnsignedRightShiftOperatorFunction(JS::Any any, JS::Any other) {
+    return JS::Any(static_cast<int>(JS::CONVERT::ToUint32(any) >> (JS::CONVERT::ToUint32(other) & 0x1F)));
+}
 
 CREATE_OPERATOR(UnsignedRightShiftOperator, UnsignedRightShiftOperatorFunction)
- #define UnsignedRightShiftOperator <UnsignedRightShiftOperatorClass()>
+#define UnsignedRightShiftOperator <UnsignedRightShiftOperatorClass()>
 
-
-
-#endif //URIGHTSHIFT_HPP
+#endif // URIGHTSHIFT_HPP

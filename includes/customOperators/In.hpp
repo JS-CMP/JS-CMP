@@ -2,8 +2,9 @@
 #define IN_HPP
 
 #include "SyntaxSmith.hpp"
-#include <types/JsAny.hpp>
+
 #include <internals/Object.hpp>
+#include <types/JsAny.hpp>
 #include <utils/Compare.hpp>
 #include <utils/Convert.hpp>
 
@@ -20,6 +21,4 @@ inline JS::Any inFunction(JS::Any a, JS::Any b) {
 CREATE_OPERATOR(in, inFunction)
 #define in <inClass()>
 
-
-
-#endif //IN_HPP
+#endif // IN_HPP

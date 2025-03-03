@@ -2,9 +2,10 @@
 #define INSTANCEOF_HPP
 
 #include "SyntaxSmith.hpp"
+
+#include <internals/Object.hpp>
 #include <types/JsAny.hpp>
 #include <utils/Compare.hpp>
-#include <internals/Object.hpp>
 
 inline JS::Any instanceOfFunction(JS::Any a, JS::Any b) {
     if (JS::COMPARE::Type(a, JS::OBJECT) == false) {
@@ -12,14 +13,11 @@ inline JS::Any instanceOfFunction(JS::Any a, JS::Any b) {
     }
 
     auto obj = std::get<std::shared_ptr<JS::InternalObject>>(a.getValue());
-//    return JS::Any(obj->hasInstance(b)); // TODO change when merging functions
+    //    return JS::Any(obj->hasInstance(b)); // TODO change when merging functions
     return {};
 }
 
 CREATE_OPERATOR(instanceOf, instanceOfFunction)
 #define instanceOf <instanceOfClass()>
 
-
-
-
-#endif //INSTANCEOF_HPP
+#endif // INSTANCEOF_HPP

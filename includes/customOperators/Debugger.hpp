@@ -13,7 +13,7 @@ inline JS::Any debugFunction() {
     exit(0);
 }
 
-CREATE_ONE_SIDE_OPERATOR(debug, debugFunction)
+CREATE_NO_ARGS_OPERATOR(debug, debugFunction)
 #define debugger debugClass()
 
 #endif //DEBUGGER_HPP

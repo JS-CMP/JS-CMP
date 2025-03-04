@@ -5,5 +5,9 @@
 #include "In.hpp"
 #include "InstanceOf.hpp"
 #include "URightShift.hpp"
+#include "Typeof.hpp"
+#include "Void.hpp"
+#include "Delete.hpp"
+#include "Debugger.hpp"
 
 #endif // CUSTOM_OPERATORS_HPP

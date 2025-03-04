@@ -2,8 +2,8 @@
 #include "types/JsAny.hpp"
 
 namespace JS::GLOBAL {
-JS::Any global_typeof(const JS::Any& thisArgs, const JS::Any& args) {
-    switch (args["0"].getValue().index()) {
+JS::Any global_typeof(JS::Any a) {
+    switch (a.getValue().index()) {
         case JS::NUMBER:
             return JS::Any("number");
         case JS::STRING:

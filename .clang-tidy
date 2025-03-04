@@ -8,7 +8,8 @@ Checks: >-
   -performance-unnecessary-value-param,
   -performance-enum-size,
   -cert-err58-cpp,
-  -cert-env33-c
+  -cert-env33-c,
+  -cert-dcl21-cpp
 # -performance-unnecessary-value-param This check is too aggressive for the lexer part so we need to do it manually sometimes
 # -cert-env33-c  TODO need to be fixed with the compliance https://wiki.sei.cmu.edu/confluence/display/c/ENV33-C.+Do+not+call+system()
 

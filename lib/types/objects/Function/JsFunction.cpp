@@ -5,13 +5,16 @@
 namespace JS {
 Function::Function(FunctionType f) : JS::InternalObject({}, nullptr, "Function", true) { call = std::move(f); }
 
-Function::Function(const Function& f) : JS::InternalObject({}, nullptr, "Function", true) { call = std::move(f); }
+Function::Function(const Function& f) : JS::InternalObject({}, nullptr, "Function", true) { call = f; }
 
 Function::Function(Function&& f) noexcept : JS::InternalObject({}, nullptr, "Function", true) {
     call = std::move(f.call);
 }
 
 Function& Function::operator=(const Function& function) {
+    if (this == &function) {
+        return *this;
+}
     this->call = function.call;
     return *this;
 }

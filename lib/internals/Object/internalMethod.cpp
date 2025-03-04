@@ -199,8 +199,9 @@ bool InternalObject::defineOwnProperty(const std::string& key, Attribute desc, b
 
     if (!currentConfigurable) {
         if (descConfigurable || descEnumerable != currentEnumerable) {
-            if (is_throw)
+            if (is_throw) {
                 throw std::runtime_error("Cannot redefine property");
+}
             return false;
         }
     }
@@ -209,8 +210,9 @@ bool InternalObject::defineOwnProperty(const std::string& key, Attribute desc, b
         // No further validation required
     } else if (JS::IS::DataDescriptor(currentDesc) != JS::IS::DataDescriptor(desc)) {
         if (!currentConfigurable) {
-            if (is_throw)
+            if (is_throw) {
                 throw std::runtime_error("Cannot redefine property"); // TypeError
+}
             return false;
         }
         if (JS::IS::DataDescriptor(currentDesc)) {
@@ -227,13 +229,15 @@ bool InternalObject::defineOwnProperty(const std::string& key, Attribute desc, b
         auto newDesc = std::get<JS::DataDescriptor>(desc);
         if (!oldDesc.configurable) {
             if (!oldDesc.writable && newDesc.writable) {
-                if (is_throw)
+                if (is_throw) {
                     throw std::runtime_error("Cannot redefine property"); // TypeError
+}
                 return false;
             }
             if (!oldDesc.writable && !JS::COMPARE::SameValue(newDesc.value, oldDesc.value)) {
-                if (is_throw)
+                if (is_throw) {
                     throw std::runtime_error("Cannot redefine property"); // TypeError
+}
                 return false;
             }
         }
@@ -242,13 +246,15 @@ bool InternalObject::defineOwnProperty(const std::string& key, Attribute desc, b
         auto newDesc = std::get<JS::AccessorDescriptor>(desc);
         if (!oldDesc.configurable) {
             if (newDesc.get && JS::COMPARE::SameValue(newDesc.get, oldDesc.get)) {
-                if (is_throw)
+                if (is_throw) {
                     throw std::runtime_error("Cannot redefine property"); // TypeError
+}
                 return false;
             }
             if (newDesc.set && newDesc.set != oldDesc.set) {
-                if (is_throw)
+                if (is_throw) {
                     throw std::runtime_error("Cannot redefine property"); // TypeError
+}
                 return false;
             }
         }

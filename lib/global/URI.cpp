@@ -6,13 +6,13 @@
 #include <types/JsAny.hpp>
 #include <utils/Convert.hpp>
 
-const std::string MARK = R"(-_.!~*'())";
-const std::string RESERVED = R"(;/?:@&=+$, )";
-const std::string ALPHA = R"(ABCDEFGHJKLMNOPQRSTUVWXYZizIabcdefghjklmnopqrstuvwxy)";
-const std::string DECIMAL_DIGIT = R"(0123456789)";
-const std::string HEX_DIGIT = DECIMAL_DIGIT + R"(ABCDEFabcdef)";
-const std::string UNESCAPED = ALPHA + DECIMAL_DIGIT + MARK;
-const std::string ESCAPED = "%" + HEX_DIGIT;
+static constexpr std::string MARK = R"(-_.!~*'())";
+static constexpr std::string RESERVED = R"(;/?:@&=+$, )";
+static const std::string ALPHA = R"(ABCDEFGHJKLMNOPQRSTUVWXYZizIabcdefghjklmnopqrstuvwxy)";
+static constexpr std::string DECIMAL_DIGIT = R"(0123456789)";
+static const std::string HEX_DIGIT = DECIMAL_DIGIT + R"(ABCDEFabcdef)";
+static const std::string UNESCAPED = ALPHA + DECIMAL_DIGIT + MARK;
+static const std::string ESCAPED = "%" + HEX_DIGIT;
 
 std::string toUtf8(int V) {
     std::ostringstream encoded;
@@ -37,8 +37,9 @@ std::string decode(std::string utf, const std::string& reservedSet) {
     std::ostringstream decoded;
     for (int i = 0; i < utf.size(); ++i) {
         if (reservedSet.contains(utf[i])) {
-            if (!(i + 2 < utf.size() && std::isxdigit(utf[i + 1]) && std::isxdigit(utf[i + 2])))
+            if (!(i + 2 < utf.size() && std::isxdigit(utf[i + 1]) && std::isxdigit(utf[i + 2]))) {
                 throw std::runtime_error("Invalid percent-encoding in utf8 string.");
+}
 
             std::string hexValue = utf.substr(i + 1, 2);
             decoded << static_cast<char>(std::stoi(hexValue, nullptr, 16));

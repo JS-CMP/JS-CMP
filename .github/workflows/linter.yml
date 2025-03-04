@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 jobs:
-  clang-format:
+  clang:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,31 +20,10 @@ jobs:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
 
-      - name: Install Uncrustify, git, and dependencies
+      - name: Install clang-format, git, and dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y clang-format git
-
-      # Run Uncrustify on the codebase
-      - name: Run Uncrustify
-        run: |
-          git ls-files '*.cpp' '*.hpp' | xargs clang-format -i      
-
-        # Check if there are any changes after running Uncrustify
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Formating Clang-Format"
-  
-  clang-tidy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
-          fetch-depth: 0
 
       # Install clang-tidy and git
       - name: Install Clang-Tidy, git, and dependencies
@@ -56,5 +35,18 @@ jobs:
       - name: Run Clang-Tidy
         run: |
           git submodule update --init --recursive
-          git submodule foreach git pull origin main
-          git ls-files '*.cpp' '*.hpp' | xargs -I{} clang-tidy {} -quiet -checks='boost-*,cert-*,clang-analyzer-*,hicpp-*,performance-*,portability-*' -- -std=c++23 -I./includes -I./submodules/Lexer/include -DJS_CMP_VERSION="\"DUMB\""
+          cmake . -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+          jq 'map(select(.file | test("submodules") | not))' ./build/compile_commands.json > ./build/new_compile_commands.json && mv ./build/new_compile_commands.json build/compile_commands.json
+          run-clang-tidy -p build -fix -quiet
+
+      # Run clang-format on the codebase
+      - name: Run clang-format
+        run: |
+          git ls-files '*.cpp' '*.hpp' | xargs clang-format -i      
+
+        # Check if there are any changes after running clang-format
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Formating Clang-Format and Clang-Tidy"
+

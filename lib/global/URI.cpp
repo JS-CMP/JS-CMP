@@ -6,10 +6,10 @@
 #include <types/JsAny.hpp>
 #include <utils/Convert.hpp>
 
-static constexpr std::string MARK = R"(-_.!~*'())";
-static constexpr std::string RESERVED = R"(;/?:@&=+$, )";
+static const std::string MARK = R"(-_.!~*'())";
+static const std::string RESERVED = R"(;/?:@&=+$, )";
 static const std::string ALPHA = R"(ABCDEFGHJKLMNOPQRSTUVWXYZizIabcdefghjklmnopqrstuvwxy)";
-static constexpr std::string DECIMAL_DIGIT = R"(0123456789)";
+static const std::string DECIMAL_DIGIT = R"(0123456789)";
 static const std::string HEX_DIGIT = DECIMAL_DIGIT + R"(ABCDEFabcdef)";
 static const std::string UNESCAPED = ALPHA + DECIMAL_DIGIT + MARK;
 static const std::string ESCAPED = "%" + HEX_DIGIT;

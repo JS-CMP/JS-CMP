@@ -37,7 +37,7 @@ jobs:
           git submodule update --init --recursive
           cmake . -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
           jq 'map(select(.file | test("submodules") | not))' ./build/compile_commands.json > ./build/new_compile_commands.json && mv ./build/new_compile_commands.json build/compile_commands.json
-          run-clang-tidy -p build -fix -quiet
+          run-clang-tidy -fix -quiet
 
       # Run clang-format on the codebase
       - name: Run clang-format

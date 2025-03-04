@@ -7,6 +7,8 @@ on:
   merge_group:
   workflow_run:
     workflows: [ "Run Clang-Format and Clang-Tidy" ]
+    types:
+      - completed
 
 permissions:
   contents: write

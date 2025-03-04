@@ -6,6 +6,7 @@
 #define DELETE_HPP
 
 #include "SyntaxSmith.hpp"
+
 #include <types/JsAny.hpp>
 
 inline JS::Any deleteFunction(JS::Any a) {
@@ -16,4 +17,4 @@ inline JS::Any deleteFunction(JS::Any a) {
 CREATE_ONE_SIDE_OPERATOR(del, deleteFunction)
 #define del delClass()
 
-#endif //DELETE_HPP
+#endif // DELETE_HPP

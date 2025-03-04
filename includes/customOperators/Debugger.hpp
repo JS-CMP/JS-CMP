@@ -9,11 +9,9 @@
 
 #include <types/JsAny.hpp>
 
-inline JS::Any debugFunction() {
-    exit(0);
-}
+inline JS::Any debugFunction() { exit(0); }
 
 CREATE_ONE_SIDE_OPERATOR(debug, debugFunction)
 #define debugger debugClass()
 
-#endif //DEBUGGER_HPP
+#endif // DEBUGGER_HPP

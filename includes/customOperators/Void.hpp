@@ -2,6 +2,7 @@
 #define VOID_HPP
 
 #include "SyntaxSmith.hpp"
+
 #include <types/JsAny.hpp>
 
 inline JS::Any voidFunction(JS::Any a) {
@@ -14,4 +15,4 @@ inline JS::Any voidFunction(JS::Any a) {
 CREATE_ONE_SIDE_OPERATOR(voidF, voidFunction)
 #define customVoid voidFClass()
 
-#endif //VOID_HPP
+#endif // VOID_HPP

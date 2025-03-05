@@ -15,12 +15,12 @@ namespace JS {
 class DataDescriptor {
 public:
     /** @brief Default constructor. */
-    DataDescriptor() : value(JS::Undefined{}), writable(false), enumerable(false), configurable(false){};
+    DataDescriptor() = default;
     /**
      * @brief Constructor with a value parameter.
      * @param value The initial value of the property.
      */
-    explicit DataDescriptor(const JS::Any& value) : value(value), writable(false), enumerable(false), configurable(false){};
+    explicit DataDescriptor(const JS::Any& value) : value(value){};
     /**
      * @brief Constructor with full property attributes.
      * @param value The initial value of the property.
@@ -34,8 +34,7 @@ public:
      * @brief Constructor with a shared pointer to a JavaScript object value.
      * @param value The initial value of the property.
      */
-    explicit DataDescriptor(std::shared_ptr<JS::InternalObject> value) : value(std::move(value)), writable(false),
-                                                                        enumerable(false), configurable(false){};
+    explicit DataDescriptor(std::shared_ptr<JS::InternalObject> value) : value(std::move(value)){};
 
     JS::Any value = JS::Any(JS::Undefined{}); /**< The value of the property. */
     bool writable = false;                    /**< Whether the property value can be changed. */

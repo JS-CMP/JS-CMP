@@ -14,7 +14,7 @@ Function::Function(Function&& f) noexcept : JS::InternalObject({}, nullptr, "Fun
 Function& Function::operator=(const Function& function) {
     if (this == &function) {
         return *this;
-}
+    }
     this->call = function.call;
     return *this;
 }

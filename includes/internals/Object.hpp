@@ -50,7 +50,8 @@ public:
     /** @brief Call operator for the object */
     template <typename... Args>
     JS::Any operator()(Args... args) {
-        return call(JS::Any(JS::Undefined{}), JS::Arguments::CreateArgumentsObject(std::vector<JS::Any>{std::move(args)...}));
+        return call(JS::Any(JS::Undefined{}),
+                    JS::Arguments::CreateArgumentsObject(std::vector<JS::Any>{std::move(args)...}));
     }
 
     ///@}

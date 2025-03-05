@@ -1,5 +1,5 @@
-#include "types/objects/JsObject.hpp"
 #include "internals/PropertyProxy.hpp"
+#include "types/objects/JsObject.hpp"
 
 #include <utility>
 
@@ -7,11 +7,11 @@ namespace JS {
 
 Object::Object() : JS::InternalObject({}, getPrototypeProperties(), "Object", true) {
     this->InternalObject::defineOwnProperty("prototype", DataDescriptor({
-                                             JS::Any(getPrototypeProperties()),
-                                             false,
-                                             false,
-                                             false,
-                                         }));
+                                                             JS::Any(getPrototypeProperties()),
+                                                             false,
+                                                             false,
+                                                             false,
+                                                         }));
 }
 
 Object::Object(const std::unordered_map<std::string, JS::Any>& properties)
@@ -20,20 +20,20 @@ Object::Object(const std::unordered_map<std::string, JS::Any>& properties)
         this->InternalObject::put(key, value);
     }
     this->InternalObject::defineOwnProperty("prototype", DataDescriptor({
-                                             JS::Any(getPrototypeProperties()),
-                                             false,
-                                             false,
-                                             false,
-                                         }));
+                                                             JS::Any(getPrototypeProperties()),
+                                                             false,
+                                                             false,
+                                                             false,
+                                                         }));
 }
 
 Object::Object(const Attribute& attribute) : JS::InternalObject(attribute) {
     this->InternalObject::defineOwnProperty("prototype", DataDescriptor({
-                                             JS::Any(getPrototypeProperties()),
-                                             false,
-                                             false,
-                                             false,
-                                         }));
+                                                             JS::Any(getPrototypeProperties()),
+                                                             false,
+                                                             false,
+                                                             false,
+                                                         }));
 }
 
 Object::Object(const InternalObject&& internalObject) : JS::InternalObject(internalObject) {}

@@ -252,5 +252,7 @@ Any operator/(JS::Null, JS::Any const& any) {
     } catch (const std::invalid_argument& e) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
 }
 
-Any operator/(JS::Undefined /*unused*/, JS::Any const& /*unused*/) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+Any operator/(JS::Undefined /*unused*/, JS::Any const& /*unused*/) {
+    return JS::Any(std::numeric_limits<double>::quiet_NaN());
+}
 } // namespace JS

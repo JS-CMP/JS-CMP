@@ -1,0 +1,488 @@
+[
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/class/Assert/Assert.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/class/Assert/Assert.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/class/Assert/Assert.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/class/Assert/Assert.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/class/Rope/Rope.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/class/Rope/Rope.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/class/Rope/Rope.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/class/Rope/Rope.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/class/Rope/RopeConcat.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/class/Rope/RopeConcat.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/class/Rope/RopeConcat.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/class/Rope/RopeConcat.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/class/Rope/RopeLeaf.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/class/Rope/RopeLeaf.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/class/Rope/RopeLeaf.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/class/Rope/RopeLeaf.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/global/IsNaN.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/global/IsNaN.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/global/IsNaN.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/global/IsNaN.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/global/URI.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/global/URI.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/global/URI.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/global/URI.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/global/console.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/global/console.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/global/console.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/global/console.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/global/isFinite.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/global/isFinite.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/global/isFinite.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/global/isFinite.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/global/parseFloat.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/global/parseFloat.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/global/parseFloat.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/global/parseFloat.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/global/parseInt.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/global/parseInt.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/global/parseInt.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/global/parseInt.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/global/typeof.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/global/typeof.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/global/typeof.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/global/typeof.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/global/void.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/global/void.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/global/void.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/global/void.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/internals/Arguments/static.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/internals/Arguments/static.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/internals/Arguments/static.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/internals/Arguments/static.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/internals/Object/accessor.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/internals/Object/accessor.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/internals/Object/accessor.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/internals/Object/accessor.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/internals/Object/constructor.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/internals/Object/constructor.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/internals/Object/constructor.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/internals/Object/constructor.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/internals/Object/internalMethod.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/internals/Object/internalMethod.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/internals/Object/internalMethod.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/internals/Object/internalMethod.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/internals/Object/utils.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/internals/Object/utils.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/internals/Object/utils.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/internals/Object/utils.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/internals/PropertyProxy.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/internals/PropertyProxy.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/internals/PropertyProxy.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/internals/PropertyProxy.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/JsAny.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/JsAny.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/JsAny.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/JsAny.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/accessor.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/accessor.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/accessor.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/accessor.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/constructor.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/constructor.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/constructor.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/constructor.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/objects/Boolean/constructor.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Boolean/constructor.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Boolean/constructor.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/objects/Boolean/constructor.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/objects/Boolean/prototype.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Boolean/prototype.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Boolean/prototype.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/objects/Boolean/prototype.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/objects/Boolean/prototypeProperties.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Boolean/prototypeProperties.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Boolean/prototypeProperties.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/objects/Boolean/prototypeProperties.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/objects/Function/JsFunction.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Function/JsFunction.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Function/JsFunction.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/objects/Function/JsFunction.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/objects/Math/static.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Math/static.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Math/static.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/objects/Math/static.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/objects/Number/constructor.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Number/constructor.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Number/constructor.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/objects/Number/constructor.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/objects/Number/prototype.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Number/prototype.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Number/prototype.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/objects/Number/prototype.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/objects/Number/prototypeProperties.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Number/prototypeProperties.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Number/prototypeProperties.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/objects/Number/prototypeProperties.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/objects/Object/accessor.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Object/accessor.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Object/accessor.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/objects/Object/accessor.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/objects/Object/constructor.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Object/constructor.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Object/constructor.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/objects/Object/constructor.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/objects/Object/methods.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Object/methods.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Object/methods.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/objects/Object/methods.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/objects/Object/prototype.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Object/prototype.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Object/prototype.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/objects/Object/prototype.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/objects/Object/protoypeProperties.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Object/protoypeProperties.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/objects/Object/protoypeProperties.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/objects/Object/protoypeProperties.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/objects/String/constructor.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/objects/String/constructor.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/objects/String/constructor.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/objects/String/constructor.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/objects/String/methods.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/objects/String/methods.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/objects/String/methods.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/objects/String/methods.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/objects/String/prototype.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/objects/String/prototype.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/objects/String/prototype.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/objects/String/prototype.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/objects/String/prototypeProperties.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/objects/String/prototypeProperties.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/objects/String/prototypeProperties.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/objects/String/prototypeProperties.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/Left_Chevron.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/Left_Chevron.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/Left_Chevron.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/Left_Chevron.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/Logical/And.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/Logical/And.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/Logical/And.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/Logical/And.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/Logical/Equal.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/Logical/Equal.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/Logical/Equal.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/Logical/Equal.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/Logical/Left_Chevron.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/Logical/Left_Chevron.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/Logical/Left_Chevron.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/Logical/Left_Chevron.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/Logical/NotEqual.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/Logical/NotEqual.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/Logical/NotEqual.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/Logical/NotEqual.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/Logical/Or.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/Logical/Or.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/Logical/Or.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/Logical/Or.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/Logical/Right_Chevron.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/Logical/Right_Chevron.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/Logical/Right_Chevron.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/Logical/Right_Chevron.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/Logical/unary/Bool.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/Logical/unary/Bool.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/Logical/unary/Bool.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/Logical/unary/Bool.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/Logical/unary/Not.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/Logical/unary/Not.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/Logical/unary/Not.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/Logical/unary/Not.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/Right_Chevron.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/Right_Chevron.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/Right_Chevron.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/Right_Chevron.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/bitwise/And.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/bitwise/And.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/bitwise/And.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/bitwise/And.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/bitwise/Left_Shift.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/bitwise/Left_Shift.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/bitwise/Left_Shift.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/bitwise/Left_Shift.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/bitwise/Not.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/bitwise/Not.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/bitwise/Not.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/bitwise/Not.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/bitwise/Or.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/bitwise/Or.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/bitwise/Or.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/bitwise/Or.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/bitwise/Right_Shift.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/bitwise/Right_Shift.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/bitwise/Right_Shift.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/bitwise/Right_Shift.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/bitwise/URight_Shift.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/bitwise/URight_Shift.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/bitwise/URight_Shift.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/bitwise/URight_Shift.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/bitwise/Xor.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/bitwise/Xor.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/bitwise/Xor.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/bitwise/Xor.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/numerical/Add.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/numerical/Add.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/numerical/Add.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/numerical/Add.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/numerical/Decr.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/numerical/Decr.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/numerical/Decr.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/numerical/Decr.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/numerical/Div.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/numerical/Div.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/numerical/Div.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/numerical/Div.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/numerical/Incr.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/numerical/Incr.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/numerical/Incr.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/numerical/Incr.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/numerical/Modulo.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/numerical/Modulo.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/numerical/Modulo.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/numerical/Modulo.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/numerical/Mult.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/numerical/Mult.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/numerical/Mult.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/numerical/Mult.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/numerical/Sub.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/numerical/Sub.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/numerical/Sub.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/numerical/Sub.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/numerical/unary/Add.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/numerical/unary/Add.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/numerical/unary/Add.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/numerical/unary/Add.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/types/operators/numerical/unary/Sub.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/types/operators/numerical/unary/Sub.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/types/operators/numerical/unary/Sub.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/types/operators/numerical/unary/Sub.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/utils/Compare.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/utils/Compare.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/utils/Compare.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/utils/Compare.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/utils/Convert.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/utils/Convert.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/utils/Convert/FromPropertyDescriptor.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert/FromPropertyDescriptor.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert/FromPropertyDescriptor.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/utils/Convert/FromPropertyDescriptor.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/utils/Convert/ToBoolean.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert/ToBoolean.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert/ToBoolean.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/utils/Convert/ToBoolean.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/utils/Convert/ToInt16.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert/ToInt16.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert/ToInt16.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/utils/Convert/ToInt16.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/utils/Convert/ToInt32.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert/ToInt32.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert/ToInt32.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/utils/Convert/ToInt32.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/utils/Convert/ToInteger.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert/ToInteger.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert/ToInteger.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/utils/Convert/ToInteger.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/utils/Convert/ToNumber.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert/ToNumber.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert/ToNumber.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/utils/Convert/ToNumber.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/utils/Convert/ToObject.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert/ToObject.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert/ToObject.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/utils/Convert/ToObject.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/utils/Convert/ToPrimitive.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert/ToPrimitive.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert/ToPrimitive.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/utils/Convert/ToPrimitive.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/utils/Convert/ToPropertyDescriptor.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert/ToPropertyDescriptor.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert/ToPropertyDescriptor.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/utils/Convert/ToPropertyDescriptor.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/utils/Convert/ToString.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert/ToString.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert/ToString.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/utils/Convert/ToString.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/utils/Convert/ToUint32.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert/ToUint32.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/utils/Convert/ToUint32.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/utils/Convert/ToUint32.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -std=gnu++23 -o CMakeFiles/jscmp.dir/lib/utils/Is.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/lib/utils/Is.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/lib/utils/Is.cpp",
+    "output": "CMakeFiles/jscmp.dir/lib/utils/Is.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_PROGRAM_OPTIONS_NO_LIB -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -I/home/runner/work/JS-CMP/JS-CMP/submodules/Lexer/include -std=gnu++23 -o CMakeFiles/js_cmp.dir/main.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/main.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/main.cpp",
+    "output": "CMakeFiles/js_cmp.dir/main.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_PROGRAM_OPTIONS_NO_LIB -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -I/home/runner/work/JS-CMP/JS-CMP/submodules/Lexer/include -std=gnu++23 -o CMakeFiles/js_cmp.dir/src/Builder.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/src/Builder.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/src/Builder.cpp",
+    "output": "CMakeFiles/js_cmp.dir/src/Builder.cpp.o"
+  },
+  {
+    "directory": "/home/runner/work/JS-CMP/JS-CMP",
+    "command": "/usr/bin/c++ -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_PROGRAM_OPTIONS_NO_LIB -DJS_CMP_VERSION=\\\"0.0.1\\\" -I/home/runner/work/JS-CMP/JS-CMP/includes -I/home/runner/work/JS-CMP/JS-CMP/submodules/Lexer/include -std=gnu++23 -o CMakeFiles/js_cmp.dir/src/Options.cpp.o -c /home/runner/work/JS-CMP/JS-CMP/src/Options.cpp",
+    "file": "/home/runner/work/JS-CMP/JS-CMP/src/Options.cpp",
+    "output": "CMakeFiles/js_cmp.dir/src/Options.cpp.o"
+  }
+]

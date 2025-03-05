@@ -7,7 +7,7 @@
 namespace JS {
 class PropertyProxy {
 public:
-    PropertyProxy(const std::shared_ptr<JS::InternalObject> &obj, std::string key) : obj_(obj), key_(std::move(key)) {}
+    PropertyProxy(const std::shared_ptr<JS::InternalObject>& obj, std::string key) : obj_(obj), key_(std::move(key)) {}
 
     // Setter
     PropertyProxy& operator=(const JS::Any& value);

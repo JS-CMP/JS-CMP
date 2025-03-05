@@ -20,8 +20,7 @@ void Builder::build() {
     outputFile.close();
 
     std::cout << "Compiler Found: " << this->options.getCompiler() << '\n';
-    std::cout << "Compiling " << this->options.getFilename() << " to " << this->options.getOutputFilename()
-              << '\n';
+    std::cout << "Compiling " << this->options.getFilename() << " to " << this->options.getOutputFilename() << '\n';
     compiling(inputFilename);
 }
 

@@ -39,7 +39,7 @@ std::string decode(std::string utf, const std::string& reservedSet) {
         if (reservedSet.contains(utf[i])) {
             if (!(i + 2 < utf.size() && std::isxdigit(utf[i + 1]) && std::isxdigit(utf[i + 2]))) {
                 throw std::runtime_error("Invalid percent-encoding in utf8 string.");
-}
+            }
 
             std::string hexValue = utf.substr(i + 1, 2);
             decoded << static_cast<char>(std::stoi(hexValue, nullptr, 16));

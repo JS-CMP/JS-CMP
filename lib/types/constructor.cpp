@@ -19,9 +19,6 @@ JS::Any& JS::Any::operator=(JS::Any&& other) noexcept {
     return *this;
 }
 
-JS::Any& JS::Any::operator=(const JS::Any& other) {
-    value = other.value;
-    return *this;
-}
+JS::Any& JS::Any::operator=(const JS::Any& other) = default;
 
 JS::Any::operator bool() const { return JS::CONVERT::ToBoolean(*this); }

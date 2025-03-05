@@ -14,7 +14,7 @@ template JS::Any JS::Any::operator-(JS::Null) const;
 template JS::Any JS::Any::operator-(JS::Any) const;
 template JS::Any JS::Any::operator-(const JS::Any&) const;
 
-JS::Any JS::Any::operator-(JS::Undefined) const { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+JS::Any JS::Any::operator-(JS::Undefined /*unused*/) const { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
 
 namespace JS {
 template <typename T>
@@ -28,5 +28,7 @@ template JS::Any operator-(const char*, JS::Any const&);
 template JS::Any operator-(bool, JS::Any const&);
 template JS::Any operator-(JS::Null, JS::Any const&);
 
-JS::Any operator-(JS::Undefined, JS::Any const&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+JS::Any operator-(JS::Undefined /*unused*/, JS::Any const& /*unused*/) {
+    return JS::Any(std::numeric_limits<double>::quiet_NaN());
+}
 } // namespace JS

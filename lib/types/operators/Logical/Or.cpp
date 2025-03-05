@@ -3,7 +3,7 @@
 
 template <typename T>
 JS::Any JS::Any::operator||(T other) const {
-    return JS::CONVERT::ToBoolean(*this) ? *this : JS::Any(other);
+    return JS::CONVERT::ToBoolean(*this) ? *this : JS::Any(std::move(other));
 }
 
 template JS::Any JS::Any::operator||(int) const;

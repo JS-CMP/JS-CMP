@@ -43,8 +43,8 @@ double ToNumber(const std::string& str) {
 
 double ToNumber(const Rope& rope) { return ToNumber(rope.toString()); }
 double ToNumber(bool value) { return static_cast<double>(value); }
-double ToNumber(const JS::Null&) { return 0; }
-double ToNumber(const JS::Undefined&) { return std::numeric_limits<double>::quiet_NaN(); }
+double ToNumber(const JS::Null& /*unused*/) { return 0; }
+double ToNumber(const JS::Undefined& /*unused*/) { return std::numeric_limits<double>::quiet_NaN(); }
 double ToNumber(const JS::Any& any) { // https://262.ecma-international.org/5.1/#sec-9.3
     switch (any.getValue().index()) {
         case NUMBER:

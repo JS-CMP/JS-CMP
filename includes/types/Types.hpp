@@ -19,7 +19,7 @@ namespace JS {
  * Enum representing the types that can be held by an instance of JS::Any.
  */
 
-enum Types {
+enum Types : std::uint8_t {
     NUMBER,    /**< Represents a numeric type (double). */
     STRING,    /**< Represents a string type. */
     BOOLEAN,   /**< Represents a boolean type. */
@@ -35,7 +35,7 @@ enum Types {
  * @enum AttributeTypes
  * @brief Represents the types of JavaScript object properties.
  */
-enum AttributeTypes {
+enum AttributeTypes : std::uint8_t {
     DATA_DESCRIPTOR,    /**< Represents a data property. */
     ACCESSOR_DESCRIPTOR /**< Represents an accessor property. */
 };

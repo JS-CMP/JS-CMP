@@ -102,7 +102,6 @@ private:
     static bool _sameValue(const JS::Any& actual, const JS::Any& expected);
 
     assert();
-    ~assert() = default;
     // TODO: add handling stackStartFn
     static void innerFail(const JS::Any& actual, const JS::Any& expected, const JS::Any& message,
                           const std::string& operator_);

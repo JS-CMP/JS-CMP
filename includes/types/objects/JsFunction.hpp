@@ -32,9 +32,6 @@ public:
     Function& operator=(Function&& f) noexcept;
     ///@}
 
-    /** @brief Destructor */
-    ~Function() = default;
-
     /**
      * @brief Initializes the function object.
      * An empty method that can be overridden by subclasses if needed.

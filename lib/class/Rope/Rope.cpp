@@ -4,7 +4,7 @@ Rope::Rope(const std::string& str) : root(std::make_shared<RopeLeaf>(str)) {}
 
 Rope::Rope(const char* str) : root(std::make_shared<RopeLeaf>(std::string(str))) {}
 
-Rope::Rope(std::shared_ptr<RopeNode> node) : root(node) {}
+Rope::Rope(std::shared_ptr<RopeNode> node) : root(std::move(node)) {}
 
 size_t Rope::length() const { return root->length(); }
 
@@ -37,7 +37,7 @@ int Rope::compare(const Rope& other) const { return equals(this->root, other.roo
 
 void Rope::print() const {
     root->print();
-    std::cout << std::endl;
+    std::cout << '\n';
 }
 
 std::string Rope::toString() const {

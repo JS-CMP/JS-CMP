@@ -14,7 +14,7 @@ namespace po = boost::program_options;
 /**
  * @brief Enum defining various option flags.
  */
-typedef enum {
+typedef enum : std::uint8_t {
     OPTION_FLAG_PREPROCESS = 0x1, /**< Flag for preprocessing option. */
 } option_flag_t;
 

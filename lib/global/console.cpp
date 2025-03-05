@@ -12,7 +12,7 @@ JS::Any console::log(const JS::Any& thisArg, const JS::Any& args) {
         }
         std::cout << args[j];
     }
-    std::cout << std::endl;
+    std::cout << '\n';
     return JS::Any(JS::Undefined{});
 }
 } // namespace JS

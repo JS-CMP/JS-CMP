@@ -17,8 +17,8 @@ uint32_t ToUint32(double value) {
 uint32_t ToUint32(const std::string& str) { return ToUint32(ToNumber(str)); }
 uint32_t ToUint32(const Rope& rope) { return ToUint32(rope.toString()); }
 uint32_t ToUint32(bool value) { return value ? 1 : 0; }
-uint32_t ToUint32(const JS::Null&) { return 0; }
-uint32_t ToUint32(const JS::Undefined&) { return 0; }
+uint32_t ToUint32(const JS::Null& /*unused*/) { return 0; }
+uint32_t ToUint32(const JS::Undefined& /*unused*/) { return 0; }
 uint32_t ToUint32(const JS::Any& any) { // https://262.ecma-international.org/5.1/#sec-9.6
     switch (any.getValue().index()) {
         case NUMBER:

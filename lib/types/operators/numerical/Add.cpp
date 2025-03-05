@@ -185,7 +185,7 @@ JS::Any JS::Any::operator+(JS::Null) const {
     return {};
 }
 
-JS::Any JS::Any::operator+(JS::Undefined) const {
+JS::Any JS::Any::operator+(JS::Undefined /*unused*/) const {
     switch (this->value.index()) {
         case NUMBER:
             return JS::Any(std::numeric_limits<double>::quiet_NaN());
@@ -298,7 +298,7 @@ JS::Any operator+(JS::Null, JS::Any const& any) {
     return {};
 }
 
-JS::Any operator+(JS::Undefined, JS::Any const& any) {
+JS::Any operator+(JS::Undefined /*unused*/, JS::Any const& any) {
     switch (any.getValue().index()) {
         case JS::NUMBER:
             return JS::Any(std::numeric_limits<double>::quiet_NaN());

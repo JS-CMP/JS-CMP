@@ -81,14 +81,14 @@ int Options::extractCompilerOptions() {
 }
 
 void Options::printUsage() {
-    std::cout << "Usage: js_cmp <file> [options]" << std::endl;
+    std::cout << "Usage: js_cmp <file> [options]" << '\n';
     this->desc_argv.print(std::cout);
     std::cout << "  -- <compiler options> Pass the remaining arguments to the "
                  "compiler"
-              << std::endl;
+              << '\n';
 }
 
-void Options::printVersion() { std::cout << "JS_CMP version " << JS_CMP_VERSION << std::endl; }
+void Options::printVersion() { std::cout << "JS_CMP version " << JS_CMP_VERSION << '\n'; }
 
 std::optional<std::string> Options::findCompiler() {
     for (const auto& compiler : commonCompilers) {

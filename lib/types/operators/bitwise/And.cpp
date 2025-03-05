@@ -3,7 +3,7 @@
 
 template <typename T>
 JS::Any JS::Any::operator&(T other) const {
-    return JS::Any(JS::CONVERT::ToInt32(*this) & JS::CONVERT::ToInt32(other));
+    return JS::Any(JS::CONVERT::ToInt32(*this) & JS::CONVERT::ToInt32(std::move(other)));
 }
 template JS::Any JS::Any::operator&(int) const;
 template JS::Any JS::Any::operator&(double) const;

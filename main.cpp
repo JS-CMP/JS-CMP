@@ -6,7 +6,7 @@ int main(int argc, char** argv, char** env) {
     try {
         options.parse();
     } catch (const std::runtime_error& e) {
-        std::cerr << "JS_CMP: " << e.what() << std::endl;
+        std::cerr << "JS_CMP: " << e.what() << '\n';
         options.printUsage();
         exit(1);
     }
@@ -14,7 +14,7 @@ int main(int argc, char** argv, char** env) {
         Builder builder(options);
         builder.build();
     } catch (const std::runtime_error& e) {
-        std::cerr << e.what() << std::endl;
+        std::cerr << e.what() << '\n';
         exit(1);
     }
     return (0);

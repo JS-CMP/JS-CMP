@@ -15,7 +15,7 @@ namespace JS {
 class DataDescriptor {
 public:
     /** @brief Default constructor. */
-    DataDescriptor() = default;
+    DataDescriptor() : value(JS::Undefined{}), writable(false), enumerable(false), configurable(false){};
     /**
      * @brief Constructor with a value parameter.
      * @param value The initial value of the property.

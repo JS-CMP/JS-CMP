@@ -1,0 +1,6 @@
+#include "types/objects/JsFunction.hpp"
+#include "types/objects/Error/JsNativeError.hpp"
+
+JS::Any JS::NativeError::toString(const JS::Any& thisArg, const JS::Any& args) {
+    throw std::runtime_error("not implemented");
+}

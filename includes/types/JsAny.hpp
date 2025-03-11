@@ -17,7 +17,7 @@ using JSAnyAmbiguous = std::enable_if_t<!std::is_same_v<T, JS::Any>, JS::Any>;
  * It provides overloaded operators for arithmetic and comparison, making it easy to work
  * with in a JavaScript-like syntax.
  */
-class Any {
+class Any : public std::exception {
 public:
     /**
      * @name Constructors

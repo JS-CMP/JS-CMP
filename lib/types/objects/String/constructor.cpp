@@ -17,7 +17,7 @@ String::String(const JS::Any& value) : JS::InternalObject({}, getPrototypeProper
 }
 
 String::String(const std::unordered_map<std::string, JS::Any>& properties)
-    : InternalObject({}, getPrototypeProperties(), "Boolean", true) {
+    : InternalObject({}, getPrototypeProperties(), "String", true) {
     this->primitiveValue = Rope("");
     for (const auto& [key, value] : properties) {
         this->InternalObject::put(key, value);

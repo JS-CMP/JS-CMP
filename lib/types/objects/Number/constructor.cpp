@@ -16,7 +16,7 @@ Number::Number(const JS::Any& value) : JS::InternalObject({}, getPrototypeProper
 }
 
 Number::Number(const std::unordered_map<std::string, JS::Attribute>& properties)
-    : InternalObject({}, getPrototypeProperties(), "Boolean", true) {
+    : InternalObject({}, getPrototypeProperties(), "Number", true) {
     this->primitiveValue = 0.0;
     for (const auto& [key, value] : properties) {
         this->InternalObject::defineOwnProperty(key, value);

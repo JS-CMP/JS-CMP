@@ -32,16 +32,18 @@ std::optional<JS::Attribute> JS::String::getOwnProperty(const std::string& key) 
 
 // prototype methods
 JS::Any JS::String::toString(const JS::Any& thisArg, const JS::Any& args) {
-    if (!JS::COMPARE::Type(thisArg, JS::OBJECT) ||
-        std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->class_name != "String") {
+    if ((!JS::COMPARE::Type(thisArg, JS::OBJECT) ||
+        std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->class_name != "String") &&
+        !JS::COMPARE::Type(thisArg, JS::STRING)) {
         throw std::runtime_error("TypeError: String.prototype.valueOf called on non-object");
     }
     return thisArg;
 }
 
 JS::Any JS::String::valueOf(const JS::Any& thisArg, const JS::Any& args) {
-    if (!JS::COMPARE::Type(thisArg, JS::OBJECT) ||
-        std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->class_name != "String") {
+    if ((!JS::COMPARE::Type(thisArg, JS::OBJECT) ||
+        std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->class_name != "String") &&
+        !JS::COMPARE::Type(thisArg, JS::STRING)) {
         throw std::runtime_error("TypeError: String.prototype.valueOf called on non-object");
     }
     return thisArg;

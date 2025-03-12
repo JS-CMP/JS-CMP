@@ -105,7 +105,6 @@ public:
     /** @brief Bitwise right shift operator int >> Any */
     template <typename T>
     friend JSAnyAmbiguous<T> operator>>(T value, JS::Any const& any);
-
     ///@}
 
     /**
@@ -141,10 +140,21 @@ public:
     ///@}
 
     /**
+     * @name std::error override methods what
+     */
+    [[nodiscard]] const char* what() const noexcept override;
+
+
+    /**
      * @name Unary + operator
      * This operator returns the value of the `Any` object as a number.
      */
     JS::Any operator+() const;
+    /**
+     * @name Unary - operator
+     * This operator returns the negation of the value of the `Any` object.
+     */
+    JS::Any operator-() const;
 
     /**
      * @name Subtraction operators -
@@ -162,12 +172,6 @@ public:
     /** @brief Subtraction operator Undefined - Any */
     friend JS::Any operator-(JS::Undefined, JS::Any const& any);
     ///@}
-
-    /**
-     * @name Unary - operator
-     * This operator returns the negation of the value of the `Any` object.
-     */
-    JS::Any operator-() const;
 
     /**
      * @name Multiplication operators *
@@ -339,14 +343,7 @@ public:
     /** @brief Accessors to properties of object in stored in value */
     template <typename T>
     JS::PropertyProxy operator[](T key) const;
-
     ///@}
-
-    /**
-     * @name Conversion operators
-     * These operators convert the value of the `Any` object to another type.
-     */
-    ///@{
 
     /**
      * @brief Friend function for outputting `Any` object to a stream.

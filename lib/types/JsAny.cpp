@@ -1,8 +1,27 @@
 #include "utils/Convert.hpp"
 
 #include <types/JsAny.hpp>
+#include <types/objects/JsObject.hpp>
+#include <utils/Compare.hpp>
 
 JS::Value JS::Any::getValue() const { return this->value; }
+
+const char *JS::Any::what() const noexcept {
+    if (this->value.index() != JS::OBJECT) { // TODO: cast is property proxy shenanigan, fix
+        return ("Uncaught " + CONVERT::ToString(this)).c_str();
+    }
+    auto obj = CONVERT::ToObject(JS::Any(this));
+    // if (obj.class_name != "Error") {
+    //     return ("Uncaught " + CONVERT::ToString(this)).c_str();
+    // }
+
+    JS::Any temp = obj["message"];// bad varian access because toobject
+    JS::Any name = obj["name"];
+    std::cout << "here" << std::endl;
+    JS::Any message = COMPARE::Type(temp, JS::UNDEFINED) ? JS::Any("") : temp; // TODO: find a solution to do temp == undefined
+    return CONVERT::ToString("Uncaught " + name + ": " + message).c_str();
+}
+
 
 namespace JS {
 std::ostream& operator<<(std::ostream& os, const Any& any) {

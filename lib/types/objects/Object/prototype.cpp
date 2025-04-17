@@ -5,8 +5,6 @@
 #include "utils/Is.hpp"
 
 namespace JS {
-// TODO Implement correctly ToObject to make all the methods work (ToObject should always return an object so the
-// compare type should always be true)
 JS::Any Object::toString(const JS::Any& thisArg, const JS::Any& args) {
     switch (thisArg.getValue().index()) {
         case JS::UNDEFINED:
@@ -14,52 +12,25 @@ JS::Any Object::toString(const JS::Any& thisArg, const JS::Any& args) {
         case JS::NULL_TYPE:
             return JS::Any("[object Null]");
     }
-    JS::Any O = JS::CONVERT::ToObject(thisArg);
-    // TODO to remove when ToObject is implemented correctly
-    if (!JS::COMPARE::Type(O, JS::OBJECT)) {
-        throw std::runtime_error(
-            "TypeError: Object.prototype.toString called on non-object (this should never happen)");
-        // this should never happen
-    }
-    return JS::Any("[object " + std::get<std::shared_ptr<JS::InternalObject>>(O.getValue())->class_name + "]");
+    const std::shared_ptr<InternalObject> O = JS::CONVERT::ToObject(thisArg);
+    return JS::Any("[object " + O->class_name + "]");
 }
 
 JS::Any Object::toLocaleString(const JS::Any& thisArg, const JS::Any& args) {
-    JS::Any O = JS::CONVERT::ToObject(thisArg);
-    // TODO to remove when ToObject is implemented correctly
-    if (!JS::COMPARE::Type(O, JS::OBJECT)) {
-        throw std::runtime_error(
-            "TypeError: Object.prototype.toLocaleString called on non-object (this should never happen)");
-        // this should never happen
-    }
-    JS::Any toString = std::get<std::shared_ptr<JS::InternalObject>>(O.getValue())->get("toString");
+    const std::shared_ptr<InternalObject> O = JS::CONVERT::ToObject(thisArg);
+    JS::Any toString = O->get("toString");
     if (JS::IS::Callable(toString)) {
         return toString();
     }
     throw std::runtime_error("TypeError: Object.prototype.toLocaleString called on non-object");
 }
 
-JS::Any Object::valueOf(const JS::Any& thisArg, const JS::Any& args) {
-    JS::Any O = JS::CONVERT::ToObject(thisArg);
-    // TODO to remove when ToObject is implemented correctly
-    if (!JS::COMPARE::Type(O, JS::OBJECT)) {
-        throw std::runtime_error("TypeError: Object.prototype.valueOf called on non-object (this should never happen)");
-        // this should never happen
-    }
-    return O;
-}
+JS::Any Object::valueOf(const JS::Any& thisArg, const JS::Any& args) { return JS::Any(JS::CONVERT::ToObject(thisArg)); }
 
 JS::Any Object::hasOwnProperty(const JS::Any& thisArg, const JS::Any& args) {
-    std::string P = JS::CONVERT::ToString(args["0"]);
-    JS::Any O = JS::CONVERT::ToObject(thisArg);
-    // TODO to remove when ToObject is implemented correctly
-    if (!JS::COMPARE::Type(O, JS::OBJECT)) {
-        throw std::runtime_error(
-            "TypeError: Object.prototype.hasOwnProperty called on non-object (this should never happen)");
-        // this should never happen
-    }
-    std::shared_ptr<JS::InternalObject> obj = std::get<std::shared_ptr<JS::InternalObject>>(O.getValue());
-    if (obj->getOwnProperty(P).has_value()) {
+    const std::string P = JS::CONVERT::ToString(args["0"]);
+    std::shared_ptr<InternalObject> O = JS::CONVERT::ToObject(thisArg);
+    if (O->getOwnProperty(P).has_value()) {
         return JS::Any(true);
     }
     return JS::Any(false);
@@ -69,18 +40,11 @@ JS::Any Object::isPrototypeOf(const JS::Any& thisArg, const JS::Any& args) {
     if (!JS::COMPARE::Type(args["0"], JS::OBJECT)) {
         return JS::Any(false);
     }
-    JS::Any O = JS::CONVERT::ToObject(thisArg);
-    // TODO to remove when ToObject is implemented correctly
-    if (!JS::COMPARE::Type(O, JS::OBJECT)) {
-        throw std::runtime_error(
-            "TypeError: Object.prototype.isPrototypeOf called on non-object (this should never happen)");
-        // this should never happen
-    }
-    std::shared_ptr<JS::InternalObject> obj = std::get<std::shared_ptr<JS::InternalObject>>(O.getValue());
-    std::shared_ptr<JS::InternalObject> V = std::get<std::shared_ptr<JS::InternalObject>>(args["0"].getValue());
+    std::shared_ptr<InternalObject> O = JS::CONVERT::ToObject(thisArg);
+    auto V = std::get<std::shared_ptr<JS::InternalObject>>(args["0"].getValue());
     while (V->prototype != nullptr) {
         V = V->prototype;
-        if (V.get() == obj.get()) {
+        if (V.get() == O.get()) {
             return JS::Any(true);
         }
     }
@@ -88,15 +52,9 @@ JS::Any Object::isPrototypeOf(const JS::Any& thisArg, const JS::Any& args) {
 }
 
 JS::Any Object::propertyIsEnumerable(const JS::Any& thisArg, const JS::Any& args) {
-    std::string P = JS::CONVERT::ToString(args["0"]);
-    JS::Any O = JS::CONVERT::ToObject(thisArg);
-    // TODO to remove when ToObject is implemented correctly
-    if (!JS::COMPARE::Type(O, JS::OBJECT)) {
-        throw std::runtime_error("TypeError: Object.prototype.propertyIsEnumerable called on non-object (this should "
-                                 "never happen)"); // this should never happen
-    }
-    std::shared_ptr<JS::InternalObject> obj = std::get<std::shared_ptr<JS::InternalObject>>(O.getValue());
-    std::optional<JS::Attribute> desc = obj->getOwnProperty(P);
+    const std::string P = JS::CONVERT::ToString(args["0"]);
+    const std::shared_ptr<InternalObject> O = JS::CONVERT::ToObject(thisArg);
+    const std::optional<JS::Attribute> desc = O->getOwnProperty(P);
     if (!desc.has_value()) {
         return JS::Any(false);
     }

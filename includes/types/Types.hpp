@@ -3,9 +3,12 @@
 
 #include "../class/Rope/Rope.hpp"
 
+#include <cstdint>
 #include <functional>
+#include <iostream>
 #include <limits>
 #include <memory>
+#include <sstream>
 #include <string>
 #include <unordered_map>
 #include <variant>
@@ -15,10 +18,11 @@ namespace JS {
 /**
  * Enum representing the types that can be held by an instance of JS::Any.
  */
+
 enum Types {
     NUMBER,    /**< Represents a numeric type (double). */
     STRING,    /**< Represents a string type. */
-    BOOL,      /**< Represents a boolean type. */
+    BOOLEAN,   /**< Represents a boolean type. */
     UNDEFINED, /**< Represents an undefined type. */
     NULL_TYPE, /**< Represents a null type. */
     OBJECT,    /**< Represents an object type. */

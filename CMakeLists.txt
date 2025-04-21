@@ -19,15 +19,9 @@ else ()
     message(FATAL_ERROR "Boost not found!")
 endif ()
 
-file(GLOB_RECURSE SOURCES_LIB
-        "includes/*.hpp"
-        "lib/*.cpp"
-)
+file(GLOB_RECURSE SOURCES_LIB "lib/*.cpp")
 
-file(GLOB_RECURSE SOURCES
-        "src/*.cpp"
-        "src/*.hpp"
-)
+file(GLOB_RECURSE SOURCES "src/*.cpp")
 add_library(jscmp ${SOURCES_LIB})
 
 add_executable(${PROJECT_NAME} main.cpp ${SOURCES})

@@ -18,6 +18,7 @@ bool ToBoolean(const JS::Any& any);
 
 double ToNumber(int value);
 double ToNumber(double value);
+double ToNumber(bool value);
 double ToNumber(const std::string& value);
 double ToNumber(const Rope& value);
 double ToNumber(const JS::Undefined& value);
@@ -32,8 +33,25 @@ int ToInteger(const JS::Undefined& value);
 int ToInteger(const JS::Null& value);
 int ToInteger(const JS::Any& any);
 
+uint32_t ToUint32(int value);
+uint32_t ToUint32(double value);
+uint32_t ToUint32(const std::string& value);
+uint32_t ToUint32(const Rope& value);
+uint32_t ToUint32(const JS::Undefined& value);
+uint32_t ToUint32(const JS::Null& value);
+uint32_t ToUint32(const JS::Any& any);
+
+template <typename T>
+int16_t ToInt16(T value);
+
+template <typename T>
+int32_t ToInt32(T value);
+
 std::string ToString(int value);
 std::string ToString(double value);
+std::string ToString(bool value);
+std::string ToString(unsigned int value);
+std::string ToString(const char* value);
 std::string ToString(const std::string& value);
 std::string ToString(const Rope& value);
 std::string ToString(const JS::Undefined& value);

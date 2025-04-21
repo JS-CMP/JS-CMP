@@ -1,4 +1,4 @@
-#include "types/objects/JsFunction.hpp"
+#include "types/objects/Function/JsFunction.hpp"
 #include "types/objects/JsString.hpp"
 #include "utils/Convert.hpp"
 

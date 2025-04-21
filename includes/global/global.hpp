@@ -5,7 +5,7 @@
 #include "globalFunctions.hpp"
 #include "types/JsAny.hpp"
 #include "types/objects/JsBoolean.hpp"
-#include "types/objects/JsFunction.hpp"
+#include "types/objects/Function/JsFunction.hpp"
 #include "types/objects/JsMath.hpp"
 #include "types/objects/JsNumber.hpp"
 #include "types/objects/JsObject.hpp"

@@ -3,7 +3,6 @@
 
 namespace JS {
 
-
 std::unordered_map<std::string, JS::Any> function_properties_prototype = {
     {"toString", JS::Any(std::make_shared<JS::Function>(Function::toString))},
     {"apply", JS::Any(std::make_shared<JS::Function>(Function::apply))},

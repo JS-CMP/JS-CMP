@@ -51,7 +51,8 @@ public:
     /** @brief Call operator for the object */
     template <typename... Args>
     JS::Any operator()(Args... args) {
-        return call_function(JS::Any(JS::Undefined{}), JS::Arguments::CreateArgumentsObject(std::vector<JS::Any>{args...}));
+        return call_function(JS::Any(JS::Undefined{}),
+                             JS::Arguments::CreateArgumentsObject(std::vector<JS::Any>{args...}));
     }
     ///@}
 
@@ -103,7 +104,7 @@ public:
 
     std::shared_ptr<JS::Properties> properties;    /**< The properties of the object. */
     std::shared_ptr<JS::InternalObject> prototype; /**< The prototype of the object. */
-    FunctionType call_function;                             /**< The call function of the object. */
+    FunctionType call_function;                    /**< The call function of the object. */
     FunctionType construct;                        /**< The construct function of the object. */
     std::string class_name;                        /**< The class name of the object. */
     bool extensible;                               /**< Whether the object is extensible. */

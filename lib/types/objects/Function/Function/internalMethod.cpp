@@ -1,7 +1,6 @@
 #include "types/objects/Function/JsFunction.hpp"
 #include "utils/Compare.hpp"
 
-
 namespace JS {
 JS::Any Function::get(const std::string& key) const {
     if (key == "caller") {

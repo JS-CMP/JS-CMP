@@ -38,8 +38,8 @@ public:
     ~Function() = default;
 
     /**
-    * @name Methods to make prototype methods of the Function built-in
-    */
+     * @name Methods to make prototype methods of the Function built-in
+     */
     ///@{
     /** @brief return the stringified version of the function https://262.ecma-international.org/5.1/#sec-15.3.4.2 */
     static JS::Any toString(const JS::Any& thisArg, const JS::Any& args);
@@ -52,19 +52,16 @@ public:
     ///@}
 
     /**
-    * @name Internal Properties Overriden from Function
-    * These methods provide access to the properties of the object
-    */
+     * @name Internal Properties Overriden from Function
+     * These methods provide access to the properties of the object
+     */
     ///@{
     /** @brief Get a property of the object with all the parent included and all the checks for descriptor
-    * https://262.ecma-international.org/5.1/#sec-15.3.5.4 */
+     * https://262.ecma-international.org/5.1/#sec-15.3.5.4 */
     [[nodiscard]] JS::Any get(const std::string& key) const final;
     /** @brief Check if the object is an instance of another object */
     [[nodiscard]] bool hasInstance(const JS::Any& value) const override;
     ///@}
-
-
-
 };
 
 } // namespace JS

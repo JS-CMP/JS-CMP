@@ -4,10 +4,8 @@
 namespace JS {
 InternalObject::InternalObject(Properties properties, std::shared_ptr<InternalObject> prototype, std::string class_name,
                                bool extensible)
-    : properties(std::make_shared<Properties>(std::move(properties))), prototype(std::move(prototype)), call_function(nullptr),
-      construct(nullptr), class_name(std::move(class_name)), extensible(extensible) {
-
-}
+    : properties(std::make_shared<Properties>(std::move(properties))), prototype(std::move(prototype)),
+      call_function(nullptr), construct(nullptr), class_name(std::move(class_name)), extensible(extensible) {}
 
 InternalObject::InternalObject(const std::unordered_map<std::string, JS::Any>& properties)
     : properties(std::make_shared<Properties>()), prototype(nullptr), call_function(nullptr), construct(nullptr),
@@ -40,14 +38,13 @@ InternalObject::InternalObject(const Attribute& attribute)
     }
 }
 
-InternalObject::InternalObject(const InternalObject& other)  : enable_shared_from_this(other) {
+InternalObject::InternalObject(const InternalObject& other) : enable_shared_from_this(other) {
     properties = other.properties;
     prototype = other.prototype;
     class_name = other.class_name;
     extensible = other.extensible;
     call_function = other.call_function;
     construct = other.construct;
-
 }
 
 InternalObject::InternalObject(InternalObject&& other) noexcept {

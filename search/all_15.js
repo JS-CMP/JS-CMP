@@ -26,11 +26,11 @@ var searchData=
   ['project_20overview_23',['Project Overview',['../md_CODE__OF__CONDUCT.html#autotoc_md16',1,'']]],
   ['properties_24',['properties',['../classJS_1_1InternalObject.html#abef4f3f77ac76498e72b5ff219e84333',1,'JS::InternalObject::properties'],['../namespaceJS.html#a7a13a86ce74cf91ccbb32734eaf77483',1,'JS::Properties']]],
   ['propertyisenumerable_25',['propertyIsEnumerable',['../classJS_1_1Object.html#aca66741a4d17fc6b3dee87ab06d554d7',1,'JS::Object']]],
-  ['propertyproxy_26',['propertyproxy',['../classJS_1_1PropertyProxy.html#a24d5db9d2ab0975b531cc6ffbfec00e6',1,'JS::PropertyProxy::PropertyProxy()'],['../classJS_1_1PropertyProxy.html',1,'JS::PropertyProxy']]],
+  ['propertyproxy_26',['propertyproxy',['../classJS_1_1PropertyProxy.html#a514825549e9f590c9efbb78fce347988',1,'JS::PropertyProxy::PropertyProxy()'],['../classJS_1_1PropertyProxy.html',1,'JS::PropertyProxy']]],
   ['propertyproxy_2ecpp_27',['PropertyProxy.cpp',['../PropertyProxy_8cpp.html',1,'']]],
   ['propertyproxy_2ehpp_28',['PropertyProxy.hpp',['../PropertyProxy_8hpp.html',1,'']]],
   ['prototype_29',['prototype',['../classJS_1_1InternalObject.html#a39a67333eb860a30d744c9d99ae89eba',1,'JS::InternalObject']]],
-  ['prototype_2ecpp_30',['prototype.cpp',['../String_2prototype_8cpp.html',1,'(Global Namespace)'],['../Object_2prototype_8cpp.html',1,'(Global Namespace)'],['../Number_2prototype_8cpp.html',1,'(Global Namespace)'],['../Boolean_2prototype_8cpp.html',1,'(Global Namespace)']]],
+  ['prototype_2ecpp_30',['prototype.cpp',['../Object_2prototype_8cpp.html',1,'(Global Namespace)'],['../String_2prototype_8cpp.html',1,'(Global Namespace)'],['../Number_2prototype_8cpp.html',1,'(Global Namespace)'],['../Boolean_2prototype_8cpp.html',1,'(Global Namespace)']]],
   ['prototypeproperties_2ecpp_31',['prototypeproperties.cpp',['../Boolean_2prototypeProperties_8cpp.html',1,'(Global Namespace)'],['../Number_2prototypeProperties_8cpp.html',1,'(Global Namespace)'],['../String_2prototypeProperties_8cpp.html',1,'(Global Namespace)']]],
   ['protoypeproperties_2ecpp_32',['protoypeProperties.cpp',['../protoypeProperties_8cpp.html',1,'']]],
   ['put_33',['put',['../classJS_1_1InternalObject.html#a447ac2dd10c1aa26379df02669849735',1,'JS::InternalObject::put()'],['../classJS_1_1IObject.html#a701222bdf06d7e544d1f084f2c870654',1,'JS::IObject::put()']]]

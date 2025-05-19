@@ -47,6 +47,6 @@ var searchData=
   ['typeerror_44',['typeerror',['../classTypeError.html',1,'TypeError'],['../classTypeError.html#a0e83e1185c690f6979a78fe617746814',1,'TypeError::TypeError()']]],
   ['typeerror_2ehpp_45',['TypeError.hpp',['../TypeError_8hpp.html',1,'']]],
   ['typeof_2ecpp_46',['typeof.cpp',['../typeof_8cpp.html',1,'']]],
-  ['types_47',['Types',['../namespaceJS.html#a24dafc265586f725eeb7012cf759b670',1,'JS']]],
+  ['types_47',['Types',['../namespaceJS.html#a25c0ffb20b4906bbc8c14837420282c9',1,'JS']]],
   ['types_2ehpp_48',['types.hpp',['../Types_8hpp.html',1,'(Global Namespace)'],['../objects_2Types_8hpp.html',1,'(Global Namespace)']]]
 ];

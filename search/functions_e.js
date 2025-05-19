@@ -10,6 +10,6 @@ var searchData=
   ['printusage_7',['printUsage',['../classOptions.html#a5a64af47966f3c0a54a8c3a3385065e3',1,'Options']]],
   ['printversion_8',['printVersion',['../classOptions.html#a7406a60e9cc9f2f08557a953105e23a4',1,'Options']]],
   ['propertyisenumerable_9',['propertyIsEnumerable',['../classJS_1_1Object.html#aca66741a4d17fc6b3dee87ab06d554d7',1,'JS::Object']]],
-  ['propertyproxy_10',['PropertyProxy',['../classJS_1_1PropertyProxy.html#a24d5db9d2ab0975b531cc6ffbfec00e6',1,'JS::PropertyProxy']]],
+  ['propertyproxy_10',['PropertyProxy',['../classJS_1_1PropertyProxy.html#a514825549e9f590c9efbb78fce347988',1,'JS::PropertyProxy']]],
   ['put_11',['put',['../classJS_1_1IObject.html#a701222bdf06d7e544d1f084f2c870654',1,'JS::IObject::put()'],['../classJS_1_1InternalObject.html#a447ac2dd10c1aa26379df02669849735',1,'JS::InternalObject::put()']]]
 ];

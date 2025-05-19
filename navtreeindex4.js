@@ -1,13 +1,12 @@
 var NAVTREEINDEX4 =
 {
 "classJS_1_1String.html#afa8e7a8b6f50ad3926a7d4d657060b85":[6,0,0,18,10],
-"classJS_1_1String.html#afa8e7a8b6f50ad3926a7d4d657060b85":[7,0,0,13,10],
 "classJS_1_1String.html#afdea19e4a9a46740be03af45cf186e31":[6,0,0,18,12],
 "classJS_1_1String.html#afdea19e4a9a46740be03af45cf186e31":[7,0,0,13,12],
-"classJS_1_1console.html":[7,0,0,4],
 "classJS_1_1console.html":[6,0,0,9],
-"classJS_1_1console.html#a8437af6e4d5c0ff5640fb0407cf9c91b":[6,0,0,9,0],
+"classJS_1_1console.html":[7,0,0,4],
 "classJS_1_1console.html#a8437af6e4d5c0ff5640fb0407cf9c91b":[7,0,0,4,0],
+"classJS_1_1console.html#a8437af6e4d5c0ff5640fb0407cf9c91b":[6,0,0,9,0],
 "classOptions.html":[7,0,6],
 "classOptions.html#a052efe080ac8745ae147f7a60e700ff0":[7,0,6,6],
 "classOptions.html#a0bf0757248a84e954165d21613308b86":[7,0,6,1],
@@ -249,5 +248,6 @@ var NAVTREEINDEX4 =
 "md_CODE__OF__CONDUCT.html#autotoc_md53":[4,9,1],
 "md_CONTRIBUTING.html":[5],
 "md_CONTRIBUTING.html#autotoc_md55":[5,0],
-"md_CONTRIBUTING.html#autotoc_md56":[5,1]
+"md_CONTRIBUTING.html#autotoc_md56":[5,1],
+"md_CONTRIBUTING.html#autotoc_md57":[5,2]
 };

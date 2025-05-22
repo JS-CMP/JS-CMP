@@ -5,6 +5,7 @@
 #include "types/Types.hpp"
 
 #include <utility>
+#include <optional>
 
 namespace JS {
 using Properties = std::unordered_map<std::string, JS::Attribute>;

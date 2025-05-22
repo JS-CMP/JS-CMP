@@ -23,5 +23,3 @@ JS::Any& JS::Any::operator=(const JS::Any& other) {
     value = other.value;
     return *this;
 }
-
-JS::Any::operator bool() const { return JS::CONVERT::ToBoolean(*this); }

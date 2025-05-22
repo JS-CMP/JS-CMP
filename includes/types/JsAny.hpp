@@ -57,7 +57,7 @@ public:
     /** @brief Move constructor */
     JS::Any& operator=(JS::Any&& other) noexcept;
     /** @brief boolean conversion operator */
-    operator bool() const;
+    operator bool();
     ///@}
 
     /**

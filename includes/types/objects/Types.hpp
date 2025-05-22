@@ -1,3 +1,4 @@
 #include "JsArray.hpp"
-#include "JsFunction.hpp"
+#include "Function/JsFunction.hpp"
+#include "Function/JsFunctionBinded.hpp"
 #include "JsObject.hpp"

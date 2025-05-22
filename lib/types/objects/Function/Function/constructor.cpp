@@ -27,9 +27,13 @@ Function::Function(Function&& f) noexcept : JS::InternalObject({}, JS::function_
 }
 
 Function& Function::operator=(const Function& function) {
+    if (this == &function) {
+        return *this;
+    }
     this->call_function = function.call_function;
     return *this;
 }
+
 
 Function& Function::operator=(Function&& f) noexcept {
     this->call_function = std::move(f.call_function);

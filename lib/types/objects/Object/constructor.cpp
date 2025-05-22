@@ -1,5 +1,5 @@
-#include "types/objects/Function/JsFunction.hpp"
 #include "internals/PropertyProxy.hpp"
+#include "types/objects/Function/JsFunction.hpp"
 #include "types/objects/JsObject.hpp"
 
 #include <utility>

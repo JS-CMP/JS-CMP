@@ -34,7 +34,6 @@ Function& Function::operator=(const Function& function) {
     return *this;
 }
 
-
 Function& Function::operator=(Function&& f) noexcept {
     this->call_function = std::move(f.call_function);
     return *this;

@@ -4,8 +4,8 @@
 #include "types/JsAny.hpp"
 #include "types/Types.hpp"
 
-#include <utility>
 #include <optional>
+#include <utility>
 
 namespace JS {
 using Properties = std::unordered_map<std::string, JS::Attribute>;

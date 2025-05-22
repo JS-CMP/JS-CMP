@@ -22,8 +22,6 @@ Function::Function(FunctionType f, int length) : JS::InternalObject({}, JS::func
     JS::InternalObject::defineOwnProperty("length", JS::DataDescriptor{JS::Any(length), false, false, false}, false);
 }
 
-Function::Function(const Function& f) : JS::InternalObject(f) {}
-
 Function::Function(Function&& f) noexcept : JS::InternalObject({}, JS::function_prototype, "Function", true) {
     call_function = std::move(f.call_function);
 }

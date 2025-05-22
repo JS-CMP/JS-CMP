@@ -25,7 +25,7 @@ public:
     /** @brief Constructs a Function object with a callable `FunctionType`. */
     explicit Function(FunctionType f, int length = 0);
     /** @brief Copy constructor */
-    Function(const Function& f);
+    Function(const Function& f) = default;
     /** @brief Move constructor */
     Function(Function&& f) noexcept;
     /** @brief Copy assignment operator */

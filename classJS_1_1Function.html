@@ -112,7 +112,7 @@ $(document).ready(function(){initNavTree('classJS_1_1Function.html',''); initRes
 <p>Represents a JavaScript-like function object in C++.  
  <a href="classJS_1_1Function.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="JsFunction_8hpp_source.html">JsFunction.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="Function_2JsFunction_8hpp_source.html">JsFunction.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for JS::Function:</div>
 <div class="dyncontent">
@@ -126,18 +126,21 @@ Collaboration diagram for JS::Function:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a286afd6a74a582e8f5e6fb4600aec7f8" id="r_a286afd6a74a582e8f5e6fb4600aec7f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Function.html#a286afd6a74a582e8f5e6fb4600aec7f8">init</a> ()</td></tr>
-<tr class="memdesc:a286afd6a74a582e8f5e6fb4600aec7f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the function object. An empty method that can be overridden by subclasses if needed.  <br /></td></tr>
-<tr class="separator:a286afd6a74a582e8f5e6fb4600aec7f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac20acc0634c2e87493b10d7ac69e0e1f" id="r_ac20acc0634c2e87493b10d7ac69e0e1f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Function.html#ac20acc0634c2e87493b10d7ac69e0e1f">~Function</a> () override=default</td></tr>
+<tr class="memdesc:ac20acc0634c2e87493b10d7ac69e0e1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
+<tr class="separator:ac20acc0634c2e87493b10d7ac69e0e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Constructors</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>These constructors create a new <a class="el" href="classJS_1_1Function.html" title="Represents a JavaScript-like function object in C++.">Function</a> object. </p>
 </div></td></tr>
-<tr class="memitem:a742d84a5db1876eff49fb53d3c4a3fdb" id="r_a742d84a5db1876eff49fb53d3c4a3fdb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Function.html#a742d84a5db1876eff49fb53d3c4a3fdb">Function</a> (<a class="el" href="namespaceJS.html#afc8f80ef0014008191a79c36ae5eb341">FunctionType</a> f)</td></tr>
-<tr class="memdesc:a742d84a5db1876eff49fb53d3c4a3fdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classJS_1_1Function.html" title="Represents a JavaScript-like function object in C++.">Function</a> object with a callable <code>FunctionType</code>.  <br /></td></tr>
-<tr class="separator:a742d84a5db1876eff49fb53d3c4a3fdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a64915e612eaf820e14882c804ecfd8" id="r_a4a64915e612eaf820e14882c804ecfd8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Function.html#a4a64915e612eaf820e14882c804ecfd8">Function</a> (const <a class="el" href="classJS_1_1Function.html">Function</a> &amp;f)</td></tr>
-<tr class="memdesc:a4a64915e612eaf820e14882c804ecfd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <br /></td></tr>
-<tr class="separator:a4a64915e612eaf820e14882c804ecfd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1a744bb0e720debad96918387b5a782" id="r_ad1a744bb0e720debad96918387b5a782"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Function.html#ad1a744bb0e720debad96918387b5a782">Function</a> ()</td></tr>
+<tr class="memdesc:ad1a744bb0e720debad96918387b5a782"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor initializes the object with an empty map.  <br /></td></tr>
+<tr class="separator:ad1a744bb0e720debad96918387b5a782"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a825c4f4b92d8e39096770cc977e48277" id="r_a825c4f4b92d8e39096770cc977e48277"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Function.html#a825c4f4b92d8e39096770cc977e48277">Function</a> (<a class="el" href="namespaceJS.html#afc8f80ef0014008191a79c36ae5eb341">FunctionType</a> f, int length=0)</td></tr>
+<tr class="memdesc:a825c4f4b92d8e39096770cc977e48277"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classJS_1_1Function.html" title="Represents a JavaScript-like function object in C++.">Function</a> object with a callable <code>FunctionType</code>.  <br /></td></tr>
+<tr class="separator:a825c4f4b92d8e39096770cc977e48277"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46f6c08d21f0ba097451990886e55736" id="r_a46f6c08d21f0ba097451990886e55736"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Function.html#a46f6c08d21f0ba097451990886e55736">Function</a> (const <a class="el" href="classJS_1_1Function.html">Function</a> &amp;f)=default</td></tr>
+<tr class="memdesc:a46f6c08d21f0ba097451990886e55736"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <br /></td></tr>
+<tr class="separator:a46f6c08d21f0ba097451990886e55736"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1db0497a5da2b634301700676199e86" id="r_aa1db0497a5da2b634301700676199e86"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Function.html#aa1db0497a5da2b634301700676199e86">Function</a> (<a class="el" href="classJS_1_1Function.html">Function</a> &amp;&amp;f) noexcept</td></tr>
 <tr class="memdesc:aa1db0497a5da2b634301700676199e86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <br /></td></tr>
 <tr class="separator:aa1db0497a5da2b634301700676199e86"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,10 +150,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3aa687f2e5e637440af40886a6ac21f9" id="r_a3aa687f2e5e637440af40886a6ac21f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Function.html">Function</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Function.html#a3aa687f2e5e637440af40886a6ac21f9">operator=</a> (<a class="el" href="classJS_1_1Function.html">Function</a> &amp;&amp;f) noexcept</td></tr>
 <tr class="memdesc:a3aa687f2e5e637440af40886a6ac21f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator.  <br /></td></tr>
 <tr class="separator:a3aa687f2e5e637440af40886a6ac21f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Internal Properties Overriden from Function</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>These methods provide access to the properties of the object </p>
+</div></td></tr>
+<tr class="memitem:a8a1077753ba0348c2aa1e16170bc8a8f" id="r_a8a1077753ba0348c2aa1e16170bc8a8f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Function.html#a8a1077753ba0348c2aa1e16170bc8a8f">get</a> (const std::string &amp;key) const final</td></tr>
+<tr class="memdesc:a8a1077753ba0348c2aa1e16170bc8a8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a property of the object with all the parent included and all the checks for descriptor <a href="https://262.ecma-international.org/5.1/#sec-15.3.5.4">https://262.ecma-international.org/5.1/#sec-15.3.5.4</a>.  <br /></td></tr>
+<tr class="separator:a8a1077753ba0348c2aa1e16170bc8a8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa161a2911e5134428a6af96a40151b2b" id="r_aa161a2911e5134428a6af96a40151b2b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Function.html#aa161a2911e5134428a6af96a40151b2b">hasInstance</a> (const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;value) const override</td></tr>
+<tr class="memdesc:aa161a2911e5134428a6af96a40151b2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the object is an instance of another object.  <br /></td></tr>
+<tr class="separator:aa161a2911e5134428a6af96a40151b2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classJS_1_1InternalObject"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classJS_1_1InternalObject')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classJS_1_1InternalObject.html">JS::InternalObject</a></td></tr>
-<tr class="memitem:a93ae6189905e99bacd95ddd65ba4a0f2 inherit pub_methods_classJS_1_1InternalObject" id="r_a93ae6189905e99bacd95ddd65ba4a0f2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a93ae6189905e99bacd95ddd65ba4a0f2">~InternalObject</a> () override=default</td></tr>
-<tr class="memdesc:a93ae6189905e99bacd95ddd65ba4a0f2 inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">The destructor for the object defaulted.  <br /></td></tr>
-<tr class="separator:a93ae6189905e99bacd95ddd65ba4a0f2 inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd90301af99133eb72847c071e698f71 inherit pub_methods_classJS_1_1InternalObject" id="r_abd90301af99133eb72847c071e698f71"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#abd90301af99133eb72847c071e698f71">~InternalObject</a> ()=default</td></tr>
+<tr class="memdesc:abd90301af99133eb72847c071e698f71 inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">The destructor for the object defaulted.  <br /></td></tr>
+<tr class="separator:abd90301af99133eb72847c071e698f71 inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae04350c910520d9ee5b54eaff147cd5d inherit pub_methods_classJS_1_1InternalObject" id="r_ae04350c910520d9ee5b54eaff147cd5d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#ae04350c910520d9ee5b54eaff147cd5d">InternalObject</a> (<a class="el" href="namespaceJS.html#a7a13a86ce74cf91ccbb32734eaf77483">JS::Properties</a> <a class="el" href="classJS_1_1InternalObject.html#abef4f3f77ac76498e72b5ff219e84333">properties</a>={}, std::shared_ptr&lt; <a class="el" href="classJS_1_1InternalObject.html">JS::InternalObject</a> &gt; <a class="el" href="classJS_1_1InternalObject.html#a39a67333eb860a30d744c9d99ae89eba">prototype</a>=nullptr, std::string <a class="el" href="classJS_1_1InternalObject.html#a7c44d3ff1aca8de5571b160f6db0c927">class_name</a>=&quot;Object&quot;, bool <a class="el" href="classJS_1_1InternalObject.html#a606758e8b6d1fe1ee6e7c3e6ecc4371b">extensible</a>=true)</td></tr>
 <tr class="memdesc:ae04350c910520d9ee5b54eaff147cd5d inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor initializes the object with an empty map.  <br /></td></tr>
 <tr class="separator:ae04350c910520d9ee5b54eaff147cd5d inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -168,49 +180,59 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acd21bca904cc1f13901b42000fb3fefc inherit pub_methods_classJS_1_1InternalObject" id="r_acd21bca904cc1f13901b42000fb3fefc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1InternalObject.html">InternalObject</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#acd21bca904cc1f13901b42000fb3fefc">operator=</a> (<a class="el" href="classJS_1_1InternalObject.html">JS::InternalObject</a> &amp;&amp;other) noexcept</td></tr>
 <tr class="memdesc:acd21bca904cc1f13901b42000fb3fefc inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move operator.  <br /></td></tr>
 <tr class="separator:acd21bca904cc1f13901b42000fb3fefc inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe26e800e05fe61a6881f75d049a3856 inherit pub_methods_classJS_1_1InternalObject" id="r_afe26e800e05fe61a6881f75d049a3856"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1PropertyProxy.html">JS::PropertyProxy</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#afe26e800e05fe61a6881f75d049a3856">operator[]</a> (const std::string &amp;key) override</td></tr>
-<tr class="memdesc:afe26e800e05fe61a6881f75d049a3856 inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessors to properties with string of object in stored in value.  <br /></td></tr>
-<tr class="separator:afe26e800e05fe61a6881f75d049a3856 inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0946a160943e9e19a72f034fd4058692 inherit pub_methods_classJS_1_1InternalObject" id="r_a0946a160943e9e19a72f034fd4058692"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1PropertyProxy.html">JS::PropertyProxy</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a0946a160943e9e19a72f034fd4058692">operator[]</a> (const std::string &amp;key)</td></tr>
+<tr class="memdesc:a0946a160943e9e19a72f034fd4058692 inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessors to properties with string of object in stored in value.  <br /></td></tr>
+<tr class="separator:a0946a160943e9e19a72f034fd4058692 inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace845e0bb9a098e2cbc4df430385ddbb inherit pub_methods_classJS_1_1InternalObject" id="r_ace845e0bb9a098e2cbc4df430385ddbb"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
 <tr class="memitem:ace845e0bb9a098e2cbc4df430385ddbb inherit pub_methods_classJS_1_1InternalObject"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#ace845e0bb9a098e2cbc4df430385ddbb">operator()</a> (Args... args)</td></tr>
 <tr class="memdesc:ace845e0bb9a098e2cbc4df430385ddbb inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call operator for the object.  <br /></td></tr>
 <tr class="separator:ace845e0bb9a098e2cbc4df430385ddbb inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80ed2cc1faa0f11a17d684908bcf9255 inherit pub_methods_classJS_1_1InternalObject" id="r_a80ed2cc1faa0f11a17d684908bcf9255"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="namespaceJS.html#a045e2f5d691414608a9f6d2350e90811">JS::Attribute</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a80ed2cc1faa0f11a17d684908bcf9255">getOwnProperty</a> (const std::string &amp;key) const override</td></tr>
-<tr class="memdesc:a80ed2cc1faa0f11a17d684908bcf9255 inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a property of the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.1">https://262.ecma-international.org/5.1/#sec-8.12.1</a>.  <br /></td></tr>
-<tr class="separator:a80ed2cc1faa0f11a17d684908bcf9255 inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41cb91c58278c467280bdcd1df002d60 inherit pub_methods_classJS_1_1InternalObject" id="r_a41cb91c58278c467280bdcd1df002d60"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="namespaceJS.html#a045e2f5d691414608a9f6d2350e90811">JS::Attribute</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a41cb91c58278c467280bdcd1df002d60">getProperty</a> (const std::string &amp;key) const override</td></tr>
-<tr class="memdesc:a41cb91c58278c467280bdcd1df002d60 inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a property of the object with all the parent included <a href="https://262.ecma-international.org/5.1/#sec-8.12.2">https://262.ecma-international.org/5.1/#sec-8.12.2</a>.  <br /></td></tr>
-<tr class="separator:a41cb91c58278c467280bdcd1df002d60 inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34089dc64288ad03345bf28bff646b18 inherit pub_methods_classJS_1_1InternalObject" id="r_a34089dc64288ad03345bf28bff646b18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a34089dc64288ad03345bf28bff646b18">get</a> (const std::string &amp;key) const override</td></tr>
-<tr class="memdesc:a34089dc64288ad03345bf28bff646b18 inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a property of the object with all the parent included and all the checks for descriptor <a href="https://262.ecma-international.org/5.1/#sec-8.12.3">https://262.ecma-international.org/5.1/#sec-8.12.3</a>.  <br /></td></tr>
-<tr class="separator:a34089dc64288ad03345bf28bff646b18 inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69ea4cebc08cae30b093cb21f7413840 inherit pub_methods_classJS_1_1InternalObject" id="r_a69ea4cebc08cae30b093cb21f7413840"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a69ea4cebc08cae30b093cb21f7413840">canPut</a> (const std::string &amp;key) const override</td></tr>
-<tr class="memdesc:a69ea4cebc08cae30b093cb21f7413840 inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a property can be put in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.4">https://262.ecma-international.org/5.1/#sec-8.12.4</a>.  <br /></td></tr>
-<tr class="separator:a69ea4cebc08cae30b093cb21f7413840 inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a447ac2dd10c1aa26379df02669849735 inherit pub_methods_classJS_1_1InternalObject" id="r_a447ac2dd10c1aa26379df02669849735"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a447ac2dd10c1aa26379df02669849735">put</a> (const std::string &amp;key, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;value, bool is_throw=false) override</td></tr>
-<tr class="memdesc:a447ac2dd10c1aa26379df02669849735 inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Put a property in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.5">https://262.ecma-international.org/5.1/#sec-8.12.5</a>.  <br /></td></tr>
-<tr class="separator:a447ac2dd10c1aa26379df02669849735 inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ce30fcb411e6aa0c3664b613231a405 inherit pub_methods_classJS_1_1InternalObject" id="r_a8ce30fcb411e6aa0c3664b613231a405"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a8ce30fcb411e6aa0c3664b613231a405">hasProperty</a> (const std::string &amp;key) const override</td></tr>
-<tr class="memdesc:a8ce30fcb411e6aa0c3664b613231a405 inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a property exists in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.6">https://262.ecma-international.org/5.1/#sec-8.12.6</a>.  <br /></td></tr>
-<tr class="separator:a8ce30fcb411e6aa0c3664b613231a405 inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e9b2d0c1090871982163357999a0c2f inherit pub_methods_classJS_1_1InternalObject" id="r_a2e9b2d0c1090871982163357999a0c2f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a2e9b2d0c1090871982163357999a0c2f">deleteProperty</a> (const std::string &amp;key, bool is_throw=false) override</td></tr>
-<tr class="memdesc:a2e9b2d0c1090871982163357999a0c2f inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete a property in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.7">https://262.ecma-international.org/5.1/#sec-8.12.7</a>.  <br /></td></tr>
-<tr class="separator:a2e9b2d0c1090871982163357999a0c2f inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1245cc7d85d2a1ed5919db798e432ad inherit pub_methods_classJS_1_1InternalObject" id="r_ad1245cc7d85d2a1ed5919db798e432ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#ad1245cc7d85d2a1ed5919db798e432ad">defaultValue</a> (const <a class="el" href="namespaceJS.html#a25c0ffb20b4906bbc8c14837420282c9">JS::Types</a> &amp;hint) override</td></tr>
-<tr class="memdesc:ad1245cc7d85d2a1ed5919db798e432ad inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the default value of the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.8">https://262.ecma-international.org/5.1/#sec-8.12.8</a>.  <br /></td></tr>
-<tr class="separator:ad1245cc7d85d2a1ed5919db798e432ad inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06c1ce1c550596a7b4986133b6710ea0 inherit pub_methods_classJS_1_1InternalObject" id="r_a06c1ce1c550596a7b4986133b6710ea0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a06c1ce1c550596a7b4986133b6710ea0">defaultValue</a> () override</td></tr>
-<tr class="memdesc:a06c1ce1c550596a7b4986133b6710ea0 inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the default value of the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.8">https://262.ecma-international.org/5.1/#sec-8.12.8</a>.  <br /></td></tr>
-<tr class="separator:a06c1ce1c550596a7b4986133b6710ea0 inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9095ad0320fc50eae1ad563dbf0a8f92 inherit pub_methods_classJS_1_1InternalObject" id="r_a9095ad0320fc50eae1ad563dbf0a8f92"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a9095ad0320fc50eae1ad563dbf0a8f92">defineOwnProperty</a> (const std::string &amp;key, <a class="el" href="namespaceJS.html#a045e2f5d691414608a9f6d2350e90811">JS::Attribute</a> attribute, bool is_throw=false) override</td></tr>
-<tr class="memdesc:a9095ad0320fc50eae1ad563dbf0a8f92 inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a property in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.9">https://262.ecma-international.org/5.1/#sec-8.12.9</a>.  <br /></td></tr>
-<tr class="separator:a9095ad0320fc50eae1ad563dbf0a8f92 inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c590279e765a7acfbf1b31e49813235 inherit pub_methods_classJS_1_1InternalObject" id="r_a5c590279e765a7acfbf1b31e49813235"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a5c590279e765a7acfbf1b31e49813235">isCallable</a> () const override</td></tr>
-<tr class="memdesc:a5c590279e765a7acfbf1b31e49813235 inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if the object is callable  <br /></td></tr>
-<tr class="separator:a5c590279e765a7acfbf1b31e49813235 inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classJS_1_1IObject"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classJS_1_1IObject')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classJS_1_1IObject.html">JS::IObject</a></td></tr>
-<tr class="memitem:ab084414383bcc633e06854ba0f2fc914 inherit pub_methods_classJS_1_1IObject" id="r_ab084414383bcc633e06854ba0f2fc914"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1IObject.html#ab084414383bcc633e06854ba0f2fc914">~IObject</a> ()=default</td></tr>
-<tr class="separator:ab084414383bcc633e06854ba0f2fc914 inherit pub_methods_classJS_1_1IObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b941b9981598ac4e95c2947b12fb480 inherit pub_methods_classJS_1_1InternalObject" id="r_a2b941b9981598ac4e95c2947b12fb480"><td class="memItemLeft" align="right" valign="top">virtual std::optional&lt; <a class="el" href="namespaceJS.html#a045e2f5d691414608a9f6d2350e90811">JS::Attribute</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a2b941b9981598ac4e95c2947b12fb480">getOwnProperty</a> (const std::string &amp;key) const</td></tr>
+<tr class="memdesc:a2b941b9981598ac4e95c2947b12fb480 inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a property of the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.1">https://262.ecma-international.org/5.1/#sec-8.12.1</a>.  <br /></td></tr>
+<tr class="separator:a2b941b9981598ac4e95c2947b12fb480 inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc41bcfc37159aec983fc311fe5f39f7 inherit pub_methods_classJS_1_1InternalObject" id="r_acc41bcfc37159aec983fc311fe5f39f7"><td class="memItemLeft" align="right" valign="top">virtual std::optional&lt; <a class="el" href="namespaceJS.html#a045e2f5d691414608a9f6d2350e90811">JS::Attribute</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#acc41bcfc37159aec983fc311fe5f39f7">getProperty</a> (const std::string &amp;key) const</td></tr>
+<tr class="memdesc:acc41bcfc37159aec983fc311fe5f39f7 inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a property of the object with all the parent included <a href="https://262.ecma-international.org/5.1/#sec-8.12.2">https://262.ecma-international.org/5.1/#sec-8.12.2</a>.  <br /></td></tr>
+<tr class="separator:acc41bcfc37159aec983fc311fe5f39f7 inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7618044d3faa65db0acb15bd28933abe inherit pub_methods_classJS_1_1InternalObject" id="r_a7618044d3faa65db0acb15bd28933abe"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a7618044d3faa65db0acb15bd28933abe">canPut</a> (const std::string &amp;key) const</td></tr>
+<tr class="memdesc:a7618044d3faa65db0acb15bd28933abe inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a property can be put in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.4">https://262.ecma-international.org/5.1/#sec-8.12.4</a>.  <br /></td></tr>
+<tr class="separator:a7618044d3faa65db0acb15bd28933abe inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a712a4514a0ed959292a3bb2442d1ef44 inherit pub_methods_classJS_1_1InternalObject" id="r_a712a4514a0ed959292a3bb2442d1ef44"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a712a4514a0ed959292a3bb2442d1ef44">put</a> (const std::string &amp;key, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;value, bool is_throw=false)</td></tr>
+<tr class="memdesc:a712a4514a0ed959292a3bb2442d1ef44 inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Put a property in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.5">https://262.ecma-international.org/5.1/#sec-8.12.5</a>.  <br /></td></tr>
+<tr class="separator:a712a4514a0ed959292a3bb2442d1ef44 inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0aebb903187f6f740c8746380b08d3e1 inherit pub_methods_classJS_1_1InternalObject" id="r_a0aebb903187f6f740c8746380b08d3e1"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a0aebb903187f6f740c8746380b08d3e1">hasProperty</a> (const std::string &amp;key) const</td></tr>
+<tr class="memdesc:a0aebb903187f6f740c8746380b08d3e1 inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a property exists in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.6">https://262.ecma-international.org/5.1/#sec-8.12.6</a>.  <br /></td></tr>
+<tr class="separator:a0aebb903187f6f740c8746380b08d3e1 inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f221e9fc82202b945af67fcc7f501e6 inherit pub_methods_classJS_1_1InternalObject" id="r_a3f221e9fc82202b945af67fcc7f501e6"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a3f221e9fc82202b945af67fcc7f501e6">deleteProperty</a> (const std::string &amp;key, bool is_throw=false)</td></tr>
+<tr class="memdesc:a3f221e9fc82202b945af67fcc7f501e6 inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete a property in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.7">https://262.ecma-international.org/5.1/#sec-8.12.7</a>.  <br /></td></tr>
+<tr class="separator:a3f221e9fc82202b945af67fcc7f501e6 inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52391acdb0fae7ef365ac8d842e763cf inherit pub_methods_classJS_1_1InternalObject" id="r_a52391acdb0fae7ef365ac8d842e763cf"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a52391acdb0fae7ef365ac8d842e763cf">defaultValue</a> (const <a class="el" href="namespaceJS.html#a25c0ffb20b4906bbc8c14837420282c9">JS::Types</a> &amp;hint)</td></tr>
+<tr class="memdesc:a52391acdb0fae7ef365ac8d842e763cf inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the default value of the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.8">https://262.ecma-international.org/5.1/#sec-8.12.8</a>.  <br /></td></tr>
+<tr class="separator:a52391acdb0fae7ef365ac8d842e763cf inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a080f00412962effd6e63edf9fe7aac63 inherit pub_methods_classJS_1_1InternalObject" id="r_a080f00412962effd6e63edf9fe7aac63"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a080f00412962effd6e63edf9fe7aac63">defaultValue</a> ()</td></tr>
+<tr class="memdesc:a080f00412962effd6e63edf9fe7aac63 inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the default value of the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.8">https://262.ecma-international.org/5.1/#sec-8.12.8</a>.  <br /></td></tr>
+<tr class="separator:a080f00412962effd6e63edf9fe7aac63 inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d6301e797e2267d2b2bb3afdf50d1f3 inherit pub_methods_classJS_1_1InternalObject" id="r_a9d6301e797e2267d2b2bb3afdf50d1f3"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a9d6301e797e2267d2b2bb3afdf50d1f3">defineOwnProperty</a> (const std::string &amp;key, <a class="el" href="namespaceJS.html#a045e2f5d691414608a9f6d2350e90811">JS::Attribute</a> attribute, bool is_throw=false)</td></tr>
+<tr class="memdesc:a9d6301e797e2267d2b2bb3afdf50d1f3 inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a property in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.9">https://262.ecma-international.org/5.1/#sec-8.12.9</a>.  <br /></td></tr>
+<tr class="separator:a9d6301e797e2267d2b2bb3afdf50d1f3 inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9946e41bd1062fadbab593a2e28a6fc0 inherit pub_methods_classJS_1_1InternalObject" id="r_a9946e41bd1062fadbab593a2e28a6fc0"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a9946e41bd1062fadbab593a2e28a6fc0">isCallable</a> () const</td></tr>
+<tr class="memdesc:a9946e41bd1062fadbab593a2e28a6fc0 inherit pub_methods_classJS_1_1InternalObject"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if the object is callable  <br /></td></tr>
+<tr class="separator:a9946e41bd1062fadbab593a2e28a6fc0 inherit pub_methods_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Methods to make prototype methods of the Function built-in</div></td></tr>
+<tr class="memitem:a9201e5e286fa3b83e203a545485c1148" id="r_a9201e5e286fa3b83e203a545485c1148"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Function.html#a9201e5e286fa3b83e203a545485c1148">toString</a> (const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;thisArg, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;args)</td></tr>
+<tr class="memdesc:a9201e5e286fa3b83e203a545485c1148"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the stringified version of the function <a href="https://262.ecma-international.org/5.1/#sec-15.3.4.2">https://262.ecma-international.org/5.1/#sec-15.3.4.2</a>  <br /></td></tr>
+<tr class="separator:a9201e5e286fa3b83e203a545485c1148"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad002d5cfffe514e0689c9d9fefde1127" id="r_ad002d5cfffe514e0689c9d9fefde1127"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Function.html#ad002d5cfffe514e0689c9d9fefde1127">apply</a> (const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;thisArg, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;args)</td></tr>
+<tr class="memdesc:ad002d5cfffe514e0689c9d9fefde1127"><td class="mdescLeft">&#160;</td><td class="mdescRight">apply given arguments to the function <a href="https://262.ecma-international.org/5.1/#sec-15.3.4.3">https://262.ecma-international.org/5.1/#sec-15.3.4.3</a>  <br /></td></tr>
+<tr class="separator:ad002d5cfffe514e0689c9d9fefde1127"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae27fe0140761aa8dc541c04594e98b9c" id="r_ae27fe0140761aa8dc541c04594e98b9c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Function.html#ae27fe0140761aa8dc541c04594e98b9c">call</a> (const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;thisArg, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;args)</td></tr>
+<tr class="memdesc:ae27fe0140761aa8dc541c04594e98b9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">call the function with given arguments <a href="https://262.ecma-international.org/5.1/#sec-15.3.4.4">https://262.ecma-international.org/5.1/#sec-15.3.4.4</a>  <br /></td></tr>
+<tr class="separator:ae27fe0140761aa8dc541c04594e98b9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6219d83a89bf4383761665e2a01da56" id="r_ac6219d83a89bf4383761665e2a01da56"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Function.html#ac6219d83a89bf4383761665e2a01da56">bind</a> (const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;thisArg, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;args)</td></tr>
+<tr class="memdesc:ac6219d83a89bf4383761665e2a01da56"><td class="mdescLeft">&#160;</td><td class="mdescRight">bind the function to a given object <a href="https://262.ecma-international.org/5.1/#sec-15.3.4.5">https://262.ecma-international.org/5.1/#sec-15.3.4.5</a>  <br /></td></tr>
+<tr class="separator:ac6219d83a89bf4383761665e2a01da56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -219,8 +241,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:abef4f3f77ac76498e72b5ff219e84333 inherit pub_attribs_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39a67333eb860a30d744c9d99ae89eba inherit pub_attribs_classJS_1_1InternalObject" id="r_a39a67333eb860a30d744c9d99ae89eba"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classJS_1_1InternalObject.html">JS::InternalObject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a39a67333eb860a30d744c9d99ae89eba">prototype</a></td></tr>
 <tr class="separator:a39a67333eb860a30d744c9d99ae89eba inherit pub_attribs_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0978deeb73747b59c3c65444d784bf3c inherit pub_attribs_classJS_1_1InternalObject" id="r_a0978deeb73747b59c3c65444d784bf3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceJS.html#afc8f80ef0014008191a79c36ae5eb341">FunctionType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a0978deeb73747b59c3c65444d784bf3c">call</a></td></tr>
-<tr class="separator:a0978deeb73747b59c3c65444d784bf3c inherit pub_attribs_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cc83926495203a92372ecc201877102 inherit pub_attribs_classJS_1_1InternalObject" id="r_a5cc83926495203a92372ecc201877102"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceJS.html#afc8f80ef0014008191a79c36ae5eb341">FunctionType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a5cc83926495203a92372ecc201877102">call_function</a></td></tr>
+<tr class="separator:a5cc83926495203a92372ecc201877102 inherit pub_attribs_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5830cfb9a2898087b614f4475abfb2f inherit pub_attribs_classJS_1_1InternalObject" id="r_ae5830cfb9a2898087b614f4475abfb2f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceJS.html#afc8f80ef0014008191a79c36ae5eb341">FunctionType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#ae5830cfb9a2898087b614f4475abfb2f">construct</a></td></tr>
 <tr class="separator:ae5830cfb9a2898087b614f4475abfb2f inherit pub_attribs_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c44d3ff1aca8de5571b160f6db0c927 inherit pub_attribs_classJS_1_1InternalObject" id="r_a7c44d3ff1aca8de5571b160f6db0c927"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a7c44d3ff1aca8de5571b160f6db0c927">class_name</a></td></tr>
@@ -229,13 +251,34 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a606758e8b6d1fe1ee6e7c3e6ecc4371b inherit pub_attribs_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:accef381901579e7e0f47c3487181b0d9 inherit pub_attribs_classJS_1_1InternalObject" id="r_accef381901579e7e0f47c3487181b0d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceJS.html#afdf8cc2ade0f7f3ab5544f56ba5c422f">JS::Value</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#accef381901579e7e0f47c3487181b0d9">primitiveValue</a></td></tr>
 <tr class="separator:accef381901579e7e0f47c3487181b0d9 inherit pub_attribs_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50157f7e03a302993ba61e5ec30dc44a inherit pub_attribs_classJS_1_1InternalObject" id="r_a50157f7e03a302993ba61e5ec30dc44a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classJS_1_1InternalObject.html">JS::InternalObject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a50157f7e03a302993ba61e5ec30dc44a">parameter_map</a></td></tr>
+<tr class="separator:a50157f7e03a302993ba61e5ec30dc44a inherit pub_attribs_classJS_1_1InternalObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a JavaScript-like function object in C++. </p>
 <p>The <code><a class="el" href="classJS_1_1Function.html" title="Represents a JavaScript-like function object in C++.">Function</a></code> class encapsulates a callable entity, allowing it to store and invoke a function. This class provides a JavaScript-inspired interface, enabling function calls with various arguments. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a742d84a5db1876eff49fb53d3c4a3fdb" name="a742d84a5db1876eff49fb53d3c4a3fdb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a742d84a5db1876eff49fb53d3c4a3fdb">&#9670;&#160;</a></span>Function() <span class="overload">[1/3]</span></h2>
+<a id="ad1a744bb0e720debad96918387b5a782" name="ad1a744bb0e720debad96918387b5a782"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1a744bb0e720debad96918387b5a782">&#9670;&#160;</a></span>Function() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">JS::Function::Function </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default constructor initializes the object with an empty map. </p>
+
+</div>
+</div>
+<a id="a825c4f4b92d8e39096770cc977e48277" name="a825c4f4b92d8e39096770cc977e48277"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a825c4f4b92d8e39096770cc977e48277">&#9670;&#160;</a></span>Function() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -247,8 +290,18 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">JS::Function::Function </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespaceJS.html#afc8f80ef0014008191a79c36ae5eb341">FunctionType</a>&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -262,11 +315,14 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a4a64915e612eaf820e14882c804ecfd8" name="a4a64915e612eaf820e14882c804ecfd8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a64915e612eaf820e14882c804ecfd8">&#9670;&#160;</a></span>Function() <span class="overload">[2/3]</span></h2>
+<a id="a46f6c08d21f0ba097451990886e55736" name="a46f6c08d21f0ba097451990886e55736"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46f6c08d21f0ba097451990886e55736">&#9670;&#160;</a></span>Function() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">JS::Function::Function </td>
@@ -276,6 +332,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Copy constructor. </p>
@@ -283,7 +344,7 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <a id="aa1db0497a5da2b634301700676199e86" name="aa1db0497a5da2b634301700676199e86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1db0497a5da2b634301700676199e86">&#9670;&#160;</a></span>Function() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1db0497a5da2b634301700676199e86">&#9670;&#160;</a></span>Function() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -310,9 +371,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a286afd6a74a582e8f5e6fb4600aec7f8" name="a286afd6a74a582e8f5e6fb4600aec7f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a286afd6a74a582e8f5e6fb4600aec7f8">&#9670;&#160;</a></span>init()</h2>
+<a id="ac20acc0634c2e87493b10d7ac69e0e1f" name="ac20acc0634c2e87493b10d7ac69e0e1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac20acc0634c2e87493b10d7ac69e0e1f">&#9670;&#160;</a></span>~Function()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -321,7 +381,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void JS::Function::init </td>
+          <td class="memname">JS::Function::~Function </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -329,12 +389,189 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initializes the function object. An empty method that can be overridden by subclasses if needed. </p>
+<p>Destructor. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad002d5cfffe514e0689c9d9fefde1127" name="ad002d5cfffe514e0689c9d9fefde1127"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad002d5cfffe514e0689c9d9fefde1127">&#9670;&#160;</a></span>apply()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::Function::apply </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
+          <td class="paramname"><em>thisArg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>apply given arguments to the function <a href="https://262.ecma-international.org/5.1/#sec-15.3.4.3">https://262.ecma-international.org/5.1/#sec-15.3.4.3</a> </p>
+
+</div>
+</div>
+<a id="ac6219d83a89bf4383761665e2a01da56" name="ac6219d83a89bf4383761665e2a01da56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6219d83a89bf4383761665e2a01da56">&#9670;&#160;</a></span>bind()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::Function::bind </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
+          <td class="paramname"><em>thisArg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>bind the function to a given object <a href="https://262.ecma-international.org/5.1/#sec-15.3.4.5">https://262.ecma-international.org/5.1/#sec-15.3.4.5</a> </p>
+
+</div>
+</div>
+<a id="ae27fe0140761aa8dc541c04594e98b9c" name="ae27fe0140761aa8dc541c04594e98b9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae27fe0140761aa8dc541c04594e98b9c">&#9670;&#160;</a></span>call()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::Function::call </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
+          <td class="paramname"><em>thisArg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>call the function with given arguments <a href="https://262.ecma-international.org/5.1/#sec-15.3.4.4">https://262.ecma-international.org/5.1/#sec-15.3.4.4</a> </p>
+
+</div>
+</div>
+<a id="a8a1077753ba0348c2aa1e16170bc8a8f" name="a8a1077753ba0348c2aa1e16170bc8a8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a1077753ba0348c2aa1e16170bc8a8f">&#9670;&#160;</a></span>get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::Function::get </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get a property of the object with all the parent included and all the checks for descriptor <a href="https://262.ecma-international.org/5.1/#sec-15.3.5.4">https://262.ecma-international.org/5.1/#sec-15.3.5.4</a>. </p>
+
+<p>Reimplemented from <a class="el" href="classJS_1_1InternalObject.html#a64798460bb7e91226dcb8dc05bf78e8f">JS::InternalObject</a>.</p>
+
+</div>
+</div>
+<a id="aa161a2911e5134428a6af96a40151b2b" name="aa161a2911e5134428a6af96a40151b2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa161a2911e5134428a6af96a40151b2b">&#9670;&#160;</a></span>hasInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool JS::Function::hasInstance </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if the object is an instance of another object. </p>
+
+<p>Reimplemented from <a class="el" href="classJS_1_1InternalObject.html#a014880c7186c6a7603365d39835863be">JS::InternalObject</a>.</p>
+
+<p>Reimplemented in <a class="el" href="classJS_1_1FunctionBinded.html#ac744cd12f13b8414c278a0ed64acb6dc">JS::FunctionBinded</a>.</p>
 
 </div>
 </div>
@@ -386,9 +623,49 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a9201e5e286fa3b83e203a545485c1148" name="a9201e5e286fa3b83e203a545485c1148"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9201e5e286fa3b83e203a545485c1148">&#9670;&#160;</a></span>toString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::Function::toString </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
+          <td class="paramname"><em>thisArg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return the stringified version of the function <a href="https://262.ecma-international.org/5.1/#sec-15.3.4.2">https://262.ecma-international.org/5.1/#sec-15.3.4.2</a> </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>includes/types/objects/<a class="el" href="JsFunction_8hpp_source.html">JsFunction.hpp</a></li>
-<li>lib/types/objects/Function/<a class="el" href="JsFunction_8cpp.html">JsFunction.cpp</a></li>
+<li>includes/types/objects/Function/<a class="el" href="Function_2JsFunction_8hpp_source.html">JsFunction.hpp</a></li>
+<li>lib/types/objects/Function/Function/<a class="el" href="types_2objects_2Function_2Function_2constructor_8cpp.html">constructor.cpp</a></li>
+<li>lib/types/objects/Function/Function/<a class="el" href="types_2objects_2Function_2Function_2internalMethod_8cpp.html">internalMethod.cpp</a></li>
+<li>lib/types/objects/Function/Function/<a class="el" href="Function_2Function_2prototype_8cpp.html">prototype.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -127,9 +127,9 @@ Collaboration diagram for JS::InternalObject:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a93ae6189905e99bacd95ddd65ba4a0f2" id="r_a93ae6189905e99bacd95ddd65ba4a0f2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a93ae6189905e99bacd95ddd65ba4a0f2">~InternalObject</a> () override=default</td></tr>
-<tr class="memdesc:a93ae6189905e99bacd95ddd65ba4a0f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The destructor for the object defaulted.  <br /></td></tr>
-<tr class="separator:a93ae6189905e99bacd95ddd65ba4a0f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd90301af99133eb72847c071e698f71" id="r_abd90301af99133eb72847c071e698f71"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#abd90301af99133eb72847c071e698f71">~InternalObject</a> ()=default</td></tr>
+<tr class="memdesc:abd90301af99133eb72847c071e698f71"><td class="mdescLeft">&#160;</td><td class="mdescRight">The destructor for the object defaulted.  <br /></td></tr>
+<tr class="separator:abd90301af99133eb72847c071e698f71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Constructors</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>These constructors create a new <a class="el" href="classJS_1_1Object.html" title="Represents a JavaScript-like object in C++.">Object</a> with the given value </p>
 </div></td></tr>
@@ -153,9 +153,9 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Accessors</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>These methods provide access to the properties of the object </p>
 </div></td></tr>
-<tr class="memitem:afe26e800e05fe61a6881f75d049a3856" id="r_afe26e800e05fe61a6881f75d049a3856"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1PropertyProxy.html">JS::PropertyProxy</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#afe26e800e05fe61a6881f75d049a3856">operator[]</a> (const std::string &amp;key) override</td></tr>
-<tr class="memdesc:afe26e800e05fe61a6881f75d049a3856"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessors to properties with string of object in stored in value.  <br /></td></tr>
-<tr class="separator:afe26e800e05fe61a6881f75d049a3856"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0946a160943e9e19a72f034fd4058692" id="r_a0946a160943e9e19a72f034fd4058692"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1PropertyProxy.html">JS::PropertyProxy</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a0946a160943e9e19a72f034fd4058692">operator[]</a> (const std::string &amp;key)</td></tr>
+<tr class="memdesc:a0946a160943e9e19a72f034fd4058692"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessors to properties with string of object in stored in value.  <br /></td></tr>
+<tr class="separator:a0946a160943e9e19a72f034fd4058692"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace845e0bb9a098e2cbc4df430385ddbb" id="r_ace845e0bb9a098e2cbc4df430385ddbb"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
 <tr class="memitem:ace845e0bb9a098e2cbc4df430385ddbb"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#ace845e0bb9a098e2cbc4df430385ddbb">operator()</a> (Args... args)</td></tr>
 <tr class="memdesc:ace845e0bb9a098e2cbc4df430385ddbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call operator for the object.  <br /></td></tr>
@@ -163,43 +163,46 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Internal Properties Common to All Objects</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>These methods provide access to the internal properties of the object </p>
 </div></td></tr>
-<tr class="memitem:a80ed2cc1faa0f11a17d684908bcf9255" id="r_a80ed2cc1faa0f11a17d684908bcf9255"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="namespaceJS.html#a045e2f5d691414608a9f6d2350e90811">JS::Attribute</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a80ed2cc1faa0f11a17d684908bcf9255">getOwnProperty</a> (const std::string &amp;key) const override</td></tr>
-<tr class="memdesc:a80ed2cc1faa0f11a17d684908bcf9255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a property of the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.1">https://262.ecma-international.org/5.1/#sec-8.12.1</a>.  <br /></td></tr>
-<tr class="separator:a80ed2cc1faa0f11a17d684908bcf9255"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41cb91c58278c467280bdcd1df002d60" id="r_a41cb91c58278c467280bdcd1df002d60"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="namespaceJS.html#a045e2f5d691414608a9f6d2350e90811">JS::Attribute</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a41cb91c58278c467280bdcd1df002d60">getProperty</a> (const std::string &amp;key) const override</td></tr>
-<tr class="memdesc:a41cb91c58278c467280bdcd1df002d60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a property of the object with all the parent included <a href="https://262.ecma-international.org/5.1/#sec-8.12.2">https://262.ecma-international.org/5.1/#sec-8.12.2</a>.  <br /></td></tr>
-<tr class="separator:a41cb91c58278c467280bdcd1df002d60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34089dc64288ad03345bf28bff646b18" id="r_a34089dc64288ad03345bf28bff646b18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a34089dc64288ad03345bf28bff646b18">get</a> (const std::string &amp;key) const override</td></tr>
-<tr class="memdesc:a34089dc64288ad03345bf28bff646b18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a property of the object with all the parent included and all the checks for descriptor <a href="https://262.ecma-international.org/5.1/#sec-8.12.3">https://262.ecma-international.org/5.1/#sec-8.12.3</a>.  <br /></td></tr>
-<tr class="separator:a34089dc64288ad03345bf28bff646b18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69ea4cebc08cae30b093cb21f7413840" id="r_a69ea4cebc08cae30b093cb21f7413840"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a69ea4cebc08cae30b093cb21f7413840">canPut</a> (const std::string &amp;key) const override</td></tr>
-<tr class="memdesc:a69ea4cebc08cae30b093cb21f7413840"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a property can be put in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.4">https://262.ecma-international.org/5.1/#sec-8.12.4</a>.  <br /></td></tr>
-<tr class="separator:a69ea4cebc08cae30b093cb21f7413840"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a447ac2dd10c1aa26379df02669849735" id="r_a447ac2dd10c1aa26379df02669849735"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a447ac2dd10c1aa26379df02669849735">put</a> (const std::string &amp;key, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;value, bool is_throw=false) override</td></tr>
-<tr class="memdesc:a447ac2dd10c1aa26379df02669849735"><td class="mdescLeft">&#160;</td><td class="mdescRight">Put a property in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.5">https://262.ecma-international.org/5.1/#sec-8.12.5</a>.  <br /></td></tr>
-<tr class="separator:a447ac2dd10c1aa26379df02669849735"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ce30fcb411e6aa0c3664b613231a405" id="r_a8ce30fcb411e6aa0c3664b613231a405"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a8ce30fcb411e6aa0c3664b613231a405">hasProperty</a> (const std::string &amp;key) const override</td></tr>
-<tr class="memdesc:a8ce30fcb411e6aa0c3664b613231a405"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a property exists in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.6">https://262.ecma-international.org/5.1/#sec-8.12.6</a>.  <br /></td></tr>
-<tr class="separator:a8ce30fcb411e6aa0c3664b613231a405"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e9b2d0c1090871982163357999a0c2f" id="r_a2e9b2d0c1090871982163357999a0c2f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a2e9b2d0c1090871982163357999a0c2f">deleteProperty</a> (const std::string &amp;key, bool is_throw=false) override</td></tr>
-<tr class="memdesc:a2e9b2d0c1090871982163357999a0c2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete a property in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.7">https://262.ecma-international.org/5.1/#sec-8.12.7</a>.  <br /></td></tr>
-<tr class="separator:a2e9b2d0c1090871982163357999a0c2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1245cc7d85d2a1ed5919db798e432ad" id="r_ad1245cc7d85d2a1ed5919db798e432ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#ad1245cc7d85d2a1ed5919db798e432ad">defaultValue</a> (const <a class="el" href="namespaceJS.html#a25c0ffb20b4906bbc8c14837420282c9">JS::Types</a> &amp;hint) override</td></tr>
-<tr class="memdesc:ad1245cc7d85d2a1ed5919db798e432ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the default value of the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.8">https://262.ecma-international.org/5.1/#sec-8.12.8</a>.  <br /></td></tr>
-<tr class="separator:ad1245cc7d85d2a1ed5919db798e432ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06c1ce1c550596a7b4986133b6710ea0" id="r_a06c1ce1c550596a7b4986133b6710ea0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a06c1ce1c550596a7b4986133b6710ea0">defaultValue</a> () override</td></tr>
-<tr class="memdesc:a06c1ce1c550596a7b4986133b6710ea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the default value of the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.8">https://262.ecma-international.org/5.1/#sec-8.12.8</a>.  <br /></td></tr>
-<tr class="separator:a06c1ce1c550596a7b4986133b6710ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9095ad0320fc50eae1ad563dbf0a8f92" id="r_a9095ad0320fc50eae1ad563dbf0a8f92"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a9095ad0320fc50eae1ad563dbf0a8f92">defineOwnProperty</a> (const std::string &amp;key, <a class="el" href="namespaceJS.html#a045e2f5d691414608a9f6d2350e90811">JS::Attribute</a> attribute, bool is_throw=false) override</td></tr>
-<tr class="memdesc:a9095ad0320fc50eae1ad563dbf0a8f92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a property in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.9">https://262.ecma-international.org/5.1/#sec-8.12.9</a>.  <br /></td></tr>
-<tr class="separator:a9095ad0320fc50eae1ad563dbf0a8f92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b941b9981598ac4e95c2947b12fb480" id="r_a2b941b9981598ac4e95c2947b12fb480"><td class="memItemLeft" align="right" valign="top">virtual std::optional&lt; <a class="el" href="namespaceJS.html#a045e2f5d691414608a9f6d2350e90811">JS::Attribute</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a2b941b9981598ac4e95c2947b12fb480">getOwnProperty</a> (const std::string &amp;key) const</td></tr>
+<tr class="memdesc:a2b941b9981598ac4e95c2947b12fb480"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a property of the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.1">https://262.ecma-international.org/5.1/#sec-8.12.1</a>.  <br /></td></tr>
+<tr class="separator:a2b941b9981598ac4e95c2947b12fb480"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc41bcfc37159aec983fc311fe5f39f7" id="r_acc41bcfc37159aec983fc311fe5f39f7"><td class="memItemLeft" align="right" valign="top">virtual std::optional&lt; <a class="el" href="namespaceJS.html#a045e2f5d691414608a9f6d2350e90811">JS::Attribute</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#acc41bcfc37159aec983fc311fe5f39f7">getProperty</a> (const std::string &amp;key) const</td></tr>
+<tr class="memdesc:acc41bcfc37159aec983fc311fe5f39f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a property of the object with all the parent included <a href="https://262.ecma-international.org/5.1/#sec-8.12.2">https://262.ecma-international.org/5.1/#sec-8.12.2</a>.  <br /></td></tr>
+<tr class="separator:acc41bcfc37159aec983fc311fe5f39f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64798460bb7e91226dcb8dc05bf78e8f" id="r_a64798460bb7e91226dcb8dc05bf78e8f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a64798460bb7e91226dcb8dc05bf78e8f">get</a> (const std::string &amp;key) const</td></tr>
+<tr class="memdesc:a64798460bb7e91226dcb8dc05bf78e8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a property of the object with all the parent included and all the checks for descriptor <a href="https://262.ecma-international.org/5.1/#sec-8.12.3">https://262.ecma-international.org/5.1/#sec-8.12.3</a>.  <br /></td></tr>
+<tr class="separator:a64798460bb7e91226dcb8dc05bf78e8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7618044d3faa65db0acb15bd28933abe" id="r_a7618044d3faa65db0acb15bd28933abe"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a7618044d3faa65db0acb15bd28933abe">canPut</a> (const std::string &amp;key) const</td></tr>
+<tr class="memdesc:a7618044d3faa65db0acb15bd28933abe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a property can be put in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.4">https://262.ecma-international.org/5.1/#sec-8.12.4</a>.  <br /></td></tr>
+<tr class="separator:a7618044d3faa65db0acb15bd28933abe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a712a4514a0ed959292a3bb2442d1ef44" id="r_a712a4514a0ed959292a3bb2442d1ef44"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a712a4514a0ed959292a3bb2442d1ef44">put</a> (const std::string &amp;key, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;value, bool is_throw=false)</td></tr>
+<tr class="memdesc:a712a4514a0ed959292a3bb2442d1ef44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Put a property in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.5">https://262.ecma-international.org/5.1/#sec-8.12.5</a>.  <br /></td></tr>
+<tr class="separator:a712a4514a0ed959292a3bb2442d1ef44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0aebb903187f6f740c8746380b08d3e1" id="r_a0aebb903187f6f740c8746380b08d3e1"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a0aebb903187f6f740c8746380b08d3e1">hasProperty</a> (const std::string &amp;key) const</td></tr>
+<tr class="memdesc:a0aebb903187f6f740c8746380b08d3e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a property exists in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.6">https://262.ecma-international.org/5.1/#sec-8.12.6</a>.  <br /></td></tr>
+<tr class="separator:a0aebb903187f6f740c8746380b08d3e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f221e9fc82202b945af67fcc7f501e6" id="r_a3f221e9fc82202b945af67fcc7f501e6"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a3f221e9fc82202b945af67fcc7f501e6">deleteProperty</a> (const std::string &amp;key, bool is_throw=false)</td></tr>
+<tr class="memdesc:a3f221e9fc82202b945af67fcc7f501e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete a property in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.7">https://262.ecma-international.org/5.1/#sec-8.12.7</a>.  <br /></td></tr>
+<tr class="separator:a3f221e9fc82202b945af67fcc7f501e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52391acdb0fae7ef365ac8d842e763cf" id="r_a52391acdb0fae7ef365ac8d842e763cf"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a52391acdb0fae7ef365ac8d842e763cf">defaultValue</a> (const <a class="el" href="namespaceJS.html#a25c0ffb20b4906bbc8c14837420282c9">JS::Types</a> &amp;hint)</td></tr>
+<tr class="memdesc:a52391acdb0fae7ef365ac8d842e763cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the default value of the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.8">https://262.ecma-international.org/5.1/#sec-8.12.8</a>.  <br /></td></tr>
+<tr class="separator:a52391acdb0fae7ef365ac8d842e763cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a080f00412962effd6e63edf9fe7aac63" id="r_a080f00412962effd6e63edf9fe7aac63"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a080f00412962effd6e63edf9fe7aac63">defaultValue</a> ()</td></tr>
+<tr class="memdesc:a080f00412962effd6e63edf9fe7aac63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the default value of the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.8">https://262.ecma-international.org/5.1/#sec-8.12.8</a>.  <br /></td></tr>
+<tr class="separator:a080f00412962effd6e63edf9fe7aac63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d6301e797e2267d2b2bb3afdf50d1f3" id="r_a9d6301e797e2267d2b2bb3afdf50d1f3"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a9d6301e797e2267d2b2bb3afdf50d1f3">defineOwnProperty</a> (const std::string &amp;key, <a class="el" href="namespaceJS.html#a045e2f5d691414608a9f6d2350e90811">JS::Attribute</a> attribute, bool is_throw=false)</td></tr>
+<tr class="memdesc:a9d6301e797e2267d2b2bb3afdf50d1f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a property in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.9">https://262.ecma-international.org/5.1/#sec-8.12.9</a>.  <br /></td></tr>
+<tr class="separator:a9d6301e797e2267d2b2bb3afdf50d1f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Internal Methods Specific to certain Objects</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>All of this methods throw a <a class="el" href="classTypeError.html">TypeError</a> if the object is not of the correct type </p>
+</div></td></tr>
+<tr class="memitem:a014880c7186c6a7603365d39835863be" id="r_a014880c7186c6a7603365d39835863be"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a014880c7186c6a7603365d39835863be">hasInstance</a> (const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;value) const</td></tr>
+<tr class="memdesc:a014880c7186c6a7603365d39835863be"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if the object is likely created by this object, only <a class="el" href="classJS_1_1Function.html" title="Represents a JavaScript-like function object in C++.">Function</a> implements this  <br /></td></tr>
+<tr class="separator:a014880c7186c6a7603365d39835863be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Internal Utility Methods</div></td></tr>
-<tr class="memitem:a5c590279e765a7acfbf1b31e49813235" id="r_a5c590279e765a7acfbf1b31e49813235"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a5c590279e765a7acfbf1b31e49813235">isCallable</a> () const override</td></tr>
-<tr class="memdesc:a5c590279e765a7acfbf1b31e49813235"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if the object is callable  <br /></td></tr>
-<tr class="separator:a5c590279e765a7acfbf1b31e49813235"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classJS_1_1IObject"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classJS_1_1IObject')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classJS_1_1IObject.html">JS::IObject</a></td></tr>
-<tr class="memitem:ab084414383bcc633e06854ba0f2fc914 inherit pub_methods_classJS_1_1IObject" id="r_ab084414383bcc633e06854ba0f2fc914"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1IObject.html#ab084414383bcc633e06854ba0f2fc914">~IObject</a> ()=default</td></tr>
-<tr class="separator:ab084414383bcc633e06854ba0f2fc914 inherit pub_methods_classJS_1_1IObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9946e41bd1062fadbab593a2e28a6fc0" id="r_a9946e41bd1062fadbab593a2e28a6fc0"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a9946e41bd1062fadbab593a2e28a6fc0">isCallable</a> () const</td></tr>
+<tr class="memdesc:a9946e41bd1062fadbab593a2e28a6fc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if the object is callable  <br /></td></tr>
+<tr class="separator:a9946e41bd1062fadbab593a2e28a6fc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -207,8 +210,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:abef4f3f77ac76498e72b5ff219e84333"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39a67333eb860a30d744c9d99ae89eba" id="r_a39a67333eb860a30d744c9d99ae89eba"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classJS_1_1InternalObject.html">JS::InternalObject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a39a67333eb860a30d744c9d99ae89eba">prototype</a></td></tr>
 <tr class="separator:a39a67333eb860a30d744c9d99ae89eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0978deeb73747b59c3c65444d784bf3c" id="r_a0978deeb73747b59c3c65444d784bf3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceJS.html#afc8f80ef0014008191a79c36ae5eb341">FunctionType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a0978deeb73747b59c3c65444d784bf3c">call</a></td></tr>
-<tr class="separator:a0978deeb73747b59c3c65444d784bf3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cc83926495203a92372ecc201877102" id="r_a5cc83926495203a92372ecc201877102"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceJS.html#afc8f80ef0014008191a79c36ae5eb341">FunctionType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a5cc83926495203a92372ecc201877102">call_function</a></td></tr>
+<tr class="separator:a5cc83926495203a92372ecc201877102"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5830cfb9a2898087b614f4475abfb2f" id="r_ae5830cfb9a2898087b614f4475abfb2f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceJS.html#afc8f80ef0014008191a79c36ae5eb341">FunctionType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#ae5830cfb9a2898087b614f4475abfb2f">construct</a></td></tr>
 <tr class="separator:ae5830cfb9a2898087b614f4475abfb2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c44d3ff1aca8de5571b160f6db0c927" id="r_a7c44d3ff1aca8de5571b160f6db0c927"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a7c44d3ff1aca8de5571b160f6db0c927">class_name</a></td></tr>
@@ -217,6 +220,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a606758e8b6d1fe1ee6e7c3e6ecc4371b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:accef381901579e7e0f47c3487181b0d9" id="r_accef381901579e7e0f47c3487181b0d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceJS.html#afdf8cc2ade0f7f3ab5544f56ba5c422f">JS::Value</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#accef381901579e7e0f47c3487181b0d9">primitiveValue</a></td></tr>
 <tr class="separator:accef381901579e7e0f47c3487181b0d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50157f7e03a302993ba61e5ec30dc44a" id="r_a50157f7e03a302993ba61e5ec30dc44a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classJS_1_1InternalObject.html">JS::InternalObject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a50157f7e03a302993ba61e5ec30dc44a">parameter_map</a></td></tr>
+<tr class="separator:a50157f7e03a302993ba61e5ec30dc44a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a base object for all JavaScript-like objects in C++. </p>
@@ -374,8 +379,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a93ae6189905e99bacd95ddd65ba4a0f2" name="a93ae6189905e99bacd95ddd65ba4a0f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93ae6189905e99bacd95ddd65ba4a0f2">&#9670;&#160;</a></span>~InternalObject()</h2>
+<a id="abd90301af99133eb72847c071e698f71" name="abd90301af99133eb72847c071e698f71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd90301af99133eb72847c071e698f71">&#9670;&#160;</a></span>~InternalObject()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -384,7 +389,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">JS::InternalObject::~InternalObject </td>
+          <td class="memname">virtual JS::InternalObject::~InternalObject </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -392,7 +397,7 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -402,8 +407,8 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a69ea4cebc08cae30b093cb21f7413840" name="a69ea4cebc08cae30b093cb21f7413840"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69ea4cebc08cae30b093cb21f7413840">&#9670;&#160;</a></span>canPut()</h2>
+<a id="a7618044d3faa65db0acb15bd28933abe" name="a7618044d3faa65db0acb15bd28933abe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7618044d3faa65db0acb15bd28933abe">&#9670;&#160;</a></span>canPut()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -421,19 +426,17 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Check if a property can be put in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.4">https://262.ecma-international.org/5.1/#sec-8.12.4</a>. </p>
 
-<p>Implements <a class="el" href="classJS_1_1IObject.html#af778e7b916feb0e9ed5f71e1f5c00559">JS::IObject</a>.</p>
-
 </div>
 </div>
-<a id="a06c1ce1c550596a7b4986133b6710ea0" name="a06c1ce1c550596a7b4986133b6710ea0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06c1ce1c550596a7b4986133b6710ea0">&#9670;&#160;</a></span>defaultValue() <span class="overload">[1/2]</span></h2>
+<a id="a080f00412962effd6e63edf9fe7aac63" name="a080f00412962effd6e63edf9fe7aac63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a080f00412962effd6e63edf9fe7aac63">&#9670;&#160;</a></span>defaultValue() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -450,19 +453,17 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Get the default value of the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.8">https://262.ecma-international.org/5.1/#sec-8.12.8</a>. </p>
 
-<p>Implements <a class="el" href="classJS_1_1IObject.html#adf326172c0adfa0df3d56b6b1adacdfd">JS::IObject</a>.</p>
-
 </div>
 </div>
-<a id="ad1245cc7d85d2a1ed5919db798e432ad" name="ad1245cc7d85d2a1ed5919db798e432ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1245cc7d85d2a1ed5919db798e432ad">&#9670;&#160;</a></span>defaultValue() <span class="overload">[2/2]</span></h2>
+<a id="a52391acdb0fae7ef365ac8d842e763cf" name="a52391acdb0fae7ef365ac8d842e763cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52391acdb0fae7ef365ac8d842e763cf">&#9670;&#160;</a></span>defaultValue() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -480,19 +481,17 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Get the default value of the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.8">https://262.ecma-international.org/5.1/#sec-8.12.8</a>. </p>
 
-<p>Implements <a class="el" href="classJS_1_1IObject.html#aa907372e9745ff9a460aff346d0cff06">JS::IObject</a>.</p>
-
 </div>
 </div>
-<a id="a9095ad0320fc50eae1ad563dbf0a8f92" name="a9095ad0320fc50eae1ad563dbf0a8f92"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9095ad0320fc50eae1ad563dbf0a8f92">&#9670;&#160;</a></span>defineOwnProperty()</h2>
+<a id="a9d6301e797e2267d2b2bb3afdf50d1f3" name="a9d6301e797e2267d2b2bb3afdf50d1f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d6301e797e2267d2b2bb3afdf50d1f3">&#9670;&#160;</a></span>defineOwnProperty()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -526,19 +525,17 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Define a property in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.9">https://262.ecma-international.org/5.1/#sec-8.12.9</a>. </p>
 
-<p>Implements <a class="el" href="classJS_1_1IObject.html#aa24a1ea26db04b5f2c148ec8d70fcbbb">JS::IObject</a>.</p>
-
 </div>
 </div>
-<a id="a2e9b2d0c1090871982163357999a0c2f" name="a2e9b2d0c1090871982163357999a0c2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e9b2d0c1090871982163357999a0c2f">&#9670;&#160;</a></span>deleteProperty()</h2>
+<a id="a3f221e9fc82202b945af67fcc7f501e6" name="a3f221e9fc82202b945af67fcc7f501e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f221e9fc82202b945af67fcc7f501e6">&#9670;&#160;</a></span>deleteProperty()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -566,19 +563,17 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Delete a property in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.7">https://262.ecma-international.org/5.1/#sec-8.12.7</a>. </p>
 
-<p>Implements <a class="el" href="classJS_1_1IObject.html#a0d386b6eff85bc268f4caa5c61cf8bee">JS::IObject</a>.</p>
-
 </div>
 </div>
-<a id="a34089dc64288ad03345bf28bff646b18" name="a34089dc64288ad03345bf28bff646b18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34089dc64288ad03345bf28bff646b18">&#9670;&#160;</a></span>get()</h2>
+<a id="a64798460bb7e91226dcb8dc05bf78e8f" name="a64798460bb7e91226dcb8dc05bf78e8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64798460bb7e91226dcb8dc05bf78e8f">&#9670;&#160;</a></span>get()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -596,19 +591,19 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Get a property of the object with all the parent included and all the checks for descriptor <a href="https://262.ecma-international.org/5.1/#sec-8.12.3">https://262.ecma-international.org/5.1/#sec-8.12.3</a>. </p>
 
-<p>Implements <a class="el" href="classJS_1_1IObject.html#a52bdd85f1830ae00ecd8989d6a733067">JS::IObject</a>.</p>
+<p>Reimplemented in <a class="el" href="classJS_1_1Function.html#a8a1077753ba0348c2aa1e16170bc8a8f">JS::Function</a>.</p>
 
 </div>
 </div>
-<a id="a80ed2cc1faa0f11a17d684908bcf9255" name="a80ed2cc1faa0f11a17d684908bcf9255"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80ed2cc1faa0f11a17d684908bcf9255">&#9670;&#160;</a></span>getOwnProperty()</h2>
+<a id="a2b941b9981598ac4e95c2947b12fb480" name="a2b941b9981598ac4e95c2947b12fb480"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b941b9981598ac4e95c2947b12fb480">&#9670;&#160;</a></span>getOwnProperty()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -626,21 +621,19 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Get a property of the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.1">https://262.ecma-international.org/5.1/#sec-8.12.1</a>. </p>
 
-<p>Implements <a class="el" href="classJS_1_1IObject.html#a8b7780dc0d925e12d374665c720b37ca">JS::IObject</a>.</p>
-
 <p>Reimplemented in <a class="el" href="classJS_1_1String.html#a5ade392a4e92fa550a00c6108c13f3c0">JS::String</a>.</p>
 
 </div>
 </div>
-<a id="a41cb91c58278c467280bdcd1df002d60" name="a41cb91c58278c467280bdcd1df002d60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41cb91c58278c467280bdcd1df002d60">&#9670;&#160;</a></span>getProperty()</h2>
+<a id="acc41bcfc37159aec983fc311fe5f39f7" name="acc41bcfc37159aec983fc311fe5f39f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc41bcfc37159aec983fc311fe5f39f7">&#9670;&#160;</a></span>getProperty()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -658,19 +651,47 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Get a property of the object with all the parent included <a href="https://262.ecma-international.org/5.1/#sec-8.12.2">https://262.ecma-international.org/5.1/#sec-8.12.2</a>. </p>
 
-<p>Implements <a class="el" href="classJS_1_1IObject.html#ab11c6a4579f2b944395be6744cff89fa">JS::IObject</a>.</p>
+</div>
+</div>
+<a id="a014880c7186c6a7603365d39835863be" name="a014880c7186c6a7603365d39835863be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a014880c7186c6a7603365d39835863be">&#9670;&#160;</a></span>hasInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool JS::InternalObject::hasInstance </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>check if the object is likely created by this object, only <a class="el" href="classJS_1_1Function.html" title="Represents a JavaScript-like function object in C++.">Function</a> implements this </p>
+
+<p>Reimplemented in <a class="el" href="classJS_1_1FunctionBinded.html#ac744cd12f13b8414c278a0ed64acb6dc">JS::FunctionBinded</a>, and <a class="el" href="classJS_1_1Function.html#aa161a2911e5134428a6af96a40151b2b">JS::Function</a>.</p>
 
 </div>
 </div>
-<a id="a8ce30fcb411e6aa0c3664b613231a405" name="a8ce30fcb411e6aa0c3664b613231a405"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ce30fcb411e6aa0c3664b613231a405">&#9670;&#160;</a></span>hasProperty()</h2>
+<a id="a0aebb903187f6f740c8746380b08d3e1" name="a0aebb903187f6f740c8746380b08d3e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0aebb903187f6f740c8746380b08d3e1">&#9670;&#160;</a></span>hasProperty()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -688,19 +709,17 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Check if a property exists in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.6">https://262.ecma-international.org/5.1/#sec-8.12.6</a>. </p>
 
-<p>Implements <a class="el" href="classJS_1_1IObject.html#af498ceedd6ad4445f89a9518ba411b46">JS::IObject</a>.</p>
-
 </div>
 </div>
-<a id="a5c590279e765a7acfbf1b31e49813235" name="a5c590279e765a7acfbf1b31e49813235"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c590279e765a7acfbf1b31e49813235">&#9670;&#160;</a></span>isCallable()</h2>
+<a id="a9946e41bd1062fadbab593a2e28a6fc0" name="a9946e41bd1062fadbab593a2e28a6fc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9946e41bd1062fadbab593a2e28a6fc0">&#9670;&#160;</a></span>isCallable()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -717,14 +736,12 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>check if the object is callable </p>
-
-<p>Implements <a class="el" href="classJS_1_1IObject.html#ac96714cfb8e698140dfa0ee72d7d92b4">JS::IObject</a>.</p>
 
 </div>
 </div>
@@ -786,14 +803,11 @@ template&lt;typename... Args&gt; </div>
 
 </div>
 </div>
-<a id="afe26e800e05fe61a6881f75d049a3856" name="afe26e800e05fe61a6881f75d049a3856"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe26e800e05fe61a6881f75d049a3856">&#9670;&#160;</a></span>operator[]()</h2>
+<a id="a0946a160943e9e19a72f034fd4058692" name="a0946a160943e9e19a72f034fd4058692"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0946a160943e9e19a72f034fd4058692">&#9670;&#160;</a></span>operator[]()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classJS_1_1PropertyProxy.html">JS::PropertyProxy</a> JS::InternalObject::operator[] </td>
@@ -803,21 +817,14 @@ template&lt;typename... Args&gt; </div>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Accessors to properties with string of object in stored in value. </p>
 
-<p>Implements <a class="el" href="classJS_1_1IObject.html#ae598fda511492ad6a219d275f8b48f53">JS::IObject</a>.</p>
-
 </div>
 </div>
-<a id="a447ac2dd10c1aa26379df02669849735" name="a447ac2dd10c1aa26379df02669849735"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a447ac2dd10c1aa26379df02669849735">&#9670;&#160;</a></span>put()</h2>
+<a id="a712a4514a0ed959292a3bb2442d1ef44" name="a712a4514a0ed959292a3bb2442d1ef44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a712a4514a0ed959292a3bb2442d1ef44">&#9670;&#160;</a></span>put()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -851,26 +858,24 @@ template&lt;typename... Args&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Put a property in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.5">https://262.ecma-international.org/5.1/#sec-8.12.5</a>. </p>
 
-<p>Implements <a class="el" href="classJS_1_1IObject.html#a701222bdf06d7e544d1f084f2c870654">JS::IObject</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a0978deeb73747b59c3c65444d784bf3c" name="a0978deeb73747b59c3c65444d784bf3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0978deeb73747b59c3c65444d784bf3c">&#9670;&#160;</a></span>call</h2>
+<a id="a5cc83926495203a92372ecc201877102" name="a5cc83926495203a92372ecc201877102"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cc83926495203a92372ecc201877102">&#9670;&#160;</a></span>call_function</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespaceJS.html#afc8f80ef0014008191a79c36ae5eb341">FunctionType</a> JS::InternalObject::call</td>
+          <td class="memname"><a class="el" href="namespaceJS.html#afc8f80ef0014008191a79c36ae5eb341">FunctionType</a> JS::InternalObject::call_function</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -923,6 +928,21 @@ template&lt;typename... Args&gt; </div>
 
 </div>
 </div>
+<a id="a50157f7e03a302993ba61e5ec30dc44a" name="a50157f7e03a302993ba61e5ec30dc44a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50157f7e03a302993ba61e5ec30dc44a">&#9670;&#160;</a></span>parameter_map</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="classJS_1_1InternalObject.html">JS::InternalObject</a>&gt; JS::InternalObject::parameter_map</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The parameter map of the object. </p>
+
+</div>
+</div>
 <a id="accef381901579e7e0f47c3487181b0d9" name="accef381901579e7e0f47c3487181b0d9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#accef381901579e7e0f47c3487181b0d9">&#9670;&#160;</a></span>primitiveValue</h2>
 
@@ -972,7 +992,7 @@ template&lt;typename... Args&gt; </div>
 <li>includes/internals/<a class="el" href="Object_8hpp_source.html">Object.hpp</a></li>
 <li>lib/internals/Object/<a class="el" href="internals_2Object_2accessor_8cpp.html">accessor.cpp</a></li>
 <li>lib/internals/Object/<a class="el" href="internals_2Object_2constructor_8cpp.html">constructor.cpp</a></li>
-<li>lib/internals/Object/<a class="el" href="internalMethod_8cpp.html">internalMethod.cpp</a></li>
+<li>lib/internals/Object/<a class="el" href="internals_2Object_2internalMethod_8cpp.html">internalMethod.cpp</a></li>
 <li>lib/internals/Object/<a class="el" href="utils_8cpp.html">utils.cpp</a></li>
 </ul>
 </div><!-- contents -->

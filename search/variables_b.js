@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['object_0',['Object',['../global_8hpp.html#a40d8fa8ffaba1502e945db93164125de',1,'global.hpp']]],
-  ['operator_5f_1',['operator_',['../classIAssertion.html#a32c80995d7d7ff58ce5f3c2254572284',1,'IAssertion']]]
+  ['name_0',['name',['../classIAssertion.html#ae4a51b5c951fb2e05e6e5f7fd7fcfa37',1,'IAssertion']]],
+  ['nan_1',['nan',['../classJS_1_1Number.html#a1ffd4840701eb9e983fdd1c0c67cf2a3',1,'JS::Number::NaN'],['../global_8hpp.html#a6e8172661a167bd1350fe1c05f8fd536',1,'NaN:&#160;global.hpp']]],
+  ['negative_5finfinity_2',['NEGATIVE_INFINITY',['../classJS_1_1Number.html#ae02d92a758d90297cf70d9c86d805992',1,'JS::Number']]],
+  ['number_3',['Number',['../global_8hpp.html#a9ae5a836ca95e6330d6bdbaedc5f0173',1,'global.hpp']]]
 ];

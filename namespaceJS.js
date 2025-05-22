@@ -114,8 +114,8 @@ var namespaceJS =
     [ "console", "classJS_1_1console.html", "classJS_1_1console" ],
     [ "DataDescriptor", "classJS_1_1DataDescriptor.html", "classJS_1_1DataDescriptor" ],
     [ "Function", "classJS_1_1Function.html", "classJS_1_1Function" ],
+    [ "FunctionBinded", "classJS_1_1FunctionBinded.html", "classJS_1_1FunctionBinded" ],
     [ "InternalObject", "classJS_1_1InternalObject.html", "classJS_1_1InternalObject" ],
-    [ "IObject", "classJS_1_1IObject.html", "classJS_1_1IObject" ],
     [ "Math", "classJS_1_1Math.html", "classJS_1_1Math" ],
     [ "Number", "classJS_1_1Number.html", "classJS_1_1Number" ],
     [ "Object", "classJS_1_1Object.html", "classJS_1_1Object" ],
@@ -221,5 +221,7 @@ var namespaceJS =
     [ "operator||", "namespaceJS.html#a5110d3f45e8d82550fd8b2ef8a0c2d12", null ],
     [ "operator||", "namespaceJS.html#a674f01c3386e5113b09efb5510335137", null ],
     [ "operator||", "namespaceJS.html#afb0aac3a0f0bc806c7b5ff6cde6262fd", null ],
-    [ "operator||", "namespaceJS.html#a5f1373739fbaac723dc29762114b64af", null ]
+    [ "operator||", "namespaceJS.html#a5f1373739fbaac723dc29762114b64af", null ],
+    [ "function_properties_prototype", "namespaceJS.html#a077daa032582b19f58e27c744518962b", null ],
+    [ "function_prototype", "namespaceJS.html#a21b5dcb2a5d3f45dbcb80fb8c5013f07", null ]
 ];

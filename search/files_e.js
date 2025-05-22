@@ -1,7 +1,7 @@
 var searchData=
 [
   ['readme_2emd_0',['README.md',['../README_8md.html',1,'']]],
-  ['right_5fchevron_2ecpp_1',['right_chevron.cpp',['../Logical_2Right__Chevron_8cpp.html',1,'(Global Namespace)'],['../Right__Chevron_8cpp.html',1,'(Global Namespace)']]],
+  ['right_5fchevron_2ecpp_1',['Right_Chevron.cpp',['../Right__Chevron_8cpp.html',1,'']]],
   ['right_5fshift_2ecpp_2',['Right_Shift.cpp',['../Right__Shift_8cpp.html',1,'']]],
   ['rope_2ecpp_3',['Rope.cpp',['../Rope_8cpp.html',1,'']]],
   ['rope_2ehpp_4',['Rope.hpp',['../Rope_8hpp.html',1,'']]],

@@ -1,9 +1,9 @@
 var searchData=
 [
   ['genericdescriptor_0',['GenericDescriptor',['../namespaceJS_1_1IS.html#a2ffca92052cf0f654e66d020ae6bb88e',1,'JS::IS']]],
-  ['get_1',['get',['../classJS_1_1AccessorDescriptor.html#abe4a1772f49e6dbdb3c8cfacf35b2d7f',1,'JS::AccessorDescriptor::get'],['../classJS_1_1IObject.html#a52bdd85f1830ae00ecd8989d6a733067',1,'JS::IObject::get()'],['../classJS_1_1InternalObject.html#a34089dc64288ad03345bf28bff646b18',1,'JS::InternalObject::get()']]],
+  ['get_1',['get',['../classJS_1_1AccessorDescriptor.html#abe4a1772f49e6dbdb3c8cfacf35b2d7f',1,'JS::AccessorDescriptor::get'],['../classJS_1_1InternalObject.html#a64798460bb7e91226dcb8dc05bf78e8f',1,'JS::InternalObject::get()'],['../classJS_1_1Function.html#a8a1077753ba0348c2aa1e16170bc8a8f',1,'JS::Function::get()']]],
   ['getactual_2',['getActual',['../classIAssertion.html#a41f8b74de8bcc9091ef933df23ebc700',1,'IAssertion']]],
-  ['getcharat_3',['getcharat',['../classRopeNode.html#a45a9c1c8a81c85df121a66b651e9e708',1,'RopeNode::getCharAt()'],['../classRopeLeaf.html#a4c990f476399a76402731bbe101e4ef0',1,'RopeLeaf::getCharAt()'],['../classRopeConcat.html#a17e0b061779e8a94b172c22115315da1',1,'RopeConcat::getCharAt()'],['../classRope.html#ade94c91492c16e26816b536c6801a10b',1,'Rope::getCharAt()']]],
+  ['getcharat_3',['getcharat',['../classRopeConcat.html#a17e0b061779e8a94b172c22115315da1',1,'RopeConcat::getCharAt()'],['../classRopeNode.html#a45a9c1c8a81c85df121a66b651e9e708',1,'RopeNode::getCharAt()'],['../classRopeLeaf.html#a4c990f476399a76402731bbe101e4ef0',1,'RopeLeaf::getCharAt()'],['../classRope.html#ade94c91492c16e26816b536c6801a10b',1,'Rope::getCharAt()']]],
   ['getcode_4',['getCode',['../classIAssertion.html#a9383796e4cc5b163f0d524bff6acced1',1,'IAssertion']]],
   ['getcompiler_5',['getCompiler',['../classOptions.html#ab8bcc132f3790b71b9ddec1d54123b9e',1,'Options']]],
   ['getcompilerargs_6',['getCompilerArgs',['../classOptions.html#a6788745e6572bd3c3e2b6be879dd8d14',1,'Options']]],
@@ -16,12 +16,12 @@ var searchData=
   ['getname_13',['getName',['../classIAssertion.html#a27009a99dc34719c356d9468aa4d2026',1,'IAssertion']]],
   ['getoperator_14',['getOperator',['../classIAssertion.html#aa1a46b13fd38d5f48fb769edf3058e32',1,'IAssertion']]],
   ['getoutputfilename_15',['getOutputFilename',['../classOptions.html#a052efe080ac8745ae147f7a60e700ff0',1,'Options']]],
-  ['getownproperty_16',['getownproperty',['../classJS_1_1IObject.html#a8b7780dc0d925e12d374665c720b37ca',1,'JS::IObject::getOwnProperty()'],['../classJS_1_1InternalObject.html#a80ed2cc1faa0f11a17d684908bcf9255',1,'JS::InternalObject::getOwnProperty()'],['../classJS_1_1String.html#a5ade392a4e92fa550a00c6108c13f3c0',1,'JS::String::getOwnProperty()']]],
+  ['getownproperty_16',['getownproperty',['../classJS_1_1InternalObject.html#a2b941b9981598ac4e95c2947b12fb480',1,'JS::InternalObject::getOwnProperty()'],['../classJS_1_1String.html#a5ade392a4e92fa550a00c6108c13f3c0',1,'JS::String::getOwnProperty()']]],
   ['getownpropertydescriptor_17',['getOwnPropertyDescriptor',['../classJS_1_1Object.html#a6655d34e561c9b0f369881962457027f',1,'JS::Object']]],
   ['getownpropertynames_18',['getOwnPropertyNames',['../classJS_1_1Object.html#a92c27ab880fddce065c1986cf6d63d38',1,'JS::Object']]],
-  ['getproperty_19',['getproperty',['../classJS_1_1IObject.html#ab11c6a4579f2b944395be6744cff89fa',1,'JS::IObject::getProperty()'],['../classJS_1_1InternalObject.html#a41cb91c58278c467280bdcd1df002d60',1,'JS::InternalObject::getProperty()']]],
+  ['getproperty_19',['getProperty',['../classJS_1_1InternalObject.html#acc41bcfc37159aec983fc311fe5f39f7',1,'JS::InternalObject']]],
   ['getprototypeof_20',['getPrototypeOf',['../classJS_1_1Object.html#a826a38b5325baae44eef31fe05ece2ca',1,'JS::Object']]],
-  ['getprototypeproperties_21',['getprototypeproperties',['../classJS_1_1Boolean.html#aa222fb59c5c5d945a52484acc9adaced',1,'JS::Boolean::getPrototypeProperties()'],['../classJS_1_1Number.html#afd808f8c0624890f47b35736f236a865',1,'JS::Number::getPrototypeProperties()'],['../classJS_1_1Object.html#accaf1b16bf2e3d020611fe3e551913e5',1,'JS::Object::getPrototypeProperties()'],['../classJS_1_1String.html#a58ab3daeb09bf40f86969cca25d69465',1,'JS::String::getPrototypeProperties()']]],
+  ['getprototypeproperties_21',['getprototypeproperties',['../classJS_1_1String.html#a58ab3daeb09bf40f86969cca25d69465',1,'JS::String::getPrototypeProperties()'],['../classJS_1_1Boolean.html#aa222fb59c5c5d945a52484acc9adaced',1,'JS::Boolean::getPrototypeProperties()'],['../classJS_1_1Number.html#afd808f8c0624890f47b35736f236a865',1,'JS::Number::getPrototypeProperties()'],['../classJS_1_1Object.html#accaf1b16bf2e3d020611fe3e551913e5',1,'JS::Object::getPrototypeProperties()']]],
   ['getright_22',['getRight',['../classRopeConcat.html#a801f0a5496629e65882a9bf248d4433d',1,'RopeConcat']]],
   ['getvalue_23',['getvalue',['../classJS_1_1PropertyProxy.html#a60011f7959ed346551f3f29a8ca86132',1,'JS::PropertyProxy::getValue()'],['../classJS_1_1Any.html#a1c2e799407b4d95891252c6ebd028220',1,'JS::Any::getValue()']]],
   ['git_20submodules_24',['3. Initialize Git Submodules',['../index.html#autotoc_md6',1,'']]],
@@ -30,5 +30,6 @@ var searchData=
   ['global_5ftypeof_27',['global_typeof',['../global_8hpp.html#a0481093e83ac1c2bc80abbccfa77a0f4',1,'global_typeof:&#160;global.hpp'],['../namespaceJS_1_1GLOBAL.html#a8d26ea607d48fbb8746afb7d85a7beb2',1,'JS::GLOBAL::global_typeof()']]],
   ['global_5fvoid_28',['global_void',['../void_8cpp.html#a0b93290f9e76b15d213d3b3afb7c5513',1,'void.cpp']]],
   ['globalfunctions_2ehpp_29',['globalFunctions.hpp',['../globalFunctions_8hpp.html',1,'']]],
-  ['guidelines_30',['Contribution Guidelines',['../md_CONTRIBUTING.html#autotoc_md56',1,'']]]
+  ['globals_2ehpp_30',['globals.hpp',['../globals_8hpp.html',1,'']]],
+  ['guidelines_31',['Contribution Guidelines',['../md_CONTRIBUTING.html#autotoc_md56',1,'']]]
 ];

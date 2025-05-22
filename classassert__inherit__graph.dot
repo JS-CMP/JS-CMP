@@ -10,7 +10,5 @@ digraph "assert"
   Node3 -> Node2 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node3 [id="Node000003",label="JS::InternalObject",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classJS_1_1InternalObject.html",tooltip="Represents a base object for all JavaScript-like objects in C++."];
   Node4 -> Node3 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node4 [id="Node000004",label="JS::IObject",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classJS_1_1IObject.html",tooltip="Represents a base object for all JavaScript-like objects in C++."];
-  Node5 -> Node3 [id="edge4_Node000003_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node5 [id="Node000005",label="std::enable_shared\l_from_this\< JS::InternalObject \>",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node4 [id="Node000004",label="std::enable_shared\l_from_this\< JS::InternalObject \>",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
 }

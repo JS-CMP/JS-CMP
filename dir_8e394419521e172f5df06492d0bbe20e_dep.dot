@@ -7,8 +7,14 @@ digraph "lib/types/objects/Function"
   compound=true
   subgraph clusterdir_5cf2d1decf7560474321a2736fa1e755 {
     graph [ bgcolor="#daedff", pencolor="grey50", label="objects", fontname=Helvetica,fontsize=10 style="filled,dashed", URL="dir_5cf2d1decf7560474321a2736fa1e755.html",tooltip=""]
-  dir_8e394419521e172f5df06492d0bbe20e [label="Function", fillcolor="#daedff", color="grey25", style="filled,bold", URL="dir_8e394419521e172f5df06492d0bbe20e.html",tooltip=""];
+  subgraph clusterdir_8e394419521e172f5df06492d0bbe20e {
+    graph [ bgcolor="#daedff", pencolor="grey25", label="", fontname=Helvetica,fontsize=10 style="filled,bold", URL="dir_8e394419521e172f5df06492d0bbe20e.html",tooltip=""]
+    dir_8e394419521e172f5df06492d0bbe20e [shape=plaintext, label="Function"];
+  dir_6f1b4c2b76aa0c57a375b204b7f92538 [label="Function", fillcolor="#4ea9ff", color="grey25", style="filled", URL="dir_6f1b4c2b76aa0c57a375b204b7f92538.html",tooltip=""];
+  dir_bd2445c454062ccd87b8044816ef09b4 [label="FunctionBinded", fillcolor="#4ea9ff", color="grey25", style="filled", URL="dir_bd2445c454062ccd87b8044816ef09b4.html",tooltip=""];
+  }
   }
   dir_09e761304027c904456130627fd4dcf5 [label="includes", fillcolor="#daedff", color="red", style="filled", URL="dir_09e761304027c904456130627fd4dcf5.html",tooltip=""];
-  dir_8e394419521e172f5df06492d0bbe20e->dir_09e761304027c904456130627fd4dcf5 [headlabel="1", labeldistance=1.5 headhref="dir_000009_000012.html" href="dir_000009_000012.html" color="steelblue1" fontcolor="steelblue1"];
+  dir_6f1b4c2b76aa0c57a375b204b7f92538->dir_09e761304027c904456130627fd4dcf5 [headlabel="7", labeldistance=1.5 headhref="dir_000011_000015.html" href="dir_000011_000015.html" color="steelblue1" fontcolor="steelblue1"];
+  dir_bd2445c454062ccd87b8044816ef09b4->dir_09e761304027c904456130627fd4dcf5 [headlabel="4", labeldistance=1.5 headhref="dir_000012_000015.html" href="dir_000012_000015.html" color="steelblue1" fontcolor="steelblue1"];
 }

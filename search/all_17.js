@@ -15,7 +15,7 @@ var searchData=
   ['review_20checklist_12',['1. Code Review Checklist',['../md_CODE__OF__CONDUCT.html#autotoc_md26',1,'']]],
   ['review_20process_13',['review process',['../md_CODE__OF__CONDUCT.html#autotoc_md25',1,'Code Quality and Review Process'],['../md_CONTRIBUTING.html#autotoc_md58',1,'Review Process']]],
   ['reviews_14',['1. Regular Reviews',['../md_CODE__OF__CONDUCT.html#autotoc_md52',1,'']]],
-  ['right_5fchevron_2ecpp_15',['right_chevron.cpp',['../Right__Chevron_8cpp.html',1,'(Global Namespace)'],['../Logical_2Right__Chevron_8cpp.html',1,'(Global Namespace)']]],
+  ['right_5fchevron_2ecpp_15',['Right_Chevron.cpp',['../Right__Chevron_8cpp.html',1,'']]],
   ['right_5fshift_2ecpp_16',['Right_Shift.cpp',['../Right__Shift_8cpp.html',1,'']]],
   ['rope_17',['rope',['../classRope.html#a6ceec32f4268c353bf55eb7edbf2dfa9',1,'Rope::Rope(const char *str)'],['../classRope.html#a456a4d733163de2f88e8fe8160355826',1,'Rope::Rope(std::shared_ptr&lt; RopeNode &gt; node)'],['../classRope.html#a908b311e35afb6be696945aaeea74402',1,'Rope::Rope(const std::string &amp;str)'],['../classRope.html',1,'Rope']]],
   ['rope_2ecpp_18',['Rope.cpp',['../Rope_8cpp.html',1,'']]],

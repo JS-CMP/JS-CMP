@@ -1,7 +1,7 @@
 var searchData=
 [
   ['data_5fdescriptor_0',['DATA_DESCRIPTOR',['../namespaceJS.html#a3a73cc97bdfdff29ecdca5f6f092651baab8500695d3a901a1213c945bd7f18ad',1,'JS']]],
-  ['datadescriptor_1',['datadescriptor',['../classJS_1_1DataDescriptor.html#a9f99bc8297d1a3ff289658634f61b8a6',1,'JS::DataDescriptor::DataDescriptor()=default'],['../classJS_1_1DataDescriptor.html#a81db48c84c63b4109a40c98990a75252',1,'JS::DataDescriptor::DataDescriptor(const JS::Any &amp;value)'],['../classJS_1_1DataDescriptor.html#abca953dd44f35b139df4000aff775969',1,'JS::DataDescriptor::DataDescriptor(const JS::Any &amp;value, bool writable, bool enumerable, bool configurable)'],['../classJS_1_1DataDescriptor.html#a5d6232cc96026e27729468b8a0266a2b',1,'JS::DataDescriptor::DataDescriptor(std::shared_ptr&lt; JS::InternalObject &gt; value)'],['../namespaceJS_1_1IS.html#aa0af0558235973ea1a510717f13aabad',1,'JS::IS::DataDescriptor()'],['../classJS_1_1DataDescriptor.html',1,'JS::DataDescriptor']]],
+  ['datadescriptor_1',['datadescriptor',['../classJS_1_1DataDescriptor.html',1,'JS::DataDescriptor'],['../classJS_1_1DataDescriptor.html#a9f99bc8297d1a3ff289658634f61b8a6',1,'JS::DataDescriptor::DataDescriptor()=default'],['../classJS_1_1DataDescriptor.html#a81db48c84c63b4109a40c98990a75252',1,'JS::DataDescriptor::DataDescriptor(const JS::Any &amp;value)'],['../classJS_1_1DataDescriptor.html#abca953dd44f35b139df4000aff775969',1,'JS::DataDescriptor::DataDescriptor(const JS::Any &amp;value, bool writable, bool enumerable, bool configurable)'],['../classJS_1_1DataDescriptor.html#a5d6232cc96026e27729468b8a0266a2b',1,'JS::DataDescriptor::DataDescriptor(std::shared_ptr&lt; JS::InternalObject &gt; value)'],['../namespaceJS_1_1IS.html#aa0af0558235973ea1a510717f13aabad',1,'JS::IS::DataDescriptor()']]],
   ['decimal_5fdigit_2',['DECIMAL_DIGIT',['../URI_8cpp.html#a0672667d9fb31159cd520b58a3173251',1,'URI.cpp']]],
   ['decode_3',['decode',['../URI_8cpp.html#ae9b4383adb9f04008ae8e5d6373cfc0c',1,'URI.cpp']]],
   ['decodeuri_4',['decodeuri',['../namespaceJS_1_1GLOBAL.html#a710ebef92c6cc9b506799a9d6e2bf7d7',1,'JS::GLOBAL::decodeURI()'],['../global_8hpp.html#ad893b5be58a1568114cd68346c193e4f',1,'decodeURI:&#160;global.hpp']]],
@@ -9,11 +9,11 @@ var searchData=
   ['decr_2ecpp_6',['Decr.cpp',['../Decr_8cpp.html',1,'']]],
   ['deepequal_7',['deepEqual',['../classassert.html#a5e73caf4afa694adfcc0f7afac3d3fde',1,'assert']]],
   ['deepstrictequal_8',['deepStrictEqual',['../classassert.html#ac4d757a3bb5cf1d043f3a1106c6f1be5',1,'assert']]],
-  ['defaultvalue_9',['defaultvalue',['../classJS_1_1InternalObject.html#a06c1ce1c550596a7b4986133b6710ea0',1,'JS::InternalObject::defaultValue() override'],['../classJS_1_1InternalObject.html#ad1245cc7d85d2a1ed5919db798e432ad',1,'JS::InternalObject::defaultValue(const JS::Types &amp;hint) override'],['../classJS_1_1IObject.html#adf326172c0adfa0df3d56b6b1adacdfd',1,'JS::IObject::defaultValue()=0'],['../classJS_1_1IObject.html#aa907372e9745ff9a460aff346d0cff06',1,'JS::IObject::defaultValue(const JS::Types &amp;hint)=0']]],
-  ['defineownproperty_10',['defineownproperty',['../classJS_1_1InternalObject.html#a9095ad0320fc50eae1ad563dbf0a8f92',1,'JS::InternalObject::defineOwnProperty()'],['../classJS_1_1IObject.html#aa24a1ea26db04b5f2c148ec8d70fcbbb',1,'JS::IObject::defineOwnProperty()']]],
+  ['defaultvalue_9',['defaultvalue',['../classJS_1_1InternalObject.html#a080f00412962effd6e63edf9fe7aac63',1,'JS::InternalObject::defaultValue()'],['../classJS_1_1InternalObject.html#a52391acdb0fae7ef365ac8d842e763cf',1,'JS::InternalObject::defaultValue(const JS::Types &amp;hint)']]],
+  ['defineownproperty_10',['defineOwnProperty',['../classJS_1_1InternalObject.html#a9d6301e797e2267d2b2bb3afdf50d1f3',1,'JS::InternalObject']]],
   ['defineproperties_11',['defineProperties',['../classJS_1_1Object.html#a4112140262b3411c017ae9e4c0e314c3',1,'JS::Object']]],
   ['defineproperty_12',['defineProperty',['../classJS_1_1Object.html#a56d481addde7bad938cc3357f55213df',1,'JS::Object']]],
-  ['deleteproperty_13',['deleteproperty',['../classJS_1_1InternalObject.html#a2e9b2d0c1090871982163357999a0c2f',1,'JS::InternalObject::deleteProperty()'],['../classJS_1_1IObject.html#a0d386b6eff85bc268f4caa5c61cf8bee',1,'JS::IObject::deleteProperty()']]],
+  ['deleteproperty_13',['deleteProperty',['../classJS_1_1InternalObject.html#a3f221e9fc82202b945af67fcc7f501e6',1,'JS::InternalObject']]],
   ['dependencies_14',['4. Install Dependencies',['../index.html#autotoc_md7',1,'']]],
   ['deployment_20ci_20cd_15',['Continuous Integration/Continuous Deployment (CI/CD)',['../md_CODE__OF__CONDUCT.html#autotoc_md44',1,'']]],
   ['description_16',['Description',['../index.html#autotoc_md1',1,'']]],

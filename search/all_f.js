@@ -13,9 +13,10 @@ var searchData=
   ['jsarray_2ehpp_10',['JsArray.hpp',['../JsArray_8hpp.html',1,'']]],
   ['jsboolean_2ehpp_11',['JsBoolean.hpp',['../JsBoolean_8hpp.html',1,'']]],
   ['jsfunction_2ecpp_12',['JsFunction.cpp',['../JsFunction_8cpp.html',1,'']]],
-  ['jsfunction_2ehpp_13',['JsFunction.hpp',['../JsFunction_8hpp.html',1,'']]],
-  ['jsmath_2ehpp_14',['JsMath.hpp',['../JsMath_8hpp.html',1,'']]],
-  ['jsnumber_2ehpp_15',['JsNumber.hpp',['../JsNumber_8hpp.html',1,'']]],
-  ['jsobject_2ehpp_16',['JsObject.hpp',['../JsObject_8hpp.html',1,'']]],
-  ['jsstring_2ehpp_17',['JsString.hpp',['../JsString_8hpp.html',1,'']]]
+  ['jsfunction_2ehpp_13',['jsfunction.hpp',['../JsFunction_8hpp.html',1,'(Global Namespace)'],['../Function_2JsFunction_8hpp.html',1,'(Global Namespace)']]],
+  ['jsfunctionbinded_2ehpp_14',['JsFunctionBinded.hpp',['../JsFunctionBinded_8hpp.html',1,'']]],
+  ['jsmath_2ehpp_15',['JsMath.hpp',['../JsMath_8hpp.html',1,'']]],
+  ['jsnumber_2ehpp_16',['JsNumber.hpp',['../JsNumber_8hpp.html',1,'']]],
+  ['jsobject_2ehpp_17',['JsObject.hpp',['../JsObject_8hpp.html',1,'']]],
+  ['jsstring_2ehpp_18',['JsString.hpp',['../JsString_8hpp.html',1,'']]]
 ];

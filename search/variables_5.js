@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['get_0',['get',['../classJS_1_1AccessorDescriptor.html#abe4a1772f49e6dbdb3c8cfacf35b2d7f',1,'JS::AccessorDescriptor']]],
-  ['global_1',['global',['../global_8hpp.html#a0367ff1ec4d051794bc2cb7f5e610b89',1,'global.hpp']]],
-  ['global_5ftypeof_2',['global_typeof',['../global_8hpp.html#a0481093e83ac1c2bc80abbccfa77a0f4',1,'global.hpp']]]
+  ['function_5fproperties_5fprototype_0',['function_properties_prototype',['../namespaceJS.html#a077daa032582b19f58e27c744518962b',1,'JS']]],
+  ['function_5fprototype_1',['function_prototype',['../namespaceJS.html#a21b5dcb2a5d3f45dbcb80fb8c5013f07',1,'JS']]]
 ];

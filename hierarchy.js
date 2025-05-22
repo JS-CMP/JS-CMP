@@ -10,7 +10,9 @@ var hierarchy =
       [ "JS::InternalObject", "classJS_1_1InternalObject.html", [
         [ "JS::Array", "classJS_1_1Array.html", null ],
         [ "JS::Boolean", "classJS_1_1Boolean.html", null ],
-        [ "JS::Function", "classJS_1_1Function.html", null ],
+        [ "JS::Function", "classJS_1_1Function.html", [
+          [ "JS::FunctionBinded", "classJS_1_1FunctionBinded.html", null ]
+        ] ],
         [ "JS::Number", "classJS_1_1Number.html", null ],
         [ "JS::Object", "classJS_1_1Object.html", [
           [ "assert", "classassert.html", null ]
@@ -23,9 +25,6 @@ var hierarchy =
         [ "AssertionError", "classAssertionError.html", null ],
         [ "TypeError", "classTypeError.html", null ]
       ] ]
-    ] ],
-    [ "JS::IObject", "classJS_1_1IObject.html", [
-      [ "JS::InternalObject", "classJS_1_1InternalObject.html", null ]
     ] ],
     [ "JS::Math", "classJS_1_1Math.html", null ],
     [ "Options", "classOptions.html", null ],

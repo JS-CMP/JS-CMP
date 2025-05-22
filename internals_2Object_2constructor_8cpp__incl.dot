@@ -55,13 +55,10 @@ digraph "lib/internals/Object/constructor.cpp"
   Node20 -> Node4 [id="edge29_Node000020_Node000004",color="steelblue1",style="solid",tooltip=" "];
   Node1 -> Node21 [id="edge30_Node000001_Node000021",color="steelblue1",style="solid",tooltip=" "];
   Node21 [id="Node000021",label="internals/Object.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Object_8hpp.html",tooltip=" "];
-  Node21 -> Node22 [id="edge31_Node000021_Node000022",color="steelblue1",style="solid",tooltip=" "];
-  Node22 [id="Node000022",label="IObject.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$IObject_8hpp.html",tooltip=" "];
-  Node22 -> Node4 [id="edge32_Node000022_Node000004",color="steelblue1",style="solid",tooltip=" "];
-  Node22 -> Node23 [id="edge33_Node000022_Node000023",color="steelblue1",style="solid",tooltip=" "];
-  Node23 [id="Node000023",label="optional",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
-  Node21 -> Node3 [id="edge34_Node000021_Node000003",color="steelblue1",style="solid",tooltip=" "];
-  Node21 -> Node4 [id="edge35_Node000021_Node000004",color="steelblue1",style="solid",tooltip=" "];
-  Node21 -> Node24 [id="edge36_Node000021_Node000024",color="steelblue1",style="solid",tooltip=" "];
-  Node24 [id="Node000024",label="utility",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node21 -> Node3 [id="edge31_Node000021_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node21 -> Node4 [id="edge32_Node000021_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node21 -> Node22 [id="edge33_Node000021_Node000022",color="steelblue1",style="solid",tooltip=" "];
+  Node22 [id="Node000022",label="optional",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node21 -> Node23 [id="edge34_Node000021_Node000023",color="steelblue1",style="solid",tooltip=" "];
+  Node23 [id="Node000023",label="utility",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
 }

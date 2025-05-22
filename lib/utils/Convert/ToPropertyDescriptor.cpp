@@ -31,7 +31,7 @@ JS::Attribute ToPropertyDescriptor(const Any& desc) {
     if ((get_or_set = get_or_set || obj->hasProperty("get"))) {
         JS::Any tmp = obj->get("get");
         if (COMPARE::Type(tmp, UNDEFINED) || IS::Callable(tmp)) {
-            accessor.get = std::make_shared<JS::Object>(tmp);
+            accessor.get = std::get<std::shared_ptr<JS::InternalObject>>(tmp.getValue());
         } else {
             throw std::runtime_error("TypeError: get must be callable or undefined"); // TODO: make this a JS error
         }
@@ -39,7 +39,7 @@ JS::Attribute ToPropertyDescriptor(const Any& desc) {
     if ((get_or_set = get_or_set || obj->hasProperty("set"))) {
         JS::Any tmp = obj->get("set");
         if (COMPARE::Type(tmp, UNDEFINED) || IS::Callable(tmp)) {
-            accessor.set = std::make_shared<JS::Object>(tmp);
+            accessor.set = std::get<std::shared_ptr<JS::InternalObject>>(tmp.getValue());
         } else {
             throw std::runtime_error("TypeError: set must be callable or undefined"); // TODO: make this a JS error
         }

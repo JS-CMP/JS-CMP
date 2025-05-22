@@ -12,7 +12,7 @@ InternalObject::InternalObject(const std::unordered_map<std::string, JS::Any>& p
       class_name("Object"), extensible(true) {
 
     for (const auto& [key, value] : properties) {
-        this->put(key, value);
+        this->InternalObject::put(key, value);
     }
 }
 
@@ -21,17 +21,17 @@ InternalObject::InternalObject(const Attribute& attribute)
     switch (attribute.index()) {
         case DATA_DESCRIPTOR: {
             JS::DataDescriptor desc = std::get<JS::DataDescriptor>(attribute);
-            (*properties)["value"] = desc.value;
-            (*properties)["writable"] = JS::Any(desc.writable);
-            (*properties)["enumerable"] = JS::Any(desc.enumerable);
-            (*properties)["configurable"] = JS::Any(desc.configurable);
+            this->InternalObject::put("value", desc.value);
+            this->InternalObject::put("writable", JS::Any(desc.writable));
+            this->InternalObject::put("enumerable", JS::Any(desc.enumerable));
+            this->InternalObject::put("configurable", JS::Any(desc.configurable));
         }
         case ACCESSOR_DESCRIPTOR: {
             JS::AccessorDescriptor desc = std::get<JS::AccessorDescriptor>(attribute);
-            (*properties)["get"] = desc.get == nullptr ? JS::Any(JS::Undefined{}) : JS::Any(*desc.get);
-            (*properties)["set"] = desc.set == nullptr ? JS::Any(JS::Undefined{}) : JS::Any(*desc.set);
-            (*properties)["enumerable"] = JS::Any(desc.enumerable);
-            (*properties)["configurable"] = JS::Any(desc.configurable);
+            this->InternalObject::put("get", desc.get == nullptr ? JS::Any(JS::Undefined{}) : JS::Any(desc.get));
+            this->InternalObject::put("set", desc.set == nullptr ? JS::Any(JS::Undefined{}) : JS::Any(desc.set));
+            this->InternalObject::put("enumerable", JS::Any(desc.enumerable));
+            this->InternalObject::put("configurable", JS::Any(desc.configurable));
         }
         default:
             throw std::runtime_error("Cannot convert to property descriptor");

@@ -52,7 +52,7 @@ public:
     template <typename... Args>
     JS::Any operator()(Args... args) {
         return call_function(JS::Any(JS::Undefined{}),
-                             JS::Arguments::CreateArgumentsObject(std::vector<JS::Any>{args...}));
+                             JS::Arguments::CreateArgumentsObject(std::vector<JS::Any>{std::move(args)...}));
     }
     ///@}
 

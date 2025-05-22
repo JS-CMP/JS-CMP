@@ -16,6 +16,8 @@ Makefile
 *.js.cpp
 *.a
 
+compile_commands.json
+
 # Misc
 Testing
 

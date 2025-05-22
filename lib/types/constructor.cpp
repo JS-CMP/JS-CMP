@@ -20,5 +20,3 @@ JS::Any& JS::Any::operator=(JS::Any&& other) noexcept {
 }
 
 JS::Any& JS::Any::operator=(const JS::Any& other) = default;
-
-JS::Any::operator bool() const { return JS::CONVERT::ToBoolean(*this); }

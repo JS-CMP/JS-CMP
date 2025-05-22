@@ -1,4 +1,4 @@
-#include "types/objects/JsFunction.hpp"
+#include "types/objects/Function/JsFunction.hpp"
 #include "types/objects/JsNumber.hpp"
 
 std::shared_ptr<JS::InternalObject>& JS::Number::getPrototypeProperties() {

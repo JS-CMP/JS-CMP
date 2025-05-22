@@ -84,7 +84,8 @@ void InternalObject::put(const std::string& key, const Any& value, bool is_throw
         if (accessor.set == nullptr || !JS::IS::Callable(accessor.set)) {
             throw std::runtime_error("Unexpected descriptor type set of accessor descriptor is null");
         }
-        accessor.set->call(JS::Any(shared_from_this()), JS::Arguments::CreateArgumentsObject({JS::Any(value)}));
+        accessor.set->call_function(JS::Any(shared_from_this()),
+                                    JS::Arguments::CreateArgumentsObject({JS::Any(value)}));
         return;
     }
     this->defineOwnProperty(key, JS::DataDescriptor{value, true, true, true}, is_throw);
@@ -262,4 +263,9 @@ bool InternalObject::defineOwnProperty(const std::string& key, Attribute desc, b
     (*properties)[key] = desc;
     return true;
 }
+
+bool InternalObject::hasInstance(const JS::Any& value) const {
+    throw std::runtime_error("TypeError: hasInstance not implemented for this object"); // TODO : TypeError
+}
+
 } // namespace JS

@@ -35,7 +35,7 @@ public:
     ///@}
 
     /** @brief Destructor */
-    ~Function() = default;
+    ~Function() override = default;
 
     /**
      * @name Methods to make prototype methods of the Function built-in

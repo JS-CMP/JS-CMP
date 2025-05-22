@@ -27,7 +27,7 @@ public:
     /** @brief Move constructor */
     FunctionBinded(FunctionBinded&& f) noexcept;
     /** @brief Copy assignment operator */
-    FunctionBinded& operator=(const FunctionBinded& function);
+    FunctionBinded& operator=(const FunctionBinded& function) = default;
     /** @brief Move assignment operator */
     FunctionBinded& operator=(FunctionBinded&& f) noexcept;
     ///@}

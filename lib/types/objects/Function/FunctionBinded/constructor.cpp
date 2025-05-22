@@ -47,25 +47,17 @@ FunctionBinded::FunctionBinded(const FunctionBinded& f) : JS::Function(f) {
     this->boundArguments = f.boundArguments;
 }
 
-FunctionBinded::FunctionBinded(FunctionBinded&& f) noexcept : JS::Function(std::move(f)) {
+FunctionBinded::FunctionBinded(FunctionBinded&& f) noexcept : JS::Function(std::move(static_cast<JS::Function&&>(f))) {
     this->targetFunction = std::move(f.targetFunction);
     this->boundThis = std::move(f.boundThis);
     this->boundArguments = std::move(f.boundArguments);
-}
-
-FunctionBinded& FunctionBinded::operator=(const FunctionBinded& function) {
-    JS::Function::operator=(function);
-    this->targetFunction = function.targetFunction;
-    this->boundThis = function.boundThis;
-    this->boundArguments = function.boundArguments;
-    return *this;
 }
 
 FunctionBinded& FunctionBinded::operator=(FunctionBinded&& f) noexcept {
-    JS::Function::operator=(std::move(f));
     this->targetFunction = std::move(f.targetFunction);
     this->boundThis = std::move(f.boundThis);
     this->boundArguments = std::move(f.boundArguments);
+    JS::Function::operator=(std::move(f));
     return *this;
 }
 

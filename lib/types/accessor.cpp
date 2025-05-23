@@ -8,9 +8,8 @@
 template <typename T>
 JS::PropertyProxy JS::Any::operator[](T key) const {
     JS::COMPARE::CheckObjectCoercible(*this);
-    JS::Any value = JS::CONVERT::ToObject(*this);
-    return JS::PropertyProxy(std::get<std::shared_ptr<JS::InternalObject>>(value.getValue()),
-                             JS::CONVERT::ToString(key));
+    auto value = JS::CONVERT::ToObject(*this);
+    return JS::PropertyProxy(value, JS::CONVERT::ToString(key));
 }
 template JS::PropertyProxy JS::Any::operator[](int) const;
 template JS::PropertyProxy JS::Any::operator[](unsigned int) const;

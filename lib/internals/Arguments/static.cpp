@@ -1,6 +1,6 @@
 #include "internals/Arguments.hpp"
 #include "types/JsAny.hpp"
-#include "types/objects/JsFunction.hpp"
+#include "types/objects/Function/JsFunction.hpp"
 #include "utils/Convert.hpp"
 
 namespace JS::Arguments { // TODO Implement non-strict mode

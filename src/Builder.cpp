@@ -11,7 +11,7 @@ void Builder::build() {
     program.parse();
 
     if (this->options.getFlags() & OPTION_FLAG_PREPROCESS) {
-        std::cout << program << std::endl;
+        std::cout << program << '\n';
         return;
     }
     std::string inputFilename = this->options.getFilename() + std::string(".cpp");
@@ -19,9 +19,8 @@ void Builder::build() {
     outputFile << program;
     outputFile.close();
 
-    std::cout << "Compiler Found: " << this->options.getCompiler() << std::endl;
-    std::cout << "Compiling " << this->options.getFilename() << " to " << this->options.getOutputFilename()
-              << std::endl;
+    std::cout << "Compiler Found: " << this->options.getCompiler() << '\n';
+    std::cout << "Compiling " << this->options.getFilename() << " to " << this->options.getOutputFilename() << '\n';
     compiling(inputFilename);
 }
 
@@ -48,7 +47,7 @@ std::string Builder::read_all(const std::string& filename) {
     while (inputFile.good()) {
         std::string line;
         std::getline(inputFile, line);
-        content += line + "\n";
+        content += line + '\n';
     }
     inputFile.close();
     return content;

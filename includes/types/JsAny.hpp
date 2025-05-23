@@ -57,7 +57,7 @@ public:
     /** @brief Move constructor */
     JS::Any& operator=(JS::Any&& other) noexcept;
     /** @brief boolean conversion operator */
-    operator bool() const;
+    operator bool(); // NOLINT(hicpp-explicit-conversions)
     ///@}
 
     /**
@@ -125,7 +125,7 @@ public:
     /** @brief Addition operator Any + null */
     JS::Any operator+(JS::Null) const;
     /** @brief Addition operator Any + undefined */
-    JS::Any operator+(JS::Undefined) const;
+    JS::Any operator+(JS::Undefined /*unused*/) const;
     /** @brief Addition operator int + Any */
     friend JS::Any operator+(int value, JS::Any const& any);
     /** @brief Addition operator double + Any */
@@ -137,7 +137,7 @@ public:
     /** @brief Addition operator null + Any */
     friend JS::Any operator+(JS::Null, JS::Any const& any);
     /** @brief Addition operator undefined + Any */
-    friend JS::Any operator+(JS::Undefined, JS::Any const& any);
+    friend JS::Any operator+(JS::Undefined /*unused*/, JS::Any const& any);
     ///@}
 
     /**
@@ -155,12 +155,12 @@ public:
     template <typename T>
     JS::Any operator-(T other) const;
     /** @brief Subtraction operator Any - Undefined */
-    JS::Any operator-(JS::Undefined) const;
+    JS::Any operator-(JS::Undefined /*unused*/) const;
     /** @brief Subtraction operator T - Any */
     template <typename T>
     friend JSAnyAmbiguous<T> operator-(T value, JS::Any const& any);
     /** @brief Subtraction operator Undefined - Any */
-    friend JS::Any operator-(JS::Undefined, JS::Any const& any);
+    friend JS::Any operator-(JS::Undefined /*unused*/, JS::Any const& any);
     ///@}
 
     /**
@@ -187,7 +187,7 @@ public:
     /** @brief Multiplication operator Any * null */
     JS::Any operator*(JS::Null) const;
     /** @brief Multiplication operator Any * undefined */
-    JS::Any operator*(JS::Undefined) const;
+    JS::Any operator*(JS::Undefined /*unused*/) const;
     /** @brief Multiplication operator int * Any */
     friend JS::Any operator*(int value, JS::Any const& any);
     /** @brief Multiplication operator double * Any */
@@ -220,7 +220,7 @@ public:
     /** @brief Division operator Any / null */
     JS::Any operator/(JS::Null) const;
     /** @brief Division operator Any / undefined */
-    JS::Any operator/(JS::Undefined) const;
+    JS::Any operator/(JS::Undefined /*unused*/) const;
     /** @brief Division operator int / Any */
     friend JS::Any operator/(int value, JS::Any const& any);
     /** @brief Division operator double / Any */
@@ -253,7 +253,7 @@ public:
     /** @brief Modulus operator Any % null */
     JS::Any operator%(JS::Null) const;
     /** @brief Modulus operator Any % undefined */
-    JS::Any operator%(JS::Undefined) const;
+    JS::Any operator%(JS::Undefined /*unused*/) const;
     /** @brief Modulus operator int % Any */
     friend JS::Any operator%(int value, JS::Any const& any);
     /** @brief Modulus operator double % Any */
@@ -331,7 +331,7 @@ public:
     /** @brief Accessors to call function stored in properties on an object stored in value */
     template <typename... Args>
     JS::Any operator()(Args&&... args) {
-        return call(JS::Arguments::CreateArgumentsObject(std::vector<JS::Any>{args...}));
+        return call(JS::Arguments::CreateArgumentsObject(std::vector<JS::Any>{std::move(args)...}));
     }
     /** @brief Accessors to call function stored in properties on an object stored in value */
     JS::Any call(const JS::Any& args) const;

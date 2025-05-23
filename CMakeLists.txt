@@ -9,7 +9,9 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 include_directories(${PROJECT_SOURCE_DIR}/includes)
+include_directories(${PROJECT_SOURCE_DIR}/submodules/SyntaxSmith/includes)
 add_subdirectory(submodules/Lexer)
+add_subdirectory(submodules/SyntaxSmith)
 
 find_package(Boost REQUIRED COMPONENTS program_options)
 

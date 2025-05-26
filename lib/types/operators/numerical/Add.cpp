@@ -149,13 +149,9 @@ JS::Any JS::Any::operator+(bool value) const {
     return {};
 }
 
-JS::Any JS::Any::operator+(const char* value) const {
-    return this->operator+(JS::CONVERT::ToUtf16(value));
-}
+JS::Any JS::Any::operator+(const char* value) const { return this->operator+(JS::CONVERT::ToUtf16(value)); }
 
-JS::Any JS::Any::operator+(const char16_t* value) const {
-    return this->operator+(std::u16string(value));
-}
+JS::Any JS::Any::operator+(const char16_t* value) const { return this->operator+(std::u16string(value)); }
 
 JS::Any JS::Any::operator+(const std::u16string& value) const {
     switch (this->value.index()) {
@@ -174,7 +170,6 @@ JS::Any JS::Any::operator+(const std::u16string& value) const {
     }
     return {};
 }
-
 
 JS::Any JS::Any::operator+(JS::Null) const {
     switch (this->value.index()) {
@@ -249,13 +244,9 @@ JS::Any operator+(double value, JS::Any const& any) {
     return {};
 }
 
-JS::Any operator+(const char* value, JS::Any const& any) {
-    return JS::CONVERT::ToUtf16(value) + any;
-}
+JS::Any operator+(const char* value, JS::Any const& any) { return JS::CONVERT::ToUtf16(value) + any; }
 
-JS::Any operator+(const char16_t* value, JS::Any const& any) {
-    return std::u16string(value) + JS::Any(any);
-}
+JS::Any operator+(const char16_t* value, JS::Any const& any) { return std::u16string(value) + JS::Any(any); }
 
 JS::Any operator+(const std::u16string& value, JS::Any const& any) {
     switch (any.getValue().index()) {

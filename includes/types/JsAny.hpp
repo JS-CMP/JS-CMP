@@ -71,17 +71,17 @@ public:
     /** @brief Bitwise AND operator Any & T */
     DECLARE_1FUNC(JS::Any operator&, const);
     /** @brief Bitwise AND operator T & Any */
-    DECLARE_2FUNC(friend JS::Any operator&,)
+    DECLARE_2FUNC(friend JS::Any operator&, )
 
     /** @brief Bitwise OR operator Any | T */
     DECLARE_1FUNC(JS::Any operator|, const);
     /** @brief Bitwise OR operator T | Any */
-    DECLARE_2FUNC(friend JS::Any operator|,)
+    DECLARE_2FUNC(friend JS::Any operator|, )
 
     /** @brief Bitwise XOR operator Any ^ T */
     DECLARE_1FUNC(JS::Any operator^, const);
     /** @brief Bitwise XOR operator T ^ Any */
-    DECLARE_2FUNC(friend JS::Any operator^,)
+    DECLARE_2FUNC(friend JS::Any operator^, )
 
     /** @brief Bitwise NOT operator ~a */
     JS::Any operator~() const;
@@ -92,12 +92,12 @@ public:
     /** @brief Bitwise left shift operator Any << T */
     DECLARE_1FUNC(JS::Any operator<<, const);
     /** @brief Bitwise left shift operator T << Any */
-    DECLARE_2FUNC(friend JS::Any operator<<,)
+    DECLARE_2FUNC(friend JS::Any operator<<, )
 
     /** @brief Bitwise right shift operator a >> b */
     DECLARE_1FUNC(JS::Any operator>>, const);
     /** @brief Bitwise right shift operator int >> Any */
-    DECLARE_2FUNC(friend JS::Any operator>>,)
+    DECLARE_2FUNC(friend JS::Any operator>>, )
     ///@}
 
     /**
@@ -107,7 +107,7 @@ public:
     /** @brief Addition operator Any + T */
     DECLARE_1FUNC(JS::Any operator+, const);
     /** @brief Addition operator T + Any */
-    DECLARE_2FUNC(friend JS::Any operator+,)
+    DECLARE_2FUNC(friend JS::Any operator+, )
     ///@}
 
     /**
@@ -124,7 +124,7 @@ public:
     /** @brief Subtraction operator Any - T */
     DECLARE_1FUNC(JS::Any operator-, const);
     /** @brief Subtraction operator T - Any */
-    DECLARE_2FUNC(friend JS::Any operator-,)
+    DECLARE_2FUNC(friend JS::Any operator-, )
     ///@}
 
     /**
@@ -141,7 +141,7 @@ public:
     /** @brief Multiplication operator Any * T */
     DECLARE_1FUNC(JS::Any operator*, const);
     /** @brief Multiplication operator T * Any */
-    DECLARE_2FUNC(friend JS::Any operator*,)
+    DECLARE_2FUNC(friend JS::Any operator*, )
     ///@}
 
     /**
@@ -152,7 +152,7 @@ public:
     /** @brief Division operator Any / T */
     DECLARE_1FUNC(JS::Any operator/, const);
     /** @brief Division operator T / Any */
-    DECLARE_2FUNC(friend JS::Any operator/,)
+    DECLARE_2FUNC(friend JS::Any operator/, )
     ///@}
 
     /**
@@ -163,7 +163,7 @@ public:
     /** @brief Modulus operator Any % T */
     DECLARE_1FUNC(JS::Any operator%, const);
     /** @brief Modulus operator T % Any */
-    DECLARE_2FUNC(friend JS::Any operator%,)
+    DECLARE_2FUNC(friend JS::Any operator%, )
     ///@}
 
     /**
@@ -174,12 +174,12 @@ public:
     /** @brief And operator Any && T*/
     DECLARE_1FUNC(JS::Any operator&&, const);
     /** @brief And operator T && Any */
-    DECLARE_2FUNC(friend JS::Any operator&&,)
+    DECLARE_2FUNC(friend JS::Any operator&&, )
 
     /** @brief Or operator Any || T */
     DECLARE_1FUNC(JS::Any operator||, const)
     /** @brief Or operator T || Any */
-    DECLARE_2FUNC(friend JS::Any operator||,)
+    DECLARE_2FUNC(friend JS::Any operator||, )
     ///@}
 
     /**

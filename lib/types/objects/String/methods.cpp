@@ -1,13 +1,14 @@
 #include "types/objects/JsString.hpp"
 #include "utils/Compare.hpp"
 #include "utils/Convert.hpp"
-#include <cmath>
 
+#include <cmath>
 #include <types/objects/JsObject.hpp>
 
 // TODO ToString should return a rope not a std::u16string
 // TODO should change string to utf-16 code unit
-// TODO in rope then recode operator [], find, rfind, substr, toLowerCase, toUpperCase, trim for rope, all of this function
+// TODO in rope then recode operator [], find, rfind, substr, toLowerCase, toUpperCase, trim for rope, all of this
+// function
 
 // override
 std::optional<JS::Attribute> JS::String::getOwnProperty(const std::u16string& key) const {
@@ -34,7 +35,7 @@ std::optional<JS::Attribute> JS::String::getOwnProperty(const std::u16string& ke
 // prototype methods
 JS::Any JS::String::toString(const JS::Any& thisArg, const JS::Any& args) {
     if ((!JS::COMPARE::Type(thisArg, JS::OBJECT) ||
-        std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->class_name != u"String") &&
+         std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->class_name != u"String") &&
         !JS::COMPARE::Type(thisArg, JS::STRING)) {
         throw std::runtime_error("TypeError: String.prototype.valueOf called on non-object");
     }
@@ -43,7 +44,7 @@ JS::Any JS::String::toString(const JS::Any& thisArg, const JS::Any& args) {
 
 JS::Any JS::String::valueOf(const JS::Any& thisArg, const JS::Any& args) {
     if ((!JS::COMPARE::Type(thisArg, JS::OBJECT) ||
-        std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->class_name != u"String") &&
+         std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->class_name != u"String") &&
         !JS::COMPARE::Type(thisArg, JS::STRING)) {
         throw std::runtime_error("TypeError: String.prototype.valueOf called on non-object");
     }

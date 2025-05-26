@@ -264,7 +264,7 @@ Any operator*(const char16_t* value, const JS::Any& any) {
                 return JS::Any(JS::CONVERT::ToNumber(value) * std::get<bool>(any.getValue()));
             case JS::NULL_TYPE:
                 JS::CONVERT::ToNumber(value);
-            return JS::Any(0);
+                return JS::Any(0);
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
@@ -282,7 +282,7 @@ Any operator*(const std::u16string& value, const JS::Any& any) {
                 return JS::Any(JS::CONVERT::ToNumber(value) * std::get<bool>(any.getValue()));
             case JS::NULL_TYPE:
                 JS::CONVERT::ToNumber(value);
-            return JS::Any(0);
+                return JS::Any(0);
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }

@@ -24,10 +24,10 @@ String::String(const std::unordered_map<std::u16string, JS::Any>& properties)
     }
     this->defineOwnProperty(u"length", JS::DataDescriptor{JS::Any(0), false, false, false});
     this->defineOwnProperty(u"prototype", DataDescriptor({
-                                             JS::Any(getPrototypeProperties()),
-                                             false,
-                                             false,
-                                             false,
-                                         }));
+                                              JS::Any(getPrototypeProperties()),
+                                              false,
+                                              false,
+                                              false,
+                                          }));
 }
 } // namespace JS

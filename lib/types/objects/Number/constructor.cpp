@@ -23,10 +23,10 @@ Number::Number(const std::unordered_map<std::u16string, JS::Attribute>& properti
     }
     this->defineOwnProperty(u"length", JS::DataDescriptor{JS::Any(1), false, false, false});
     this->defineOwnProperty(u"prototype", DataDescriptor({
-                                             JS::Any(getPrototypeProperties()),
-                                             false,
-                                             false,
-                                             false,
-                                         }));
+                                              JS::Any(getPrototypeProperties()),
+                                              false,
+                                              false,
+                                              false,
+                                          }));
 }
 } // namespace JS

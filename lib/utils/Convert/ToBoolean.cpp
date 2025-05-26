@@ -1,13 +1,14 @@
 #include "types/JsAny.hpp"
+
 #include <cmath>
 
 namespace JS::CONVERT {
 bool ToBoolean(int value) { return value != 0; }
 bool ToBoolean(double value) { return !std::isnan(value) && value != 0; }
 bool ToBoolean(bool value) { return value; }
-bool ToBoolean(unsigned int value) {return value != 0; }
-bool ToBoolean(const char* str) {return str != nullptr && *str != '\0';}
-bool ToBoolean(const char16_t* str) {return str != nullptr && *str != u'\0';}
+bool ToBoolean(unsigned int value) { return value != 0; }
+bool ToBoolean(const char* str) { return str != nullptr && *str != '\0'; }
+bool ToBoolean(const char16_t* str) { return str != nullptr && *str != u'\0'; }
 bool ToBoolean(const std::string& str) { return !str.empty(); }
 bool ToBoolean(const std::u16string& str) { return !str.empty(); }
 bool ToBoolean(const Rope& rope) { return ToBoolean(rope.toString()); }

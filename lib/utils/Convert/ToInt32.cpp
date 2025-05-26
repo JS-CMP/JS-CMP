@@ -1,8 +1,8 @@
 #include "types/JsAny.hpp"
+#include "utils/Declaration.hpp"
 
 #include <cmath>
 #include <utils/Convert.hpp>
-#include "utils/Declaration.hpp"
 
 namespace JS::CONVERT {
 
@@ -23,9 +23,9 @@ DECLARE_1FUNC(int32_t ToInt32, {
     if (int32bit >= two31) {
         return static_cast<int32_t>(int32bit - two32);
     }
-        if (int32bit < -two31) {
-                return static_cast<int32_t>(int32bit + two32);
-        }
+    if (int32bit < -two31) {
+        return static_cast<int32_t>(int32bit + two32);
+    }
     return static_cast<int32_t>(int32bit);
 })
 } // namespace JS::CONVERT

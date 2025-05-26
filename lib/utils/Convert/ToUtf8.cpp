@@ -1,6 +1,6 @@
+#include <string>
 #include <unicode/unistr.h>
 #include <unicode/ustream.h>
-#include <string>
 
 namespace JS::CONVERT {
 std::string ToUtf8(const std::u16string& utf16_str) {
@@ -10,9 +10,7 @@ std::string ToUtf8(const std::u16string& utf16_str) {
         utf8_str.reserve(utf16_str.length() * 2);
         unicode_str.toUTF8String(utf8_str);
         return utf8_str;
-    } catch (const std::exception& e) {
-        throw std::runtime_error("UTF-8 conversion failed: " + std::string(e.what()));
-    }
+    } catch (const std::exception& e) { throw std::runtime_error("UTF-8 conversion failed: " + std::string(e.what())); }
 }
 
 std::string ToUtf8(char16_t ch) {
@@ -27,11 +25,9 @@ std::string ToUtf8(char16_t ch) {
         std::string utf8_str;
         unicode_str.toUTF8String(utf8_str);
         return utf8_str;
-    } catch (const std::exception& e) {
-        throw std::runtime_error("UTF-8 conversion failed: " + std::string(e.what()));
-    }
+    } catch (const std::exception& e) { throw std::runtime_error("UTF-8 conversion failed: " + std::string(e.what())); }
 }
-} //namespace JS::CONVERT
+} // namespace JS::CONVERT
 
 std::ostream& operator<<(std::ostream& os, const std::u16string& str) {
     os << JS::CONVERT::ToUtf8(str);

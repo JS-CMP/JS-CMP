@@ -131,6 +131,24 @@ JS::Any JS::Any::operator+(double value) const {
     return {};
 }
 
+JS::Any JS::Any::operator+(bool value) const {
+    switch (this->value.index()) {
+        case NUMBER:
+            return JS::Any(std::get<double>(this->value) + value);
+        case STRING:
+            return JS::Any(std::get<Rope>(this->value) + JS::CONVERT::ToString(value));
+        case BOOLEAN:
+            return JS::Any(std::get<bool>(this->value) + value);
+        case FUNCTION:
+            return JS::Any(JS::CONVERT::ToString(*this) + JS::CONVERT::ToString(value));
+        case UNDEFINED:
+            return JS::Any(std::numeric_limits<double>::quiet_NaN());
+        case NULL_TYPE:
+            return JS::Any(static_cast<double>(value));
+    }
+    return {};
+}
+
 JS::Any JS::Any::operator+(const char* value) const {
     return this->operator+(JS::CONVERT::ToUtf16(value));
 }
@@ -157,23 +175,6 @@ JS::Any JS::Any::operator+(const std::u16string& value) const {
     return {};
 }
 
-JS::Any JS::Any::operator+(bool value) const {
-    switch (this->value.index()) {
-        case NUMBER:
-            return JS::Any(std::get<double>(this->value) + value);
-        case STRING:
-            return JS::Any(std::get<Rope>(this->value) + JS::CONVERT::ToString(value));
-        case BOOLEAN:
-            return JS::Any(std::get<bool>(this->value) + value);
-        case FUNCTION:
-            return JS::Any(JS::CONVERT::ToString(*this) + JS::CONVERT::ToString(value));
-        case UNDEFINED:
-            return JS::Any(std::numeric_limits<double>::quiet_NaN());
-        case NULL_TYPE:
-            return JS::Any(static_cast<double>(value));
-    }
-    return {};
-}
 
 JS::Any JS::Any::operator+(JS::Null) const {
     switch (this->value.index()) {

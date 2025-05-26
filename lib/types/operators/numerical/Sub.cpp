@@ -1,18 +1,12 @@
 #include <types/JsAny.hpp>
 #include <utils/Convert.hpp>
 
-template <typename T>
-JS::Any JS::Any::operator-(T other) const {
-    return JS::Any(JS::CONVERT::ToNumber(*this) - JS::CONVERT::ToNumber(other));
-}
-
-DECLARE_1FUNC(template JS::Any JS::Any::operator-, const)
+DECLARE_1FUNC(JS::Any JS::Any::operator-, const {
+    return JS::Any(JS::CONVERT::ToNumber(*this) - JS::CONVERT::ToNumber(value));
+})
 
 namespace JS {
-template <typename T>
-JS::Any operator-(T value, JS::Any const& any) {
+DECLARE_2FUNC(JS::Any operator-,{
     return JS::Any(JS::CONVERT::ToNumber(value) - JS::CONVERT::ToNumber(any));
-}
-
-DECLARE_2FUNC(template JS::Any operator-,)
+})
 } // namespace JS

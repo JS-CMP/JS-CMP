@@ -19,11 +19,14 @@ char16_t RopeIterator::next() {
         nodeStack.pop();
 
         auto right = node->getRight();
-        if (right) pushLeftNodes(right);
+        if (right) {
+        pushLeftNodes(right);
+        }
 
         auto left = node->getLeft();
-        if (left) pushLeftNodes(left);
-
+        if (left) {
+        pushLeftNodes(left);
+}
         return next();
     }
 

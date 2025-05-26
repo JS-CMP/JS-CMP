@@ -35,8 +35,7 @@ jobs:
       - name: Install dependencies on macOS
         if: matrix.os == 'macos-latest'
         run:
-          brew install cmake gcc boost icu4c
-          brew link --force icu4c
+          brew install gcc boost icu4c &&  brew link --force icu4c
 
       - name: Initialize git submodules
         run: |

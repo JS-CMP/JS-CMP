@@ -28,17 +28,44 @@ public:
     [[nodiscard]] size_t length() const override;
 
     /**
-     * @brief Returns the string data stored in the leaf.
-     * @return The string data.
-     */
-    [[nodiscard]] std::u16string getData();
-
-    /**
      * @brief Gets the character at the specified index in the string.
      * @param idx Index of the character.
      * @return Character at the given index.
      */
-    [[nodiscard]] char getCharAt(size_t idx) const override;
+    [[nodiscard]] char16_t getCharAt(size_t idx) const override;
+
+    /**
+     * @brief Finds the first occurrence of a substring in the string.
+     * @param str The substring to search for.
+     * @param pos The position to start searching from.
+     * @return The index of the first occurrence of the substring, or npos if not found.
+     */
+    [[nodiscard]] size_t find(const std::u16string& str, size_t pos = 0) const override;
+
+    /**
+     * @brief Finds the last occurrence of a substring in the string.
+     * @param str The substring to search for.
+     * @param pos The position to start searching from.
+     * @return The index of the last occurrence of the substring, or npos if not found.
+     */
+    [[nodiscard]] size_t rfind(const std::u16string& str, size_t pos = std::u16string::npos) const override;
+
+    /**
+     * @brief Returns the left child of the rope node.
+     * @return Shared pointer to the left child node.
+     */
+    [[nodiscard]] std::shared_ptr<RopeNode> getLeft() const override;
+
+    /**
+     * @brief Returns the right child of the rope node.
+     * @return Shared pointer to the right child node.
+     */
+    [[nodiscard]] std::shared_ptr<RopeNode> getRight() const override;
+
+    /**
+     * @return Pointer to the data stored in the leaf.
+     */
+    [[nodiscard]] const std::u16string* getDataPtr() const override;
 
     /**
      * @brief Prints the contents of the string stored in the leaf.

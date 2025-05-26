@@ -4,13 +4,10 @@
 
 #include <cmath>
 #include <types/objects/JsObject.hpp>
+#include <unicode/unistr.h>
+#include <unicode/ustream.h>
+#include <unicode/uchar.h>
 
-// TODO ToString should return a rope not a std::u16string
-// TODO should change string to utf-16 code unit
-// TODO in rope then recode operator [], find, rfind, substr, toLowerCase, toUpperCase, trim for rope, all of this
-// function
-
-// override
 std::optional<JS::Attribute> JS::String::getOwnProperty(const std::u16string& key) const {
     auto desc = JS::InternalObject::getOwnProperty(key);
     if (desc.has_value()) {
@@ -24,12 +21,11 @@ std::optional<JS::Attribute> JS::String::getOwnProperty(const std::u16string& ke
     }
     Rope str = std::get<Rope>(this->primitiveValue);
     int index = JS::CONVERT::ToInteger(key);
-    int len = str.length();
+    size_t len = str.length();
     if (len <= index) {
         return std::nullopt;
     }
-    auto resultStr = str.toString()[index]; // TODO:: make [] operator in ropes
-    return JS::DataDescriptor(JS::Any(resultStr), false, false, false);
+    return JS::DataDescriptor(JS::Any(std::u16string(1, str[index])), false, false, false);
 }
 
 // prototype methods
@@ -53,42 +49,39 @@ JS::Any JS::String::valueOf(const JS::Any& thisArg, const JS::Any& args) {
 
 JS::Any JS::String::charAt(const JS::Any& thisArg, const JS::Any& args) {
     JS::COMPARE::CheckObjectCoercible(thisArg);
-    JS::Any S = thisArg[u"toString"]();
+    Rope S = JS::CONVERT::ToRope(thisArg); // aka convert to string but faster
     int position = JS::CONVERT::ToInteger(args[u"0"]);
-    uint32_t size = JS::CONVERT::ToUint32(S[u"length"]);
+    uint32_t size = JS::CONVERT::ToUint32(static_cast<unsigned int>(S.length()));
     if (position < 0 || position >= size) {
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
     }
-    std::u16string str =
-        std::get<Rope>(std::get<std::shared_ptr<JS::InternalObject>>(S.getValue())->primitiveValue).toString();
-    return JS::Any(std::u16string(1, str[position])); // TODO:: make [] operator in ropes
+    return JS::Any(std::u16string(1, S[position]));
 }
 
 JS::Any JS::String::charCodeAt(const JS::Any& thisArg, const JS::Any& args) {
     JS::COMPARE::CheckObjectCoercible(thisArg);
-    std::u16string S = JS::CONVERT::ToString(thisArg);
+    Rope S = JS::CONVERT::ToRope(thisArg); // aka convert to string but faster
     int position = JS::CONVERT::ToInteger(args[u"0"]);
     uint32_t size = S.length();
     if (position < 0 || position >= size) {
         return JS::Any(std::nan(""));
     }
-    return JS::Any(static_cast<int>(S[position])); // TODO:: make [] operator in ropes
+    return JS::Any(static_cast<unsigned int>(S[position]));
 }
 
 JS::Any JS::String::concat(const JS::Any& thisArg, const JS::Any& args) {
     JS::COMPARE::CheckObjectCoercible(thisArg);
-    std::u16string S = JS::CONVERT::ToString(thisArg);
-    Rope R = Rope(S);
+    Rope S = JS::CONVERT::ToRope(thisArg); // aka convert to string but faster
     uint32_t size = JS::CONVERT::ToUint32(args[u"length"]);
     for (uint32_t k = 0; k < size; k++) {
-        R = R + Rope(JS::CONVERT::ToString(args[k]));
+        S = S + Rope(JS::CONVERT::ToString(args[k]));
     }
-    return JS::Any(Rope(std::move(R)));
+    return JS::Any(Rope(std::move(S)));
 }
 
 JS::Any JS::String::indexOf(const JS::Any& thisArg, const JS::Any& args) {
     JS::COMPARE::CheckObjectCoercible(thisArg);
-    std::u16string S = JS::CONVERT::ToString(thisArg);
+    Rope S = JS::CONVERT::ToRope(thisArg); // aka convert to string but faster
     std::u16string searchStr = JS::CONVERT::ToString(args[u"0"]);
     int position;
     if (JS::COMPARE::Type(args[u"1"], JS::UNDEFINED)) {
@@ -96,12 +89,13 @@ JS::Any JS::String::indexOf(const JS::Any& thisArg, const JS::Any& args) {
     } else {
         position = JS::CONVERT::ToInteger(args[u"1"]);
     }
-    return JS::Any(static_cast<int>(S.find(searchStr, position)));
+    size_t foundPos = S.find(searchStr, static_cast<size_t>(position));
+    return JS::Any(foundPos == std::u16string::npos ? -1 : static_cast<unsigned int>(foundPos));
 }
 
 JS::Any JS::String::lastIndexOf(const JS::Any& thisArg, const JS::Any& args) {
     JS::COMPARE::CheckObjectCoercible(thisArg);
-    std::u16string S = JS::CONVERT::ToString(thisArg);
+    Rope S = JS::CONVERT::ToRope(thisArg);
     std::u16string searchStr = JS::CONVERT::ToString(args[u"0"]);
     int position;
     if (JS::COMPARE::Type(args[u"1"], JS::UNDEFINED)) {
@@ -114,8 +108,8 @@ JS::Any JS::String::lastIndexOf(const JS::Any& thisArg, const JS::Any& args) {
 
 JS::Any JS::String::localeCompare(const JS::Any& thisArg, const JS::Any& args) {
     JS::COMPARE::CheckObjectCoercible(thisArg);
-    std::u16string S = JS::CONVERT::ToString(thisArg);
-    std::u16string that = JS::CONVERT::ToString(args[u"0"]);
+    Rope S = JS::CONVERT::ToRope(thisArg);
+    Rope that = JS::CONVERT::ToRope(args[u"0"]);
     return JS::Any(S.compare(that));
 }
 
@@ -158,7 +152,7 @@ JS::Any JS::String::split(const JS::Any& thisArg, const JS::Any& args) {
 
 JS::Any JS::String::substring(const JS::Any& thisArg, const JS::Any& args) {
     JS::COMPARE::CheckObjectCoercible(thisArg);
-    std::u16string S = JS::CONVERT::ToString(thisArg);
+    Rope S = JS::CONVERT::ToRope(thisArg);
     uint32_t len = S.length();
     uint32_t intStart = JS::CONVERT::ToInteger(args[u"0"]);
     uint32_t intEnd;
@@ -178,7 +172,10 @@ JS::Any JS::String::substring(const JS::Any& thisArg, const JS::Any& args) {
 JS::Any JS::String::toLowerCase(const JS::Any& thisArg, const JS::Any& args) {
     JS::COMPARE::CheckObjectCoercible(thisArg);
     std::u16string S = JS::CONVERT::ToString(thisArg);
-    return JS::Any(S /*.toLowerCase()*/); // TODO:: make toLowerCase in ropes
+    icu::UnicodeString ustr(reinterpret_cast<const UChar*>(S.data()), S.length());
+    ustr.toLower();
+    std::u16string result(reinterpret_cast<const char16_t*>(ustr.getBuffer()), ustr.length());
+    return JS::Any(result);
 }
 
 JS::Any JS::String::toLocaleLowerCase(const JS::Any& thisArg, const JS::Any& args) {
@@ -188,7 +185,10 @@ JS::Any JS::String::toLocaleLowerCase(const JS::Any& thisArg, const JS::Any& arg
 JS::Any JS::String::toUpperCase(const JS::Any& thisArg, const JS::Any& args) {
     JS::COMPARE::CheckObjectCoercible(thisArg);
     std::u16string S = JS::CONVERT::ToString(thisArg);
-    return JS::Any(S /*.toUpperCase()*/); // TODO:: make toUpperCase in ropes
+    icu::UnicodeString ustr(reinterpret_cast<const UChar*>(S.data()), S.length());
+    ustr.toUpper();
+    std::u16string result(reinterpret_cast<const char16_t*>(ustr.getBuffer()), ustr.length());
+    return JS::Any(result);
 }
 
 JS::Any JS::String::toLocaleUpperCase(const JS::Any& thisArg, const JS::Any& args) {
@@ -197,6 +197,15 @@ JS::Any JS::String::toLocaleUpperCase(const JS::Any& thisArg, const JS::Any& arg
 
 JS::Any JS::String::trim(const JS::Any& thisArg, const JS::Any& args) {
     JS::COMPARE::CheckObjectCoercible(thisArg);
-    std::u16string S = JS::CONVERT::ToString(thisArg);
-    return JS::Any(S /*.trim()*/); // TODO:: make trim in ropes
+    Rope S = JS::CONVERT::ToRope(thisArg); // aka convert to string
+    // maybe faster in string
+    int32_t start = 0;
+    int32_t end = S.length();
+    while (start < end && u_isUWhiteSpace(S[start])) {
+        ++start;
+    }
+    while (end > start && u_isUWhiteSpace(S[end - 1])) {
+        --end;
+    }
+    return JS::Any(S.substr(start, end - start));
 }

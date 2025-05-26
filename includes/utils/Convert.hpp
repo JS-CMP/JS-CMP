@@ -23,6 +23,8 @@ DECLARE_1FUNC(int32_t ToInt32, );
 
 DECLARE_1FUNC(std::u16string ToString, );
 
+DECLARE_1FUNC(Rope ToRope, );
+
 std::string ToUtf8(char16_t ch);
 std::string ToUtf8(const std::u16string& value);
 

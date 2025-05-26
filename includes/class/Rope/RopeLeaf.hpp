@@ -19,7 +19,7 @@ public:
      * @brief Constructs a RopeLeaf with the given string data.
      * @param str The string to be stored in the leaf.
      */
-    explicit RopeLeaf(const std::string& str);
+    explicit RopeLeaf(const std::u16string& str);
 
     /**
      * @brief Returns the length of the string stored in the leaf.
@@ -31,7 +31,7 @@ public:
      * @brief Returns the string data stored in the leaf.
      * @return The string data.
      */
-    [[nodiscard]] std::string getData();
+    [[nodiscard]] std::u16string getData();
 
     /**
      * @brief Gets the character at the specified index in the string.
@@ -46,7 +46,7 @@ public:
     void print() const override;
 
 private:
-    std::string data; /**< The string data stored in this RopeLeaf. */
+    std::u16string data; /**< The string data stored in this RopeLeaf. */
 };
 
 #endif // ROPELEAF_HPP

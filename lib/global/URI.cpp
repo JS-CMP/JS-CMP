@@ -7,7 +7,7 @@
 #include <utils/Convert.hpp>
 
 static const std::string MARK = R"(-_.!~*'())";
-static const std::string RESERVED = R"(;/?:@&=+$, )";
+static const std::string RESERVED = R"(;/?:@&=+$,)";
 static const std::string ALPHA = R"(ABCDEFGHJKLMNOPQRSTUVWXYZizIabcdefghjklmnopqrstuvwxy)";
 static const std::string DECIMAL_DIGIT = R"(0123456789)";
 static const std::string HEX_DIGIT = DECIMAL_DIGIT + R"(ABCDEFabcdef)";
@@ -53,22 +53,22 @@ std::string decode(std::string utf, const std::string& reservedSet) {
 
 namespace JS::GLOBAL {
 JS::Any encodeURI(const JS::Any& thisArgs, const JS::Any& args) {
-    auto uriStr = JS::CONVERT::ToString(args[1]);
-    return JS::Any(encode(uriStr, RESERVED + UNESCAPED + "%"));
+    auto uriStr = JS::CONVERT::ToUtf8(JS::CONVERT::ToString(args[1]));
+    return JS::Any(JS::CONVERT::ToUtf16(encode(uriStr, RESERVED + UNESCAPED + "%")));
 }
 
 JS::Any decodeURI(const JS::Any& thisArgs, const JS::Any& args) {
-    auto uriStr = JS::CONVERT::ToString(args["0"]);
-    return JS::Any(decode(uriStr, "%#"));
+    auto uriStr = JS::CONVERT::ToUtf8(JS::CONVERT::ToString(args["0"]));
+    return JS::Any(JS::CONVERT::ToUtf16(decode(uriStr, "%#")));
 }
 
 JS::Any encodeURIComponent(const JS::Any& thisArgs, const JS::Any& args) {
-    auto uriStr = JS::CONVERT::ToString(args["0"]);
-    return JS::Any(encode(uriStr, UNESCAPED));
+    auto uriStr = JS::CONVERT::ToUtf8(JS::CONVERT::ToString(args["0"]));
+    return JS::Any(JS::CONVERT::ToUtf16(encode(uriStr, UNESCAPED)));
 }
 
 JS::Any decodeURIComponent(const JS::Any& thisArgs, const JS::Any& args) {
-    auto uriStr = JS::CONVERT::ToString(args["0"]);
-    return JS::Any(decode(uriStr, ""));
+    auto uriStr = JS::CONVERT::ToUtf8(JS::CONVERT::ToString(args["0"]));
+    return JS::Any(JS::CONVERT::ToUtf16(decode(uriStr, "")));
 }
 } // namespace JS::GLOBAL

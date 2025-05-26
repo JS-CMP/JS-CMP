@@ -8,7 +8,7 @@
 #include <utility>
 
 namespace JS {
-using Properties = std::unordered_map<std::string, JS::Attribute>;
+using Properties = std::unordered_map<std::u16string, JS::Attribute>;
 
 /**
  * @class InternalObject
@@ -26,8 +26,8 @@ public:
     ///@{
     /** @brief Default constructor initializes the object with an empty map */
     explicit InternalObject(JS::Properties properties = {}, std::shared_ptr<JS::InternalObject> prototype = nullptr,
-                            std::string class_name = "Object", bool extensible = true);
-    explicit InternalObject(const std::unordered_map<std::string, JS::Any>& properties = {});
+                            std::u16string class_name = u"Object", bool extensible = true);
+    explicit InternalObject(const std::unordered_map<std::u16string, JS::Any>& properties = {});
     /** @brief Attribute constructor */
     explicit InternalObject(const JS::Attribute& attribute);
 
@@ -48,7 +48,7 @@ public:
      */
     ///@{
     /** @brief Accessors to properties with string of object in stored in value */
-    JS::PropertyProxy operator[](const std::string& key);
+    JS::PropertyProxy operator[](const std::u16string& key);
     /** @brief Call operator for the object */
     template <typename... Args>
     JS::Any operator()(Args... args) {
@@ -63,27 +63,27 @@ public:
      */
     ///@{
     /** @brief Get a property of the object https://262.ecma-international.org/5.1/#sec-8.12.1 */
-    [[nodiscard]] virtual std::optional<JS::Attribute> getOwnProperty(const std::string& key) const;
+    [[nodiscard]] virtual std::optional<JS::Attribute> getOwnProperty(const std::u16string& key) const;
     /** @brief Get a property of the object with all the parent included
      * https://262.ecma-international.org/5.1/#sec-8.12.2 */
-    [[nodiscard]] virtual std::optional<JS::Attribute> getProperty(const std::string& key) const;
+    [[nodiscard]] virtual std::optional<JS::Attribute> getProperty(const std::u16string& key) const;
     /** @brief Get a property of the object with all the parent included and all the checks for descriptor
      * https://262.ecma-international.org/5.1/#sec-8.12.3 */
-    [[nodiscard]] virtual JS::Any get(const std::string& key) const;
+    [[nodiscard]] virtual JS::Any get(const std::u16string& key) const;
     /** @brief Check if a property can be put in the object https://262.ecma-international.org/5.1/#sec-8.12.4 */
-    [[nodiscard]] virtual bool canPut(const std::string& key) const;
+    [[nodiscard]] virtual bool canPut(const std::u16string& key) const;
     /** @brief Put a property in the object https://262.ecma-international.org/5.1/#sec-8.12.5 */
-    virtual void put(const std::string& key, const JS::Any& value, bool is_throw = false);
+    virtual void put(const std::u16string& key, const JS::Any& value, bool is_throw = false);
     /** @brief Check if a property exists in the object https://262.ecma-international.org/5.1/#sec-8.12.6 */
-    [[nodiscard]] virtual bool hasProperty(const std::string& key) const;
+    [[nodiscard]] virtual bool hasProperty(const std::u16string& key) const;
     /** @brief Delete a property in the object https://262.ecma-international.org/5.1/#sec-8.12.7 */
-    virtual bool deleteProperty(const std::string& key, bool is_throw = false);
+    virtual bool deleteProperty(const std::u16string& key, bool is_throw = false);
     /** @brief Get the default value of the object https://262.ecma-international.org/5.1/#sec-8.12.8 */
     virtual JS::Any defaultValue(const JS::Types& hint);
     /** @brief Get the default value of the object https://262.ecma-international.org/5.1/#sec-8.12.8 */
     virtual JS::Any defaultValue();
     /** @brief Define a property in the object https://262.ecma-international.org/5.1/#sec-8.12.9 */
-    virtual bool defineOwnProperty(const std::string& key, JS::Attribute attribute, bool is_throw = false);
+    virtual bool defineOwnProperty(const std::u16string& key, JS::Attribute attribute, bool is_throw = false);
     ///@}
 
     /**
@@ -107,7 +107,7 @@ public:
     std::shared_ptr<JS::InternalObject> prototype; /**< The prototype of the object. */
     FunctionType call_function;                    /**< The call function of the object. */
     FunctionType construct;                        /**< The construct function of the object. */
-    std::string class_name;                        /**< The class name of the object. */
+    std::u16string class_name;                        /**< The class name of the object. */
     bool extensible;                               /**< Whether the object is extensible. */
     JS::Value primitiveValue; /**< The primitive value of the object. (Only Defined for Some Objects) */
     std::shared_ptr<JS::InternalObject> parameter_map; /**< The parameter map of the object. */

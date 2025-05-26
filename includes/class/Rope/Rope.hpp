@@ -19,10 +19,14 @@ public:
      * These constructors create a new Rope object with the given value
      */
     ///@{
-    /** @brief Default constructor initializes the rope to an empty string. */
+    /** @brief Default constructor initializes the rope to a string. */
     explicit Rope(const std::string& str);
+    /** @brief Default constructor initializes the rope to a u16string. */
+    explicit Rope(const std::u16string& str);
     /** @brief Constructor for char* */
     explicit Rope(const char* str);
+    /** @brief Constructor for char16_t* */
+    explicit Rope(const char16_t* str);
     /** @brief Constructor for char */
     explicit Rope(std::shared_ptr<RopeNode> node);
     ///@}
@@ -65,20 +69,20 @@ public:
      * @param other The string to concatenate.
      * @return New Rope which is the result of the concatenation.
      */
-    Rope operator+(const std::string& other);
+    Rope operator+(const std::u16string& other);
 
     /**
      * @brief Concatenation operator for a rope with a temporary string.
      * @param other The temporary string to concatenate.
      * @return New Rope which is the result of the concatenation.
      */
-    Rope operator+(const std::string& other) const;
+    Rope operator+(const std::u16string& other) const;
     /**
      * @brief Concatenation operator for a rope with a temporary string.
      * @param other The temporary string to concatenate.
      * @return New Rope which is the result of the concatenation.
      */
-    Rope operator+(const std::string&& other) const;
+    Rope operator+(const std::u16string&& other) const;
 
     /**
      * @brief Friend function for concatenating a temporary string with a rope.
@@ -86,7 +90,7 @@ public:
      * @param rope The rope to concatenate.
      * @return New Rope which is the result of the concatenation.
      */
-    friend Rope operator+(const std::string&& other, const Rope& rope);
+    friend Rope operator+(const std::u16string&& other, const Rope& rope);
 
     /**
      * @brief Friend function for concatenating a string with a rope.
@@ -94,7 +98,7 @@ public:
      * @param rope The rope to concatenate.
      * @return New Rope which is the result of the concatenation.
      */
-    friend Rope operator+(const std::string& other, const Rope& rope);
+    friend Rope operator+(const std::u16string& other, const Rope& rope);
 
     /**
      * @brief Equality operator to check if two ropes are equal.
@@ -112,11 +116,11 @@ public:
      * @brief Converts the rope to a string.
      * @return The string representation of the rope.
      */
-    [[nodiscard]] std::string toString() const;
+    [[nodiscard]] std::u16string toString() const;
 
 private:
     std::shared_ptr<RopeNode> root; /**< Root node of the rope structure. */
-    std::string build;              /**< Cached string representation. */
+    std::u16string build;              /**< Cached string representation. */
     bool updated = false;           /**< Flag indicating if the rope has been updated. */
 
     /**
@@ -124,7 +128,7 @@ private:
      * @param result The resulting string.
      * @param node The node being processed.
      */
-    void toStringHelper(std::string& result, const std::shared_ptr<RopeNode>& node) const;
+    void toStringHelper(std::u16string& result, const std::shared_ptr<RopeNode>& node) const;
 
     /**
      * @brief Compares two nodes for equality.

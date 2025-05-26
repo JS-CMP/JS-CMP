@@ -132,6 +132,14 @@ JS::Any JS::Any::operator+(double value) const {
 }
 
 JS::Any JS::Any::operator+(const char* value) const {
+    return this->operator+(JS::CONVERT::ToUtf16(value));
+}
+
+JS::Any JS::Any::operator+(const char16_t* value) const {
+    return this->operator+(std::u16string(value));
+}
+
+JS::Any JS::Any::operator+(const std::u16string& value) const {
     switch (this->value.index()) {
         case NUMBER:
             return JS::Any(JS::CONVERT::ToString(*this) + value);
@@ -241,6 +249,14 @@ JS::Any operator+(double value, JS::Any const& any) {
 }
 
 JS::Any operator+(const char* value, JS::Any const& any) {
+    return JS::CONVERT::ToUtf16(value) + any;
+}
+
+JS::Any operator+(const char16_t* value, JS::Any const& any) {
+    return std::u16string(value) + JS::Any(any);
+}
+
+JS::Any operator+(const std::u16string& value, JS::Any const& any) {
     switch (any.getValue().index()) {
         case JS::NUMBER:
             return JS::Any(value + JS::CONVERT::ToString(any));

@@ -12,66 +12,66 @@
 #include "types/objects/JsString.hpp"
 
 // TODO fix this create Object to inherit from Function
-JS::Any Object = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::string, JS::Any>{
-    {"getPrototypeOf", JS::Any(std::make_shared<JS::Function>(JS::Object::getPrototypeOf))},
-    {"getOwnPropertyDescriptor", JS::Any(std::make_shared<JS::Function>(JS::Object::getOwnPropertyDescriptor))},
-    {"getOwnPropertyNames", JS::Any(std::make_shared<JS::Function>(JS::Object::getOwnPropertyNames))},
-    {"create", JS::Any(std::make_shared<JS::Function>(JS::Object::create))},
-    {"defineProperty", JS::Any(std::make_shared<JS::Function>(JS::Object::defineProperty))},
-    {"defineProperties", JS::Any(std::make_shared<JS::Function>(JS::Object::defineProperties))},
-    {"seal", JS::Any(std::make_shared<JS::Function>(JS::Object::seal))},
-    {"freeze", JS::Any(std::make_shared<JS::Function>(JS::Object::freeze))},
-    {"preventExtensions", JS::Any(std::make_shared<JS::Function>(JS::Object::preventExtensions))},
-    {"isSealed", JS::Any(std::make_shared<JS::Function>(JS::Object::isSealed))},
-    {"isFrozen", JS::Any(std::make_shared<JS::Function>(JS::Object::isFrozen))},
-    {"isExtensible", JS::Any(std::make_shared<JS::Function>(JS::Object::isExtensible))},
-    {"keys", JS::Any(std::make_shared<JS::Function>(JS::Object::keys))},
+JS::Any Object = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::u16string, JS::Any>{
+    {u"getPrototypeOf", JS::Any(std::make_shared<JS::Function>(JS::Object::getPrototypeOf))},
+    {u"getOwnPropertyDescriptor", JS::Any(std::make_shared<JS::Function>(JS::Object::getOwnPropertyDescriptor))},
+    {u"getOwnPropertyNames", JS::Any(std::make_shared<JS::Function>(JS::Object::getOwnPropertyNames))},
+    {u"create", JS::Any(std::make_shared<JS::Function>(JS::Object::create))},
+    {u"defineProperty", JS::Any(std::make_shared<JS::Function>(JS::Object::defineProperty))},
+    {u"defineProperties", JS::Any(std::make_shared<JS::Function>(JS::Object::defineProperties))},
+    {u"seal", JS::Any(std::make_shared<JS::Function>(JS::Object::seal))},
+    {u"freeze", JS::Any(std::make_shared<JS::Function>(JS::Object::freeze))},
+    {u"preventExtensions", JS::Any(std::make_shared<JS::Function>(JS::Object::preventExtensions))},
+    {u"isSealed", JS::Any(std::make_shared<JS::Function>(JS::Object::isSealed))},
+    {u"isFrozen", JS::Any(std::make_shared<JS::Function>(JS::Object::isFrozen))},
+    {u"isExtensible", JS::Any(std::make_shared<JS::Function>(JS::Object::isExtensible))},
+    {u"keys", JS::Any(std::make_shared<JS::Function>(JS::Object::keys))},
 }));
-JS::Any String = JS::Any(std::make_shared<JS::String>(std::unordered_map<std::string, JS::Any>{
-    {"fromCharCode", JS::Any(std::make_shared<JS::Function>(JS::String::fromCharCode))}}));
-JS::Any Number = JS::Any(std::make_shared<JS::Number>(std::unordered_map<std::string, JS::Attribute>{
-    {"MAX_VALUE", JS::DataDescriptor{JS::Any(JS::Number::MAX_VALUE), false, false, false}},
-    {"MIN_VALUE", JS::DataDescriptor{JS::Any(JS::Number::MIN_VALUE), false, false, false}},
-    {"NaN", JS::DataDescriptor{JS::Any(JS::Number::NaN), false, false, false}},
-    {"NEGATIVE_INFINITY", JS::DataDescriptor{JS::Any(JS::Number::NEGATIVE_INFINITY), false, false, false}},
-    {"POSITIVE_INFINITY", JS::DataDescriptor{JS::Any(JS::Number::POSITIVE_INFINITY), false, false, false}},
+JS::Any String = JS::Any(std::make_shared<JS::String>(std::unordered_map<std::u16string, JS::Any>{
+    {u"fromCharCode", JS::Any(std::make_shared<JS::Function>(JS::String::fromCharCode))}}));
+JS::Any Number = JS::Any(std::make_shared<JS::Number>(std::unordered_map<std::u16string, JS::Attribute>{
+    {u"MAX_VALUE", JS::DataDescriptor{JS::Any(JS::Number::MAX_VALUE), false, false, false}},
+    {u"MIN_VALUE", JS::DataDescriptor{JS::Any(JS::Number::MIN_VALUE), false, false, false}},
+    {u"NaN", JS::DataDescriptor{JS::Any(JS::Number::NaN), false, false, false}},
+    {u"NEGATIVE_INFINITY", JS::DataDescriptor{JS::Any(JS::Number::NEGATIVE_INFINITY), false, false, false}},
+    {u"POSITIVE_INFINITY", JS::DataDescriptor{JS::Any(JS::Number::POSITIVE_INFINITY), false, false, false}},
 
 }));
 JS::Any Boolean = JS::Any(std::make_shared<JS::Boolean>());
 
 JS::Any Math = JS::Any(std::make_shared<JS::InternalObject>(
-    std::unordered_map<std::string, JS::Attribute>{
-        {"abs", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::abs)), true, true, true}},
-        {"acos", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::acos)), true, true, true}},
-        {"asin", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::asin)), true, true, true}},
-        {"atan", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::atan)), true, true, true}},
-        {"atan2", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::atan2)), true, true, true}},
-        {"ceil", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::ceil)), true, true, true}},
-        {"cos", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::cos)), true, true, true}},
-        {"exp", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::exp)), true, true, true}},
-        {"floor", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::floor)), true, true, true}},
-        {"log", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::log)), true, true, true}},
-        {"max", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::max)), true, true, true}},
-        {"min", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::min)), true, true, true}},
-        {"pow", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::pow)), true, true, true}},
-        {"random", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::random)), true, true, true}},
-        {"round", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::round)), true, true, true}},
-        {"sin", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::sin)), true, true, true}},
-        {"sqrt", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::sqrt)), true, true, true}},
-        {"tan", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::tan)), true, true, true}},
-        {"PI", JS::DataDescriptor{JS::Any(M_PI), false, false, false}},
-        {"E", JS::DataDescriptor{JS::Any(M_E), false, false, false}},
-        {"LN2", JS::DataDescriptor{JS::Any(M_LN2), false, false, false}},
-        {"LN10", JS::DataDescriptor{JS::Any(M_LN10), false, false, false}},
-        {"LOG2E", JS::DataDescriptor{JS::Any(M_LOG2E), false, false, false}},
-        {"LOG10E", JS::DataDescriptor{JS::Any(M_LOG10E), false, false, false}},
-        {"SQRT1_2", JS::DataDescriptor{JS::Any(M_SQRT1_2), false, false, false}},
-        {"SQRT2", JS::DataDescriptor{JS::Any(M_SQRT2), false, false, false}},
+    std::unordered_map<std::u16string, JS::Attribute>{
+        {u"abs", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::abs)), true, true, true}},
+        {u"acos", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::acos)), true, true, true}},
+        {u"asin", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::asin)), true, true, true}},
+        {u"atan", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::atan)), true, true, true}},
+        {u"atan2", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::atan2)), true, true, true}},
+        {u"ceil", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::ceil)), true, true, true}},
+        {u"cos", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::cos)), true, true, true}},
+        {u"exp", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::exp)), true, true, true}},
+        {u"floor", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::floor)), true, true, true}},
+        {u"log", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::log)), true, true, true}},
+        {u"max", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::max)), true, true, true}},
+        {u"min", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::min)), true, true, true}},
+        {u"pow", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::pow)), true, true, true}},
+        {u"random", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::random)), true, true, true}},
+        {u"round", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::round)), true, true, true}},
+        {u"sin", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::sin)), true, true, true}},
+        {u"sqrt", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::sqrt)), true, true, true}},
+        {u"tan", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::tan)), true, true, true}},
+        {u"PI", JS::DataDescriptor{JS::Any(M_PI), false, false, false}},
+        {u"E", JS::DataDescriptor{JS::Any(M_E), false, false, false}},
+        {u"LN2", JS::DataDescriptor{JS::Any(M_LN2), false, false, false}},
+        {u"LN10", JS::DataDescriptor{JS::Any(M_LN10), false, false, false}},
+        {u"LOG2E", JS::DataDescriptor{JS::Any(M_LOG2E), false, false, false}},
+        {u"LOG10E", JS::DataDescriptor{JS::Any(M_LOG10E), false, false, false}},
+        {u"SQRT1_2", JS::DataDescriptor{JS::Any(M_SQRT1_2), false, false, false}},
+        {u"SQRT2", JS::DataDescriptor{JS::Any(M_SQRT2), false, false, false}},
     },
-    nullptr, "Math", true)); // TODO Make math inherit from Object
+    nullptr, u"Math", true)); // TODO Make math inherit from Object
 
-JS::Any console = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::string, JS::Any>{
-    {"log", JS::Any(std::make_shared<JS::Function>(JS::console::log))},
+JS::Any console = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::u16string, JS::Any>{
+    {u"log", JS::Any(std::make_shared<JS::Function>(JS::console::log))},
 }));
 
 JS::Any NaN = JS::Any(std::numeric_limits<double>::quiet_NaN());
@@ -88,20 +88,20 @@ JS::Any decodeURI = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::decodeURI
 JS::Any encodeURIComponent = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::encodeURIComponent));
 JS::Any decodeURIComponent = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::decodeURIComponent));
 
-JS::Any global = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::string, JS::Any>{
-    {"isNaN", isNaN},
-    {"parseInt", parseInt},
-    {"parseFloat", parseFloat},
-    {"isFinite", isFinite},
-    {"NaN", NaN},
-    {"Infinity", Infinity},
-    {"undefined", undefined},
-    {"Object", Object},
-    {"Math", Math},
-    {"encodeURI", encodeURI},
-    {"decodeURI", decodeURI},
-    {"encodeURIComponent", encodeURIComponent},
-    {"decodeURIComponent", decodeURIComponent},
+JS::Any global = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::u16string, JS::Any>{
+    {u"isNaN", isNaN},
+    {u"parseInt", parseInt},
+    {u"parseFloat", parseFloat},
+    {u"isFinite", isFinite},
+    {u"NaN", NaN},
+    {u"Infinity", Infinity},
+    {u"undefined", undefined},
+    {u"Object", Object},
+    {u"Math", Math},
+    {u"encodeURI", encodeURI},
+    {u"decodeURI", decodeURI},
+    {u"encodeURIComponent", encodeURIComponent},
+    {u"decodeURIComponent", decodeURIComponent},
 }));
 
 #endif // JS_CMP_GLOBAL_HPP

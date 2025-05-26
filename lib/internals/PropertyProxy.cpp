@@ -14,7 +14,7 @@ PropertyProxy::operator JS::Any() { return obj_->get(key_); }
 
 PropertyProxy::operator JS::Any() const { return obj_->get(key_); }
 
-PropertyProxy PropertyProxy::operator[](const std::string& key) const {
+PropertyProxy PropertyProxy::operator[](const std::u16string& key) const {
     JS::Any any = obj_->get(key_);
     if (any.getValue().index() == JS::OBJECT) {
         return PropertyProxy(std::get<std::shared_ptr<JS::InternalObject>>(any.getValue()), key);

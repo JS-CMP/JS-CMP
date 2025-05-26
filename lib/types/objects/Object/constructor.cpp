@@ -6,8 +6,8 @@
 
 namespace JS {
 
-Object::Object() : JS::InternalObject({}, getPrototypeProperties(), "Object", true) {
-    this->InternalObject::defineOwnProperty("prototype", DataDescriptor({
+Object::Object() : JS::InternalObject({}, getPrototypeProperties(), u"Object", true) {
+    this->InternalObject::defineOwnProperty(u"prototype", DataDescriptor({
                                                              JS::Any(getPrototypeProperties()),
                                                              false,
                                                              false,
@@ -15,12 +15,12 @@ Object::Object() : JS::InternalObject({}, getPrototypeProperties(), "Object", tr
                                                          }));
 }
 
-Object::Object(const std::unordered_map<std::string, JS::Any>& properties)
-    : JS::InternalObject({}, getPrototypeProperties(), "Object", true) {
+Object::Object(const std::unordered_map<std::u16string, JS::Any>& properties)
+    : JS::InternalObject({}, getPrototypeProperties(), u"Object", true) {
     for (const auto& [key, value] : properties) {
         this->InternalObject::put(key, value);
     }
-    this->InternalObject::defineOwnProperty("prototype", DataDescriptor({
+    this->InternalObject::defineOwnProperty(u"prototype", DataDescriptor({
                                                              JS::Any(getPrototypeProperties()),
                                                              false,
                                                              false,
@@ -29,7 +29,7 @@ Object::Object(const std::unordered_map<std::string, JS::Any>& properties)
 }
 
 Object::Object(const Attribute& attribute) : JS::InternalObject(attribute) {
-    this->InternalObject::defineOwnProperty("prototype", DataDescriptor({
+    this->InternalObject::defineOwnProperty(u"prototype", DataDescriptor({
                                                              JS::Any(getPrototypeProperties()),
                                                              false,
                                                              false,

@@ -67,20 +67,20 @@ JS::Any Function::bind(const JS::Any& thisArg, const JS::Any& args) {
     }
     const std::shared_ptr<JS::FunctionBinded> F = std::make_shared<JS::FunctionBinded>(
         std::get<std::shared_ptr<JS::InternalObject>>(target.getValue()), args[0], A);
-    F->class_name = "Function Binded"; // temporary
-    if (std::get<std::shared_ptr<JS::InternalObject>>(target.getValue())->class_name == "Function") {
+    F->class_name = u"Function Binded"; // temporary
+    if (std::get<std::shared_ptr<JS::InternalObject>>(target.getValue())->class_name == u"Function") {
         const int L = JS::CONVERT::ToInteger(target["length"]) - static_cast<int>(A.size());
-        F->defineOwnProperty("length", JS::DataDescriptor{JS::Any(L < 0 ? 0 : L), false, false, true}, false);
+        F->defineOwnProperty(u"length", JS::DataDescriptor{JS::Any(L < 0 ? 0 : L), false, false, true}, false);
     } else {
-        F->defineOwnProperty("length", JS::DataDescriptor{JS::Any(0), false, false, true}, false);
+        F->defineOwnProperty(u"length", JS::DataDescriptor{JS::Any(0), false, false, true}, false);
     }
     // TODO: make a [[ThrowTypeError]] function object
     std::shared_ptr<JS::InternalObject> thrower =
         std::make_shared<JS::Function>([](const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
             throw std::runtime_error("TypeError: Cannot access 'caller' or 'arguments.callee' in strict mode");
         });
-    F->defineOwnProperty("caller", JS::AccessorDescriptor{thrower, thrower, false, false}, false);
-    F->defineOwnProperty("arguments", JS::AccessorDescriptor{thrower, thrower, false, false}, false);
+    F->defineOwnProperty(u"caller", JS::AccessorDescriptor{thrower, thrower, false, false}, false);
+    F->defineOwnProperty(u"arguments", JS::AccessorDescriptor{thrower, thrower, false, false}, false);
     return JS::Any(F);
 }
 } // namespace JS

@@ -28,14 +28,14 @@ public:
      * @param l Shared pointer to the left rope node.
      * @param r The right string to concatenate.
      */
-    RopeConcat(std::shared_ptr<RopeNode> l, const std::string& r);
+    RopeConcat(std::shared_ptr<RopeNode> l, const std::u16string& r);
 
     /**
      * @brief Constructs a RopeConcat from a string and a RopeNode.
      * @param l The left string to concatenate.
      * @param r Shared pointer to the right rope node.
      */
-    RopeConcat(const std::string& l, std::shared_ptr<RopeNode> r);
+    RopeConcat(const std::u16string& l, std::shared_ptr<RopeNode> r);
 
     /**
      * @brief Returns the total length of the concatenated nodes.

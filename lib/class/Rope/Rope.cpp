@@ -1,8 +1,13 @@
 #include <class/Rope/Rope.hpp>
+#include <utils/Convert.hpp>
 
-Rope::Rope(const std::string& str) : root(std::make_shared<RopeLeaf>(str)) {}
+Rope::Rope(const std::string& str) : root(std::make_shared<RopeLeaf>(JS::CONVERT::ToUtf16(str))) {}
 
-Rope::Rope(const char* str) : root(std::make_shared<RopeLeaf>(std::string(str))) {}
+Rope::Rope(const std::u16string& str) : root(std::make_shared<RopeLeaf>(str)) {}
+
+Rope::Rope(const char16_t* str) : root(std::make_shared<RopeLeaf>(std::u16string(str))) {}
+
+Rope::Rope(const char* str) : root(std::make_shared<RopeLeaf>(JS::CONVERT::ToUtf16(str))) {}
 
 Rope::Rope(std::shared_ptr<RopeNode> node) : root(std::move(node)) {}
 
@@ -19,15 +24,15 @@ void Rope::concat(const Rope& other) { root = std::make_shared<RopeConcat>(root,
 
 Rope Rope::operator+(const Rope& other) const { return Rope(std::make_shared<RopeConcat>(root, other.root)); }
 
-Rope Rope::operator+(const std::string& other) const { return Rope(std::make_shared<RopeConcat>(root, other)); }
+Rope Rope::operator+(const std::u16string& other) const { return Rope(std::make_shared<RopeConcat>(root, other)); }
 
-Rope Rope::operator+(const std::string&& other) const { return Rope(std::make_shared<RopeConcat>(root, other)); }
+Rope Rope::operator+(const std::u16string&& other) const { return Rope(std::make_shared<RopeConcat>(root, other)); }
 
-Rope operator+(const std::string&& other, const Rope& rope) {
+Rope operator+(const std::u16string&& other, const Rope& rope) {
     return Rope(std::make_shared<RopeConcat>(other, rope.root));
 }
 
-Rope operator+(const std::string& other, const Rope& rope) {
+Rope operator+(const std::u16string& other, const Rope& rope) {
     return Rope(std::make_shared<RopeConcat>(other, rope.root));
 }
 
@@ -40,16 +45,16 @@ void Rope::print() const {
     std::cout << '\n';
 }
 
-std::string Rope::toString() const {
+std::u16string Rope::toString() const {
     if (updated) {
         return build;
     }
-    std::string result;
+    std::u16string result;
     toStringHelper(result, root);
     return result;
 }
 
-void Rope::toStringHelper(std::string& result, const std::shared_ptr<RopeNode>& node) const {
+void Rope::toStringHelper(std::u16string& result, const std::shared_ptr<RopeNode>& node) const {
     if (auto leaf = std::dynamic_pointer_cast<RopeLeaf>(node)) {
         result += leaf->getData();
     } else if (auto concat = std::dynamic_pointer_cast<RopeConcat>(node)) {

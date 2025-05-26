@@ -24,7 +24,7 @@ JS::Any Object::getOwnPropertyDescriptor(const JS::Any& thisArg, const JS::Any& 
             "TypeError: Object.getOwnPropertyDescriptor called on non-object"); // TODO: make this a JS error
     }
     const std::shared_ptr<JS::InternalObject> O = std::get<std::shared_ptr<JS::InternalObject>>(args["0"].getValue());
-    const std::string P = JS::CONVERT::ToString(args["1"]);
+    const std::u16string P = JS::CONVERT::ToString(args["1"]);
     std::optional<Attribute> desc = O->getOwnProperty(P);
     if (desc.has_value()) {
         return JS::CONVERT::FromPropertyDescriptor(desc.value());
@@ -66,7 +66,7 @@ JS::Any Object::defineProperty(const JS::Any& thisArg, const JS::Any& args) {
         throw std::runtime_error("TypeError: Object.defineProperty called on non-object"); // TODO: make this a JS error
     }
     std::shared_ptr<JS::InternalObject> O = std::get<std::shared_ptr<JS::InternalObject>>(args["0"].getValue());
-    const std::string& name = JS::CONVERT::ToString(args["1"]);
+    const std::u16string& name = JS::CONVERT::ToString(args["1"]);
     JS::Attribute desc = JS::CONVERT::ToPropertyDescriptor(args["2"]);
     O->defineOwnProperty(name, desc);
     return args[0];
@@ -79,7 +79,7 @@ JS::Any Object::defineProperties(const JS::Any& thisArg, const JS::Any& args) {
     }
     std::shared_ptr<JS::InternalObject> O = std::get<std::shared_ptr<JS::InternalObject>>(args["0"].getValue());
     auto props = JS::CONVERT::ToObject(args["1"]);
-    std::vector<std::pair<std::string, JS::Attribute>> descriptors;
+    std::vector<std::pair<std::u16string, JS::Attribute>> descriptors;
     for (const auto& [key, value] : *props->properties) {
         // TODO can be optimized with a list of enumerable in the object / a genericDescriptor with enumerable
         if (!(JS::IS::DataDescriptor(value) && std::get<JS::DataDescriptor>(value).enumerable ||

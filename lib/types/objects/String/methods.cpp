@@ -1,6 +1,7 @@
 #include "types/objects/JsString.hpp"
 #include "utils/Compare.hpp"
 #include "utils/Convert.hpp"
+#include <cmath>
 
 #include <types/objects/JsObject.hpp>
 

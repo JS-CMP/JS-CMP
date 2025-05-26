@@ -1,14 +1,18 @@
 #include "types/JsAny.hpp"
 #include "utils/Convert.hpp"
+
 #include <cmath>
 
 namespace JS::CONVERT {
 double ToNumber(int value) { return value; }
 double ToNumber(double value) { return value; }
 double ToNumber(bool value) { return static_cast<double>(value); }
-double ToNumber(unsigned int value) {return value <= std::numeric_limits<double>::max() ? static_cast<double>(value) : std::numeric_limits<double>::max();}
-double ToNumber(const char* str) {return ToNumber(std::string(str));}
-double ToNumber(const char16_t* str) {return ToNumber(std::u16string(str));}
+double ToNumber(unsigned int value) {
+    return value <= std::numeric_limits<double>::max() ? static_cast<double>(value)
+                                                       : std::numeric_limits<double>::max();
+}
+double ToNumber(const char* str) { return ToNumber(std::string(str)); }
+double ToNumber(const char16_t* str) { return ToNumber(std::u16string(str)); }
 double ToNumber(const std::string& str) {
     if (str.empty()) {
         throw std::invalid_argument("Cannot convert empty string to number");

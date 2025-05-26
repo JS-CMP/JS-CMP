@@ -8,11 +8,11 @@ namespace JS {
 
 Object::Object() : JS::InternalObject({}, getPrototypeProperties(), u"Object", true) {
     this->InternalObject::defineOwnProperty(u"prototype", DataDescriptor({
-                                                             JS::Any(getPrototypeProperties()),
-                                                             false,
-                                                             false,
-                                                             false,
-                                                         }));
+                                                              JS::Any(getPrototypeProperties()),
+                                                              false,
+                                                              false,
+                                                              false,
+                                                          }));
 }
 
 Object::Object(const std::unordered_map<std::u16string, JS::Any>& properties)
@@ -21,20 +21,20 @@ Object::Object(const std::unordered_map<std::u16string, JS::Any>& properties)
         this->InternalObject::put(key, value);
     }
     this->InternalObject::defineOwnProperty(u"prototype", DataDescriptor({
-                                                             JS::Any(getPrototypeProperties()),
-                                                             false,
-                                                             false,
-                                                             false,
-                                                         }));
+                                                              JS::Any(getPrototypeProperties()),
+                                                              false,
+                                                              false,
+                                                              false,
+                                                          }));
 }
 
 Object::Object(const Attribute& attribute) : JS::InternalObject(attribute) {
     this->InternalObject::defineOwnProperty(u"prototype", DataDescriptor({
-                                                             JS::Any(getPrototypeProperties()),
-                                                             false,
-                                                             false,
-                                                             false,
-                                                         }));
+                                                              JS::Any(getPrototypeProperties()),
+                                                              false,
+                                                              false,
+                                                              false,
+                                                          }));
 }
 
 Object::Object(const InternalObject&& internalObject) : JS::InternalObject(internalObject) {}

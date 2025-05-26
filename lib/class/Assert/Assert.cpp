@@ -1,4 +1,5 @@
 #include "class/Assert/Assert.hpp"
+
 #include "types/JsAny.hpp"
 
 assert::assert() : JS::Object() {
@@ -154,8 +155,8 @@ JS::Any assert::throwsHelper(const JS::Any& thisArgs, const JS::Any& args) {
     }
     if (JS::COMPARE::Type(args[0], JS::OBJECT) &&
         std::get<std::shared_ptr<JS::InternalObject>>(args[0].getValue())->class_name == u"Function") {
-        throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()), u"(The \"fn\" argument must be a function.)",
-                        u"ERR_INVALID_ARG_TYPE");
+        throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
+                        u"(The \"fn\" argument must be a function.)", u"ERR_INVALID_ARG_TYPE");
     }
     JS::Any fn = args[0];
     if (length == 1) {

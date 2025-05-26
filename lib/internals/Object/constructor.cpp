@@ -2,8 +2,8 @@
 #include "internals/Object.hpp"
 
 namespace JS {
-InternalObject::InternalObject(Properties properties, std::shared_ptr<InternalObject> prototype, std::u16string class_name,
-                               bool extensible)
+InternalObject::InternalObject(Properties properties, std::shared_ptr<InternalObject> prototype,
+                               std::u16string class_name, bool extensible)
     : properties(std::make_shared<Properties>(std::move(properties))), prototype(std::move(prototype)),
       call_function(nullptr), construct(nullptr), class_name(std::move(class_name)), extensible(extensible) {}
 

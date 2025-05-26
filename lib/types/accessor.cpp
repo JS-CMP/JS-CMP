@@ -5,11 +5,12 @@
 #include <types/JsAny.hpp>
 #include <types/objects/Function/JsFunction.hpp>
 
-DECLARE_1FUNC(JS::PropertyProxy JS::Any::operator[], const {
-    JS::COMPARE::CheckObjectCoercible(*this);
-    auto data = JS::CONVERT::ToObject(*this);
-    return JS::PropertyProxy(data, JS::CONVERT::ToString(value));
-})
+DECLARE_1FUNC(
+    JS::PropertyProxy JS::Any::operator[], const {
+        JS::COMPARE::CheckObjectCoercible(*this);
+        auto data = JS::CONVERT::ToObject(*this);
+        return JS::PropertyProxy(data, JS::CONVERT::ToString(value));
+    })
 
 JS::Any JS::Any::call(const JS::Any& args) const {
     if (value.index() == JS::OBJECT && std::get<std::shared_ptr<JS::InternalObject>>(value)->isCallable()) {

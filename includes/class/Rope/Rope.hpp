@@ -120,7 +120,7 @@ public:
 
 private:
     std::shared_ptr<RopeNode> root; /**< Root node of the rope structure. */
-    std::u16string build;              /**< Cached string representation. */
+    std::u16string build;           /**< Cached string representation. */
     bool updated = false;           /**< Flag indicating if the rope has been updated. */
 
     /**

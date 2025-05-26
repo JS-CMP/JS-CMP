@@ -15,7 +15,7 @@ uint32_t ToUint32(double value) {
     return APPLY_MODULO_UINT32(static_cast<int64_t>(posInt));
 }
 uint32_t ToUint32(bool value) { return value ? 1 : 0; }
-uint32_t ToUint32(unsigned int value) {return value <= 0xFFFFFFFF ? static_cast<uint32_t>(value) : 0xFFFFFFFF;}
+uint32_t ToUint32(unsigned int value) { return value <= 0xFFFFFFFF ? static_cast<uint32_t>(value) : 0xFFFFFFFF; }
 uint32_t ToUint32(const char* value) { return ToUint32(ToNumber(value)); }
 uint32_t ToUint32(const char16_t* value) { return ToUint32(ToNumber(value)); }
 uint32_t ToUint32(const std::string& str) { return ToUint32(ToNumber(str)); }

@@ -107,7 +107,7 @@ public:
     std::shared_ptr<JS::InternalObject> prototype; /**< The prototype of the object. */
     FunctionType call_function;                    /**< The call function of the object. */
     FunctionType construct;                        /**< The construct function of the object. */
-    std::u16string class_name;                        /**< The class name of the object. */
+    std::u16string class_name;                     /**< The class name of the object. */
     bool extensible;                               /**< Whether the object is extensible. */
     JS::Value primitiveValue; /**< The primitive value of the object. (Only Defined for Some Objects) */
     std::shared_ptr<JS::InternalObject> parameter_map; /**< The parameter map of the object. */

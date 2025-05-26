@@ -9,19 +9,19 @@ namespace JS::CONVERT {
 
 JS::Any ToPrimitive(const JS::Any& any);
 
-DECLARE_1FUNC(bool ToBoolean,);
+DECLARE_1FUNC(bool ToBoolean, );
 
-DECLARE_1FUNC(double ToNumber,);
+DECLARE_1FUNC(double ToNumber, );
 
-DECLARE_1FUNC(int ToInteger,);
+DECLARE_1FUNC(int ToInteger, );
 
-DECLARE_1FUNC(uint32_t ToUint32,);
+DECLARE_1FUNC(uint32_t ToUint32, );
 
-DECLARE_1FUNC(int16_t ToInt16,);
+DECLARE_1FUNC(int16_t ToInt16, );
 
-DECLARE_1FUNC(int32_t ToInt32,);
+DECLARE_1FUNC(int32_t ToInt32, );
 
-DECLARE_1FUNC(std::u16string ToString,);
+DECLARE_1FUNC(std::u16string ToString, );
 
 std::string ToUtf8(char16_t ch);
 std::string ToUtf8(const std::u16string& value);

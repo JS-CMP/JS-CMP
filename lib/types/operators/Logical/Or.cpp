@@ -2,7 +2,7 @@
 #include <utils/Convert.hpp>
 
 DECLARE_1FUNC(JS::Any JS::Any::operator||, const {
-    return JS::CONVERT::ToBoolean(*this) ? *this : JS::Any(std::move(value));
+    return JS::CONVERT::ToBoolean(*this) ? *this : JS::Any(value);
 
 });
 

@@ -100,7 +100,7 @@ size_t RopeConcat::rfind(const std::u16string& str, size_t pos) const {
         return leftLen + foundRight;
     }
 
-    size_t overlapLen = std::min({str.size() - 1, leftLen, rightLen});
+    size_t overlapLen = std::min(str.size() - 1, std::min(leftLen, rightLen));
 
     if (overlapLen > 0) {
         size_t leftOverlapStart = leftLen - overlapLen;

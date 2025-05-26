@@ -52,9 +52,9 @@ JS::Any JS::String::valueOf(const JS::Any& thisArg, const JS::Any& args) {
 
 JS::Any JS::String::charAt(const JS::Any& thisArg, const JS::Any& args) {
     JS::COMPARE::CheckObjectCoercible(thisArg);
-    JS::Any S = thisArg["toString"]();
-    int position = JS::CONVERT::ToInteger(args["0"]);
-    uint32_t size = JS::CONVERT::ToUint32(S["length"]);
+    JS::Any S = thisArg[u"toString"]();
+    int position = JS::CONVERT::ToInteger(args[u"0"]);
+    uint32_t size = JS::CONVERT::ToUint32(S[u"length"]);
     if (position < 0 || position >= size) {
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
     }
@@ -66,7 +66,7 @@ JS::Any JS::String::charAt(const JS::Any& thisArg, const JS::Any& args) {
 JS::Any JS::String::charCodeAt(const JS::Any& thisArg, const JS::Any& args) {
     JS::COMPARE::CheckObjectCoercible(thisArg);
     std::u16string S = JS::CONVERT::ToString(thisArg);
-    int position = JS::CONVERT::ToInteger(args["0"]);
+    int position = JS::CONVERT::ToInteger(args[u"0"]);
     uint32_t size = S.length();
     if (position < 0 || position >= size) {
         return JS::Any(std::nan(""));
@@ -78,7 +78,7 @@ JS::Any JS::String::concat(const JS::Any& thisArg, const JS::Any& args) {
     JS::COMPARE::CheckObjectCoercible(thisArg);
     std::u16string S = JS::CONVERT::ToString(thisArg);
     Rope R = Rope(S);
-    uint32_t size = JS::CONVERT::ToUint32(args["length"]);
+    uint32_t size = JS::CONVERT::ToUint32(args[u"length"]);
     for (uint32_t k = 0; k < size; k++) {
         R = R + Rope(JS::CONVERT::ToString(args[k]));
     }
@@ -88,12 +88,12 @@ JS::Any JS::String::concat(const JS::Any& thisArg, const JS::Any& args) {
 JS::Any JS::String::indexOf(const JS::Any& thisArg, const JS::Any& args) {
     JS::COMPARE::CheckObjectCoercible(thisArg);
     std::u16string S = JS::CONVERT::ToString(thisArg);
-    std::u16string searchStr = JS::CONVERT::ToString(args["0"]);
+    std::u16string searchStr = JS::CONVERT::ToString(args[u"0"]);
     int position;
-    if (JS::COMPARE::Type(args["1"], JS::UNDEFINED)) {
+    if (JS::COMPARE::Type(args[u"1"], JS::UNDEFINED)) {
         position = 0;
     } else {
-        position = JS::CONVERT::ToInteger(args["1"]);
+        position = JS::CONVERT::ToInteger(args[u"1"]);
     }
     return JS::Any(static_cast<int>(S.find(searchStr, position)));
 }
@@ -101,9 +101,9 @@ JS::Any JS::String::indexOf(const JS::Any& thisArg, const JS::Any& args) {
 JS::Any JS::String::lastIndexOf(const JS::Any& thisArg, const JS::Any& args) {
     JS::COMPARE::CheckObjectCoercible(thisArg);
     std::u16string S = JS::CONVERT::ToString(thisArg);
-    std::u16string searchStr = JS::CONVERT::ToString(args["0"]);
+    std::u16string searchStr = JS::CONVERT::ToString(args[u"0"]);
     int position;
-    if (JS::COMPARE::Type(args["1"], JS::UNDEFINED)) {
+    if (JS::COMPARE::Type(args[u"1"], JS::UNDEFINED)) {
         position = S.length();
     } else {
         position = JS::CONVERT::ToInteger(args[1]);
@@ -114,7 +114,7 @@ JS::Any JS::String::lastIndexOf(const JS::Any& thisArg, const JS::Any& args) {
 JS::Any JS::String::localeCompare(const JS::Any& thisArg, const JS::Any& args) {
     JS::COMPARE::CheckObjectCoercible(thisArg);
     std::u16string S = JS::CONVERT::ToString(thisArg);
-    std::u16string that = JS::CONVERT::ToString(args["0"]);
+    std::u16string that = JS::CONVERT::ToString(args[u"0"]);
     return JS::Any(S.compare(that));
 }
 
@@ -137,12 +137,12 @@ JS::Any JS::String::slice(const JS::Any& thisArg, const JS::Any& args) {
     JS::COMPARE::CheckObjectCoercible(thisArg);
     std::u16string S = JS::CONVERT::ToString(thisArg);
     uint32_t len = S.length();
-    int intStart = JS::CONVERT::ToInteger(args["0"]);
+    int intStart = JS::CONVERT::ToInteger(args[u"0"]);
     int intEnd;
-    if (JS::COMPARE::Type(args["1"], JS::UNDEFINED)) {
+    if (JS::COMPARE::Type(args[u"1"], JS::UNDEFINED)) {
         intEnd = static_cast<int>(len);
     } else {
-        intEnd = JS::CONVERT::ToInteger(args["1"]);
+        intEnd = JS::CONVERT::ToInteger(args[u"1"]);
     }
     uint32_t from = intStart < 0 ? std::max(len + intStart, 0U) : std::min(intStart, static_cast<int>(len));
     uint32_t to = intEnd < 0 ? std::max(len + intEnd, 0U) : std::min(intEnd, static_cast<int>(len));
@@ -159,12 +159,12 @@ JS::Any JS::String::substring(const JS::Any& thisArg, const JS::Any& args) {
     JS::COMPARE::CheckObjectCoercible(thisArg);
     std::u16string S = JS::CONVERT::ToString(thisArg);
     uint32_t len = S.length();
-    uint32_t intStart = JS::CONVERT::ToInteger(args["0"]);
+    uint32_t intStart = JS::CONVERT::ToInteger(args[u"0"]);
     uint32_t intEnd;
-    if (JS::COMPARE::Type(args["1"], JS::UNDEFINED)) {
+    if (JS::COMPARE::Type(args[u"1"], JS::UNDEFINED)) {
         intEnd = len;
     } else {
-        intEnd = JS::CONVERT::ToInteger(args["1"]);
+        intEnd = JS::CONVERT::ToInteger(args[u"1"]);
     }
     uint32_t from = std::min(std::max(intStart, 0U), len);
     uint32_t to = std::min(std::max(intEnd, 0U), len);

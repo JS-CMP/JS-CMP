@@ -8,7 +8,7 @@ assert::assert() : JS::Object() {
 
 // equals
 JS::Any assert::equalHelper(const JS::Any& thisArgs, const JS::Any& args) {
-    const double length = JS::CONVERT::ToNumber(args["length"]);
+    const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         u"(The \"actual\" and \"expected\" arguments must be specified.)", u"ERR_MISSING_ARGS");
@@ -22,7 +22,7 @@ JS::Any assert::equalHelper(const JS::Any& thisArgs, const JS::Any& args) {
 }
 
 JS::Any assert::notEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
-    const double length = JS::CONVERT::ToNumber(args["length"]);
+    const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         u"(The \"actual\" and \"expected\" arguments must be specified.)", u"ERR_MISSING_ARGS");
@@ -35,7 +35,7 @@ JS::Any assert::notEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
 
 // stictEquals
 JS::Any assert::strictEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
-    const double length = JS::CONVERT::ToNumber(args["length"]);
+    const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         u"(The \"actual\" and \"expected\" arguments must be specified.)", u"ERR_MISSING_ARGS");
@@ -47,7 +47,7 @@ JS::Any assert::strictEqualHelper(const JS::Any& thisArgs, const JS::Any& args) 
 }
 
 JS::Any assert::notStrictEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
-    const double length = JS::CONVERT::ToNumber(args["length"]);
+    const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         u"(The \"actual\" and \"expected\" arguments must be specified.)", u"ERR_MISSING_ARGS");
@@ -60,7 +60,7 @@ JS::Any assert::notStrictEqualHelper(const JS::Any& thisArgs, const JS::Any& arg
 
 // deepEquals TODO: make the message automatique depending on the ope
 JS::Any assert::deepEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
-    const double length = JS::CONVERT::ToNumber(args["length"]);
+    const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         u"(The \"actual\" and \"expected\" arguments must be specified.)", u"ERR_MISSING_ARGS");
@@ -72,7 +72,7 @@ JS::Any assert::deepEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
 }
 
 JS::Any assert::notDeepEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
-    const double length = JS::CONVERT::ToNumber(args["length"]);
+    const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         u"(The \"actual\" and \"expected\" arguments must be specified.)", u"ERR_MISSING_ARGS");
@@ -85,7 +85,7 @@ JS::Any assert::notDeepEqualHelper(const JS::Any& thisArgs, const JS::Any& args)
 
 // deep strict equals
 JS::Any assert::deepStrictEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
-    const double length = JS::CONVERT::ToNumber(args["length"]);
+    const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         u"(The \"actual\" and \"expected\" arguments must be specified.)", u"ERR_MISSING_ARGS");
@@ -97,7 +97,7 @@ JS::Any assert::deepStrictEqualHelper(const JS::Any& thisArgs, const JS::Any& ar
 }
 
 JS::Any assert::notStrictDeepEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
-    const double length = JS::CONVERT::ToNumber(args["length"]);
+    const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         u"(The \"actual\" and \"expected\" arguments must be specified.)", u"ERR_MISSING_ARGS");
@@ -110,7 +110,7 @@ JS::Any assert::notStrictDeepEqualHelper(const JS::Any& thisArgs, const JS::Any&
 
 // other
 JS::Any assert::okHelper(const JS::Any& thisArgs, const JS::Any& args) {
-    const double length = JS::CONVERT::ToNumber(args["length"]);
+    const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length == 0) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         u"(No value argument passed to `assert.ok()`)", u"ERR_MISSING_ARGS");
@@ -124,7 +124,7 @@ JS::Any assert::okHelper(const JS::Any& thisArgs, const JS::Any& args) {
 
 JS::Any assert::failHelper(const JS::Any& thisArgs, const JS::Any& args) {
     // TODO : handle if args[0] is a throwable, make throwable js::any
-    const double length = JS::CONVERT::ToNumber(args["length"]);
+    const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length == 1) {
         innerFail(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()), args[0], u"fail");
     }
@@ -133,7 +133,7 @@ JS::Any assert::failHelper(const JS::Any& thisArgs, const JS::Any& args) {
 }
 
 JS::Any assert::ifErrorHelper(const JS::Any& thisArgs, const JS::Any& args) {
-    const double length = JS::CONVERT::ToNumber(args["length"]);
+    const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length != 1) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         u"(The \"value\" argument must be specified.)", u"ERR_MISSING_ARGS");
@@ -147,7 +147,7 @@ JS::Any assert::ifErrorHelper(const JS::Any& thisArgs, const JS::Any& args) {
 
 JS::Any assert::throwsHelper(const JS::Any& thisArgs, const JS::Any& args) {
     // TODO:: handle obj properties, regexp class
-    const double length = JS::CONVERT::ToNumber(args["length"]);
+    const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 1) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()), u"(The \"fn\" argument must be specified.)",
                         u"ERR_MISSING_ARGS");
@@ -233,8 +233,8 @@ bool assert::isDeepEqual(const JS::Any& actual, const JS::Any& expected, bool st
     }
 
     // TODO: replace by type tag [object x] (Object.prototype.toString.call behavior) to differentiate between objects
-    JS::Any actualTag = actual["toString"]();
-    JS::Any expectedTag = expected["toString"]();
+    JS::Any actualTag = actual[u"toString"]();
+    JS::Any expectedTag = expected[u"toString"]();
     if (actualTag != expectedTag) {
         return false;
     }

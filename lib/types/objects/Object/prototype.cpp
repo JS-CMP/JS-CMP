@@ -28,7 +28,7 @@ JS::Any Object::toLocaleString(const JS::Any& thisArg, const JS::Any& args) {
 JS::Any Object::valueOf(const JS::Any& thisArg, const JS::Any& args) { return JS::Any(JS::CONVERT::ToObject(thisArg)); }
 
 JS::Any Object::hasOwnProperty(const JS::Any& thisArg, const JS::Any& args) {
-    const std::u16string P = JS::CONVERT::ToString(args["0"]);
+    const std::u16string P = JS::CONVERT::ToString(args[u"0"]);
     std::shared_ptr<InternalObject> O = JS::CONVERT::ToObject(thisArg);
     if (O->getOwnProperty(P).has_value()) {
         return JS::Any(true);
@@ -37,11 +37,11 @@ JS::Any Object::hasOwnProperty(const JS::Any& thisArg, const JS::Any& args) {
 }
 
 JS::Any Object::isPrototypeOf(const JS::Any& thisArg, const JS::Any& args) {
-    if (!JS::COMPARE::Type(args["0"], JS::OBJECT)) {
+    if (!JS::COMPARE::Type(args[u"0"], JS::OBJECT)) {
         return JS::Any(false);
     }
     std::shared_ptr<InternalObject> O = JS::CONVERT::ToObject(thisArg);
-    auto V = std::get<std::shared_ptr<JS::InternalObject>>(args["0"].getValue());
+    auto V = std::get<std::shared_ptr<JS::InternalObject>>(args[u"0"].getValue());
     while (V->prototype != nullptr) {
         V = V->prototype;
         if (V.get() == O.get()) {
@@ -52,7 +52,7 @@ JS::Any Object::isPrototypeOf(const JS::Any& thisArg, const JS::Any& args) {
 }
 
 JS::Any Object::propertyIsEnumerable(const JS::Any& thisArg, const JS::Any& args) {
-    const std::u16string P = JS::CONVERT::ToString(args["0"]);
+    const std::u16string P = JS::CONVERT::ToString(args[u"0"]);
     const std::shared_ptr<InternalObject> O = JS::CONVERT::ToObject(thisArg);
     const std::optional<JS::Attribute> desc = O->getOwnProperty(P);
     if (!desc.has_value()) {

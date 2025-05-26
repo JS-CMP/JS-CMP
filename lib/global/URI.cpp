@@ -58,17 +58,17 @@ JS::Any encodeURI(const JS::Any& thisArgs, const JS::Any& args) {
 }
 
 JS::Any decodeURI(const JS::Any& thisArgs, const JS::Any& args) {
-    auto uriStr = JS::CONVERT::ToUtf8(JS::CONVERT::ToString(args["0"]));
+    auto uriStr = JS::CONVERT::ToUtf8(JS::CONVERT::ToString(args[u"0"]));
     return JS::Any(JS::CONVERT::ToUtf16(decode(uriStr, "%#")));
 }
 
 JS::Any encodeURIComponent(const JS::Any& thisArgs, const JS::Any& args) {
-    auto uriStr = JS::CONVERT::ToUtf8(JS::CONVERT::ToString(args["0"]));
+    auto uriStr = JS::CONVERT::ToUtf8(JS::CONVERT::ToString(args[u"0"]));
     return JS::Any(JS::CONVERT::ToUtf16(encode(uriStr, UNESCAPED)));
 }
 
 JS::Any decodeURIComponent(const JS::Any& thisArgs, const JS::Any& args) {
-    auto uriStr = JS::CONVERT::ToUtf8(JS::CONVERT::ToString(args["0"]));
+    auto uriStr = JS::CONVERT::ToUtf8(JS::CONVERT::ToString(args[u"0"]));
     return JS::Any(JS::CONVERT::ToUtf16(decode(uriStr, "")));
 }
 } // namespace JS::GLOBAL

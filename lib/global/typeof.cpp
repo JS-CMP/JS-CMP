@@ -3,7 +3,7 @@
 
 namespace JS::GLOBAL {
 JS::Any global_typeof(const JS::Any& thisArgs, const JS::Any& args) {
-    switch (args["0"].getValue().index()) {
+    switch (args[u"0"].getValue().index()) {
         case JS::NUMBER:
             return JS::Any("number");
         case JS::STRING:

@@ -150,7 +150,7 @@ JS::Any JS::Any::operator%(JS::Null) const {
     } catch (const std::invalid_argument&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
 }
 
-JS::Any JS::Any::operator%(JS::Undefined) const {
+JS::Any JS::Any::operator%(JS::Undefined /*unused*/) const {
     try {
         switch (this->value.index()) {
             case NUMBER:

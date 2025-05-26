@@ -18,7 +18,7 @@ public:
      * @brief Constructs a Builder with the specified options.
      * @param options The options to control the build process.
      */
-    Builder(const Options& options);
+    explicit Builder(const Options& options);
 
     /**
      * @brief Initiates the build process using configured options.

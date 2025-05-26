@@ -1,5 +1,6 @@
 #include "internals/Object.hpp"
-#include "types/objects/JsFunction.hpp"
+#include "types/JsAny.hpp"
+#include "types/objects/Function/JsFunction.hpp"
 #include "utils/Compare.hpp"
 #include "utils/Convert.hpp"
 #include "utils/Is.hpp"
@@ -77,8 +78,7 @@ JS::Any Object::defineProperties(const JS::Any& thisArg, const JS::Any& args) {
             "TypeError: Object.defineProperties called on non-object"); // TODO: make this a JS error
     }
     std::shared_ptr<JS::InternalObject> O = std::get<std::shared_ptr<JS::InternalObject>>(args["0"].getValue());
-    std::shared_ptr<JS::InternalObject> props =
-        std::get<std::shared_ptr<JS::InternalObject>>(JS::CONVERT::ToObject(args["1"]).getValue());
+    auto props = JS::CONVERT::ToObject(args["1"]);
     std::vector<std::pair<std::string, JS::Attribute>> descriptors;
     for (const auto& [key, value] : *props->properties) {
         // TODO can be optimized with a list of enumerable in the object / a genericDescriptor with enumerable

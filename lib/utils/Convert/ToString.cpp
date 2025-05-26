@@ -14,8 +14,8 @@ std::string ToString(bool value) { return value ? "true" : "false"; }
 std::string ToString(const char* value) { return value; }
 std::string ToString(const std::string& value) { return value; }
 std::string ToString(const Rope& rope) { return rope.toString(); }
-std::string ToString(const JS::Null&) { return "null"; }
-std::string ToString(const JS::Undefined&) { return "undefined"; }
+std::string ToString(const JS::Null& /*unused*/) { return "null"; }
+std::string ToString(const JS::Undefined& /*unused*/) { return "undefined"; }
 std::string ToString(const JS::Any& any) {
     // https://262.ecma-international.org/5.1/#sec-9.8
     switch (any.getValue().index()) {

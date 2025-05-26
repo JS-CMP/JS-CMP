@@ -39,7 +39,6 @@ public:
      */
     ///@{
     /** @brief Returns the prototype of the object https://262.ecma-international.org/5.1/#sec-15.2.3.1 */
-    // [this, x]
     static JS::Any getPrototypeOf(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Returns a property descriptor of the object https://262.ecma-international.org/5.1/#sec-15.2.3.2 */
     static JS::Any getOwnPropertyDescriptor(const JS::Any& thisArg, const JS::Any& args);
@@ -74,7 +73,7 @@ public:
      * @name Methods to make prototype methods of the Object built-in
      */
     ///@{
-    /** @brief Returns the prototype of the object https://262.ecma-international.org/5.1/#sec-15.2.4.2 */
+    /** @brief Returns the stringified version of the object https://262.ecma-international.org/5.1/#sec-15.2.4.2 */
     static JS::Any toString(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Returns the locale string of it https://262.ecma-international.org/5.1/#sec-15.2.4.3 */
     static JS::Any toLocaleString(const JS::Any& thisArg, const JS::Any& args);

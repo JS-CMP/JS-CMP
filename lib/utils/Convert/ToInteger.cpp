@@ -9,8 +9,8 @@ int ToInteger(double value) { return std::isnan(value) ? 0 : value < 0 ? -std::f
 int ToInteger(const std::string& str) { return ToInteger(ToNumber(str)); }
 int ToInteger(const Rope& rope) { return ToInteger(rope.toString()); }
 int ToInteger(bool value) { return value ? 1 : 0; }
-int ToInteger(const JS::Null&) { return 0; }
-int ToInteger(const JS::Undefined&) { return 0; }
+int ToInteger(const JS::Null& /*unused*/) { return 0; }
+int ToInteger(const JS::Undefined& /*unused*/) { return 0; }
 
 int ToInteger(const JS::Any& any) { // https://262.ecma-international.org/5.1/#sec-9.4
     switch (any.getValue().index()) {

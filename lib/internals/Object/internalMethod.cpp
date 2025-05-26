@@ -84,7 +84,8 @@ void InternalObject::put(const std::string& key, const Any& value, bool is_throw
         if (accessor.set == nullptr || !JS::IS::Callable(accessor.set)) {
             throw std::runtime_error("Unexpected descriptor type set of accessor descriptor is null");
         }
-        accessor.set->call(JS::Any(shared_from_this()), JS::Arguments::CreateArgumentsObject({JS::Any(value)}));
+        accessor.set->call_function(JS::Any(shared_from_this()),
+                                    JS::Arguments::CreateArgumentsObject({JS::Any(value)}));
         return;
     }
     this->defineOwnProperty(key, JS::DataDescriptor{value, true, true, true}, is_throw);
@@ -199,8 +200,9 @@ bool InternalObject::defineOwnProperty(const std::string& key, Attribute desc, b
 
     if (!currentConfigurable) {
         if (descConfigurable || descEnumerable != currentEnumerable) {
-            if (is_throw)
+            if (is_throw) {
                 throw std::runtime_error("Cannot redefine property");
+            }
             return false;
         }
     }
@@ -209,8 +211,9 @@ bool InternalObject::defineOwnProperty(const std::string& key, Attribute desc, b
         // No further validation required
     } else if (JS::IS::DataDescriptor(currentDesc) != JS::IS::DataDescriptor(desc)) {
         if (!currentConfigurable) {
-            if (is_throw)
+            if (is_throw) {
                 throw std::runtime_error("Cannot redefine property"); // TypeError
+            }
             return false;
         }
         if (JS::IS::DataDescriptor(currentDesc)) {
@@ -227,13 +230,15 @@ bool InternalObject::defineOwnProperty(const std::string& key, Attribute desc, b
         auto newDesc = std::get<JS::DataDescriptor>(desc);
         if (!oldDesc.configurable) {
             if (!oldDesc.writable && newDesc.writable) {
-                if (is_throw)
+                if (is_throw) {
                     throw std::runtime_error("Cannot redefine property"); // TypeError
+                }
                 return false;
             }
             if (!oldDesc.writable && !JS::COMPARE::SameValue(newDesc.value, oldDesc.value)) {
-                if (is_throw)
+                if (is_throw) {
                     throw std::runtime_error("Cannot redefine property"); // TypeError
+                }
                 return false;
             }
         }
@@ -242,13 +247,15 @@ bool InternalObject::defineOwnProperty(const std::string& key, Attribute desc, b
         auto newDesc = std::get<JS::AccessorDescriptor>(desc);
         if (!oldDesc.configurable) {
             if (newDesc.get && JS::COMPARE::SameValue(newDesc.get, oldDesc.get)) {
-                if (is_throw)
+                if (is_throw) {
                     throw std::runtime_error("Cannot redefine property"); // TypeError
+                }
                 return false;
             }
             if (newDesc.set && newDesc.set != oldDesc.set) {
-                if (is_throw)
+                if (is_throw) {
                     throw std::runtime_error("Cannot redefine property"); // TypeError
+                }
                 return false;
             }
         }
@@ -256,4 +263,9 @@ bool InternalObject::defineOwnProperty(const std::string& key, Attribute desc, b
     (*properties)[key] = desc;
     return true;
 }
+
+bool InternalObject::hasInstance(const JS::Any& value) const {
+    throw std::runtime_error("TypeError: hasInstance not implemented for this object"); // TODO : TypeError
+}
+
 } // namespace JS

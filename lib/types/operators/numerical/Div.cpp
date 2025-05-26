@@ -164,7 +164,7 @@ JS::Any JS::Any::operator/(JS::Null) const {
     } catch (const std::invalid_argument& e) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
 }
 
-JS::Any JS::Any::operator/(JS::Undefined) const { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+JS::Any JS::Any::operator/(JS::Undefined /*unused*/) const { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
 
 namespace JS {
 Any operator/(int value, JS::Any const& any) {
@@ -252,5 +252,7 @@ Any operator/(JS::Null, JS::Any const& any) {
     } catch (const std::invalid_argument& e) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
 }
 
-Any operator/(JS::Undefined, JS::Any const&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+Any operator/(JS::Undefined /*unused*/, JS::Any const& /*unused*/) {
+    return JS::Any(std::numeric_limits<double>::quiet_NaN());
+}
 } // namespace JS

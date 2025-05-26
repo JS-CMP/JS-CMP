@@ -4,7 +4,7 @@
 #include "exceptions/AssertionError.hpp"
 #include "exceptions/TypeError.hpp"
 #include "global/global.hpp"
-#include "types/objects/JsFunction.hpp"
+#include "types/objects/Function/JsFunction.hpp"
 #include "types/objects/JsObject.hpp"
 #include "utils/Compare.hpp"
 
@@ -102,7 +102,6 @@ private:
     static bool _sameValue(const JS::Any& actual, const JS::Any& expected);
 
     assert();
-    ~assert() = default;
     // TODO: add handling stackStartFn
     static void innerFail(const JS::Any& actual, const JS::Any& expected, const JS::Any& message,
                           const std::string& operator_);

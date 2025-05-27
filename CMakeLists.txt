@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.22)
 project(js_cmp VERSION 0.0.1 LANGUAGES CXX)
 
+add_compile_definitions(
+        JS_CMP_VERSION="${PROJECT_VERSION}"
+)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

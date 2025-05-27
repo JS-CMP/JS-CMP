@@ -4,9 +4,9 @@
 
 #include <cmath>
 #include <types/objects/JsObject.hpp>
+#include <unicode/uchar.h>
 #include <unicode/unistr.h>
 #include <unicode/ustream.h>
-#include <unicode/uchar.h>
 
 std::optional<JS::Attribute> JS::String::getOwnProperty(const std::u16string& key) const {
     auto desc = JS::InternalObject::getOwnProperty(key);

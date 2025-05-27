@@ -130,8 +130,6 @@ size_t RopeConcat::rfind(const std::u16string& str, size_t pos) const {
     return foundLeft;
 }
 
-
-
 void RopeConcat::print() const {
     left->print();
     right->print();

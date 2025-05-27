@@ -1,14 +1,13 @@
 #include "class/Rope/RopeIterator.hpp"
+
 #include "class/Rope/RopeNode.hpp"
 
-RopeIterator::RopeIterator(const std::shared_ptr<RopeNode>& root)  {
+RopeIterator::RopeIterator(const std::shared_ptr<RopeNode>& root) {
     pushLeftNodes(root);
     currentIndex = 0;
 }
 
-bool RopeIterator::hasNext() const {
-    return !nodeStack.empty() || (currentData && currentIndex < currentData->size());
-}
+bool RopeIterator::hasNext() const { return !nodeStack.empty() || (currentData && currentIndex < currentData->size()); }
 
 char16_t RopeIterator::next() {
     if (!currentData || currentIndex >= currentData->size()) {
@@ -33,7 +32,7 @@ char16_t RopeIterator::next() {
     return (*currentData)[currentIndex++];
 }
 
-void RopeIterator::pushLeftNodes(const std::shared_ptr<RopeNode>& node)  {
+void RopeIterator::pushLeftNodes(const std::shared_ptr<RopeNode>& node) {
     if (!node) {
         return;
     }

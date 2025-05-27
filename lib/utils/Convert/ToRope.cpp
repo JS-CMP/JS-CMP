@@ -1,6 +1,7 @@
-#include "types/JsAny.hpp"
 #include "class/Rope/Rope.hpp"
+#include "types/JsAny.hpp"
 #include "utils/Convert.hpp"
+
 #include <cmath>
 
 namespace JS::CONVERT {

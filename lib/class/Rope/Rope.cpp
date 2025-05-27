@@ -73,7 +73,7 @@ int Rope::compare(const Rope& other) const {
 }
 
 void Rope::substrHelper(const std::shared_ptr<RopeNode>& node, size_t pos, size_t len,
-                  std::vector<std::shared_ptr<RopeNode>>& pieces) const {
+                        std::vector<std::shared_ptr<RopeNode>>& pieces) const {
     if (!node || len == 0) {
         return;
     }
@@ -134,7 +134,6 @@ Rope Rope::substr(size_t pos, size_t len) const {
 
     return Rope(newRoot);
 }
-
 
 void Rope::print() const {
     root->print();

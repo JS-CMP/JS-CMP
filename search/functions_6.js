@@ -3,7 +3,7 @@ var searchData=
   ['genericdescriptor_0',['GenericDescriptor',['../namespaceJS_1_1IS.html#a2ffca92052cf0f654e66d020ae6bb88e',1,'JS::IS']]],
   ['get_1',['get',['../classJS_1_1Function.html#a8a1077753ba0348c2aa1e16170bc8a8f',1,'JS::Function::get()'],['../classJS_1_1InternalObject.html#a64798460bb7e91226dcb8dc05bf78e8f',1,'JS::InternalObject::get()']]],
   ['getactual_2',['getActual',['../classIAssertion.html#a41f8b74de8bcc9091ef933df23ebc700',1,'IAssertion']]],
-  ['getcharat_3',['getcharat',['../classRope.html#ade94c91492c16e26816b536c6801a10b',1,'Rope::getCharAt()'],['../classRopeConcat.html#a17e0b061779e8a94b172c22115315da1',1,'RopeConcat::getCharAt()'],['../classRopeLeaf.html#a4c990f476399a76402731bbe101e4ef0',1,'RopeLeaf::getCharAt()'],['../classRopeNode.html#a45a9c1c8a81c85df121a66b651e9e708',1,'RopeNode::getCharAt()']]],
+  ['getcharat_3',['getcharat',['../classRope.html#ade94c91492c16e26816b536c6801a10b',1,'Rope::getCharAt()'],['../classRopeNode.html#a45a9c1c8a81c85df121a66b651e9e708',1,'RopeNode::getCharAt()'],['../classRopeLeaf.html#a4c990f476399a76402731bbe101e4ef0',1,'RopeLeaf::getCharAt()'],['../classRopeConcat.html#a17e0b061779e8a94b172c22115315da1',1,'RopeConcat::getCharAt()']]],
   ['getcode_4',['getCode',['../classIAssertion.html#a9383796e4cc5b163f0d524bff6acced1',1,'IAssertion']]],
   ['getcompiler_5',['getCompiler',['../classOptions.html#ab8bcc132f3790b71b9ddec1d54123b9e',1,'Options']]],
   ['getcompilerargs_6',['getCompilerArgs',['../classOptions.html#a6788745e6572bd3c3e2b6be879dd8d14',1,'Options']]],
@@ -23,7 +23,5 @@ var searchData=
   ['getprototypeof_20',['getPrototypeOf',['../classJS_1_1Object.html#a826a38b5325baae44eef31fe05ece2ca',1,'JS::Object']]],
   ['getprototypeproperties_21',['getprototypeproperties',['../classJS_1_1Boolean.html#aa222fb59c5c5d945a52484acc9adaced',1,'JS::Boolean::getPrototypeProperties()'],['../classJS_1_1Number.html#afd808f8c0624890f47b35736f236a865',1,'JS::Number::getPrototypeProperties()'],['../classJS_1_1Object.html#accaf1b16bf2e3d020611fe3e551913e5',1,'JS::Object::getPrototypeProperties()'],['../classJS_1_1String.html#a58ab3daeb09bf40f86969cca25d69465',1,'JS::String::getPrototypeProperties()']]],
   ['getright_22',['getRight',['../classRopeConcat.html#a801f0a5496629e65882a9bf248d4433d',1,'RopeConcat']]],
-  ['getvalue_23',['getvalue',['../classJS_1_1PropertyProxy.html#a60011f7959ed346551f3f29a8ca86132',1,'JS::PropertyProxy::getValue()'],['../classJS_1_1Any.html#a1c2e799407b4d95891252c6ebd028220',1,'JS::Any::getValue()']]],
-  ['global_5ftypeof_24',['global_typeof',['../namespaceJS_1_1GLOBAL.html#a8d26ea607d48fbb8746afb7d85a7beb2',1,'JS::GLOBAL']]],
-  ['global_5fvoid_25',['global_void',['../void_8cpp.html#a0b93290f9e76b15d213d3b3afb7c5513',1,'void.cpp']]]
+  ['getvalue_23',['getvalue',['../classJS_1_1PropertyProxy.html#a60011f7959ed346551f3f29a8ca86132',1,'JS::PropertyProxy::getValue()'],['../classJS_1_1Any.html#a1c2e799407b4d95891252c6ebd028220',1,'JS::Any::getValue()']]]
 ];

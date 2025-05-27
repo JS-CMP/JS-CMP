@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['call_0',['call',['../classJS_1_1Function.html#ae27fe0140761aa8dc541c04594e98b9c',1,'JS::Function::call()'],['../classJS_1_1Any.html#a34c1e934cd10c5b1f01492a85899cc52',1,'JS::Any::call()'],['../classJS_1_1PropertyProxy.html#aafd613c9a7623032d39d5e21279e59d0',1,'JS::PropertyProxy::call()']]],
+  ['call_0',['call',['../classJS_1_1PropertyProxy.html#aafd613c9a7623032d39d5e21279e59d0',1,'JS::PropertyProxy::call()'],['../classJS_1_1Any.html#a34c1e934cd10c5b1f01492a85899cc52',1,'JS::Any::call()'],['../classJS_1_1Function.html#ae27fe0140761aa8dc541c04594e98b9c',1,'JS::Function::call()']]],
   ['call_5ffunction_1',['call_function',['../classJS_1_1InternalObject.html#a5cc83926495203a92372ecc201877102',1,'JS::InternalObject']]],
   ['callable_2',['callable',['../namespaceJS_1_1IS.html#aa6dda07e5ad567cf38e37634e78ec50b',1,'JS::IS::Callable(const JS::Any &amp;a)'],['../namespaceJS_1_1IS.html#acdfcf6a607bbd332dc3ba45490b5c12d',1,'JS::IS::Callable(const std::shared_ptr&lt; JS::InternalObject &gt; &amp;a)']]],
   ['canput_3',['canPut',['../classJS_1_1InternalObject.html#a7618044d3faa65db0acb15bd28933abe',1,'JS::InternalObject']]],
@@ -29,13 +29,13 @@ var searchData=
   ['compatibility_20testing_26',['3. Compatibility Testing',['../md_CODE__OF__CONDUCT.html#autotoc_md23',1,'']]],
   ['concat_27',['concat',['../classRope.html#a4ffe8f1dbe59157a040ee2d6e98ad891',1,'Rope::concat()'],['../classJS_1_1String.html#ab5bc39d7f8eb03f356f25bb9c1793bca',1,'JS::String::concat()']]],
   ['conduct_28',['Code of Conduct',['../md_CONTRIBUTING.html#autotoc_md57',1,'']]],
-  ['configurable_29',['configurable',['../classJS_1_1AccessorDescriptor.html#aa345000bb2bd9c5e3ea9735dd8106f6f',1,'JS::AccessorDescriptor::configurable'],['../classJS_1_1DataDescriptor.html#a4fb4ba64e0a0c6a3b12f21757a0c1fde',1,'JS::DataDescriptor::configurable']]],
+  ['configurable_29',['configurable',['../classJS_1_1DataDescriptor.html#a4fb4ba64e0a0c6a3b12f21757a0c1fde',1,'JS::DataDescriptor::configurable'],['../classJS_1_1AccessorDescriptor.html#aa345000bb2bd9c5e3ea9735dd8106f6f',1,'JS::AccessorDescriptor::configurable']]],
   ['considerations_30',['Security Considerations',['../md_CODE__OF__CONDUCT.html#autotoc_md33',1,'']]],
   ['console_31',['console',['../classJS_1_1console.html',1,'JS::console'],['../classConsole.html',1,'Console'],['../global_8hpp.html#a1dd8007728513403154ad5a8d75d8bed',1,'console:&#160;global.hpp']]],
   ['console_2ecpp_32',['console.cpp',['../console_8cpp.html',1,'']]],
   ['console_2ehpp_33',['console.hpp',['../console_8hpp.html',1,'']]],
   ['construct_34',['construct',['../classJS_1_1InternalObject.html#ae5830cfb9a2898087b614f4475abfb2f',1,'JS::InternalObject']]],
-  ['constructor_2ecpp_35',['constructor.cpp',['../types_2objects_2Boolean_2constructor_8cpp.html',1,'(Global Namespace)'],['../internals_2Object_2constructor_8cpp.html',1,'(Global Namespace)'],['../types_2constructor_8cpp.html',1,'(Global Namespace)'],['../types_2objects_2Function_2Function_2constructor_8cpp.html',1,'(Global Namespace)'],['../types_2objects_2Function_2FunctionBinded_2constructor_8cpp.html',1,'(Global Namespace)'],['../types_2objects_2Number_2constructor_8cpp.html',1,'(Global Namespace)'],['../types_2objects_2Object_2constructor_8cpp.html',1,'(Global Namespace)'],['../types_2objects_2String_2constructor_8cpp.html',1,'(Global Namespace)']]],
+  ['constructor_2ecpp_35',['constructor.cpp',['../types_2objects_2Boolean_2constructor_8cpp.html',1,'(Global Namespace)'],['../internals_2Object_2constructor_8cpp.html',1,'(Global Namespace)'],['../types_2constructor_8cpp.html',1,'(Global Namespace)'],['../types_2objects_2Function_2Function_2constructor_8cpp.html',1,'(Global Namespace)'],['../types_2objects_2Number_2constructor_8cpp.html',1,'(Global Namespace)'],['../types_2objects_2Object_2constructor_8cpp.html',1,'(Global Namespace)'],['../types_2objects_2String_2constructor_8cpp.html',1,'(Global Namespace)'],['../types_2objects_2Function_2FunctionBinded_2constructor_8cpp.html',1,'(Global Namespace)']]],
   ['continuous_20improvement_36',['continuous improvement',['../md_CODE__OF__CONDUCT.html#autotoc_md40',1,'Community Engagement and Continuous Improvement'],['../md_CODE__OF__CONDUCT.html#autotoc_md51',1,'Continuous Improvement']]],
   ['continuous_20integration_20continuous_20deployment_20ci_20cd_37',['Continuous Integration/Continuous Deployment (CI/CD)',['../md_CODE__OF__CONDUCT.html#autotoc_md44',1,'']]],
   ['contribute_38',['Ways to Contribute',['../md_CONTRIBUTING.html#autotoc_md55',1,'']]],
@@ -46,5 +46,6 @@ var searchData=
   ['convert_2ehpp_43',['Convert.hpp',['../Convert_8hpp.html',1,'']]],
   ['cos_44',['cos',['../classJS_1_1Math.html#a65ea6c653b1cdc60cd5b9d36aadcd467',1,'JS::Math']]],
   ['create_45',['create',['../classJS_1_1Object.html#a6e7cbd4044f630b4e00fa1ac9daef9fc',1,'JS::Object']]],
-  ['createargumentsobject_46',['CreateArgumentsObject',['../namespaceJS_1_1Arguments.html#a6bd6606cc25dfead966117cfbb51d5b7',1,'JS::Arguments']]]
+  ['createargumentsobject_46',['CreateArgumentsObject',['../namespaceJS_1_1Arguments.html#a6bd6606cc25dfead966117cfbb51d5b7',1,'JS::Arguments']]],
+  ['customoperators_2ehpp_47',['CustomOperators.hpp',['../CustomOperators_8hpp.html',1,'']]]
 ];

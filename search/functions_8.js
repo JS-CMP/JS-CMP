@@ -3,12 +3,14 @@ var searchData=
   ['iassertion_0',['IAssertion',['../classIAssertion.html#a835b05e4d6fb625698e3e3d0e6e86ef0',1,'IAssertion']]],
   ['iferror_1',['ifError',['../classassert.html#a81b8f71570582331f92723a52fdc6d32',1,'assert']]],
   ['indexof_2',['indexOf',['../classJS_1_1String.html#afa8e7a8b6f50ad3926a7d4d657060b85',1,'JS::String']]],
-  ['internalobject_3',['internalobject',['../classJS_1_1InternalObject.html#ae04350c910520d9ee5b54eaff147cd5d',1,'JS::InternalObject::InternalObject(JS::Properties properties={}, std::shared_ptr&lt; JS::InternalObject &gt; prototype=nullptr, std::string class_name=&quot;Object&quot;, bool extensible=true)'],['../classJS_1_1InternalObject.html#ae5e06a20c034e2ea8ff2226aa5640db3',1,'JS::InternalObject::InternalObject(const std::unordered_map&lt; std::string, JS::Any &gt; &amp;properties={})'],['../classJS_1_1InternalObject.html#a0692e2406cd1a143234db5c165e887c8',1,'JS::InternalObject::InternalObject(const JS::Attribute &amp;attribute)'],['../classJS_1_1InternalObject.html#a21b930556865e6bb5af312377de8e331',1,'JS::InternalObject::InternalObject(const JS::InternalObject &amp;other)'],['../classJS_1_1InternalObject.html#a9dfe191ca24ecf84be9776f7e03601fc',1,'JS::InternalObject::InternalObject(JS::InternalObject &amp;&amp;other) noexcept']]],
-  ['iscallable_4',['isCallable',['../classJS_1_1InternalObject.html#a9946e41bd1062fadbab593a2e28a6fc0',1,'JS::InternalObject']]],
-  ['isextensible_5',['isExtensible',['../classJS_1_1Object.html#a8b155f0240f62b3ab59e2dc2a01e2c1a',1,'JS::Object']]],
-  ['isfinite_6',['isFinite',['../namespaceJS_1_1GLOBAL.html#a8f6f8ab971ce0d743cd815ede76108be',1,'JS::GLOBAL']]],
-  ['isfrozen_7',['isFrozen',['../classJS_1_1Object.html#acefea3548d7869dac1bb28120cd5907b',1,'JS::Object']]],
-  ['isnan_8',['isNaN',['../namespaceJS_1_1GLOBAL.html#a859adfb2b7340df23afa12a6493345ef',1,'JS::GLOBAL']]],
-  ['isprototypeof_9',['isPrototypeOf',['../classJS_1_1Object.html#a9ccfb21a08668d71625ad4b934f52d7a',1,'JS::Object']]],
-  ['issealed_10',['isSealed',['../classJS_1_1Object.html#a5f3f9efad4336cb8e140cb53cbfb7863',1,'JS::Object']]]
+  ['infunction_3',['inFunction',['../In_8hpp.html#a1c005a61dc134afce8ad0e79841a29ec',1,'In.hpp']]],
+  ['instanceoffunction_4',['instanceOfFunction',['../InstanceOf_8hpp.html#aceef5cf3165f12715c494e1030f5a039',1,'InstanceOf.hpp']]],
+  ['internalobject_5',['internalobject',['../classJS_1_1InternalObject.html#ae04350c910520d9ee5b54eaff147cd5d',1,'JS::InternalObject::InternalObject(JS::Properties properties={}, std::shared_ptr&lt; JS::InternalObject &gt; prototype=nullptr, std::string class_name=&quot;Object&quot;, bool extensible=true)'],['../classJS_1_1InternalObject.html#ae5e06a20c034e2ea8ff2226aa5640db3',1,'JS::InternalObject::InternalObject(const std::unordered_map&lt; std::string, JS::Any &gt; &amp;properties={})'],['../classJS_1_1InternalObject.html#a0692e2406cd1a143234db5c165e887c8',1,'JS::InternalObject::InternalObject(const JS::Attribute &amp;attribute)'],['../classJS_1_1InternalObject.html#a21b930556865e6bb5af312377de8e331',1,'JS::InternalObject::InternalObject(const JS::InternalObject &amp;other)'],['../classJS_1_1InternalObject.html#a9dfe191ca24ecf84be9776f7e03601fc',1,'JS::InternalObject::InternalObject(JS::InternalObject &amp;&amp;other) noexcept']]],
+  ['iscallable_6',['isCallable',['../classJS_1_1InternalObject.html#a9946e41bd1062fadbab593a2e28a6fc0',1,'JS::InternalObject']]],
+  ['isextensible_7',['isExtensible',['../classJS_1_1Object.html#a8b155f0240f62b3ab59e2dc2a01e2c1a',1,'JS::Object']]],
+  ['isfinite_8',['isFinite',['../namespaceJS_1_1GLOBAL.html#a8f6f8ab971ce0d743cd815ede76108be',1,'JS::GLOBAL']]],
+  ['isfrozen_9',['isFrozen',['../classJS_1_1Object.html#acefea3548d7869dac1bb28120cd5907b',1,'JS::Object']]],
+  ['isnan_10',['isNaN',['../namespaceJS_1_1GLOBAL.html#a859adfb2b7340df23afa12a6493345ef',1,'JS::GLOBAL']]],
+  ['isprototypeof_11',['isPrototypeOf',['../classJS_1_1Object.html#a9ccfb21a08668d71625ad4b934f52d7a',1,'JS::Object']]],
+  ['issealed_12',['isSealed',['../classJS_1_1Object.html#a5f3f9efad4336cb8e140cb53cbfb7863',1,'JS::Object']]]
 ];

@@ -11,6 +11,6 @@ var searchData=
   ['tostring_2ecpp_8',['ToString.cpp',['../ToString_8cpp.html',1,'']]],
   ['touint32_2ecpp_9',['ToUint32.cpp',['../ToUint32_8cpp.html',1,'']]],
   ['typeerror_2ehpp_10',['TypeError.hpp',['../TypeError_8hpp.html',1,'']]],
-  ['typeof_2ecpp_11',['typeof.cpp',['../typeof_8cpp.html',1,'']]],
+  ['typeof_2ehpp_11',['Typeof.hpp',['../Typeof_8hpp.html',1,'']]],
   ['types_2ehpp_12',['types.hpp',['../objects_2Types_8hpp.html',1,'(Global Namespace)'],['../Types_8hpp.html',1,'(Global Namespace)']]]
 ];

@@ -14,12 +14,14 @@ var searchData=
   ['sqrt2_11',['SQRT2',['../classJS_1_1Math.html#ac7dd4c3d99e0f4b508c5be4484419d7c',1,'JS::Math']]],
   ['static_2ecpp_12',['static.cpp',['../internals_2Arguments_2static_8cpp.html',1,'(Global Namespace)'],['../types_2objects_2Math_2static_8cpp.html',1,'(Global Namespace)']]],
   ['strategy_13',['strategy',['../md_CODE__OF__CONDUCT.html#autotoc_md27',1,'2. Branching Strategy'],['../md_CODE__OF__CONDUCT.html#autotoc_md20',1,'Testing Strategy']]],
-  ['stricteq_14',['strictEq',['../classJS_1_1Any.html#af06ac14f5c68f74b8b70ab4429fb9bf3',1,'JS::Any']]],
-  ['strictequal_15',['strictEqual',['../classassert.html#a14930e5ece5d407f050bf8e91530bddf',1,'assert']]],
-  ['strictneq_16',['strictNeq',['../classJS_1_1Any.html#a5ff1e0fbf06442ec3268d9cef3719a80',1,'JS::Any']]],
-  ['string_17',['string',['../classJS_1_1String.html#ae0eeabe6502b4bdfe5ca67b904b87a11',1,'JS::String::String()'],['../classJS_1_1String.html',1,'JS::String'],['../global_8hpp.html#a35ed9b9c1245ce5a94ccd5d9fb2d5cd3',1,'String:&#160;global.hpp'],['../namespaceJS.html#a25c0ffb20b4906bbc8c14837420282c9a37d59818cfa309f8fc183d2ed312a493',1,'JS::STRING'],['../classJS_1_1String.html#a4f2604a1c60020789d9165e4b0fc70c9',1,'JS::String::String()'],['../classJS_1_1String.html#a507308374e512a5c96bf7fa3773491bb',1,'JS::String::String(const JS::Any &amp;value)']]],
-  ['sub_2ecpp_18',['sub.cpp',['../Sub_8cpp.html',1,'(Global Namespace)'],['../unary_2Sub_8cpp.html',1,'(Global Namespace)']]],
-  ['submodules_19',['3. Initialize Git Submodules',['../index.html#autotoc_md6',1,'']]],
-  ['substring_20',['substring',['../classJS_1_1String.html#a6bafdbb821a7a99361ae88158362544e',1,'JS::String']]],
-  ['support_21',['Platform Support',['../index.html#autotoc_md13',1,'']]]
+  ['stricteq_14',['stricteq',['../classJS_1_1Any.html#af06ac14f5c68f74b8b70ab4429fb9bf3',1,'JS::Any::strictEq()'],['../Equality_8hpp.html#ae81286defcba1d19a7fb8e392074e990',1,'strictEq:&#160;Equality.hpp']]],
+  ['stricteqfunction_15',['strictEqFunction',['../Equality_8hpp.html#a2f94f95bbb6a98695b3de258eae3e340',1,'Equality.hpp']]],
+  ['strictequal_16',['strictEqual',['../classassert.html#a14930e5ece5d407f050bf8e91530bddf',1,'assert']]],
+  ['strictneq_17',['strictneq',['../classJS_1_1Any.html#a5ff1e0fbf06442ec3268d9cef3719a80',1,'JS::Any::strictNeq()'],['../Equality_8hpp.html#a340cbb4a682ed289ebc2cf8d2ad8e778',1,'strictNeq:&#160;Equality.hpp']]],
+  ['strictneqfunction_18',['strictNeqFunction',['../Equality_8hpp.html#a8b098abb1f2cf1424b28763f7b3c6bcc',1,'Equality.hpp']]],
+  ['string_19',['string',['../classJS_1_1String.html',1,'JS::String'],['../global_8hpp.html#a35ed9b9c1245ce5a94ccd5d9fb2d5cd3',1,'String:&#160;global.hpp'],['../namespaceJS.html#a25c0ffb20b4906bbc8c14837420282c9a37d59818cfa309f8fc183d2ed312a493',1,'JS::STRING'],['../classJS_1_1String.html#a4f2604a1c60020789d9165e4b0fc70c9',1,'JS::String::String()'],['../classJS_1_1String.html#a507308374e512a5c96bf7fa3773491bb',1,'JS::String::String(const JS::Any &amp;value)'],['../classJS_1_1String.html#ae0eeabe6502b4bdfe5ca67b904b87a11',1,'JS::String::String(const std::unordered_map&lt; std::string, JS::Any &gt; &amp;properties)']]],
+  ['sub_2ecpp_20',['sub.cpp',['../Sub_8cpp.html',1,'(Global Namespace)'],['../unary_2Sub_8cpp.html',1,'(Global Namespace)']]],
+  ['submodules_21',['3. Initialize Git Submodules',['../index.html#autotoc_md6',1,'']]],
+  ['substring_22',['substring',['../classJS_1_1String.html#a6bafdbb821a7a99361ae88158362544e',1,'JS::String']]],
+  ['support_23',['Platform Support',['../index.html#autotoc_md13',1,'']]]
 ];

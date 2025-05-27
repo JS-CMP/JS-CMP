@@ -27,9 +27,7 @@ var searchData=
   ['git_20submodules_24',['3. Initialize Git Submodules',['../index.html#autotoc_md6',1,'']]],
   ['global_25',['global',['../global_8hpp.html#a0367ff1ec4d051794bc2cb7f5e610b89',1,'global.hpp']]],
   ['global_2ehpp_26',['global.hpp',['../global_8hpp.html',1,'']]],
-  ['global_5ftypeof_27',['global_typeof',['../global_8hpp.html#a0481093e83ac1c2bc80abbccfa77a0f4',1,'global_typeof:&#160;global.hpp'],['../namespaceJS_1_1GLOBAL.html#a8d26ea607d48fbb8746afb7d85a7beb2',1,'JS::GLOBAL::global_typeof()']]],
-  ['global_5fvoid_28',['global_void',['../void_8cpp.html#a0b93290f9e76b15d213d3b3afb7c5513',1,'void.cpp']]],
-  ['globalfunctions_2ehpp_29',['globalFunctions.hpp',['../globalFunctions_8hpp.html',1,'']]],
-  ['globals_2ehpp_30',['globals.hpp',['../globals_8hpp.html',1,'']]],
-  ['guidelines_31',['Contribution Guidelines',['../md_CONTRIBUTING.html#autotoc_md56',1,'']]]
+  ['globalfunctions_2ehpp_27',['globalFunctions.hpp',['../globalFunctions_8hpp.html',1,'']]],
+  ['globals_2ehpp_28',['globals.hpp',['../globals_8hpp.html',1,'']]],
+  ['guidelines_29',['Contribution Guidelines',['../md_CONTRIBUTING.html#autotoc_md56',1,'']]]
 ];

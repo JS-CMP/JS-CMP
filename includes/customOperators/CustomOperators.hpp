@@ -6,6 +6,7 @@
 #include "Equality.hpp"
 #include "In.hpp"
 #include "InstanceOf.hpp"
+#include "New.hpp"
 #include "Typeof.hpp"
 #include "URightShift.hpp"
 #include "Void.hpp"

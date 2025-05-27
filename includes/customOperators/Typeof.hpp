@@ -1,9 +1,13 @@
-#include "internals/PropertyProxy.hpp"
-#include "types/JsAny.hpp"
+#ifndef TYPEOF_HPP
+#define TYPEOF_HPP
 
-namespace JS::GLOBAL {
-JS::Any global_typeof(const JS::Any& thisArgs, const JS::Any& args) {
-    switch (args["0"].getValue().index()) {
+#include "SyntaxSmith.hpp"
+#include "global/globalFunctions.hpp"
+
+#include <types/JsAny.hpp>
+
+JS::Any type_of(const JS::Any& a) {
+    switch (a.getValue().index()) {
         case JS::NUMBER:
             return JS::Any("number");
         case JS::STRING:
@@ -18,4 +22,8 @@ JS::Any global_typeof(const JS::Any& thisArgs, const JS::Any& args) {
             return JS::Any("object");
     }
 }
-} // namespace JS::GLOBAL
+
+CREATE_ONE_SIDE_OPERATOR(typeOf, type_of)
+#define typeOf typeOfClass() >
+
+#endif // TYPEOF_HPP

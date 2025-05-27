@@ -13,8 +13,7 @@ inline JS::Any instanceOfFunction(JS::Any a, JS::Any b) {
     }
 
     auto obj = std::get<std::shared_ptr<JS::InternalObject>>(a.getValue());
-    //    return JS::Any(obj->hasInstance(b)); // TODO change when merging functions
-    return {};
+    return JS::Any(obj->hasInstance(b));
 }
 
 CREATE_OPERATOR(instanceOf, instanceOfFunction)

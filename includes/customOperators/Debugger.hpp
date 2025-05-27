@@ -1,7 +1,3 @@
-//
-// Created by Simon BANDIERA on 04/03/2025.
-//
-
 #ifndef DEBUGGER_HPP
 #define DEBUGGER_HPP
 

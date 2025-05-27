@@ -12,7 +12,6 @@ JS::Any encodeURI(const JS::Any& thisArgs, const JS::Any& args);
 JS::Any decodeURI(const JS::Any& thisArgs, const JS::Any& args);
 JS::Any encodeURIComponent(const JS::Any& thisArgs, const JS::Any& args);
 JS::Any decodeURIComponent(const JS::Any& thisArgs, const JS::Any& args);
-JS::Any global_typeof(JS::Any a);
 } // namespace JS::GLOBAL
 
 #endif // JS_CMP_GLOBALFUNCTIONS_HPP

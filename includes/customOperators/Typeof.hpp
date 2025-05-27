@@ -1,14 +1,27 @@
-//
-// Created by Simon BANDIERA on 04/03/2025.
-//
-
 #ifndef TYPEOF_HPP
 #define TYPEOF_HPP
 
 #include "SyntaxSmith.hpp"
 #include "global/globalFunctions.hpp"
 
-CREATE_ONE_SIDE_OPERATOR(typeOf, JS::GLOBAL::global_typeof)
+JS::Any type_of(JS::Any a) {
+    switch (a.getValue().index()) {
+        case JS::NUMBER:
+            return JS::Any("number");
+        case JS::STRING:
+            return JS::Any("string");
+        case JS::BOOLEAN:
+            return JS::Any("boolean");
+        case JS::UNDEFINED:
+            return JS::Any("undefined");
+        case JS::NULL_TYPE:
+            return JS::Any("object");
+        default:
+            return JS::Any("object");
+    }
+}
+
+CREATE_ONE_SIDE_OPERATOR(typeOf, type_of)
 #define typeOf typeOfClass() >
 
 #endif // TYPEOF_HPP

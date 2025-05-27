@@ -1,7 +1,3 @@
-//
-// Created by Simon BANDIERA on 04/03/2025.
-//
-
 #ifndef DELETE_HPP
 #define DELETE_HPP
 
@@ -11,6 +7,7 @@
 
 inline JS::Any deleteFunction(JS::Any a) {
     // todo: implement when global object contains all variables
+    // should be implemented in the
     return {};
 }
 

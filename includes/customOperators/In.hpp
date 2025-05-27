@@ -1,6 +1,5 @@
 #ifndef IN_HPP
 #define IN_HPP
-
 #include "SyntaxSmith.hpp"
 
 #include <internals/Object.hpp>
@@ -15,7 +14,6 @@ inline JS::Any inFunction(JS::Any a, JS::Any b) {
 
     auto obj = std::get<std::shared_ptr<JS::InternalObject>>(a.getValue());
     return JS::Any(obj->hasProperty(JS::CONVERT::ToString(b)));
-    return {};
 }
 
 CREATE_OPERATOR(in, inFunction)

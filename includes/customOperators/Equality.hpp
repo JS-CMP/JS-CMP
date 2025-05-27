@@ -5,7 +5,8 @@
 
 #include <types/JsAny.hpp>
 
-inline JS::Any strictEqFunction(JS::Any a, const JS::Any &b) { // TODO: fix CREATE_OPERATOR to handle a has a reference to avoid a copy with std::forward and std::move
+inline JS::Any strictEqFunction(JS::Any a, const JS::Any& b) { // TODO: fix CREATE_OPERATOR to handle a has a reference
+                                                               // to avoid a copy with std::forward and std::move
     if (a.getValue().index() != b.getValue().index()) {
         return JS::Any(false);
     }

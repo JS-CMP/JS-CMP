@@ -27,7 +27,7 @@ public:
     /** @brief Call operator for the object */
     JS::Any call(const JS::Any& args) const;
 
-    /** @brief Call operator for the constructor */
+    /** @brief Invoke the constructor method for this property */
     JS::Any constructor(const JS::Any& args) const;
 
     /** @brief Get the value of the property */

@@ -9,5 +9,6 @@
 #include "Typeof.hpp"
 #include "URightShift.hpp"
 #include "Void.hpp"
+#include "New.hpp"
 
 #endif // CUSTOM_OPERATORS_HPP

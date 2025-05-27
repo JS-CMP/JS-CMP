@@ -3,8 +3,9 @@
 
 #include "SyntaxSmith.hpp"
 #include "global/globalFunctions.hpp"
+#include <types/JsAny.hpp>
 
-JS::Any type_of(JS::Any a) {
+JS::Any type_of(const JS::Any &a) {
     switch (a.getValue().index()) {
         case JS::NUMBER:
             return JS::Any("number");

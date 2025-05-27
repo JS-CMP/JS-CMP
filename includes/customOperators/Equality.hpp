@@ -5,7 +5,7 @@
 
 #include <types/JsAny.hpp>
 
-inline JS::Any strictEqFunction(JS::Any a, JS::Any b) {
+inline JS::Any strictEqFunction(JS::Any a, const JS::Any &b) { // TODO: fix CREATE_OPERATOR to handle a has a reference to avoid a copy with std::forward and std::move
     if (a.getValue().index() != b.getValue().index()) {
         return JS::Any(false);
     }
@@ -21,7 +21,7 @@ inline JS::Any strictEqFunction(JS::Any a, JS::Any b) {
 CREATE_OPERATOR(strictEq, strictEqFunction)
 #define strictEq <strictEqClass()>
 
-inline JS::Any strictNeqFunction(const JS::Any& a, const JS::Any& b) { return !strictEqFunction(a, b); }
+inline JS::Any strictNeqFunction(JS::Any a, const JS::Any& b) { return !strictEqFunction(a, b); }
 
 CREATE_OPERATOR(strictNeq, strictNeqFunction)
 #define strictNeq <strictNeqClass()>

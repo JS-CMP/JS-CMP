@@ -5,7 +5,7 @@
 
 #include <types/JsAny.hpp>
 
-inline JS::Any deleteFunction(JS::Any a) {
+inline JS::Any deleteFunction(const JS::Any &a) {
     // todo: implement when global object contains all variables
     // should be implemented in the
     return {};

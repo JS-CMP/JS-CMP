@@ -7,7 +7,7 @@
 #include <types/JsAny.hpp>
 #include <utils/Compare.hpp>
 
-inline JS::Any instanceOfFunction(JS::Any a, JS::Any b) {
+inline JS::Any instanceOfFunction(JS::Any a, const JS::Any &b) {// TODO: fix CREATE_OPERATOR to handle a has a reference to avoid a copy with std::forward and std::move
     if (JS::COMPARE::Type(a, JS::OBJECT) == false) {
         throw std::runtime_error("TypeError: Left-hand side of 'instanceof' is not an object"); // TODO: type error
     }
@@ -17,6 +17,6 @@ inline JS::Any instanceOfFunction(JS::Any a, JS::Any b) {
 }
 
 CREATE_OPERATOR(instanceOf, instanceOfFunction)
-#define instanceOf <instanceOfClass()>
+#define instanceof <instanceOfClass()>
 
 #endif // INSTANCEOF_HPP

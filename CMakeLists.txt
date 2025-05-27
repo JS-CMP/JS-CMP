@@ -4,10 +4,10 @@ project(js_cmp VERSION 0.0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-add_compile_definitions(JS_CMP_VERSION="${PROJECT_VERSION}")
-
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+include_directories(${PROJECT_SOURCE_DIR}/includes)
 add_subdirectory(submodules/Lexer)
+add_subdirectory(submodules/SyntaxSmith)
 
 if(APPLE)
     set(ICU_ROOT /opt/homebrew/opt/icu4c CACHE PATH "Path to ICU root")

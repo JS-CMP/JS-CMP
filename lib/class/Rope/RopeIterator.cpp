@@ -20,13 +20,13 @@ char16_t RopeIterator::next() {
 
         auto right = node->getRight();
         if (right) {
-        pushLeftNodes(right);
+            pushLeftNodes(right);
         }
 
         auto left = node->getLeft();
         if (left) {
-        pushLeftNodes(left);
-}
+            pushLeftNodes(left);
+        }
         return next();
     }
 
@@ -34,8 +34,9 @@ char16_t RopeIterator::next() {
 }
 
 void RopeIterator::pushLeftNodes(const std::shared_ptr<RopeNode>& node)  {
-    if (!node) return;
-
+    if (!node) {
+        return;
+    }
     if (node->getLeft() && node->getRight()) {
         nodeStack.push(node);
         pushLeftNodes(node->getLeft());

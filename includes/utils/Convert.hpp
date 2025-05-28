@@ -17,6 +17,8 @@ DECLARE_1FUNC(int ToInteger, );
 
 DECLARE_1FUNC(uint32_t ToUint32, );
 
+DECLARE_1FUNC(uint16_t ToUint16, );
+
 DECLARE_1FUNC(int16_t ToInt16, );
 
 DECLARE_1FUNC(int32_t ToInt32, );

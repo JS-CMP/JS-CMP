@@ -1,13 +1,21 @@
 #include "types/JsAny.hpp"
+#include "utils/Convert.hpp"
 
 #include <cmath>
 
 namespace JS::CONVERT {
 double ToNumber(int value) { return value; }
 double ToNumber(double value) { return value; }
+double ToNumber(bool value) { return static_cast<double>(value); }
+double ToNumber(unsigned int value) {
+    return value <= std::numeric_limits<double>::max() ? static_cast<double>(value)
+                                                       : std::numeric_limits<double>::max();
+}
+double ToNumber(const char* str) { return ToNumber(std::string(str)); }
+double ToNumber(const char16_t* str) { return ToNumber(std::u16string(str)); }
 double ToNumber(const std::string& str) {
     if (str.empty()) {
-        throw std::invalid_argument("La chaîne est vide");
+        throw std::invalid_argument("Cannot convert empty string to number");
     }
 
     if (str.size() > 2 && str[0] == '0' && (str[1] == 'x' || str[1] == 'X')) {
@@ -40,11 +48,10 @@ double ToNumber(const std::string& str) {
         } catch (...) { return 0; }
     }
 }
-
+double ToNumber(const std::u16string& value) { return ToNumber(JS::CONVERT::ToUtf8(value)); }
 double ToNumber(const Rope& rope) { return ToNumber(rope.toString()); }
-double ToNumber(bool value) { return static_cast<double>(value); }
-double ToNumber(const JS::Null& /*unused*/) { return 0; }
-double ToNumber(const JS::Undefined& /*unused*/) { return std::numeric_limits<double>::quiet_NaN(); }
+double ToNumber(JS::Null /*unused*/) { return 0; }
+double ToNumber(JS::Undefined /*unused*/) { return std::numeric_limits<double>::quiet_NaN(); }
 double ToNumber(const JS::Any& any) { // https://262.ecma-international.org/5.1/#sec-9.3
     switch (any.getValue().index()) {
         case NUMBER:

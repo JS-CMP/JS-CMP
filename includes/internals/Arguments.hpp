@@ -15,7 +15,7 @@ namespace JS::Arguments {
  */
 JS::Any CreateArgumentsObject(const std::vector<JS::Any>& args,
                               const std::shared_ptr<JS::InternalObject>& func = nullptr,
-                              const std::vector<std::string>& names = {},
+                              const std::vector<std::u16string>& names = {},
                               const std::shared_ptr<JS::InternalObject>& env = nullptr, bool strict = true);
 } // namespace JS::Arguments
 #endif // ARGUMENTS_HPP

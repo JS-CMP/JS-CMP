@@ -3,6 +3,8 @@
 #define ROPENODE_HPP
 
 #include <cstddef>
+#include <memory>
+#include <string>
 
 /**
  * @class RopeNode
@@ -23,7 +25,44 @@ public:
      * @param idx Index of the character.
      * @return Character at the given index.
      */
-    [[nodiscard]] virtual char getCharAt(size_t idx) const = 0;
+    [[nodiscard]] virtual char16_t getCharAt(size_t idx) const = 0;
+
+    /**
+     * @brief Finds the first occurrence of a substring in the rope node.
+     * @param str The substring to search for.
+     * @param pos The position to start searching from.
+     * @return The index of the first occurrence of the substring, or npos if not found.
+     */
+    [[nodiscard]] virtual size_t find(const std::u16string& str, size_t pos = 0) const = 0;
+
+    /**
+     * @brief Finds the last occurrence of a substring in the rope node.
+     * @param str The substring to search for.
+     * @param pos The position to start searching from.
+     * @return The index of the last occurrence of the substring, or npos if not found.
+     */
+    [[nodiscard]] virtual size_t rfind(const std::u16string& str, size_t pos = std::u16string::npos) const = 0;
+
+    /**
+     * @brief Returns the left child of the rope node.
+     */
+    [[nodiscard]] virtual std::shared_ptr<RopeNode> getLeft() const {
+        return nullptr; // Default implementation returns nullptr, can be overridden
+    }
+    /**
+     * @brief Returns the right child of the rope node.
+     */
+    [[nodiscard]] virtual std::shared_ptr<RopeNode> getRight() const {
+        return nullptr; // Default implementation returns nullptr, can be overridden
+    }
+
+    /**
+     * @brief Returns a pointer to the data stored in the rope node.
+     * @return Pointer to the data.
+     */
+    [[nodiscard]] virtual const std::u16string* getDataPtr() const {
+        return nullptr; // Default implementation returns nullptr, can be overridden
+    };
 
     /**
      * @brief Prints the contents of the rope node.

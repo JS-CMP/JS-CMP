@@ -11,7 +11,7 @@ FunctionBinded::FunctionBinded(const std::shared_ptr<JS::InternalObject>& Target
     this->call_function = [TargetFunction, BoundThis, BoundArguments](const JS::Any& thisArg,
                                                                       const JS::Any& args) -> JS::Any {
         std::vector<JS::Any> newArgs;
-        int n = JS::CONVERT::ToInteger(args["length"]); // TODO: replace ToInteger with ToUint32
+        int n = JS::CONVERT::ToInteger(args[u"length"]); // TODO: replace ToInteger with ToUint32
         newArgs.reserve(BoundArguments.size() + n);
         for (const auto& arg : BoundArguments) {
             newArgs.push_back(arg);
@@ -26,7 +26,7 @@ FunctionBinded::FunctionBinded(const std::shared_ptr<JS::InternalObject>& Target
     this->construct = [TargetFunction, BoundThis, BoundArguments](const JS::Any& thisArg,
                                                                   const JS::Any& args) -> JS::Any {
         std::vector<JS::Any> newArgs;
-        int n = JS::CONVERT::ToInteger(args["length"]); // TODO: replace ToInteger with ToUint32
+        int n = JS::CONVERT::ToInteger(args[u"length"]); // TODO: replace ToInteger with ToUint32
         newArgs.reserve(BoundArguments.size() + n);
         for (const auto& arg : BoundArguments) {
             newArgs.push_back(arg);

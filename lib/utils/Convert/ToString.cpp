@@ -33,7 +33,7 @@ std::u16string ToString(const JS::Any& any) {
         case NULL_TYPE:
             return ToString(JS::Null());
         default:
-            return u"[Object]";
+            return ToString(ToPrimitive(any, JS::STRING)); // Convert to primitive with STRING hint
     }
 }
 } // namespace JS::CONVERT

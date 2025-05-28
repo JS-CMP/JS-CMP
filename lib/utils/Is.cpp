@@ -11,11 +11,12 @@ bool Primitive(const JS::Any& a) {
 }
 
 bool Callable(const JS::Any& a) {
-    if (JS::COMPARE::Type(a, JS::OBJECT)) {
-        return std::get<std::shared_ptr<JS::InternalObject>>(a.getValue())->isCallable();
-    } else {
-        return false;
-    }
+        return JS::COMPARE::Type(a, JS::OBJECT) && std::get<std::shared_ptr<JS::InternalObject>>(a.getValue())->isCallable();
+}
+
+bool Callable(const JS::Value& a) {
+    return a.index() == JS::OBJECT &&
+           std::get<std::shared_ptr<JS::InternalObject>>(a)->isCallable();
 }
 
 bool Callable(const std::shared_ptr<JS::InternalObject>& a) { return a->isCallable(); }
@@ -30,7 +31,7 @@ bool AccessorDescriptor(const JS::Attribute& a) {
 
 bool DataDescriptor(const JS::Attribute& a) {
     if (a.index() == JS::DATA_DESCRIPTOR) {
-        return !JS::COMPARE::Type(std::get<JS::DataDescriptor>(a).value, JS::UNDEFINED);
+        return true;
     }
     return false;
 }

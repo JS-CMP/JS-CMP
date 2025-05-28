@@ -5,11 +5,14 @@
 
 namespace JS {
 
-Array::Array() : InternalObject({}, getPrototypeProperties(), u"Array", true) {
-    this->defineOwnProperty(u"length", JS::DataDescriptor{JS::Any(0), true, false, false});
+Array::Array() : InternalObject({
+    {u"length", JS::DataDescriptor{JS::Any(0), true, false, false}}
+}, getPrototypeProperties(), u"Array", true) {
 }
 
-Array::Array(const JS::Any& len) : InternalObject({}, getPrototypeProperties(), u"Array", true) {
+Array::Array(const JS::Any& len) : InternalObject({
+    {u"length", JS::DataDescriptor{JS::Any(1), true, false, false}},
+}, getPrototypeProperties(), u"Array", true) {
     if (JS::COMPARE::Type(len, JS::NUMBER)) {
         double lengthValue = JS::CONVERT::ToNumber(len);
         uint32_t uintLength = JS::CONVERT::ToUint32(len);
@@ -23,9 +26,10 @@ Array::Array(const JS::Any& len) : InternalObject({}, getPrototypeProperties(), 
     }
 }
 
-Array::Array(const std::vector<JS::Any>& data) : InternalObject({}, getPrototypeProperties(), u"Array", true) {
+Array::Array(const std::vector<JS::Any>& data) : InternalObject({
+    {u"length", JS::DataDescriptor{JS::Any(static_cast<uint32_t>(data.size())), true, false, false}}
+}, getPrototypeProperties(), u"Array", true) {
     uint32_t length = data.size();
-    this->defineOwnProperty(u"length", JS::DataDescriptor{JS::Any(length), true, false, false});
     for (uint32_t i = 0; i < length; ++i) {
         this->defineOwnProperty(JS::CONVERT::ToString(i), JS::DataDescriptor{data[i], true, true, true});
     }

@@ -3,7 +3,7 @@
 #include <types/JsAny.hpp>
 #include <utils/Convert.hpp>
 
-JS::Any::Any(const std::shared_ptr<JS::InternalObject> v) { value = v; }
+JS::Any::Any(std::shared_ptr<JS::InternalObject> v) { value = v; }
 
 JS::Any::Any(const JS::InternalObject& v) {
     std::shared_ptr<JS::InternalObject> obj = std::make_shared<JS::InternalObject>(v);

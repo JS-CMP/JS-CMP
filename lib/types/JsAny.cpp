@@ -13,7 +13,6 @@ std::ostream& operator<<(std::ostream& os, const Any& any) {
 // TODO: remove and rework assert when custom operator merged
 bool JS::Any::strictEq(const JS::Any& other) const {
     // TODO: handle identity
-    std::cout << value.index() << " " << other.value.index() << '\n';
     if (this->value.index() != other.value.index()) {
         return false;
     }

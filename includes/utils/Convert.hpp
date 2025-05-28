@@ -7,7 +7,7 @@
 
 namespace JS::CONVERT {
 
-JS::Any ToPrimitive(const JS::Any& any);
+JS::Any ToPrimitive(const JS::Any& any, const JS::Types &hint = JS::NUMBER);
 
 DECLARE_1FUNC(bool ToBoolean, );
 

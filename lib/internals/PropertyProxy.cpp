@@ -3,6 +3,8 @@
 #include "internals/Object.hpp"
 #include "types/objects/JsObject.hpp"
 
+#include <utils/Is.hpp>
+
 namespace JS {
 
 PropertyProxy& PropertyProxy::operator=(const Any& value) {
@@ -23,7 +25,7 @@ PropertyProxy PropertyProxy::operator[](const std::u16string& key) const {
 }
 JS::Any PropertyProxy::call(const JS::Any& args) const {
     JS::Value value = obj_->get(key_).getValue();
-    if (value.index() == JS::OBJECT && std::get<std::shared_ptr<JS::InternalObject>>(value)->isCallable()) {
+    if (JS::IS::Callable(value)) {
         return std::get<std::shared_ptr<JS::InternalObject>>(value)->call_function(JS::Any(obj_), args);
     }
     throw std::runtime_error("Value is not a function");

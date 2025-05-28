@@ -28,7 +28,7 @@ Rope ToRope(const JS::Any& any) {
         case NULL_TYPE:
             return ToRope(JS::Null());
         default:
-            return Rope(u"[Object]");
+            return ToRope(ToPrimitive(any, JS::STRING)); // Convert to primitive with STRING hint
     }
 }
 } // namespace JS::CONVERT

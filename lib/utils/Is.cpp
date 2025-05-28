@@ -2,6 +2,7 @@
 #include "utils/Compare.hpp"
 
 #include <cmath>
+#include <utils/Convert.hpp>
 
 namespace JS::IS {
 bool Primitive(const JS::Any& a) {
@@ -35,4 +36,9 @@ bool DataDescriptor(const JS::Attribute& a) {
 }
 
 bool GenericDescriptor(const JS::Attribute& a) { return !DataDescriptor(a) && !AccessorDescriptor(a); }
+
+bool ArrayIndex(const std::u16string& key) {
+    uint32_t index = JS::CONVERT::ToUint32(key);
+    return JS::CONVERT::ToString(index) == key && index != std::numeric_limits<uint32_t>::max();
+}
 } // namespace JS::IS

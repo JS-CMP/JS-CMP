@@ -59,7 +59,7 @@ JS::Any Math::random(const JS::Any& thisArg, const JS::Any& args) {
 
 JS::Any Math::max(const JS::Any& thisArg, const JS::Any& args) {
     double maxValue = -std::numeric_limits<double>::infinity();
-    size_t length = JS::CONVERT::ToUint32(args[u"length"]);
+    uint32_t length = JS::CONVERT::ToUint32(args[u"length"]);
     for (uint32_t i = 0; i < length; ++i) {
         double num = JS::CONVERT::ToNumber(args[i]);
         if (std::isnan(num)) {
@@ -74,7 +74,7 @@ JS::Any Math::max(const JS::Any& thisArg, const JS::Any& args) {
 
 JS::Any Math::min(const JS::Any& thisArg, const JS::Any& args) {
     double minValue = std::numeric_limits<double>::infinity();
-    size_t length = JS::CONVERT::ToUint32(args[u"length"]);
+    uint32_t length = JS::CONVERT::ToUint32(args[u"length"]);
     for (uint32_t i = 0; i < length; ++i) {
         double num = JS::CONVERT::ToNumber(args[i]);
         if (std::isnan(num)) {

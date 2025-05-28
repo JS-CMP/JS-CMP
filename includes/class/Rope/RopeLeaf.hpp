@@ -68,6 +68,12 @@ public:
     [[nodiscard]] const std::u16string* getDataPtr() const override;
 
     /**
+     * @brief Returns the string data stored in the leaf.
+     * @return The string data.
+     */
+    [[nodiscard]] std::u16string getData();
+
+    /**
      * @brief Prints the contents of the string stored in the leaf.
      */
     void print() const override;

@@ -64,6 +64,7 @@ public:
         return nullptr; // Default implementation returns nullptr, can be overridden
     };
 
+
     /**
      * @brief Prints the contents of the rope node.
      */

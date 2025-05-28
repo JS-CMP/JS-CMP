@@ -1,5 +1,6 @@
-#include "types/objects/JsString.hpp"
 #include "internals/PropertyProxy.hpp"
+#include "types/objects/JsString.hpp"
+
 #include <utils/Convert.hpp>
 
 // static

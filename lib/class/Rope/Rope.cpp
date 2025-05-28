@@ -3,29 +3,17 @@
 #include <class/Rope/RopeIterator.hpp>
 #include <utils/Convert.hpp>
 
-Rope::Rope(const std::string& str)
-    : root(std::make_shared<RopeLeaf>(JS::CONVERT::ToUtf16(str))) {
-}
+Rope::Rope(const std::string& str) : root(std::make_shared<RopeLeaf>(JS::CONVERT::ToUtf16(str))) {}
 
-Rope::Rope(const std::u16string& str)
-    : root(std::make_shared<RopeLeaf>(str)) {
-}
+Rope::Rope(const std::u16string& str) : root(std::make_shared<RopeLeaf>(str)) {}
 
-Rope::Rope(const char16_t* str)
-    : root(std::make_shared<RopeLeaf>(std::u16string(str))) {
-}
+Rope::Rope(const char16_t* str) : root(std::make_shared<RopeLeaf>(std::u16string(str))) {}
 
-Rope::Rope(const char* str)
-    : root(std::make_shared<RopeLeaf>(JS::CONVERT::ToUtf16(str))) {
-}
+Rope::Rope(const char* str) : root(std::make_shared<RopeLeaf>(JS::CONVERT::ToUtf16(str))) {}
 
-Rope::Rope(std::shared_ptr<RopeNode> node)
-    : root(std::move(node)) {
-}
+Rope::Rope(std::shared_ptr<RopeNode> node) : root(std::move(node)) {}
 
-size_t Rope::length() const {
-    return root->length();
-}
+size_t Rope::length() const { return root->length(); }
 
 char16_t Rope::getCharAt(size_t idx) const {
     if (idx >= length()) {
@@ -34,21 +22,13 @@ char16_t Rope::getCharAt(size_t idx) const {
     return root->getCharAt(idx);
 }
 
-void Rope::concat(const Rope& other) {
-    root = std::make_shared<RopeConcat>(root, other.root);
-}
+void Rope::concat(const Rope& other) { root = std::make_shared<RopeConcat>(root, other.root); }
 
-Rope Rope::operator+(const Rope& other) const {
-    return Rope(std::make_shared<RopeConcat>(root, other.root));
-}
+Rope Rope::operator+(const Rope& other) const { return Rope(std::make_shared<RopeConcat>(root, other.root)); }
 
-Rope Rope::operator+(const std::u16string& other) const {
-    return Rope(std::make_shared<RopeConcat>(root, other));
-}
+Rope Rope::operator+(const std::u16string& other) const { return Rope(std::make_shared<RopeConcat>(root, other)); }
 
-Rope Rope::operator+(const std::u16string&& other) const {
-    return Rope(std::make_shared<RopeConcat>(root, other));
-}
+Rope Rope::operator+(const std::u16string&& other) const { return Rope(std::make_shared<RopeConcat>(root, other)); }
 
 Rope operator+(const std::u16string&& other, const Rope& rope) {
     return Rope(std::make_shared<RopeConcat>(other, rope.root));
@@ -58,9 +38,7 @@ Rope operator+(const std::u16string& other, const Rope& rope) {
     return Rope(std::make_shared<RopeConcat>(other, rope.root));
 }
 
-bool Rope::operator==(const Rope& other) const {
-    return equals(this->root, other.root);
-}
+bool Rope::operator==(const Rope& other) const { return equals(this->root, other.root); }
 
 char16_t Rope::operator[](size_t idx) const {
     if (idx >= length()) {
@@ -69,13 +47,9 @@ char16_t Rope::operator[](size_t idx) const {
     return root->getCharAt(idx);
 }
 
-size_t Rope::find(const std::u16string& str, size_t pos) const {
-    return root->find(str, pos);
-}
+size_t Rope::find(const std::u16string& str, size_t pos) const { return root->find(str, pos); }
 
-size_t Rope::rfind(const std::u16string& str, size_t pos) const {
-    return root->rfind(str, pos);
-}
+size_t Rope::rfind(const std::u16string& str, size_t pos) const { return root->rfind(str, pos); }
 
 int Rope::compare(const Rope& other) const {
     RopeIterator it1(this->root);

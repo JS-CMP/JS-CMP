@@ -15,6 +15,9 @@ size_t RopeLeaf::rfind(const std::u16string& str, size_t pos) const {
     }
     return data.rfind(str, pos);
 }
+
+std::u16string RopeLeaf::getData() { return data; }
+
 std::shared_ptr<RopeNode> RopeLeaf::getLeft() const { return nullptr; }
 std::shared_ptr<RopeNode> RopeLeaf::getRight() const { return nullptr; }
 const std::u16string* RopeLeaf::getDataPtr() const { return &data; }

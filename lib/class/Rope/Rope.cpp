@@ -150,11 +150,11 @@ std::u16string Rope::toString() const {
 }
 
 void Rope::toStringHelper(std::u16string& result, const std::shared_ptr<RopeNode>& node) const {
-    if (node->getDataPtr() != nullptr) {
-        result += (*node->getDataPtr());
-    } else if (node->getLeft() != nullptr && node->getRight() != nullptr) {
-        toStringHelper(result, node->getLeft());
-        toStringHelper(result, node->getRight());
+    if (auto leaf = std::dynamic_pointer_cast<RopeLeaf>(node)) {
+        result += leaf->getData();
+    } else if (auto concat = std::dynamic_pointer_cast<RopeConcat>(node)) {
+        toStringHelper(result, concat->getLeft());
+        toStringHelper(result, concat->getRight());
     }
 }
 

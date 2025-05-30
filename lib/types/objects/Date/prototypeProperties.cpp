@@ -1,0 +1,54 @@
+#include "types/objects/Function/JsFunction.hpp"
+#include "types/objects/JsDate.hpp"
+
+std::shared_ptr<JS::InternalObject>& JS::Date::getPrototypeProperties() {
+    static std::unordered_map<std::u16string, JS::Attribute> properties_prototype = {
+        {u"toString", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::toString)), true, true, true}},
+        {u"toDateString", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::toDateString)), true, true, true}},
+        {u"toTimeString", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::toTimeString)), true, true, true}},
+        {u"toLocaleString", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::toLocaleString)), true, true, true}},
+        {u"toLocaleDateString", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::toLocaleDateString)), true, true, true}},
+        {u"toLocaleTimeString", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::toLocaleTimeString)), true, true, true}},
+        {u"valueOf", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::valueOf)), true, true, true}},
+        {u"getTime", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::getTime)), true, true, true}},
+        {u"getFullYear", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::getFullYear)), true, true, true}},
+        {u"getUTCFullYear", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::getUTCFullYear)), true, true, true}},
+        {u"getMonth", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::getMonth)), true, true, true}},
+        {u"getUTCMonth", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::getUTCMonth)), true, true, true}},
+        {u"getDate", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::getDate)), true, true, true}},
+        {u"getUTCDate", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::getUTCDate)), true, true, true}},
+        {u"getDay", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::getDay)), true, true, true}},
+        {u"getUTCDay", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::getUTCDay)), true, true, true}},
+        {u"getHours", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::getHours)), true, true, true}},
+        {u"getUTCHours", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::getUTCHours)), true, true, true}},
+        {u"getMinutes", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::getMinutes)), true, true, true}},
+        {u"getUTCMinutes", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::getUTCMinutes)), true, true, true}},
+        {u"getSeconds", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::getSeconds)), true, true, true}},
+        {u"getUTCSeconds", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::getUTCSeconds)), true, true, true}},
+        {u"getMilliseconds", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::getMilliseconds)), true, true, true}},
+        {u"getUTCMilliseconds", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::getUTCMilliseconds)), true, true, true}},
+        {u"getTimezoneOffset", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::getTimezoneOffset)), true, true, true}},
+        {u"setTime", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::setTime)), true, true, true}},
+        {u"setMilliseconds", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::setMilliseconds)), true, true, true}},
+        {u"setUTCMilliseconds", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::setUTCMilliseconds)), true, true, true}},
+        {u"setSeconds", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::setSeconds)), true, true, true}},
+        {u"setUTCSeconds", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::setUTCSeconds)), true, true, true}},
+        {u"setMinutes", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::setMinutes)), true, true, true}},
+        {u"setUTCMinutes", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::setUTCMinutes)), true, true, true}},
+        {u"setHours", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::setHours)), true, true, true}},
+        {u"setUTCHours", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::setUTCHours)), true, true, true}},
+        {u"setDate", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::setDate)), true, true, true}},
+        {u"setUTCDate", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::setUTCDate)), true, true, true}},
+        {u"setMonth", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::setMonth)), true, true, true}},
+        {u"setUTCMonth", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::setUTCMonth)), true, true, true}},
+        {u"setFullYear", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::setFullYear)), true, true, true}},
+        {u"setUTCFullYear", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::setUTCFullYear)), true, true, true}},
+        {u"toUTCString", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::toUTCString)), true, true, true}},
+        {u"toISOString", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::toISOString)), true, true, true}},
+        {u"toJSON", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Date::toJSON)), true, true, true}}
+    };
+    static std::shared_ptr<JS::InternalObject> instance = std::make_shared<JS::InternalObject>(
+        properties_prototype, JS::Object::getPrototypeProperties(), u"Date", true);
+
+    return instance;
+}

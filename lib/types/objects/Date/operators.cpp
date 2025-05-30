@@ -5,13 +5,13 @@
 #include <unicode/ucal.h>
 #include <cmath>
 
-namespace JS::Date::Operators {
+namespace JS::DateOperators {
     int Day(double t) {
-        return std::floor(t / msPerDay);
+        return std::floor(t / JS::DateOperators::msPerDay);
     }
 
     double TimeWithinDay(double t) {
-        return std::fmod(t, msPerDay);
+        return std::fmod(t, JS::DateOperators::msPerDay);
     }
 
     double DaysInYear(int y) {
@@ -30,7 +30,7 @@ namespace JS::Date::Operators {
     }
 
     double TimeFromYear(int y) {
-        return msPerDay * DayFromYear(y);
+        return JS::DateOperators::msPerDay * DayFromYear(y);
     }
 
     int YearFromTime(double t) {
@@ -169,16 +169,14 @@ namespace JS::Date::Operators {
         int mn = static_cast<int>(std::fmod(m, 12.0));
         double t = TimeFromYear(ym);
         const int maxOffsetDays = 400;
-        const double msPerDay = 86400000.0;
 
         for (int i = 0; i < maxOffsetDays; ++i) {
-            double current = t + i * msPerDay;
+            double current = t + i * JS::DateOperators::msPerDay;
             if (YearFromTime(current) == ym &&
                 (MonthFromTime(current) == (mn - 1)) &&
                 DateFromTime(current) == 1) {
-                int day = static_cast<int>(std::floor(current / msPerDay));
-                std::cout << day + dt - 1;
-                return static_cast<double>(day + dt - 1);
+                int day = static_cast<int>(std::floor(current / JS::DateOperators::msPerDay));
+                return JS::Any(static_cast<double>(day + dt - 1));
             }
         }
         return JS::Any(std::numeric_limits<double>::quiet_NaN());
@@ -190,19 +188,14 @@ namespace JS::Date::Operators {
         if (!std::isfinite(d) || !std::isfinite(t)) {
             return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
-        return JS::Any(d * msPerDay + t);
+        return JS::Any(d * JS::DateOperators::msPerDay + t);
     }
 
     JS::Any TimeClip(JS::Any time) {
-        if (!std::isfinite(time)) {
-            return JS::Any(std::numeric_limits<double>::quiet_NaN());
-        }
-
-        if (std::abs(time) > 8.64E15) {
-            return JS::Any(std::numeric_limits<double>::quiet_NaN());
-        }
-
         int result = JS::CONVERT::ToInteger(time);
+        if (!std::isfinite(result) || std::abs(result) > 8.64E15) {
+            return JS::Any(std::numeric_limits<double>::quiet_NaN());
+        }
         return JS::Any(result);
     }
-} // namespace JS::Date::Operators
+} // namespace JS::DateOperators

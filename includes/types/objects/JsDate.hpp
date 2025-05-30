@@ -144,7 +144,7 @@ public:
 
 };
 
-namespace Date::Operators {
+namespace DateOperators {
     /**
      * @name Absctract operators
      */

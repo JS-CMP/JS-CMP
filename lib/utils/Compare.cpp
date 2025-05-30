@@ -25,9 +25,9 @@ bool SameValue(const Rope& a, const Rope& b) { return a == b; }
 
 bool SameValue(const bool& a, const bool& b) { return a == b; }
 
-bool SameValue(const JS::Undefined& a, const JS::Undefined& b) { return true; }
+bool SameValue(JS::Undefined a, JS::Undefined b) { return true; }
 
-bool SameValue(const JS::Null& a, const JS::Null& b) { return true; }
+bool SameValue(JS::Null a, JS::Null b) { return true; }
 
 bool SameValue(const std::shared_ptr<JS::InternalObject>& a, const std::shared_ptr<JS::InternalObject>& b) {
     return a.get() == b.get();
@@ -54,15 +54,6 @@ bool SameValue(const JS::Any& a, const JS::Any& b) {
     }
     return false;
 }
-
-// TODO: remove if useless after merge
-//    bool IsCallable(const JS::Any& a) {
-//        if (Type(a, JS::OBJECT)) {
-//            return std::get<std::shared_ptr<JS::Object>>(a.getValue())->isCallable();
-//        } else {
-//            return false;
-//        }
-//    }
 
 bool SameValue(const JS::Attribute& a, const JS::Attribute& b) {
     if (a.index() != b.index()) {

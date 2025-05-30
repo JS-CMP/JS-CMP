@@ -1,4 +1,8 @@
 #include "Function/JsFunction.hpp"
 #include "Function/JsFunctionBinded.hpp"
 #include "JsArray.hpp"
+#include "JsBoolean.hpp"
+#include "JsMath.hpp"
+#include "JsNumber.hpp"
 #include "JsObject.hpp"
+#include "JsString.hpp"

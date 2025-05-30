@@ -3,8 +3,10 @@
 #include "utils/Compare.hpp"
 #include "utils/Is.hpp"
 
+#include <utils/Convert.hpp>
+
 namespace JS {
-std::optional<JS::Attribute> JS::InternalObject::getOwnProperty(const std::string& key) const {
+std::optional<JS::Attribute> JS::InternalObject::getOwnProperty(const std::u16string& key) const {
 
     if (!properties->contains(key)) {
         return std::nullopt;
@@ -12,7 +14,7 @@ std::optional<JS::Attribute> JS::InternalObject::getOwnProperty(const std::strin
     return properties->at(key);
 }
 
-std::optional<JS::Attribute> InternalObject::getProperty(const std::string& key) const {
+std::optional<JS::Attribute> InternalObject::getProperty(const std::u16string& key) const {
     auto prop = this->getOwnProperty(key);
     if (prop.has_value()) {
         return prop;
@@ -23,7 +25,7 @@ std::optional<JS::Attribute> InternalObject::getProperty(const std::string& key)
     return this->prototype->getProperty(key);
 }
 
-JS::Any InternalObject::get(const std::string& key) const {
+JS::Any InternalObject::get(const std::u16string& key) const {
     auto desc = this->getProperty(key);
     if (!desc.has_value()) {
         return JS::Any(JS::Undefined{});
@@ -38,7 +40,7 @@ JS::Any InternalObject::get(const std::string& key) const {
     throw std::runtime_error("Descriptor type cannot be determined");
 }
 
-bool InternalObject::canPut(const std::string& key) const {
+bool InternalObject::canPut(const std::u16string& key) const {
     auto desc = this->getOwnProperty(key);
     if (desc.has_value()) {
         if (JS::IS::AccessorDescriptor(desc.value())) {
@@ -65,7 +67,7 @@ bool InternalObject::canPut(const std::string& key) const {
     throw std::runtime_error("Unexpected descriptor type");
 }
 
-void InternalObject::put(const std::string& key, const Any& value, bool is_throw) {
+void InternalObject::put(const std::u16string& key, const Any& value, bool is_throw) {
     bool canPut = this->canPut(key);
     if (!canPut) {
         if (is_throw) {
@@ -75,7 +77,9 @@ void InternalObject::put(const std::string& key, const Any& value, bool is_throw
     }
     auto ownDesc = this->getOwnProperty(key);
     if (ownDesc.has_value() && JS::IS::DataDescriptor(ownDesc.value())) {
-        this->defineOwnProperty(key, JS::DataDescriptor{value}, is_throw);
+        JS::DataDescriptor desc = std::get<JS::DataDescriptor>(ownDesc.value());
+        desc.value = value;
+        this->defineOwnProperty(key, desc, is_throw);
         return;
     }
     auto desc = this->getProperty(key);
@@ -91,16 +95,16 @@ void InternalObject::put(const std::string& key, const Any& value, bool is_throw
     this->defineOwnProperty(key, JS::DataDescriptor{value, true, true, true}, is_throw);
 }
 
-bool InternalObject::hasProperty(const std::string& key) const { return this->getProperty(key).has_value(); }
+bool InternalObject::hasProperty(const std::u16string& key) const { return this->getProperty(key).has_value(); }
 
-bool InternalObject::deleteProperty(const std::string& key, bool is_throw) {
+bool InternalObject::deleteProperty(const std::u16string& key, bool is_throw) {
     auto desc = this->getOwnProperty(key);
     if (!desc.has_value()) {
         return true;
     }
-    if ((desc.value().index() == JS::DATA_DESCRIPTOR && !std::get<JS::DataDescriptor>(desc.value()).configurable) ||
+    if ((desc.value().index() == JS::DATA_DESCRIPTOR && std::get<JS::DataDescriptor>(desc.value()).configurable) ||
         (desc.value().index() == JS::ACCESSOR_DESCRIPTOR &&
-         !std::get<JS::AccessorDescriptor>(desc.value()).configurable)) {
+         std::get<JS::AccessorDescriptor>(desc.value()).configurable)) {
         properties->erase(key);
         return true;
     }
@@ -113,16 +117,20 @@ bool InternalObject::deleteProperty(const std::string& key, bool is_throw) {
 JS::Any InternalObject::defaultValue(const Types& hint) {
     switch (hint) {
         case STRING: {
-            JS::Any toString = this->get("toString");
+            JS::Any toString = this->get(u"toString");
             if (JS::IS::Callable(toString)) {
-                JS::Any str = toString(JS::Any(shared_from_this()));
+                JS::Any str = std::get<std::shared_ptr<JS::InternalObject>>(toString.getValue())
+                                  ->call_function(JS::Any(shared_from_this()),
+                                                  JS::Arguments::CreateArgumentsObject({}));
                 if (JS::IS::Primitive(str)) {
                     return str;
                 }
             }
-            JS::Any valueOf = this->get("valueOf");
+            JS::Any valueOf = this->get(u"valueOf");
             if (JS::IS::Callable(valueOf)) {
-                JS::Any val = valueOf(JS::Any(shared_from_this()));
+                JS::Any val = std::get<std::shared_ptr<JS::InternalObject>>(valueOf.getValue())
+                                  ->call_function(JS::Any(shared_from_this()),
+                                                  JS::Arguments::CreateArgumentsObject({}));
                 if (JS::IS::Primitive(val)) {
                     return val;
                 }
@@ -130,16 +138,20 @@ JS::Any InternalObject::defaultValue(const Types& hint) {
             throw std::runtime_error("Cannot convert to primitive"); // TODO: TypeError
         }
         case NUMBER: {
-            JS::Any valueOf = this->get("valueOf");
+            JS::Any valueOf = this->get(u"valueOf");
             if (JS::IS::Callable(valueOf)) {
-                JS::Any val = valueOf(JS::Any(shared_from_this()));
+                JS::Any val = std::get<std::shared_ptr<JS::InternalObject>>(valueOf.getValue())
+                                  ->call_function(JS::Any(shared_from_this()),
+                                                  JS::Arguments::CreateArgumentsObject({}));
                 if (JS::IS::Primitive(val)) {
                     return val;
                 }
             }
-            JS::Any toString = this->get("toString");
+            JS::Any toString = this->get(u"toString");
             if (JS::IS::Callable(toString)) {
-                JS::Any str = toString(JS::Any(shared_from_this()));
+                JS::Any str = std::get<std::shared_ptr<JS::InternalObject>>(toString.getValue())
+                                  ->call_function(JS::Any(shared_from_this()),
+                                                  JS::Arguments::CreateArgumentsObject({}));
                 if (JS::IS::Primitive(str)) {
                     return str;
                 }
@@ -152,13 +164,13 @@ JS::Any InternalObject::defaultValue(const Types& hint) {
 }
 
 JS::Any InternalObject::defaultValue() {
-    if (this->class_name == "Date") {
+    if (this->class_name == u"Date") {
         return this->defaultValue(JS::STRING);
     }
     return this->defaultValue(JS::NUMBER);
 }
 
-bool InternalObject::defineOwnProperty(const std::string& key, Attribute desc, bool is_throw) {
+bool InternalObject::defineOwnProperty(const std::u16string& key, Attribute desc, bool is_throw) {
     auto current = this->getOwnProperty(key);
     bool extensible = this->extensible;
 

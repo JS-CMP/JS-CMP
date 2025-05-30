@@ -58,7 +58,7 @@ public:
     ///@{
     /** @brief Get a property of the object with all the parent included and all the checks for descriptor
      * https://262.ecma-international.org/5.1/#sec-15.3.5.4 */
-    [[nodiscard]] JS::Any get(const std::string& key) const final;
+    [[nodiscard]] JS::Any get(const std::u16string& key) const final;
     /** @brief Check if the object is an instance of another object */
     [[nodiscard]] bool hasInstance(const JS::Any& value) const override;
     ///@}

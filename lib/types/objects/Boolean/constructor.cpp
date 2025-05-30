@@ -3,17 +3,17 @@
 #include <utils/Convert.hpp>
 
 namespace JS {
-Boolean::Boolean() : InternalObject({}, getPrototypeProperties(), "Boolean", true) {
+Boolean::Boolean() : InternalObject({}, getPrototypeProperties(), u"Boolean", true) {
     this->primitiveValue = true;
-    this->defineOwnProperty("length", JS::DataDescriptor{Any(1), false, false, false});
-    this->defineOwnProperty("prototype", JS::DataDescriptor{Any(getPrototypeProperties()), false, false, false});
+    this->defineOwnProperty(u"length", JS::DataDescriptor{Any(1), false, false, false});
+    this->defineOwnProperty(u"prototype", JS::DataDescriptor{Any(getPrototypeProperties()), false, false, false});
 }
 
-Boolean::Boolean(const JS::Any& value) : InternalObject({}, getPrototypeProperties(), "Boolean", true) {
+Boolean::Boolean(const JS::Any& value) : InternalObject({}, getPrototypeProperties(), u"Boolean", true) {
     bool v = CONVERT::ToBoolean(value);
     this->primitiveValue = v;
-    this->defineOwnProperty("length", JS::DataDescriptor{Any(1), false, false, false});
-    this->defineOwnProperty("prototype", JS::DataDescriptor{Any(getPrototypeProperties()), false, false, false});
+    this->defineOwnProperty(u"length", JS::DataDescriptor{Any(1), false, false, false});
+    this->defineOwnProperty(u"prototype", JS::DataDescriptor{Any(getPrototypeProperties()), false, false, false});
 }
 
 } // namespace JS

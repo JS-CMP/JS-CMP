@@ -37,25 +37,31 @@ git submodule update --init --recursive
 **Debian-based:**
 
 ```bash
-sudo apt install libboost-all-dev doxygen
+sudo apt install libboost-all-dev doxygen libicu-dev
 ```
 
 **Arch-based:**
 
 ```bash
-sudo pacman -S boost doxygen
+sudo pacman -S boost doxygen icu
 ```
 
 **Fedora:**
 
 ```bash
-sudo dnf install boost-devel doxygen
+sudo dnf install boost-devel doxygen libicu-devel
 ```
 
 #### macOS
 
 ```bash
-brew install boost doxygen
+brew install boost doxygen icu4c
+```
+
+icu4c may need to be linked manually if not automatically detected by CMake:
+
+```bash
+brew link --force icu4c
 ```
 
 ### 5. Build the Project

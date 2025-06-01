@@ -8,9 +8,9 @@
 
 DECLARE_1FUNC(
     JS::PropertyProxy JS::Any::operator[], const {
-    JS::COMPARE::CheckObjectCoercible(*this);
-    auto data = JS::CONVERT::ToObject(*this);
-    return JS::PropertyProxy(data, JS::CONVERT::ToString(value));
+        JS::COMPARE::CheckObjectCoercible(*this);
+        auto data = JS::CONVERT::ToObject(*this);
+        return JS::PropertyProxy(data, JS::CONVERT::ToString(value));
     })
 
 JS::Any JS::Any::call(const JS::Any& args) const {

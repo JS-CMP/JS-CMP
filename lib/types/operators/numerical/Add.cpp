@@ -149,9 +149,13 @@ JS::Any JS::Any::operator+(bool value) const {
     return {};
 }
 
-JS::Any JS::Any::operator+(const char* value) const { return this->operator+(JS::CONVERT::ToUtf16(value)); }
+JS::Any JS::Any::operator+(const char* value) const {
+    return this->operator+(JS::CONVERT::ToUtf16(value));
+}
 
-JS::Any JS::Any::operator+(const char16_t* value) const { return this->operator+(std::u16string(value)); }
+JS::Any JS::Any::operator+(const char16_t* value) const {
+    return this->operator+(std::u16string(value));
+}
 
 JS::Any JS::Any::operator+(const std::u16string& value) const {
     switch (this->value.index()) {
@@ -244,9 +248,13 @@ JS::Any operator+(double value, JS::Any const& any) {
     return {};
 }
 
-JS::Any operator+(const char* value, JS::Any const& any) { return JS::CONVERT::ToUtf16(value) + any; }
+JS::Any operator+(const char* value, JS::Any const& any) {
+    return JS::CONVERT::ToUtf16(value) + any;
+}
 
-JS::Any operator+(const char16_t* value, JS::Any const& any) { return std::u16string(value) + JS::Any(any); }
+JS::Any operator+(const char16_t* value, JS::Any const& any) {
+    return std::u16string(value) + JS::Any(any);
+}
 
 JS::Any operator+(const std::u16string& value, JS::Any const& any) {
     switch (any.getValue().index()) {
@@ -282,7 +290,9 @@ JS::Any operator+(bool value, JS::Any const& any) {
             case JS::NULL_TYPE:
                 return JS::Any(static_cast<double>(value));
         }
-    } catch (const std::invalid_argument&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+    } catch (const std::invalid_argument&) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
+    }
     return {};
 }
 
@@ -302,7 +312,9 @@ JS::Any operator+(JS::Null, JS::Any const& any) {
             case JS::NULL_TYPE:
                 return JS::Any(0);
         }
-    } catch (const std::invalid_argument&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+    } catch (const std::invalid_argument&) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
+    }
     return {};
 }
 

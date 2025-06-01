@@ -5,7 +5,8 @@
 
 JS::Any JS::Number::toString(const JS::Any& thisArg, const JS::Any& args) {
     // TODO: make the real func
-    return JS::Any(JS::CONVERT::ToString(std::get<double>(std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->primitiveValue)));
+    return JS::Any(JS::CONVERT::ToString(
+        std::get<double>(std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->primitiveValue)));
 }
 
 JS::Any JS::Number::toLocaleString(const JS::Any& thisArg, const JS::Any& args) {

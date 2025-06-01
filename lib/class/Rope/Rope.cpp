@@ -3,25 +3,15 @@
 #include <class/Rope/RopeIterator.hpp>
 #include <utils/Convert.hpp>
 
-Rope::Rope(const std::string& str)
-    : root(std::make_shared<RopeLeaf>(JS::CONVERT::ToUtf16(str))) {
-}
+Rope::Rope(const std::string& str) : root(std::make_shared<RopeLeaf>(JS::CONVERT::ToUtf16(str))) {}
 
-Rope::Rope(const std::u16string& str)
-    : root(std::make_shared<RopeLeaf>(str)) {
-}
+Rope::Rope(const std::u16string& str) : root(std::make_shared<RopeLeaf>(str)) {}
 
-Rope::Rope(const char16_t* str)
-    : root(std::make_shared<RopeLeaf>(std::u16string(str))) {
-}
+Rope::Rope(const char16_t* str) : root(std::make_shared<RopeLeaf>(std::u16string(str))) {}
 
-Rope::Rope(const char* str)
-    : root(std::make_shared<RopeLeaf>(JS::CONVERT::ToUtf16(str))) {
-}
+Rope::Rope(const char* str) : root(std::make_shared<RopeLeaf>(JS::CONVERT::ToUtf16(str))) {}
 
-Rope::Rope(std::shared_ptr<RopeNode> node)
-    : root(std::move(node)) {
-}
+Rope::Rope(std::shared_ptr<RopeNode> node) : root(std::move(node)) {}
 
 size_t Rope::length() const {
     return root->length();

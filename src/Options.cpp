@@ -88,7 +88,9 @@ void Options::printUsage() {
               << '\n';
 }
 
-void Options::printVersion() { std::cout << "JS_CMP version " << JS_CMP_VERSION << '\n'; }
+void Options::printVersion() {
+    std::cout << "JS_CMP version " << JS_CMP_VERSION << '\n';
+}
 
 std::optional<std::string> Options::findCompiler() {
     for (const auto& compiler : commonCompilers) {

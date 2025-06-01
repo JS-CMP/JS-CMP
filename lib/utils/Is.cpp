@@ -11,15 +11,17 @@ bool Primitive(const JS::Any& a) {
 }
 
 bool Callable(const JS::Any& a) {
-        return JS::COMPARE::Type(a, JS::OBJECT) && std::get<std::shared_ptr<JS::InternalObject>>(a.getValue())->isCallable();
+    return JS::COMPARE::Type(a, JS::OBJECT) &&
+           std::get<std::shared_ptr<JS::InternalObject>>(a.getValue())->isCallable();
 }
 
 bool Callable(const JS::Value& a) {
-    return a.index() == JS::OBJECT &&
-           std::get<std::shared_ptr<JS::InternalObject>>(a)->isCallable();
+    return a.index() == JS::OBJECT && std::get<std::shared_ptr<JS::InternalObject>>(a)->isCallable();
 }
 
-bool Callable(const std::shared_ptr<JS::InternalObject>& a) { return a->isCallable(); }
+bool Callable(const std::shared_ptr<JS::InternalObject>& a) {
+    return a->isCallable();
+}
 
 bool AccessorDescriptor(const JS::Attribute& a) {
     if (a.index() == JS::ACCESSOR_DESCRIPTOR) {
@@ -36,7 +38,9 @@ bool DataDescriptor(const JS::Attribute& a) {
     return false;
 }
 
-bool GenericDescriptor(const JS::Attribute& a) { return !DataDescriptor(a) && !AccessorDescriptor(a); }
+bool GenericDescriptor(const JS::Attribute& a) {
+    return !DataDescriptor(a) && !AccessorDescriptor(a);
+}
 
 bool ArrayIndex(const std::u16string& key) {
     uint32_t index = JS::CONVERT::ToUint32(key);

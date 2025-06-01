@@ -95,7 +95,9 @@ void InternalObject::put(const std::u16string& key, const Any& value, bool is_th
     this->defineOwnProperty(key, JS::DataDescriptor{value, true, true, true}, is_throw);
 }
 
-bool InternalObject::hasProperty(const std::u16string& key) const { return this->getProperty(key).has_value(); }
+bool InternalObject::hasProperty(const std::u16string& key) const {
+    return this->getProperty(key).has_value();
+}
 
 bool InternalObject::deleteProperty(const std::u16string& key, bool is_throw) {
     auto desc = this->getOwnProperty(key);
@@ -119,18 +121,18 @@ JS::Any InternalObject::defaultValue(const Types& hint) {
         case STRING: {
             JS::Any toString = this->get(u"toString");
             if (JS::IS::Callable(toString)) {
-                JS::Any str = std::get<std::shared_ptr<JS::InternalObject>>(toString.getValue())
-                                  ->call_function(JS::Any(shared_from_this()),
-                                                  JS::Arguments::CreateArgumentsObject({}));
+                JS::Any str =
+                    std::get<std::shared_ptr<JS::InternalObject>>(toString.getValue())
+                        ->call_function(JS::Any(shared_from_this()), JS::Arguments::CreateArgumentsObject({}));
                 if (JS::IS::Primitive(str)) {
                     return str;
                 }
             }
             JS::Any valueOf = this->get(u"valueOf");
             if (JS::IS::Callable(valueOf)) {
-                JS::Any val = std::get<std::shared_ptr<JS::InternalObject>>(valueOf.getValue())
-                                  ->call_function(JS::Any(shared_from_this()),
-                                                  JS::Arguments::CreateArgumentsObject({}));
+                JS::Any val =
+                    std::get<std::shared_ptr<JS::InternalObject>>(valueOf.getValue())
+                        ->call_function(JS::Any(shared_from_this()), JS::Arguments::CreateArgumentsObject({}));
                 if (JS::IS::Primitive(val)) {
                     return val;
                 }
@@ -140,18 +142,18 @@ JS::Any InternalObject::defaultValue(const Types& hint) {
         case NUMBER: {
             JS::Any valueOf = this->get(u"valueOf");
             if (JS::IS::Callable(valueOf)) {
-                JS::Any val = std::get<std::shared_ptr<JS::InternalObject>>(valueOf.getValue())
-                                  ->call_function(JS::Any(shared_from_this()),
-                                                  JS::Arguments::CreateArgumentsObject({}));
+                JS::Any val =
+                    std::get<std::shared_ptr<JS::InternalObject>>(valueOf.getValue())
+                        ->call_function(JS::Any(shared_from_this()), JS::Arguments::CreateArgumentsObject({}));
                 if (JS::IS::Primitive(val)) {
                     return val;
                 }
             }
             JS::Any toString = this->get(u"toString");
             if (JS::IS::Callable(toString)) {
-                JS::Any str = std::get<std::shared_ptr<JS::InternalObject>>(toString.getValue())
-                                  ->call_function(JS::Any(shared_from_this()),
-                                                  JS::Arguments::CreateArgumentsObject({}));
+                JS::Any str =
+                    std::get<std::shared_ptr<JS::InternalObject>>(toString.getValue())
+                        ->call_function(JS::Any(shared_from_this()), JS::Arguments::CreateArgumentsObject({}));
                 if (JS::IS::Primitive(str)) {
                     return str;
                 }

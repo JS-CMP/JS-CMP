@@ -26,12 +26,11 @@ JS::Any Object = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::u1
 JS::Any Array = JS::Any(std::make_shared<JS::InternalObject>(
     std::unordered_map<std::u16string, JS::Attribute>{
         {u"isArray", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Array::isArray)), true, true, true}},
-        {u"length", JS::DataDescriptor{JS::Any(0), true, false, false}}
-    }, nullptr,u"Array", true));
+        {u"length", JS::DataDescriptor{JS::Any(0), true, false, false}}},
+    nullptr, u"Array", true));
 
 JS::Any String = JS::Any(std::make_shared<JS::String>(std::unordered_map<std::u16string, JS::Any>{
-    {u"fromCharCode", JS::Any(std::make_shared<JS::Function>(JS::String::fromCharCode))}
-}));
+    {u"fromCharCode", JS::Any(std::make_shared<JS::Function>(JS::String::fromCharCode))}}));
 
 JS::Any Number = JS::Any(std::make_shared<JS::Number>(std::unordered_map<std::u16string, JS::Attribute>{
     {u"MAX_VALUE", JS::DataDescriptor{JS::Any(JS::Number::MAX_VALUE), false, false, false}},

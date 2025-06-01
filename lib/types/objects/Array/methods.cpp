@@ -94,7 +94,6 @@ bool Array::defineOwnProperty(const std::u16string& key, JS::Attribute attribute
     return this->InternalObject::defineOwnProperty(key, attribute, is_throw);
 }
 
-
 // prototype methods
 JS::Any Array::toString(const JS::Any& thisArg, const JS::Any& args) {
     std::shared_ptr<JS::InternalObject> array = JS::CONVERT::ToObject(thisArg);
@@ -115,8 +114,7 @@ JS::Any Array::toLocaleString(const JS::Any& thisArg, const JS::Any& args) {
     std::u16string separator = u","; // Default separator, can be overridden by host environment
     JS::Any firstElement = array->get(u"0");
     std::u16string R;
-    if (JS::COMPARE::Type(firstElement, JS::UNDEFINED) ||
-        JS::COMPARE::Type(firstElement, JS::NULL_TYPE)) {
+    if (JS::COMPARE::Type(firstElement, JS::UNDEFINED) || JS::COMPARE::Type(firstElement, JS::NULL_TYPE)) {
         R = u"";
     } else {
         std::shared_ptr<JS::InternalObject> elementObj = JS::CONVERT::ToObject(firstElement);
@@ -126,14 +124,13 @@ JS::Any Array::toLocaleString(const JS::Any& thisArg, const JS::Any& args) {
         }
         // This can be optimized to return a string because next is R + a string so R became a string in all the case
         R = JS::CONVERT::ToString(std::get<std::shared_ptr<JS::InternalObject>>(func.getValue())
-            ->call_function(JS::Any(elementObj), JS::Arguments::CreateArgumentsObject({})));
+                                      ->call_function(JS::Any(elementObj), JS::Arguments::CreateArgumentsObject({})));
     }
     uint32_t k = 1;
     while (k < len) {
         std::u16string S = R + separator;
         JS::Any nextElement = array->get(JS::CONVERT::ToString(k));
-        if (JS::COMPARE::Type(nextElement, JS::UNDEFINED) ||
-            JS::COMPARE::Type(nextElement, JS::NULL_TYPE)) {
+        if (JS::COMPARE::Type(nextElement, JS::UNDEFINED) || JS::COMPARE::Type(nextElement, JS::NULL_TYPE)) {
             R = u"";
         } else {
             std::shared_ptr<JS::InternalObject> elementObj = JS::CONVERT::ToObject(nextElement);
@@ -142,8 +139,9 @@ JS::Any Array::toLocaleString(const JS::Any& thisArg, const JS::Any& args) {
                 throw std::runtime_error("TypeError: toLocaleString is not callable");
                 // TODO: Handle this error properly
             }
-            R = JS::CONVERT::ToString(std::get<std::shared_ptr<JS::InternalObject>>(func.getValue())
-                ->call_function(JS::Any(elementObj), JS::Arguments::CreateArgumentsObject({})));
+            R = JS::CONVERT::ToString(
+                std::get<std::shared_ptr<JS::InternalObject>>(func.getValue())
+                    ->call_function(JS::Any(elementObj), JS::Arguments::CreateArgumentsObject({})));
         }
         R.insert(0, S); // faster that R = S + R
         k++;
@@ -195,16 +193,14 @@ JS::Any Array::join(const JS::Any& thisArg, const JS::Any& args) {
     }
     std::u16string sep = JS::COMPARE::Type(args[u"0"], JS::UNDEFINED) ? u"," : JS::CONVERT::ToString(args[u"0"]);
     JS::Any element0 = O->get(u"0");
-    std::u16string R = JS::COMPARE::Type(element0, JS::UNDEFINED) ||
-                       JS::COMPARE::Type(element0, JS::NULL_TYPE)
+    std::u16string R = JS::COMPARE::Type(element0, JS::UNDEFINED) || JS::COMPARE::Type(element0, JS::NULL_TYPE)
                            ? u""
                            : JS::CONVERT::ToString(element0);
     uint32_t k = 1;
     while (k < len) {
         std::u16string S = R + sep;
         JS::Any element = O->get(JS::CONVERT::ToString(k));
-        std::u16string next = JS::COMPARE::Type(element, JS::UNDEFINED) ||
-                              JS::COMPARE::Type(element, JS::NULL_TYPE)
+        std::u16string next = JS::COMPARE::Type(element, JS::UNDEFINED) || JS::COMPARE::Type(element, JS::NULL_TYPE)
                                   ? u""
                                   : JS::CONVERT::ToString(element);
         R = S + next;
@@ -268,7 +264,6 @@ JS::Any Array::reverse(const JS::Any& thisArg, const JS::Any& args) {
         lower++;
     }
     return JS::Any(O);
-
 }
 
 JS::Any Array::shift(const JS::Any& thisArg, const JS::Any& args) {
@@ -304,13 +299,11 @@ JS::Any Array::slice(const JS::Any& thisArg, const JS::Any& args) {
     std::shared_ptr<JS::InternalObject> A = std::make_shared<JS::Array>();
     uint32_t len = JS::CONVERT::ToUint32(O->get(u"length"));
     int relativeStart = JS::CONVERT::ToInteger(args[u"0"]);
-    uint32_t k = (relativeStart < 0)
-                     ? std::max(static_cast<int32_t>(len + relativeStart), 0)
-                     : std::min(static_cast<uint32_t>(relativeStart), len);
+    uint32_t k = (relativeStart < 0) ? std::max(static_cast<int32_t>(len + relativeStart), 0)
+                                     : std::min(static_cast<uint32_t>(relativeStart), len);
     int relativeEnd = (JS::COMPARE::Type(end, JS::UNDEFINED)) ? static_cast<int>(len) : JS::CONVERT::ToInteger(end);
-    uint32_t final = (relativeEnd < 0)
-                         ? std::max(static_cast<int32_t>(len + relativeEnd), 0)
-                         : std::min(static_cast<uint32_t>(relativeEnd), len);
+    uint32_t final = (relativeEnd < 0) ? std::max(static_cast<int32_t>(len + relativeEnd), 0)
+                                       : std::min(static_cast<uint32_t>(relativeEnd), len);
     uint32_t n = 0;
     while (k < final) {
         std::u16string Pk = JS::CONVERT::ToString(k);
@@ -347,11 +340,10 @@ JS::Any Array::sort(const JS::Any& thisArg, const JS::Any& args) {
                 elements.emplace_back(key, obj->get(key));
             }
         }
-        std::ranges::sort(elements,
-                          [&compareFn](const std::pair<std::u16string, JS::Any>& a,
-                                       const std::pair<std::u16string, JS::Any>& b) {
-                              return compareFn(a.second, b.second) < 0;
-                          });
+        std::ranges::sort(elements, [&compareFn](const std::pair<std::u16string, JS::Any>& a,
+                                                 const std::pair<std::u16string, JS::Any>& b) {
+            return compareFn(a.second, b.second) < 0;
+        });
     } else if (JS::COMPARE::Type(args[u"0"], JS::OBJECT)) {
         if (!JS::IS::Callable(args[u"0"])) {
             throw std::runtime_error("TypeError: compare function is not callable"); // TODO: Handle this error properly
@@ -364,12 +356,11 @@ JS::Any Array::sort(const JS::Any& thisArg, const JS::Any& args) {
                 elements.emplace_back(key, obj->get(key));
             }
         }
-        std::ranges::sort(elements,
-                          [&compareFn](const std::pair<std::u16string, JS::Any>& a,
-                                       const std::pair<std::u16string, JS::Any>& b) {
-                              return JS::CONVERT::ToInteger(compareFn->call_function(
-                                         JS::Any(), JS::Arguments::CreateArgumentsObject({a.second, b.second}))) < 0;
-                          });
+        std::ranges::sort(elements, [&compareFn](const std::pair<std::u16string, JS::Any>& a,
+                                                 const std::pair<std::u16string, JS::Any>& b) {
+            return JS::CONVERT::ToInteger(compareFn->call_function(
+                       JS::Any(), JS::Arguments::CreateArgumentsObject({a.second, b.second}))) < 0;
+        });
     } else {
         throw std::runtime_error("TypeError: compare function is not callable"); // TODO: Handle this error properly
     }
@@ -381,12 +372,10 @@ JS::Any Array::splice(const JS::Any& thisArg, const JS::Any& args) {
     std::shared_ptr<JS::InternalObject> A = std::make_shared<JS::Array>();
     uint32_t len = JS::CONVERT::ToUint32(O->get(u"length"));
     int relativeStart = JS::CONVERT::ToInteger(args[u"0"]);
-    int actualStart = (relativeStart < 0)
-                               ? std::max(static_cast<int>(len) + relativeStart, 0)
-                               : std::min(relativeStart, static_cast<int>(len));
-    int actualDeleteCount = std::min(
-        std::max(JS::CONVERT::ToInteger(args[u"1"]), 0),
-        static_cast<int>(len) - actualStart);
+    int actualStart = (relativeStart < 0) ? std::max(static_cast<int>(len) + relativeStart, 0)
+                                          : std::min(relativeStart, static_cast<int>(len));
+    int actualDeleteCount =
+        std::min(std::max(JS::CONVERT::ToInteger(args[u"1"]), 0), static_cast<int>(len) - actualStart);
 
     while (actualDeleteCount > 0) {
         std::u16string from = JS::CONVERT::ToString(actualStart + actualDeleteCount - 1);
@@ -508,12 +497,9 @@ JS::Any Array::lastIndexOf(const JS::Any& thisArg, const JS::Any& args) {
     if (len == 0) {
         return JS::Any(-1);
     }
-    int n = JS::COMPARE::Type(args[u"0"], JS::UNDEFINED)
-                ? static_cast<int>(len - 1)
-                : JS::CONVERT::ToInteger(args[u"0"]);
-    int k = (n >= 0)
-                ? std::min(n, static_cast<int>(len - 1))
-                : std::max(static_cast<int>(len + n), 0);
+    int n =
+        JS::COMPARE::Type(args[u"0"], JS::UNDEFINED) ? static_cast<int>(len - 1) : JS::CONVERT::ToInteger(args[u"0"]);
+    int k = (n >= 0) ? std::min(n, static_cast<int>(len - 1)) : std::max(static_cast<int>(len + n), 0);
     while (k >= 0) {
         if (O->hasProperty(JS::CONVERT::ToString(k))) {
             JS::Any elementK = O->get(JS::CONVERT::ToString(k));
@@ -639,8 +625,7 @@ JS::Any Array::filter(const JS::Any& thisArg, const JS::Any& args) {
             JS::Any selected = callbackFn->call_function(
                 thisArg, JS::Arguments::CreateArgumentsObject({kValue, JS::Any(k), JS::Any(O)}));
             if (JS::CONVERT::ToBoolean(selected)) {
-                A->defineOwnProperty(
-                    JS::CONVERT::ToString(to), JS::DataDescriptor{kValue, true, true, true}, false);
+                A->defineOwnProperty(JS::CONVERT::ToString(to), JS::DataDescriptor{kValue, true, true, true}, false);
                 to++;
             }
         }

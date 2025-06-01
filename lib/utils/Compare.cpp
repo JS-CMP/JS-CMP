@@ -5,11 +5,17 @@
 #include <cmath>
 
 namespace JS::COMPARE {
-bool Type(const JS::Any& a, const JS::Any& b) { return a.getValue().index() == b.getValue().index(); }
+bool Type(const JS::Any& a, const JS::Any& b) {
+    return a.getValue().index() == b.getValue().index();
+}
 
-bool Type(const JS::Any& a, const JS::Types& b) { return a.getValue().index() == b; }
+bool Type(const JS::Any& a, const JS::Types& b) {
+    return a.getValue().index() == b;
+}
 
-bool Type(const JS::Types& a, const JS::Any& b) { return a == b.getValue().index(); }
+bool Type(const JS::Types& a, const JS::Any& b) {
+    return a == b.getValue().index();
+}
 
 bool SameValue(const double& a, const double& b) {
     if (std::isnan(a) && std::isnan(b)) {
@@ -21,13 +27,21 @@ bool SameValue(const double& a, const double& b) {
     return a == b;
 }
 
-bool SameValue(const Rope& a, const Rope& b) { return a == b; }
+bool SameValue(const Rope& a, const Rope& b) {
+    return a == b;
+}
 
-bool SameValue(const bool& a, const bool& b) { return a == b; }
+bool SameValue(const bool& a, const bool& b) {
+    return a == b;
+}
 
-bool SameValue(JS::Undefined a, JS::Undefined b) { return true; }
+bool SameValue(JS::Undefined a, JS::Undefined b) {
+    return true;
+}
 
-bool SameValue(JS::Null a, JS::Null b) { return true; }
+bool SameValue(JS::Null a, JS::Null b) {
+    return true;
+}
 
 bool SameValue(const std::shared_ptr<JS::InternalObject>& a, const std::shared_ptr<JS::InternalObject>& b) {
     return a.get() == b.get();

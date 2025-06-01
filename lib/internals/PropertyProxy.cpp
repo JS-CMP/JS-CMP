@@ -12,9 +12,13 @@ PropertyProxy& PropertyProxy::operator=(const Any& value) {
     return *this;
 }
 
-PropertyProxy::operator JS::Any() { return obj_->get(key_); }
+PropertyProxy::operator JS::Any() {
+    return obj_->get(key_);
+}
 
-PropertyProxy::operator JS::Any() const { return obj_->get(key_); }
+PropertyProxy::operator JS::Any() const {
+    return obj_->get(key_);
+}
 
 PropertyProxy PropertyProxy::operator[](const std::u16string& key) const {
     JS::Any any = obj_->get(key_);
@@ -31,7 +35,9 @@ JS::Any PropertyProxy::call(const JS::Any& args) const {
     throw std::runtime_error("Value is not a function");
 }
 
-JS::Value PropertyProxy::getValue() const { return obj_->get(key_).getValue(); }
+JS::Value PropertyProxy::getValue() const {
+    return obj_->get(key_).getValue();
+}
 
 std::ostream& operator<<(std::ostream& os, const PropertyProxy& proxy) {
     os << static_cast<JS::Any>(proxy);

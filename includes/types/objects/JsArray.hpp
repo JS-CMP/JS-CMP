@@ -31,8 +31,8 @@ public:
     ~Array() override = default;
 
     /**
-    * @name Methods that override internal methods of the Object
-    */
+     * @name Methods that override internal methods of the Object
+     */
     ///@{
     /**
      * @brief Define a property in the Array object.
@@ -42,10 +42,11 @@ public:
     ///@}
 
     /**
-    * @name Prototype methods of the Array object built-in
-    */
+     * @name Prototype methods of the Array object built-in
+     */
     ///@{
-    /** @brief Returns a string representing the specified object. https://262.ecma-international.org/5.1/#sec-15.4.4.2 */
+    /** @brief Returns a string representing the specified object. https://262.ecma-international.org/5.1/#sec-15.4.4.2
+     */
     static JS::Any toString(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Returns the locale string of it. https://262.ecma-international.org/5.1/#sec-15.4.4.3 */
     static JS::Any toLocaleString(const JS::Any& thisArg, const JS::Any& args);
@@ -53,39 +54,54 @@ public:
     static JS::Any concat(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Joins all elements of the array into a string. https://262.ecma-international.org/5.1/#sec-15.4.4.5 */
     static JS::Any join(const JS::Any& thisArg, const JS::Any& args);
-    /** @brief Removes the last element from the array and returns it. https://262.ecma-international.org/5.1/#sec-15.4.4.6 */
+    /** @brief Removes the last element from the array and returns it.
+     * https://262.ecma-international.org/5.1/#sec-15.4.4.6 */
     static JS::Any pop(const JS::Any& thisArg, const JS::Any& args);
-    /** @brief Adds one or more elements to the end of the array and returns the new length. https://262.ecma-international.org/5.1/#sec-15.4.4.7 */
+    /** @brief Adds one or more elements to the end of the array and returns the new length.
+     * https://262.ecma-international.org/5.1/#sec-15.4.4.7 */
     static JS::Any push(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Reverses the order of the elements in the array. https://262.ecma-international.org/5.1/#sec-15.4.4.8 */
     static JS::Any reverse(const JS::Any& thisArg, const JS::Any& args);
-    /** @brief Removes the first element from the array and returns it. https://262.ecma-international.org/5.1/#sec-15.4.4.9 */
+    /** @brief Removes the first element from the array and returns it.
+     * https://262.ecma-international.org/5.1/#sec-15.4.4.9 */
     static JS::Any shift(const JS::Any& thisArg, const JS::Any& args);
-    /** @brief Returns a shallow copy of a portion of the array. https://262.ecma-international.org/5.1/#sec-15.4.4.10 */
+    /** @brief Returns a shallow copy of a portion of the array. https://262.ecma-international.org/5.1/#sec-15.4.4.10
+     */
     static JS::Any slice(const JS::Any& thisArg, const JS::Any& args);
     /** @brief Sorts the elements of the array in place. https://262.ecma-international.org/5.1/#sec-15.4.4.11 */
     static JS::Any sort(const JS::Any& thisArg, const JS::Any& args);
-    /** @brief Changes the contents of the array by removing or replacing elements. https://262.ecma-international.org/5.1/#sec-15.4.4.12 */
+    /** @brief Changes the contents of the array by removing or replacing elements.
+     * https://262.ecma-international.org/5.1/#sec-15.4.4.12 */
     static JS::Any splice(const JS::Any& thisArg, const JS::Any& args);
-    /** @brief Adds one or more elements to the beginning of the array and returns the new length. https://262.ecma-international.org/5.1/#sec-15.4.4.13 */
+    /** @brief Adds one or more elements to the beginning of the array and returns the new length.
+     * https://262.ecma-international.org/5.1/#sec-15.4.4.13 */
     static JS::Any unshift(const JS::Any& thisArg, const JS::Any& args);
-    /** @brief Returns the first index at which a given element can be found. https://262.ecma-international.org/5.1/#sec-15.4.4.14 */
+    /** @brief Returns the first index at which a given element can be found.
+     * https://262.ecma-international.org/5.1/#sec-15.4.4.14 */
     static JS::Any indexOf(const JS::Any& thisArg, const JS::Any& args);
-    /** @brief Returns the last index at which a given element can be found. https://262.ecma-international.org/5.1/#sec-15.4.4.15 */
+    /** @brief Returns the last index at which a given element can be found.
+     * https://262.ecma-international.org/5.1/#sec-15.4.4.15 */
     static JS::Any lastIndexOf(const JS::Any& thisArg, const JS::Any& args);
-    /** @brief Tests whether all elements in the array pass the provided function. https://262.ecma-international.org/5.1/#sec-15.4.4.16 */
+    /** @brief Tests whether all elements in the array pass the provided function.
+     * https://262.ecma-international.org/5.1/#sec-15.4.4.16 */
     static JS::Any every(const JS::Any& thisArg, const JS::Any& args);
-    /** @brief Tests whether at least one element in the array passes the provided function. https://262.ecma-international.org/5.1/#sec-15.4.4.17 */
+    /** @brief Tests whether at least one element in the array passes the provided function.
+     * https://262.ecma-international.org/5.1/#sec-15.4.4.17 */
     static JS::Any some(const JS::Any& thisArg, const JS::Any& args);
-    /** @brief Executes a provided function once for each array element. https://262.ecma-international.org/5.1/#sec-15.4.4.18 */
+    /** @brief Executes a provided function once for each array element.
+     * https://262.ecma-international.org/5.1/#sec-15.4.4.18 */
     static JS::Any forEach(const JS::Any& thisArg, const JS::Any& args);
-    /** @brief Creates a new array with the results of calling a provided function on every element. https://262.ecma-international.org/5.1/#sec-15.4.4.19 */
+    /** @brief Creates a new array with the results of calling a provided function on every element.
+     * https://262.ecma-international.org/5.1/#sec-15.4.4.19 */
     static JS::Any map(const JS::Any& thisArg, const JS::Any& args);
-    /** @brief Creates a new array with all elements that pass the provided function. https://262.ecma-international.org/5.1/#sec-15.4.4.20 */
+    /** @brief Creates a new array with all elements that pass the provided function.
+     * https://262.ecma-international.org/5.1/#sec-15.4.4.20 */
     static JS::Any filter(const JS::Any& thisArg, const JS::Any& args);
-    /** @brief Applies a function against an accumulator and each element to reduce it to a single value. https://262.ecma-international.org/5.1/#sec-15.4.4.21 */
+    /** @brief Applies a function against an accumulator and each element to reduce it to a single value.
+     * https://262.ecma-international.org/5.1/#sec-15.4.4.21 */
     static JS::Any reduce(const JS::Any& thisArg, const JS::Any& args);
-    /** @brief Applies a function against an accumulator and each element from right to left to reduce it to a single value. https://262.ecma-international.org/5.1/#sec-15.4.4.22 */
+    /** @brief Applies a function against an accumulator and each element from right to left to reduce it to a single
+     * value. https://262.ecma-international.org/5.1/#sec-15.4.4.22 */
     static JS::Any reduceRight(const JS::Any& thisArg, const JS::Any& args);
     ///@}
 
@@ -93,8 +109,8 @@ public:
      * @name Static methods of the Array object built-in
      */
     ///@{
-    /** @brief Determines whether the passed value is an array. This method returns true if the value is an array, and false otherwise.
-     * https://262.ecma-international.org/5.1/#sec-15.4.3.2 */
+    /** @brief Determines whether the passed value is an array. This method returns true if the value is an array, and
+     * false otherwise. https://262.ecma-international.org/5.1/#sec-15.4.3.2 */
     static JS::Any isArray(const JS::Any& thisArg, const JS::Any& args);
     ///@}
 

@@ -535,14 +535,13 @@ JS::Any Array::every(const JS::Any& thisArg, const JS::Any& args) {
     }
     std::shared_ptr<JS::InternalObject> callbackFn =
         std::get<std::shared_ptr<JS::InternalObject>>(args[u"0"].getValue());
-    JS::Any T = args[u"1"];
     uint32_t k = 0;
     while (k < len) {
         std::u16string Pk = JS::CONVERT::ToString(k);
         if (O->hasProperty(Pk)) {
             JS::Any kValue = O->get(Pk);
             JS::Any testResult = callbackFn->call_function(
-                T, JS::Arguments::CreateArgumentsObject({kValue, JS::Any(k), JS::Any(O)}));
+                thisArg, JS::Arguments::CreateArgumentsObject({kValue, JS::Any(k), JS::Any(O)}));
             if (!JS::CONVERT::ToBoolean(testResult)) {
                 return JS::Any(false);
             }
@@ -561,14 +560,13 @@ JS::Any Array::some(const JS::Any& thisArg, const JS::Any& args) {
     }
     std::shared_ptr<JS::InternalObject> callbackFn =
         std::get<std::shared_ptr<JS::InternalObject>>(args[u"0"].getValue());
-    JS::Any T = args[u"1"];
     uint32_t k = 0;
     while (k < len) {
         std::u16string Pk = JS::CONVERT::ToString(k);
         if (O->hasProperty(Pk)) {
             JS::Any kValue = O->get(Pk);
             JS::Any testResult = callbackFn->call_function(
-                T, JS::Arguments::CreateArgumentsObject({kValue, JS::Any(k), JS::Any(O)}));
+                thisArg, JS::Arguments::CreateArgumentsObject({kValue, JS::Any(k), JS::Any(O)}));
             if (JS::CONVERT::ToBoolean(testResult)) {
                 return JS::Any(true);
             }
@@ -586,13 +584,12 @@ JS::Any Array::forEach(const JS::Any& thisArg, const JS::Any& args) {
     }
     std::shared_ptr<JS::InternalObject> callbackFn =
         std::get<std::shared_ptr<JS::InternalObject>>(args[u"0"].getValue());
-    JS::Any T = thisArg;
     uint32_t k = 0;
     while (k < len) {
         std::u16string Pk = JS::CONVERT::ToString(k);
         if (O->hasProperty(Pk)) {
             JS::Any kValue = O->get(Pk);
-            callbackFn->call_function(T, JS::Arguments::CreateArgumentsObject({kValue, JS::Any(k), JS::Any(O)}));
+            callbackFn->call_function(thisArg, JS::Arguments::CreateArgumentsObject({kValue, JS::Any(k), JS::Any(O)}));
         }
         k++;
     }
@@ -608,7 +605,6 @@ JS::Any Array::map(const JS::Any& thisArg, const JS::Any& args) {
     }
     std::shared_ptr<JS::InternalObject> callbackFn =
         std::get<std::shared_ptr<JS::InternalObject>>(args[u"0"].getValue());
-    JS::Any T = args[u"1"];
     std::shared_ptr<JS::InternalObject> A = std::make_shared<JS::Array>();
     uint32_t k = 0;
     while (k < len) {
@@ -616,7 +612,7 @@ JS::Any Array::map(const JS::Any& thisArg, const JS::Any& args) {
         if (O->hasProperty(Pk)) {
             JS::Any kValue = O->get(Pk);
             JS::Any mappedValue = callbackFn->call_function(
-                T, JS::Arguments::CreateArgumentsObject({kValue, JS::Any(k), JS::Any(O)}));
+                thisArg, JS::Arguments::CreateArgumentsObject({kValue, JS::Any(k), JS::Any(O)}));
             A->defineOwnProperty(Pk, JS::DataDescriptor{mappedValue, true, true, true}, false);
         }
         k++;
@@ -633,7 +629,6 @@ JS::Any Array::filter(const JS::Any& thisArg, const JS::Any& args) {
     }
     std::shared_ptr<JS::InternalObject> callbackFn =
         std::get<std::shared_ptr<JS::InternalObject>>(args[u"0"].getValue());
-    JS::Any T = args[u"1"];
     std::shared_ptr<JS::InternalObject> A = std::make_shared<JS::Array>();
     uint32_t k = 0;
     uint32_t to = 0;
@@ -642,7 +637,7 @@ JS::Any Array::filter(const JS::Any& thisArg, const JS::Any& args) {
         if (O->hasProperty(Pk)) {
             JS::Any kValue = O->get(Pk);
             JS::Any selected = callbackFn->call_function(
-                T, JS::Arguments::CreateArgumentsObject({kValue, JS::Any(k), JS::Any(O)}));
+                thisArg, JS::Arguments::CreateArgumentsObject({kValue, JS::Any(k), JS::Any(O)}));
             if (JS::CONVERT::ToBoolean(selected)) {
                 A->defineOwnProperty(
                     JS::CONVERT::ToString(to), JS::DataDescriptor{kValue, true, true, true}, false);

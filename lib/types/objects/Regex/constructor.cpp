@@ -1,11 +1,12 @@
+#include "internals/Attribute.hpp"
 #include "types/objects/Function/JsFunction.hpp"
 #include "types/objects/JsRegex.hpp"
-#include "utils/Convert.hpp"
 #include "utils/Compare.hpp"
-#include "internals/Attribute.hpp"
+#include "utils/Convert.hpp"
 
 namespace JS {
-Regex::Regex(const JS::Any& pattern, const JS::Any& flags) : JS::InternalObject({}, getPrototypeProperties(), u"Regex", true) {
+Regex::Regex(const JS::Any& pattern, const JS::Any& flags)
+    : JS::InternalObject({}, getPrototypeProperties(), u"Regex", true) {
     if (JS::COMPARE::Type(pattern, JS::OBJECT) &&
         std::get<std::shared_ptr<JS::InternalObject>>(pattern.getValue())->class_name == u"Regex") {
         if (JS::COMPARE::Type(flags, JS::UNDEFINED)) {
@@ -23,13 +24,13 @@ Regex::Regex(const JS::Any& pattern, const JS::Any& flags) : JS::InternalObject(
         bool ignoreCase = F.find(u'i') != std::u16string::npos;
         bool multiline = F.find(u'm') != std::u16string::npos;
 
-        if (F.find_first_not_of(u"gim") != std::u16string::npos ||
-            (global && F.find(u'g') != F.find_last_of(u'g')) ||
+        if (F.find_first_not_of(u"gim") != std::u16string::npos || (global && F.find(u'g') != F.find_last_of(u'g')) ||
             (ignoreCase && F.find(u'i') != F.find_last_of(u'i')) ||
             (multiline && F.find(u'm') != F.find_last_of(u'm'))) {
             throw std::runtime_error("SyntaxError: Invalid regular expression flags"); // TODO: syntax error
         }
-        boost::regex_constants::syntax_option_type opt = boost::regex_constants::ECMAScript | boost::regex_constants::optimize;
+        boost::regex_constants::syntax_option_type opt =
+            boost::regex_constants::ECMAScript | boost::regex_constants::optimize;
         if (ignoreCase) {
             opt |= boost::regex_constants::icase;
         }

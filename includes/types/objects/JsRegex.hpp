@@ -1,16 +1,14 @@
 #ifndef JS_CMP_JSRegex_HPP
 #define JS_CMP_JSRegex_HPP
 
-
 #define BOOST_REGEX_BLOCKSIZE 8192
 #define BOOST_REGEX_NON_RECURSIVE
 #define BOOST_DISABLE_THREADS
 
-#include <boost/regex/icu.hpp>
-
-
 #include "internals/Attribute.hpp"
 #include "internals/Object.hpp"
+
+#include <boost/regex/icu.hpp>
 
 namespace JS {
 /**
@@ -43,18 +41,21 @@ public:
     /**
      * @brief Match a string against the regular expression.
      */
-    [[nodiscard]] std::optional<JS::Match> match(const std::u16string &string, uint32_t index) const final;
+    [[nodiscard]] std::optional<JS::Match> match(const std::u16string& string, uint32_t index) const final;
     ///@}
 
     /**
      * @name Prototype methods of the Regex object built-in
      */
     ///@{
-    /** @brief Performs a regular expression match on the given string https://262.ecma-international.org/5.1/#sec-15.10.6.2 */
+    /** @brief Performs a regular expression match on the given string
+     * https://262.ecma-international.org/5.1/#sec-15.10.6.2 */
     static JS::Any exec(const JS::Any& thisArg, const JS::Any& args);
-    /** @brief Tests if the regular expression matches the given string https://262.ecma-international.org/5.1/#sec-15.10.6.3 */
+    /** @brief Tests if the regular expression matches the given string
+     * https://262.ecma-international.org/5.1/#sec-15.10.6.3 */
     static JS::Any test(const JS::Any& thisArg, const JS::Any& args);
-    /** @brief Returns a string representation of the regular expression https://262.ecma-international.org/5.1/#sec-15.10.6.4 */
+    /** @brief Returns a string representation of the regular expression
+     * https://262.ecma-international.org/5.1/#sec-15.10.6.4 */
     static JS::Any toString(const JS::Any& thisArg, const JS::Any& args);
     ///@}
 

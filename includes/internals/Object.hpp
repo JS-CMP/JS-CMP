@@ -100,7 +100,7 @@ public:
     /** @brief check if the object is likely created by this object, only Function implements this */
     [[nodiscard]] virtual bool hasInstance(const JS::Any& value) const;
     /** @brief check if the object is a constructor, only Function implements this */
-    [[nodiscard]] virtual std::optional<JS::Match> match(const std::u16string &string, uint32_t index) const;
+    [[nodiscard]] virtual std::optional<JS::Match> match(const std::u16string& string, uint32_t index) const;
     ///@}
 
     /**

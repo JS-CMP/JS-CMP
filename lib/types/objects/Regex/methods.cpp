@@ -1,5 +1,5 @@
-#include "types/objects/JsRegex.hpp"
 #include "types/objects/JsArray.hpp"
+#include "types/objects/JsRegex.hpp"
 #include "utils/Compare.hpp"
 #include "utils/Convert.hpp"
 
@@ -22,7 +22,7 @@ std::optional<JS::Match> JS::Regex::match(const std::u16string& str, uint32_t po
             if (match[i].matched) {
                 captures.emplace_back(std::u16string(match[i].first, match[i].second));
             } else {
-                captures.emplace_back();  // empty if unmatched
+                captures.emplace_back(); // empty if unmatched
             }
         }
 
@@ -33,7 +33,6 @@ std::optional<JS::Match> JS::Regex::match(const std::u16string& str, uint32_t po
         };
     }
     return std::nullopt;
-
 }
 
 // prototype methods
@@ -62,7 +61,7 @@ JS::Any JS::Regex::exec(const JS::Any& thisArg, const JS::Any& args) {
             ++i;
         } else {
             i = static_cast<int>(r->index); // Update i to the start index of the match to make it faster
-             matchSucceeded = true;
+            matchSucceeded = true;
         }
     }
     if (global) {

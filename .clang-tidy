@@ -16,7 +16,7 @@ Checks: >-
 
 WarningsAsErrors: '*'
 
-HeaderFilterRegex: '.*'
+HeaderFilterRegex: '^(src|include)/'
 
 FormatStyle: none
 

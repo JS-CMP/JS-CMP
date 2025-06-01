@@ -10,12 +10,6 @@
 namespace JS {
 using Properties = std::unordered_map<std::u16string, JS::Attribute>;
 
-struct Match {
-    size_t index;
-    std::u16string string;
-    std::vector<std::optional<std::u16string>> groups;
-};
-
 /**
  * @class InternalObject
  * @brief Represents a base object for all JavaScript-like objects in C++.
@@ -99,8 +93,6 @@ public:
     ///@{
     /** @brief check if the object is likely created by this object, only Function implements this */
     [[nodiscard]] virtual bool hasInstance(const JS::Any& value) const;
-    /** @brief check if the object is a constructor, only Function implements this */
-    [[nodiscard]] virtual std::optional<JS::Match> match(const std::u16string &string, uint32_t index) const;
     ///@}
 
     /**

@@ -88,6 +88,11 @@ JS::Any JS::Regex::test(const JS::Any& thisArg, const JS::Any& args) {
 }
 
 JS::Any JS::Regex::toString(const JS::Any& thisArg, const JS::Any& args) {
+    if (!JS::COMPARE::Type(thisArg, JS::OBJECT) ||
+        std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->class_name != u"Regex") {
+        throw std::runtime_error("TypeError: this is not a Regex object");
+    }
+    std::shared_ptr<JS::InternalObject> R = std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue());
     std::u16string source = JS::CONVERT::ToString(R->get(u"source"));
     std::u16string flags;
     if (JS::CONVERT::ToBoolean(R->get(u"global"))) {

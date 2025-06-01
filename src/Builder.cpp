@@ -31,7 +31,7 @@ void Builder::compiling(const std::string& inputFilename) const {
     std::string compiler = this->options.getCompiler();
     std::string outputFilename = options.getOutputFilename();
     std::string command = compiler + customArgs + inputFilename + std::string(" -o ") + outputFilename +
-                          std::string(" -Iincludes -L./ -ljscmp $(pkg-config --libs icu-uc icu-i18n)");
+                          std::string(" -Iincludes -L./ -ljscmp $(pkg-config --libs icu-uc icu-i18n) -lboost_regex");
 
     system(command.c_str());
 }

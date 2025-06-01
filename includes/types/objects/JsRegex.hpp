@@ -6,7 +6,7 @@
 #define BOOST_REGEX_NON_RECURSIVE
 #define BOOST_DISABLE_THREADS
 
-#include <boost/regex/icu.hpp>
+#include <boost/regex/icu.hpp> // NOLINT(clang-analyzer-optin.core.EnumCastOutOfRange)
 
 
 #include "internals/Attribute.hpp"

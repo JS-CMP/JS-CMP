@@ -1,7 +1,7 @@
 var searchData=
 [
   ['name_0',['name',['../classIAssertion.html#ae4a51b5c951fb2e05e6e5f7fd7fcfa37',1,'IAssertion']]],
-  ['nan_1',['nan',['../global_8hpp.html#a6e8172661a167bd1350fe1c05f8fd536',1,'NaN:&#160;global.hpp'],['../classJS_1_1Number.html#a1ffd4840701eb9e983fdd1c0c67cf2a3',1,'JS::Number::NaN']]],
+  ['nan_1',['nan',['../classJS_1_1Number.html#a1ffd4840701eb9e983fdd1c0c67cf2a3',1,'JS::Number::NaN'],['../global_8hpp.html#a6e8172661a167bd1350fe1c05f8fd536',1,'NaN:&#160;global.hpp']]],
   ['navigate_20to_20the_20project_20directory_2',['2. Navigate to the Project Directory',['../index.html#autotoc_md5',1,'']]],
   ['negative_5finfinity_3',['NEGATIVE_INFINITY',['../classJS_1_1Number.html#ae02d92a758d90297cf70d9c86d805992',1,'JS::Number']]],
   ['not_2ecpp_4',['not.cpp',['../bitwise_2Not_8cpp.html',1,'(Global Namespace)'],['../Logical_2unary_2Not_8cpp.html',1,'(Global Namespace)']]],

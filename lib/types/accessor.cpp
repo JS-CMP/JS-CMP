@@ -25,9 +25,21 @@ template JS::PropertyProxy JS::Any::operator[](JS::Any) const;
 template JS::PropertyProxy JS::Any::operator[](JS::PropertyProxy) const;
 
 JS::Any JS::Any::call(const JS::Any& args) const {
-    if (value.index() == JS::OBJECT && std::get<std::shared_ptr<JS::InternalObject>>(value)->isCallable()) {
-        return std::get<std::shared_ptr<JS::InternalObject>>(value)->call_function(
-            JS::Any(JS::Undefined{}), args); // TODO fix this to pass the correct this aka global object
+    if (value.index() == JS::OBJECT && std::get<std::shared_ptr<JS::InternalObject>>(value)) {
+        auto Obj = std::get<std::shared_ptr<JS::InternalObject>>(this->value);
+        if (Obj->isCallable()) {
+            return Obj->call_function(JS::Any(), args); // TODO replace with JS::Global
+        }
     }
     throw std::runtime_error("Value is not a function");
+}
+
+JS::Any JS::Any::constructor(const JS::Any& args) const {
+    if (value.index() == JS::OBJECT) {
+        auto Obj = std::get<std::shared_ptr<JS::InternalObject>>(this->value);
+        if (Obj->construct != nullptr) {
+            return Obj->construct(JS::Any(Obj), args);
+        }
+    }
+    throw std::runtime_error("Value does not have a constructor");
 }

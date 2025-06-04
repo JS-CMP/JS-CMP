@@ -15,6 +15,7 @@ var classJS_1_1Any =
     [ "Any", "classJS_1_1Any.html#a6096020a8d745051828af6e4d74f6ada", null ],
     [ "Any", "classJS_1_1Any.html#a5285a263d9618fb83cf152b3b8e41533", null ],
     [ "call", "classJS_1_1Any.html#a34c1e934cd10c5b1f01492a85899cc52", null ],
+    [ "constructor", "classJS_1_1Any.html#ad6f9e1dbc8975fa95bad2fc9788ea077", null ],
     [ "getValue", "classJS_1_1Any.html#a1c2e799407b4d95891252c6ebd028220", null ],
     [ "operator bool", "classJS_1_1Any.html#a5ff65f8fbe15b94b7ec9fe7e501f01db", null ],
     [ "operator!", "classJS_1_1Any.html#a8cb65185df2aa05ef163fb689e6834d5", null ],

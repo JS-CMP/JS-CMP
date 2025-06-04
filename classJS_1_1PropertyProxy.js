@@ -2,6 +2,7 @@ var classJS_1_1PropertyProxy =
 [
     [ "PropertyProxy", "classJS_1_1PropertyProxy.html#a514825549e9f590c9efbb78fce347988", null ],
     [ "call", "classJS_1_1PropertyProxy.html#aafd613c9a7623032d39d5e21279e59d0", null ],
+    [ "constructor", "classJS_1_1PropertyProxy.html#af2b362e5d41d1976c736df3038c8be8e", null ],
     [ "getValue", "classJS_1_1PropertyProxy.html#a60011f7959ed346551f3f29a8ca86132", null ],
     [ "operator JS::Any", "classJS_1_1PropertyProxy.html#a61bdff9b4f9e2ae263b324965fb0a5e3", null ],
     [ "operator JS::Any", "classJS_1_1PropertyProxy.html#a4cd961a039be1fcd1439fda0ca3c61e9", null ],

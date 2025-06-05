@@ -31,7 +31,8 @@ void Builder::compiling(const std::string& inputFilename) const {
     std::string compiler = this->options.getCompiler();
     std::string outputFilename = options.getOutputFilename();
     std::string command = compiler + customArgs + inputFilename + std::string(" -o ") + outputFilename +
-                          std::string(" -Iincludes -Isubmodules/SyntaxSmith/includes -L./ -ljscmp $(pkg-config --libs icu-uc icu-i18n) -DBOOST_REGEX_NO_LIB");
+                          std::string(" -Iincludes -Isubmodules/SyntaxSmith/includes -L./ -ljscmp $(pkg-config --libs "
+                                      "icu-uc icu-i18n) -DBOOST_REGEX_NO_LIB");
 
     system(command.c_str());
 }

@@ -3,11 +3,11 @@
 
 namespace JS {
 NativeError::NativeError() : JS::InternalObject({}, getPrototypeProperties(), "Error", true) {
-    this->defineOwnProperty("message", JS::DataDescriptor{JS::Any(""), false, false, false});
+    this->InternalObject::defineOwnProperty("message", JS::DataDescriptor{JS::Any(""), false, false, false});
 }
 
 NativeError::NativeError(const JS::Any& value) : JS::InternalObject({}, getPrototypeProperties(), "Error", true) {
-    this->defineOwnProperty("message", JS::DataDescriptor{JS::Any(JS::CONVERT::ToString(value)), false, false, false});
+    this->InternalObject::defineOwnProperty("message", JS::DataDescriptor{JS::Any(JS::CONVERT::ToString(value)), false, false, false});
 }
 
 NativeError::NativeError(const std::unordered_map<std::string, JS::Attribute>& properties)
@@ -17,7 +17,7 @@ NativeError::NativeError(const std::unordered_map<std::string, JS::Attribute>& p
     }
 
     if (properties.find("message") == properties.end()) {
-        this->defineOwnProperty("message", JS::DataDescriptor{JS::Any(""), false, false, false});
+        this->InternalObject::defineOwnProperty("message", JS::DataDescriptor{JS::Any(""), false, false, false});
     }
 }
 } // namespace JS

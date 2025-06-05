@@ -4,7 +4,7 @@
 std::shared_ptr<JS::InternalObject>& JS::NativeError::getPrototypeProperties() {
     static std::unordered_map<std::string, JS::Attribute> properties_prototype = {
         {"toString", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::NativeError::toString)), true, true, true}},
-        {"name", JS::DataDescriptor{JS::Any("Native"), true, true, true}},
+        {"name", JS::DataDescriptor{JS::Any("NativeError"), true, true, true}},
         {"message", JS::DataDescriptor{JS::Any(""), true, true, true}},
     };
     

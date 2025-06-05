@@ -7,7 +7,9 @@ RopeIterator::RopeIterator(const std::shared_ptr<RopeNode>& root) {
     currentIndex = 0;
 }
 
-bool RopeIterator::hasNext() const { return !nodeStack.empty() || (currentData && currentIndex < currentData->size()); }
+bool RopeIterator::hasNext() const {
+    return !nodeStack.empty() || (currentData && currentIndex < currentData->size());
+}
 
 char16_t RopeIterator::next() {
     if (!currentData || currentIndex >= currentData->size()) {

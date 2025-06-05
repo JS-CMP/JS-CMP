@@ -5,7 +5,7 @@
 
 // static
 JS::Any JS::String::fromCharCode(const JS::Any& thisArg, const JS::Any& args) {
-    size_t length = JS::CONVERT::ToUint32(args[u"length"]);
+    uint32_t length = JS::CONVERT::ToUint32(args[u"length"]);
     std::u16string result;
     result.reserve(length);
     for (uint32_t i = 0; i < length; ++i) {

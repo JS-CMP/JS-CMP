@@ -4,12 +4,7 @@
 #include "global/console.hpp"
 #include "globalFunctions.hpp"
 #include "types/JsAny.hpp"
-#include "types/objects/Function/JsFunction.hpp"
-#include "types/objects/JsBoolean.hpp"
-#include "types/objects/JsMath.hpp"
-#include "types/objects/JsNumber.hpp"
-#include "types/objects/JsObject.hpp"
-#include "types/objects/JsString.hpp"
+#include "types/objects/Types.hpp"
 
 // TODO fix this create Object to inherit from Function
 JS::Any Object = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::u16string, JS::Any>{
@@ -27,8 +22,16 @@ JS::Any Object = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::u1
     {u"isExtensible", JS::Any(std::make_shared<JS::Function>(JS::Object::isExtensible))},
     {u"keys", JS::Any(std::make_shared<JS::Function>(JS::Object::keys))},
 }));
+
+JS::Any Array = JS::Any(std::make_shared<JS::InternalObject>(
+    std::unordered_map<std::u16string, JS::Attribute>{
+        {u"isArray", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Array::isArray)), true, true, true}},
+        {u"length", JS::DataDescriptor{JS::Any(0), true, false, false}}},
+    nullptr, u"Array", true));
+
 JS::Any String = JS::Any(std::make_shared<JS::String>(std::unordered_map<std::u16string, JS::Any>{
     {u"fromCharCode", JS::Any(std::make_shared<JS::Function>(JS::String::fromCharCode))}}));
+
 JS::Any Number = JS::Any(std::make_shared<JS::Number>(std::unordered_map<std::u16string, JS::Attribute>{
     {u"MAX_VALUE", JS::DataDescriptor{JS::Any(JS::Number::MAX_VALUE), false, false, false}},
     {u"MIN_VALUE", JS::DataDescriptor{JS::Any(JS::Number::MIN_VALUE), false, false, false}},
@@ -96,6 +99,7 @@ JS::Any global = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::u1
     {u"Infinity", Infinity},
     {u"undefined", undefined},
     {u"Object", Object},
+    {u"Array", Array},
     {u"Math", Math},
     {u"encodeURI", encodeURI},
     {u"decodeURI", decodeURI},

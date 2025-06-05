@@ -3,6 +3,8 @@
 #include "utils/Compare.hpp"
 #include "utils/Convert.hpp"
 
+#include <utils/Is.hpp>
+
 namespace JS {
 JS::Any Function::toString(const JS::Any& thisArg, const JS::Any& args) {
     // TODO: Implement this
@@ -10,8 +12,7 @@ JS::Any Function::toString(const JS::Any& thisArg, const JS::Any& args) {
 }
 
 JS::Any Function::apply(const JS::Any& thisArg, const JS::Any& args) {
-    if (!JS::COMPARE::Type(thisArg, JS::OBJECT) &&
-        !std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->isCallable()) {
+    if (!JS::IS::Callable(thisArg)) {
         throw std::runtime_error("TypeError: Function.prototype.apply called on non-object"); // TypeError
     }
     JS::Any thisArgArg = args[u"0"];
@@ -35,8 +36,7 @@ JS::Any Function::apply(const JS::Any& thisArg, const JS::Any& args) {
 }
 
 JS::Any Function::call(const JS::Any& thisArg, const JS::Any& args) {
-    if (!JS::COMPARE::Type(thisArg, JS::OBJECT) &&
-        !std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->isCallable()) {
+    if (!JS::IS::Callable(thisArg)) {
         throw std::runtime_error("TypeError: Function.prototype.call called on non-object"); // TypeError
     }
     JS::Any thisArgArg = args[u"0"];
@@ -54,8 +54,7 @@ JS::Any Function::call(const JS::Any& thisArg, const JS::Any& args) {
 
 JS::Any Function::bind(const JS::Any& thisArg, const JS::Any& args) {
     const JS::Any& target = thisArg;
-    if (!JS::COMPARE::Type(target, JS::OBJECT) &&
-        !std::get<std::shared_ptr<JS::InternalObject>>(target.getValue())->isCallable()) {
+    if (!JS::IS::Callable(target)) {
         throw std::runtime_error("TypeError: Function.prototype.bind called on non-object"); // TypeError
     }
     std::vector<JS::Any> A;

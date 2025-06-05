@@ -5,7 +5,9 @@
 
 #include <types/JsAny.hpp>
 
-inline JS::Any debugFunction() { return {}; }
+inline JS::Any debugFunction() {
+    return {};
+}
 
 CREATE_NO_ARGS_OPERATOR(debug, debugFunction)
 #define debugger debugClass()

@@ -25,7 +25,9 @@ JS::Any Object::toLocaleString(const JS::Any& thisArg, const JS::Any& args) {
     throw std::runtime_error("TypeError: Object.prototype.toLocaleString called on non-object");
 }
 
-JS::Any Object::valueOf(const JS::Any& thisArg, const JS::Any& args) { return JS::Any(JS::CONVERT::ToObject(thisArg)); }
+JS::Any Object::valueOf(const JS::Any& thisArg, const JS::Any& args) {
+    return JS::Any(JS::CONVERT::ToObject(thisArg));
+}
 
 JS::Any Object::hasOwnProperty(const JS::Any& thisArg, const JS::Any& args) {
     const std::u16string P = JS::CONVERT::ToString(args[u"0"]);

@@ -46,9 +46,15 @@ public:
         }
         return cachedOperator_.c_str();
     }
-    [[nodiscard]] std::u16string getActual() const noexcept { return JS::CONVERT::ToString(actual); }
-    [[nodiscard]] std::u16string getExpected() const noexcept { return JS::CONVERT::ToString(expected); }
-    [[nodiscard]] std::u16string errMessage() const noexcept { return name + u" [" + code + u"]: " + message; }
+    [[nodiscard]] std::u16string getActual() const noexcept {
+        return JS::CONVERT::ToString(actual);
+    }
+    [[nodiscard]] std::u16string getExpected() const noexcept {
+        return JS::CONVERT::ToString(expected);
+    }
+    [[nodiscard]] std::u16string errMessage() const noexcept {
+        return name + u" [" + code + u"]: " + message;
+    }
 
 protected:
     JS::Any actual;

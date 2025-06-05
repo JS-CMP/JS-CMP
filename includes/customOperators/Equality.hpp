@@ -22,7 +22,9 @@ inline JS::Any strictEqFunction(JS::Any a, const JS::Any& b) { // TODO: fix CREA
 CREATE_OPERATOR(strictEq, strictEqFunction)
 #define strictEq <strictEqClass()>
 
-inline JS::Any strictNeqFunction(JS::Any a, const JS::Any& b) { return !strictEqFunction(a, b); }
+inline JS::Any strictNeqFunction(JS::Any a, const JS::Any& b) {
+    return !strictEqFunction(a, b);
+}
 
 CREATE_OPERATOR(strictNeq, strictNeqFunction)
 #define strictNeq <strictNeqClass()>

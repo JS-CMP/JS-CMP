@@ -70,7 +70,9 @@ JS::Any JS::Any::operator*(const JS::Any& other) const {
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
-    } catch (const std::invalid_argument& e) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+    } catch (const std::invalid_argument& e) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
+    }
 }
 
 JS::Any JS::Any::operator*(int value) const {
@@ -87,7 +89,9 @@ JS::Any JS::Any::operator*(int value) const {
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
-    } catch (const std::invalid_argument&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+    } catch (const std::invalid_argument&) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
+    }
 }
 
 JS::Any JS::Any::operator*(double value) const {
@@ -104,7 +108,9 @@ JS::Any JS::Any::operator*(double value) const {
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
-    } catch (const std::invalid_argument&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+    } catch (const std::invalid_argument&) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
+    }
 }
 
 JS::Any JS::Any::operator*(const char* value) const {
@@ -123,7 +129,9 @@ JS::Any JS::Any::operator*(const char* value) const {
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
-    } catch (const std::invalid_argument&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+    } catch (const std::invalid_argument&) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
+    }
 }
 
 JS::Any JS::Any::operator*(const char16_t* value) const {
@@ -142,7 +150,9 @@ JS::Any JS::Any::operator*(const char16_t* value) const {
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
-    } catch (const std::invalid_argument&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+    } catch (const std::invalid_argument&) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
+    }
 }
 
 JS::Any JS::Any::operator*(const std::u16string& value) const {
@@ -161,7 +171,9 @@ JS::Any JS::Any::operator*(const std::u16string& value) const {
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
-    } catch (const std::invalid_argument&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+    } catch (const std::invalid_argument&) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
+    }
 }
 
 JS::Any JS::Any::operator*(bool value) const {
@@ -178,7 +190,9 @@ JS::Any JS::Any::operator*(bool value) const {
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
-    } catch (const std::invalid_argument&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+    } catch (const std::invalid_argument&) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
+    }
 }
 
 JS::Any JS::Any::operator*(JS::Null) const {
@@ -195,10 +209,14 @@ JS::Any JS::Any::operator*(JS::Null) const {
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
-    } catch (const std::invalid_argument&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+    } catch (const std::invalid_argument&) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
+    }
 }
 
-JS::Any JS::Any::operator*(JS::Undefined /*unused*/) const { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+JS::Any JS::Any::operator*(JS::Undefined /*unused*/) const {
+    return JS::Any(std::numeric_limits<double>::quiet_NaN());
+}
 
 namespace JS {
 Any operator*(int value, const JS::Any& any) {
@@ -215,7 +233,9 @@ Any operator*(int value, const JS::Any& any) {
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
-    } catch (const std::invalid_argument&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+    } catch (const std::invalid_argument&) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
+    }
 }
 
 Any operator*(double value, const JS::Any& any) {
@@ -232,7 +252,9 @@ Any operator*(double value, const JS::Any& any) {
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
-    } catch (const std::invalid_argument&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+    } catch (const std::invalid_argument&) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
+    }
 }
 
 Any operator*(const char* value, const JS::Any& any) {
@@ -250,7 +272,9 @@ Any operator*(const char* value, const JS::Any& any) {
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
-    } catch (const std::invalid_argument&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+    } catch (const std::invalid_argument&) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
+    }
 }
 
 Any operator*(const char16_t* value, const JS::Any& any) {
@@ -268,7 +292,9 @@ Any operator*(const char16_t* value, const JS::Any& any) {
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
-    } catch (const std::invalid_argument&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+    } catch (const std::invalid_argument&) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
+    }
 }
 
 Any operator*(const std::u16string& value, const JS::Any& any) {
@@ -286,7 +312,9 @@ Any operator*(const std::u16string& value, const JS::Any& any) {
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
-    } catch (const std::invalid_argument&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+    } catch (const std::invalid_argument&) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
+    }
 }
 
 Any operator*(bool value, const JS::Any& any) {
@@ -303,7 +331,9 @@ Any operator*(bool value, const JS::Any& any) {
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
-    } catch (const std::invalid_argument&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+    } catch (const std::invalid_argument&) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
+    }
 }
 
 Any operator*(JS::Null, const JS::Any& any) {
@@ -320,7 +350,9 @@ Any operator*(JS::Null, const JS::Any& any) {
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
-    } catch (const std::invalid_argument&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+    } catch (const std::invalid_argument&) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
+    }
 }
 
 Any operator*(JS::Undefined /*unused*/, const JS::Any& /*unused*/) {

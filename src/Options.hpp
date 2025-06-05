@@ -51,31 +51,41 @@ public:
      * @brief Gets the filename option.
      * @return The specified filename.
      */
-    [[nodiscard]] std::string getFilename() const { return this->filename; }
+    [[nodiscard]] std::string getFilename() const {
+        return this->filename;
+    }
 
     /**
      * @brief Gets the output filename option.
      * @return The specified output filename.
      */
-    [[nodiscard]] std::string getOutputFilename() const { return this->outputFilename; }
+    [[nodiscard]] std::string getOutputFilename() const {
+        return this->outputFilename;
+    }
 
     /**
      * @brief Gets the option flags.
      * @return The option flags.
      */
-    [[nodiscard]] uint32_t getFlags() const { return this->flags; }
+    [[nodiscard]] uint32_t getFlags() const {
+        return this->flags;
+    }
 
     /**
      * @brief Gets the compiler option.
      * @return The specified compiler.
      */
-    [[nodiscard]] std::string getCompiler() const { return this->compiler; }
+    [[nodiscard]] std::string getCompiler() const {
+        return this->compiler;
+    }
 
     /**
      * @brief Gets the compiler arguments option.
      * @return The specified compiler arguments.
      */
-    [[nodiscard]] std::string getCompilerArgs() const { return this->compilerArgs; }
+    [[nodiscard]] std::string getCompilerArgs() const {
+        return this->compilerArgs;
+    }
 
 private:
     /**

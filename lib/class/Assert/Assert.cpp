@@ -162,7 +162,9 @@ JS::Any assert::throwsHelper(const JS::Any& thisArgs, const JS::Any& args) {
     if (length == 1) {
         try {
             fn();
-        } catch (const JS::Any& e) { return {}; }
+        } catch (const JS::Any& e) {
+            return {};
+        }
         innerFail(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()), JS::Any("Missing expected exception"), u"throws");
     }
     return {};
@@ -176,7 +178,9 @@ JS::Any assert::sameValueHelper(const JS::Any& actual, const JS::Any& expected) 
         } else {
             innerFail(actual, expected, JS::Any(JS::Undefined()), u"sameValue");
         }
-    } catch (const JS::Any& e) { innerFail(actual, expected, e, u"sameValue"); }
+    } catch (const JS::Any& e) {
+        innerFail(actual, expected, e, u"sameValue");
+    }
     return {};
 }
 

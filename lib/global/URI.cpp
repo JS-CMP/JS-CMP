@@ -20,7 +20,7 @@ std::string toUtf8(int V) {
     return encoded.str();
 }
 
-std::string encode(std::string uri, const std::string& unescapedSet) {
+std::string encode(const std::string& uri, const std::string& unescapedSet) {
     std::string res;
     for (int k = 0; k < uri.length(); k++) {
         unsigned char c = uri[k];
@@ -33,12 +33,12 @@ std::string encode(std::string uri, const std::string& unescapedSet) {
     return res;
 }
 
-std::string decode(std::string utf, const std::string& reservedSet) {
+std::string decode(const std::string& utf, const std::string& reservedSet) {
     std::ostringstream decoded;
     for (int i = 0; i < utf.size(); ++i) {
         if (reservedSet.contains(utf[i])) {
             if (!(i + 2 < utf.size() && std::isxdigit(utf[i + 1]) && std::isxdigit(utf[i + 2]))) {
-                throw std::runtime_error("Invalid percent-encoding in utf8 string.");
+                throw std::runtime_error("Invalid percent-encoding in utf8 string."); // TODO add a native error
             }
 
             std::string hexValue = utf.substr(i + 1, 2);
@@ -53,7 +53,7 @@ std::string decode(std::string utf, const std::string& reservedSet) {
 
 namespace JS::GLOBAL {
 JS::Any encodeURI(const JS::Any& thisArgs, const JS::Any& args) {
-    auto uriStr = JS::CONVERT::ToUtf8(JS::CONVERT::ToString(args[1]));
+    auto uriStr = JS::CONVERT::ToUtf8(JS::CONVERT::ToString(args[u"0"]));
     return JS::Any(JS::CONVERT::ToUtf16(encode(uriStr, RESERVED + UNESCAPED + "%")));
 }
 
@@ -69,6 +69,6 @@ JS::Any encodeURIComponent(const JS::Any& thisArgs, const JS::Any& args) {
 
 JS::Any decodeURIComponent(const JS::Any& thisArgs, const JS::Any& args) {
     auto uriStr = JS::CONVERT::ToUtf8(JS::CONVERT::ToString(args[u"0"]));
-    return JS::Any(JS::CONVERT::ToUtf16(decode(uriStr, "")));
+    return JS::Any(JS::CONVERT::ToUtf16(decode(uriStr, ESCAPED)));
 }
 } // namespace JS::GLOBAL

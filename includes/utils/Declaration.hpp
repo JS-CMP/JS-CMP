@@ -15,19 +15,19 @@
     B JS::Undefined value A;                                                                                           \
     B JS::Null value A;
 
-#define L_BRACKET() (
-#define R_BRACKET() )
+#define L_PAREN() (
+#define R_PAREN() )
 #define COMMA ,
 
-#define DECLARE_1FUNC(BEFORE, AFTER)                                                                                   \
-    FOR_EACH_CONVERSION_TYPE(BEFORE L_BRACKET(), R_BRACKET() AFTER)                                                    \
-    BEFORE(const JS::Any& value) AFTER;
+#define DECLARE_1FUNC(FUNC_HEAD, FUNC_TAIL)                                                                                   \
+    FOR_EACH_CONVERSION_TYPE(FUNC_HEAD L_PAREN(), R_PAREN() FUNC_TAIL)                                                    \
+    FUNC_HEAD(const JS::Any& value) FUNC_TAIL;
 
-#define DECLARE_2FUNC(BEFORE, AFTER)                                                                                   \
-    FOR_EACH_CONVERSION_TYPE(BEFORE L_BRACKET(), COMMA const JS::Any& any R_BRACKET() AFTER)
+#define DECLARE_2FUNC(FUNC_HEAD, FUNC_TAIL)                                                                                   \
+    FOR_EACH_CONVERSION_TYPE(FUNC_HEAD L_PAREN(), COMMA const JS::Any& any R_PAREN() FUNC_TAIL)
 
-#define DECLARE_2FUNC_TWO_WAYS(BEFORE, AFTER)                                                                          \
-    FOR_EACH_CONVERSION_TYPE(BEFORE L_BRACKET(), COMMA const JS::Any& any R_BRACKET() AFTER)                           \
-    FOR_EACH_CONVERSION_TYPE(BEFORE L_BRACKET() const JS::Any& any COMMA, R_BRACKET() AFTER)
+#define DECLARE_2FUNC_TWO_WAYS(FUNC_HEAD, FUNC_TAIL)                                                                          \
+    FOR_EACH_CONVERSION_TYPE(FUNC_HEAD L_PAREN(), COMMA const JS::Any& any R_PAREN() FUNC_TAIL)                           \
+    FOR_EACH_CONVERSION_TYPE(FUNC_HEAD L_PAREN() const JS::Any& any COMMA, R_PAREN() FUNC_TAIL)
 
 #endif // DECLARATION_HPP

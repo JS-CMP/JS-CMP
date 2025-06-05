@@ -2,7 +2,7 @@ var classJS_1_1Number =
 [
     [ "Number", "classJS_1_1Number.html#a052f72c74c63c0489877fe7fc28d3617", null ],
     [ "Number", "classJS_1_1Number.html#a27d4ffe67b441acb95a67dd2db4c9ee3", null ],
-    [ "Number", "classJS_1_1Number.html#a146f6a4fdf68325ba5be316ba0c65fbe", null ],
+    [ "Number", "classJS_1_1Number.html#ad0effefc8d064cf44fd6bed798bd61ba", null ],
     [ "~Number", "classJS_1_1Number.html#a3030102a79e28a8a657697cee2312203", null ],
     [ "getPrototypeProperties", "classJS_1_1Number.html#afd808f8c0624890f47b35736f236a865", null ],
     [ "toExponential", "classJS_1_1Number.html#ab7970e42a96dce569a66dea4676260f6", null ],

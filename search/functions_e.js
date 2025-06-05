@@ -10,6 +10,6 @@ var searchData=
   ['printusage_7',['printUsage',['../classOptions.html#a5a64af47966f3c0a54a8c3a3385065e3',1,'Options']]],
   ['printversion_8',['printVersion',['../classOptions.html#a7406a60e9cc9f2f08557a953105e23a4',1,'Options']]],
   ['propertyisenumerable_9',['propertyIsEnumerable',['../classJS_1_1Object.html#aca66741a4d17fc6b3dee87ab06d554d7',1,'JS::Object']]],
-  ['propertyproxy_10',['PropertyProxy',['../classJS_1_1PropertyProxy.html#a514825549e9f590c9efbb78fce347988',1,'JS::PropertyProxy']]],
-  ['put_11',['put',['../classJS_1_1InternalObject.html#a712a4514a0ed959292a3bb2442d1ef44',1,'JS::InternalObject']]]
+  ['propertyproxy_10',['PropertyProxy',['../classJS_1_1PropertyProxy.html#ad05d8eb21870531ee2f9f02a73f2b7f8',1,'JS::PropertyProxy']]],
+  ['put_11',['put',['../classJS_1_1InternalObject.html#a2a2ca4123a59115032c62754199601c9',1,'JS::InternalObject']]]
 ];

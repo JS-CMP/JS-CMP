@@ -24,6 +24,7 @@ var annotated_dup =
     [ "Options", "classOptions.html", "classOptions" ],
     [ "Rope", "classRope.html", "classRope" ],
     [ "RopeConcat", "classRopeConcat.html", "classRopeConcat" ],
+    [ "RopeIterator", "classRopeIterator.html", "classRopeIterator" ],
     [ "RopeLeaf", "classRopeLeaf.html", "classRopeLeaf" ],
     [ "RopeNode", "classRopeNode.html", "classRopeNode" ],
     [ "TypeError", "classTypeError.html", "classTypeError" ]

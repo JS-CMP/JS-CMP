@@ -126,18 +126,32 @@ Collaboration diagram for RopeLeaf:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a735e8e06d33edc515a9468c107f94261" id="r_a735e8e06d33edc515a9468c107f94261"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRopeLeaf.html#a735e8e06d33edc515a9468c107f94261">RopeLeaf</a> (const std::string &amp;str)</td></tr>
-<tr class="memdesc:a735e8e06d33edc515a9468c107f94261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classRopeLeaf.html" title="Concrete class representing a leaf node in a Rope data structure.">RopeLeaf</a> with the given string data.  <br /></td></tr>
-<tr class="separator:a735e8e06d33edc515a9468c107f94261"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeeabb998ea04d94c90cbd0e55ae6a39b" id="r_aeeabb998ea04d94c90cbd0e55ae6a39b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRopeLeaf.html#aeeabb998ea04d94c90cbd0e55ae6a39b">RopeLeaf</a> (const std::u16string &amp;str)</td></tr>
+<tr class="memdesc:aeeabb998ea04d94c90cbd0e55ae6a39b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classRopeLeaf.html" title="Concrete class representing a leaf node in a Rope data structure.">RopeLeaf</a> with the given string data.  <br /></td></tr>
+<tr class="separator:aeeabb998ea04d94c90cbd0e55ae6a39b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3898dbb3ea0784614236c3e8cc45f46f" id="r_a3898dbb3ea0784614236c3e8cc45f46f"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRopeLeaf.html#a3898dbb3ea0784614236c3e8cc45f46f">length</a> () const override</td></tr>
 <tr class="memdesc:a3898dbb3ea0784614236c3e8cc45f46f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the length of the string stored in the leaf.  <br /></td></tr>
 <tr class="separator:a3898dbb3ea0784614236c3e8cc45f46f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0e0e7938422508f9fb82ac4a23f9bb3" id="r_ab0e0e7938422508f9fb82ac4a23f9bb3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRopeLeaf.html#ab0e0e7938422508f9fb82ac4a23f9bb3">getData</a> ()</td></tr>
-<tr class="memdesc:ab0e0e7938422508f9fb82ac4a23f9bb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the string data stored in the leaf.  <br /></td></tr>
-<tr class="separator:ab0e0e7938422508f9fb82ac4a23f9bb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c990f476399a76402731bbe101e4ef0" id="r_a4c990f476399a76402731bbe101e4ef0"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRopeLeaf.html#a4c990f476399a76402731bbe101e4ef0">getCharAt</a> (size_t idx) const override</td></tr>
-<tr class="memdesc:a4c990f476399a76402731bbe101e4ef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the character at the specified index in the string.  <br /></td></tr>
-<tr class="separator:a4c990f476399a76402731bbe101e4ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a520c17350ffa03cc5213fc50dc8fd5bc" id="r_a520c17350ffa03cc5213fc50dc8fd5bc"><td class="memItemLeft" align="right" valign="top">char16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRopeLeaf.html#a520c17350ffa03cc5213fc50dc8fd5bc">getCharAt</a> (size_t idx) const override</td></tr>
+<tr class="memdesc:a520c17350ffa03cc5213fc50dc8fd5bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the character at the specified index in the string.  <br /></td></tr>
+<tr class="separator:a520c17350ffa03cc5213fc50dc8fd5bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48b936759cba643cb6c66da9d553aa23" id="r_a48b936759cba643cb6c66da9d553aa23"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRopeLeaf.html#a48b936759cba643cb6c66da9d553aa23">find</a> (const std::u16string &amp;str, size_t pos=0) const override</td></tr>
+<tr class="memdesc:a48b936759cba643cb6c66da9d553aa23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the first occurrence of a substring in the string.  <br /></td></tr>
+<tr class="separator:a48b936759cba643cb6c66da9d553aa23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8a02bd056fd5cf7367eae6c89f39031" id="r_ad8a02bd056fd5cf7367eae6c89f39031"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRopeLeaf.html#ad8a02bd056fd5cf7367eae6c89f39031">rfind</a> (const std::u16string &amp;str, size_t pos=std::u16string::npos) const override</td></tr>
+<tr class="memdesc:ad8a02bd056fd5cf7367eae6c89f39031"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the last occurrence of a substring in the string.  <br /></td></tr>
+<tr class="separator:ad8a02bd056fd5cf7367eae6c89f39031"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a272b253e19055ab39701979934d7c104" id="r_a272b253e19055ab39701979934d7c104"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classRopeNode.html">RopeNode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRopeLeaf.html#a272b253e19055ab39701979934d7c104">getLeft</a> () const override</td></tr>
+<tr class="memdesc:a272b253e19055ab39701979934d7c104"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the left child of the rope node.  <br /></td></tr>
+<tr class="separator:a272b253e19055ab39701979934d7c104"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a448bff39923019e15855ffbaeb0970f4" id="r_a448bff39923019e15855ffbaeb0970f4"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classRopeNode.html">RopeNode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRopeLeaf.html#a448bff39923019e15855ffbaeb0970f4">getRight</a> () const override</td></tr>
+<tr class="memdesc:a448bff39923019e15855ffbaeb0970f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the right child of the rope node.  <br /></td></tr>
+<tr class="separator:a448bff39923019e15855ffbaeb0970f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae209daadb15f7a97d399ec7e37e486a7" id="r_ae209daadb15f7a97d399ec7e37e486a7"><td class="memItemLeft" align="right" valign="top">const std::u16string *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRopeLeaf.html#ae209daadb15f7a97d399ec7e37e486a7">getDataPtr</a> () const override</td></tr>
+<tr class="separator:ae209daadb15f7a97d399ec7e37e486a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ad5330454addaa748b536fe34020232" id="r_a4ad5330454addaa748b536fe34020232"><td class="memItemLeft" align="right" valign="top">std::u16string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRopeLeaf.html#a4ad5330454addaa748b536fe34020232">getData</a> ()</td></tr>
+<tr class="memdesc:a4ad5330454addaa748b536fe34020232"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the string data stored in the leaf.  <br /></td></tr>
+<tr class="separator:a4ad5330454addaa748b536fe34020232"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55013cff32e8f9c3723245444a7fe0ca" id="r_a55013cff32e8f9c3723245444a7fe0ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRopeLeaf.html#a55013cff32e8f9c3723245444a7fe0ca">print</a> () const override</td></tr>
 <tr class="memdesc:a55013cff32e8f9c3723245444a7fe0ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the contents of the string stored in the leaf.  <br /></td></tr>
 <tr class="separator:a55013cff32e8f9c3723245444a7fe0ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,8 +164,8 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>Concrete class representing a leaf node in a <a class="el" href="classRope.html" title="Represents a rope, a data structure for efficiently manipulating and storing strings.">Rope</a> data structure. </p>
 <p>Stores a string and implements the operations for a leaf node. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a735e8e06d33edc515a9468c107f94261" name="a735e8e06d33edc515a9468c107f94261"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a735e8e06d33edc515a9468c107f94261">&#9670;&#160;</a></span>RopeLeaf()</h2>
+<a id="aeeabb998ea04d94c90cbd0e55ae6a39b" name="aeeabb998ea04d94c90cbd0e55ae6a39b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeeabb998ea04d94c90cbd0e55ae6a39b">&#9670;&#160;</a></span>RopeLeaf()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -162,7 +176,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">RopeLeaf::RopeLeaf </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramtype">const std::u16string &amp;&#160;</td>
           <td class="paramname"><em>str</em></td><td>)</td>
           <td></td>
         </tr>
@@ -185,8 +199,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4c990f476399a76402731bbe101e4ef0" name="a4c990f476399a76402731bbe101e4ef0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c990f476399a76402731bbe101e4ef0">&#9670;&#160;</a></span>getCharAt()</h2>
+<a id="a48b936759cba643cb6c66da9d553aa23" name="a48b936759cba643cb6c66da9d553aa23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48b936759cba643cb6c66da9d553aa23">&#9670;&#160;</a></span>find()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -195,7 +209,55 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">char RopeLeaf::getCharAt </td>
+          <td class="memname">size_t RopeLeaf::find </td>
+          <td>(</td>
+          <td class="paramtype">const std::u16string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>pos</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Finds the first occurrence of a substring in the string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>The substring to search for. </td></tr>
+    <tr><td class="paramname">pos</td><td>The position to start searching from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The index of the first occurrence of the substring, or npos if not found. </dd></dl>
+
+<p>Implements <a class="el" href="classRopeNode.html#a01c96572016c5da599ea58caae13c7a3">RopeNode</a>.</p>
+
+</div>
+</div>
+<a id="a520c17350ffa03cc5213fc50dc8fd5bc" name="a520c17350ffa03cc5213fc50dc8fd5bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a520c17350ffa03cc5213fc50dc8fd5bc">&#9670;&#160;</a></span>getCharAt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char16_t RopeLeaf::getCharAt </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
           <td class="paramname"><em>idx</em></td><td>)</td>
@@ -218,18 +280,18 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Character at the given index. </dd></dl>
 
-<p>Implements <a class="el" href="classRopeNode.html#a45a9c1c8a81c85df121a66b651e9e708">RopeNode</a>.</p>
+<p>Implements <a class="el" href="classRopeNode.html#a7a2fdf708a3d72dc09f3adf45ee7248a">RopeNode</a>.</p>
 
 </div>
 </div>
-<a id="ab0e0e7938422508f9fb82ac4a23f9bb3" name="ab0e0e7938422508f9fb82ac4a23f9bb3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0e0e7938422508f9fb82ac4a23f9bb3">&#9670;&#160;</a></span>getData()</h2>
+<a id="a4ad5330454addaa748b536fe34020232" name="a4ad5330454addaa748b536fe34020232"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ad5330454addaa748b536fe34020232">&#9670;&#160;</a></span>getData()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string RopeLeaf::getData </td>
+          <td class="memname">std::u16string RopeLeaf::getData </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -239,6 +301,94 @@ Public Member Functions</h2></td></tr>
 
 <p>Returns the string data stored in the leaf. </p>
 <dl class="section return"><dt>Returns</dt><dd>The string data. </dd></dl>
+
+</div>
+</div>
+<a id="ae209daadb15f7a97d399ec7e37e486a7" name="ae209daadb15f7a97d399ec7e37e486a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae209daadb15f7a97d399ec7e37e486a7">&#9670;&#160;</a></span>getDataPtr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::u16string * RopeLeaf::getDataPtr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the data stored in the leaf. </dd></dl>
+
+<p>Reimplemented from <a class="el" href="classRopeNode.html#a6014bcb5f2b7d1125b10ede777e696c5">RopeNode</a>.</p>
+
+</div>
+</div>
+<a id="a272b253e19055ab39701979934d7c104" name="a272b253e19055ab39701979934d7c104"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a272b253e19055ab39701979934d7c104">&#9670;&#160;</a></span>getLeft()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classRopeNode.html">RopeNode</a> &gt; RopeLeaf::getLeft </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the left child of the rope node. </p>
+<dl class="section return"><dt>Returns</dt><dd>Shared pointer to the left child node. </dd></dl>
+
+<p>Reimplemented from <a class="el" href="classRopeNode.html#a8b8b98364d884357c2045f90ac4c2395">RopeNode</a>.</p>
+
+</div>
+</div>
+<a id="a448bff39923019e15855ffbaeb0970f4" name="a448bff39923019e15855ffbaeb0970f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a448bff39923019e15855ffbaeb0970f4">&#9670;&#160;</a></span>getRight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classRopeNode.html">RopeNode</a> &gt; RopeLeaf::getRight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the right child of the rope node. </p>
+<dl class="section return"><dt>Returns</dt><dd>Shared pointer to the right child node. </dd></dl>
+
+<p>Reimplemented from <a class="el" href="classRopeNode.html#a0cf7ef2afe4d3e00a7ae45c0a5b18b85">RopeNode</a>.</p>
 
 </div>
 </div>
@@ -298,6 +448,54 @@ Public Member Functions</h2></td></tr>
 <p>Prints the contents of the string stored in the leaf. </p>
 
 <p>Implements <a class="el" href="classRopeNode.html#a517e55fe6ae0da703fcca48fd6d4a7f7">RopeNode</a>.</p>
+
+</div>
+</div>
+<a id="ad8a02bd056fd5cf7367eae6c89f39031" name="ad8a02bd056fd5cf7367eae6c89f39031"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8a02bd056fd5cf7367eae6c89f39031">&#9670;&#160;</a></span>rfind()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t RopeLeaf::rfind </td>
+          <td>(</td>
+          <td class="paramtype">const std::u16string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>pos</em> = <code>std::u16string::npos</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Finds the last occurrence of a substring in the string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>The substring to search for. </td></tr>
+    <tr><td class="paramname">pos</td><td>The position to start searching from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The index of the last occurrence of the substring, or npos if not found. </dd></dl>
+
+<p>Implements <a class="el" href="classRopeNode.html#aa8583831de1edfc96d03e22269083ea7">RopeNode</a>.</p>
 
 </div>
 </div>

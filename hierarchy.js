@@ -30,6 +30,7 @@ var hierarchy =
     [ "Options", "classOptions.html", null ],
     [ "JS::PropertyProxy", "classJS_1_1PropertyProxy.html", null ],
     [ "Rope", "classRope.html", null ],
+    [ "RopeIterator", "classRopeIterator.html", null ],
     [ "RopeNode", "classRopeNode.html", [
       [ "RopeConcat", "classRopeConcat.html", null ],
       [ "RopeLeaf", "classRopeLeaf.html", null ]

@@ -128,14 +128,16 @@ Prerequisites</h2>
 <h3><a class="anchor" id="autotoc_md8"></a>
 Linux</h3>
 <p><b>Debian-based:</b></p>
-<div class="fragment"><div class="line">sudo apt install libboost-all-dev doxygen</div>
+<div class="fragment"><div class="line">sudo apt install libboost-all-dev doxygen libicu-dev</div>
 </div><!-- fragment --><p><b>Arch-based:</b></p>
-<div class="fragment"><div class="line">sudo pacman -S boost doxygen</div>
+<div class="fragment"><div class="line">sudo pacman -S boost doxygen icu</div>
 </div><!-- fragment --><p><b>Fedora:</b></p>
-<div class="fragment"><div class="line">sudo dnf install boost-devel doxygen</div>
+<div class="fragment"><div class="line">sudo dnf install boost-devel doxygen libicu-devel</div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md9"></a>
 macOS</h3>
-<div class="fragment"><div class="line">brew install boost doxygen</div>
+<div class="fragment"><div class="line">brew install boost doxygen icu4c</div>
+</div><!-- fragment --><p>icu4c may need to be linked manually if not automatically detected by CMake:</p>
+<div class="fragment"><div class="line">brew link --force icu4c</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md10"></a>
 5. Build the Project</h2>
 <div class="fragment"><div class="line">cmake . &amp;&amp; make</div>

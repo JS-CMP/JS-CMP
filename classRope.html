@@ -120,63 +120,81 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a373aed65f017618c23a11ee153b21fc4" id="r_a373aed65f017618c23a11ee153b21fc4"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#a373aed65f017618c23a11ee153b21fc4">length</a> () const</td></tr>
 <tr class="memdesc:a373aed65f017618c23a11ee153b21fc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the total length of the rope.  <br /></td></tr>
 <tr class="separator:a373aed65f017618c23a11ee153b21fc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade94c91492c16e26816b536c6801a10b" id="r_ade94c91492c16e26816b536c6801a10b"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#ade94c91492c16e26816b536c6801a10b">getCharAt</a> (size_t idx) const</td></tr>
-<tr class="memdesc:ade94c91492c16e26816b536c6801a10b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the character at the specified index in the rope.  <br /></td></tr>
-<tr class="separator:ade94c91492c16e26816b536c6801a10b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a251108c602a9d3bfee7b7c1a0c730c0d" id="r_a251108c602a9d3bfee7b7c1a0c730c0d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#a251108c602a9d3bfee7b7c1a0c730c0d">compare</a> (const <a class="el" href="classRope.html">Rope</a> &amp;other) const</td></tr>
-<tr class="memdesc:a251108c602a9d3bfee7b7c1a0c730c0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares this rope with another rope.  <br /></td></tr>
-<tr class="separator:a251108c602a9d3bfee7b7c1a0c730c0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a9fb874a3416c08bae896d14169ff4c" id="r_a8a9fb874a3416c08bae896d14169ff4c"><td class="memItemLeft" align="right" valign="top">char16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#a8a9fb874a3416c08bae896d14169ff4c">getCharAt</a> (size_t idx) const</td></tr>
+<tr class="memdesc:a8a9fb874a3416c08bae896d14169ff4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the character at the specified index in the rope.  <br /></td></tr>
+<tr class="separator:a8a9fb874a3416c08bae896d14169ff4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ffe8f1dbe59157a040ee2d6e98ad891" id="r_a4ffe8f1dbe59157a040ee2d6e98ad891"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#a4ffe8f1dbe59157a040ee2d6e98ad891">concat</a> (const <a class="el" href="classRope.html">Rope</a> &amp;other)</td></tr>
 <tr class="memdesc:a4ffe8f1dbe59157a040ee2d6e98ad891"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatenates another rope to this rope.  <br /></td></tr>
 <tr class="separator:a4ffe8f1dbe59157a040ee2d6e98ad891"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0aa980bfb2f9b7f45a7b4a529c1cffa" id="r_ac0aa980bfb2f9b7f45a7b4a529c1cffa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRope.html">Rope</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#ac0aa980bfb2f9b7f45a7b4a529c1cffa">operator+</a> (const <a class="el" href="classRope.html">Rope</a> &amp;other) const</td></tr>
 <tr class="memdesc:ac0aa980bfb2f9b7f45a7b4a529c1cffa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatenation operator for two ropes.  <br /></td></tr>
 <tr class="separator:ac0aa980bfb2f9b7f45a7b4a529c1cffa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a676287a73ccb64b05a2e309e3cac4e5b" id="r_a676287a73ccb64b05a2e309e3cac4e5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRope.html">Rope</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#a676287a73ccb64b05a2e309e3cac4e5b">operator+</a> (const std::string &amp;other)</td></tr>
-<tr class="memdesc:a676287a73ccb64b05a2e309e3cac4e5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatenation operator for a rope with a string.  <br /></td></tr>
-<tr class="separator:a676287a73ccb64b05a2e309e3cac4e5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58a8c5d9c42a5102d84b7e1b5b45071c" id="r_a58a8c5d9c42a5102d84b7e1b5b45071c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRope.html">Rope</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#a58a8c5d9c42a5102d84b7e1b5b45071c">operator+</a> (const std::string &amp;other) const</td></tr>
-<tr class="memdesc:a58a8c5d9c42a5102d84b7e1b5b45071c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatenation operator for a rope with a temporary string.  <br /></td></tr>
-<tr class="separator:a58a8c5d9c42a5102d84b7e1b5b45071c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a568ed70c7701ff397dc1afc51f2dbd1f" id="r_a568ed70c7701ff397dc1afc51f2dbd1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRope.html">Rope</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#a568ed70c7701ff397dc1afc51f2dbd1f">operator+</a> (const std::string &amp;&amp;other) const</td></tr>
-<tr class="memdesc:a568ed70c7701ff397dc1afc51f2dbd1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatenation operator for a rope with a temporary string.  <br /></td></tr>
-<tr class="separator:a568ed70c7701ff397dc1afc51f2dbd1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae18e5827e09916e4751af2344b6cc2d5" id="r_ae18e5827e09916e4751af2344b6cc2d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRope.html">Rope</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#ae18e5827e09916e4751af2344b6cc2d5">operator+</a> (const std::u16string &amp;other)</td></tr>
+<tr class="memdesc:ae18e5827e09916e4751af2344b6cc2d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatenation operator for a rope with a string.  <br /></td></tr>
+<tr class="separator:ae18e5827e09916e4751af2344b6cc2d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeeed0f60d98fa13c10e418cc6e5dbe22" id="r_aeeed0f60d98fa13c10e418cc6e5dbe22"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRope.html">Rope</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#aeeed0f60d98fa13c10e418cc6e5dbe22">operator+</a> (const std::u16string &amp;other) const</td></tr>
+<tr class="memdesc:aeeed0f60d98fa13c10e418cc6e5dbe22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatenation operator for a rope with a temporary string.  <br /></td></tr>
+<tr class="separator:aeeed0f60d98fa13c10e418cc6e5dbe22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d5fd0d0b40d6d34045344bde53a5b97" id="r_a3d5fd0d0b40d6d34045344bde53a5b97"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRope.html">Rope</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#a3d5fd0d0b40d6d34045344bde53a5b97">operator+</a> (const std::u16string &amp;&amp;other) const</td></tr>
+<tr class="memdesc:a3d5fd0d0b40d6d34045344bde53a5b97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatenation operator for a rope with a temporary string.  <br /></td></tr>
+<tr class="separator:a3d5fd0d0b40d6d34045344bde53a5b97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefcb367236418ab7d2bb5d1330979ca0" id="r_aefcb367236418ab7d2bb5d1330979ca0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#aefcb367236418ab7d2bb5d1330979ca0">operator==</a> (const <a class="el" href="classRope.html">Rope</a> &amp;other) const</td></tr>
 <tr class="memdesc:aefcb367236418ab7d2bb5d1330979ca0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality operator to check if two ropes are equal.  <br /></td></tr>
 <tr class="separator:aefcb367236418ab7d2bb5d1330979ca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a822c309ce7d262a0654c27fb469f5ace" id="r_a822c309ce7d262a0654c27fb469f5ace"><td class="memItemLeft" align="right" valign="top">char16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#a822c309ce7d262a0654c27fb469f5ace">operator[]</a> (size_t idx) const</td></tr>
+<tr class="memdesc:a822c309ce7d262a0654c27fb469f5ace"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the character at the specified index using the subscript operator.  <br /></td></tr>
+<tr class="separator:a822c309ce7d262a0654c27fb469f5ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada8d9466993328455963ef25b3d5ade5" id="r_ada8d9466993328455963ef25b3d5ade5"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#ada8d9466993328455963ef25b3d5ade5">find</a> (const std::u16string &amp;str, size_t pos=0) const</td></tr>
+<tr class="memdesc:ada8d9466993328455963ef25b3d5ade5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the first occurrence of a substring in the rope.  <br /></td></tr>
+<tr class="separator:ada8d9466993328455963ef25b3d5ade5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a354abe41aee6b6fe792c9f5e08cc298c" id="r_a354abe41aee6b6fe792c9f5e08cc298c"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#a354abe41aee6b6fe792c9f5e08cc298c">rfind</a> (const std::u16string &amp;str, size_t pos=std::u16string::npos) const</td></tr>
+<tr class="memdesc:a354abe41aee6b6fe792c9f5e08cc298c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the last occurrence of a substring in the rope.  <br /></td></tr>
+<tr class="separator:a354abe41aee6b6fe792c9f5e08cc298c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a251108c602a9d3bfee7b7c1a0c730c0d" id="r_a251108c602a9d3bfee7b7c1a0c730c0d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#a251108c602a9d3bfee7b7c1a0c730c0d">compare</a> (const <a class="el" href="classRope.html">Rope</a> &amp;other) const</td></tr>
+<tr class="memdesc:a251108c602a9d3bfee7b7c1a0c730c0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares this rope with another rope.  <br /></td></tr>
+<tr class="separator:a251108c602a9d3bfee7b7c1a0c730c0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9662a17ad34398410423c70fd2ad1e6b" id="r_a9662a17ad34398410423c70fd2ad1e6b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRope.html">Rope</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#a9662a17ad34398410423c70fd2ad1e6b">substr</a> (size_t pos, size_t len) const</td></tr>
+<tr class="memdesc:a9662a17ad34398410423c70fd2ad1e6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts a substring from the rope.  <br /></td></tr>
+<tr class="separator:a9662a17ad34398410423c70fd2ad1e6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a189d23a04d260952e6af19554417fc97" id="r_a189d23a04d260952e6af19554417fc97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#a189d23a04d260952e6af19554417fc97">print</a> () const</td></tr>
 <tr class="memdesc:a189d23a04d260952e6af19554417fc97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the content of the rope.  <br /></td></tr>
 <tr class="separator:a189d23a04d260952e6af19554417fc97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9beaf440eeacc7502cf3457c8807127" id="r_ae9beaf440eeacc7502cf3457c8807127"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#ae9beaf440eeacc7502cf3457c8807127">toString</a> () const</td></tr>
-<tr class="memdesc:ae9beaf440eeacc7502cf3457c8807127"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the rope to a string.  <br /></td></tr>
-<tr class="separator:ae9beaf440eeacc7502cf3457c8807127"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc232df9ab24b677d2813ee43ee61f03" id="r_adc232df9ab24b677d2813ee43ee61f03"><td class="memItemLeft" align="right" valign="top">std::u16string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#adc232df9ab24b677d2813ee43ee61f03">toString</a> () const</td></tr>
+<tr class="memdesc:adc232df9ab24b677d2813ee43ee61f03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the rope to a string.  <br /></td></tr>
+<tr class="separator:adc232df9ab24b677d2813ee43ee61f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Constructors</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>These constructors create a new <a class="el" href="classRope.html" title="Represents a rope, a data structure for efficiently manipulating and storing strings.">Rope</a> object with the given value </p>
 </div></td></tr>
 <tr class="memitem:a908b311e35afb6be696945aaeea74402" id="r_a908b311e35afb6be696945aaeea74402"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#a908b311e35afb6be696945aaeea74402">Rope</a> (const std::string &amp;str)</td></tr>
-<tr class="memdesc:a908b311e35afb6be696945aaeea74402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor initializes the rope to an empty string.  <br /></td></tr>
+<tr class="memdesc:a908b311e35afb6be696945aaeea74402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor initializes the rope to a string.  <br /></td></tr>
 <tr class="separator:a908b311e35afb6be696945aaeea74402"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad767bf48c71296fccca1fdd7b76d9e7b" id="r_ad767bf48c71296fccca1fdd7b76d9e7b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#ad767bf48c71296fccca1fdd7b76d9e7b">Rope</a> (const std::u16string &amp;str)</td></tr>
+<tr class="memdesc:ad767bf48c71296fccca1fdd7b76d9e7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor initializes the rope to a u16string.  <br /></td></tr>
+<tr class="separator:ad767bf48c71296fccca1fdd7b76d9e7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ceec32f4268c353bf55eb7edbf2dfa9" id="r_a6ceec32f4268c353bf55eb7edbf2dfa9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#a6ceec32f4268c353bf55eb7edbf2dfa9">Rope</a> (const char *str)</td></tr>
 <tr class="memdesc:a6ceec32f4268c353bf55eb7edbf2dfa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for char*.  <br /></td></tr>
 <tr class="separator:a6ceec32f4268c353bf55eb7edbf2dfa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3884a8dff23136c7e6bfe3e2ce5386c0" id="r_a3884a8dff23136c7e6bfe3e2ce5386c0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#a3884a8dff23136c7e6bfe3e2ce5386c0">Rope</a> (const char16_t *str)</td></tr>
+<tr class="memdesc:a3884a8dff23136c7e6bfe3e2ce5386c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for char16_t*.  <br /></td></tr>
+<tr class="separator:a3884a8dff23136c7e6bfe3e2ce5386c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a456a4d733163de2f88e8fe8160355826" id="r_a456a4d733163de2f88e8fe8160355826"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#a456a4d733163de2f88e8fe8160355826">Rope</a> (std::shared_ptr&lt; <a class="el" href="classRopeNode.html">RopeNode</a> &gt; node)</td></tr>
 <tr class="memdesc:a456a4d733163de2f88e8fe8160355826"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for char.  <br /></td></tr>
 <tr class="separator:a456a4d733163de2f88e8fe8160355826"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a9e18d17de042196fd76a4f9903869064" id="r_a9e18d17de042196fd76a4f9903869064"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRope.html">Rope</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#a9e18d17de042196fd76a4f9903869064">operator+</a> (const std::string &amp;&amp;other, const <a class="el" href="classRope.html">Rope</a> &amp;rope)</td></tr>
-<tr class="memdesc:a9e18d17de042196fd76a4f9903869064"><td class="mdescLeft">&#160;</td><td class="mdescRight">Friend function for concatenating a temporary string with a rope.  <br /></td></tr>
-<tr class="separator:a9e18d17de042196fd76a4f9903869064"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cbbfc529751d562bbf8c05270b3185e" id="r_a0cbbfc529751d562bbf8c05270b3185e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRope.html">Rope</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#a0cbbfc529751d562bbf8c05270b3185e">operator+</a> (const std::string &amp;other, const <a class="el" href="classRope.html">Rope</a> &amp;rope)</td></tr>
-<tr class="memdesc:a0cbbfc529751d562bbf8c05270b3185e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Friend function for concatenating a string with a rope.  <br /></td></tr>
-<tr class="separator:a0cbbfc529751d562bbf8c05270b3185e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3105022161f662f5bf751a4b7f1cc5a" id="r_ae3105022161f662f5bf751a4b7f1cc5a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRope.html">Rope</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#ae3105022161f662f5bf751a4b7f1cc5a">operator+</a> (const std::u16string &amp;&amp;other, const <a class="el" href="classRope.html">Rope</a> &amp;rope)</td></tr>
+<tr class="memdesc:ae3105022161f662f5bf751a4b7f1cc5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Friend function for concatenating a temporary string with a rope.  <br /></td></tr>
+<tr class="separator:ae3105022161f662f5bf751a4b7f1cc5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a765c0a4cab7cd1cfef3a3c4925b51578" id="r_a765c0a4cab7cd1cfef3a3c4925b51578"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRope.html">Rope</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRope.html#a765c0a4cab7cd1cfef3a3c4925b51578">operator+</a> (const std::u16string &amp;other, const <a class="el" href="classRope.html">Rope</a> &amp;rope)</td></tr>
+<tr class="memdesc:a765c0a4cab7cd1cfef3a3c4925b51578"><td class="mdescLeft">&#160;</td><td class="mdescRight">Friend function for concatenating a string with a rope.  <br /></td></tr>
+<tr class="separator:a765c0a4cab7cd1cfef3a3c4925b51578"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a rope, a data structure for efficiently manipulating and storing strings. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a908b311e35afb6be696945aaeea74402" name="a908b311e35afb6be696945aaeea74402"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a908b311e35afb6be696945aaeea74402">&#9670;&#160;</a></span>Rope() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a908b311e35afb6be696945aaeea74402">&#9670;&#160;</a></span>Rope() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -199,12 +217,40 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Default constructor initializes the rope to an empty string. </p>
+<p>Default constructor initializes the rope to a string. </p>
+
+</div>
+</div>
+<a id="ad767bf48c71296fccca1fdd7b76d9e7b" name="ad767bf48c71296fccca1fdd7b76d9e7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad767bf48c71296fccca1fdd7b76d9e7b">&#9670;&#160;</a></span>Rope() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Rope::Rope </td>
+          <td>(</td>
+          <td class="paramtype">const std::u16string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default constructor initializes the rope to a u16string. </p>
 
 </div>
 </div>
 <a id="a6ceec32f4268c353bf55eb7edbf2dfa9" name="a6ceec32f4268c353bf55eb7edbf2dfa9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ceec32f4268c353bf55eb7edbf2dfa9">&#9670;&#160;</a></span>Rope() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ceec32f4268c353bf55eb7edbf2dfa9">&#9670;&#160;</a></span>Rope() <span class="overload">[3/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -231,8 +277,36 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<a id="a3884a8dff23136c7e6bfe3e2ce5386c0" name="a3884a8dff23136c7e6bfe3e2ce5386c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3884a8dff23136c7e6bfe3e2ce5386c0">&#9670;&#160;</a></span>Rope() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Rope::Rope </td>
+          <td>(</td>
+          <td class="paramtype">const char16_t *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor for char16_t*. </p>
+
+</div>
+</div>
 <a id="a456a4d733163de2f88e8fe8160355826" name="a456a4d733163de2f88e8fe8160355826"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a456a4d733163de2f88e8fe8160355826">&#9670;&#160;</a></span>Rope() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a456a4d733163de2f88e8fe8160355826">&#9670;&#160;</a></span>Rope() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -313,14 +387,52 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="ade94c91492c16e26816b536c6801a10b" name="ade94c91492c16e26816b536c6801a10b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade94c91492c16e26816b536c6801a10b">&#9670;&#160;</a></span>getCharAt()</h2>
+<a id="ada8d9466993328455963ef25b3d5ade5" name="ada8d9466993328455963ef25b3d5ade5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada8d9466993328455963ef25b3d5ade5">&#9670;&#160;</a></span>find()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char Rope::getCharAt </td>
+          <td class="memname">size_t Rope::find </td>
+          <td>(</td>
+          <td class="paramtype">const std::u16string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>pos</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finds the first occurrence of a substring in the rope. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>The substring to search for. </td></tr>
+    <tr><td class="paramname">pos</td><td>The position to start searching from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The index of the first occurrence of the substring, or npos if not found. </dd></dl>
+
+</div>
+</div>
+<a id="a8a9fb874a3416c08bae896d14169ff4c" name="a8a9fb874a3416c08bae896d14169ff4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a9fb874a3416c08bae896d14169ff4c">&#9670;&#160;</a></span>getCharAt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char16_t Rope::getCharAt </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
           <td class="paramname"><em>idx</em></td><td>)</td>
@@ -387,8 +499,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a568ed70c7701ff397dc1afc51f2dbd1f" name="a568ed70c7701ff397dc1afc51f2dbd1f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a568ed70c7701ff397dc1afc51f2dbd1f">&#9670;&#160;</a></span>operator+() <span class="overload">[2/4]</span></h2>
+<a id="a3d5fd0d0b40d6d34045344bde53a5b97" name="a3d5fd0d0b40d6d34045344bde53a5b97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d5fd0d0b40d6d34045344bde53a5b97">&#9670;&#160;</a></span>operator+() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -396,7 +508,7 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="classRope.html">Rope</a> Rope::operator+ </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&amp;&#160;</td>
+          <td class="paramtype">const std::u16string &amp;&amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -414,8 +526,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a676287a73ccb64b05a2e309e3cac4e5b" name="a676287a73ccb64b05a2e309e3cac4e5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a676287a73ccb64b05a2e309e3cac4e5b">&#9670;&#160;</a></span>operator+() <span class="overload">[3/4]</span></h2>
+<a id="ae18e5827e09916e4751af2344b6cc2d5" name="ae18e5827e09916e4751af2344b6cc2d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae18e5827e09916e4751af2344b6cc2d5">&#9670;&#160;</a></span>operator+() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -423,7 +535,7 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="classRope.html">Rope</a> Rope::operator+ </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramtype">const std::u16string &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
@@ -441,8 +553,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a58a8c5d9c42a5102d84b7e1b5b45071c" name="a58a8c5d9c42a5102d84b7e1b5b45071c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58a8c5d9c42a5102d84b7e1b5b45071c">&#9670;&#160;</a></span>operator+() <span class="overload">[4/4]</span></h2>
+<a id="aeeed0f60d98fa13c10e418cc6e5dbe22" name="aeeed0f60d98fa13c10e418cc6e5dbe22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeeed0f60d98fa13c10e418cc6e5dbe22">&#9670;&#160;</a></span>operator+() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -450,7 +562,7 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="classRope.html">Rope</a> Rope::operator+ </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramtype">const std::u16string &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -495,6 +607,33 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<a id="a822c309ce7d262a0654c27fb469f5ace" name="a822c309ce7d262a0654c27fb469f5ace"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a822c309ce7d262a0654c27fb469f5ace">&#9670;&#160;</a></span>operator[]()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char16_t Rope::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>idx</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the character at the specified index using the subscript operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>Index of the character. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Character at the given index. </dd></dl>
+
+</div>
+</div>
 <a id="a189d23a04d260952e6af19554417fc97" name="a189d23a04d260952e6af19554417fc97"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a189d23a04d260952e6af19554417fc97">&#9670;&#160;</a></span>print()</h2>
 
@@ -514,14 +653,90 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="ae9beaf440eeacc7502cf3457c8807127" name="ae9beaf440eeacc7502cf3457c8807127"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9beaf440eeacc7502cf3457c8807127">&#9670;&#160;</a></span>toString()</h2>
+<a id="a354abe41aee6b6fe792c9f5e08cc298c" name="a354abe41aee6b6fe792c9f5e08cc298c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a354abe41aee6b6fe792c9f5e08cc298c">&#9670;&#160;</a></span>rfind()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string Rope::toString </td>
+          <td class="memname">size_t Rope::rfind </td>
+          <td>(</td>
+          <td class="paramtype">const std::u16string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>pos</em> = <code>std::u16string::npos</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finds the last occurrence of a substring in the rope. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>The substring to search for. </td></tr>
+    <tr><td class="paramname">pos</td><td>The position to start searching from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The index of the last occurrence of the substring, or npos if not found. </dd></dl>
+
+</div>
+</div>
+<a id="a9662a17ad34398410423c70fd2ad1e6b" name="a9662a17ad34398410423c70fd2ad1e6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9662a17ad34398410423c70fd2ad1e6b">&#9670;&#160;</a></span>substr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classRope.html">Rope</a> Rope::substr </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Extracts a substring from the rope. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>The starting position of the substring. </td></tr>
+    <tr><td class="paramname">len</td><td>The length of the substring. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A new <a class="el" href="classRope.html" title="Represents a rope, a data structure for efficiently manipulating and storing strings.">Rope</a> containing the substring. </dd></dl>
+
+</div>
+</div>
+<a id="adc232df9ab24b677d2813ee43ee61f03" name="adc232df9ab24b677d2813ee43ee61f03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc232df9ab24b677d2813ee43ee61f03">&#9670;&#160;</a></span>toString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::u16string Rope::toString </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -535,8 +750,8 @@ Friends</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Symbol Documentation</h2>
-<a id="a9e18d17de042196fd76a4f9903869064" name="a9e18d17de042196fd76a4f9903869064"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e18d17de042196fd76a4f9903869064">&#9670;&#160;</a></span>operator+ <span class="overload">[1/2]</span></h2>
+<a id="ae3105022161f662f5bf751a4b7f1cc5a" name="ae3105022161f662f5bf751a4b7f1cc5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3105022161f662f5bf751a4b7f1cc5a">&#9670;&#160;</a></span>operator+ <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -547,7 +762,7 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="classRope.html">Rope</a> operator+ </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&amp;&#160;</td>
+          <td class="paramtype">const std::u16string &amp;&amp;&#160;</td>
           <td class="paramname"><em>other</em>, </td>
         </tr>
         <tr>
@@ -581,8 +796,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a0cbbfc529751d562bbf8c05270b3185e" name="a0cbbfc529751d562bbf8c05270b3185e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0cbbfc529751d562bbf8c05270b3185e">&#9670;&#160;</a></span>operator+ <span class="overload">[2/2]</span></h2>
+<a id="a765c0a4cab7cd1cfef3a3c4925b51578" name="a765c0a4cab7cd1cfef3a3c4925b51578"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a765c0a4cab7cd1cfef3a3c4925b51578">&#9670;&#160;</a></span>operator+ <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -593,7 +808,7 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="classRope.html">Rope</a> operator+ </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramtype">const std::u16string &amp;&#160;</td>
           <td class="paramname"><em>other</em>, </td>
         </tr>
         <tr>

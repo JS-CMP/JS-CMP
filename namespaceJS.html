@@ -171,11 +171,8 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a7a13a86ce74cf91ccbb32734eaf77483" id="r_a7a13a86ce74cf91ccbb32734eaf77483"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a7a13a86ce74cf91ccbb32734eaf77483">Properties</a> = std::unordered_map&lt; std::string, <a class="el" href="namespaceJS.html#a045e2f5d691414608a9f6d2350e90811">JS::Attribute</a> &gt;</td></tr>
-<tr class="separator:a7a13a86ce74cf91ccbb32734eaf77483"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04e94438474aa77f16f83ae247063a23" id="r_a04e94438474aa77f16f83ae247063a23"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a04e94438474aa77f16f83ae247063a23"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a04e94438474aa77f16f83ae247063a23">JSAnyAmbiguous</a> = std::enable_if_t&lt;!std::is_same_v&lt; T, <a class="el" href="classJS_1_1Any.html">JS::Any</a> &gt;, <a class="el" href="classJS_1_1Any.html">JS::Any</a> &gt;</td></tr>
-<tr class="separator:a04e94438474aa77f16f83ae247063a23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61b06bb7e3892674498fcb6eebaa4213" id="r_a61b06bb7e3892674498fcb6eebaa4213"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a61b06bb7e3892674498fcb6eebaa4213">Properties</a> = std::unordered_map&lt; std::u16string, <a class="el" href="namespaceJS.html#a045e2f5d691414608a9f6d2350e90811">JS::Attribute</a> &gt;</td></tr>
+<tr class="separator:a61b06bb7e3892674498fcb6eebaa4213"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a045e2f5d691414608a9f6d2350e90811" id="r_a045e2f5d691414608a9f6d2350e90811"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a045e2f5d691414608a9f6d2350e90811">Attribute</a> = std::variant&lt; <a class="el" href="classJS_1_1DataDescriptor.html">DataDescriptor</a>, <a class="el" href="classJS_1_1AccessorDescriptor.html">AccessorDescriptor</a> &gt;</td></tr>
 <tr class="memdesc:a045e2f5d691414608a9f6d2350e90811"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a JavaScript object property, which can be a data property or an accessor property.  <br /></td></tr>
 <tr class="separator:a045e2f5d691414608a9f6d2350e90811"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -212,117 +209,18 @@ Functions</h2></td></tr>
 <tr class="separator:afc3d14ccb6b59dac36c7bb93e21abdb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2efcc411b684d052e72abf8795ce860" id="r_ab2efcc411b684d052e72abf8795ce860"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#ab2efcc411b684d052e72abf8795ce860">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classJS_1_1Any.html">Any</a> &amp;any)</td></tr>
 <tr class="separator:ab2efcc411b684d052e72abf8795ce860"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28011b21158a5e9fcc3366025e728411" id="r_a28011b21158a5e9fcc3366025e728411"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a28011b21158a5e9fcc3366025e728411"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a28011b21158a5e9fcc3366025e728411">operator&amp;</a> (T value, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;any)</td></tr>
-<tr class="separator:a28011b21158a5e9fcc3366025e728411"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afffd79c15532b125907ffb0bcfb1c73a" id="r_afffd79c15532b125907ffb0bcfb1c73a"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#afffd79c15532b125907ffb0bcfb1c73a">operator&amp;</a> (int, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:afffd79c15532b125907ffb0bcfb1c73a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1ef954200725e2204f65d74a956cc29" id="r_ad1ef954200725e2204f65d74a956cc29"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#ad1ef954200725e2204f65d74a956cc29">operator&amp;</a> (double, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:ad1ef954200725e2204f65d74a956cc29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9ac7049cd744241fcce14f054ffaefb" id="r_ae9ac7049cd744241fcce14f054ffaefb"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#ae9ac7049cd744241fcce14f054ffaefb">operator&amp;</a> (const char *, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:ae9ac7049cd744241fcce14f054ffaefb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cebccbd0e6d2913eaa02c41e0f7f646" id="r_a6cebccbd0e6d2913eaa02c41e0f7f646"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a6cebccbd0e6d2913eaa02c41e0f7f646">operator&amp;</a> (bool, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:a6cebccbd0e6d2913eaa02c41e0f7f646"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33841af3428f879b69ac7d2f60a5b4ff" id="r_a33841af3428f879b69ac7d2f60a5b4ff"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a33841af3428f879b69ac7d2f60a5b4ff">operator&amp;</a> (<a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:a33841af3428f879b69ac7d2f60a5b4ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef06e840ceac2d232b5849e7f23f0359" id="r_aef06e840ceac2d232b5849e7f23f0359"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#aef06e840ceac2d232b5849e7f23f0359">operator&amp;</a> (JS::Undefined, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:aef06e840ceac2d232b5849e7f23f0359"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02b2949a2cc1760a109767932dc011d0" id="r_a02b2949a2cc1760a109767932dc011d0"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a02b2949a2cc1760a109767932dc011d0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a02b2949a2cc1760a109767932dc011d0">operator&lt;&lt;</a> (T value, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;any)</td></tr>
-<tr class="separator:a02b2949a2cc1760a109767932dc011d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a457fb1e664d2ba364882779ee8aa17ae" id="r_a457fb1e664d2ba364882779ee8aa17ae"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a457fb1e664d2ba364882779ee8aa17ae">operator&lt;&lt;</a> (int, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:a457fb1e664d2ba364882779ee8aa17ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20651265e9a2cad51b8b73306c556ad9" id="r_a20651265e9a2cad51b8b73306c556ad9"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a20651265e9a2cad51b8b73306c556ad9">operator&lt;&lt;</a> (double, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:a20651265e9a2cad51b8b73306c556ad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e206309cdaa9def9c2a6fe442ed37c9" id="r_a4e206309cdaa9def9c2a6fe442ed37c9"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a4e206309cdaa9def9c2a6fe442ed37c9">operator&lt;&lt;</a> (const char *, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:a4e206309cdaa9def9c2a6fe442ed37c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb6fc8b9dbab119a38f469e1c405b248" id="r_acb6fc8b9dbab119a38f469e1c405b248"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#acb6fc8b9dbab119a38f469e1c405b248">operator&lt;&lt;</a> (bool, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:acb6fc8b9dbab119a38f469e1c405b248"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9caa3acb0c85c1fdec62362f8a9a5a9" id="r_ac9caa3acb0c85c1fdec62362f8a9a5a9"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#ac9caa3acb0c85c1fdec62362f8a9a5a9">operator&lt;&lt;</a> (<a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:ac9caa3acb0c85c1fdec62362f8a9a5a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac572ae4fc845f58c9694ac44b925fc2" id="r_aac572ae4fc845f58c9694ac44b925fc2"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#aac572ae4fc845f58c9694ac44b925fc2">operator&lt;&lt;</a> (JS::Undefined, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:aac572ae4fc845f58c9694ac44b925fc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fb3f6bad4f703ed456a34938597e222" id="r_a6fb3f6bad4f703ed456a34938597e222"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a6fb3f6bad4f703ed456a34938597e222"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a6fb3f6bad4f703ed456a34938597e222">operator|</a> (T value, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;any)</td></tr>
-<tr class="separator:a6fb3f6bad4f703ed456a34938597e222"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7bcfbb3f786652694df6635a575b889" id="r_ab7bcfbb3f786652694df6635a575b889"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#ab7bcfbb3f786652694df6635a575b889">operator|</a> (int, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:ab7bcfbb3f786652694df6635a575b889"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8e5ff48d9ddae98c4c8af283a093f4a" id="r_aa8e5ff48d9ddae98c4c8af283a093f4a"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#aa8e5ff48d9ddae98c4c8af283a093f4a">operator|</a> (double, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:aa8e5ff48d9ddae98c4c8af283a093f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91a8ea67e4354b2bbad438119895daad" id="r_a91a8ea67e4354b2bbad438119895daad"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a91a8ea67e4354b2bbad438119895daad">operator|</a> (const char *, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:a91a8ea67e4354b2bbad438119895daad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa98e2797fe67b4672e9868a0c4801579" id="r_aa98e2797fe67b4672e9868a0c4801579"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#aa98e2797fe67b4672e9868a0c4801579">operator|</a> (bool, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:aa98e2797fe67b4672e9868a0c4801579"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8764cdb76380c51ad5b1dbc662eb02b6" id="r_a8764cdb76380c51ad5b1dbc662eb02b6"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a8764cdb76380c51ad5b1dbc662eb02b6">operator|</a> (<a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:a8764cdb76380c51ad5b1dbc662eb02b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae249bf6ed44fef83cdd2b3f780e8cd3f" id="r_ae249bf6ed44fef83cdd2b3f780e8cd3f"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#ae249bf6ed44fef83cdd2b3f780e8cd3f">operator|</a> (JS::Undefined, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:ae249bf6ed44fef83cdd2b3f780e8cd3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a4a984bdce2dadd972a9e225694b996" id="r_a6a4a984bdce2dadd972a9e225694b996"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a6a4a984bdce2dadd972a9e225694b996"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a6a4a984bdce2dadd972a9e225694b996">operator&gt;&gt;</a> (T value, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;any)</td></tr>
-<tr class="separator:a6a4a984bdce2dadd972a9e225694b996"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add822856ce8cc09ab30c8f3895319854" id="r_add822856ce8cc09ab30c8f3895319854"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#add822856ce8cc09ab30c8f3895319854">operator&gt;&gt;</a> (int, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:add822856ce8cc09ab30c8f3895319854"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae434ae16320f824bebceddc2cd59a777" id="r_ae434ae16320f824bebceddc2cd59a777"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#ae434ae16320f824bebceddc2cd59a777">operator&gt;&gt;</a> (double, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:ae434ae16320f824bebceddc2cd59a777"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86ad4fb69cf608e2191a71abe84733bd" id="r_a86ad4fb69cf608e2191a71abe84733bd"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a86ad4fb69cf608e2191a71abe84733bd">operator&gt;&gt;</a> (const char *, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:a86ad4fb69cf608e2191a71abe84733bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b4d373bbab1c7c17e3ccf5a1c3135c5" id="r_a6b4d373bbab1c7c17e3ccf5a1c3135c5"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a6b4d373bbab1c7c17e3ccf5a1c3135c5">operator&gt;&gt;</a> (bool, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:a6b4d373bbab1c7c17e3ccf5a1c3135c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa400b67a0da10bb83a5c5d00de630816" id="r_aa400b67a0da10bb83a5c5d00de630816"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#aa400b67a0da10bb83a5c5d00de630816">operator&gt;&gt;</a> (<a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:aa400b67a0da10bb83a5c5d00de630816"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7007e7a90fc771e53ac1c41a565ae94c" id="r_a7007e7a90fc771e53ac1c41a565ae94c"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a7007e7a90fc771e53ac1c41a565ae94c">operator&gt;&gt;</a> (JS::Undefined, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:a7007e7a90fc771e53ac1c41a565ae94c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52806baa56f768cf2b9728b0fe4bb78f" id="r_a52806baa56f768cf2b9728b0fe4bb78f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a52806baa56f768cf2b9728b0fe4bb78f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a52806baa56f768cf2b9728b0fe4bb78f">operator^</a> (T value, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;any)</td></tr>
-<tr class="separator:a52806baa56f768cf2b9728b0fe4bb78f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3135ee40b56cab085bbf29e06dbaa902" id="r_a3135ee40b56cab085bbf29e06dbaa902"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a3135ee40b56cab085bbf29e06dbaa902">operator^</a> (int, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:a3135ee40b56cab085bbf29e06dbaa902"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5454c6372cc41dff9bf270bf18832b56" id="r_a5454c6372cc41dff9bf270bf18832b56"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a5454c6372cc41dff9bf270bf18832b56">operator^</a> (double, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:a5454c6372cc41dff9bf270bf18832b56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a537f0249912d3897ba007aaa383df546" id="r_a537f0249912d3897ba007aaa383df546"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a537f0249912d3897ba007aaa383df546">operator^</a> (const char *, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:a537f0249912d3897ba007aaa383df546"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64edb7d35cd87ab2b820ab7241d6c8a0" id="r_a64edb7d35cd87ab2b820ab7241d6c8a0"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a64edb7d35cd87ab2b820ab7241d6c8a0">operator^</a> (bool, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:a64edb7d35cd87ab2b820ab7241d6c8a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25b409b4db795ddbe73108869dfe392f" id="r_a25b409b4db795ddbe73108869dfe392f"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a25b409b4db795ddbe73108869dfe392f">operator^</a> (<a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:a25b409b4db795ddbe73108869dfe392f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa35a59f48e4bd63306ab56a59b66f12c" id="r_aa35a59f48e4bd63306ab56a59b66f12c"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#aa35a59f48e4bd63306ab56a59b66f12c">operator^</a> (JS::Undefined, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
-<tr class="separator:aa35a59f48e4bd63306ab56a59b66f12c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00b406cbbfcecfa4540af76ce557e7aa" id="r_a00b406cbbfcecfa4540af76ce557e7aa"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a00b406cbbfcecfa4540af76ce557e7aa"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a00b406cbbfcecfa4540af76ce557e7aa">operator&amp;&amp;</a> (T value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
-<tr class="separator:a00b406cbbfcecfa4540af76ce557e7aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6ca89c989bff8d5f16a488e9359eb48" id="r_ab6ca89c989bff8d5f16a488e9359eb48"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#ab6ca89c989bff8d5f16a488e9359eb48">operator&amp;&amp;</a> (int, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;)</td></tr>
-<tr class="separator:ab6ca89c989bff8d5f16a488e9359eb48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd8326ae78ab05fae10426eaa9cf0e86" id="r_acd8326ae78ab05fae10426eaa9cf0e86"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#acd8326ae78ab05fae10426eaa9cf0e86">operator&amp;&amp;</a> (double, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;)</td></tr>
-<tr class="separator:acd8326ae78ab05fae10426eaa9cf0e86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc9398a803adab0ccfd8da6ed1969a37" id="r_adc9398a803adab0ccfd8da6ed1969a37"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#adc9398a803adab0ccfd8da6ed1969a37">operator&amp;&amp;</a> (const char *, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;)</td></tr>
-<tr class="separator:adc9398a803adab0ccfd8da6ed1969a37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f8c5b6aeac49bcb0ab0bac8b2a5d518" id="r_a3f8c5b6aeac49bcb0ab0bac8b2a5d518"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a3f8c5b6aeac49bcb0ab0bac8b2a5d518">operator&amp;&amp;</a> (bool, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;)</td></tr>
-<tr class="separator:a3f8c5b6aeac49bcb0ab0bac8b2a5d518"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cd5c07b9f05e8db5b25e838835228af" id="r_a0cd5c07b9f05e8db5b25e838835228af"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a0cd5c07b9f05e8db5b25e838835228af">operator&amp;&amp;</a> (<a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;)</td></tr>
-<tr class="separator:a0cd5c07b9f05e8db5b25e838835228af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fa61e1e0beaa8b25ebb29ac0e45d170" id="r_a2fa61e1e0beaa8b25ebb29ac0e45d170"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a2fa61e1e0beaa8b25ebb29ac0e45d170">operator&amp;&amp;</a> (JS::Undefined, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;)</td></tr>
-<tr class="separator:a2fa61e1e0beaa8b25ebb29ac0e45d170"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f1373739fbaac723dc29762114b64af" id="r_a5f1373739fbaac723dc29762114b64af"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a5f1373739fbaac723dc29762114b64af"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a5f1373739fbaac723dc29762114b64af">operator||</a> (T value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
-<tr class="separator:a5f1373739fbaac723dc29762114b64af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5110d3f45e8d82550fd8b2ef8a0c2d12" id="r_a5110d3f45e8d82550fd8b2ef8a0c2d12"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a5110d3f45e8d82550fd8b2ef8a0c2d12">operator||</a> (int, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;)</td></tr>
-<tr class="separator:a5110d3f45e8d82550fd8b2ef8a0c2d12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5976d1791747aaab81414298a3cbce0c" id="r_a5976d1791747aaab81414298a3cbce0c"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a5976d1791747aaab81414298a3cbce0c">operator||</a> (double, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;)</td></tr>
-<tr class="separator:a5976d1791747aaab81414298a3cbce0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf1b96478eeae749382b1950d0b3398c" id="r_aaf1b96478eeae749382b1950d0b3398c"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#aaf1b96478eeae749382b1950d0b3398c">operator||</a> (const char *, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;)</td></tr>
-<tr class="separator:aaf1b96478eeae749382b1950d0b3398c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1f50816d76feb5ed52c9a39a56017ee" id="r_ac1f50816d76feb5ed52c9a39a56017ee"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#ac1f50816d76feb5ed52c9a39a56017ee">operator||</a> (bool, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;)</td></tr>
-<tr class="separator:ac1f50816d76feb5ed52c9a39a56017ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a674f01c3386e5113b09efb5510335137" id="r_a674f01c3386e5113b09efb5510335137"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a674f01c3386e5113b09efb5510335137">operator||</a> (<a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;)</td></tr>
-<tr class="separator:a674f01c3386e5113b09efb5510335137"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb0aac3a0f0bc806c7b5ff6cde6262fd" id="r_afb0aac3a0f0bc806c7b5ff6cde6262fd"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#afb0aac3a0f0bc806c7b5ff6cde6262fd">operator||</a> (JS::Undefined, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;)</td></tr>
-<tr class="separator:afb0aac3a0f0bc806c7b5ff6cde6262fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5932c87f9c0c7eada8469f50699d2cd1" id="r_a5932c87f9c0c7eada8469f50699d2cd1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a5932c87f9c0c7eada8469f50699d2cd1">DECLARE_2FUNC</a> (<a class="el" href="classJS_1_1Any.html">JS::Any</a> operator||, { return <a class="el" href="namespaceJS_1_1CONVERT.html#a9c4966449f576cfa6de345e758b51dd1">JS::CONVERT::ToBoolean</a>(value) ? <a class="el" href="classJS_1_1Any.html">JS::Any</a>(value) :<a class="el" href="classJS_1_1Any.html">JS::Any</a>(any);})</td></tr>
+<tr class="separator:a5932c87f9c0c7eada8469f50699d2cd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c42568ea4176ab6b4d9f7db17dd6bd9" id="r_a5c42568ea4176ab6b4d9f7db17dd6bd9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a5c42568ea4176ab6b4d9f7db17dd6bd9">operator+</a> (int value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
 <tr class="separator:a5c42568ea4176ab6b4d9f7db17dd6bd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af30fe8d4c74a52f188f0e4c43e0bb3ba" id="r_af30fe8d4c74a52f188f0e4c43e0bb3ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#af30fe8d4c74a52f188f0e4c43e0bb3ba">operator+</a> (double value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
 <tr class="separator:af30fe8d4c74a52f188f0e4c43e0bb3ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad734e4b208858250bff3ed3ceae892fc" id="r_ad734e4b208858250bff3ed3ceae892fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#ad734e4b208858250bff3ed3ceae892fc">operator+</a> (const char *value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
 <tr class="separator:ad734e4b208858250bff3ed3ceae892fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2927e02708a154f3e1641dd3d426c862" id="r_a2927e02708a154f3e1641dd3d426c862"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a2927e02708a154f3e1641dd3d426c862">operator+</a> (const char16_t *value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
+<tr class="separator:a2927e02708a154f3e1641dd3d426c862"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ca7470473d993a5ba0af583843c60ff" id="r_a7ca7470473d993a5ba0af583843c60ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a7ca7470473d993a5ba0af583843c60ff">operator+</a> (const std::u16string &amp;value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
+<tr class="separator:a7ca7470473d993a5ba0af583843c60ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a3e7c2326d56f865d643742f3199363" id="r_a0a3e7c2326d56f865d643742f3199363"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a0a3e7c2326d56f865d643742f3199363">operator+</a> (bool value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
 <tr class="separator:a0a3e7c2326d56f865d643742f3199363"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a397f6854b570bb2469c201201d9e84f3" id="r_a397f6854b570bb2469c201201d9e84f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a397f6854b570bb2469c201201d9e84f3">operator+</a> (<a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
@@ -335,6 +233,10 @@ Functions</h2></td></tr>
 <tr class="separator:a52e1abc140370e2bfd75e9050ed292c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f7521815d6215c771ae796c33d5b012" id="r_a1f7521815d6215c771ae796c33d5b012"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a1f7521815d6215c771ae796c33d5b012">operator/</a> (const char *value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
 <tr class="separator:a1f7521815d6215c771ae796c33d5b012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb7e0b70023ef510f043477edd134ef3" id="r_acb7e0b70023ef510f043477edd134ef3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#acb7e0b70023ef510f043477edd134ef3">operator/</a> (const char16_t *value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
+<tr class="separator:acb7e0b70023ef510f043477edd134ef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afeb2cb4e08aee6eaafc301f3c15634ae" id="r_afeb2cb4e08aee6eaafc301f3c15634ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#afeb2cb4e08aee6eaafc301f3c15634ae">operator/</a> (const std::u16string &amp;value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
+<tr class="separator:afeb2cb4e08aee6eaafc301f3c15634ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a169488ee998473672413be8c18507f24" id="r_a169488ee998473672413be8c18507f24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a169488ee998473672413be8c18507f24">operator/</a> (bool value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
 <tr class="separator:a169488ee998473672413be8c18507f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad55475e951a8567e992da0fae9357d9c" id="r_ad55475e951a8567e992da0fae9357d9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#ad55475e951a8567e992da0fae9357d9c">operator/</a> (<a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
@@ -347,6 +249,10 @@ Functions</h2></td></tr>
 <tr class="separator:adefbf9f29e3394221be2b6155314ab27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ab0ce256c384fcc9b6b8d0849c20e55" id="r_a7ab0ce256c384fcc9b6b8d0849c20e55"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a7ab0ce256c384fcc9b6b8d0849c20e55">operator%</a> (const char *value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
 <tr class="separator:a7ab0ce256c384fcc9b6b8d0849c20e55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cbdadefe100f07ed86be23cd51e2835" id="r_a9cbdadefe100f07ed86be23cd51e2835"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a9cbdadefe100f07ed86be23cd51e2835">operator%</a> (const char16_t *value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
+<tr class="separator:a9cbdadefe100f07ed86be23cd51e2835"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2237fc6ee457631a757d0c777060904" id="r_ad2237fc6ee457631a757d0c777060904"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#ad2237fc6ee457631a757d0c777060904">operator%</a> (const std::u16string &amp;value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
+<tr class="separator:ad2237fc6ee457631a757d0c777060904"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69269f4a812e70ad59b21bb597d36616" id="r_a69269f4a812e70ad59b21bb597d36616"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a69269f4a812e70ad59b21bb597d36616">operator%</a> (bool value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
 <tr class="separator:a69269f4a812e70ad59b21bb597d36616"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2ba76b9399480bce9e02f38422d8cbb" id="r_ab2ba76b9399480bce9e02f38422d8cbb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#ab2ba76b9399480bce9e02f38422d8cbb">operator%</a> (<a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a> value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
@@ -359,33 +265,22 @@ Functions</h2></td></tr>
 <tr class="separator:af737c6d83f306ff0dee1faeacdf51f7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9852689eafe8e6c53a935d389465ac7b" id="r_a9852689eafe8e6c53a935d389465ac7b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a9852689eafe8e6c53a935d389465ac7b">operator*</a> (const char *value, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;any)</td></tr>
 <tr class="separator:a9852689eafe8e6c53a935d389465ac7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a032056411f7e592fdacd1c1357be91c9" id="r_a032056411f7e592fdacd1c1357be91c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a032056411f7e592fdacd1c1357be91c9">operator*</a> (const char16_t *value, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;any)</td></tr>
+<tr class="separator:a032056411f7e592fdacd1c1357be91c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0fd60e9719f920e7aa91899d5c0946d" id="r_ae0fd60e9719f920e7aa91899d5c0946d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#ae0fd60e9719f920e7aa91899d5c0946d">operator*</a> (const std::u16string &amp;value, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;any)</td></tr>
+<tr class="separator:ae0fd60e9719f920e7aa91899d5c0946d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22d8263000a83919f942de4d79b06d52" id="r_a22d8263000a83919f942de4d79b06d52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a22d8263000a83919f942de4d79b06d52">operator*</a> (bool value, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;any)</td></tr>
 <tr class="separator:a22d8263000a83919f942de4d79b06d52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a050a19c5dcbad803936fa2303c17ca93" id="r_a050a19c5dcbad803936fa2303c17ca93"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a050a19c5dcbad803936fa2303c17ca93">operator*</a> (<a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;any)</td></tr>
 <tr class="separator:a050a19c5dcbad803936fa2303c17ca93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44230b7c53ded4dd42b3d9de6c10c410" id="r_a44230b7c53ded4dd42b3d9de6c10c410"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a44230b7c53ded4dd42b3d9de6c10c410">operator*</a> (JS::Undefined, const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;)</td></tr>
 <tr class="separator:a44230b7c53ded4dd42b3d9de6c10c410"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ce239f244762c52460c40196de3be02" id="r_a2ce239f244762c52460c40196de3be02"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a2ce239f244762c52460c40196de3be02"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a2ce239f244762c52460c40196de3be02">operator-</a> (T value, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;any)</td></tr>
-<tr class="separator:a2ce239f244762c52460c40196de3be02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea842450d82a54d7db74df37c247f1b2" id="r_aea842450d82a54d7db74df37c247f1b2"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#aea842450d82a54d7db74df37c247f1b2">operator-</a> (int, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;)</td></tr>
-<tr class="separator:aea842450d82a54d7db74df37c247f1b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8da64d6928fa2627dce8f4ce7f02db6" id="r_aa8da64d6928fa2627dce8f4ce7f02db6"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#aa8da64d6928fa2627dce8f4ce7f02db6">operator-</a> (double, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;)</td></tr>
-<tr class="separator:aa8da64d6928fa2627dce8f4ce7f02db6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26df1a95903a8c68065154ce72b7b41d" id="r_a26df1a95903a8c68065154ce72b7b41d"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a26df1a95903a8c68065154ce72b7b41d">operator-</a> (const char *, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;)</td></tr>
-<tr class="separator:a26df1a95903a8c68065154ce72b7b41d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab104f7cb99a9bb8cb9480ced4042297a" id="r_ab104f7cb99a9bb8cb9480ced4042297a"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#ab104f7cb99a9bb8cb9480ced4042297a">operator-</a> (bool, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;)</td></tr>
-<tr class="separator:ab104f7cb99a9bb8cb9480ced4042297a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab497f6ea9251c3a35e51939ed9e3549f" id="r_ab497f6ea9251c3a35e51939ed9e3549f"><td class="memItemLeft" align="right" valign="top">template <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#ab497f6ea9251c3a35e51939ed9e3549f">operator-</a> (<a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;)</td></tr>
-<tr class="separator:ab497f6ea9251c3a35e51939ed9e3549f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49d13172496c90dd686cf2f152af962d" id="r_a49d13172496c90dd686cf2f152af962d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a49d13172496c90dd686cf2f152af962d">operator-</a> (JS::Undefined, <a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;)</td></tr>
-<tr class="separator:a49d13172496c90dd686cf2f152af962d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a077daa032582b19f58e27c744518962b" id="r_a077daa032582b19f58e27c744518962b"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, <a class="el" href="classJS_1_1Any.html">JS::Any</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a077daa032582b19f58e27c744518962b">function_properties_prototype</a></td></tr>
-<tr class="separator:a077daa032582b19f58e27c744518962b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21b5dcb2a5d3f45dbcb80fb8c5013f07" id="r_a21b5dcb2a5d3f45dbcb80fb8c5013f07"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classJS_1_1InternalObject.html">JS::InternalObject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a21b5dcb2a5d3f45dbcb80fb8c5013f07">function_prototype</a> = std::make_shared&lt;<a class="el" href="classJS_1_1Object.html">JS::Object</a>&gt;(<a class="el" href="namespaceJS.html#a077daa032582b19f58e27c744518962b">function_properties_prototype</a>)</td></tr>
+<tr class="memitem:a33f507a0ca565090703e80eaa5092abb" id="r_a33f507a0ca565090703e80eaa5092abb"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::u16string, <a class="el" href="classJS_1_1Any.html">JS::Any</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a33f507a0ca565090703e80eaa5092abb">function_properties_prototype</a></td></tr>
+<tr class="separator:a33f507a0ca565090703e80eaa5092abb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21b5dcb2a5d3f45dbcb80fb8c5013f07" id="r_a21b5dcb2a5d3f45dbcb80fb8c5013f07"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classJS_1_1InternalObject.html">JS::InternalObject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS.html#a21b5dcb2a5d3f45dbcb80fb8c5013f07">function_prototype</a> = std::make_shared&lt;<a class="el" href="classJS_1_1Object.html">JS::Object</a>&gt;(<a class="el" href="namespaceJS.html#a33f507a0ca565090703e80eaa5092abb">function_properties_prototype</a>)</td></tr>
 <tr class="separator:a21b5dcb2a5d3f45dbcb80fb8c5013f07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
@@ -420,22 +315,6 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a04e94438474aa77f16f83ae247063a23" name="a04e94438474aa77f16f83ae247063a23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04e94438474aa77f16f83ae247063a23">&#9670;&#160;</a></span>JSAnyAmbiguous</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespaceJS.html#a04e94438474aa77f16f83ae247063a23">JS::JSAnyAmbiguous</a> = typedef std::enable_if_t&lt;!std::is_same_v&lt;T, <a class="el" href="classJS_1_1Any.html">JS::Any</a>&gt;, <a class="el" href="classJS_1_1Any.html">JS::Any</a>&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a91ba0307edda1efdfb101d5dc978e53e" name="a91ba0307edda1efdfb101d5dc978e53e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a91ba0307edda1efdfb101d5dc978e53e">&#9670;&#160;</a></span>Null</h2>
 
@@ -451,14 +330,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a7a13a86ce74cf91ccbb32734eaf77483" name="a7a13a86ce74cf91ccbb32734eaf77483"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a13a86ce74cf91ccbb32734eaf77483">&#9670;&#160;</a></span>Properties</h2>
+<a id="a61b06bb7e3892674498fcb6eebaa4213" name="a61b06bb7e3892674498fcb6eebaa4213"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61b06bb7e3892674498fcb6eebaa4213">&#9670;&#160;</a></span>Properties</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceJS.html#a7a13a86ce74cf91ccbb32734eaf77483">JS::Properties</a> = typedef std::unordered_map&lt;std::string, <a class="el" href="namespaceJS.html#a045e2f5d691414608a9f6d2350e90811">JS::Attribute</a>&gt;</td>
+          <td class="memname">using <a class="el" href="namespaceJS.html#a61b06bb7e3892674498fcb6eebaa4213">JS::Properties</a> = typedef std::unordered_map&lt;std::u16string, <a class="el" href="namespaceJS.html#a045e2f5d691414608a9f6d2350e90811">JS::Attribute</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -534,8 +413,36 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a5932c87f9c0c7eada8469f50699d2cd1" name="a5932c87f9c0c7eada8469f50699d2cd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5932c87f9c0c7eada8469f50699d2cd1">&#9670;&#160;</a></span>DECLARE_2FUNC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">JS::DECLARE_2FUNC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> operator||&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">{ return <a class="el" href="namespaceJS_1_1CONVERT.html#a9c4966449f576cfa6de345e758b51dd1">JS::CONVERT::ToBoolean</a>(value) ? <a class="el" href="classJS_1_1Any.html">JS::Any</a>(value) :<a class="el" href="classJS_1_1Any.html">JS::Any</a>(any);}&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a69269f4a812e70ad59b21bb597d36616" name="a69269f4a812e70ad59b21bb597d36616"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69269f4a812e70ad59b21bb597d36616">&#9670;&#160;</a></span>operator%() <span class="overload">[1/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a69269f4a812e70ad59b21bb597d36616">&#9670;&#160;</a></span>operator%() <span class="overload">[1/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -563,7 +470,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a7ab0ce256c384fcc9b6b8d0849c20e55" name="a7ab0ce256c384fcc9b6b8d0849c20e55"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ab0ce256c384fcc9b6b8d0849c20e55">&#9670;&#160;</a></span>operator%() <span class="overload">[2/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ab0ce256c384fcc9b6b8d0849c20e55">&#9670;&#160;</a></span>operator%() <span class="overload">[2/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -590,8 +497,64 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a9cbdadefe100f07ed86be23cd51e2835" name="a9cbdadefe100f07ed86be23cd51e2835"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cbdadefe100f07ed86be23cd51e2835">&#9670;&#160;</a></span>operator%() <span class="overload">[3/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">Any</a> JS::operator% </td>
+          <td>(</td>
+          <td class="paramtype">const char16_t *&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
+          <td class="paramname"><em>any</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad2237fc6ee457631a757d0c777060904" name="ad2237fc6ee457631a757d0c777060904"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2237fc6ee457631a757d0c777060904">&#9670;&#160;</a></span>operator%() <span class="overload">[4/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">Any</a> JS::operator% </td>
+          <td>(</td>
+          <td class="paramtype">const std::u16string &amp;&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
+          <td class="paramname"><em>any</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="adefbf9f29e3394221be2b6155314ab27" name="adefbf9f29e3394221be2b6155314ab27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adefbf9f29e3394221be2b6155314ab27">&#9670;&#160;</a></span>operator%() <span class="overload">[3/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adefbf9f29e3394221be2b6155314ab27">&#9670;&#160;</a></span>operator%() <span class="overload">[5/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -619,7 +582,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a5b37a9e5927849d3af1303d2b3423aae" name="a5b37a9e5927849d3af1303d2b3423aae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b37a9e5927849d3af1303d2b3423aae">&#9670;&#160;</a></span>operator%() <span class="overload">[4/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b37a9e5927849d3af1303d2b3423aae">&#9670;&#160;</a></span>operator%() <span class="overload">[6/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -647,7 +610,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="ab2ba76b9399480bce9e02f38422d8cbb" name="ab2ba76b9399480bce9e02f38422d8cbb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2ba76b9399480bce9e02f38422d8cbb">&#9670;&#160;</a></span>operator%() <span class="overload">[5/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2ba76b9399480bce9e02f38422d8cbb">&#9670;&#160;</a></span>operator%() <span class="overload">[7/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -675,7 +638,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a38f87bf989904e7d64e3a9f9da2dc750" name="a38f87bf989904e7d64e3a9f9da2dc750"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38f87bf989904e7d64e3a9f9da2dc750">&#9670;&#160;</a></span>operator%() <span class="overload">[6/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a38f87bf989904e7d64e3a9f9da2dc750">&#9670;&#160;</a></span>operator%() <span class="overload">[8/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -702,404 +665,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a6cebccbd0e6d2913eaa02c41e0f7f646" name="a6cebccbd0e6d2913eaa02c41e0f7f646"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6cebccbd0e6d2913eaa02c41e0f7f646">&#9670;&#160;</a></span>operator&amp;() <span class="overload">[1/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&amp; </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae9ac7049cd744241fcce14f054ffaefb" name="ae9ac7049cd744241fcce14f054ffaefb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9ac7049cd744241fcce14f054ffaefb">&#9670;&#160;</a></span>operator&amp;() <span class="overload">[2/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&amp; </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad1ef954200725e2204f65d74a956cc29" name="ad1ef954200725e2204f65d74a956cc29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1ef954200725e2204f65d74a956cc29">&#9670;&#160;</a></span>operator&amp;() <span class="overload">[3/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&amp; </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afffd79c15532b125907ffb0bcfb1c73a" name="afffd79c15532b125907ffb0bcfb1c73a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afffd79c15532b125907ffb0bcfb1c73a">&#9670;&#160;</a></span>operator&amp;() <span class="overload">[4/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&amp; </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a33841af3428f879b69ac7d2f60a5b4ff" name="a33841af3428f879b69ac7d2f60a5b4ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33841af3428f879b69ac7d2f60a5b4ff">&#9670;&#160;</a></span>operator&amp;() <span class="overload">[5/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&amp; </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aef06e840ceac2d232b5849e7f23f0359" name="aef06e840ceac2d232b5849e7f23f0359"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef06e840ceac2d232b5849e7f23f0359">&#9670;&#160;</a></span>operator&amp;() <span class="overload">[6/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&amp; </td>
-          <td>(</td>
-          <td class="paramtype">JS::Undefined&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a28011b21158a5e9fcc3366025e728411" name="a28011b21158a5e9fcc3366025e728411"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28011b21158a5e9fcc3366025e728411">&#9670;&#160;</a></span>operator&amp;() <span class="overload">[7/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&amp; </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>value</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname"><em>any</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3f8c5b6aeac49bcb0ab0bac8b2a5d518" name="a3f8c5b6aeac49bcb0ab0bac8b2a5d518"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f8c5b6aeac49bcb0ab0bac8b2a5d518">&#9670;&#160;</a></span>operator&amp;&amp;() <span class="overload">[1/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&amp;&amp; </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="adc9398a803adab0ccfd8da6ed1969a37" name="adc9398a803adab0ccfd8da6ed1969a37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc9398a803adab0ccfd8da6ed1969a37">&#9670;&#160;</a></span>operator&amp;&amp;() <span class="overload">[2/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&amp;&amp; </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="acd8326ae78ab05fae10426eaa9cf0e86" name="acd8326ae78ab05fae10426eaa9cf0e86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd8326ae78ab05fae10426eaa9cf0e86">&#9670;&#160;</a></span>operator&amp;&amp;() <span class="overload">[3/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&amp;&amp; </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab6ca89c989bff8d5f16a488e9359eb48" name="ab6ca89c989bff8d5f16a488e9359eb48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6ca89c989bff8d5f16a488e9359eb48">&#9670;&#160;</a></span>operator&amp;&amp;() <span class="overload">[4/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&amp;&amp; </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0cd5c07b9f05e8db5b25e838835228af" name="a0cd5c07b9f05e8db5b25e838835228af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0cd5c07b9f05e8db5b25e838835228af">&#9670;&#160;</a></span>operator&amp;&amp;() <span class="overload">[5/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&amp;&amp; </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2fa61e1e0beaa8b25ebb29ac0e45d170" name="a2fa61e1e0beaa8b25ebb29ac0e45d170"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2fa61e1e0beaa8b25ebb29ac0e45d170">&#9670;&#160;</a></span>operator&amp;&amp;() <span class="overload">[6/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&amp;&amp; </td>
-          <td>(</td>
-          <td class="paramtype">JS::Undefined&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a00b406cbbfcecfa4540af76ce557e7aa" name="a00b406cbbfcecfa4540af76ce557e7aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00b406cbbfcecfa4540af76ce557e7aa">&#9670;&#160;</a></span>operator&amp;&amp;() <span class="overload">[7/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&amp;&amp; </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>value</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
-          <td class="paramname"><em>any</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a22d8263000a83919f942de4d79b06d52" name="a22d8263000a83919f942de4d79b06d52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22d8263000a83919f942de4d79b06d52">&#9670;&#160;</a></span>operator*() <span class="overload">[1/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a22d8263000a83919f942de4d79b06d52">&#9670;&#160;</a></span>operator*() <span class="overload">[1/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1127,7 +694,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a9852689eafe8e6c53a935d389465ac7b" name="a9852689eafe8e6c53a935d389465ac7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9852689eafe8e6c53a935d389465ac7b">&#9670;&#160;</a></span>operator*() <span class="overload">[2/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9852689eafe8e6c53a935d389465ac7b">&#9670;&#160;</a></span>operator*() <span class="overload">[2/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1154,8 +721,64 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a032056411f7e592fdacd1c1357be91c9" name="a032056411f7e592fdacd1c1357be91c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a032056411f7e592fdacd1c1357be91c9">&#9670;&#160;</a></span>operator*() <span class="overload">[3/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">Any</a> JS::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const char16_t *&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
+          <td class="paramname"><em>any</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae0fd60e9719f920e7aa91899d5c0946d" name="ae0fd60e9719f920e7aa91899d5c0946d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0fd60e9719f920e7aa91899d5c0946d">&#9670;&#160;</a></span>operator*() <span class="overload">[4/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">Any</a> JS::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const std::u16string &amp;&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
+          <td class="paramname"><em>any</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af737c6d83f306ff0dee1faeacdf51f7c" name="af737c6d83f306ff0dee1faeacdf51f7c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af737c6d83f306ff0dee1faeacdf51f7c">&#9670;&#160;</a></span>operator*() <span class="overload">[3/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af737c6d83f306ff0dee1faeacdf51f7c">&#9670;&#160;</a></span>operator*() <span class="overload">[5/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1183,7 +806,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="aaa19714ec81eda5e4d4640460e7941cc" name="aaa19714ec81eda5e4d4640460e7941cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa19714ec81eda5e4d4640460e7941cc">&#9670;&#160;</a></span>operator*() <span class="overload">[4/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa19714ec81eda5e4d4640460e7941cc">&#9670;&#160;</a></span>operator*() <span class="overload">[6/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1211,7 +834,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a050a19c5dcbad803936fa2303c17ca93" name="a050a19c5dcbad803936fa2303c17ca93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a050a19c5dcbad803936fa2303c17ca93">&#9670;&#160;</a></span>operator*() <span class="overload">[5/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a050a19c5dcbad803936fa2303c17ca93">&#9670;&#160;</a></span>operator*() <span class="overload">[7/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1220,7 +843,7 @@ template&lt;typename T &gt; </div>
           <td class="memname"><a class="el" href="classJS_1_1Any.html">Any</a> JS::operator* </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>&#160;</td>
-          <td class="paramname"><em>value</em>, </td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1239,7 +862,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a44230b7c53ded4dd42b3d9de6c10c410" name="a44230b7c53ded4dd42b3d9de6c10c410"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44230b7c53ded4dd42b3d9de6c10c410">&#9670;&#160;</a></span>operator*() <span class="overload">[6/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a44230b7c53ded4dd42b3d9de6c10c410">&#9670;&#160;</a></span>operator*() <span class="overload">[8/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1248,13 +871,13 @@ template&lt;typename T &gt; </div>
           <td class="memname"><a class="el" href="classJS_1_1Any.html">Any</a> JS::operator* </td>
           <td>(</td>
           <td class="paramtype">JS::Undefined&#160;</td>
-          <td class="paramname"><em>value</em>, </td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname"><em>any</em>&#160;</td>
+          <td class="paramname">&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1267,7 +890,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a0a3e7c2326d56f865d643742f3199363" name="a0a3e7c2326d56f865d643742f3199363"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a3e7c2326d56f865d643742f3199363">&#9670;&#160;</a></span>operator+() <span class="overload">[1/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a3e7c2326d56f865d643742f3199363">&#9670;&#160;</a></span>operator+() <span class="overload">[1/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1295,7 +918,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="ad734e4b208858250bff3ed3ceae892fc" name="ad734e4b208858250bff3ed3ceae892fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad734e4b208858250bff3ed3ceae892fc">&#9670;&#160;</a></span>operator+() <span class="overload">[2/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad734e4b208858250bff3ed3ceae892fc">&#9670;&#160;</a></span>operator+() <span class="overload">[2/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1322,8 +945,64 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a2927e02708a154f3e1641dd3d426c862" name="a2927e02708a154f3e1641dd3d426c862"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2927e02708a154f3e1641dd3d426c862">&#9670;&#160;</a></span>operator+() <span class="overload">[3/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const char16_t *&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
+          <td class="paramname"><em>any</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ca7470473d993a5ba0af583843c60ff" name="a7ca7470473d993a5ba0af583843c60ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ca7470473d993a5ba0af583843c60ff">&#9670;&#160;</a></span>operator+() <span class="overload">[4/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const std::u16string &amp;&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
+          <td class="paramname"><em>any</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af30fe8d4c74a52f188f0e4c43e0bb3ba" name="af30fe8d4c74a52f188f0e4c43e0bb3ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af30fe8d4c74a52f188f0e4c43e0bb3ba">&#9670;&#160;</a></span>operator+() <span class="overload">[3/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af30fe8d4c74a52f188f0e4c43e0bb3ba">&#9670;&#160;</a></span>operator+() <span class="overload">[5/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1351,7 +1030,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a5c42568ea4176ab6b4d9f7db17dd6bd9" name="a5c42568ea4176ab6b4d9f7db17dd6bd9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c42568ea4176ab6b4d9f7db17dd6bd9">&#9670;&#160;</a></span>operator+() <span class="overload">[4/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c42568ea4176ab6b4d9f7db17dd6bd9">&#9670;&#160;</a></span>operator+() <span class="overload">[6/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1379,7 +1058,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a397f6854b570bb2469c201201d9e84f3" name="a397f6854b570bb2469c201201d9e84f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a397f6854b570bb2469c201201d9e84f3">&#9670;&#160;</a></span>operator+() <span class="overload">[5/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a397f6854b570bb2469c201201d9e84f3">&#9670;&#160;</a></span>operator+() <span class="overload">[7/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1407,7 +1086,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a912c2c97953250cb835d63ae7ed86a97" name="a912c2c97953250cb835d63ae7ed86a97"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a912c2c97953250cb835d63ae7ed86a97">&#9670;&#160;</a></span>operator+() <span class="overload">[6/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a912c2c97953250cb835d63ae7ed86a97">&#9670;&#160;</a></span>operator+() <span class="overload">[8/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1434,206 +1113,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="ab104f7cb99a9bb8cb9480ced4042297a" name="ab104f7cb99a9bb8cb9480ced4042297a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab104f7cb99a9bb8cb9480ced4042297a">&#9670;&#160;</a></span>operator-() <span class="overload">[1/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator- </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a26df1a95903a8c68065154ce72b7b41d" name="a26df1a95903a8c68065154ce72b7b41d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26df1a95903a8c68065154ce72b7b41d">&#9670;&#160;</a></span>operator-() <span class="overload">[2/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator- </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa8da64d6928fa2627dce8f4ce7f02db6" name="aa8da64d6928fa2627dce8f4ce7f02db6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8da64d6928fa2627dce8f4ce7f02db6">&#9670;&#160;</a></span>operator-() <span class="overload">[3/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator- </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aea842450d82a54d7db74df37c247f1b2" name="aea842450d82a54d7db74df37c247f1b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea842450d82a54d7db74df37c247f1b2">&#9670;&#160;</a></span>operator-() <span class="overload">[4/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator- </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab497f6ea9251c3a35e51939ed9e3549f" name="ab497f6ea9251c3a35e51939ed9e3549f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab497f6ea9251c3a35e51939ed9e3549f">&#9670;&#160;</a></span>operator-() <span class="overload">[5/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator- </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a49d13172496c90dd686cf2f152af962d" name="a49d13172496c90dd686cf2f152af962d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49d13172496c90dd686cf2f152af962d">&#9670;&#160;</a></span>operator-() <span class="overload">[6/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator- </td>
-          <td>(</td>
-          <td class="paramtype">JS::Undefined&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
-          <td class="paramname"><em>any</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2ce239f244762c52460c40196de3be02" name="a2ce239f244762c52460c40196de3be02"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ce239f244762c52460c40196de3be02">&#9670;&#160;</a></span>operator-() <span class="overload">[7/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator- </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>value</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
-          <td class="paramname"><em>any</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a169488ee998473672413be8c18507f24" name="a169488ee998473672413be8c18507f24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a169488ee998473672413be8c18507f24">&#9670;&#160;</a></span>operator/() <span class="overload">[1/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a169488ee998473672413be8c18507f24">&#9670;&#160;</a></span>operator/() <span class="overload">[1/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1661,7 +1142,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a1f7521815d6215c771ae796c33d5b012" name="a1f7521815d6215c771ae796c33d5b012"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f7521815d6215c771ae796c33d5b012">&#9670;&#160;</a></span>operator/() <span class="overload">[2/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f7521815d6215c771ae796c33d5b012">&#9670;&#160;</a></span>operator/() <span class="overload">[2/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1688,8 +1169,64 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="acb7e0b70023ef510f043477edd134ef3" name="acb7e0b70023ef510f043477edd134ef3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb7e0b70023ef510f043477edd134ef3">&#9670;&#160;</a></span>operator/() <span class="overload">[3/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">Any</a> JS::operator/ </td>
+          <td>(</td>
+          <td class="paramtype">const char16_t *&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
+          <td class="paramname"><em>any</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afeb2cb4e08aee6eaafc301f3c15634ae" name="afeb2cb4e08aee6eaafc301f3c15634ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afeb2cb4e08aee6eaafc301f3c15634ae">&#9670;&#160;</a></span>operator/() <span class="overload">[4/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">Any</a> JS::operator/ </td>
+          <td>(</td>
+          <td class="paramtype">const std::u16string &amp;&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
+          <td class="paramname"><em>any</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a52e1abc140370e2bfd75e9050ed292c5" name="a52e1abc140370e2bfd75e9050ed292c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52e1abc140370e2bfd75e9050ed292c5">&#9670;&#160;</a></span>operator/() <span class="overload">[3/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a52e1abc140370e2bfd75e9050ed292c5">&#9670;&#160;</a></span>operator/() <span class="overload">[5/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1717,7 +1254,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="aaa5d7539890698bfb2b38d9d2084e73a" name="aaa5d7539890698bfb2b38d9d2084e73a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa5d7539890698bfb2b38d9d2084e73a">&#9670;&#160;</a></span>operator/() <span class="overload">[4/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa5d7539890698bfb2b38d9d2084e73a">&#9670;&#160;</a></span>operator/() <span class="overload">[6/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1745,7 +1282,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="ad55475e951a8567e992da0fae9357d9c" name="ad55475e951a8567e992da0fae9357d9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad55475e951a8567e992da0fae9357d9c">&#9670;&#160;</a></span>operator/() <span class="overload">[5/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad55475e951a8567e992da0fae9357d9c">&#9670;&#160;</a></span>operator/() <span class="overload">[7/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1754,7 +1291,7 @@ template&lt;typename T &gt; </div>
           <td class="memname"><a class="el" href="classJS_1_1Any.html">Any</a> JS::operator/ </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>&#160;</td>
-          <td class="paramname"><em>value</em>, </td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1773,7 +1310,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a84605a2303ddb1252afdbf081ccf9eea" name="a84605a2303ddb1252afdbf081ccf9eea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84605a2303ddb1252afdbf081ccf9eea">&#9670;&#160;</a></span>operator/() <span class="overload">[6/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a84605a2303ddb1252afdbf081ccf9eea">&#9670;&#160;</a></span>operator/() <span class="overload">[8/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1782,180 +1319,12 @@ template&lt;typename T &gt; </div>
           <td class="memname"><a class="el" href="classJS_1_1Any.html">Any</a> JS::operator/ </td>
           <td>(</td>
           <td class="paramtype">JS::Undefined&#160;</td>
-          <td class="paramname"><em>value</em>, </td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
-          <td class="paramname"><em>any</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="acb6fc8b9dbab119a38f469e1c405b248" name="acb6fc8b9dbab119a38f469e1c405b248"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb6fc8b9dbab119a38f469e1c405b248">&#9670;&#160;</a></span>operator&lt;&lt;() <span class="overload">[1/9]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4e206309cdaa9def9c2a6fe442ed37c9" name="a4e206309cdaa9def9c2a6fe442ed37c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e206309cdaa9def9c2a6fe442ed37c9">&#9670;&#160;</a></span>operator&lt;&lt;() <span class="overload">[2/9]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a20651265e9a2cad51b8b73306c556ad9" name="a20651265e9a2cad51b8b73306c556ad9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20651265e9a2cad51b8b73306c556ad9">&#9670;&#160;</a></span>operator&lt;&lt;() <span class="overload">[3/9]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a457fb1e664d2ba364882779ee8aa17ae" name="a457fb1e664d2ba364882779ee8aa17ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a457fb1e664d2ba364882779ee8aa17ae">&#9670;&#160;</a></span>operator&lt;&lt;() <span class="overload">[4/9]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac9caa3acb0c85c1fdec62362f8a9a5a9" name="ac9caa3acb0c85c1fdec62362f8a9a5a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9caa3acb0c85c1fdec62362f8a9a5a9">&#9670;&#160;</a></span>operator&lt;&lt;() <span class="overload">[5/9]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aac572ae4fc845f58c9694ac44b925fc2" name="aac572ae4fc845f58c9694ac44b925fc2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac572ae4fc845f58c9694ac44b925fc2">&#9670;&#160;</a></span>operator&lt;&lt;() <span class="overload">[6/9]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">JS::Undefined&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -1969,7 +1338,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="ab2efcc411b684d052e72abf8795ce860" name="ab2efcc411b684d052e72abf8795ce860"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2efcc411b684d052e72abf8795ce860">&#9670;&#160;</a></span>operator&lt;&lt;() <span class="overload">[7/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2efcc411b684d052e72abf8795ce860">&#9670;&#160;</a></span>operator&lt;&lt;() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2005,7 +1374,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="afc3d14ccb6b59dac36c7bb93e21abdb8" name="afc3d14ccb6b59dac36c7bb93e21abdb8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc3d14ccb6b59dac36c7bb93e21abdb8">&#9670;&#160;</a></span>operator&lt;&lt;() <span class="overload">[8/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afc3d14ccb6b59dac36c7bb93e21abdb8">&#9670;&#160;</a></span>operator&lt;&lt;() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2032,847 +1401,25 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a02b2949a2cc1760a109767932dc011d0" name="a02b2949a2cc1760a109767932dc011d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02b2949a2cc1760a109767932dc011d0">&#9670;&#160;</a></span>operator&lt;&lt;() <span class="overload">[9/9]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>value</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname"><em>any</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6b4d373bbab1c7c17e3ccf5a1c3135c5" name="a6b4d373bbab1c7c17e3ccf5a1c3135c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b4d373bbab1c7c17e3ccf5a1c3135c5">&#9670;&#160;</a></span>operator&gt;&gt;() <span class="overload">[1/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&gt;&gt; </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a86ad4fb69cf608e2191a71abe84733bd" name="a86ad4fb69cf608e2191a71abe84733bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86ad4fb69cf608e2191a71abe84733bd">&#9670;&#160;</a></span>operator&gt;&gt;() <span class="overload">[2/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&gt;&gt; </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae434ae16320f824bebceddc2cd59a777" name="ae434ae16320f824bebceddc2cd59a777"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae434ae16320f824bebceddc2cd59a777">&#9670;&#160;</a></span>operator&gt;&gt;() <span class="overload">[3/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&gt;&gt; </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="add822856ce8cc09ab30c8f3895319854" name="add822856ce8cc09ab30c8f3895319854"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add822856ce8cc09ab30c8f3895319854">&#9670;&#160;</a></span>operator&gt;&gt;() <span class="overload">[4/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&gt;&gt; </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa400b67a0da10bb83a5c5d00de630816" name="aa400b67a0da10bb83a5c5d00de630816"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa400b67a0da10bb83a5c5d00de630816">&#9670;&#160;</a></span>operator&gt;&gt;() <span class="overload">[5/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&gt;&gt; </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7007e7a90fc771e53ac1c41a565ae94c" name="a7007e7a90fc771e53ac1c41a565ae94c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7007e7a90fc771e53ac1c41a565ae94c">&#9670;&#160;</a></span>operator&gt;&gt;() <span class="overload">[6/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&gt;&gt; </td>
-          <td>(</td>
-          <td class="paramtype">JS::Undefined&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6a4a984bdce2dadd972a9e225694b996" name="a6a4a984bdce2dadd972a9e225694b996"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a4a984bdce2dadd972a9e225694b996">&#9670;&#160;</a></span>operator&gt;&gt;() <span class="overload">[7/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator&gt;&gt; </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>value</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname"><em>any</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a64edb7d35cd87ab2b820ab7241d6c8a0" name="a64edb7d35cd87ab2b820ab7241d6c8a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64edb7d35cd87ab2b820ab7241d6c8a0">&#9670;&#160;</a></span>operator^() <span class="overload">[1/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator^ </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a537f0249912d3897ba007aaa383df546" name="a537f0249912d3897ba007aaa383df546"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a537f0249912d3897ba007aaa383df546">&#9670;&#160;</a></span>operator^() <span class="overload">[2/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator^ </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5454c6372cc41dff9bf270bf18832b56" name="a5454c6372cc41dff9bf270bf18832b56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5454c6372cc41dff9bf270bf18832b56">&#9670;&#160;</a></span>operator^() <span class="overload">[3/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator^ </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3135ee40b56cab085bbf29e06dbaa902" name="a3135ee40b56cab085bbf29e06dbaa902"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3135ee40b56cab085bbf29e06dbaa902">&#9670;&#160;</a></span>operator^() <span class="overload">[4/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator^ </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a25b409b4db795ddbe73108869dfe392f" name="a25b409b4db795ddbe73108869dfe392f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25b409b4db795ddbe73108869dfe392f">&#9670;&#160;</a></span>operator^() <span class="overload">[5/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator^ </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa35a59f48e4bd63306ab56a59b66f12c" name="aa35a59f48e4bd63306ab56a59b66f12c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa35a59f48e4bd63306ab56a59b66f12c">&#9670;&#160;</a></span>operator^() <span class="overload">[6/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator^ </td>
-          <td>(</td>
-          <td class="paramtype">JS::Undefined&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a52806baa56f768cf2b9728b0fe4bb78f" name="a52806baa56f768cf2b9728b0fe4bb78f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52806baa56f768cf2b9728b0fe4bb78f">&#9670;&#160;</a></span>operator^() <span class="overload">[7/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator^ </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>value</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname"><em>any</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa98e2797fe67b4672e9868a0c4801579" name="aa98e2797fe67b4672e9868a0c4801579"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa98e2797fe67b4672e9868a0c4801579">&#9670;&#160;</a></span>operator|() <span class="overload">[1/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator| </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a91a8ea67e4354b2bbad438119895daad" name="a91a8ea67e4354b2bbad438119895daad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91a8ea67e4354b2bbad438119895daad">&#9670;&#160;</a></span>operator|() <span class="overload">[2/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator| </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa8e5ff48d9ddae98c4c8af283a093f4a" name="aa8e5ff48d9ddae98c4c8af283a093f4a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8e5ff48d9ddae98c4c8af283a093f4a">&#9670;&#160;</a></span>operator|() <span class="overload">[3/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator| </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab7bcfbb3f786652694df6635a575b889" name="ab7bcfbb3f786652694df6635a575b889"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7bcfbb3f786652694df6635a575b889">&#9670;&#160;</a></span>operator|() <span class="overload">[4/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator| </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8764cdb76380c51ad5b1dbc662eb02b6" name="a8764cdb76380c51ad5b1dbc662eb02b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8764cdb76380c51ad5b1dbc662eb02b6">&#9670;&#160;</a></span>operator|() <span class="overload">[5/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator| </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae249bf6ed44fef83cdd2b3f780e8cd3f" name="ae249bf6ed44fef83cdd2b3f780e8cd3f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae249bf6ed44fef83cdd2b3f780e8cd3f">&#9670;&#160;</a></span>operator|() <span class="overload">[6/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator| </td>
-          <td>(</td>
-          <td class="paramtype">JS::Undefined&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6fb3f6bad4f703ed456a34938597e222" name="a6fb3f6bad4f703ed456a34938597e222"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6fb3f6bad4f703ed456a34938597e222">&#9670;&#160;</a></span>operator|() <span class="overload">[7/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator| </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>value</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
-          <td class="paramname"><em>any</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac1f50816d76feb5ed52c9a39a56017ee" name="ac1f50816d76feb5ed52c9a39a56017ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1f50816d76feb5ed52c9a39a56017ee">&#9670;&#160;</a></span>operator||() <span class="overload">[1/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator|| </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aaf1b96478eeae749382b1950d0b3398c" name="aaf1b96478eeae749382b1950d0b3398c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf1b96478eeae749382b1950d0b3398c">&#9670;&#160;</a></span>operator||() <span class="overload">[2/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator|| </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5976d1791747aaab81414298a3cbce0c" name="a5976d1791747aaab81414298a3cbce0c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5976d1791747aaab81414298a3cbce0c">&#9670;&#160;</a></span>operator||() <span class="overload">[3/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator|| </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5110d3f45e8d82550fd8b2ef8a0c2d12" name="a5110d3f45e8d82550fd8b2ef8a0c2d12"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5110d3f45e8d82550fd8b2ef8a0c2d12">&#9670;&#160;</a></span>operator||() <span class="overload">[4/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator|| </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a674f01c3386e5113b09efb5510335137" name="a674f01c3386e5113b09efb5510335137"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a674f01c3386e5113b09efb5510335137">&#9670;&#160;</a></span>operator||() <span class="overload">[5/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator|| </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afb0aac3a0f0bc806c7b5ff6cde6262fd" name="afb0aac3a0f0bc806c7b5ff6cde6262fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb0aac3a0f0bc806c7b5ff6cde6262fd">&#9670;&#160;</a></span>operator||() <span class="overload">[6/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">template <a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator|| </td>
-          <td>(</td>
-          <td class="paramtype">JS::Undefined&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5f1373739fbaac723dc29762114b64af" name="a5f1373739fbaac723dc29762114b64af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f1373739fbaac723dc29762114b64af">&#9670;&#160;</a></span>operator||() <span class="overload">[7/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::operator|| </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>value</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> const &amp;&#160;</td>
-          <td class="paramname"><em>any</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a077daa032582b19f58e27c744518962b" name="a077daa032582b19f58e27c744518962b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a077daa032582b19f58e27c744518962b">&#9670;&#160;</a></span>function_properties_prototype</h2>
+<a id="a33f507a0ca565090703e80eaa5092abb" name="a33f507a0ca565090703e80eaa5092abb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33f507a0ca565090703e80eaa5092abb">&#9670;&#160;</a></span>function_properties_prototype</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::unordered_map&lt;std::string, <a class="el" href="classJS_1_1Any.html">JS::Any</a>&gt; JS::function_properties_prototype</td>
+          <td class="memname">std::unordered_map&lt;std::u16string, <a class="el" href="classJS_1_1Any.html">JS::Any</a>&gt; JS::function_properties_prototype</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= {</div>
-<div class="line">    {<span class="stringliteral">&quot;toString&quot;</span>, <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(Function::toString))},</div>
-<div class="line">    {<span class="stringliteral">&quot;apply&quot;</span>, <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(Function::apply))},</div>
-<div class="line">    {<span class="stringliteral">&quot;bind&quot;</span>, <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(Function::bind))},</div>
-<div class="line">    {<span class="stringliteral">&quot;call&quot;</span>, <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(Function::call))},</div>
+<div class="line">    {u<span class="stringliteral">&quot;toString&quot;</span>, <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(Function::toString))},</div>
+<div class="line">    {u<span class="stringliteral">&quot;apply&quot;</span>, <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(Function::apply))},</div>
+<div class="line">    {u<span class="stringliteral">&quot;bind&quot;</span>, <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(Function::bind))},</div>
+<div class="line">    {u<span class="stringliteral">&quot;call&quot;</span>, <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(Function::call))},</div>
 <div class="line">}</div>
-<div class="ttc" id="aclassJS_1_1Any_html"><div class="ttname"><a href="classJS_1_1Any.html">JS::Any</a></div><div class="ttdoc">Represents a JavaScript-like variant type in C++ that can hold multiple types of values.</div><div class="ttdef"><b>Definition</b> JsAny.hpp:20</div></div>
+<div class="ttc" id="aclassJS_1_1Any_html"><div class="ttname"><a href="classJS_1_1Any.html">JS::Any</a></div><div class="ttdoc">Represents a JavaScript-like variant type in C++ that can hold multiple types of values.</div><div class="ttdef"><b>Definition</b> JsAny.hpp:17</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2883,7 +1430,7 @@ template&lt;typename T &gt; </div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="classJS_1_1InternalObject.html">JS::InternalObject</a>&gt; JS::function_prototype = std::make_shared&lt;<a class="el" href="classJS_1_1Object.html">JS::Object</a>&gt;(<a class="el" href="namespaceJS.html#a077daa032582b19f58e27c744518962b">function_properties_prototype</a>)</td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="classJS_1_1InternalObject.html">JS::InternalObject</a>&gt; JS::function_prototype = std::make_shared&lt;<a class="el" href="classJS_1_1Object.html">JS::Object</a>&gt;(<a class="el" href="namespaceJS.html#a33f507a0ca565090703e80eaa5092abb">function_properties_prototype</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">

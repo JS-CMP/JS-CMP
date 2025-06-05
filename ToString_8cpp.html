@@ -109,6 +109,7 @@ $(document).ready(function(){initNavTree('ToString_8cpp.html',''); initResizable
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="JsAny_8hpp_source.html">types/JsAny.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Convert_8hpp_source.html">utils/Convert.hpp</a>&quot;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ToString.cpp:</div>
@@ -125,26 +126,30 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:abc3a29b90213c8243fab36951ac3ad8e" id="r_abc3a29b90213c8243fab36951ac3ad8e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS_1_1CONVERT.html#abc3a29b90213c8243fab36951ac3ad8e">JS::CONVERT::ToString</a> (int value)</td></tr>
-<tr class="separator:abc3a29b90213c8243fab36951ac3ad8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cb2953d7d1989980e2345aa42a7a2ec" id="r_a8cb2953d7d1989980e2345aa42a7a2ec"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS_1_1CONVERT.html#a8cb2953d7d1989980e2345aa42a7a2ec">JS::CONVERT::ToString</a> (double value)</td></tr>
-<tr class="separator:a8cb2953d7d1989980e2345aa42a7a2ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9ad283c42d1f85034f554cdedb6bb91" id="r_ab9ad283c42d1f85034f554cdedb6bb91"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS_1_1CONVERT.html#ab9ad283c42d1f85034f554cdedb6bb91">JS::CONVERT::ToString</a> (unsigned int value)</td></tr>
-<tr class="separator:ab9ad283c42d1f85034f554cdedb6bb91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfbe885e0862276b2b0c407c94b4836d" id="r_abfbe885e0862276b2b0c407c94b4836d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS_1_1CONVERT.html#abfbe885e0862276b2b0c407c94b4836d">JS::CONVERT::ToString</a> (bool value)</td></tr>
-<tr class="separator:abfbe885e0862276b2b0c407c94b4836d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b957d727e80345854f403598fdf548d" id="r_a7b957d727e80345854f403598fdf548d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS_1_1CONVERT.html#a7b957d727e80345854f403598fdf548d">JS::CONVERT::ToString</a> (const char *value)</td></tr>
-<tr class="separator:a7b957d727e80345854f403598fdf548d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98fccd24556eab58d3dcf1222e72441a" id="r_a98fccd24556eab58d3dcf1222e72441a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS_1_1CONVERT.html#a98fccd24556eab58d3dcf1222e72441a">JS::CONVERT::ToString</a> (const std::string &amp;value)</td></tr>
-<tr class="separator:a98fccd24556eab58d3dcf1222e72441a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3063017470b6caea9b5d2e4b81ed144" id="r_aa3063017470b6caea9b5d2e4b81ed144"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS_1_1CONVERT.html#aa3063017470b6caea9b5d2e4b81ed144">JS::CONVERT::ToString</a> (const <a class="el" href="classRope.html">Rope</a> &amp;value)</td></tr>
-<tr class="separator:aa3063017470b6caea9b5d2e4b81ed144"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae955670326e645f05ad825561cb63b49" id="r_ae955670326e645f05ad825561cb63b49"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS_1_1CONVERT.html#ae955670326e645f05ad825561cb63b49">JS::CONVERT::ToString</a> (const <a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a> &amp;value)</td></tr>
-<tr class="separator:ae955670326e645f05ad825561cb63b49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6dd9e08c5d219f95889748d1dedf52c9" id="r_a6dd9e08c5d219f95889748d1dedf52c9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS_1_1CONVERT.html#a6dd9e08c5d219f95889748d1dedf52c9">JS::CONVERT::ToString</a> (const JS::Undefined &amp;value)</td></tr>
-<tr class="separator:a6dd9e08c5d219f95889748d1dedf52c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade8c12de6573eea42ecc8b4abca7e0d1" id="r_ade8c12de6573eea42ecc8b4abca7e0d1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS_1_1CONVERT.html#ade8c12de6573eea42ecc8b4abca7e0d1">JS::CONVERT::ToString</a> (const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;any)</td></tr>
-<tr class="separator:ade8c12de6573eea42ecc8b4abca7e0d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac028a9be96997d3aa66ee119aab485d5" id="r_ac028a9be96997d3aa66ee119aab485d5"><td class="memItemLeft" align="right" valign="top">std::u16string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS_1_1CONVERT.html#ac028a9be96997d3aa66ee119aab485d5">JS::CONVERT::ToString</a> (int value)</td></tr>
+<tr class="separator:ac028a9be96997d3aa66ee119aab485d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a3b60388eac6fe19665841cf117a46b" id="r_a3a3b60388eac6fe19665841cf117a46b"><td class="memItemLeft" align="right" valign="top">std::u16string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS_1_1CONVERT.html#a3a3b60388eac6fe19665841cf117a46b">JS::CONVERT::ToString</a> (double value)</td></tr>
+<tr class="separator:a3a3b60388eac6fe19665841cf117a46b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afac1854c265c0de080a12c9f6e7ef63f" id="r_afac1854c265c0de080a12c9f6e7ef63f"><td class="memItemLeft" align="right" valign="top">std::u16string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS_1_1CONVERT.html#afac1854c265c0de080a12c9f6e7ef63f">JS::CONVERT::ToString</a> (bool value)</td></tr>
+<tr class="separator:afac1854c265c0de080a12c9f6e7ef63f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa663d5a8d5c6843f42a73b14eb40b13b" id="r_aa663d5a8d5c6843f42a73b14eb40b13b"><td class="memItemLeft" align="right" valign="top">std::u16string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS_1_1CONVERT.html#aa663d5a8d5c6843f42a73b14eb40b13b">JS::CONVERT::ToString</a> (unsigned int value)</td></tr>
+<tr class="separator:aa663d5a8d5c6843f42a73b14eb40b13b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2750fa3ec441dbed3861060d5cfb2fff" id="r_a2750fa3ec441dbed3861060d5cfb2fff"><td class="memItemLeft" align="right" valign="top">std::u16string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS_1_1CONVERT.html#a2750fa3ec441dbed3861060d5cfb2fff">JS::CONVERT::ToString</a> (const char *value)</td></tr>
+<tr class="separator:a2750fa3ec441dbed3861060d5cfb2fff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84e6fe6107b84696206068e0db729e33" id="r_a84e6fe6107b84696206068e0db729e33"><td class="memItemLeft" align="right" valign="top">std::u16string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS_1_1CONVERT.html#a84e6fe6107b84696206068e0db729e33">JS::CONVERT::ToString</a> (const char16_t *value)</td></tr>
+<tr class="separator:a84e6fe6107b84696206068e0db729e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a333fa9b3e3ba6d4a5be2ccb91e9d83b1" id="r_a333fa9b3e3ba6d4a5be2ccb91e9d83b1"><td class="memItemLeft" align="right" valign="top">std::u16string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS_1_1CONVERT.html#a333fa9b3e3ba6d4a5be2ccb91e9d83b1">JS::CONVERT::ToString</a> (const std::string &amp;value)</td></tr>
+<tr class="separator:a333fa9b3e3ba6d4a5be2ccb91e9d83b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee082851c6dd3efbb9eaba2d8e0583eb" id="r_aee082851c6dd3efbb9eaba2d8e0583eb"><td class="memItemLeft" align="right" valign="top">std::u16string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS_1_1CONVERT.html#aee082851c6dd3efbb9eaba2d8e0583eb">JS::CONVERT::ToString</a> (const std::u16string &amp;value)</td></tr>
+<tr class="separator:aee082851c6dd3efbb9eaba2d8e0583eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b719355c7e15e545830c7822f2f6841" id="r_a8b719355c7e15e545830c7822f2f6841"><td class="memItemLeft" align="right" valign="top">std::u16string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS_1_1CONVERT.html#a8b719355c7e15e545830c7822f2f6841">JS::CONVERT::ToString</a> (const <a class="el" href="classRope.html">Rope</a> &amp;rope)</td></tr>
+<tr class="separator:a8b719355c7e15e545830c7822f2f6841"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b23325b8369fe74fb5a7ea0c1965dab" id="r_a9b23325b8369fe74fb5a7ea0c1965dab"><td class="memItemLeft" align="right" valign="top">std::u16string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS_1_1CONVERT.html#a9b23325b8369fe74fb5a7ea0c1965dab">JS::CONVERT::ToString</a> (<a class="el" href="namespaceJS.html#a91ba0307edda1efdfb101d5dc978e53e">JS::Null</a>)</td></tr>
+<tr class="separator:a9b23325b8369fe74fb5a7ea0c1965dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6304204fcb905222518f7ee89bf15b2" id="r_ab6304204fcb905222518f7ee89bf15b2"><td class="memItemLeft" align="right" valign="top">std::u16string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS_1_1CONVERT.html#ab6304204fcb905222518f7ee89bf15b2">JS::CONVERT::ToString</a> (JS::Undefined)</td></tr>
+<tr class="separator:ab6304204fcb905222518f7ee89bf15b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae52ac4429c92f1ad3ef19e8e4d288457" id="r_ae52ac4429c92f1ad3ef19e8e4d288457"><td class="memItemLeft" align="right" valign="top">std::u16string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJS_1_1CONVERT.html#ae52ac4429c92f1ad3ef19e8e4d288457">JS::CONVERT::ToString</a> (const <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;any)</td></tr>
+<tr class="separator:ae52ac4429c92f1ad3ef19e8e4d288457"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

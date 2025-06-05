@@ -2,6 +2,8 @@ var Add_8cpp =
 [
     [ "operator+", "Add_8cpp.html#a0a3e7c2326d56f865d643742f3199363", null ],
     [ "operator+", "Add_8cpp.html#ad734e4b208858250bff3ed3ceae892fc", null ],
+    [ "operator+", "Add_8cpp.html#a2927e02708a154f3e1641dd3d426c862", null ],
+    [ "operator+", "Add_8cpp.html#a7ca7470473d993a5ba0af583843c60ff", null ],
     [ "operator+", "Add_8cpp.html#af30fe8d4c74a52f188f0e4c43e0bb3ba", null ],
     [ "operator+", "Add_8cpp.html#a5c42568ea4176ab6b4d9f7db17dd6bd9", null ],
     [ "operator+", "Add_8cpp.html#a397f6854b570bb2469c201201d9e84f3", null ],

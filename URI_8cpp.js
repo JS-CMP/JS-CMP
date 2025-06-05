@@ -1,9 +1,9 @@
 var URI_8cpp =
 [
-    [ "decode", "URI_8cpp.html#ae9b4383adb9f04008ae8e5d6373cfc0c", null ],
+    [ "decode", "URI_8cpp.html#a29f8f0cf359c0f23da229fb5129b6059", null ],
     [ "decodeURI", "URI_8cpp.html#a710ebef92c6cc9b506799a9d6e2bf7d7", null ],
     [ "decodeURIComponent", "URI_8cpp.html#a7ee1db0b18eb6199440ab3b89814884b", null ],
-    [ "encode", "URI_8cpp.html#a4c28c504a71b7b18dd2d720abfbd318b", null ],
+    [ "encode", "URI_8cpp.html#a6a072dba0eae545c17bdbdf8008bc960", null ],
     [ "encodeURI", "URI_8cpp.html#a35aca298ede1a8ef1fba9aa26c41281e", null ],
     [ "encodeURIComponent", "URI_8cpp.html#a09493ae22faac59fe12c7f244f658774", null ],
     [ "toUtf8", "URI_8cpp.html#a402d5311bf66d18ff8b6ee6378ddc791", null ],

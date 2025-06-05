@@ -1,19 +1,25 @@
 var classRope =
 [
     [ "Rope", "classRope.html#a908b311e35afb6be696945aaeea74402", null ],
+    [ "Rope", "classRope.html#ad767bf48c71296fccca1fdd7b76d9e7b", null ],
     [ "Rope", "classRope.html#a6ceec32f4268c353bf55eb7edbf2dfa9", null ],
+    [ "Rope", "classRope.html#a3884a8dff23136c7e6bfe3e2ce5386c0", null ],
     [ "Rope", "classRope.html#a456a4d733163de2f88e8fe8160355826", null ],
     [ "compare", "classRope.html#a251108c602a9d3bfee7b7c1a0c730c0d", null ],
     [ "concat", "classRope.html#a4ffe8f1dbe59157a040ee2d6e98ad891", null ],
-    [ "getCharAt", "classRope.html#ade94c91492c16e26816b536c6801a10b", null ],
+    [ "find", "classRope.html#ada8d9466993328455963ef25b3d5ade5", null ],
+    [ "getCharAt", "classRope.html#a8a9fb874a3416c08bae896d14169ff4c", null ],
     [ "length", "classRope.html#a373aed65f017618c23a11ee153b21fc4", null ],
     [ "operator+", "classRope.html#ac0aa980bfb2f9b7f45a7b4a529c1cffa", null ],
-    [ "operator+", "classRope.html#a568ed70c7701ff397dc1afc51f2dbd1f", null ],
-    [ "operator+", "classRope.html#a676287a73ccb64b05a2e309e3cac4e5b", null ],
-    [ "operator+", "classRope.html#a58a8c5d9c42a5102d84b7e1b5b45071c", null ],
+    [ "operator+", "classRope.html#a3d5fd0d0b40d6d34045344bde53a5b97", null ],
+    [ "operator+", "classRope.html#ae18e5827e09916e4751af2344b6cc2d5", null ],
+    [ "operator+", "classRope.html#aeeed0f60d98fa13c10e418cc6e5dbe22", null ],
     [ "operator==", "classRope.html#aefcb367236418ab7d2bb5d1330979ca0", null ],
+    [ "operator[]", "classRope.html#a822c309ce7d262a0654c27fb469f5ace", null ],
     [ "print", "classRope.html#a189d23a04d260952e6af19554417fc97", null ],
-    [ "toString", "classRope.html#ae9beaf440eeacc7502cf3457c8807127", null ],
-    [ "operator+", "classRope.html#a9e18d17de042196fd76a4f9903869064", null ],
-    [ "operator+", "classRope.html#a0cbbfc529751d562bbf8c05270b3185e", null ]
+    [ "rfind", "classRope.html#a354abe41aee6b6fe792c9f5e08cc298c", null ],
+    [ "substr", "classRope.html#a9662a17ad34398410423c70fd2ad1e6b", null ],
+    [ "toString", "classRope.html#adc232df9ab24b677d2813ee43ee61f03", null ],
+    [ "operator+", "classRope.html#ae3105022161f662f5bf751a4b7f1cc5a", null ],
+    [ "operator+", "classRope.html#a765c0a4cab7cd1cfef3a3c4925b51578", null ]
 ];

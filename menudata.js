@@ -37,7 +37,6 @@ var menudata={children:[
 {text:"f",url:"namespacemembers.html#index_f"},
 {text:"g",url:"namespacemembers.html#index_g"},
 {text:"i",url:"namespacemembers.html#index_i"},
-{text:"j",url:"namespacemembers.html#index_j"},
 {text:"n",url:"namespacemembers.html#index_n"},
 {text:"o",url:"namespacemembers.html#index_o"},
 {text:"p",url:"namespacemembers.html#index_p"},
@@ -125,8 +124,7 @@ var menudata={children:[
 {text:"t",url:"functions_vars.html#index_t"},
 {text:"v",url:"functions_vars.html#index_v"},
 {text:"w",url:"functions_vars.html#index_w"}]},
-{text:"Related Symbols",url:"functions_rela.html",children:[
-{text:"o",url:"functions_rela.html#index_o"}]}]}]},
+{text:"Related Symbols",url:"functions_rela.html"}]}]},
 {text:"Files",url:"files.html",children:[
 {text:"File List",url:"files.html"},
 {text:"File Members",url:"globals.html",children:[
@@ -136,9 +134,11 @@ var menudata={children:[
 {text:"c",url:"globals.html#index_c"},
 {text:"d",url:"globals.html#index_d"},
 {text:"e",url:"globals.html#index_e"},
+{text:"f",url:"globals.html#index_f"},
 {text:"g",url:"globals.html#index_g"},
 {text:"h",url:"globals.html#index_h"},
 {text:"i",url:"globals.html#index_i"},
+{text:"l",url:"globals.html#index_l"},
 {text:"m",url:"globals.html#index_m"},
 {text:"n",url:"globals.html#index_n"},
 {text:"o",url:"globals.html#index_o"},

@@ -24,7 +24,7 @@ public:
     /** @brief Default constructor initializes the object with an empty map */
     Object();
     /** @brief Constructor for properties */
-    explicit Object(const std::unordered_map<std::string, JS::Any>& properties);
+    explicit Object(const std::unordered_map<std::u16string, JS::Any>& properties);
     /** @brief InternalObject constructor */
     explicit Object(const JS::InternalObject&& internalObject);
     /** @brief Attribute constructor */

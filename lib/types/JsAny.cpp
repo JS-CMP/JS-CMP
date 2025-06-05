@@ -6,7 +6,7 @@ JS::Value JS::Any::getValue() const { return this->value; }
 
 namespace JS {
 std::ostream& operator<<(std::ostream& os, const Any& any) {
-    os << JS::CONVERT::ToString(any);
+    os << JS::CONVERT::ToUtf8(JS::CONVERT::ToString(any));
     return os;
 }
 

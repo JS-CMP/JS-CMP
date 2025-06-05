@@ -25,9 +25,9 @@ bool SameValue(const Rope& a, const Rope& b) { return a == b; }
 
 bool SameValue(const bool& a, const bool& b) { return a == b; }
 
-bool SameValue(const JS::Undefined& a, const JS::Undefined& b) { return true; }
+bool SameValue(JS::Undefined a, JS::Undefined b) { return true; }
 
-bool SameValue(const JS::Null& a, const JS::Null& b) { return true; }
+bool SameValue(JS::Null a, JS::Null b) { return true; }
 
 bool SameValue(const std::shared_ptr<JS::InternalObject>& a, const std::shared_ptr<JS::InternalObject>& b) {
     return a.get() == b.get();

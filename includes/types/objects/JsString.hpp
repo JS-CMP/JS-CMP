@@ -27,7 +27,7 @@ public:
     /** @brief Constructor that initializes the object with a given value */
     explicit String(const JS::Any& value);
     /** @brief Constructor that initializes the object with a given set of properties */
-    explicit String(const std::unordered_map<std::string, JS::Any>& properties);
+    explicit String(const std::unordered_map<std::u16string, JS::Any>& properties);
     ///@}
 
     /** @brief The destructor for the object defaulted */
@@ -40,7 +40,7 @@ public:
     /**
      * @brief Retrieves the property descriptor of an own property.
      */
-    [[nodiscard]] std::optional<JS::Attribute> getOwnProperty(const std::string& key) const final;
+    [[nodiscard]] std::optional<JS::Attribute> getOwnProperty(const std::u16string& key) const final;
     ///@}
 
     /**

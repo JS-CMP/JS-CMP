@@ -14,30 +14,30 @@ JS::Attribute ToPropertyDescriptor(const Any& desc) {
     JS::AccessorDescriptor accessor;
     bool get_or_set = false;
     bool value_or_writable = false;
-    if (obj->hasProperty("enumerable")) {
-        data.enumerable = ToBoolean(obj->get("value"));
-        accessor.enumerable = ToBoolean(obj->get("value"));
+    if (obj->hasProperty(u"enumerable")) {
+        data.enumerable = ToBoolean(obj->get(u"value"));
+        accessor.enumerable = ToBoolean(obj->get(u"value"));
     }
-    if (obj->hasProperty("configurable")) {
-        data.configurable = ToBoolean(obj->get("configurable"));
-        accessor.configurable = ToBoolean(obj->get("configurable"));
+    if (obj->hasProperty(u"configurable")) {
+        data.configurable = ToBoolean(obj->get(u"configurable"));
+        accessor.configurable = ToBoolean(obj->get(u"configurable"));
     }
-    if ((value_or_writable = value_or_writable || obj->hasProperty("value"))) {
-        data.value = obj->get("value");
+    if ((value_or_writable = value_or_writable || obj->hasProperty(u"value"))) {
+        data.value = obj->get(u"value");
     }
-    if ((value_or_writable = value_or_writable || obj->hasProperty("writable"))) {
-        data.writable = ToBoolean(obj->get("writable"));
+    if ((value_or_writable = value_or_writable || obj->hasProperty(u"writable"))) {
+        data.writable = ToBoolean(obj->get(u"writable"));
     }
-    if ((get_or_set = get_or_set || obj->hasProperty("get"))) {
-        JS::Any tmp = obj->get("get");
+    if ((get_or_set = get_or_set || obj->hasProperty(u"get"))) {
+        JS::Any tmp = obj->get(u"get");
         if (COMPARE::Type(tmp, UNDEFINED) || IS::Callable(tmp)) {
             accessor.get = std::get<std::shared_ptr<JS::InternalObject>>(tmp.getValue());
         } else {
             throw std::runtime_error("TypeError: get must be callable or undefined"); // TODO: make this a JS error
         }
     }
-    if ((get_or_set = get_or_set || obj->hasProperty("set"))) {
-        JS::Any tmp = obj->get("set");
+    if ((get_or_set = get_or_set || obj->hasProperty(u"set"))) {
+        JS::Any tmp = obj->get(u"set");
         if (COMPARE::Type(tmp, UNDEFINED) || IS::Callable(tmp)) {
             accessor.set = std::get<std::shared_ptr<JS::InternalObject>>(tmp.getValue());
         } else {

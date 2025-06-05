@@ -3,12 +3,9 @@
 
 #include "Types.hpp"
 #include "internals/Arguments.hpp"
+#include "utils/Declaration.hpp"
 
 namespace JS {
-
-template <typename T>
-using JSAnyAmbiguous = std::enable_if_t<!std::is_same_v<T, JS::Any>, JS::Any>;
-
 /**
  * @class Any
  * @brief Represents a JavaScript-like variant type in C++ that can hold multiple types of values.
@@ -28,6 +25,8 @@ public:
     Any() : value(JS::Undefined{}){};
     /** @brief Constructor for int */
     explicit Any(int v) : value(static_cast<double>(v)){};
+    /** @brief Constructor for unsigned int */
+    explicit Any(unsigned int v) : value(static_cast<double>(v)){};
     /** @brief Constructor for double */
     explicit Any(double v) : value(v){};
     /** @brief Constructor for Rope */
@@ -36,8 +35,12 @@ public:
     explicit Any(Rope v) : value(v){};
     /** @brief Constructor for string */
     explicit Any(const std::string& v) : value(Rope(v)){};
+    /** @brief Constructor for u16string */
+    explicit Any(const std::u16string& v) : value(Rope(v)){};
     /** @brief Constructor for string */
     explicit Any(const char* v) : value(Rope(v)){};
+    /** @brief Constructor for const char16_t */
+    explicit Any(const char16_t* v) : value(Rope(v)){};
     /** @brief Constructor for bool */
     explicit Any(bool v) : value(v){};
     /** @brief Constructor for undefined */
@@ -65,26 +68,20 @@ public:
      * These operators perform bitwise operations like in JavaScript
      */
     ///@{
-    /** @brief Bitwise AND operator a & b */
-    template <typename T>
-    JS::Any operator&(T other) const;
+    /** @brief Bitwise AND operator Any & T */
+    DECLARE_1FUNC(JS::Any operator&, const);
     /** @brief Bitwise AND operator T & Any */
-    template <typename T>
-    friend JSAnyAmbiguous<T> operator&(T value, JS::Any const& any);
+    DECLARE_2FUNC(friend JS::Any operator&, )
 
-    /** @brief Bitwise OR operator a | b */
-    template <typename T>
-    JS::Any operator|(T other) const;
+    /** @brief Bitwise OR operator Any | T */
+    DECLARE_1FUNC(JS::Any operator|, const);
     /** @brief Bitwise OR operator T | Any */
-    template <typename T>
-    friend JSAnyAmbiguous<T> operator|(T value, JS::Any const& any);
+    DECLARE_2FUNC(friend JS::Any operator|, )
 
-    /** @brief Bitwise XOR operator a ^ b */
-    template <typename T>
-    JS::Any operator^(T other) const;
+    /** @brief Bitwise XOR operator Any ^ T */
+    DECLARE_1FUNC(JS::Any operator^, const);
     /** @brief Bitwise XOR operator T ^ Any */
-    template <typename T>
-    friend JSAnyAmbiguous<T> operator^(T value, JS::Any const& any);
+    DECLARE_2FUNC(friend JS::Any operator^, )
 
     /** @brief Bitwise NOT operator ~a */
     JS::Any operator~() const;
@@ -92,52 +89,25 @@ public:
     /** @brief Logical NOT operator !a */
     JS::Any operator!() const;
 
-    /** @brief Bitwise left shift operator a << b */
-    template <typename T>
-    JS::Any operator<<(T other) const;
+    /** @brief Bitwise left shift operator Any << T */
+    DECLARE_1FUNC(JS::Any operator<<, const);
     /** @brief Bitwise left shift operator T << Any */
-    template <typename T>
-    friend JSAnyAmbiguous<T> operator<<(T value, JS::Any const& any);
+    DECLARE_2FUNC(friend JS::Any operator<<, )
 
     /** @brief Bitwise right shift operator a >> b */
-    template <typename T>
-    JS::Any operator>>(T other) const;
+    DECLARE_1FUNC(JS::Any operator>>, const);
     /** @brief Bitwise right shift operator int >> Any */
-    template <typename T>
-    friend JSAnyAmbiguous<T> operator>>(T value, JS::Any const& any);
-
+    DECLARE_2FUNC(friend JS::Any operator>>, )
     ///@}
 
     /**
      * @name Arithmetic operators +
      */
     ///@{
-    /** @brief Addition operator Any + Any */
-    JS::Any operator+(const JS::Any& other) const;
-    /** @brief Addition operator Any + int */
-    JS::Any operator+(int value) const;
-    /** @brief Addition operator Any + double */
-    JS::Any operator+(double value) const;
-    /** @brief Addition operator Any + string */
-    JS::Any operator+(const char* value) const;
-    /** @brief Addition operator Any + bool */
-    JS::Any operator+(bool value) const;
-    /** @brief Addition operator Any + null */
-    JS::Any operator+(JS::Null) const;
-    /** @brief Addition operator Any + undefined */
-    JS::Any operator+(JS::Undefined /*unused*/) const;
-    /** @brief Addition operator int + Any */
-    friend JS::Any operator+(int value, JS::Any const& any);
-    /** @brief Addition operator double + Any */
-    friend JS::Any operator+(double value, JS::Any const& any);
-    /** @brief Addition operator string + Any */
-    friend JS::Any operator+(const char* value, JS::Any const& any);
-    /** @brief Addition operator bool + Any */
-    friend JS::Any operator+(bool value, JS::Any const& any);
-    /** @brief Addition operator null + Any */
-    friend JS::Any operator+(JS::Null, JS::Any const& any);
-    /** @brief Addition operator undefined + Any */
-    friend JS::Any operator+(JS::Undefined /*unused*/, JS::Any const& any);
+    /** @brief Addition operator Any + T */
+    DECLARE_1FUNC(JS::Any operator+, const);
+    /** @brief Addition operator T + Any */
+    DECLARE_2FUNC(friend JS::Any operator+, )
     ///@}
 
     /**
@@ -151,16 +121,10 @@ public:
      * These operators perform subtraction operations on the value of the `Any` object.
      */
     ///@{
-    /** @brief Subtraction operator Any - Any */
-    template <typename T>
-    JS::Any operator-(T other) const;
-    /** @brief Subtraction operator Any - Undefined */
-    JS::Any operator-(JS::Undefined /*unused*/) const;
+    /** @brief Subtraction operator Any - T */
+    DECLARE_1FUNC(JS::Any operator-, const);
     /** @brief Subtraction operator T - Any */
-    template <typename T>
-    friend JSAnyAmbiguous<T> operator-(T value, JS::Any const& any);
-    /** @brief Subtraction operator Undefined - Any */
-    friend JS::Any operator-(JS::Undefined /*unused*/, JS::Any const& any);
+    DECLARE_2FUNC(friend JS::Any operator-, )
     ///@}
 
     /**
@@ -174,32 +138,10 @@ public:
      * These operators perform multiplication operations on the value of the `Any` object.
      */
     ///@{
-    /** @brief Multiplication operator Any * Any */
-    JS::Any operator*(const JS::Any& other) const;
-    /** @brief Multiplication operator Any * int */
-    JS::Any operator*(int value) const;
-    /** @brief Multiplication operator Any * double */
-    JS::Any operator*(double value) const;
-    /** @brief Multiplication operator Any * string */
-    JS::Any operator*(const char* value) const;
-    /** @brief Multiplication operator Any * bool */
-    JS::Any operator*(bool value) const;
-    /** @brief Multiplication operator Any * null */
-    JS::Any operator*(JS::Null) const;
-    /** @brief Multiplication operator Any * undefined */
-    JS::Any operator*(JS::Undefined /*unused*/) const;
-    /** @brief Multiplication operator int * Any */
-    friend JS::Any operator*(int value, JS::Any const& any);
-    /** @brief Multiplication operator double * Any */
-    friend JS::Any operator*(double value, JS::Any const& any);
-    /** @brief Multiplication operator string * Any */
-    friend JS::Any operator*(const char* value, JS::Any const& any);
-    /** @brief Multiplication operator bool * Any */
-    friend JS::Any operator*(bool value, JS::Any const& any);
-    /** @brief Multiplication operator null * Any */
-    friend JS::Any operator*(JS::Null value, JS::Any const& any);
-    /** @brief Multiplication operator undefined * Any */
-    friend JS::Any operator*(JS::Undefined value, JS::Any const& any);
+    /** @brief Multiplication operator Any * T */
+    DECLARE_1FUNC(JS::Any operator*, const);
+    /** @brief Multiplication operator T * Any */
+    DECLARE_2FUNC(friend JS::Any operator*, )
     ///@}
 
     /**
@@ -207,32 +149,10 @@ public:
      * These operators perform division operations on the value of the `Any` object.
      */
     ///@{
-    /** @brief Division operator Any / Any */
-    JS::Any operator/(const JS::Any& other) const;
-    /** @brief Division operator Any / int */
-    JS::Any operator/(int value) const;
-    /** @brief Division operator Any / double */
-    JS::Any operator/(double value) const;
-    /** @brief Division operator Any / string */
-    JS::Any operator/(const char* value) const;
-    /** @brief Division operator Any / bool */
-    JS::Any operator/(bool value) const;
-    /** @brief Division operator Any / null */
-    JS::Any operator/(JS::Null) const;
-    /** @brief Division operator Any / undefined */
-    JS::Any operator/(JS::Undefined /*unused*/) const;
-    /** @brief Division operator int / Any */
-    friend JS::Any operator/(int value, JS::Any const& any);
-    /** @brief Division operator double / Any */
-    friend JS::Any operator/(double value, JS::Any const& any);
-    /** @brief Division operator string / Any */
-    friend JS::Any operator/(const char* value, JS::Any const& any);
-    /** @brief Division operator bool / Any */
-    friend JS::Any operator/(bool value, JS::Any const& any);
-    /** @brief Division operator null / Any */
-    friend JS::Any operator/(JS::Null value, JS::Any const& any);
-    /** @brief Division operator undefined / Any */
-    friend JS::Any operator/(JS::Undefined value, JS::Any const& any);
+    /** @brief Division operator Any / T */
+    DECLARE_1FUNC(JS::Any operator/, const);
+    /** @brief Division operator T / Any */
+    DECLARE_2FUNC(friend JS::Any operator/, )
     ///@}
 
     /**
@@ -240,32 +160,10 @@ public:
      * These operators perform modulus operations on the value of the `Any` object.
      */
     ///@{
-    /** @brief Modulus operator Any % Any */
-    JS::Any operator%(const JS::Any& other) const;
-    /** @brief Modulus operator Any % int */
-    JS::Any operator%(int value) const;
-    /** @brief Modulus operator Any % double */
-    JS::Any operator%(double value) const;
-    /** @brief Modulus operator Any % string */
-    JS::Any operator%(const char* value) const;
-    /** @brief Modulus operator Any % bool */
-    JS::Any operator%(bool value) const;
-    /** @brief Modulus operator Any % null */
-    JS::Any operator%(JS::Null) const;
-    /** @brief Modulus operator Any % undefined */
-    JS::Any operator%(JS::Undefined /*unused*/) const;
-    /** @brief Modulus operator int % Any */
-    friend JS::Any operator%(int value, JS::Any const& any);
-    /** @brief Modulus operator double % Any */
-    friend JS::Any operator%(double value, JS::Any const& any);
-    /** @brief Modulus operator string % Any */
-    friend JS::Any operator%(const char* value, JS::Any const& any);
-    /** @brief Modulus operator bool % Any */
-    friend JS::Any operator%(bool value, JS::Any const& any);
-    /** @brief Modulus operator null % Any */
-    friend JS::Any operator%(JS::Null value, JS::Any const& any);
-    /** @brief Modulus operator undefined % Any */
-    friend JS::Any operator%(JS::Undefined value, JS::Any const& any);
+    /** @brief Modulus operator Any % T */
+    DECLARE_1FUNC(JS::Any operator%, const);
+    /** @brief Modulus operator T % Any */
+    DECLARE_2FUNC(friend JS::Any operator%, )
     ///@}
 
     /**
@@ -274,18 +172,14 @@ public:
      */
     ///@{
     /** @brief And operator Any && T*/
-    template <typename T>
-    JS::Any operator&&(T other) const;
+    DECLARE_1FUNC(JS::Any operator&&, const);
     /** @brief And operator T && Any */
-    template <typename T>
-    friend JSAnyAmbiguous<T> operator&&(T value, JS::Any const& any);
+    DECLARE_2FUNC(friend JS::Any operator&&, )
 
     /** @brief Or operator Any || T */
-    template <typename T>
-    JS::Any operator||(T other) const;
+    DECLARE_1FUNC(JS::Any operator||, const)
     /** @brief Or operator T || Any */
-    template <typename T>
-    friend JSAnyAmbiguous<T> operator||(T value, JS::Any const& any);
+    DECLARE_2FUNC(friend JS::Any operator||, )
     ///@}
 
     /**
@@ -340,9 +234,7 @@ public:
     JS::Any constructor(const JS::Any& args) const;
 
     /** @brief Accessors to properties of object in stored in value */
-    template <typename T>
-    JS::PropertyProxy operator[](T key) const;
-
+    DECLARE_1FUNC(JS::PropertyProxy operator[], const)
     ///@}
 
     /**

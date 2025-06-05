@@ -130,6 +130,40 @@ JS::Any JS::Any::operator/(const char* value) const {
     } catch (const std::invalid_argument& e) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
 }
 
+JS::Any JS::Any::operator/(const char16_t* value) const {
+    try {
+        switch (this->value.index()) {
+            case NUMBER:
+                return JS::Any(std::get<double>(this->value) / JS::CONVERT::ToNumber(value));
+            case STRING:
+                return JS::Any(JS::CONVERT::ToNumber(std::get<Rope>(this->value)) / JS::CONVERT::ToNumber(value));
+            case BOOLEAN:
+                return JS::Any(std::get<bool>(this->value) / JS::CONVERT::ToNumber(value));
+            case NULL_TYPE:
+                return JS::Any(0.0 / JS::CONVERT::ToNumber(value));
+            default:
+                return JS::Any(std::numeric_limits<double>::quiet_NaN());
+        }
+    } catch (const std::invalid_argument& e) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+}
+
+JS::Any JS::Any::operator/(const std::u16string& value) const {
+    try {
+        switch (this->value.index()) {
+            case NUMBER:
+                return JS::Any(std::get<double>(this->value) / JS::CONVERT::ToNumber(value));
+            case STRING:
+                return JS::Any(JS::CONVERT::ToNumber(std::get<Rope>(this->value)) / JS::CONVERT::ToNumber(value));
+            case BOOLEAN:
+                return JS::Any(std::get<bool>(this->value) / JS::CONVERT::ToNumber(value));
+            case NULL_TYPE:
+                return JS::Any(0.0 / JS::CONVERT::ToNumber(value));
+            default:
+                return JS::Any(std::numeric_limits<double>::quiet_NaN());
+        }
+    } catch (const std::invalid_argument& e) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+}
+
 JS::Any JS::Any::operator/(bool value) const {
     try {
         switch (this->value.index()) {
@@ -202,6 +236,40 @@ Any operator/(double value, JS::Any const& any) {
 }
 
 Any operator/(const char* value, JS::Any const& any) {
+    try {
+        switch (any.value.index()) {
+            case NUMBER:
+                return JS::Any(JS::CONVERT::ToNumber(value) / std::get<double>(any.value));
+            case STRING:
+                return JS::Any(JS::CONVERT::ToNumber(value) / JS::CONVERT::ToNumber(std::get<Rope>(any.value)));
+            case BOOLEAN:
+                return JS::Any(JS::CONVERT::ToNumber(value) / static_cast<double>(std::get<bool>(any.value)));
+            case NULL_TYPE:
+                return JS::Any(JS::CONVERT::ToNumber(value) / 0.0);
+            default:
+                return JS::Any(std::numeric_limits<double>::quiet_NaN());
+        }
+    } catch (const std::invalid_argument& e) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+}
+
+Any operator/(const char16_t* value, JS::Any const& any) {
+    try {
+        switch (any.value.index()) {
+            case NUMBER:
+                return JS::Any(JS::CONVERT::ToNumber(value) / std::get<double>(any.value));
+            case STRING:
+                return JS::Any(JS::CONVERT::ToNumber(value) / JS::CONVERT::ToNumber(std::get<Rope>(any.value)));
+            case BOOLEAN:
+                return JS::Any(JS::CONVERT::ToNumber(value) / static_cast<double>(std::get<bool>(any.value)));
+            case NULL_TYPE:
+                return JS::Any(JS::CONVERT::ToNumber(value) / 0.0);
+            default:
+                return JS::Any(std::numeric_limits<double>::quiet_NaN());
+        }
+    } catch (const std::invalid_argument& e) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+}
+
+Any operator/(const std::u16string& value, JS::Any const& any) {
     try {
         switch (any.value.index()) {
             case NUMBER:

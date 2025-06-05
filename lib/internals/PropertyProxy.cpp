@@ -46,7 +46,9 @@ JS::Any PropertyProxy::constructor(const JS::Any& args) const {
     throw std::runtime_error("Value does not have a constructor");
 }
 
-JS::Value PropertyProxy::getValue() const { return obj_->get(key_).getValue(); }
+JS::Value PropertyProxy::getValue() const {
+    return obj_->get(key_).getValue();
+}
 
 std::ostream& operator<<(std::ostream& os, const PropertyProxy& proxy) {
     os << static_cast<JS::Any>(proxy);

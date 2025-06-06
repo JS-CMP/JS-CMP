@@ -42,6 +42,8 @@ public:
 
     /** @brief Function to get the methods of the property prototype */
     static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
+
+//    [[nodiscard]] std::string getContent() const override;
 };
 } // namespace JS
 

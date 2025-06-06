@@ -28,7 +28,7 @@ namespace JS {
         /** @brief Constructor that take a value */
         explicit RangeError(const JS::Any& value);
         /** @brief Constructor for properties */
-        explicit RangeError(const std::unordered_map<std::string, JS::Attribute>& properties);
+        explicit RangeError(const std::unordered_map<std::u16string, JS::Attribute>& properties);
         ///@}
 
         /** @brief The destructor for the Error defaulted */

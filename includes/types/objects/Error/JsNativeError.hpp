@@ -28,7 +28,7 @@ class NativeError : public JS::InternalObject {
         /** @brief Constructor that take a value */
         explicit NativeError(const JS::Any& value);
         /** @brief Constructor for properties */
-        explicit NativeError(const std::unordered_map<std::string, JS::Attribute>& properties);
+        explicit NativeError(const std::unordered_map<std::u16string, JS::Attribute>& properties);
         ///@}
 
         /** @brief The destructor for the Error defaulted */

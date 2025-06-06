@@ -2,9 +2,9 @@
 #include "types/objects/JsNumber.hpp"
 
 std::shared_ptr<JS::InternalObject>& JS::Number::getPrototypeProperties() {
-    static std::unordered_map<std::u16string, JS::Attribute> properties_prototype = {
-        {u"toString",
-         JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Number::toString)), true, true, true}},
+     static std::unordered_map<std::u16string, JS::Attribute> properties_prototype = {
+         {u"toString",
+          JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Number::toString)), true, true, true}},
         {u"toLocaleString",
          JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Number::toLocaleString)), true, true, true}},
         {u"valueOf",

@@ -11,7 +11,7 @@ assert::assert() : JS::Object() {
 JS::Any assert::equalHelper(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
+        throw TempTypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         u"(The \"actual\" and \"expected\" arguments must be specified.)", u"ERR_MISSING_ARGS");
     }
     JS::Any a = args[0]; // done to fix property proxy issues
@@ -25,7 +25,7 @@ JS::Any assert::equalHelper(const JS::Any& thisArgs, const JS::Any& args) {
 JS::Any assert::notEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
+        throw TempTypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         u"(The \"actual\" and \"expected\" arguments must be specified.)", u"ERR_MISSING_ARGS");
     }
     if (args[0] == args[1] || (isNaN(args[0]) && isNaN(args[1]))) {
@@ -38,7 +38,7 @@ JS::Any assert::notEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
 JS::Any assert::strictEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
+        throw TempTypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         u"(The \"actual\" and \"expected\" arguments must be specified.)", u"ERR_MISSING_ARGS");
     }
     if (!JS::COMPARE::SameValue(args[0], args[1])) {
@@ -50,7 +50,7 @@ JS::Any assert::strictEqualHelper(const JS::Any& thisArgs, const JS::Any& args) 
 JS::Any assert::notStrictEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
+        throw TempTypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         u"(The \"actual\" and \"expected\" arguments must be specified.)", u"ERR_MISSING_ARGS");
     }
     if (JS::COMPARE::SameValue(args[0], args[1])) {
@@ -63,7 +63,7 @@ JS::Any assert::notStrictEqualHelper(const JS::Any& thisArgs, const JS::Any& arg
 JS::Any assert::deepEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
+        throw TempTypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         u"(The \"actual\" and \"expected\" arguments must be specified.)", u"ERR_MISSING_ARGS");
     }
     if (isDeepEqual(args[0], args[1])) {
@@ -75,7 +75,7 @@ JS::Any assert::deepEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
 JS::Any assert::notDeepEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
+        throw TempTypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         u"(The \"actual\" and \"expected\" arguments must be specified.)", u"ERR_MISSING_ARGS");
     }
     if (!isDeepEqual(args[0], args[1])) {
@@ -88,7 +88,7 @@ JS::Any assert::notDeepEqualHelper(const JS::Any& thisArgs, const JS::Any& args)
 JS::Any assert::deepStrictEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
+        throw TempTypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         u"(The \"actual\" and \"expected\" arguments must be specified.)", u"ERR_MISSING_ARGS");
     }
     if (!isDeepEqual(args[0], args[1], true)) {
@@ -100,7 +100,7 @@ JS::Any assert::deepStrictEqualHelper(const JS::Any& thisArgs, const JS::Any& ar
 JS::Any assert::notStrictDeepEqualHelper(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
+        throw TempTypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         u"(The \"actual\" and \"expected\" arguments must be specified.)", u"ERR_MISSING_ARGS");
     }
     if (isDeepEqual(args[0], args[1], true)) {
@@ -113,7 +113,7 @@ JS::Any assert::notStrictDeepEqualHelper(const JS::Any& thisArgs, const JS::Any&
 JS::Any assert::okHelper(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length == 0) {
-        throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
+        throw TempTypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         u"(No value argument passed to `assert.ok()`)", u"ERR_MISSING_ARGS");
     }
     if (!args[0]) {
@@ -136,7 +136,7 @@ JS::Any assert::failHelper(const JS::Any& thisArgs, const JS::Any& args) {
 JS::Any assert::ifErrorHelper(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length != 1) {
-        throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
+        throw TempTypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         u"(The \"value\" argument must be specified.)", u"ERR_MISSING_ARGS");
     }
     if (!JS::COMPARE::Type(args[0], JS::UNDEFINED) && !JS::COMPARE::Type(args[0], JS::NULL_TYPE)) {
@@ -150,12 +150,12 @@ JS::Any assert::throwsHelper(const JS::Any& thisArgs, const JS::Any& args) {
     // TODO:: handle obj properties, regexp class
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 1) {
-        throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()), u"(The \"fn\" argument must be specified.)",
+        throw TempTypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()), u"(The \"fn\" argument must be specified.)",
                         u"ERR_MISSING_ARGS");
     }
     if (JS::COMPARE::Type(args[0], JS::OBJECT) &&
         std::get<std::shared_ptr<JS::InternalObject>>(args[0].getValue())->class_name == u"Function") {
-        throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
+        throw TempTypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         u"(The \"fn\" argument must be a function.)", u"ERR_INVALID_ARG_TYPE");
     }
     JS::Any fn = args[0];

@@ -28,7 +28,7 @@ namespace JS {
         /** @brief Constructor that take a value */
         explicit UriError(const JS::Any& value);
         /** @brief Constructor for properties */
-        explicit UriError(const std::unordered_map<std::string, JS::Attribute>& properties);
+        explicit UriError(const std::unordered_map<std::u16string, JS::Attribute>& properties);
         ///@}
 
         /** @brief The destructor for the Error defaulted */

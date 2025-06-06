@@ -27,7 +27,7 @@ namespace JS {
         /** @brief Constructor that take a value */
         explicit TypeError(const JS::Any& value);
         /** @brief Constructor for properties */
-        explicit TypeError(const std::unordered_map<std::string, JS::Attribute>& properties);
+        explicit TypeError(const std::unordered_map<std::u16string, JS::Attribute>& properties);
         ///@}
 
         /** @brief The destructor for the Error defaulted */

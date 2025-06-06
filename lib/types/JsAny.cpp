@@ -7,19 +7,24 @@
 JS::Value JS::Any::getValue() const { return this->value; }
 
 const char *JS::Any::what() const noexcept {
-    if (this->value.index() != JS::OBJECT) { // TODO: cast is property proxy shenanigan, fix
-        return ("Uncaught " + CONVERT::ToString(this)).c_str();
-    }
-    auto obj = CONVERT::ToObject(JS::Any(this));
-    // if (obj.class_name != "Error") {
-    //     return ("Uncaught " + CONVERT::ToString(this)).c_str();
-    // }
+    thread_local std::string buffer;
 
-    JS::Any temp = obj["message"];// bad varian access because toobject
-    JS::Any name = obj["name"];
-    std::cout << "here" << std::endl;
-    JS::Any message = COMPARE::Type(temp, JS::UNDEFINED) ? JS::Any("") : temp; // TODO: find a solution to do temp == undefined
-    return CONVERT::ToString("Uncaught " + name + ": " + message).c_str();
+    if (this->value.index() != JS::OBJECT) {
+        buffer = "Uncaught " + CONVERT::ToString(*this);
+        return buffer.c_str();
+    }
+
+    auto obj = CONVERT::ToObject(*this);
+    if (obj->class_name != "Error") {
+        buffer = "Uncaught " + CONVERT::ToString("todo"); // TODO replace toString with function that format to data
+    } else {
+        JS::Any temp = obj->get("message");
+        JS::Any name = obj->get("name");
+        JS::Any message = COMPARE::Type(temp, JS::UNDEFINED) ? JS::Any("") : temp;
+
+        buffer = "Uncaught " + CONVERT::ToString(name) + (message != JS::Any("") ? ": " : "") + CONVERT::ToString(message);
+    }
+    return buffer.c_str();
 }
 
 

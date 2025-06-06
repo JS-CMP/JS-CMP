@@ -33,7 +33,8 @@ JS::Any Date::UTC(const JS::Any& thisArg, const JS::Any& args) {
 }
 
 JS::Any Date::now(const JS::Any& thisArg, const JS::Any& args) {
-    double now = DateOperators::TimeClip(DateOperators::UTC(DateOperators::MakeDate(DateOperators::Day(std::chrono::system_clock::now().time_since_epoch().count()), 0)));
+    auto nowMilliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+    double now = DateOperators::TimeClip(DateOperators::UTC(DateOperators::MakeDate(DateOperators::Day(nowMilliseconds), 0)));
     return JS::Any(now);
 }
 

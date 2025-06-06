@@ -7,24 +7,26 @@
 JS::Value JS::Any::getValue() const { return this->value; }
 
 const char *JS::Any::what() const noexcept {
-    thread_local std::string buffer;
+    thread_local std::string utf8_buffer;
 
     if (this->value.index() != JS::OBJECT) {
-        buffer = "Uncaught " + CONVERT::ToString(*this);
-        return buffer.c_str();
+        utf8_buffer = CONVERT::ToUtf8(u"Uncaught " + CONVERT::ToString(*this));
+        return utf8_buffer.c_str();
     }
 
     auto obj = CONVERT::ToObject(*this);
-    if (obj->class_name != "Error") {
-        buffer = "Uncaught " + CONVERT::ToString("todo"); // TODO replace toString with function that format to data
+    if (obj->class_name != u"Error") {
+        utf8_buffer = CONVERT::ToUtf8(u"Uncaught " + CONVERT::ToString("todo")); // TODO replace toString with function that formats data
     } else {
-        JS::Any temp = obj->get("message");
-        JS::Any name = obj->get("name");
+        JS::Any temp = obj->get(u"message");
+        JS::Any name = obj->get(u"name");
         JS::Any message = COMPARE::Type(temp, JS::UNDEFINED) ? JS::Any("") : temp;
 
-        buffer = "Uncaught " + CONVERT::ToString(name) + (message != JS::Any("") ? ": " : "") + CONVERT::ToString(message);
+        utf8_buffer = CONVERT::ToUtf8(u"Uncaught " + CONVERT::ToString(name) +
+                                      (message != JS::Any("") ? u": " : u"") +
+                                      CONVERT::ToString(message));
     }
-    return buffer.c_str();
+    return utf8_buffer.c_str();
 }
 
 

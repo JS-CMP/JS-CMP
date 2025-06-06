@@ -230,6 +230,9 @@ public:
     /** @brief Accessors to call function stored in properties on an object stored in value */
     JS::Any call(const JS::Any& args) const;
 
+    /** @brief Accessors to constructor function stored in properties on an object stored in value */
+    JS::Any constructor(const JS::Any& args) const;
+
     /** @brief Accessors to properties of object in stored in value */
     DECLARE_1FUNC(JS::PropertyProxy operator[], const)
     ///@}

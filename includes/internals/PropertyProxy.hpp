@@ -25,8 +25,13 @@ public:
     JS::Any operator()(Args&&... args) {
         return call(JS::Arguments::CreateArgumentsObject(std::vector<JS::Any>{args...}));
     }
+    /** @brief Call operator for the object */
     JS::Any call(const JS::Any& args) const;
 
+    /** @brief Invoke the constructor method for this property */
+    JS::Any constructor(const JS::Any& args) const;
+
+    /** @brief Get the value of the property */
     JS::Value getValue() const;
 
     bool operator==(const PropertyProxy& property_proxy) const;

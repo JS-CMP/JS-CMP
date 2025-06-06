@@ -1,9 +1,10 @@
-#include "types/objects/JsDate.hpp"
-#include "utils/Convert.hpp"
-#include "utils/Compare.hpp"
 #include "internals/PropertyProxy.hpp"
-#include <cmath>
+#include "types/objects/JsDate.hpp"
+#include "utils/Compare.hpp"
+#include "utils/Convert.hpp"
+
 #include <chrono>
+#include <cmath>
 
 namespace JS {
 
@@ -20,9 +21,9 @@ JS::Any Date::UTC(const JS::Any& thisArg, const JS::Any& args) {
     double seconds = !COMPARE::Type(args[u"5"], UNDEFINED) ? CONVERT::ToNumber(args[u"5"]) : 0;
     double milliseconds = !COMPARE::Type(args[u"6"], UNDEFINED) ? CONVERT::ToNumber(args[u"6"]) : 0;
 
-   int yr = CONVERT::ToInteger(year);
-   if (!std::isnan(year) && year >= 0 && year <= 99) {
-        yr = 1900+CONVERT::ToInteger(year);
+    int yr = CONVERT::ToInteger(year);
+    if (!std::isnan(year) && year >= 0 && year <= 99) {
+        yr = 1900 + CONVERT::ToInteger(year);
     }
 
     double day = DateOperators::MakeDay(yr, month, date);
@@ -33,8 +34,11 @@ JS::Any Date::UTC(const JS::Any& thisArg, const JS::Any& args) {
 }
 
 JS::Any Date::now(const JS::Any& thisArg, const JS::Any& args) {
-    auto nowMilliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
-    double now = DateOperators::TimeClip(DateOperators::UTC(DateOperators::MakeDate(DateOperators::Day(nowMilliseconds), 0)));
+    auto nowMilliseconds =
+        std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch())
+            .count();
+    double now =
+        DateOperators::TimeClip(DateOperators::UTC(DateOperators::MakeDate(DateOperators::Day(nowMilliseconds), 0)));
     return JS::Any(now);
 }
 

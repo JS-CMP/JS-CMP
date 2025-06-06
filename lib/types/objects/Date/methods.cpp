@@ -1,9 +1,7 @@
 #include "types/objects/JsDate.hpp"
 #include "utils/Compare.hpp"
 #include "utils/Convert.hpp"
-#include <sstream>
-#include <iomanip>
-#include <ctime>
+#include "internals/PropertyProxy.hpp"
 
 namespace JS {
     
@@ -257,7 +255,8 @@ JS::Any Date::setTime(const JS::Any& thisArg, const JS::Any& args) {
         throw std::runtime_error("TypeError: Date.prototype.getTimezoneOffset called on incompatible Object"); // TODO: throw TypeError
     }
     double t = CONVERT::ToNumber(args[u"0"]);
-    double v = O->primitiveValue = DateOperators::TimeClip(t);
+    double v = DateOperators::TimeClip(t);
+    O->primitiveValue = v;
     return JS::Any(v);
 }
 

@@ -2,7 +2,7 @@
 #define JS_CMP_ASSERT_HPP
 
 #include "exceptions/AssertionError.hpp"
-#include "exceptions/TypeError.hpp"
+#include "exceptions/TempTypeError.hpp"
 #include "global/global.hpp"
 #include "types/objects/Function/JsFunction.hpp"
 #include "types/objects/JsObject.hpp"

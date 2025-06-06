@@ -189,12 +189,20 @@ namespace DateOperators {
     int msFromTime(double t);
     /** @brief Calculate the number of ms from its four arguments. */
     JS::Any MakeTime(JS::Any hour, JS::Any min, JS::Any sec, JS::Any ms);
+    /** @brief Calculate the number of ms from its four arguments. */
+    double MakeTime(double hour, double min, double sec, double ms);
     /** @brief Calculate the number of ms from its three arguments. */
     JS::Any MakeDay(JS::Any year, JS::Any month, JS::Any date);
+    /** @brief Calculate the number of ms from its three arguments. */
+    int MakeDay(int year, int month, int date);
     /** @brief Calculate the number of ms from its two arguments */
     JS::Any MakeDate(JS::Any day, JS::Any time);
+    /** @brief Calculate the number of ms from its two arguments */
+    double MakeDate(int day, double time);
     /** @brief Clips the time value to the range 0 to 86400000. */
     JS::Any TimeClip(JS::Any time);
+    /** @brief Clips the time value to the range 0 to 86400000. */
+    double TimeClip(double time);
     ///@}
     
     /**
@@ -211,5 +219,5 @@ namespace DateOperators {
     ///@}
 } // namespace Date::Operators
 } // namespace JS
-
 #endif // JS_CMP_JSSTRING_HPP
+

@@ -8,7 +8,7 @@
 #include <utility>
 
 namespace JS {
-using Properties = std::unordered_map<std::u16string, JS::Attribute>;
+using   Properties = std::unordered_map<std::u16string, JS::Attribute>;
 
 /**
  * @class InternalObject

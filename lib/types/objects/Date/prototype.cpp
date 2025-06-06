@@ -2,6 +2,7 @@
 #include "utils/Convert.hpp"
 #include "utils/Compare.hpp"
 #include "internals/PropertyProxy.hpp"
+#include <cmath>
 
 namespace JS {
 

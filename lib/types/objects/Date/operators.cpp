@@ -2,7 +2,6 @@
 #include "utils/Convert.hpp"
 #include <unicode/calendar.h>
 #include <unicode/timezone.h>
-#include <unicode/ucal.h>
 #include <cmath>
 
 namespace JS::DateOperators {
@@ -35,7 +34,7 @@ namespace JS::DateOperators {
 
     int YearFromTime(double t) {
         int low = -285616;
-        int high = 285616; 
+        int high = 285616;
 
         while (low < high) {
             int mid = (low + high + 1) / 2;
@@ -56,7 +55,7 @@ namespace JS::DateOperators {
     int MonthFromTime(double t) {
         double day = DayWithinYear(t);
         bool leap = InLeapYear(t);
-        
+
         if (day < 31) return 0;
         if (day < 59 + leap) return 1;
         if (day < 90 + leap) return 2;
@@ -79,7 +78,7 @@ namespace JS::DateOperators {
         double day = DayWithinYear(t);
         bool leap = InLeapYear(t);
         int month = MonthFromTime(t);
-        
+
         switch (month) {
             case 0: return day + 1;
             case 1: return day - 30;
@@ -191,7 +190,7 @@ namespace JS::DateOperators {
 
     int MakeDay(int year, int month, int date) {
         if (!std::isfinite(year) || !std::isfinite(month) || !std::isfinite(date)) {
-            return std::numeric_limits<double>::quiet_NaN();
+            return std::numeric_limits<int>::quiet_NaN();
         }
         int ym = year + static_cast<int>(std::floor(month / 12.0));
         int mn = static_cast<int>(std::fmod(month, 12.0));
@@ -207,7 +206,7 @@ namespace JS::DateOperators {
                 return day + date - 1;
             }
         }
-        return std::numeric_limits<double>::quiet_NaN();
+        return  std::numeric_limits<int>::quiet_NaN();
     }
 
     JS::Any MakeDate(JS::Any day, JS::Any time) {

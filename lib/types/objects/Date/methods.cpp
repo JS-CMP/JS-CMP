@@ -2,9 +2,10 @@
 #include "utils/Compare.hpp"
 #include "utils/Convert.hpp"
 #include "internals/PropertyProxy.hpp"
+#include <cmath>
 
 namespace JS {
-    
+
 JS::Any Date::toString(const JS::Any& thisArg, const JS::Any& args) {
     throw std::runtime_error("Date::getUTCSeconds not implemented");
 }

@@ -3,6 +3,7 @@
 #include "utils/Compare.hpp"
 #include "internals/PropertyProxy.hpp"
 #include <cmath>
+#include <chrono>
 
 namespace JS {
 

@@ -14,7 +14,7 @@ PropertyProxy::operator JS::Any() { return obj_->get(key_); }
 
 PropertyProxy::operator JS::Any() const { return obj_->get(key_); }
 
-PropertyProxy PropertyProxy::operator[](const std::string& key) const {
+PropertyProxy PropertyProxy::operator[](const std::u16string& key) const {
     JS::Any any = obj_->get(key_);
     if (any.getValue().index() == JS::OBJECT) {
         return PropertyProxy(std::get<std::shared_ptr<JS::InternalObject>>(any.getValue()), key);
@@ -23,10 +23,24 @@ PropertyProxy PropertyProxy::operator[](const std::string& key) const {
 }
 JS::Any PropertyProxy::call(const JS::Any& args) const {
     JS::Value value = obj_->get(key_).getValue();
-    if (value.index() == JS::OBJECT && std::get<std::shared_ptr<JS::InternalObject>>(value)->isCallable()) {
-        return std::get<std::shared_ptr<JS::InternalObject>>(value)->call(JS::Any(obj_), args);
+    if (value.index() == JS::OBJECT) {
+        auto Obj = std::get<std::shared_ptr<JS::InternalObject>>(value);
+        if (Obj->isCallable()) {
+            return Obj->call_function(JS::Any(obj_), args);
+        }
     }
     throw std::runtime_error("Value is not a function");
+}
+
+JS::Any PropertyProxy::constructor(const JS::Any& args) const {
+    JS::Value value = obj_->get(key_).getValue();
+    if (value.index() == JS::OBJECT) {
+        auto Obj = std::get<std::shared_ptr<JS::InternalObject>>(value);
+        if (Obj->construct != nullptr) {
+            return Obj->construct(JS::Any(obj_), args);
+        }
+    }
+    throw std::runtime_error("Value does not have a constructor");
 }
 
 JS::Value PropertyProxy::getValue() const { return obj_->get(key_).getValue(); }

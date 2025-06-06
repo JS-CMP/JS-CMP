@@ -131,24 +131,6 @@ JS::Any JS::Any::operator+(double value) const {
     return {};
 }
 
-JS::Any JS::Any::operator+(const char* value) const {
-    switch (this->value.index()) {
-        case NUMBER:
-            return JS::Any(JS::CONVERT::ToString(*this) + value);
-        case STRING:
-            return JS::Any(std::get<Rope>(this->value) + value);
-        case BOOLEAN:
-            return JS::Any(JS::CONVERT::ToString(*this) + value);
-        case FUNCTION:
-            return JS::Any(JS::CONVERT::ToString(*this) + value);
-        case UNDEFINED:
-            return JS::Any(JS::CONVERT::ToString(*this) + value);
-        case NULL_TYPE:
-            return JS::Any(JS::CONVERT::ToString(*this) + value);
-    }
-    return {};
-}
-
 JS::Any JS::Any::operator+(bool value) const {
     switch (this->value.index()) {
         case NUMBER:
@@ -163,6 +145,28 @@ JS::Any JS::Any::operator+(bool value) const {
             return JS::Any(std::numeric_limits<double>::quiet_NaN());
         case NULL_TYPE:
             return JS::Any(static_cast<double>(value));
+    }
+    return {};
+}
+
+JS::Any JS::Any::operator+(const char* value) const { return this->operator+(JS::CONVERT::ToUtf16(value)); }
+
+JS::Any JS::Any::operator+(const char16_t* value) const { return this->operator+(std::u16string(value)); }
+
+JS::Any JS::Any::operator+(const std::u16string& value) const {
+    switch (this->value.index()) {
+        case NUMBER:
+            return JS::Any(JS::CONVERT::ToString(*this) + value);
+        case STRING:
+            return JS::Any(std::get<Rope>(this->value) + value);
+        case BOOLEAN:
+            return JS::Any(JS::CONVERT::ToString(*this) + value);
+        case FUNCTION:
+            return JS::Any(JS::CONVERT::ToString(*this) + value);
+        case UNDEFINED:
+            return JS::Any(JS::CONVERT::ToString(*this) + value);
+        case NULL_TYPE:
+            return JS::Any(JS::CONVERT::ToString(*this) + value);
     }
     return {};
 }
@@ -185,7 +189,7 @@ JS::Any JS::Any::operator+(JS::Null) const {
     return {};
 }
 
-JS::Any JS::Any::operator+(JS::Undefined) const {
+JS::Any JS::Any::operator+(JS::Undefined /*unused*/) const {
     switch (this->value.index()) {
         case NUMBER:
             return JS::Any(std::numeric_limits<double>::quiet_NaN());
@@ -240,7 +244,11 @@ JS::Any operator+(double value, JS::Any const& any) {
     return {};
 }
 
-JS::Any operator+(const char* value, JS::Any const& any) {
+JS::Any operator+(const char* value, JS::Any const& any) { return JS::CONVERT::ToUtf16(value) + any; }
+
+JS::Any operator+(const char16_t* value, JS::Any const& any) { return std::u16string(value) + JS::Any(any); }
+
+JS::Any operator+(const std::u16string& value, JS::Any const& any) {
     switch (any.getValue().index()) {
         case JS::NUMBER:
             return JS::Any(value + JS::CONVERT::ToString(any));
@@ -298,7 +306,7 @@ JS::Any operator+(JS::Null, JS::Any const& any) {
     return {};
 }
 
-JS::Any operator+(JS::Undefined, JS::Any const& any) {
+JS::Any operator+(JS::Undefined /*unused*/, JS::Any const& any) {
     switch (any.getValue().index()) {
         case JS::NUMBER:
             return JS::Any(std::numeric_limits<double>::quiet_NaN());

@@ -7,15 +7,15 @@
 namespace JS::GLOBAL {
 
 JS::Any parseInt(const JS::Any& thisArgs, const JS::Any& args) {
-    std::string inputString = JS::CONVERT::ToString(args["0"]);
-    int radix = JS::CONVERT::ToInteger(args["1"]);
+    std::u16string inputString = JS::CONVERT::ToString(args[u"0"]);
+    int radix = JS::CONVERT::ToInteger(args[u"1"]);
 
     try {
-        size_t start = inputString.find_first_not_of(" \t\n\r");
-        if (start == std::string::npos) {
+        size_t start = inputString.find_first_not_of(u" \t\n\r");
+        if (start == std::u16string::npos) {
             return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
-        std::string S = inputString.substr(start);
+        std::u16string S = inputString.substr(start);
 
         int sign = 1;
         if (!S.empty() && (S[0] == '-' || S[0] == '+')) {
@@ -40,7 +40,7 @@ JS::Any parseInt(const JS::Any& thisArgs, const JS::Any& args) {
             S = S.substr(2);
         }
 
-        std::string Z;
+        std::u16string Z;
         for (char c : S) {
             int digit;
             if (std::isdigit(c)) {

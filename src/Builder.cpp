@@ -11,7 +11,7 @@ void Builder::build() {
     program.parse();
 
     if (this->options.getFlags() & OPTION_FLAG_PREPROCESS) {
-        std::cout << program << std::endl;
+        std::cout << program << '\n';
         return;
     }
     std::string inputFilename = this->options.getFilename() + std::string(".cpp");
@@ -19,20 +19,21 @@ void Builder::build() {
     outputFile << program;
     outputFile.close();
 
-    std::cout << "Compiler Found: " << this->options.getCompiler() << std::endl;
-    std::cout << "Compiling " << this->options.getFilename() << " to " << this->options.getOutputFilename()
-              << std::endl;
+    std::cout << "Compiler Found: " << this->options.getCompiler() << '\n';
+    std::cout << "Compiling " << this->options.getFilename() << " to " << this->options.getOutputFilename() << '\n';
     compiling(inputFilename);
 }
 
 void Builder::compiling(const std::string& inputFilename) const {
     std::string customArgs = this->options.getCompilerArgs().empty()
-                                 ? std::string(" -Ofast -std=c++20 ")
-                                 : std::string(" -Ofast -std=c++20 ") + this->options.getCompilerArgs();
+                                 ? std::string(" -O3 -std=c++20 ")
+                                 : std::string(" -O3 -std=c++20 ") + this->options.getCompilerArgs();
     std::string compiler = this->options.getCompiler();
     std::string outputFilename = options.getOutputFilename();
-    std::string command = compiler + customArgs + inputFilename + std::string(" -o ") + outputFilename +
-                          std::string(" -Iincludes -L./ -ljscmp");
+    std::string command =
+        compiler + customArgs + inputFilename + std::string(" -o ") + outputFilename +
+        std::string(" -Iincludes -Isubmodules/SyntaxSmith/includes -L./ -ljscmp $(pkg-config --libs icu-uc icu-i18n)");
+
     system(command.c_str());
 }
 
@@ -48,7 +49,7 @@ std::string Builder::read_all(const std::string& filename) {
     while (inputFile.good()) {
         std::string line;
         std::getline(inputFile, line);
-        content += line + "\n";
+        content += line + '\n';
     }
     inputFile.close();
     return content;

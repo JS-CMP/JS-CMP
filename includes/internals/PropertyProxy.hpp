@@ -7,25 +7,31 @@
 namespace JS {
 class PropertyProxy {
 public:
-    PropertyProxy(const std::shared_ptr<JS::InternalObject> obj, std::string key) : obj_(obj), key_(std::move(key)) {}
+    PropertyProxy(const std::shared_ptr<JS::InternalObject>& obj, std::u16string key)
+        : obj_(obj), key_(std::move(key)) {}
 
     // Setter
     PropertyProxy& operator=(const JS::Any& value);
 
     // Getter
-    operator JS::Any(); // must implicitly convert to JS::Any
+    operator JS::Any(); // NOLINT(hicpp-explicit-conversions)
 
-    operator JS::Any() const; // must implicitly convert to JS::Any
+    operator JS::Any() const; // NOLINT(hicpp-explicit-conversions)
 
-    PropertyProxy operator[](const std::string& key) const;
+    PropertyProxy operator[](const std::u16string& key) const;
 
     // Overload operator() to cast to JS::Any and call operator()
     template <typename... Args>
     JS::Any operator()(Args&&... args) {
         return call(JS::Arguments::CreateArgumentsObject(std::vector<JS::Any>{args...}));
     }
+    /** @brief Call operator for the object */
     JS::Any call(const JS::Any& args) const;
 
+    /** @brief Invoke the constructor method for this property */
+    JS::Any constructor(const JS::Any& args) const;
+
+    /** @brief Get the value of the property */
     JS::Value getValue() const;
 
     bool operator==(const PropertyProxy& property_proxy) const;
@@ -33,7 +39,7 @@ public:
 
 private:
     std::shared_ptr<JS::InternalObject> obj_;
-    std::string key_;
+    std::u16string key_;
 };
 std::ostream& operator<<(std::ostream& os, const PropertyProxy& proxy);
 } // namespace JS

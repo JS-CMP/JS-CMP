@@ -30,14 +30,14 @@ const char *JS::Any::what() const noexcept {
 
 namespace JS {
 std::ostream& operator<<(std::ostream& os, const Any& any) {
-    os << JS::CONVERT::ToString(any);
+    os << JS::CONVERT::ToUtf8(JS::CONVERT::ToString(any));
     return os;
 }
 
 // TODO: remove and rework assert when custom operator merged
 bool JS::Any::strictEq(const JS::Any& other) const {
     // TODO: handle identity
-    std::cout << value.index() << " " << other.value.index() << std::endl;
+    std::cout << value.index() << " " << other.value.index() << '\n';
     if (this->value.index() != other.value.index()) {
         return false;
     }

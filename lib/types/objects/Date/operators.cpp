@@ -56,17 +56,17 @@ namespace JS::DateOperators {
         double day = DayWithinYear(t);
         bool leap = InLeapYear(t);
 
-        if (day < 31) return 0;
-        if (day < 59 + leap) return 1;
-        if (day < 90 + leap) return 2;
-        if (day < 120 + leap) return 3;
-        if (day < 151 + leap) return 4;
-        if (day < 181 + leap) return 5;
-        if (day < 212 + leap) return 6;
-        if (day < 243 + leap) return 7;
-        if (day < 273 + leap) return 8;
-        if (day < 304 + leap) return 9;
-        if (day < 334 + leap) return 10;
+        if (day < 31) { return 0; }
+        if (day < 59 + leap) { return 1; }
+        if (day < 90 + leap) { return 2; }
+        if (day < 120 + leap) { return 3; }
+        if (day < 151 + leap) { return 4; }
+        if (day < 181 + leap) { return 5; }
+        if (day < 212 + leap) { return 6; }
+        if (day < 243 + leap) { return 7; }
+        if (day < 273 + leap) { return 8; }
+        if (day < 304 + leap) { return 9; }
+        if (day < 334 + leap) { return 10; }
         return 11;
     }
 
@@ -114,11 +114,11 @@ namespace JS::DateOperators {
         UErrorCode status = U_ZERO_ERROR;
         icu::TimeZone* tz = icu::TimeZone::createDefault();
         int32_t rawOffset, dstOffset;
-        UDate date = static_cast<UDate>(t);
+        UDate date = t;
         tz->getOffset(date, false, rawOffset, dstOffset, status);
         delete tz;
 
-        double dstAdjustment = static_cast<double>(dstOffset);
+        double dstAdjustment = dstOffset;
         return dstAdjustment;
     }
 

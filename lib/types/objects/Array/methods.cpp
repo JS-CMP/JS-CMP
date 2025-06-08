@@ -190,7 +190,8 @@ JS::Any Array::join(const JS::Any& thisArg, const JS::Any& args) {
     if (len == 0) {
         return JS::Any(u"");
     }
-    std::u16string sep = JS::COMPARE::Type(args[u"0"], JS::UNDEFINED) ? JS::ArraySeparator : JS::CONVERT::ToString(args[u"0"]);
+    std::u16string sep =
+        JS::COMPARE::Type(args[u"0"], JS::UNDEFINED) ? JS::ArraySeparator : JS::CONVERT::ToString(args[u"0"]);
     JS::Any element0 = O->get(u"0");
     std::u16string R = JS::COMPARE::Type(element0, JS::UNDEFINED) || JS::COMPARE::Type(element0, JS::NULL_TYPE)
                            ? u""
@@ -376,8 +377,7 @@ JS::Any Array::splice(const JS::Any& thisArg, const JS::Any& args) {
         std::u16string from = JS::CONVERT::ToString(actualStart + actualDeleteCount - 1);
         if (O->hasProperty(from)) {
             JS::Any fromValue = O->get(from);
-            A->defineOwnProperty(JS::CONVERT::ToString(k),
-                                 JS::DataDescriptor{fromValue, true, true, true}, false);
+            A->defineOwnProperty(JS::CONVERT::ToString(k), JS::DataDescriptor{fromValue, true, true, true}, false);
         }
         actualDeleteCount--;
         k++;

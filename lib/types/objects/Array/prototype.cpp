@@ -1,5 +1,6 @@
-#include "types/objects/JsArray.hpp"
 #include "internals/PropertyProxy.hpp"
+#include "types/objects/JsArray.hpp"
+
 #include <utils/Compare.hpp>
 
 // static

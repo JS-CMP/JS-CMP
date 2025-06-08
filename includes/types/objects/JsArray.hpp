@@ -118,7 +118,6 @@ public:
 
     /** @brief Returns a shared pointer to the prototype properties of the Array object. */
     static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
-
 };
 
 } // namespace JS

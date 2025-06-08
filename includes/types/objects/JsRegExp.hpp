@@ -1,5 +1,5 @@
-#ifndef JS_CMP_JSRegex_HPP
-#define JS_CMP_JSRegex_HPP
+#ifndef JS_CMP_JSRegExp_HPP
+#define JS_CMP_JSRegExp_HPP
 
 #define BOOST_REGEX_BLOCKSIZE 8192
 #define BOOST_REGEX_NON_RECURSIVE
@@ -12,27 +12,27 @@
 
 namespace JS {
 /**
- * @class Regex
- * @brief Represents a JavaScript-like Regex object in C++.
+ * @class RegExp
+ * @brief Represents a JavaScript-like RegExp object in C++.
  *
- * The `Regex` class is a representation of a JavaScript regular expression object.
+ * The `RegExp` class is a representation of a JavaScript regular expression object.
  * It inherits from `JS::InternalObject` and provides methods to manipulate and interact with regular expressions.
  *
  * https://262.ecma-international.org/5.1/#sec-15.10
  */
-class Regex : public JS::InternalObject {
+class RegExp : public JS::InternalObject {
 public:
     /**
      * @name Constructors
-     * These constructors create a new Regex object with the given value
+     * These constructors create a new RegExp object with the given value
      */
     ///@{
     /** @brief Constructor that initializes the object with a given value */
-    explicit Regex(const JS::Any& pattern, const JS::Any& flags);
+    explicit RegExp(const JS::Any& pattern, const JS::Any& flags);
     ///@}
 
     /** @brief The destructor for the object defaulted */
-    ~Regex() override = default;
+    ~RegExp() override = default;
 
     /**
      * @name Methods that override internal methods of the Object
@@ -45,7 +45,7 @@ public:
     ///@}
 
     /**
-     * @name Prototype methods of the Regex object built-in
+     * @name Prototype methods of the RegExp object built-in
      */
     ///@{
     /** @brief Performs a regular expression match on the given string
@@ -59,7 +59,7 @@ public:
     static JS::Any toString(const JS::Any& thisArg, const JS::Any& args);
     ///@}
 
-    /** @brief Returns a shared pointer to the prototype properties of the Regex object. */
+    /** @brief Returns a shared pointer to the prototype properties of the RegExp object. */
     static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
 
 private:
@@ -67,4 +67,4 @@ private:
 };
 } // namespace JS
 
-#endif // JS_CMP_JSRegex_HPP
+#endif // JS_CMP_JSRegExp_HPP

@@ -1,19 +1,19 @@
 #include "internals/Attribute.hpp"
 #include "types/objects/Function/JsFunction.hpp"
-#include "types/objects/JsRegex.hpp"
+#include "types/objects/JsRegExp.hpp"
 #include "utils/Compare.hpp"
 #include "utils/Convert.hpp"
 
 namespace JS {
-Regex::Regex(const JS::Any& pattern, const JS::Any& flags)
-    : JS::InternalObject({}, getPrototypeProperties(), u"Regex", true) {
+RegExp::RegExp(const JS::Any& pattern, const JS::Any& flags)
+    : JS::InternalObject({}, getPrototypeProperties(), u"RegExp", true) {
     if (JS::COMPARE::Type(pattern, JS::OBJECT) &&
-        std::get<std::shared_ptr<JS::InternalObject>>(pattern.getValue())->class_name == u"Regex") {
+        std::get<std::shared_ptr<JS::InternalObject>>(pattern.getValue())->class_name == u"RegExp") {
         if (JS::COMPARE::Type(flags, JS::UNDEFINED)) {
-            auto regexObj = std::get<std::shared_ptr<JS::InternalObject>>(pattern.getValue());
-            std::u16string P = JS::CONVERT::ToString(regexObj->get(u"source"));
+            auto RegExpObj = std::get<std::shared_ptr<JS::InternalObject>>(pattern.getValue());
+            std::u16string P = JS::CONVERT::ToString(RegExpObj->get(u"source"));
         } else {
-            throw std::runtime_error("TypeError: Invalid flags for Regex"); // TODO: type error
+            throw std::runtime_error("TypeError: Invalid flags for RegExp"); // TODO: type error
         }
     } else {
         std::u16string P = JS::CONVERT::ToString(pattern);

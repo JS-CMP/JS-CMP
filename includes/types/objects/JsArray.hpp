@@ -5,6 +5,8 @@
 
 namespace JS {
 
+static const std::u16string ArraySeparator = u","; // Default separator, can be overridden by host environment
+
 /**
  * @class Array
  * @brief Represents a JavaScript-like array object in C++.
@@ -116,6 +118,7 @@ public:
 
     /** @brief Returns a shared pointer to the prototype properties of the Array object. */
     static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
+
 };
 
 } // namespace JS

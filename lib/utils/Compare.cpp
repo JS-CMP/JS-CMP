@@ -17,6 +17,11 @@ bool Type(const JS::Types& a, const JS::Any& b) {
     return a == b.getValue().index();
 }
 
+bool Object(const JS::Any& obj, const std::u16string& class_name) {
+    return obj.getValue().index() == JS::OBJECT &&
+        std::get<std::shared_ptr<JS::InternalObject>>(obj.getValue())->class_name == class_name;
+}
+
 bool SameValue(const double& a, const double& b) {
     if (std::isnan(a) && std::isnan(b)) {
         return true;

@@ -153,8 +153,7 @@ JS::Any assert::throwsHelper(const JS::Any& thisArgs, const JS::Any& args) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()), u"(The \"fn\" argument must be specified.)",
                         u"ERR_MISSING_ARGS");
     }
-    if (JS::COMPARE::Type(args[0], JS::OBJECT) &&
-        std::get<std::shared_ptr<JS::InternalObject>>(args[0].getValue())->class_name == u"Function") {
+    if (!JS::COMPARE::Object(args[0],  u"Function")) {
         throw TypeError(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()),
                         u"(The \"fn\" argument must be a function.)", u"ERR_INVALID_ARG_TYPE");
     }

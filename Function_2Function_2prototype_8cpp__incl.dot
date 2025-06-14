@@ -6,7 +6,7 @@ digraph "lib/types/objects/Function/Function/prototype.cpp"
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   Node1 [id="Node000001",label="lib/types/objects/Function\l/Function/prototype.cpp",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="types/objects/Function\l/JsFunction.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Function_2JsFunction_8hpp.html",tooltip=" "];
+  Node2 [id="Node000002",label="types/objects/Function\l/JsFunction.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$JsFunction_8hpp.html",tooltip=" "];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
   Node3 [id="Node000003",label="types/objects/JsObject.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$JsObject_8hpp.html",tooltip=" "];
   Node3 -> Node4 [id="edge3_Node000003_Node000004",color="steelblue1",style="solid",tooltip=" "];
@@ -81,4 +81,8 @@ digraph "lib/types/objects/Function/Function/prototype.cpp"
   Node29 -> Node4 [id="edge46_Node000029_Node000004",color="steelblue1",style="solid",tooltip=" "];
   Node29 -> Node6 [id="edge47_Node000029_Node000006",color="steelblue1",style="solid",tooltip=" "];
   Node29 -> Node22 [id="edge48_Node000029_Node000022",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node30 [id="edge49_Node000001_Node000030",color="steelblue1",style="solid",tooltip=" "];
+  Node30 [id="Node000030",label="utils/Is.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Is_8hpp.html",tooltip=" "];
+  Node30 -> Node4 [id="edge50_Node000030_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node30 -> Node6 [id="edge51_Node000030_Node000006",color="steelblue1",style="solid",tooltip=" "];
 }

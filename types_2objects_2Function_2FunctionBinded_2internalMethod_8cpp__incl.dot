@@ -8,7 +8,7 @@ digraph "lib/types/objects/Function/FunctionBinded/internalMethod.cpp"
   Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
   Node2 [id="Node000002",label="types/objects/Function\l/JsFunctionBinded.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$JsFunctionBinded_8hpp.html",tooltip=" "];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="JsFunction.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Function_2JsFunction_8hpp.html",tooltip=" "];
+  Node3 [id="Node000003",label="JsFunction.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$JsFunction_8hpp.html",tooltip=" "];
   Node3 -> Node4 [id="edge3_Node000003_Node000004",color="steelblue1",style="solid",tooltip=" "];
   Node4 [id="Node000004",label="types/objects/JsObject.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$JsObject_8hpp.html",tooltip=" "];
   Node4 -> Node5 [id="edge4_Node000004_Node000005",color="steelblue1",style="solid",tooltip=" "];

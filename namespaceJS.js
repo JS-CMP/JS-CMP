@@ -5,6 +5,7 @@ var namespaceJS =
     ] ],
     [ "COMPARE", "namespaceJS_1_1COMPARE.html", [
       [ "CheckObjectCoercible", "namespaceJS_1_1COMPARE.html#aaf0fbf149c0287e7b368bf7e5477f025", null ],
+      [ "Object", "namespaceJS_1_1COMPARE.html#af16c54c97c2ef7c6c04abdb05da5665e", null ],
       [ "SameValue", "namespaceJS_1_1COMPARE.html#a09ad29071ad75fa9f05fb1385a4e3b02", null ],
       [ "SameValue", "namespaceJS_1_1COMPARE.html#a6417bd75d76dee6cad5232448eb0cd0c", null ],
       [ "SameValue", "namespaceJS_1_1COMPARE.html#ab6a8b21acf36a89df3ade288f90b4d50", null ],
@@ -70,7 +71,7 @@ var namespaceJS =
       [ "ToNumber", "namespaceJS_1_1CONVERT.html#aedbf58b50edc61f3377b0d0bffa7ddfd", null ],
       [ "ToNumber", "namespaceJS_1_1CONVERT.html#ab184f6b8d11fbb9bd202cb0696d15b41", null ],
       [ "ToObject", "namespaceJS_1_1CONVERT.html#aa9c4d2e847b5cf91c853ef39779fe266", null ],
-      [ "ToPrimitive", "namespaceJS_1_1CONVERT.html#aac25432861f768eb4a6b1dc54031c56e", null ],
+      [ "ToPrimitive", "namespaceJS_1_1CONVERT.html#a7559b07be26760507885d679255aede9", null ],
       [ "ToPropertyDescriptor", "namespaceJS_1_1CONVERT.html#a7f07225d3063165497330edf6982afc6", null ],
       [ "ToRope", "namespaceJS_1_1CONVERT.html#abe81bed7e7c99a4105f805ee56223678", null ],
       [ "ToRope", "namespaceJS_1_1CONVERT.html#a2f3571078d9d7be02fb4e3f00bc7cd25", null ],
@@ -136,7 +137,9 @@ var namespaceJS =
     ] ],
     [ "IS", "namespaceJS_1_1IS.html", [
       [ "AccessorDescriptor", "namespaceJS_1_1IS.html#a0887696e5a17c03b67a91ef28f41bcd7", null ],
+      [ "ArrayIndex", "namespaceJS_1_1IS.html#ac2c4133a5f96f4bc727bd0764306866e", null ],
       [ "Callable", "namespaceJS_1_1IS.html#aa6dda07e5ad567cf38e37634e78ec50b", null ],
+      [ "Callable", "namespaceJS_1_1IS.html#a4df149b517cafb0631698028e34fdd87", null ],
       [ "Callable", "namespaceJS_1_1IS.html#acdfcf6a607bbd332dc3ba45490b5c12d", null ],
       [ "DataDescriptor", "namespaceJS_1_1IS.html#aa0af0558235973ea1a510717f13aabad", null ],
       [ "GenericDescriptor", "namespaceJS_1_1IS.html#a2ffca92052cf0f654e66d020ae6bb88e", null ],
@@ -209,6 +212,7 @@ var namespaceJS =
     [ "operator/", "namespaceJS.html#a84605a2303ddb1252afdbf081ccf9eea", null ],
     [ "operator<<", "namespaceJS.html#ab2efcc411b684d052e72abf8795ce860", null ],
     [ "operator<<", "namespaceJS.html#afc3d14ccb6b59dac36c7bb93e21abdb8", null ],
+    [ "ArraySeparator", "namespaceJS.html#a48ec998c352ccf155e9ffe25e365bdaa", null ],
     [ "function_properties_prototype", "namespaceJS.html#a33f507a0ca565090703e80eaa5092abb", null ],
     [ "function_prototype", "namespaceJS.html#a21b5dcb2a5d3f45dbcb80fb8c5013f07", null ]
 ];

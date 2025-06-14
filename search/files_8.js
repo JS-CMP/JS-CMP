@@ -5,7 +5,7 @@ var searchData=
   ['jsarray_2ehpp_2',['JsArray.hpp',['../JsArray_8hpp.html',1,'']]],
   ['jsboolean_2ehpp_3',['JsBoolean.hpp',['../JsBoolean_8hpp.html',1,'']]],
   ['jsfunction_2ecpp_4',['JsFunction.cpp',['../JsFunction_8cpp.html',1,'']]],
-  ['jsfunction_2ehpp_5',['jsfunction.hpp',['../Function_2JsFunction_8hpp.html',1,'(Global Namespace)'],['../JsFunction_8hpp.html',1,'(Global Namespace)']]],
+  ['jsfunction_2ehpp_5',['JsFunction.hpp',['../JsFunction_8hpp.html',1,'']]],
   ['jsfunctionbinded_2ehpp_6',['JsFunctionBinded.hpp',['../JsFunctionBinded_8hpp.html',1,'']]],
   ['jsmath_2ehpp_7',['JsMath.hpp',['../JsMath_8hpp.html',1,'']]],
   ['jsnumber_2ehpp_8',['JsNumber.hpp',['../JsNumber_8hpp.html',1,'']]],

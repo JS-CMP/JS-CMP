@@ -1,7 +1,7 @@
 var searchData=
 [
   ['l_5fparen_0',['L_PAREN',['../Declaration_8hpp.html#ad43fda2ce3d149c92179e57cb933a6a2',1,'Declaration.hpp']]],
-  ['lastindexof_1',['lastIndexOf',['../classJS_1_1String.html#a63f4381711fbf70b6b4f6ad845c78740',1,'JS::String']]],
+  ['lastindexof_1',['lastindexof',['../classJS_1_1Array.html#a9f451f2944f9b254837c641e46a2d59c',1,'JS::Array::lastIndexOf()'],['../classJS_1_1String.html#a63f4381711fbf70b6b4f6ad845c78740',1,'JS::String::lastIndexOf()']]],
   ['left_5fchevron_2ecpp_2',['Left_Chevron.cpp',['../Left__Chevron_8cpp.html',1,'']]],
   ['left_5fshift_2ecpp_3',['Left_Shift.cpp',['../Left__Shift_8cpp.html',1,'']]],
   ['length_4',['length',['../classRope.html#a373aed65f017618c23a11ee153b21fc4',1,'Rope::length()'],['../classRopeConcat.html#a26596d031519ec2f017d95ea29d8370c',1,'RopeConcat::length()'],['../classRopeLeaf.html#a3898dbb3ea0784614236c3e8cc45f46f',1,'RopeLeaf::length()'],['../classRopeNode.html#a20749afe44e571f977d201a56116caf1',1,'RopeNode::length()']]],

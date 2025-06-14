@@ -55,7 +55,7 @@ digraph "lib/types/objects/Object/constructor.cpp"
   Node20 [id="Node000020",label="utils/Declaration.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Declaration_8hpp.html",tooltip=" "];
   Node2 -> Node4 [id="edge30_Node000002_Node000004",color="steelblue1",style="solid",tooltip=" "];
   Node1 -> Node21 [id="edge31_Node000001_Node000021",color="steelblue1",style="solid",tooltip=" "];
-  Node21 [id="Node000021",label="types/objects/Function\l/JsFunction.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Function_2JsFunction_8hpp.html",tooltip=" "];
+  Node21 [id="Node000021",label="types/objects/Function\l/JsFunction.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$JsFunction_8hpp.html",tooltip=" "];
   Node21 -> Node22 [id="edge32_Node000021_Node000022",color="steelblue1",style="solid",tooltip=" "];
   Node22 [id="Node000022",label="types/objects/JsObject.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$JsObject_8hpp.html",tooltip=" "];
   Node22 -> Node23 [id="edge33_Node000022_Node000023",color="steelblue1",style="solid",tooltip=" "];

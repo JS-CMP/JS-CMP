@@ -75,6 +75,6 @@ digraph "lib/types/objects/Function/FunctionBinded/constructor.cpp"
   Node1 -> Node27 [id="edge43_Node000001_Node000027",color="steelblue1",style="solid",tooltip=" "];
   Node27 [id="Node000027",label="types/objects/Function\l/JsFunctionBinded.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$JsFunctionBinded_8hpp.html",tooltip=" "];
   Node27 -> Node28 [id="edge44_Node000027_Node000028",color="steelblue1",style="solid",tooltip=" "];
-  Node28 [id="Node000028",label="JsFunction.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Function_2JsFunction_8hpp.html",tooltip=" "];
+  Node28 [id="Node000028",label="JsFunction.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$JsFunction_8hpp.html",tooltip=" "];
   Node28 -> Node2 [id="edge45_Node000028_Node000002",color="steelblue1",style="solid",tooltip=" "];
 }

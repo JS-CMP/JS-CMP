@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['rope_0',['Rope',['../classRope.html',1,'']]],
-  ['ropeconcat_1',['RopeConcat',['../classRopeConcat.html',1,'']]],
-  ['ropeiterator_2',['RopeIterator',['../classRopeIterator.html',1,'']]],
-  ['ropeleaf_3',['RopeLeaf',['../classRopeLeaf.html',1,'']]],
-  ['ropenode_4',['RopeNode',['../classRopeNode.html',1,'']]]
+  ['regexp_0',['RegExp',['../classJS_1_1RegExp.html',1,'JS']]],
+  ['rope_1',['Rope',['../classRope.html',1,'']]],
+  ['ropeconcat_2',['RopeConcat',['../classRopeConcat.html',1,'']]],
+  ['ropeiterator_3',['RopeIterator',['../classRopeIterator.html',1,'']]],
+  ['ropeleaf_4',['RopeLeaf',['../classRopeLeaf.html',1,'']]],
+  ['ropenode_5',['RopeNode',['../classRopeNode.html',1,'']]]
 ];

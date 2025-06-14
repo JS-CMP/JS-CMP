@@ -17,6 +17,7 @@ var classJS_1_1InternalObject =
     [ "hasInstance", "classJS_1_1InternalObject.html#a014880c7186c6a7603365d39835863be", null ],
     [ "hasProperty", "classJS_1_1InternalObject.html#a950c023236a6d2c4308d9b8ab8d9c350", null ],
     [ "isCallable", "classJS_1_1InternalObject.html#a9946e41bd1062fadbab593a2e28a6fc0", null ],
+    [ "match", "classJS_1_1InternalObject.html#a780c6ee8bf2cc3ae7bd5fb4c2a9736a0", null ],
     [ "operator()", "classJS_1_1InternalObject.html#ace845e0bb9a098e2cbc4df430385ddbb", null ],
     [ "operator=", "classJS_1_1InternalObject.html#acd21bca904cc1f13901b42000fb3fefc", null ],
     [ "operator[]", "classJS_1_1InternalObject.html#a350add67927bbaf1c4763d1281252b52", null ],

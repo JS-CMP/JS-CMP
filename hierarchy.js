@@ -17,6 +17,7 @@ var hierarchy =
         [ "JS::Object", "classJS_1_1Object.html", [
           [ "assert", "classassert.html", null ]
         ] ],
+        [ "JS::RegExp", "classJS_1_1RegExp.html", null ],
         [ "JS::String", "classJS_1_1String.html", null ]
       ] ]
     ] ],
@@ -26,6 +27,7 @@ var hierarchy =
         [ "TypeError", "classTypeError.html", null ]
       ] ]
     ] ],
+    [ "JS::Match", "structJS_1_1Match.html", null ],
     [ "JS::Math", "classJS_1_1Math.html", null ],
     [ "Options", "classOptions.html", null ],
     [ "JS::PropertyProxy", "classJS_1_1PropertyProxy.html", null ],

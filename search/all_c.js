@@ -12,7 +12,7 @@ var searchData=
   ['getexpected_9',['getExpected',['../classIAssertion.html#ae2d6481ff0568b8f45bfee29b6498afc',1,'IAssertion']]],
   ['getfilename_10',['getFilename',['../classOptions.html#a4e1fd4e1f8e27a1006dd3f8c17a231e8',1,'Options']]],
   ['getflags_11',['getFlags',['../classOptions.html#a1a44a71f48d899ecf217e889e4c7399c',1,'Options']]],
-  ['getleft_12',['getleft',['../classRopeLeaf.html#a272b253e19055ab39701979934d7c104',1,'RopeLeaf::getLeft()'],['../classRopeNode.html#a8b8b98364d884357c2045f90ac4c2395',1,'RopeNode::getLeft()'],['../classRopeConcat.html#a378ba76ebb5dc510d2f059cef53ba8f5',1,'RopeConcat::getLeft()']]],
+  ['getleft_12',['getleft',['../classRopeNode.html#a8b8b98364d884357c2045f90ac4c2395',1,'RopeNode::getLeft()'],['../classRopeLeaf.html#a272b253e19055ab39701979934d7c104',1,'RopeLeaf::getLeft()'],['../classRopeConcat.html#a378ba76ebb5dc510d2f059cef53ba8f5',1,'RopeConcat::getLeft()']]],
   ['getmessage_13',['getMessage',['../classIAssertion.html#a133421c30b1db6c0656aec56af9e3ccc',1,'IAssertion']]],
   ['getname_14',['getName',['../classIAssertion.html#a27009a99dc34719c356d9468aa4d2026',1,'IAssertion']]],
   ['getoperator_15',['getOperator',['../classIAssertion.html#aa1a46b13fd38d5f48fb769edf3058e32',1,'IAssertion']]],
@@ -22,12 +22,13 @@ var searchData=
   ['getownpropertynames_19',['getOwnPropertyNames',['../classJS_1_1Object.html#a92c27ab880fddce065c1986cf6d63d38',1,'JS::Object']]],
   ['getproperty_20',['getProperty',['../classJS_1_1InternalObject.html#ad68a9ea2a7022642eba7a268b08edc65',1,'JS::InternalObject']]],
   ['getprototypeof_21',['getPrototypeOf',['../classJS_1_1Object.html#a826a38b5325baae44eef31fe05ece2ca',1,'JS::Object']]],
-  ['getprototypeproperties_22',['getprototypeproperties',['../classJS_1_1Array.html#a7da5782d0d6c1f0355dc977a72246bfa',1,'JS::Array::getPrototypeProperties()'],['../classJS_1_1Boolean.html#aa222fb59c5c5d945a52484acc9adaced',1,'JS::Boolean::getPrototypeProperties()'],['../classJS_1_1Number.html#afd808f8c0624890f47b35736f236a865',1,'JS::Number::getPrototypeProperties()'],['../classJS_1_1Object.html#accaf1b16bf2e3d020611fe3e551913e5',1,'JS::Object::getPrototypeProperties()'],['../classJS_1_1String.html#a58ab3daeb09bf40f86969cca25d69465',1,'JS::String::getPrototypeProperties()']]],
+  ['getprototypeproperties_22',['getprototypeproperties',['../classJS_1_1Array.html#a7da5782d0d6c1f0355dc977a72246bfa',1,'JS::Array::getPrototypeProperties()'],['../classJS_1_1Boolean.html#aa222fb59c5c5d945a52484acc9adaced',1,'JS::Boolean::getPrototypeProperties()'],['../classJS_1_1Number.html#afd808f8c0624890f47b35736f236a865',1,'JS::Number::getPrototypeProperties()'],['../classJS_1_1Object.html#accaf1b16bf2e3d020611fe3e551913e5',1,'JS::Object::getPrototypeProperties()'],['../classJS_1_1RegExp.html#ad2da201a4084d024ca4eb11d8781c730',1,'JS::RegExp::getPrototypeProperties()'],['../classJS_1_1String.html#a58ab3daeb09bf40f86969cca25d69465',1,'JS::String::getPrototypeProperties()']]],
   ['getright_23',['getright',['../classRopeConcat.html#a801f0a5496629e65882a9bf248d4433d',1,'RopeConcat::getRight()'],['../classRopeLeaf.html#a448bff39923019e15855ffbaeb0970f4',1,'RopeLeaf::getRight()'],['../classRopeNode.html#a0cf7ef2afe4d3e00a7ae45c0a5b18b85',1,'RopeNode::getRight()']]],
   ['getvalue_24',['getvalue',['../classJS_1_1PropertyProxy.html#a60011f7959ed346551f3f29a8ca86132',1,'JS::PropertyProxy::getValue()'],['../classJS_1_1Any.html#a1c2e799407b4d95891252c6ebd028220',1,'JS::Any::getValue()']]],
   ['git_20submodules_25',['3. Initialize Git Submodules',['../index.html#autotoc_md6',1,'']]],
   ['global_26',['global',['../global_8hpp.html#a0367ff1ec4d051794bc2cb7f5e610b89',1,'global.hpp']]],
   ['global_2ehpp_27',['global.hpp',['../global_8hpp.html',1,'']]],
   ['globalfunctions_2ehpp_28',['globalFunctions.hpp',['../globalFunctions_8hpp.html',1,'']]],
-  ['guidelines_29',['Contribution Guidelines',['../md_CONTRIBUTING.html#autotoc_md56',1,'']]]
+  ['groups_29',['groups',['../structJS_1_1Match.html#a02b5b7c7287d7593b7540dac2fe05b61',1,'JS::Match']]],
+  ['guidelines_30',['Contribution Guidelines',['../md_CONTRIBUTING.html#autotoc_md56',1,'']]]
 ];

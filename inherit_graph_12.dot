@@ -5,23 +5,9 @@ digraph "Graphical Class Hierarchy"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="std::enable_shared\l_from_this",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
-  Node0 -> Node1 [id="edge3_Node000000_Node000001",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node1 [id="Node000001",label="JS::InternalObject",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classJS_1_1InternalObject.html",tooltip="Represents a base object for all JavaScript-like objects in C++."];
-  Node1 -> Node2 [id="edge4_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="JS::Array",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classJS_1_1Array.html",tooltip="Represents a JavaScript-like array object in C++."];
-  Node1 -> Node3 [id="edge5_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="JS::Boolean",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classJS_1_1Boolean.html",tooltip="Represent the boolean object in C++."];
-  Node1 -> Node4 [id="edge6_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node4 [id="Node000004",label="JS::Function",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classJS_1_1Function.html",tooltip="Represents a JavaScript-like function object in C++."];
-  Node4 -> Node5 [id="edge7_Node000004_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node5 [id="Node000005",label="JS::FunctionBinded",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classJS_1_1FunctionBinded.html",tooltip="Represents a binded function object in C++. This class is a subclass of Function."];
-  Node1 -> Node6 [id="edge8_Node000001_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node6 [id="Node000006",label="JS::Number",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classJS_1_1Number.html",tooltip="Represent the number object in C++."];
-  Node1 -> Node7 [id="edge9_Node000001_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node7 [id="Node000007",label="JS::Object",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classJS_1_1Object.html",tooltip="Represents a JavaScript-like object in C++."];
-  Node7 -> Node8 [id="edge10_Node000007_Node000008",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node8 [id="Node000008",label="assert",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classassert.html",tooltip=" "];
-  Node1 -> Node9 [id="edge11_Node000001_Node000009",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node9 [id="Node000009",label="JS::String",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classJS_1_1String.html",tooltip="Represents the string object in C++."];
+  Node0 [id="Node000000",label="RopeNode",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classRopeNode.html",tooltip="Abstract base class representing a node in a Rope data structure."];
+  Node0 -> Node1 [id="edge1_Node000000_Node000001",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node1 [id="Node000001",label="RopeConcat",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classRopeConcat.html",tooltip="Represents a concatenation node in a Rope data structure."];
+  Node0 -> Node2 [id="edge2_Node000000_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="RopeLeaf",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classRopeLeaf.html",tooltip="Concrete class representing a leaf node in a Rope data structure."];
 }

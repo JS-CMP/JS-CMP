@@ -18,5 +18,6 @@ var searchData=
   ['jsmath_2ehpp_15',['JsMath.hpp',['../JsMath_8hpp.html',1,'']]],
   ['jsnumber_2ehpp_16',['JsNumber.hpp',['../JsNumber_8hpp.html',1,'']]],
   ['jsobject_2ehpp_17',['JsObject.hpp',['../JsObject_8hpp.html',1,'']]],
-  ['jsstring_2ehpp_18',['JsString.hpp',['../JsString_8hpp.html',1,'']]]
+  ['jsregexp_2ehpp_18',['JsRegExp.hpp',['../JsRegExp_8hpp.html',1,'']]],
+  ['jsstring_2ehpp_19',['JsString.hpp',['../JsString_8hpp.html',1,'']]]
 ];

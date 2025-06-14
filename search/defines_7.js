@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['r_5fparen_0',['R_PAREN',['../Declaration_8hpp.html#ad4f11ff9b7485dc35d80a1d8d91f25f4',1,'Declaration.hpp']]]
+  ['new_0',['NEW',['../New_8hpp.html#a2dc7161d050a803b7eb6dc6fe7ac041f',1,'New.hpp']]]
 ];

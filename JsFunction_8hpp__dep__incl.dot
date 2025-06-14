@@ -51,7 +51,11 @@ digraph "includes/types/objects/Function/JsFunction.hpp"
   Node1 -> Node22 [id="edge24_Node000001_Node000022",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node22 [id="Node000022",label="lib/types/objects/Object\l/protoypeProperties.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$protoypeProperties_8cpp.html",tooltip=" "];
   Node1 -> Node23 [id="edge25_Node000001_Node000023",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node23 [id="Node000023",label="lib/types/objects/String\l/constructor.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$types_2objects_2String_2constructor_8cpp.html",tooltip=" "];
+  Node23 [id="Node000023",label="lib/types/objects/RegExp\l/constructor.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$types_2objects_2RegExp_2constructor_8cpp.html",tooltip=" "];
   Node1 -> Node24 [id="edge26_Node000001_Node000024",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node24 [id="Node000024",label="lib/types/objects/String\l/prototypeProperties.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$String_2prototypeProperties_8cpp.html",tooltip=" "];
+  Node24 [id="Node000024",label="lib/types/objects/RegExp\l/prototypeProperties.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$RegExp_2prototypeProperties_8cpp.html",tooltip=" "];
+  Node1 -> Node25 [id="edge27_Node000001_Node000025",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node25 [id="Node000025",label="lib/types/objects/String\l/constructor.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$types_2objects_2String_2constructor_8cpp.html",tooltip=" "];
+  Node1 -> Node26 [id="edge28_Node000001_Node000026",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node26 [id="Node000026",label="lib/types/objects/String\l/prototypeProperties.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$String_2prototypeProperties_8cpp.html",tooltip=" "];
 }

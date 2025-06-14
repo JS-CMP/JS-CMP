@@ -21,4 +21,6 @@ digraph "includes/types/objects/JsArray.hpp"
   Node8 [id="Node000008",label="lib/types/objects/Array\l/prototype.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Array_2prototype_8cpp.html",tooltip=" "];
   Node1 -> Node9 [id="edge8_Node000001_Node000009",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node9 [id="Node000009",label="lib/types/objects/Array\l/prototypeProperties.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Array_2prototypeProperties_8cpp.html",tooltip=" "];
+  Node1 -> Node10 [id="edge9_Node000001_Node000010",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node10 [id="Node000010",label="lib/types/objects/RegExp\l/methods.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$RegExp_2methods_8cpp.html",tooltip=" "];
 }

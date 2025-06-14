@@ -35,15 +35,19 @@ digraph "includes/utils/Compare.hpp"
   Node1 -> Node15 [id="edge15_Node000001_Node000015",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node15 [id="Node000015",label="lib/types/objects/Object\l/prototype.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Object_2prototype_8cpp.html",tooltip=" "];
   Node1 -> Node16 [id="edge16_Node000001_Node000016",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node16 [id="Node000016",label="lib/types/objects/String\l/methods.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$String_2methods_8cpp.html",tooltip=" "];
+  Node16 [id="Node000016",label="lib/types/objects/RegExp\l/constructor.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$types_2objects_2RegExp_2constructor_8cpp.html",tooltip=" "];
   Node1 -> Node17 [id="edge17_Node000001_Node000017",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node17 [id="Node000017",label="lib/utils/Compare.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Compare_8cpp.html",tooltip=" "];
+  Node17 [id="Node000017",label="lib/types/objects/RegExp\l/methods.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$RegExp_2methods_8cpp.html",tooltip=" "];
   Node1 -> Node18 [id="edge18_Node000001_Node000018",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node18 [id="Node000018",label="lib/utils/Convert/ToObject.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$ToObject_8cpp.html",tooltip=" "];
+  Node18 [id="Node000018",label="lib/types/objects/String\l/methods.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$String_2methods_8cpp.html",tooltip=" "];
   Node1 -> Node19 [id="edge19_Node000001_Node000019",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node19 [id="Node000019",label="lib/utils/Convert/ToPrimitive.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$ToPrimitive_8cpp.html",tooltip=" "];
+  Node19 [id="Node000019",label="lib/utils/Compare.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Compare_8cpp.html",tooltip=" "];
   Node1 -> Node20 [id="edge20_Node000001_Node000020",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node20 [id="Node000020",label="lib/utils/Convert/ToProperty\lDescriptor.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$ToPropertyDescriptor_8cpp.html",tooltip=" "];
+  Node20 [id="Node000020",label="lib/utils/Convert/ToObject.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$ToObject_8cpp.html",tooltip=" "];
   Node1 -> Node21 [id="edge21_Node000001_Node000021",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node21 [id="Node000021",label="lib/utils/Is.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Is_8cpp.html",tooltip=" "];
+  Node21 [id="Node000021",label="lib/utils/Convert/ToPrimitive.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$ToPrimitive_8cpp.html",tooltip=" "];
+  Node1 -> Node22 [id="edge22_Node000001_Node000022",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node22 [id="Node000022",label="lib/utils/Convert/ToProperty\lDescriptor.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$ToPropertyDescriptor_8cpp.html",tooltip=" "];
+  Node1 -> Node23 [id="edge23_Node000001_Node000023",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node23 [id="Node000023",label="lib/utils/Is.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Is_8cpp.html",tooltip=" "];
 }

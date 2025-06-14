@@ -9,6 +9,7 @@ var searchData=
   ['_7enumber_6',['~Number',['../classJS_1_1Number.html#a3030102a79e28a8a657697cee2312203',1,'JS::Number']]],
   ['_7eobject_7',['~Object',['../classJS_1_1Object.html#ad3d93de79afdf210892e127da27e6aa6',1,'JS::Object']]],
   ['_7eoptions_8',['~Options',['../classOptions.html#a0bf0757248a84e954165d21613308b86',1,'Options']]],
-  ['_7eropenode_9',['~RopeNode',['../classRopeNode.html#a6eaab31ba7910e144622bbc22ea59668',1,'RopeNode']]],
-  ['_7estring_10',['~String',['../classJS_1_1String.html#aaa4b61b1aadb3dd38419af4143b62361',1,'JS::String']]]
+  ['_7eregexp_9',['~RegExp',['../classJS_1_1RegExp.html#ade006f663aef7d2e0d61395777283c8d',1,'JS::RegExp']]],
+  ['_7eropenode_10',['~RopeNode',['../classRopeNode.html#a6eaab31ba7910e144622bbc22ea59668',1,'RopeNode']]],
+  ['_7estring_11',['~String',['../classJS_1_1String.html#aaa4b61b1aadb3dd38419af4143b62361',1,'JS::String']]]
 ];

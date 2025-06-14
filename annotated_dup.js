@@ -10,10 +10,12 @@ var annotated_dup =
       [ "Function", "classJS_1_1Function.html", "classJS_1_1Function" ],
       [ "FunctionBinded", "classJS_1_1FunctionBinded.html", "classJS_1_1FunctionBinded" ],
       [ "InternalObject", "classJS_1_1InternalObject.html", "classJS_1_1InternalObject" ],
+      [ "Match", "structJS_1_1Match.html", "structJS_1_1Match" ],
       [ "Math", "classJS_1_1Math.html", "classJS_1_1Math" ],
       [ "Number", "classJS_1_1Number.html", "classJS_1_1Number" ],
       [ "Object", "classJS_1_1Object.html", "classJS_1_1Object" ],
       [ "PropertyProxy", "classJS_1_1PropertyProxy.html", "classJS_1_1PropertyProxy" ],
+      [ "RegExp", "classJS_1_1RegExp.html", "classJS_1_1RegExp" ],
       [ "String", "classJS_1_1String.html", "classJS_1_1String" ]
     ] ],
     [ "assert", "classassert.html", "classassert" ],

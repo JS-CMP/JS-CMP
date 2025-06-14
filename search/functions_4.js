@@ -6,5 +6,6 @@ var searchData=
   ['equal_3',['equal',['../classassert.html#a9d503d7d7da70ff9d51a681927ead213',1,'assert']]],
   ['errmessage_4',['errMessage',['../classIAssertion.html#aeef9308db5c4f2c1fb690d447261306e',1,'IAssertion']]],
   ['every_5',['every',['../classJS_1_1Array.html#a7fb97cf7f6823a7307491a395979e98d',1,'JS::Array']]],
-  ['exp_6',['exp',['../classJS_1_1Math.html#a05b075905347e52e2ffcf139e483ccf0',1,'JS::Math']]]
+  ['exec_6',['exec',['../classJS_1_1RegExp.html#aa4d8b6c3077cbe6d75aac9cb0cc8c33d',1,'JS::RegExp']]],
+  ['exp_7',['exp',['../classJS_1_1Math.html#a05b075905347e52e2ffcf139e483ccf0',1,'JS::Math']]]
 ];

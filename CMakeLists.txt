@@ -23,7 +23,7 @@ if(APPLE)
 endif()
 
 # Find Packages
-find_package(Boost REQUIRED COMPONENTS program_options)
+find_package(Boost REQUIRED COMPONENTS program_options regex)
 find_package(ICU REQUIRED COMPONENTS uc i18n)
 
 
@@ -33,8 +33,10 @@ file(GLOB_RECURSE SOURCES_LIB "lib/*.cpp")
 add_library(jscmp STATIC ${SOURCES_LIB})
 
 target_link_libraries(jscmp PUBLIC ICU::uc ICU::i18n)
-
 target_include_directories(jscmp PRIVATE ${ICU_INCLUDE_DIRS})
+
+target_link_libraries(jscmp PRIVATE Boost::regex)
+target_include_directories(jscmp PRIVATE ${Boost_INCLUDE_DIRS})
 
 # JS_CMP executable
 file(GLOB_RECURSE SOURCES "src/*.cpp")

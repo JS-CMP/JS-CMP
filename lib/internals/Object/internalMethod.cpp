@@ -282,4 +282,7 @@ bool InternalObject::hasInstance(const JS::Any& value) const {
     throw std::runtime_error("TypeError: hasInstance not implemented for this object"); // TODO : TypeError
 }
 
+std::optional<JS::Match> InternalObject::match(const std::u16string& string, uint32_t index) const {
+    throw std::runtime_error("Native Error: match not implemented for this object"); // TODO : Native Error
+}
 } // namespace JS

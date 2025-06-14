@@ -9,6 +9,8 @@ bool Type(const JS::Any& a, const JS::Any& b);
 bool Type(const JS::Any& a, const JS::Types& b);
 bool Type(const JS::Types& a, const JS::Any& b);
 
+bool Object(const JS::Any& obj, const std::u16string& class_name);
+
 bool SameValue(const double& a, const double& b);
 bool SameValue(const Rope& a, const Rope& b);
 bool SameValue(const bool& a, const bool& b);

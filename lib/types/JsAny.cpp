@@ -2,7 +2,9 @@
 
 #include <types/JsAny.hpp>
 
-JS::Value JS::Any::getValue() const { return this->value; }
+JS::Value JS::Any::getValue() const {
+    return this->value;
+}
 
 namespace JS {
 std::ostream& operator<<(std::ostream& os, const Any& any) {
@@ -13,7 +15,6 @@ std::ostream& operator<<(std::ostream& os, const Any& any) {
 // TODO: remove and rework assert when custom operator merged
 bool JS::Any::strictEq(const JS::Any& other) const {
     // TODO: handle identity
-    std::cout << value.index() << " " << other.value.index() << '\n';
     if (this->value.index() != other.value.index()) {
         return false;
     }
@@ -36,5 +37,7 @@ bool JS::Any::strictEq(const JS::Any& other) const {
     }
 }
 
-bool JS::Any::strictNeq(const JS::Any& other) const { return !this->strictEq(other); }
+bool JS::Any::strictNeq(const JS::Any& other) const {
+    return !this->strictEq(other);
+}
 } // namespace JS

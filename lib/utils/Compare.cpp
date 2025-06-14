@@ -5,11 +5,22 @@
 #include <cmath>
 
 namespace JS::COMPARE {
-bool Type(const JS::Any& a, const JS::Any& b) { return a.getValue().index() == b.getValue().index(); }
+bool Type(const JS::Any& a, const JS::Any& b) {
+    return a.getValue().index() == b.getValue().index();
+}
 
-bool Type(const JS::Any& a, const JS::Types& b) { return a.getValue().index() == b; }
+bool Type(const JS::Any& a, const JS::Types& b) {
+    return a.getValue().index() == b;
+}
 
-bool Type(const JS::Types& a, const JS::Any& b) { return a == b.getValue().index(); }
+bool Type(const JS::Types& a, const JS::Any& b) {
+    return a == b.getValue().index();
+}
+
+bool Object(const JS::Any& obj, const std::u16string& class_name) {
+    return obj.getValue().index() == JS::OBJECT &&
+           std::get<std::shared_ptr<JS::InternalObject>>(obj.getValue())->class_name == class_name;
+}
 
 bool SameValue(const double& a, const double& b) {
     if (std::isnan(a) && std::isnan(b)) {
@@ -21,13 +32,21 @@ bool SameValue(const double& a, const double& b) {
     return a == b;
 }
 
-bool SameValue(const Rope& a, const Rope& b) { return a == b; }
+bool SameValue(const Rope& a, const Rope& b) {
+    return a == b;
+}
 
-bool SameValue(const bool& a, const bool& b) { return a == b; }
+bool SameValue(const bool& a, const bool& b) {
+    return a == b;
+}
 
-bool SameValue(JS::Undefined a, JS::Undefined b) { return true; }
+bool SameValue(JS::Undefined a, JS::Undefined b) {
+    return true;
+}
 
-bool SameValue(JS::Null a, JS::Null b) { return true; }
+bool SameValue(JS::Null a, JS::Null b) {
+    return true;
+}
 
 bool SameValue(const std::shared_ptr<JS::InternalObject>& a, const std::shared_ptr<JS::InternalObject>& b) {
     return a.get() == b.get();
@@ -54,15 +73,6 @@ bool SameValue(const JS::Any& a, const JS::Any& b) {
     }
     return false;
 }
-
-// TODO: remove if useless after merge
-//    bool IsCallable(const JS::Any& a) {
-//        if (Type(a, JS::OBJECT)) {
-//            return std::get<std::shared_ptr<JS::Object>>(a.getValue())->isCallable();
-//        } else {
-//            return false;
-//        }
-//    }
 
 bool SameValue(const JS::Attribute& a, const JS::Attribute& b) {
     if (a.index() != b.index()) {

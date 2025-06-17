@@ -57,7 +57,7 @@ public:
     explicit Any(const JS::Boolean& v);
     explicit Any(const JS::String& v);
     /** @brief Constructor for object */
-//    explicit Any(const JS::InternalObject& v);
+    explicit Any(const JS::InternalObject& v);
     /** @brief Copy constructor */
     Any(const JS::Any& v);
     /** @brief Move constructor */

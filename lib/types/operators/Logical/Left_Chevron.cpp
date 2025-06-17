@@ -66,5 +66,7 @@ JS::Any JS::Any::operator<(const JS::Any& other) const {
             default:
                 return JS::Any(false);
         }
-    } catch (const std::invalid_argument& e) { return JS::Any(false); }
+    } catch (const std::invalid_argument& e) {
+        return JS::Any(false);
+    }
 }

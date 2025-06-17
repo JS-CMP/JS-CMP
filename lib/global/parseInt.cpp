@@ -68,6 +68,8 @@ JS::Any parseInt(const JS::Any& thisArgs, const JS::Any& args) {
         }
 
         return JS::Any(sign * mathInt);
-    } catch (const std::exception&) { return JS::Any(std::numeric_limits<double>::quiet_NaN()); }
+    } catch (const std::exception&) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
+    }
 }
 } // namespace JS::GLOBAL

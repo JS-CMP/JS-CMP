@@ -1,4 +1,4 @@
-#include "types/objects/JsFunction.hpp"
+#include "types/objects/Function/JsFunction.hpp"
 #include "types/objects/Error/JsSyntaxError.hpp"
 
 JS::Any JS::SyntaxError::toString(const JS::Any& thisArg, const JS::Any& args) {

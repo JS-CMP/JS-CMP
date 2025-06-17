@@ -101,6 +101,8 @@ public:
     ///@{
     /** @brief check if the object is callable */
     [[nodiscard]] virtual bool isCallable() const;
+    [[nodiscard]] virtual std::u16string getContent() const;
+
     ///@}
 
     std::shared_ptr<JS::Properties> properties;    /**< The properties of the object. */

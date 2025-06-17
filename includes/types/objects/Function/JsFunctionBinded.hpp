@@ -44,6 +44,9 @@ public:
     [[nodiscard]] bool hasInstance(const JS::Any& value) const final;
     ///@}
 
+    [[nodiscard]] std::u16string getContent() const override;
+
+
     std::shared_ptr<JS::InternalObject> targetFunction;
     JS::Any boundThis;
     std::vector<JS::Any> boundArguments;

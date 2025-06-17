@@ -49,8 +49,15 @@ public:
     explicit Any(JS::Null v) : value(JS::Null{}){};
     /** @brief Constructor for object taking a shared_ptr */
     explicit Any(std::shared_ptr<JS::InternalObject> v);
+    explicit Any(const JS::Object& v);
+    explicit Any(const JS::Array& v);
+    explicit Any(const JS::Function& v);
+
+    explicit Any(const JS::Number& v);
+    explicit Any(const JS::Boolean& v);
+    explicit Any(const JS::String& v);
     /** @brief Constructor for object */
-    explicit Any(const JS::InternalObject& v);
+//    explicit Any(const JS::InternalObject& v);
     /** @brief Copy constructor */
     Any(const JS::Any& v);
     /** @brief Move constructor */

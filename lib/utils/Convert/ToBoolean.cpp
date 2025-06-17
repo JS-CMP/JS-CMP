@@ -3,7 +3,7 @@
 #include <cmath>
 
 namespace JS::CONVERT {
-bool ToBoolean(int value) { return value != 0; }
+const bool ToBoolean(int value) { return value != 0; }
 bool ToBoolean(double value) { return !std::isnan(value) && value != 0; }
 bool ToBoolean(bool value) { return value; }
 bool ToBoolean(unsigned int value) { return value != 0; }

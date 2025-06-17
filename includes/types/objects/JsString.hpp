@@ -111,6 +111,9 @@ public:
     [[nodiscard]] static JS::Any fromCharCode(const JS::Any& thisArg, const JS::Any& args);
     ///@}
 
+    [[nodiscard]] std::u16string getContent() const override;
+
+
     /** @brief Returns a shared pointer to the prototype properties of the String object. */
     static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
 };

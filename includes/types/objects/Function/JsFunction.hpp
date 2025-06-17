@@ -62,6 +62,9 @@ public:
     /** @brief Check if the object is an instance of another object */
     [[nodiscard]] bool hasInstance(const JS::Any& value) const override;
     ///@}
+
+    [[nodiscard]] std::u16string getContent() const override;
+
 };
 
 } // namespace JS

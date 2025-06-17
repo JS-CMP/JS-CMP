@@ -86,6 +86,9 @@ public:
     /** @brief Returns if the property is enumerable https://262.ecma-international.org/5.1/#sec-15.2.4.7 */
     static JS::Any propertyIsEnumerable(const JS::Any& thisArg, const JS::Any& args);
     ///@}
+
+    [[nodiscard]] std::u16string getContent() const override;
+
 };
 
 } // namespace JS

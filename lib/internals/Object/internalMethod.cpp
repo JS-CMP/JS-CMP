@@ -268,4 +268,9 @@ bool InternalObject::hasInstance(const JS::Any& value) const {
     throw std::runtime_error("TypeError: hasInstance not implemented for this object"); // TODO : TypeError
 }
 
+std::u16string InternalObject::getContent() const {
+    throw std::runtime_error("TypeError: getContent not implemented for this object"); // TODO : TypeError
+}
+
+
 } // namespace JS

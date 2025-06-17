@@ -27,4 +27,9 @@ bool Function::hasInstance(const JS::Any& value) const {
     }
     return false;
 }
+
+std::u16string Function::getContent() const {
+    return u"[Function: ]"; // TODO: add function name
+}
+
 } // namespace JS

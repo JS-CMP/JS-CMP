@@ -16,7 +16,7 @@ const char *JS::Any::what() const noexcept {
 
     auto obj = CONVERT::ToObject(*this);
     if (obj->class_name != u"Error") {
-        utf8_buffer = CONVERT::ToUtf8(u"Uncaught " + CONVERT::ToString("todo")); // TODO replace toString with function that formats data
+        utf8_buffer = CONVERT::ToUtf8(u"Uncaught " + obj->getContent());
     } else {
         JS::Any temp = obj->get(u"message");
         JS::Any name = obj->get(u"name");

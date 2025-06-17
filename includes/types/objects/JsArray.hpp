@@ -21,6 +21,8 @@ public:
     ///@{
     explicit Array(const std::vector<JS::Any>& data) : JS::InternalObject({}, nullptr, u"Array", true){};
     ///@}
+
+    [[nodiscard]] std::u16string getContent() const override;
 };
 
 } // namespace JS

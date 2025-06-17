@@ -55,6 +55,8 @@ public:
     static JS::Any toPrecision(const JS::Any& thisArg, const JS::Any& args);
     ///@}
 
+    [[nodiscard]] std::u16string getContent() const override;
+
     /**
      * @name Static variable of the Number object
      */

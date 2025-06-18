@@ -4,6 +4,7 @@
 #include <utils/Convert.hpp>
 #include <types/objects/JsNumber.hpp>
 #include <types/objects/JsBoolean.hpp>
+#include <types/objects/JsArray.hpp>
 #include <types/objects/JsString.hpp>
 #include <types/objects/Function/JsFunction.hpp>
 
@@ -18,6 +19,11 @@ JS::Any::Any(const JS::InternalObject& v) {
 
 JS::Any::Any(const JS::Object& v) {
     std::shared_ptr<JS::InternalObject> obj = std::make_shared<JS::Object>(v);
+    value = std::move(obj);
+}
+
+JS::Any::Any(const JS::Array& v) {
+    std::shared_ptr<JS::InternalObject> obj = std::make_shared<JS::Array>(v);
     value = std::move(obj);
 }
 

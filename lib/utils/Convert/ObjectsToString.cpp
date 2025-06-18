@@ -25,19 +25,15 @@ std::u16string JS::CONVERT::ObjectToString(std::shared_ptr<const JS::InternalObj
 
 std::u16string JS::CONVERT::ArrayToString(std::shared_ptr<const JS::InternalObject> internalObject) {
     std::u16string result = u"[ ";
+    auto len = internalObject->get(u"length");
     bool first = true;
-//  TODO: Arrays
-//    for (const auto& [key, descriptor] : *internalObject->properties) {
-//        // Check if enumerable and is a numeric index
-//        if (JS::IS::DataDescriptor(descriptor) && std::get<JS::DataDescriptor>(descriptor).enumerable &&
-//            JS::COMPARE::IsNumericIndex(key)) {
-//            auto it = internalObject->get(key);
-//
-//            if (!first) result += u", ";
-//            result += JS::CONVERT::Stringify(it);
-//            first = false;
-//        }
-//    }
+
+    for (uint32_t i = 0; i < JS::CONVERT::ToUint32(len); ++i) {
+        auto value = internalObject->get(JS::CONVERT::ToString(i));
+        if (!first) result += u", ";
+        first = false;
+        result += JS::CONVERT::Stringify(value);
+    }
 
     result += u" ]";
     return result;

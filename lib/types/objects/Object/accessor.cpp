@@ -1,25 +1,30 @@
 #include "types/objects/JsObject.hpp"
 #include "utils/Convert.hpp"
 
-namespace JS {
-// JS::Any Object::operator()(const std::vector<JS::Any>& args) {
-//     // if the first value of is null or undefined, return an empty object
-//     if (args.empty() || args[0].getValue().index() == JS::UNDEFINED || args[0].getValue().index() == JS::NULL_TYPE) {
-//         return JS::Any(std::make_shared<JS::Object>());
-//     }
-//     return JS::CONVERT::ToObject(args[0]);
-// }
-// JS::Any Object::constuctor(std::vector<JS::Any> args) {
-//     const JS::Any arg = args[0];
-//     switch (arg.getValue().index()) {
-//         case JS::OBJECT:
-//             return arg;
-//         case JS::BOOL:
-//         case JS::NUMBER:
-//         case JS::STRING:
-//             return JS::CONVERT::ToObject(arg);
-//         default:
-//             return JS::Any(std::make_shared<JS::Object>());
-//     }
-// }
-} // namespace JS
+#include <utils/Compare.hpp>
+
+JS::Any JS::Object::internal_call(const JS::Any& thisArg, const JS::Any& args) {
+    if (CONVERT::ToUint32(args["length"]) == 0 ||
+        JS::COMPARE::Type(thisArg, JS::UNDEFINED) ||
+        JS::COMPARE::Type(thisArg, JS::NULL_TYPE)) {
+        return JS::Any(std::make_shared<JS::Object>());
+    }
+    return JS::Any(JS::CONVERT::ToObject(args[u"0"]));
+}
+
+JS::Any JS::Object::internal_constructor(const JS::Any& thisArgs, const JS::Any& args) {
+    JS::Any value = args[u"0"];
+    if (JS::COMPARE::Type(value, JS::OBJECT)) {
+        return value;
+    }
+    if (JS::COMPARE::Type(value, JS::BOOLEAN) ||
+        JS::COMPARE::Type(value, JS::NUMBER) ||
+        JS::COMPARE::Type(value, JS::STRING)) {
+        return JS::Any(JS::CONVERT::ToObject(value));
+    }
+    if (JS::COMPARE::Type(value, JS::UNDEFINED) ||
+        JS::COMPARE::Type(value, JS::NULL_TYPE)) {
+        return JS::Any(std::make_shared<JS::Object>());
+    }
+    return JS::Any(JS::CONVERT::ToObject(value));
+}

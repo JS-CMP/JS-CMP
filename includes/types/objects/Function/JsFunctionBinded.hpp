@@ -44,6 +44,17 @@ public:
     [[nodiscard]] bool hasInstance(const JS::Any& value) const final;
     ///@}
 
+
+    /**
+    * @name Methods that represent the functions needed for calling and constructing
+    */
+    ///@{
+    /** @brief Function that represent the constructor of the Object */
+    static Any internal_constructor(const JS::Any& thisArgs, const JS::Any& args);
+    /** @brief Function that is used when object is call as a function */
+    static Any internal_call(const JS::Any& thisArg, const JS::Any& args);
+    ///@}
+
     std::shared_ptr<JS::InternalObject> targetFunction;
     JS::Any boundThis;
     std::vector<JS::Any> boundArguments;

@@ -86,6 +86,16 @@ public:
     /** @brief Returns if the property is enumerable https://262.ecma-international.org/5.1/#sec-15.2.4.7 */
     static JS::Any propertyIsEnumerable(const JS::Any& thisArg, const JS::Any& args);
     ///@}
+
+    /**
+     * @name Methods that represent the functions needed for calling and constructing
+     */
+    ///@{
+    /** @brief Function that represent the constructor of the Object */
+    static Any internal_constructor(const JS::Any& thisArgs, const JS::Any& args);
+    /** @brief Function that is used when object is call as a function */
+    static Any internal_call(const JS::Any& thisArg, const JS::Any& args);
+    ///@}
 };
 
 } // namespace JS

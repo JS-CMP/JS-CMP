@@ -67,7 +67,7 @@ JS::Any JS::RegExp::exec(const JS::Any& thisArg, const JS::Any& args) {
         R->put(u"lastIndex", JS::Any(static_cast<uint32_t>(i + r->string.length())), true);
     }
     size_t n = r->groups.size();
-    JS::Array A = JS::Array({});
+    JS::Array A = JS::Array();
     int matchIndex = i;
     A.defineOwnProperty(u"index", JS::DataDescriptor{JS::Any(matchIndex), true, true, true}, true);
     A.defineOwnProperty(u"input", JS::DataDescriptor{JS::Any(S), true, true, true}, true);

@@ -63,9 +63,6 @@ public:
     [[nodiscard]] bool hasInstance(const JS::Any& value) const override;
     ///@}
 
-    /** @brief Returns a shared pointer to the prototype properties of the Array object. */
-    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
-
     /**
      * @name Methods that represent the functions needed for calling and constructing
      */

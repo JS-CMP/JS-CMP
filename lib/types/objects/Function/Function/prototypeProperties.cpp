@@ -1,6 +1,6 @@
 #include "types/objects/Function/JsFunction.hpp"
 
-std::shared_ptr<JS::InternalObject>& JS::Object::getPrototypeProperties() {
+std::shared_ptr<JS::InternalObject>& JS::Function::getPrototypeProperties() {
     static std::unordered_map<std::u16string, JS::Any> properties_prototype = {
         {u"toString", JS::Any(std::make_shared<JS::Function>(Function::toString))},
         {u"apply", JS::Any(std::make_shared<JS::Function>(Function::apply))},

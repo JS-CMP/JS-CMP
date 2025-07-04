@@ -1,7 +1,7 @@
+#include "internals/PropertyProxy.hpp"
 #include "types/objects/Function/JsFunctionBinded.hpp"
 #include "utils/Compare.hpp"
 #include "utils/Convert.hpp"
-#include "internals/PropertyProxy.hpp"
 
 JS::Any JS::FunctionBinded::internal_call(const JS::Any& thisArg, const JS::Any& args) {
     return internal_constructor(thisArg, args);

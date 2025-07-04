@@ -7,7 +7,6 @@ Function::Function() : JS::InternalObject({}, getPrototypeProperties(), u"Functi
     call_function = [](const JS::Any&, const JS::Any&) -> JS::Any { return JS::Any(JS::Undefined{}); };
     construct = [](const JS::Any&, const JS::Any&) -> JS::Any { return JS::Any(JS::Undefined{}); };
     JS::InternalObject::defineOwnProperty(u"length", JS::DataDescriptor{JS::Any(0), false, false, false}, false);
-
 }
 
 // TODO: Implement the correct call to constructor

@@ -1,7 +1,7 @@
+#include "internals/PropertyProxy.hpp"
 #include "types/objects/JsNumber.hpp"
 #include "utils/Compare.hpp"
 #include "utils/Convert.hpp"
-#include "internals/PropertyProxy.hpp"
 
 JS::Any JS::Number::internal_call(const JS::Any& thisArg, const JS::Any& args) {
     return JS::Any(CONVERT::ToNumber(args[u"0"]));

@@ -115,8 +115,8 @@ public:
     static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
 
     /**
-    * @name Methods that represent the functions needed for calling and constructing
-    */
+     * @name Methods that represent the functions needed for calling and constructing
+     */
     ///@{
     /** @brief Function that represent the constructor of the Object */
     static Any internal_constructor(const JS::Any& thisArgs, const JS::Any& args);

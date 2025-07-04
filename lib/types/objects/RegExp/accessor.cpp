@@ -1,6 +1,6 @@
+#include "internals/PropertyProxy.hpp"
 #include "types/objects/JsRegExp.hpp"
 #include "utils/Compare.hpp"
-#include "internals/PropertyProxy.hpp"
 
 JS::Any JS::RegExp::internal_call(const JS::Any& thisArg, const JS::Any& args) {
     if (JS::COMPARE::Object(args[u"0"], u"RegExp") && !JS::COMPARE::Type(args[u"1"], JS::UNDEFINED)) {

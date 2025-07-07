@@ -72,4 +72,8 @@ digraph "lib/types/objects/Object/accessor.cpp"
   Node26 -> Node3 [id="edge40_Node000026_Node000003",color="steelblue1",style="solid",tooltip=" "];
   Node26 -> Node5 [id="edge41_Node000026_Node000005",color="steelblue1",style="solid",tooltip=" "];
   Node26 -> Node21 [id="edge42_Node000026_Node000021",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node27 [id="edge43_Node000001_Node000027",color="steelblue1",style="solid",tooltip=" "];
+  Node27 [id="Node000027",label="utils/Compare.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Compare_8hpp.html",tooltip=" "];
+  Node27 -> Node3 [id="edge44_Node000027_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node27 -> Node5 [id="edge45_Node000027_Node000005",color="steelblue1",style="solid",tooltip=" "];
 }

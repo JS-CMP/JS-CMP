@@ -277,6 +277,13 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aca66741a4d17fc6b3dee87ab06d554d7" id="r_aca66741a4d17fc6b3dee87ab06d554d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">static</a> <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Object.html#aca66741a4d17fc6b3dee87ab06d554d7">propertyIsEnumerable</a> (<a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a> <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;<a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">thisArg</a>, <a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a> <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;<a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">args</a>)</td></tr>
 <tr class="memdesc:aca66741a4d17fc6b3dee87ab06d554d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns if the property is enumerable <a href="https://262.ecma-international.org/5.1/#sec-15.2.4.7">https://262.ecma-international.org/5.1/#sec-15.2.4.7</a>.  <br /></td></tr>
 <tr class="separator:aca66741a4d17fc6b3dee87ab06d554d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Methods that represent the functions needed for calling and constructing</div></td></tr>
+<tr class="memitem:aa9d2467c1e09cd60cda91c9af2b8d08e" id="r_aa9d2467c1e09cd60cda91c9af2b8d08e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">static</a> <a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Object.html#aa9d2467c1e09cd60cda91c9af2b8d08e">internal_constructor</a> (<a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a> <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;<a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">thisArgs</a>, <a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a> <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;<a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">args</a>)</td></tr>
+<tr class="memdesc:aa9d2467c1e09cd60cda91c9af2b8d08e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classJS_1_1Function.html" title="Represents a JavaScript-like function object in C++.">Function</a> that represent the constructor of the <a class="el" href="classJS_1_1Object.html" title="Represents a JavaScript-like object in C++.">Object</a>.  <br /></td></tr>
+<tr class="separator:aa9d2467c1e09cd60cda91c9af2b8d08e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac45328958db55c692c499a699e80b9f8" id="r_ac45328958db55c692c499a699e80b9f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">static</a> <a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Object.html#ac45328958db55c692c499a699e80b9f8">internal_call</a> (<a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a> <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;<a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">thisArg</a>, <a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a> <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;<a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">args</a>)</td></tr>
+<tr class="memdesc:ac45328958db55c692c499a699e80b9f8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classJS_1_1Function.html" title="Represents a JavaScript-like function object in C++.">Function</a> that is used when object is call as a function.  <br /></td></tr>
+<tr class="separator:ac45328958db55c692c499a699e80b9f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -764,6 +771,82 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="ac45328958db55c692c499a699e80b9f8" name="ac45328958db55c692c499a699e80b9f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac45328958db55c692c499a699e80b9f8">&#9670;&#160;</a></span>internal_call()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::Object::internal_call </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a> <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
+          <td class="paramname"><em>thisArg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a> <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classJS_1_1Function.html" title="Represents a JavaScript-like function object in C++.">Function</a> that is used when object is call as a function. </p>
+
+</div>
+</div>
+<a id="aa9d2467c1e09cd60cda91c9af2b8d08e" name="aa9d2467c1e09cd60cda91c9af2b8d08e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9d2467c1e09cd60cda91c9af2b8d08e">&#9670;&#160;</a></span>internal_constructor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::Object::internal_constructor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a> <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
+          <td class="paramname"><em>thisArgs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a> <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classJS_1_1Function.html" title="Represents a JavaScript-like function object in C++.">Function</a> that represent the constructor of the <a class="el" href="classJS_1_1Object.html" title="Represents a JavaScript-like object in C++.">Object</a>. </p>
+
+</div>
+</div>
 <a id="a8b155f0240f62b3ab59e2dc2a01e2c1a" name="a8b155f0240f62b3ab59e2dc2a01e2c1a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8b155f0240f62b3ab59e2dc2a01e2c1a">&#9670;&#160;</a></span>isExtensible()</h2>
 
@@ -1184,6 +1267,7 @@ Additional Inherited Members</h2></td></tr>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>includes/types/objects/<a class="el" href="JsObject_8hpp_source.html">JsObject.hpp</a></li>
+<li>lib/types/objects/Object/<a class="el" href="types_2objects_2Object_2accessor_8cpp.html">accessor.cpp</a></li>
 <li>lib/types/objects/Object/<a class="el" href="types_2objects_2Object_2constructor_8cpp.html">constructor.cpp</a></li>
 <li>lib/types/objects/Object/<a class="el" href="Object_2methods_8cpp.html">methods.cpp</a></li>
 <li>lib/types/objects/Object/<a class="el" href="Object_2prototype_8cpp.html">prototype.cpp</a></li>

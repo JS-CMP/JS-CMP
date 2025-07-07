@@ -5,6 +5,8 @@ var classJS_1_1Number =
     [ "Number", "classJS_1_1Number.html#ad0effefc8d064cf44fd6bed798bd61ba", null ],
     [ "~Number", "classJS_1_1Number.html#a3030102a79e28a8a657697cee2312203", null ],
     [ "getPrototypeProperties", "classJS_1_1Number.html#afd808f8c0624890f47b35736f236a865", null ],
+    [ "internal_call", "classJS_1_1Number.html#ab1c7ab5be4ba79187b140929cda52b20", null ],
+    [ "internal_constructor", "classJS_1_1Number.html#a707363fca9933695415f9b0f8cd664b0", null ],
     [ "toExponential", "classJS_1_1Number.html#ab7970e42a96dce569a66dea4676260f6", null ],
     [ "toFixed", "classJS_1_1Number.html#a8ac16be075e593a805370c7c6679cd92", null ],
     [ "toLocaleString", "classJS_1_1Number.html#a390517dfc7385a7b89fcecd2835554fc", null ],

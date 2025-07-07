@@ -11,6 +11,8 @@ var classJS_1_1String =
     [ "getOwnProperty", "classJS_1_1String.html#a91a703cb3ae643e7bc9f515d1896b488", null ],
     [ "getPrototypeProperties", "classJS_1_1String.html#a58ab3daeb09bf40f86969cca25d69465", null ],
     [ "indexOf", "classJS_1_1String.html#afa8e7a8b6f50ad3926a7d4d657060b85", null ],
+    [ "internal_call", "classJS_1_1String.html#aa94bb3d2f9342c3316af4ed9f8f468b7", null ],
+    [ "internal_constructor", "classJS_1_1String.html#a32fcd81217dd6df41eec25ca591e0a6e", null ],
     [ "lastIndexOf", "classJS_1_1String.html#a63f4381711fbf70b6b4f6ad845c78740", null ],
     [ "localeCompare", "classJS_1_1String.html#afdea19e4a9a46740be03af45cf186e31", null ],
     [ "match", "classJS_1_1String.html#a35457eaee571bdca639d316eb9f722f7", null ],

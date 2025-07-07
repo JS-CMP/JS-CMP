@@ -5,6 +5,8 @@ var classJS_1_1FunctionBinded =
     [ "FunctionBinded", "classJS_1_1FunctionBinded.html#aa332f16b5b4014aeb3b67f176d7c6119", null ],
     [ "~FunctionBinded", "classJS_1_1FunctionBinded.html#a58742bd8713725fc63b050a96bfd919c", null ],
     [ "hasInstance", "classJS_1_1FunctionBinded.html#ac744cd12f13b8414c278a0ed64acb6dc", null ],
+    [ "internal_call", "classJS_1_1FunctionBinded.html#a5bb8049dffbcbe0fce0ec42638da72cf", null ],
+    [ "internal_constructor", "classJS_1_1FunctionBinded.html#ada197bd908cc7234fbee8d8ff3bc518d", null ],
     [ "operator=", "classJS_1_1FunctionBinded.html#ae6e0f435a17f951a8b9516370a32ceb9", null ],
     [ "operator=", "classJS_1_1FunctionBinded.html#af6c88696f3439361ea20fb547be329cf", null ],
     [ "boundArguments", "classJS_1_1FunctionBinded.html#a2a7a5c77ff26955cbfcb64a442b112c5", null ],

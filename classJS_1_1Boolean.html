@@ -219,6 +219,13 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ab0e0c3d06e4f6fb65c2bc3867cc13970" id="r_ab0e0c3d06e4f6fb65c2bc3867cc13970"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">static</a> <a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Boolean.html#ab0e0c3d06e4f6fb65c2bc3867cc13970">valueOf</a> (<a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a> <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;<a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">thisArg</a>, <a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a> <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;<a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">args</a>)</td></tr>
 <tr class="memdesc:ab0e0c3d06e4f6fb65c2bc3867cc13970"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the value of the boolean <a href="https://262.ecma-international.org/5.1/#sec-15.6.4.3">https://262.ecma-international.org/5.1/#sec-15.6.4.3</a>.  <br /></td></tr>
 <tr class="separator:ab0e0c3d06e4f6fb65c2bc3867cc13970"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Methods that represent the functions needed for calling and constructing</div></td></tr>
+<tr class="memitem:ac611706215a28e39179f0ff1cd13f02e" id="r_ac611706215a28e39179f0ff1cd13f02e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">static</a> <a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Boolean.html#ac611706215a28e39179f0ff1cd13f02e">internal_constructor</a> (<a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a> <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;<a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">thisArgs</a>, <a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a> <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;<a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">args</a>)</td></tr>
+<tr class="memdesc:ac611706215a28e39179f0ff1cd13f02e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classJS_1_1Function.html" title="Represents a JavaScript-like function object in C++.">Function</a> that represent the constructor of the <a class="el" href="classJS_1_1Object.html" title="Represents a JavaScript-like object in C++.">Object</a>.  <br /></td></tr>
+<tr class="separator:ac611706215a28e39179f0ff1cd13f02e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90750260dd082a546d4e23b68d7a1cf4" id="r_a90750260dd082a546d4e23b68d7a1cf4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">static</a> <a class="el" href="classJS_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1Boolean.html#a90750260dd082a546d4e23b68d7a1cf4">internal_call</a> (<a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a> <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;<a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">thisArg</a>, <a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a> <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;<a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">args</a>)</td></tr>
+<tr class="memdesc:a90750260dd082a546d4e23b68d7a1cf4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classJS_1_1Function.html" title="Represents a JavaScript-like function object in C++.">Function</a> that is used when object is call as a function.  <br /></td></tr>
+<tr class="separator:a90750260dd082a546d4e23b68d7a1cf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -347,6 +354,82 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a90750260dd082a546d4e23b68d7a1cf4" name="a90750260dd082a546d4e23b68d7a1cf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90750260dd082a546d4e23b68d7a1cf4">&#9670;&#160;</a></span>internal_call()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::Boolean::internal_call </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a> <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
+          <td class="paramname"><em>thisArg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a> <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classJS_1_1Function.html" title="Represents a JavaScript-like function object in C++.">Function</a> that is used when object is call as a function. </p>
+
+</div>
+</div>
+<a id="ac611706215a28e39179f0ff1cd13f02e" name="ac611706215a28e39179f0ff1cd13f02e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac611706215a28e39179f0ff1cd13f02e">&#9670;&#160;</a></span>internal_constructor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::Boolean::internal_constructor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a> <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
+          <td class="paramname"><em>thisArgs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a> <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classJS_1_1Function.html" title="Represents a JavaScript-like function object in C++.">Function</a> that represent the constructor of the <a class="el" href="classJS_1_1Object.html" title="Represents a JavaScript-like object in C++.">Object</a>. </p>
+
+</div>
+</div>
 <a id="aa889e68d5d4d5be6157c8bd267ab4809" name="aa889e68d5d4d5be6157c8bd267ab4809"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa889e68d5d4d5be6157c8bd267ab4809">&#9670;&#160;</a></span>toString()</h2>
 
@@ -425,6 +508,7 @@ Additional Inherited Members</h2></td></tr>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>includes/types/objects/<a class="el" href="JsBoolean_8hpp_source.html">JsBoolean.hpp</a></li>
+<li>lib/types/objects/Boolean/<a class="el" href="types_2objects_2Boolean_2accessor_8cpp.html">accessor.cpp</a></li>
 <li>lib/types/objects/Boolean/<a class="el" href="types_2objects_2Boolean_2constructor_8cpp.html">constructor.cpp</a></li>
 <li>lib/types/objects/Boolean/<a class="el" href="Boolean_2prototype_8cpp.html">prototype.cpp</a></li>
 <li>lib/types/objects/Boolean/<a class="el" href="Boolean_2prototypeProperties_8cpp.html">prototypeProperties.cpp</a></li>

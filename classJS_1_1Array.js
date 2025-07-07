@@ -1,7 +1,7 @@
 var classJS_1_1Array =
 [
     [ "Array", "classJS_1_1Array.html#a1638ebc9aedec0aba660f2ed27eb1c48", null ],
-    [ "Array", "classJS_1_1Array.html#a04cbe36106c21fbd628cb7026ad01f1b", null ],
+    [ "Array", "classJS_1_1Array.html#a5a740656ce17ba2822c77eccd9eba624", null ],
     [ "Array", "classJS_1_1Array.html#af1a8c3a533ff7ee07608f3bae2423479", null ],
     [ "~Array", "classJS_1_1Array.html#a5995d4eb515b69a958309240660ad822", null ],
     [ "concat", "classJS_1_1Array.html#a5080a380726e4ece43da52bb1f65ed19", null ],
@@ -11,6 +11,8 @@ var classJS_1_1Array =
     [ "forEach", "classJS_1_1Array.html#a94c74fbf915f24ff92a39c720399c49e", null ],
     [ "getPrototypeProperties", "classJS_1_1Array.html#a7da5782d0d6c1f0355dc977a72246bfa", null ],
     [ "indexOf", "classJS_1_1Array.html#aa49feff51b5c809d5c0092a343eac409", null ],
+    [ "internal_call", "classJS_1_1Array.html#a104fa0a41895c38c8c60b50a98968324", null ],
+    [ "internal_constructor", "classJS_1_1Array.html#ae16344bd6506128e98a1538fdfb9917b", null ],
     [ "isArray", "classJS_1_1Array.html#a80a4635f05ec76a3bf441dba40b3d2e5", null ],
     [ "join", "classJS_1_1Array.html#a1569297c13a4725255586a838ff1bb01", null ],
     [ "lastIndexOf", "classJS_1_1Array.html#a9f451f2944f9b254837c641e46a2d59c", null ],

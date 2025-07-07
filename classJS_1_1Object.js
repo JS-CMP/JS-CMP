@@ -14,6 +14,8 @@ var classJS_1_1Object =
     [ "getPrototypeOf", "classJS_1_1Object.html#a826a38b5325baae44eef31fe05ece2ca", null ],
     [ "getPrototypeProperties", "classJS_1_1Object.html#accaf1b16bf2e3d020611fe3e551913e5", null ],
     [ "hasOwnProperty", "classJS_1_1Object.html#a63b2005aa0ea84e8c00be097879ce611", null ],
+    [ "internal_call", "classJS_1_1Object.html#ac45328958db55c692c499a699e80b9f8", null ],
+    [ "internal_constructor", "classJS_1_1Object.html#aa9d2467c1e09cd60cda91c9af2b8d08e", null ],
     [ "isExtensible", "classJS_1_1Object.html#a8b155f0240f62b3ab59e2dc2a01e2c1a", null ],
     [ "isFrozen", "classJS_1_1Object.html#acefea3548d7869dac1bb28120cd5907b", null ],
     [ "isPrototypeOf", "classJS_1_1Object.html#a9ccfb21a08668d71625ad4b934f52d7a", null ],

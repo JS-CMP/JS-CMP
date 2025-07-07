@@ -18,7 +18,7 @@ String::String(const JS::Any& value) : JS::InternalObject({}, getPrototypeProper
     this->call_function = &JS::String::internal_call;
     this->construct = &JS::String::internal_constructor;
 
-    this->defineOwnProperty(u"length", JS::DataDescriptor{JS::Any(int(v.length())), false, false, false});
+    this->defineOwnProperty(u"length", JS::DataDescriptor{JS::Any(static_cast<uint32_t>(v.length())), false, false, false});
     this->defineOwnProperty(u"prototype", JS::DataDescriptor{JS::Any(getPrototypeProperties()), false, false, false});
 }
 

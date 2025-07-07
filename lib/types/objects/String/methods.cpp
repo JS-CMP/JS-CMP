@@ -33,7 +33,7 @@ JS::Any JS::String::toString(const JS::Any& thisArg, const JS::Any& args) {
     if (!JS::COMPARE::Object(thisArg, u"String") && !JS::COMPARE::Type(thisArg, JS::STRING)) {
         throw std::runtime_error("TypeError: String.prototype.valueOf called on non-object");
     }
-    return thisArg;
+    return JS::Any(std::get<Rope>(std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->primitiveValue).toString());
 }
 
 JS::Any JS::String::valueOf(const JS::Any& thisArg, const JS::Any& args) {

@@ -8,5 +8,5 @@ JS::Any JS::Number::internal_call(const JS::Any& thisArg, const JS::Any& args) {
 }
 
 JS::Any JS::Number::internal_constructor(const JS::Any& thisArgs, const JS::Any& args) {
-    return JS::Any(JS::Number(args[u"0"]));
+    return JS::Any(std::make_shared<JS::Number>(args[u"0"]));
 }

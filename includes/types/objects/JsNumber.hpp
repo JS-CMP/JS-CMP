@@ -55,7 +55,21 @@ public:
     static JS::Any toPrecision(const JS::Any& thisArg, const JS::Any& args);
     ///@}
 
+    /** @brief Returns the content of the object formatted to a string. */
     [[nodiscard]] std::u16string getContent() const override;
+
+    /** @brief Function to get the methods of the property prototype */
+    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
+
+    /**
+     * @name Methods that represent the functions needed for calling and constructing
+     */
+    ///@{
+    /** @brief Function that represent the constructor of the Object */
+    static Any internal_constructor(const JS::Any& thisArgs, const JS::Any& args);
+    /** @brief Function that is used when object is call as a function */
+    static Any internal_call(const JS::Any& thisArg, const JS::Any& args);
+    ///@}
 
     /**
      * @name Static variable of the Number object
@@ -68,9 +82,6 @@ public:
     constexpr static double NEGATIVE_INFINITY = -INFINITY; /**< Represents the negative infinity in JavaScript */
     constexpr static double POSITIVE_INFINITY = INFINITY;  /**< Represents the positive infinity in JavaScript */
     ///@}
-
-    /** @brief Function to get the methods of the property prototype */
-    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
 };
 } // namespace JS
 

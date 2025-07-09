@@ -4,6 +4,7 @@
 #include "utils/Convert.hpp"
 
 #include <cmath>
+#include <types/objects/Error/JsTypeError.hpp>
 #include <types/objects/JsObject.hpp>
 #include <unicode/uchar.h>
 
@@ -38,7 +39,7 @@ std::optional<JS::Match> JS::RegExp::match(const std::u16string& str, uint32_t p
 JS::Any JS::RegExp::exec(const JS::Any& thisArg, const JS::Any& args) {
     if (!JS::COMPARE::Type(thisArg, JS::OBJECT) ||
         std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->class_name != u"RegExp") {
-        throw std::runtime_error("TypeError: this is not a RegExp object");
+        throw JS::Any(TypeError(JS::Any("this is not a RegExp object")));
     }
     std::shared_ptr<JS::InternalObject> R = std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue());
     std::u16string S = JS::CONVERT::ToString(args[0]);
@@ -88,7 +89,7 @@ JS::Any JS::RegExp::test(const JS::Any& thisArg, const JS::Any& args) {
 JS::Any JS::RegExp::toString(const JS::Any& thisArg, const JS::Any& args) {
     if (!JS::COMPARE::Type(thisArg, JS::OBJECT) ||
         std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->class_name != u"RegExp") {
-        throw std::runtime_error("TypeError: this is not a RegExp object");
+        throw JS::Any(TypeError(JS::Any("This is not a RegExp object")));
     }
     std::shared_ptr<JS::InternalObject> R = std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue());
     std::u16string source = JS::CONVERT::ToString(R->get(u"source"));

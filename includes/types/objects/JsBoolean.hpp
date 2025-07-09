@@ -40,6 +40,8 @@ public:
     static JS::Any valueOf(const JS::Any& thisArg, const JS::Any& args);
     ///@}
 
+    [[nodiscard]] std::u16string getContent() const override;
+
     /** @brief Function to get the methods of the property prototype */
     static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
 

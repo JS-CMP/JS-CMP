@@ -55,6 +55,9 @@ public:
     static JS::Any toPrecision(const JS::Any& thisArg, const JS::Any& args);
     ///@}
 
+    /** @brief Returns the content of the object formatted to a string. */
+    [[nodiscard]] std::u16string getContent() const override;
+
     /** @brief Function to get the methods of the property prototype */
     static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
 

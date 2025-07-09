@@ -14,7 +14,7 @@ namespace JS {
  * It provides overloaded operators for arithmetic and comparison, making it easy to work
  * with in a JavaScript-like syntax.
  */
-class Any {
+class Any : public std::exception {
 public:
     /**
      * @name Constructors
@@ -49,6 +49,13 @@ public:
     explicit Any(JS::Null v) : value(JS::Null{}){};
     /** @brief Constructor for object taking a shared_ptr */
     explicit Any(std::shared_ptr<JS::InternalObject> v);
+    explicit Any(const JS::Object& v);
+    explicit Any(const JS::Array& v);
+    explicit Any(const JS::Function& v);
+
+    explicit Any(const JS::Number& v);
+    explicit Any(const JS::Boolean& v);
+    explicit Any(const JS::String& v);
     /** @brief Constructor for object */
     explicit Any(const JS::InternalObject& v);
     /** @brief Copy constructor */
@@ -61,6 +68,7 @@ public:
     JS::Any& operator=(JS::Any&& other) noexcept;
     /** @brief boolean conversion operator */
     operator bool(); // NOLINT(hicpp-explicit-conversions)
+    /** @brief string conversion operator */
     ///@}
 
     /**
@@ -111,10 +119,21 @@ public:
     ///@}
 
     /**
+     * @name std::error override methods what
+     */
+    [[nodiscard]] const char* what() const noexcept override;
+
+
+    /**
      * @name Unary + operator
      * This operator returns the value of the `Any` object as a number.
      */
     JS::Any operator+() const;
+    /**
+     * @name Unary - operator
+     * This operator returns the negation of the value of the `Any` object.
+     */
+    JS::Any operator-() const;
 
     /**
      * @name Subtraction operators -
@@ -126,12 +145,6 @@ public:
     /** @brief Subtraction operator T - Any */
     DECLARE_2FUNC(friend JS::Any operator-, )
     ///@}
-
-    /**
-     * @name Unary - operator
-     * This operator returns the negation of the value of the `Any` object.
-     */
-    JS::Any operator-() const;
 
     /**
      * @name Multiplication operators *
@@ -236,12 +249,6 @@ public:
     /** @brief Accessors to properties of object in stored in value */
     DECLARE_1FUNC(JS::PropertyProxy operator[], const)
     ///@}
-
-    /**
-     * @name Conversion operators
-     * These operators convert the value of the `Any` object to another type.
-     */
-    ///@{
 
     /**
      * @brief Friend function for outputting `Any` object to a stream.

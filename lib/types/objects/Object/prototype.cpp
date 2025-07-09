@@ -4,6 +4,8 @@
 #include "utils/Convert.hpp"
 #include "utils/Is.hpp"
 
+#include <types/objects/Error/JsTypeError.hpp>
+
 namespace JS {
 JS::Any Object::toString(const JS::Any& thisArg, const JS::Any& args) {
     switch (thisArg.getValue().index()) {
@@ -22,7 +24,7 @@ JS::Any Object::toLocaleString(const JS::Any& thisArg, const JS::Any& args) {
     if (JS::IS::Callable(toString)) {
         return toString();
     }
-    throw std::runtime_error("TypeError: Object.prototype.toLocaleString called on non-object");
+    throw JS::Any(JS::TypeError(JS::Any("Object.prototype.toLocaleString called on non-object")));
 }
 
 JS::Any Object::valueOf(const JS::Any& thisArg, const JS::Any& args) {

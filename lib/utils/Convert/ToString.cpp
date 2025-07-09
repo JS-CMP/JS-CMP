@@ -2,6 +2,8 @@
 #include "utils/Convert.hpp"
 
 #include <cmath>
+#include "internals/Object.hpp"
+#include "utils/Is.hpp"
 
 namespace JS::CONVERT {
 std::u16string ToString(int value) {
@@ -39,6 +41,24 @@ std::u16string ToString(JS::Null /*unused*/) {
 std::u16string ToString(JS::Undefined /*unused*/) {
     return u"undefined";
 }
+
+std::u16string ToString(JS::Value value) {
+    switch (value.index()) {
+        case JS::NUMBER:
+            return ToString(std::get<double>(value));
+        case JS::STRING:
+            return ToString(std::get<Rope>(value));
+        case JS::BOOLEAN:
+            return ToString(std::get<bool>(value));
+        case JS::UNDEFINED:
+            return ToString(JS::Undefined());
+        case JS::NULL_TYPE:
+            return ToString(JS::Null());
+        default:
+            return u"[Object]";
+    }
+}
+
 std::u16string ToString(const JS::Any& any) {
     // https://262.ecma-international.org/5.1/#sec-9.8
     switch (any.getValue().index()) {

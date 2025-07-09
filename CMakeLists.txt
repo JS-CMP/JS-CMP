@@ -11,11 +11,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 
 include_directories(${PROJECT_SOURCE_DIR}/includes)
 include_directories(${PROJECT_SOURCE_DIR}/submodules/Lexer/include)
-include_directories(${PROJECT_SOURCE_DIR}/includes)
 
 
 add_subdirectory(submodules/Lexer)
-add_subdirectory(submodules/SyntaxSmith)
+#add_subdirectory(submodules/SyntaxSmith)
 
 # Set up package configuration
 if(APPLE)

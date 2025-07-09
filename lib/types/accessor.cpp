@@ -3,6 +3,7 @@
 #include "utils/Convert.hpp"
 
 #include <types/JsAny.hpp>
+#include <types/objects/Error/JsTypeError.hpp>
 #include <types/objects/Function/JsFunction.hpp>
 
 DECLARE_1FUNC(
@@ -17,7 +18,7 @@ JS::Any JS::Any::call(const JS::Any& args) const {
         return std::get<std::shared_ptr<JS::InternalObject>>(value)->call_function(
             JS::Any(JS::Undefined{}), args); // TODO fix this to pass the correct this aka global object
     }
-    throw std::runtime_error("Value is not a function");
+    throw JS::Any(JS::TypeError(JS::Any("Value is not a function")));
 }
 
 JS::Any JS::Any::constructor(const JS::Any& args) const {
@@ -27,5 +28,5 @@ JS::Any JS::Any::constructor(const JS::Any& args) const {
             return Obj->construct(JS::Any(Obj), args);
         }
     }
-    throw std::runtime_error("Value does not have a constructor");
+    throw JS::Any(JS::TypeError(JS::Any("Value does not have a constructor")));
 }

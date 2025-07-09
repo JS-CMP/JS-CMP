@@ -6,6 +6,15 @@
 #include "types/JsAny.hpp"
 #include "types/objects/Types.hpp"
 
+#include "types/objects/Error/JsError.hpp"
+#include "types/objects/Error/JsNativeError.hpp"
+#include "types/objects/Error/JsRangeError.hpp"
+#include "types/objects/Error/JsReferenceError.hpp"
+#include "types/objects/Error/JsSyntaxError.hpp"
+#include "types/objects/Error/JsTypeError.hpp"
+#include "types/objects/Error/JsURIError.hpp"
+
+
 // TODO fix this create Object to inherit from Function
 JS::Any Object = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::u16string, JS::Any>{
     {u"getPrototypeOf", JS::Any(std::make_shared<JS::Function>(JS::Object::getPrototypeOf))},
@@ -41,6 +50,20 @@ JS::Any Number = JS::Any(std::make_shared<JS::Number>(std::unordered_map<std::u1
 
 }));
 JS::Any Boolean = JS::Any(std::make_shared<JS::Boolean>());
+
+JS::Any Error = JS::Any(std::make_shared<JS::Error>());
+
+JS::Any NativeError = JS::Any(std::make_shared<JS::NativeError>());
+
+JS::Any RangeError = JS::Any(std::make_shared<JS::RangeError>());
+
+JS::Any ReferenceError = JS::Any(std::make_shared<JS::ReferenceError>());
+
+JS::Any SyntaxError = JS::Any(std::make_shared<JS::SyntaxError>());
+
+JS::Any TypeError = JS::Any(std::make_shared<JS::TypeError>());
+
+JS::Any URIError = JS::Any(std::make_shared<JS::UriError>());
 
 JS::Any Math = JS::Any(std::make_shared<JS::InternalObject>(
     std::unordered_map<std::u16string, JS::Attribute>{

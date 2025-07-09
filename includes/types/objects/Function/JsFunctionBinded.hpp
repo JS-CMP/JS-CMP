@@ -44,6 +44,9 @@ public:
     [[nodiscard]] bool hasInstance(const JS::Any& value) const final;
     ///@}
 
+    /** @brief Returns the content of the object formatted to a string. */
+    [[nodiscard]] std::u16string getContent() const override;
+
     /**
      * @name Methods that represent the functions needed for calling and constructing
      */

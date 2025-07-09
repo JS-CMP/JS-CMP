@@ -1,5 +1,6 @@
 #include "types/objects/JsObject.hpp"
 
+#include <types/objects/Error/JsTypeError.hpp>
 #include <utils/Compare.hpp>
 #include <utils/Convert.hpp>
 #include <utils/Is.hpp>
@@ -7,7 +8,7 @@
 namespace JS::CONVERT {
 JS::Attribute ToPropertyDescriptor(const Any& desc) {
     if (!COMPARE::Type(desc, OBJECT)) {
-        throw std::runtime_error("TypeError: Property descriptor must be an object"); // TODO: make this a JS error
+        throw JS::Any(TypeError(JS::Any("Property descriptor must be an object")));
     }
     std::shared_ptr<JS::InternalObject> obj = std::get<std::shared_ptr<JS::InternalObject>>(desc.getValue());
     JS::DataDescriptor data;
@@ -33,7 +34,7 @@ JS::Attribute ToPropertyDescriptor(const Any& desc) {
         if (COMPARE::Type(tmp, UNDEFINED) || IS::Callable(tmp)) {
             accessor.get = std::get<std::shared_ptr<JS::InternalObject>>(tmp.getValue());
         } else {
-            throw std::runtime_error("TypeError: get must be callable or undefined"); // TODO: make this a JS error
+            throw JS::Any(TypeError(JS::Any("get must be callable or undefined")));
         }
     }
     if ((get_or_set = get_or_set || obj->hasProperty(u"set"))) {
@@ -41,14 +42,12 @@ JS::Attribute ToPropertyDescriptor(const Any& desc) {
         if (COMPARE::Type(tmp, UNDEFINED) || IS::Callable(tmp)) {
             accessor.set = std::get<std::shared_ptr<JS::InternalObject>>(tmp.getValue());
         } else {
-            throw std::runtime_error("TypeError: set must be callable or undefined"); // TODO: make this a JS error
+            throw JS::Any(TypeError(JS::Any("set must be callable or undefined")));
         }
     }
     if (get_or_set) {
         if (value_or_writable) {
-            throw std::runtime_error(
-                "TypeError: Property descriptor cannot be both accessor and data descriptor"); // TODO: make this a JS
-                                                                                               // error
+            throw JS::Any(TypeError(JS::Any("Property descriptor cannot be both accessor and data descriptor")));
         }
         return accessor;
     }

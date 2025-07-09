@@ -3,6 +3,8 @@
 #include "utils/Compare.hpp"
 #include "utils/Is.hpp"
 
+#include <types/objects/Error/JsNativeError.hpp>
+#include <types/objects/Error/JsTypeError.hpp>
 #include <utils/Convert.hpp>
 
 namespace JS {
@@ -71,7 +73,7 @@ void InternalObject::put(const std::u16string& key, const Any& value, bool is_th
     bool canPut = this->canPut(key);
     if (!canPut) {
         if (is_throw) {
-            throw std::runtime_error("Cannot put value"); // TODO: TypeError
+            throw JS::Any(TypeError(JS::Any("Cannot put value")));
         }
         return;
     }
@@ -111,7 +113,7 @@ bool InternalObject::deleteProperty(const std::u16string& key, bool is_throw) {
         return true;
     }
     if (is_throw) {
-        throw std::runtime_error("Cannot delete property"); // TODO: TypeError
+            throw JS::Any(TypeError(JS::Any("Cannot delete property")));
     }
     return false;
 }
@@ -137,7 +139,7 @@ JS::Any InternalObject::defaultValue(const Types& hint) {
                     return val;
                 }
             }
-            throw std::runtime_error("Cannot convert to primitive"); // TODO: TypeError
+            throw JS::Any(TypeError(JS::Any("Cannot convert to primitive")));
         }
         case NUMBER: {
             JS::Any valueOf = this->get(u"valueOf");
@@ -158,7 +160,7 @@ JS::Any InternalObject::defaultValue(const Types& hint) {
                     return str;
                 }
             }
-            throw std::runtime_error("Cannot convert to primitive"); // TODO: TypeError
+            throw JS::Any(TypeError(JS::Any("Cannot convert to primitive")));
         }
         default:
             return this->defaultValue();
@@ -178,7 +180,7 @@ bool InternalObject::defineOwnProperty(const std::u16string& key, Attribute desc
 
     if (!current.has_value() && !extensible) {
         if (is_throw) {
-            throw std::runtime_error("Cannot define property"); // TypeError
+            throw JS::Any(TypeError(JS::Any("Cannot define property")));
         }
         return false;
     }
@@ -215,7 +217,7 @@ bool InternalObject::defineOwnProperty(const std::u16string& key, Attribute desc
     if (!currentConfigurable) {
         if (descConfigurable || descEnumerable != currentEnumerable) {
             if (is_throw) {
-                throw std::runtime_error("Cannot redefine property");
+                throw JS::Any(TypeError(JS::Any("Cannot redefine property")));
             }
             return false;
         }
@@ -226,7 +228,7 @@ bool InternalObject::defineOwnProperty(const std::u16string& key, Attribute desc
     } else if (JS::IS::DataDescriptor(currentDesc) != JS::IS::DataDescriptor(desc)) {
         if (!currentConfigurable) {
             if (is_throw) {
-                throw std::runtime_error("Cannot redefine property"); // TypeError
+                throw JS::Any(TypeError(JS::Any("Cannot redefine property")));
             }
             return false;
         }
@@ -245,13 +247,13 @@ bool InternalObject::defineOwnProperty(const std::u16string& key, Attribute desc
         if (!oldDesc.configurable) {
             if (!oldDesc.writable && newDesc.writable) {
                 if (is_throw) {
-                    throw std::runtime_error("Cannot redefine property"); // TypeError
+                    throw JS::Any(TypeError(JS::Any("Cannot redefine property")));
                 }
                 return false;
             }
             if (!oldDesc.writable && !JS::COMPARE::SameValue(newDesc.value, oldDesc.value)) {
                 if (is_throw) {
-                    throw std::runtime_error("Cannot redefine property"); // TypeError
+                    throw JS::Any(TypeError(JS::Any("Cannot redefine property")));
                 }
                 return false;
             }
@@ -262,13 +264,13 @@ bool InternalObject::defineOwnProperty(const std::u16string& key, Attribute desc
         if (!oldDesc.configurable) {
             if (newDesc.get && JS::COMPARE::SameValue(newDesc.get, oldDesc.get)) {
                 if (is_throw) {
-                    throw std::runtime_error("Cannot redefine property"); // TypeError
+                    throw JS::Any(TypeError(JS::Any("Cannot redefine property")));
                 }
                 return false;
             }
             if (newDesc.set && newDesc.set != oldDesc.set) {
                 if (is_throw) {
-                    throw std::runtime_error("Cannot redefine property"); // TypeError
+                    throw JS::Any(TypeError(JS::Any("Cannot redefine property")));
                 }
                 return false;
             }
@@ -279,15 +281,15 @@ bool InternalObject::defineOwnProperty(const std::u16string& key, Attribute desc
 }
 
 bool InternalObject::hasInstance(const JS::Any& value) const {
-    throw std::runtime_error("TypeError: hasInstance not implemented for this object"); // TODO : TypeError
+    throw JS::Any(JS::NativeError(JS::Any("hasInstance not implemented for this object")));
 }
 
 std::optional<JS::Match> InternalObject::match(const std::u16string& string, uint32_t index) const {
-    throw std::runtime_error("Native Error: match not implemented for this object"); // TODO : Native Error
+    throw JS::Any(JS::NativeError(JS::Any("match not implemented for this object")));
 }
 
 std::u16string InternalObject::getContent() const {
-    throw std::runtime_error("TypeError: getContent not implemented for this object"); // TODO : TypeError
+    throw JS::Any(JS::NativeError(JS::Any("getContent not implemented for this object")));
 }
 
 } // namespace JS

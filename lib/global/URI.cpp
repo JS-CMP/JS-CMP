@@ -4,6 +4,7 @@
 #include <iomanip>
 #include <sstream>
 #include <types/JsAny.hpp>
+#include <types/objects/Error/JsNativeError.hpp>
 #include <utils/Convert.hpp>
 
 static const std::string MARK = R"(-_.!~*'())";
@@ -38,7 +39,7 @@ std::string decode(const std::string& utf, const std::string& reservedSet) {
     for (int i = 0; i < utf.size(); ++i) {
         if (reservedSet.contains(utf[i])) {
             if (!(i + 2 < utf.size() && std::isxdigit(utf[i + 1]) && std::isxdigit(utf[i + 2]))) {
-                throw std::runtime_error("Invalid percent-encoding in utf8 string."); // TODO add a native error
+                throw JS::Any(JS::NativeError(JS::Any("Invalid percent-encoding in utf8 string.")));
             }
 
             std::string hexValue = utf.substr(i + 1, 2);

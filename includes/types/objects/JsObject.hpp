@@ -23,12 +23,10 @@ public:
     ///@{
     /** @brief Default constructor initializes the object with an empty map */
     Object();
-    /** @brief Constructor for properties */
+    /** @brief Constructor for properties with a given set of properties */
     explicit Object(const std::unordered_map<std::u16string, JS::Any>& properties);
-    /** @brief InternalObject constructor */
-    explicit Object(const JS::InternalObject&& internalObject);
-    /** @brief Attribute constructor */
-    explicit Object(const JS::Attribute& attribute);
+    /** @brief Constructor for properties */
+    explicit Object(const JS::Properties& properties);
     ///@}
 
     /** @brief The destructor for the object defaulted */
@@ -67,7 +65,7 @@ public:
     ///@}
 
     /** @brief Function to get the methods of the property prototype */
-    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
+    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties(std::shared_ptr<InternalObject> prototype = nullptr);
 
     /**
      * @name Methods to make prototype methods of the Object built-in

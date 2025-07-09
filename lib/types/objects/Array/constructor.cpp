@@ -1,3 +1,4 @@
+#include "types/objects/Function/JsFunction.hpp"
 #include "types/objects/JsArray.hpp"
 #include "utils/Convert.hpp"
 
@@ -13,7 +14,7 @@ Array::Array()
 Array::Array(const JS::Any& args)
     : InternalObject(
           {
-              {u"length", JS::DataDescriptor{JS::Any(1), true, false, false}},
+              {u"length", JS::DataDescriptor{JS::Any(0), true, false, false}},
           },
           getPrototypeProperties(), u"Array", true) {
     auto len = CONVERT::ToUint32(args[u"length"]);
@@ -44,6 +45,13 @@ Array::Array(const std::vector<JS::Any>& data)
     for (uint32_t i = 0; i < length; ++i) {
         this->defineOwnProperty(JS::CONVERT::ToString(i), JS::DataDescriptor{data[i], true, true, true});
     }
+}
+
+// Static constructor for properties
+Array::Array(const JS::Properties& properties) : InternalObject(properties, JS::Function::getPrototypeProperties(), u"Array", true) {
+    this->defineOwnProperty(u"prototype", JS::DataDescriptor{JS::Any(getPrototypeProperties()), false, false, false});
+    this->call_function = &JS::Array::internal_call;
+    this->construct = &JS::Array::internal_call;
 }
 
 } // namespace JS

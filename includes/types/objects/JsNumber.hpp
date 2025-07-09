@@ -28,7 +28,7 @@ public:
     /** @brief Constructor that take a value */
     explicit Number(const JS::Any& value);
     /** @brief Constructor for properties */
-    explicit Number(const std::unordered_map<std::u16string, JS::Attribute>& properties);
+    explicit Number(const JS::Properties& properties);
     ///@}
 
     /** @brief The destructor for the number defaulted */

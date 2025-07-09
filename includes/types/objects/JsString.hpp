@@ -28,6 +28,9 @@ public:
     explicit String(const JS::Any& value);
     /** @brief Constructor that initializes the object with a given set of properties */
     explicit String(const std::unordered_map<std::u16string, JS::Any>& properties);
+    /** @brief Constructor that initializes the object with a given set of properties */
+    explicit String(const JS::Properties& properties);
+
     ///@}
 
     /** @brief The destructor for the object defaulted */

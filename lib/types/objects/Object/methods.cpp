@@ -1,5 +1,6 @@
 #include "internals/Object.hpp"
 #include "types/JsAny.hpp"
+#include "types/objects/JsArray.hpp"
 #include "types/objects/Function/JsFunction.hpp"
 #include "utils/Compare.hpp"
 #include "utils/Convert.hpp"
@@ -38,12 +39,13 @@ JS::Any Object::getOwnPropertyNames(const JS::Any& thisArg, const JS::Any& args)
             "TypeError: Object.getOwnPropertyNames called on non-object"); // TODO: make this a JS error
     }
     std::shared_ptr<JS::InternalObject> O = std::get<std::shared_ptr<JS::InternalObject>>(args[u"0"].getValue());
-    std::shared_ptr<JS::InternalObject> array = std::make_shared<JS::Object>(); // TODO make this an array
+    std::shared_ptr<JS::InternalObject> array = std::make_shared<JS::Array>();
     int n = 0;
     for (const auto& [key, value] : *O->properties) {
         array->defineOwnProperty(JS::CONVERT::ToString(n), JS::DataDescriptor{JS::Any(key), true, true, true}, false);
         n++;
     }
+    array->defineOwnProperty(u"length", JS::DataDescriptor{JS::Any(n), false, false, false}, false);
     return JS::Any(array);
 }
 

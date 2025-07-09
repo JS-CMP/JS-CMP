@@ -235,6 +235,7 @@ public:
 
     /** @brief Accessors to properties of object in stored in value */
     DECLARE_1FUNC(JS::PropertyProxy operator[], const)
+
     ///@}
 
     /**

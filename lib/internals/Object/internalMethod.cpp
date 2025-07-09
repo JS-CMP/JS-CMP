@@ -121,9 +121,7 @@ JS::Any InternalObject::defaultValue(const Types& hint) {
         case STRING: {
             JS::Any toString = this->get(u"toString");
             if (JS::IS::Callable(toString)) {
-                JS::Any str =
-                    std::get<std::shared_ptr<JS::InternalObject>>(toString.getValue())
-                        ->call_function(JS::Any(shared_from_this()), JS::Arguments::CreateArgumentsObject({}));
+                JS::Any str = std::get<std::shared_ptr<JS::InternalObject>>(toString.getValue())->call_function(JS::Any(shared_from_this()), JS::Arguments::CreateArgumentsObject({}));
                 if (JS::IS::Primitive(str)) {
                     return str;
                 }

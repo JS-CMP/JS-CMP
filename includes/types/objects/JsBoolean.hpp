@@ -25,6 +25,8 @@ public:
     Boolean();
     /** @brief Constructor that take a value */
     explicit Boolean(const JS::Any& value);
+    /** @brief Constructor that initializes the object with a given set of properties */
+    explicit Boolean(const JS::Properties& properties);
     ///@}
 
     /** @brief The destructor for the boolean defaulted */

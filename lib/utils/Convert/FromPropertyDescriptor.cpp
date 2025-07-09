@@ -15,10 +15,27 @@ JS::Any FromPropertyDescriptor(const AccessorDescriptor& desc) { // https://262.
 
 JS::Any FromPropertyDescriptor(const JS::Attribute& desc) { // https://262.ecma-international.org/5.1/#sec-8.10.4
     switch (desc.index()) {
-        case JS::DATA_DESCRIPTOR:
-            return FromPropertyDescriptor(std::get<JS::DataDescriptor>(desc));
-        case JS::ACCESSOR_DESCRIPTOR:
-            return FromPropertyDescriptor(std::get<JS::AccessorDescriptor>(desc));
+        case JS::DATA_DESCRIPTOR: {
+            JS::Object obj;
+            JS::DataDescriptor dataDesc = std::get<JS::DataDescriptor>(desc);
+            obj.put(u"value", dataDesc.value);
+            obj.put(u"writable", JS::Any(dataDesc.writable));
+            obj.put(u"enumerable", JS::Any(dataDesc.enumerable));
+            obj.put(u"configurable", JS::Any(dataDesc.configurable));
+            return JS::Any(obj);
+        }
+        case JS::ACCESSOR_DESCRIPTOR: {
+            JS::AccessorDescriptor accessorDesc = std::get<JS::AccessorDescriptor>(desc);
+            if (accessorDesc.get == nullptr && accessorDesc.set == nullptr) {
+                return {};
+            }
+            JS::Object obj;
+            obj.put(u"get", accessorDesc.get == nullptr ? JS::Any(JS::Undefined{}) : JS::Any(*accessorDesc.get));
+            obj.put(u"set", accessorDesc.set == nullptr ? JS::Any(JS::Undefined{}) : JS::Any(*accessorDesc.set));
+            obj.put(u"enumerable", JS::Any(accessorDesc.enumerable));
+            obj.put(u"configurable", JS::Any(accessorDesc.configurable));
+            return JS::Any(obj);
+        }
         default:
             return {};
     }

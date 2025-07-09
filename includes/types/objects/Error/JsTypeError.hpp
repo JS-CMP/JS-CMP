@@ -10,7 +10,7 @@ namespace JS {
     // they are rewritten be inheritence or something.
     //
     /**
-     * @class NartiveError
+     * @class TypeError
      * @brief Represents a JavaScript TypeError in C++.
      *
      * The `TypeError` class represents an TypeError in C++. it inherits from `Error` and just have a different name.

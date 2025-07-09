@@ -11,10 +11,10 @@ namespace JS {
     //
 
     /**
-     * @class NartiveError
+     * @class RangeError
      * @brief Represents a JavaScript NativeError in C++.
      *
-     * The `NativeError` class represents an NativeError in C++. it inherits from `Error` and just have a different name.
+     * The `RangeError` class represents an NativeError in C++. it inherits from `Error` and just have a different name.
      */
     class RangeError : public JS::InternalObject {
     public:

@@ -31,6 +31,9 @@ void Rope::concat(const Rope& other) {
 Rope Rope::operator+(const Rope& other) const {
     return Rope(std::make_shared<RopeConcat>(root, other.root));
 }
+Rope Rope::operator+(const std::u16string& other) {
+    return Rope(std::make_shared<RopeConcat>(root, other));
+}
 
 Rope Rope::operator+(const std::u16string& other) const {
     return Rope(std::make_shared<RopeConcat>(root, other));

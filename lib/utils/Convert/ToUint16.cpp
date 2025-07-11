@@ -1,3 +1,4 @@
+#include "internals/Operator.hpp"
 #include "types/JsAny.hpp"
 
 #include <cmath>
@@ -43,7 +44,7 @@ uint16_t ToUint16(JS::Null /*unused*/) {
 uint16_t ToUint16(JS::Undefined /*unused*/) {
     return 0;
 }
-uint16_t ToUint16(const JS::Any& any) { // https://262.ecma-international.org/5.1/#sec-9.7
+uint16_t ToUint16(const JS::Operator& any) { // https://262.ecma-international.org/5.1/#sec-9.7
     switch (any.getValue().index()) {
         case NUMBER:
             return ToUint16(std::get<double>(any.getValue()));

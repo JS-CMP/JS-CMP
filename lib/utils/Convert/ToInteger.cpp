@@ -1,3 +1,4 @@
+#include "internals/Operator.hpp"
 #include "types/JsAny.hpp"
 
 #include <cmath>
@@ -38,7 +39,7 @@ int ToInteger(JS::Undefined /*unused*/) {
     return 0;
 }
 
-int ToInteger(const JS::Any& any) { // https://262.ecma-international.org/5.1/#sec-9.4
+int ToInteger(const JS::Operator& any)  { // https://262.ecma-international.org/5.1/#sec-9.4
     switch (any.getValue().index()) {
         case NUMBER:
             return ToInteger(std::get<double>(any.getValue()));

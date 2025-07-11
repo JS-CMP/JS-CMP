@@ -184,7 +184,6 @@ JS::Any Array::concat(const JS::Any& thisArg, const JS::Any& args) {
 }
 
 JS::Any Array::join(const JS::Any& thisArg, const JS::Any& args) {
-
     std::shared_ptr<JS::InternalObject> O = JS::CONVERT::ToObject(thisArg);
     uint32_t len = JS::CONVERT::ToUint32(O->get(u"length"));
     if (len == 0) {
@@ -462,7 +461,6 @@ JS::Any Array::unshift(const JS::Any& thisArg, const JS::Any& args) {
 }
 
 JS::Any Array::indexOf(const JS::Any& thisArg, const JS::Any& args) {
-
     std::shared_ptr<JS::InternalObject> O = JS::CONVERT::ToObject(thisArg);
     uint32_t len = JS::CONVERT::ToUint32(O->get(u"length"));
     if (len == 0) {
@@ -476,7 +474,7 @@ JS::Any Array::indexOf(const JS::Any& thisArg, const JS::Any& args) {
     while (k < len) {
         if (O->hasProperty(JS::CONVERT::ToString(k))) {
             JS::Any elementK = O->get(JS::CONVERT::ToString(k));
-            if (elementK.strictEq(args[u"0"])) {
+            if (JS::COMPARE::SameValue(elementK, args[u"0"])) {
                 return JS::Any(k);
             }
         }
@@ -498,7 +496,7 @@ JS::Any Array::lastIndexOf(const JS::Any& thisArg, const JS::Any& args) {
     while (k >= 0) {
         if (O->hasProperty(JS::CONVERT::ToString(k))) {
             JS::Any elementK = O->get(JS::CONVERT::ToString(k));
-            if (elementK.strictEq(args[u"0"])) {
+            if (JS::COMPARE::SameValue(elementK, args[u"0"])) {
                 return JS::Any(k);
             }
         }

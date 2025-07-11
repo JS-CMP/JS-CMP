@@ -1,4 +1,6 @@
+#include "internals/Operator.hpp"
 #include "types/JsAny.hpp"
+#include "types/objects/JsString.hpp"
 #include "utils/Convert.hpp"
 
 #include <cmath>
@@ -23,6 +25,7 @@ double ToNumber(const char* str) {
 double ToNumber(const char16_t* str) {
     return ToNumber(std::u16string(str));
 }
+
 double ToNumber(const std::string& str) {
     if (str.empty()) {
         throw std::invalid_argument("Cannot convert empty string to number");
@@ -72,7 +75,9 @@ double ToNumber(JS::Null /*unused*/) {
 double ToNumber(JS::Undefined /*unused*/) {
     return std::numeric_limits<double>::quiet_NaN();
 }
-double ToNumber(const JS::Any& any) { // https://262.ecma-international.org/5.1/#sec-9.3
+
+
+double ToNumber(const JS::Operator& any) {// https://262.ecma-international.org/5.1/#sec-9.3
     switch (any.getValue().index()) {
         case NUMBER:
             return std::get<double>(any.getValue());

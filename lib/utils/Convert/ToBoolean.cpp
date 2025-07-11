@@ -1,4 +1,6 @@
+#include "internals/Operator.hpp"
 #include "types/JsAny.hpp"
+#include "types/objects/JsBoolean.hpp"
 
 #include <cmath>
 
@@ -36,7 +38,7 @@ bool ToBoolean(JS::Null /*unused*/) {
 bool ToBoolean(JS::Undefined /*unused*/) {
     return false;
 }
-bool ToBoolean(const JS::Any& any) { // https://262.ecma-international.org/5.1/#sec-9.2
+bool ToBoolean(const JS::Operator& any) { // https://262.ecma-international.org/5.1/#sec-9.2
     switch (any.getValue().index()) {
         case NUMBER:
             return ToBoolean(std::get<double>(any.getValue()));

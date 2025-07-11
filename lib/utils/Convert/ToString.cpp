@@ -1,3 +1,4 @@
+#include "internals/Operator.hpp"
 #include "types/JsAny.hpp"
 #include "utils/Convert.hpp"
 
@@ -39,7 +40,8 @@ std::u16string ToString(JS::Null /*unused*/) {
 std::u16string ToString(JS::Undefined /*unused*/) {
     return u"undefined";
 }
-std::u16string ToString(const JS::Any& any) {
+
+std::u16string ToString(const JS::Operator& any) {
     // https://262.ecma-international.org/5.1/#sec-9.8
     switch (any.getValue().index()) {
         case NUMBER:
@@ -53,7 +55,7 @@ std::u16string ToString(const JS::Any& any) {
         case NULL_TYPE:
             return ToString(JS::Null());
         default:
-            return ToString(ToPrimitive(any, JS::STRING)); // Convert to primitive with STRING hint
+            return ToString(ToPrimitive(any.get(), JS::STRING)); // Convert to primitive with STRING hint
     }
 }
 } // namespace JS::CONVERT

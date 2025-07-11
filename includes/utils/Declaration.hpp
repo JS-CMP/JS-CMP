@@ -21,10 +21,10 @@
 
 #define DECLARE_1FUNC(FUNC_HEAD, FUNC_TAIL)                                                                            \
     FOR_EACH_CONVERSION_TYPE(FUNC_HEAD L_PAREN(), R_PAREN() FUNC_TAIL)                                                 \
-    FUNC_HEAD(const JS::Any& value) FUNC_TAIL;
+    FUNC_HEAD(const JS::Operator& value) FUNC_TAIL;                                                                    \
 
 #define DECLARE_2FUNC(FUNC_HEAD, FUNC_TAIL)                                                                            \
-    FOR_EACH_CONVERSION_TYPE(FUNC_HEAD L_PAREN(), COMMA const JS::Any& any R_PAREN() FUNC_TAIL)
+    FOR_EACH_CONVERSION_TYPE(FUNC_HEAD L_PAREN(), COMMA const JS::Operator& any R_PAREN() FUNC_TAIL)
 
 #define DECLARE_2FUNC_TWO_WAYS(FUNC_HEAD, FUNC_TAIL)                                                                   \
     FOR_EACH_CONVERSION_TYPE(FUNC_HEAD L_PAREN(), COMMA const JS::Any& any R_PAREN() FUNC_TAIL)                        \

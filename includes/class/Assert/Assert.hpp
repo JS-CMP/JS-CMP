@@ -1,12 +1,7 @@
 #ifndef JS_CMP_ASSERT_HPP
 #define JS_CMP_ASSERT_HPP
 
-#include "exceptions/AssertionError.hpp"
-#include "exceptions/TypeError.hpp"
-#include "global/global.hpp"
-#include "types/objects/Function/JsFunction.hpp"
-#include "types/objects/JsObject.hpp"
-#include "utils/Compare.hpp"
+#include "internals/Object.hpp"
 
 #include <cmath>
 
@@ -24,88 +19,55 @@
 - [ ] assert.doesNotReject(asyncFn[, error][, message]) -> need async
 - [ ] assert.rejects(asyncFn[, error][, message]) -> need async
 */
-class assert : public JS::Object {
+
+// TODO move it when we have support for modules / require
+namespace JS {
+class Assert : public JS::InternalObject {
 public:
-    template <typename... Args>
-    static JS::Any equal(Args&&... args) {
-        return equalHelper({std::forward<Args>(args)...});
-    }
-    template <typename... Args>
-    static JS::Any notEqual(Args&&... args) {
-        return notEqualHelper({std::forward<Args>(args)...});
-    }
-    template <typename... Args>
-    static JS::Any strictEqual(Args&&... args) {
-        return strictEqualHelper({std::forward<Args>(args)...});
-    }
-    template <typename... Args>
-    static JS::Any notStrictEqual(Args&&... args) {
-        return notStrictEqualHelper({std::forward<Args>(args)...});
-    }
-    template <typename... Args>
-    static JS::Any deepEqual(Args&&... args) {
-        return deepEqualHelper({std::forward<Args>(args)...});
-    }
-    template <typename... Args>
-    static JS::Any notDeepEqual(Args&&... args) {
-        return notDeepEqualHelper({std::forward<Args>(args)...});
-    }
-    template <typename... Args>
-    static JS::Any deepStrictEqual(Args&&... args) {
-        return deepStrictEqualHelper({std::forward<Args>(args)...});
-    }
-    template <typename... Args>
-    static JS::Any notStrictDeepEqual(Args&&... args) {
-        return notStrictDeepEqualHelper({std::forward<Args>(args)...});
-    }
-    template <typename... Args>
-    static JS::Any ok(Args&&... args) {
-        return okHelper({std::forward<Args>(args)...});
-    }
-    template <typename... Args>
-    static JS::Any fail(Args&&... args) {
-        return failHelper({std::forward<Args>(args)...});
-    }
-    template <typename... Args>
-    static JS::Any ifError(Args&&... args) {
-        return ifErrorHelper({std::forward<Args>(args)...});
-    }
-    template <typename... Args>
-    static JS::Any throws(Args&&... args) {
-        return throwsHelper({std::forward<Args>(args)...});
-    }
-    template <typename... Args>
-    static JS::Any sameValue(Args&&... args) {
-        return sameValue({std::forward<Args>(args)...});
-    }
+    explicit Assert(const JS::Properties& properties);
+    /**
+     * @name Assertions Functions
+     * @brief Functions to assert conditions in tests.
+     */
+    ///@{
+    /** @brief Asserts that a value is not truthy (null, undefined, NaN, false).*/
+    static JS::Any fail(const JS::Any& thisArgs, const JS::Any& args);
+    /** @brief Asserts that a value is truthy (not null, undefined, NaN, false).*/
+    static JS::Any ok(const JS::Any& thisArgs, const JS::Any& args);
+    /** @brief Asserts that two values are equal.*/
+    static JS::Any equal(const JS::Any& thisArgs, const JS::Any& args);
+    /** @brief Asserts that two values are not equal.*/
+    static JS::Any notEqual(const JS::Any& thisArgs, const JS::Any& args);
+    /** @brief Asserts that two values are deep equal.*/
+    static JS::Any deepEqual(const JS::Any& thisArgs, const JS::Any& args);
+    /** @brief Asserts that two values are not deep equal.*/
+    static JS::Any notDeepEqual(const JS::Any& thisArgs, const JS::Any& args);
+    /** @brief Asserts that two values are strictly equal.*/
+    static JS::Any strictEqual(const JS::Any& thisArgs, const JS::Any& args);
+    /** @brief Asserts that two values are not strictly equal.*/
+    static JS::Any notStrictEqual(const JS::Any& thisArgs, const JS::Any& args);
+    /** @brief Asserts that value are throwable.*/
+    static JS::Any throws(const JS::Any& thisArgs, const JS::Any& args);
+    /** @brief Asserts that value are not throwable.*/
+    static JS::Any doesNotThrow(const JS::Any& thisArgs, const JS::Any& args);
+    /** @brief Asserts that value is ok (not null, undefined, NaN, false).*/
+    static JS::Any ifError(const JS::Any& thisArgs, const JS::Any& args);
+    ///@}
 
+
+    // Not Needed for ES5 Error
+    static JS::Any deepStrictEqual(const JS::Any& thisArgs, const JS::Any& args);
+    static JS::Any notStrictDeepEqual(const JS::Any& thisArgs, const JS::Any& args);
 private:
-    static JS::Any equalHelper(const JS::Any& thisArgs, const JS::Any& args);
-    static JS::Any notEqualHelper(const JS::Any& thisArgs, const JS::Any& args);
-
-    static JS::Any strictEqualHelper(const JS::Any& thisArgs, const JS::Any& args);
-    static JS::Any notStrictEqualHelper(const JS::Any& thisArgs, const JS::Any& args);
-
-    static JS::Any deepEqualHelper(const JS::Any& thisArgs, const JS::Any& args);
-    static JS::Any notDeepEqualHelper(const JS::Any& thisArgs, const JS::Any& args);
-
-    static JS::Any deepStrictEqualHelper(const JS::Any& thisArgs, const JS::Any& args);
-    static JS::Any notStrictDeepEqualHelper(const JS::Any& thisArgs, const JS::Any& args);
-
-    static JS::Any okHelper(const JS::Any& thisArgs, const JS::Any& args);
-    static JS::Any failHelper(const JS::Any& thisArgs, const JS::Any& args);
-    static JS::Any ifErrorHelper(const JS::Any& thisArgs, const JS::Any& args);
-    static JS::Any throwsHelper(const JS::Any& thisArgs, const JS::Any& args);
-
-    // test262 asserts
-    static JS::Any sameValueHelper(const JS::Any& actual, const JS::Any& expected);
-    static bool _sameValue(const JS::Any& actual, const JS::Any& expected);
-
-    assert();
     // TODO: add handling stackStartFn
     static void innerFail(const JS::Any& actual, const JS::Any& expected, const JS::Any& message,
                           const std::u16string& operator_);
     static bool isDeepEqual(const JS::Any& actual, const JS::Any& expected, bool strict = false);
+
+    // test262 asserts
+    static JS::Any sameValue(const JS::Any& actual, const JS::Any& expected);
+    static bool _sameValue(const JS::Any& actual, const JS::Any& expected);
 };
+} // namespace JS
 
 #endif // JS_CMP_ASSERT_HPP

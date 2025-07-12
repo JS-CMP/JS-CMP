@@ -1,6 +1,7 @@
 #ifndef JS_CMP_GLOBAL_HPP
 #define JS_CMP_GLOBAL_HPP
 
+#include "class/Assert/Assert.hpp"
 #include "global/console.hpp"
 #include "globalFunctions.hpp"
 #include "types/JsAny.hpp"
@@ -95,6 +96,27 @@ JS::Any Math = JS::Any(std::make_shared<JS::InternalObject>(
         {u"SQRT2", JS::DataDescriptor{JS::Any(M_SQRT2), false, false, false}},
     },
     JS::Object::getPrototypeProperties(), u"Math", true)); // TODO Make math inherit from Object
+
+// TODO add prototype and AssertionError function
+JS::Any Assert = JS::Any(std::make_shared<JS::Assert>(JS::Properties{
+    {u"length", JS::DataDescriptor{JS::Any(2), false, false, false}},
+    {u"name", JS::DataDescriptor{JS::Any(u"Assert"), false, false, false}},
+    {u"fail", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Assert::fail)), true, true, true}},
+    {u"ok", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Assert::ok)), true, true, true}},
+    {u"equal", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Assert::equal)), true, true, true}},
+    {u"notEqual", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Assert::notEqual)), true, true, true}},
+    {u"deepEqual", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Assert::deepEqual)), true, true, true}},
+    {u"notDeepEqual",
+     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Assert::notDeepEqual)), true, true, true}},
+    {u"strictEqual",
+     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Assert::strictEqual)), true, true, true}},
+    {u"notStrictEqual",
+     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Assert::notStrictEqual)), true, true, true}},
+    {u"throws", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Assert::throws)), true, true, true}},
+    {u"doesNotThrow",
+     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Assert::doesNotThrow)), true, true, true}},
+}));
+
 
 JS::Any console = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::u16string, JS::Any>{
     {u"log", JS::Any(std::make_shared<JS::Function>(JS::console::log))},

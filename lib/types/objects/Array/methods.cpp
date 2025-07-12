@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <stdexcept>
 #include <utils/Is.hpp>
+#include <customOperators/CustomOperators.hpp>
 
 namespace JS {
 
@@ -474,7 +475,7 @@ JS::Any Array::indexOf(const JS::Any& thisArg, const JS::Any& args) {
     while (k < len) {
         if (O->hasProperty(JS::CONVERT::ToString(k))) {
             JS::Any elementK = O->get(JS::CONVERT::ToString(k));
-            if (JS::COMPARE::SameValue(elementK, args[u"0"])) {
+            if (elementK strictEq args[u"0"]) {
                 return JS::Any(k);
             }
         }
@@ -496,7 +497,7 @@ JS::Any Array::lastIndexOf(const JS::Any& thisArg, const JS::Any& args) {
     while (k >= 0) {
         if (O->hasProperty(JS::CONVERT::ToString(k))) {
             JS::Any elementK = O->get(JS::CONVERT::ToString(k));
-            if (JS::COMPARE::SameValue(elementK, args[u"0"])) {
+            if (elementK strictEq args[u"0"]) {
                 return JS::Any(k);
             }
         }

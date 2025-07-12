@@ -185,24 +185,13 @@ public:
     JS::Any operator!=(const JS::Operator& other) const;
     ///@}
 
-    // todo: remove when custom operator merged
-    /** @brief strict equality operator a === b */
-    [[nodiscard]] bool strictEq(const JS::Any& other) const;
-    /** @brief strict inequality operator a !== b */
-    [[nodiscard]] bool strictNeq(const JS::Any& other) const;
-
     /**
      * @name Accessors
      * These methods provide access to the properties of the object
      */
     ///@{
     /** @brief Accessors to call function stored in properties on an object stored in value */
-    // template <typename... Args>
-    // JS::Any operator()(Args&&... args) {
-    //     return call(JS::Arguments::CreateArgumentsObject(std::vector<JS::Any>{std::move(args)...}));
-    // }
-    /** @brief Accessors to call function stored in properties on an object stored in value */
-    JS::Any call(const JS::Any& args) const;
+    virtual JS::Any call(const JS::Any& args) const;
 
     /** @brief Accessors to constructor function stored in properties on an object stored in value */
     JS::Any constructor(const JS::Any& args) const;

@@ -1,6 +1,7 @@
 #include "internals/PropertyProxy.hpp"
 #include "utils/Compare.hpp"
 #include "utils/Convert.hpp"
+#include "utils/Is.hpp"
 
 #include <internals/Operator.hpp>
 #include <types/JsAny.hpp>
@@ -14,9 +15,9 @@ DECLARE_1FUNC(
     })
 
 JS::Any JS::Operator::call(const JS::Any& args) const {
-    if (this->getValue().index() == JS::OBJECT && std::get<std::shared_ptr<JS::InternalObject>>(this->getValue())->isCallable()) {
+    if (JS::IS::Callable(this->getValue())) {
         return std::get<std::shared_ptr<JS::InternalObject>>(this->getValue())->call_function(
-            this->get(), args); // TODO fix this to pass the correct this aka global object
+            JS::Any(JS::Undefined{}), args); // TODO fix this to pass the correct this aka global object
     }
     throw std::runtime_error("Value is not a function");
 }

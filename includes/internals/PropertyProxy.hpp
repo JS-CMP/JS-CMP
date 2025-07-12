@@ -41,6 +41,10 @@ public:
     }
     ///@}
 
+    /** @brief Override the call operator to add obj_ as the this argument */
+    JS::Any call(const JS::Any& args) const override;
+
+
     /** @name Getters
      * These methods provide access to the properties of the object
      */

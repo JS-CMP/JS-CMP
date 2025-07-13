@@ -11,7 +11,7 @@ namespace JS {
     //
 
     /**
-     * @class NartiveError
+     * @class ReferenceError
      * @brief Represents a JavaScript ReferenceError in C++.
      *
      * The `ReferenceError` class represents an ReferenceError in C++. it inherits from `Error` and just have a different name.

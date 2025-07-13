@@ -11,7 +11,7 @@ namespace JS {
     //
 
     /**
-     * @class NartiveError
+     * @class UriError
      * @brief Represents a JavaScript UriError in C++.
      *
      * The `UriError` class represents an UriError in C++. it inherits from `Error` and just have a different name.

@@ -11,7 +11,7 @@ namespace JS {
     //
 
     /**
-     * @class NartiveError
+     * @class SyntaxError
      * @brief Represents a JavaScript SyntaxError in C++.
      *
      * The `SyntaxError` class represents an SyntaxError in C++. it inherits from `Error` and just have a different name.

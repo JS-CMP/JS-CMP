@@ -1,4 +1,6 @@
 #include <string>
+#include <types/JsAny.hpp>
+#include <types/objects/Error/JsTypeError.hpp>
 #include <unicode/unistr.h>
 #include <unicode/ustream.h>
 
@@ -11,13 +13,13 @@ std::string ToUtf8(const std::u16string& utf16_str) {
         unicode_str.toUTF8String(utf8_str);
         return utf8_str;
     } catch (const std::exception& e) {
-        throw std::runtime_error("UTF-8 conversion failed: " + std::string(e.what()));
+        throw JS::Any(JS::TypeError(JS::Any("UTF-8 conversion failed: " + std::string(e.what()))));
     }
 }
 
 std::string ToUtf8(char16_t ch) {
     if (ch >= 0xD800 && ch <= 0xDFFF) {
-        throw std::invalid_argument("Invalid UTF-16 surrogate code unit");
+        throw JS::Any(JS::TypeError(JS::Any("Invalid UTF-16 surrogate code unit")));
     }
     if (ch <= 0x7F) {
         return std::string(1, static_cast<char>(ch));
@@ -28,7 +30,7 @@ std::string ToUtf8(char16_t ch) {
         unicode_str.toUTF8String(utf8_str);
         return utf8_str;
     } catch (const std::exception& e) {
-        throw std::runtime_error("UTF-8 conversion failed: " + std::string(e.what()));
+        throw JS::Any(JS::TypeError(JS::Any("UTF-8 conversion failed: " + std::string(e.what()))));
     }
 }
 } // namespace JS::CONVERT

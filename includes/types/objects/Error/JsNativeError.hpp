@@ -11,7 +11,7 @@ namespace JS {
 //
 
 /**
- * @class NartiveError
+ * @class NativeError
  * @brief Represents a JavaScript NativeError in C++.
  *
  * The `NativeError` class represents an NativeError in C++. it inherits from `Error` and just have a different name.

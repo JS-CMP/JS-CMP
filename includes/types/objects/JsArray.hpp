@@ -24,7 +24,7 @@ public:
     /** @brief Default constructor initializes an empty array */
     Array();
     /** @brief Default constructor initializes an empty array of given length */
-    explicit Array(const JS::Any& len);
+    explicit Array(const JS::Any& args);
     /** @brief Default constructor initializes an array with the given vector of Any */
     explicit Array(const std::vector<JS::Any>& data);
     ///@}
@@ -118,6 +118,16 @@ public:
 
     /** @brief Returns a shared pointer to the prototype properties of the Array object. */
     static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
+
+    /**
+     * @name Methods that represent the functions needed for calling and constructing
+     */
+    ///@{
+    /** @brief Function that represent the constructor of the Object */
+    static Any internal_constructor(const JS::Any& thisArgs, const JS::Any& args);
+    /** @brief Function that is used when object is call as a function */
+    static Any internal_call(const JS::Any& thisArg, const JS::Any& args);
+    ///@}
 
     [[nodiscard]] std::u16string getContent() const override;
 };

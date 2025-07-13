@@ -68,6 +68,7 @@ public:
     JS::Any& operator=(JS::Any&& other) noexcept;
     /** @brief boolean conversion operator */
     operator bool(); // NOLINT(hicpp-explicit-conversions)
+    /** @brief string conversion operator */
     ///@}
 
     /**

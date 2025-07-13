@@ -15,7 +15,7 @@ include_directories(${PROJECT_SOURCE_DIR}/submodules/SyntaxSmith/includes)
 
 
 add_subdirectory(submodules/Lexer)
-add_subdirectory(submodules/SyntaxSmith)
+#add_subdirectory(submodules/SyntaxSmith)
 
 # Set up package configuration
 if(APPLE)
@@ -37,8 +37,6 @@ target_include_directories(jscmp PRIVATE ${ICU_INCLUDE_DIRS})
 
 target_link_libraries(jscmp PRIVATE Boost::regex)
 target_include_directories(jscmp PRIVATE ${Boost_INCLUDE_DIRS})
-
-
 
 # JS_CMP executable
 file(GLOB_RECURSE SOURCES "src/*.cpp")

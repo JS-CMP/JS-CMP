@@ -3,6 +3,7 @@
 #include "utils/Convert.hpp"
 
 #include <stdexcept>
+#include <types/objects/Error/JsRangeError.hpp>
 #include <utils/Compare.hpp>
 
 namespace JS {
@@ -24,7 +25,7 @@ Array::Array(const JS::Any& args)
             const double lengthValue = JS::CONVERT::ToNumber(len);
             const uint32_t uintLength = JS::CONVERT::ToUint32(len);
             if (lengthValue != uintLength) {
-                throw std::range_error("Invalid array length"); // TODO: Handle this error properly
+                throw JS::Any(RangeError(JS::Any(u"Invalid array length")));
             }
             this->defineOwnProperty(u"length", JS::DataDescriptor{JS::Any(uintLength), true, false, false});
         } else {

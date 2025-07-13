@@ -3,6 +3,7 @@
 #include "types/objects/JsObject.hpp"
 
 #include <cmath>
+#include <types/objects/Error/JsTypeError.hpp>
 
 namespace JS::COMPARE {
 bool Type(const JS::Operator& a, const JS::Operator& b) {
@@ -99,7 +100,7 @@ void CheckObjectCoercible(const JS::Operator& any) {
     switch (any.getValue().index()) {
         case JS::UNDEFINED:
         case JS::NULL_TYPE:
-            throw std::runtime_error("TypeError: Cannot convert undefined or null to object"); // TypeError
+            throw JS::Any(TypeError(JS::Any("Cannot convert undefined or null to object")));
         default:
             return;
     }

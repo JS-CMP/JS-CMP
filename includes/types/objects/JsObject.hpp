@@ -94,6 +94,9 @@ public:
     /** @brief Function that is used when object is call as a function */
     static Any internal_call(const JS::Any& thisArg, const JS::Any& args);
     ///@}
+
+    /** @brief Returns the content of the object formatted to a string. */
+    [[nodiscard]] std::u16string getContent() const override;
 };
 
 } // namespace JS

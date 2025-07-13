@@ -5,6 +5,7 @@
 
 #include <internals/Operator.hpp>
 #include <types/JsAny.hpp>
+#include <types/objects/Error/JsTypeError.hpp>
 #include <types/objects/Function/JsFunction.hpp>
 
 DECLARE_1FUNC(
@@ -19,7 +20,7 @@ JS::Any JS::Operator::call(const JS::Any& args) const {
         return std::get<std::shared_ptr<JS::InternalObject>>(this->getValue())->call_function(
             JS::Any(JS::Undefined{}), args); // TODO fix this to pass the correct this aka global object
     }
-    throw std::runtime_error("Value is not a function");
+    throw JS::Any(JS::TypeError(JS::Any("Value is not a function")));
 }
 
 JS::Any JS::Operator::constructor(const JS::Any& args) const {
@@ -29,7 +30,7 @@ JS::Any JS::Operator::constructor(const JS::Any& args) const {
             return Obj->construct(JS::Any(Obj), args);
         }
     }
-    throw std::runtime_error("Value does not have a constructor");
+    throw JS::Any(JS::TypeError(JS::Any("Value does not have a constructor")));
 }
 
 namespace JS {

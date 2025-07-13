@@ -130,6 +130,8 @@ public:
     /** @brief Function that is used when object is call as a function */
     static Any internal_call(const JS::Any& thisArg, const JS::Any& args);
     ///@}
+
+    [[nodiscard]] std::u16string getContent() const override;
 };
 
 } // namespace JS

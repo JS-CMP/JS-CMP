@@ -49,7 +49,7 @@ JS::Any CreateArgumentsObject(const std::vector<JS::Any>& args, const std::share
         static std::shared_ptr<JS::InternalObject> thrower = std::make_shared<JS::Function>(
             // TODO: make a [[ThrowTypeError]] function object
             [](const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
-                throw JS::Any(JS::TypeError(JS::Any("Cannot access 'caller' or 'arguments.callee' in strict mode")));
+                throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Cannot access 'caller' or 'arguments.callee' in strict mode")));
             });
         obj->defineOwnProperty(u"caller", JS::AccessorDescriptor{thrower, thrower, false, false}, false);
         obj->defineOwnProperty(u"callee", JS::AccessorDescriptor{thrower, thrower, false, false}, false);

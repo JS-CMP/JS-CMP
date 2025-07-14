@@ -2,22 +2,15 @@
 #include "utils/Convert.hpp"
 
 namespace JS {
-NativeError::NativeError() : JS::InternalObject({}, getPrototypeProperties(), u"Error", true) {
-    this->InternalObject::defineOwnProperty(u"message", JS::DataDescriptor{JS::Any(""), false, false, false});
+NativeError::NativeError() : JS::Error(JS::NativeError::getPrototypeProperties()) {
 }
 
-NativeError::NativeError(const JS::Any& value) : JS::InternalObject({}, getPrototypeProperties(), u"Error", true) {
-    this->InternalObject::defineOwnProperty(u"message", JS::DataDescriptor{JS::Any(JS::CONVERT::ToString(value)), false, false, false});
+NativeError::NativeError(const JS::Any& value) : JS::Error(value, JS::NativeError::getPrototypeProperties()) {
 }
 
 NativeError::NativeError(const std::unordered_map<std::u16string, JS::Attribute>& properties)
-    : InternalObject({}, getPrototypeProperties(), u"Error", true) {
-    for (const auto& [key, value] : properties) {
-        this->InternalObject::defineOwnProperty(key, value);
-    }
-
-    if (properties.find(u"message") == properties.end()) {
-        this->InternalObject::defineOwnProperty(u"message", JS::DataDescriptor{JS::Any(""), false, false, false});
-    }
+    : JS::Error(properties, JS::NativeError::getPrototypeProperties()) {
+    this->call_function = &JS::NativeError::internal_call;
+    this->construct = &JS::NativeError::internal_constructor;
 }
 } // namespace JS

@@ -100,7 +100,7 @@ void CheckObjectCoercible(const JS::Operator& any) {
     switch (any.getValue().index()) {
         case JS::UNDEFINED:
         case JS::NULL_TYPE:
-            throw JS::Any(TypeError(JS::Any("Cannot convert undefined or null to object")));
+            throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Cannot convert undefined or null to object")));
         default:
             return;
     }

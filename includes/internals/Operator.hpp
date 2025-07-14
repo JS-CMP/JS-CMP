@@ -13,7 +13,7 @@ namespace JS {
  * The `Operator` class provides a set of methods and operators that mimic JavaScript's behavior,
  * allowing for bitwise, arithmetic, logical, and comparison operations on values of type `Any`.
  */
-class Operator {
+class Operator: public std::exception {
 public:
     /** @name Getters
      * These methods provide access to the properties of the object
@@ -192,13 +192,10 @@ public:
     ///@{
     /** @brief Accessors to call function stored in properties on an object stored in value */
     virtual JS::Any call(const JS::Any& args) const;
-
     /** @brief Accessors to constructor function stored in properties on an object stored in value */
     JS::Any constructor(const JS::Any& args) const;
-
     /** @brief Accessors to properties of object in stored in value */
     DECLARE_1FUNC(JS::PropertyProxy operator[], const);
-
     ///@}
 
     /**
@@ -217,6 +214,9 @@ public:
      * @return Output stream with `Any` value representation.
      */
     friend std::ostream& operator<<(std::ostream& os, const JS::Operator& any);
+
+    /** @brief Exception handling method to get the error message */
+    const char* what() const noexcept;
 };
 } // namespace JS
 #endif // OPERATOR_HPP

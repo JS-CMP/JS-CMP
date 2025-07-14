@@ -74,20 +74,38 @@ JS::Any Boolean = JS::Any(std::make_shared<JS::Boolean>(JS::Properties{
     {u"length", JS::DataDescriptor{JS::Any(1), true, false, false}},
     {u"name", JS::DataDescriptor{JS::Any(u"Boolean"), false, false, false}},
 }));
+//
+JS::Any Error = JS::Any(std::make_shared<JS::Error>(JS::Properties{
+    {u"length", JS::DataDescriptor{JS::Any(1), false, false, false}},
+    {u"name", JS::DataDescriptor{JS::Any(u"Error"), false, false, false}},
+}));
 
-JS::Any Error = JS::Any(std::make_shared<JS::Error>());
+// NativeError is not expected to be used directly, but it is the base class for all native errors.
 
-JS::Any NativeError = JS::Any(std::make_shared<JS::NativeError>());
+JS::Any RangeError = JS::Any(std::make_shared<JS::RangeError>(JS::Properties{
+    {u"length", JS::DataDescriptor{JS::Any(1), false, false, false}},
+    {u"name", JS::DataDescriptor{JS::Any(u"RangeError"), false, false, false}},
+}));
 
-JS::Any RangeError = JS::Any(std::make_shared<JS::RangeError>());
+JS::Any ReferenceError = JS::Any(std::make_shared<JS::ReferenceError>(JS::Properties{
+    {u"length", JS::DataDescriptor{JS::Any(1), false, false, false}},
+    {u"name", JS::DataDescriptor{JS::Any(u"ReferenceError"), false, false, false}},
+}));
 
-JS::Any ReferenceError = JS::Any(std::make_shared<JS::ReferenceError>());
+JS::Any SyntaxError = JS::Any(std::make_shared<JS::SyntaxError>(JS::Properties{
+    {u"length", JS::DataDescriptor{JS::Any(1), false, false, false}},
+    {u"name", JS::DataDescriptor{JS::Any(u"SyntaxError"), false, false, false}},
+}));
 
-JS::Any SyntaxError = JS::Any(std::make_shared<JS::SyntaxError>());
+JS::Any TypeError = JS::Any(std::make_shared<JS::TypeError>(JS::Properties{
+    {u"length", JS::DataDescriptor{JS::Any(1), false, false, false}},
+    {u"name", JS::DataDescriptor{JS::Any(u"TypeError"), false, false, false}},
+}));
 
-JS::Any TypeError = JS::Any(std::make_shared<JS::TypeError>());
-
-JS::Any URIError = JS::Any(std::make_shared<JS::UriError>());
+JS::Any URIError = JS::Any(std::make_shared<JS::URIError>(JS::Properties{
+    {u"length", JS::DataDescriptor{JS::Any(1), false, false, false}},
+    {u"name", JS::DataDescriptor{JS::Any(u"URIError"), false, false, false}},
+}));
 
 JS::Any Math = JS::Any(std::make_shared<JS::InternalObject>(
     JS::Properties{

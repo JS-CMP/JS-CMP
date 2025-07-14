@@ -15,7 +15,7 @@ include_directories(${PROJECT_SOURCE_DIR}/submodules/SyntaxSmith/includes)
 
 
 add_subdirectory(submodules/Lexer)
-#add_subdirectory(submodules/SyntaxSmith)
+add_subdirectory(submodules/SyntaxSmith)
 
 # Set up package configuration
 if(APPLE)

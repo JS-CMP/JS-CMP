@@ -24,7 +24,7 @@ JS::Any Object::toLocaleString(const JS::Any& thisArg, const JS::Any& args) {
     if (JS::IS::Callable(toString)) {
         return toString();
     }
-    throw JS::Any(JS::TypeError(JS::Any("Object.prototype.toLocaleString called on non-object")));
+    throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Object.prototype.toLocaleString called on non-object")));
 }
 
 JS::Any Object::valueOf(const JS::Any& thisArg, const JS::Any& args) {

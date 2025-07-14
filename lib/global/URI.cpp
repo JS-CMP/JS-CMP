@@ -40,7 +40,7 @@ std::string decode(const std::string& utf, const std::string& reservedSet) {
     for (int i = 0; i < utf.size(); ++i) {
         if (reservedSet.contains(utf[i])) {
             if (!(i + 2 < utf.size() && std::isxdigit(utf[i + 1]) && std::isxdigit(utf[i + 2]))) {
-                throw JS::Any(JS::UriError(JS::Any("Invalid percent-encoding in utf8 string.")));
+                throw JS::Any(std::make_shared<JS::URIError>(JS::Any("Invalid percent-encoding in utf8 string.")));
             }
 
             std::string hexValue = utf.substr(i + 1, 2);

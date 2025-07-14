@@ -26,8 +26,8 @@ void Builder::build() {
 
 void Builder::compiling(const std::string& inputFilename) const {
     std::string customArgs = this->options.getCompilerArgs().empty()
-                                 ? std::string(" -O3 -std=c++20  ")
-                                 : std::string(" -O3 -std=c++20 ") + this->options.getCompilerArgs();
+                                 ? std::string(" -w -O3 -std=c++20  ") // -w to disable warnings, -O3 for optimization, -std=c++20 for C++20 standard
+                                 : std::string(" -w -O3 -std=c++20 ") + this->options.getCompilerArgs();
     std::string compiler = this->options.getCompiler();
     std::string outputFilename = options.getOutputFilename();
     std::string command = compiler + customArgs + inputFilename + std::string(" -o ") + outputFilename +

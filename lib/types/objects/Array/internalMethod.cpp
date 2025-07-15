@@ -5,4 +5,3 @@
 std::u16string JS::Array::getContent() const {
     return JS::CONVERT::ArrayToString(shared_from_this());
 }
-

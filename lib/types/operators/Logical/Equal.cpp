@@ -12,7 +12,8 @@ JS::Any JS::Operator::operator==(const JS::Operator& other) const {
                     return JS::Any(std::get<double>(this->getValue()) ==
                                    std::stod(JS::CONVERT::ToUtf8(std::get<Rope>(other.getValue()).toString())));
                 case BOOLEAN:
-                    return JS::Any(std::get<double>(this->getValue()) == static_cast<double>(std::get<bool>(other.getValue())));
+                    return JS::Any(std::get<double>(this->getValue()) ==
+                                   static_cast<double>(std::get<bool>(other.getValue())));
                 default:
                     return JS::Any(false); // Invalid type
             }
@@ -32,7 +33,8 @@ JS::Any JS::Operator::operator==(const JS::Operator& other) const {
         case BOOLEAN:
             switch (other.getValue().index()) {
                 case NUMBER:
-                    return JS::Any(static_cast<double>(std::get<bool>(this->getValue())) == std::get<double>(other.getValue()));
+                    return JS::Any(static_cast<double>(std::get<bool>(this->getValue())) ==
+                                   std::get<double>(other.getValue()));
                 case STRING:
                     return JS::Any(static_cast<double>(std::get<bool>(this->getValue())) ==
                                    std::stod(JS::CONVERT::ToUtf8(std::get<Rope>(other.getValue()).toString())));

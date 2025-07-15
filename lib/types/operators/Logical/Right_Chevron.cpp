@@ -30,8 +30,8 @@ JS::Any JS::Operator::operator>(const JS::Operator& other) const {
                     case STRING:
                         return JS::Any(std::get<Rope>(this->getValue()).compare(std::get<Rope>(other.getValue())) > 0);
                     case BOOLEAN:
-                        return JS::Any(static_cast<long long int>(JS::CONVERT::ToNumber(std::get<Rope>(this->getValue()))) >
-                                       std::get<bool>(other.getValue()));
+                        return JS::Any(static_cast<long long int>(JS::CONVERT::ToNumber(
+                                           std::get<Rope>(this->getValue()))) > std::get<bool>(other.getValue()));
                     case FUNCTION:
                         return JS::Any(JS::CONVERT::ToString(*this).compare(JS::CONVERT::ToString(other)) > 0);
                     case NULL_TYPE: // TODO: fix narrowing conversion
@@ -46,8 +46,9 @@ JS::Any JS::Operator::operator>(const JS::Operator& other) const {
                         return JS::Any(std::get<bool>(this->getValue()) >
                                        static_cast<long long int>(std::get<double>(other.getValue())));
                     case STRING:
-                        return JS::Any(std::get<bool>(this->getValue()) >
-                                       static_cast<long long int>(JS::CONVERT::ToNumber(std::get<Rope>(other.getValue()))));
+                        return JS::Any(
+                            std::get<bool>(this->getValue()) >
+                            static_cast<long long int>(JS::CONVERT::ToNumber(std::get<Rope>(other.getValue()))));
                     case BOOLEAN:
                         return JS::Any(std::get<bool>(this->getValue()) > std::get<bool>(other.getValue()));
                     case FUNCTION:

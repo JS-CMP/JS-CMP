@@ -54,10 +54,10 @@ public:
     static JS::Any ifError(const JS::Any& thisArgs, const JS::Any& args);
     ///@}
 
-
     // Not Needed for ES5 Error
     static JS::Any deepStrictEqual(const JS::Any& thisArgs, const JS::Any& args);
     static JS::Any notStrictDeepEqual(const JS::Any& thisArgs, const JS::Any& args);
+
 private:
     // TODO: add handling stackStartFn
     static void innerFail(const JS::Any& actual, const JS::Any& expected, const JS::Any& message,

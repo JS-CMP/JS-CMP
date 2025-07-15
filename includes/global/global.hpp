@@ -61,7 +61,7 @@ JS::Any String = JS::Any(std::make_shared<JS::String>(JS::Properties{
 
 JS::Any Number = JS::Any(std::make_shared<JS::Number>(JS::Properties{
     {u"length", JS::DataDescriptor{JS::Any(1), true, false, false}},
-        {u"name", JS::DataDescriptor{JS::Any(u"Number"), false, false, false}},
+    {u"name", JS::DataDescriptor{JS::Any(u"Number"), false, false, false}},
     {u"MAX_VALUE", JS::DataDescriptor{JS::Any(JS::Number::MAX_VALUE), false, false, false}},
     {u"MIN_VALUE", JS::DataDescriptor{JS::Any(JS::Number::MIN_VALUE), false, false, false}},
     {u"NaN", JS::DataDescriptor{JS::Any(JS::Number::NaN), false, false, false}},
@@ -144,7 +144,8 @@ JS::Any assert = JS::Any(std::make_shared<JS::assert>(JS::Properties{
     {u"ok", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::ok)), true, true, true}},
     {u"equal", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::equal)), true, true, true}},
     {u"notEqual", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::notEqual)), true, true, true}},
-    {u"deepEqual", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::deepEqual)), true, true, true}},
+    {u"deepEqual",
+     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::deepEqual)), true, true, true}},
     {u"notDeepEqual",
      JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::notDeepEqual)), true, true, true}},
     {u"strictEqual",
@@ -155,7 +156,6 @@ JS::Any assert = JS::Any(std::make_shared<JS::assert>(JS::Properties{
     {u"doesNotThrow",
      JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::doesNotThrow)), true, true, true}},
 }));
-
 
 JS::Any console = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::u16string, JS::Any>{
     {u"log", JS::Any(std::make_shared<JS::Function>(JS::console::log))},

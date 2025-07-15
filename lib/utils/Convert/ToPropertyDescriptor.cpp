@@ -47,7 +47,8 @@ JS::Attribute ToPropertyDescriptor(const Any& desc) {
     }
     if (get_or_set) {
         if (value_or_writable) {
-            throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Property descriptor cannot be both accessor and data descriptor")));
+            throw JS::Any(std::make_shared<JS::TypeError>(
+                JS::Any("Property descriptor cannot be both accessor and data descriptor")));
         }
         return accessor;
     }

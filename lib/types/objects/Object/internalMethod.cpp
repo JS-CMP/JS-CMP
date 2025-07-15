@@ -6,4 +6,3 @@
 std::u16string JS::Object::getContent() const {
     return JS::CONVERT::ObjectToString(shared_from_this());
 }
-

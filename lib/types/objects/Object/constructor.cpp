@@ -7,8 +7,7 @@
 namespace JS {
 
 // Default Object constructor with new
-Object::Object() : JS::InternalObject({}, getPrototypeProperties(), u"Object", true) {
-}
+Object::Object() : JS::InternalObject({}, getPrototypeProperties(), u"Object", true) {}
 
 Object::Object(const std::unordered_map<std::u16string, JS::Any>& properties)
     : JS::InternalObject({}, getPrototypeProperties(), u"Object", true) {

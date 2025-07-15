@@ -4,9 +4,9 @@
 
 #include <internals/Object.hpp>
 #include <types/JsAny.hpp>
+#include <types/objects/Error/JsTypeError.hpp>
 #include <utils/Compare.hpp>
 #include <utils/Convert.hpp>
-#include <types/objects/Error/JsTypeError.hpp>
 
 inline JS::Any inFunction(JS::Any a, const JS::Any& b) { // TODO: fix CREATE_OPERATOR to handle a has a reference to
                                                          // avoid a copy with std::forward and std::move

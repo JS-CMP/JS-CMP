@@ -3,7 +3,6 @@
 
 #include "types/objects/Error/JsError.hpp"
 
-
 namespace JS {
 /**
  * @class TypeError

@@ -15,8 +15,8 @@ std::shared_ptr<JS::InternalObject>& JS::Number::getPrototypeProperties() {
          JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Number::toExponential)), true, false, true}},
         {u"toPrecision",
          JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Number::toPrecision)), true, false, true}},
-        {u"constructor",
-         JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Number::internal_constructor)), true, false, true}},
+        {u"constructor", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Number::internal_constructor)),
+                                            true, false, true}},
     };
     static std::shared_ptr<JS::InternalObject> instance = std::make_shared<JS::InternalObject>(
         properties_prototype, JS::Object::getPrototypeProperties(), u"Object", true);

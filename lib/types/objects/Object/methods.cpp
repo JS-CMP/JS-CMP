@@ -1,7 +1,7 @@
 #include "internals/Object.hpp"
 #include "types/JsAny.hpp"
-#include "types/objects/JsArray.hpp"
 #include "types/objects/Function/JsFunction.hpp"
+#include "types/objects/JsArray.hpp"
 #include "utils/Compare.hpp"
 #include "utils/Convert.hpp"
 #include "utils/Is.hpp"

@@ -1,7 +1,7 @@
+#include "internals/Object.hpp"
+#include "utils/Compare.hpp"
 #include "utils/Convert.hpp"
 #include "utils/Is.hpp"
-#include "utils/Compare.hpp"
-#include "internals/Object.hpp"
 
 std::u16string JS::CONVERT::ObjectToString(std::shared_ptr<const JS::InternalObject> internalObject) {
     std::u16string result = u"{ ";

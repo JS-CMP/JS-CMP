@@ -77,7 +77,8 @@ JS::Any Function::bind(const JS::Any& thisArg, const JS::Any& args) {
     // TODO: make a [[ThrowTypeError]] function object
     std::shared_ptr<JS::InternalObject> thrower =
         std::make_shared<JS::Function>([](const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
-            throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Cannot access 'caller' or 'arguments.callee' in strict mode")));
+            throw JS::Any(std::make_shared<JS::TypeError>(
+                JS::Any("Cannot access 'caller' or 'arguments.callee' in strict mode")));
         });
     F->defineOwnProperty(u"caller", JS::AccessorDescriptor{thrower, thrower, false, false}, false);
     F->defineOwnProperty(u"arguments", JS::AccessorDescriptor{thrower, thrower, false, false}, false);

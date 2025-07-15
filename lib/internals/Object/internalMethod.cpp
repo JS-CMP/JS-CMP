@@ -113,7 +113,7 @@ bool InternalObject::deleteProperty(const std::u16string& key, bool is_throw) {
         return true;
     }
     if (is_throw) {
-            throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Cannot delete property")));
+        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Cannot delete property")));
     }
     return false;
 }
@@ -123,7 +123,9 @@ JS::Any InternalObject::defaultValue(const Types& hint) {
         case STRING: {
             JS::Any toString = this->get(u"toString");
             if (JS::IS::Callable(toString)) {
-                JS::Any str = std::get<std::shared_ptr<JS::InternalObject>>(toString.getValue())->call_function(JS::Any(shared_from_this()), JS::Arguments::CreateArgumentsObject({}));
+                JS::Any str =
+                    std::get<std::shared_ptr<JS::InternalObject>>(toString.getValue())
+                        ->call_function(JS::Any(shared_from_this()), JS::Arguments::CreateArgumentsObject({}));
                 if (JS::IS::Primitive(str)) {
                     return str;
                 }

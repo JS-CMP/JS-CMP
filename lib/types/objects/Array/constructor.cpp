@@ -49,7 +49,8 @@ Array::Array(const std::vector<JS::Any>& data)
 }
 
 // Static constructor for properties
-Array::Array(const JS::Properties& properties) : InternalObject(properties, JS::Function::getPrototypeProperties(), u"Array", true) {
+Array::Array(const JS::Properties& properties)
+    : InternalObject(properties, JS::Function::getPrototypeProperties(), u"Array", true) {
     this->defineOwnProperty(u"prototype", JS::DataDescriptor{JS::Any(getPrototypeProperties()), false, false, false});
     this->call_function = &JS::Array::internal_call;
     this->construct = &JS::Array::internal_call;

@@ -49,7 +49,7 @@ public:
     /** @brief Constructor for object taking a shared_ptr */
     explicit Any(std::shared_ptr<JS::InternalObject> v);
     /** @brief Constructor for Operator */
-    explicit Any(const Operator &any) : value(any.getValue()) {}
+    explicit Any(const Operator& any) : value(any.getValue()) {}
     /** @brief Copy constructor */
     Any(const JS::Any& v);
     /** @brief Move constructor */
@@ -60,9 +60,9 @@ public:
     JS::Any& operator=(JS::Any&& other) noexcept;
 
     /**
-    * @name Accessors
-    * These methods provide access to the properties of the object
-    */
+     * @name Accessors
+     * These methods provide access to the properties of the object
+     */
     ///@{
     /** @brief Accessors to call function stored in properties on an object stored in value */
     template <typename... Args>

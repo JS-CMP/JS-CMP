@@ -4,11 +4,11 @@
 #include "utils/Convert.hpp"
 
 #include <algorithm>
+#include <customOperators/CustomOperators.hpp>
 #include <stdexcept>
 #include <types/objects/Error/JsRangeError.hpp>
 #include <types/objects/Error/JsTypeError.hpp>
 #include <utils/Is.hpp>
-#include <customOperators/CustomOperators.hpp>
 
 namespace JS {
 
@@ -16,7 +16,8 @@ bool Array::defineOwnProperty(const std::u16string& key, JS::Attribute attribute
     std::optional<JS::Attribute> oldLenDesc = this->getOwnProperty(u"length");
     if (!oldLenDesc.has_value() || !JS::IS::DataDescriptor(oldLenDesc.value())) {
         if (is_throw) {
-            throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Cannot define property on Array: length is not a data descriptor")));
+            throw JS::Any(std::make_shared<JS::TypeError>(
+                JS::Any("Cannot define property on Array: length is not a data descriptor")));
         }
         return false;
     }
@@ -38,7 +39,8 @@ bool Array::defineOwnProperty(const std::u16string& key, JS::Attribute attribute
         }
         if (!std::get<JS::DataDescriptor>(oldLenDesc.value()).writable) {
             if (is_throw) {
-                throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Cannot redefine property: length is not writable")));
+                throw JS::Any(
+                    std::make_shared<JS::TypeError>(JS::Any("Cannot redefine property: length is not writable")));
             }
             return false;
         }
@@ -78,7 +80,8 @@ bool Array::defineOwnProperty(const std::u16string& key, JS::Attribute attribute
         uint32_t index = JS::CONVERT::ToUint32(key);
         if (index >= oldLen && !std::get<JS::DataDescriptor>(oldLenDesc.value()).writable) {
             if (is_throw) {
-                throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Cannot define property: length is not writable")));
+                throw JS::Any(
+                    std::make_shared<JS::TypeError>(JS::Any("Cannot define property: length is not writable")));
             }
             return false;
         }
@@ -653,7 +656,8 @@ JS::Any Array::reduce(const JS::Any& thisArg, const JS::Any& args) {
             k++;
         }
         if (!kPresent) {
-            throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("reduce called on empty array with no initial value")));
+            throw JS::Any(
+                std::make_shared<JS::TypeError>(JS::Any("reduce called on empty array with no initial value")));
         }
     }
     while (k < len) {
@@ -692,7 +696,8 @@ JS::Any Array::reduceRight(const JS::Any& thisArg, const JS::Any& args) {
             k--;
         }
         if (!kPresent) {
-            throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("reduceRight called on empty array with no initial value")));
+            throw JS::Any(
+                std::make_shared<JS::TypeError>(JS::Any("reduceRight called on empty array with no initial value")));
         }
     }
     while (k >= 0) {

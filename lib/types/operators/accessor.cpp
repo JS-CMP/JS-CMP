@@ -17,8 +17,8 @@ DECLARE_1FUNC(
 
 JS::Any JS::Operator::call(const JS::Any& args) const {
     if (JS::IS::Callable(this->getValue())) {
-        return std::get<std::shared_ptr<JS::InternalObject>>(this->getValue())->call_function(
-            JS::Any(JS::Undefined{}), args); // TODO fix this to pass the correct this aka global object
+        return std::get<std::shared_ptr<JS::InternalObject>>(this->getValue())
+            ->call_function(JS::Any(JS::Undefined{}), args); // TODO fix this to pass the correct this aka global object
     }
     throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Value is not a function")));
 }
@@ -33,7 +33,7 @@ JS::Any JS::Operator::constructor(const JS::Any& args) const {
     throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Value does not have a constructor")));
 }
 
-const char *JS::Operator::what() const noexcept {
+const char* JS::Operator::what() const noexcept {
     thread_local std::string utf8_buffer;
 
     if (this->getValue().index() != JS::OBJECT) {
@@ -49,8 +49,7 @@ const char *JS::Operator::what() const noexcept {
         JS::Any name = obj->get(u"name");
         JS::Any message = COMPARE::Type(temp, JS::UNDEFINED) ? JS::Any("") : temp;
 
-        utf8_buffer = CONVERT::ToUtf8(u"Uncaught " + CONVERT::ToString(name) +
-                                      (message != JS::Any("") ? u": " : u"") +
+        utf8_buffer = CONVERT::ToUtf8(u"Uncaught " + CONVERT::ToString(name) + (message != JS::Any("") ? u": " : u"") +
                                       CONVERT::ToString(message));
     }
     return utf8_buffer.c_str();

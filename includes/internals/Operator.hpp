@@ -13,14 +13,14 @@ namespace JS {
  * The `Operator` class provides a set of methods and operators that mimic JavaScript's behavior,
  * allowing for bitwise, arithmetic, logical, and comparison operations on values of type `Any`.
  */
-class Operator: public std::exception {
+class Operator : public std::exception {
 public:
     /** @name Getters
      * These methods provide access to the properties of the object
      */
     ///@{
     /** @brief Get the value of the property */
-    virtual JS::Any &get() = 0;
+    virtual JS::Any& get() = 0;
     /** @brief Get the value of the property */
     virtual JS::Any get() const = 0;
     /** @brief Get the value of the property */

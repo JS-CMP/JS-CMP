@@ -6,7 +6,8 @@
 namespace JS {
 JS::Any Function::get(const std::u16string& key) const {
     if (key == u"caller") {
-        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Cannot access 'caller' or 'arguments.callee' in strict mode")));
+        throw JS::Any(
+            std::make_shared<JS::TypeError>(JS::Any("Cannot access 'caller' or 'arguments.callee' in strict mode")));
     }
     return InternalObject::get(key);
 }
@@ -17,7 +18,8 @@ bool Function::hasInstance(const JS::Any& value) const {
     }
     JS::Any O = std::get<std::shared_ptr<InternalObject>>(value.getValue())->get(u"prototype");
     if (!JS::COMPARE::Type(O, JS::OBJECT)) {
-        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Function.prototype[Symbol.hasInstance] called on non-object")));
+        throw JS::Any(
+            std::make_shared<JS::TypeError>(JS::Any("Function.prototype[Symbol.hasInstance] called on non-object")));
     }
     std::shared_ptr<JS::InternalObject> obj = std::get<std::shared_ptr<JS::InternalObject>>(O.getValue());
     std::shared_ptr<JS::InternalObject> V = std::get<std::shared_ptr<JS::InternalObject>>(value.getValue());

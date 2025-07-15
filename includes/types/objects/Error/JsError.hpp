@@ -32,7 +32,7 @@ public:
 
     /**
      * @name Methods to make prototype methods of the Error
-    */
+     */
     ///@{
     /** @brief Returns the prototype of the boolean https://262.ecma-international.org/5.1/#sec-15.7.4.2 */
     static JS::Any toString(const JS::Any& thisArg, const JS::Any& args);
@@ -58,5 +58,4 @@ public:
 
 } // namespace JS
 
-
-#endif //ERROR_HPP
+#endif // ERROR_HPP

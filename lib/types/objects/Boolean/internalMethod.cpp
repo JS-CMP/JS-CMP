@@ -5,4 +5,3 @@
 std::u16string JS::Boolean::getContent() const {
     return JS::CONVERT::ToString(this->primitiveValue);
 }
-

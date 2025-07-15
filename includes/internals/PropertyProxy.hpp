@@ -18,8 +18,8 @@ public:
     PropertyProxy(const std::shared_ptr<JS::InternalObject>& obj, std::u16string key)
         : obj_(obj), key_(std::move(key)) {}
     /** @name Getters and Setters
-      * These operators allow the PropertyProxy to be used like a property
-      */
+     * These operators allow the PropertyProxy to be used like a property
+     */
     ///@{
     /** @brief Set the value of the property */
     PropertyProxy& operator=(const JS::Any& value);
@@ -30,9 +30,9 @@ public:
     ///@}
 
     /**
-    * @name Accessors
-    * These methods provide access to the properties of the object
-    */
+     * @name Accessors
+     * These methods provide access to the properties of the object
+     */
     ///@{
     /** @brief Accessors to call function stored in properties on an object stored in value */
     template <typename... Args>
@@ -43,7 +43,6 @@ public:
 
     /** @brief Override the call operator to add obj_ as the this argument */
     JS::Any call(const JS::Any& args) const override;
-
 
     /** @name Getters
      * These methods provide access to the properties of the object

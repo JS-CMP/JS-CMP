@@ -8,8 +8,8 @@ std::shared_ptr<JS::InternalObject>& JS::NativeError::getPrototypeProperties() {
          JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::NativeError::internal_constructor)), true, false,
                             true}}};
 
-    static std::shared_ptr<JS::InternalObject> protoInstance = std::make_shared<JS::InternalObject>(
-        properties_prototype, JS::Error::getPrototypeProperties(), u"Error", true);
+    static std::shared_ptr<JS::InternalObject> protoInstance =
+        std::make_shared<JS::InternalObject>(properties_prototype, JS::Error::getPrototypeProperties(), u"Error", true);
 
     return protoInstance;
 }

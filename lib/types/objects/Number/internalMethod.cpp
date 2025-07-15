@@ -5,4 +5,3 @@
 std::u16string JS::Number::getContent() const {
     return JS::CONVERT::ToString(this->primitiveValue);
 }
-

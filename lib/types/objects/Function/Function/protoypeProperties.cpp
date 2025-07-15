@@ -8,11 +8,12 @@ std::shared_ptr<JS::InternalObject>& JS::Function::getPrototypeProperties() {
         return instance;
     }
     instance->prototype = JS::Object::getPrototypeProperties(instance);
+    instance->defineOwnProperty(u"length", JS::DataDescriptor{JS::Any(0), false, false, false});
+    instance->defineOwnProperty(u"name", JS::DataDescriptor{JS::Any(u"Empty"), false, false, false});
     instance->defineOwnProperty(
-    u"length", JS::DataDescriptor{JS::Any(0), false, false, false});
-    instance->defineOwnProperty(
-        u"name", JS::DataDescriptor{JS::Any(u"Empty"), false, false, false});
-    instance->defineOwnProperty(u"constructor", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Function::internal_constructor, instance)), false, false, false});
+        u"constructor",
+        JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Function::internal_constructor, instance)), false,
+                           false, false});
     instance->defineOwnProperty(
         u"toString", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Function::toString, instance)), true,
                                         false, true});

@@ -65,7 +65,8 @@ public:
     ///@}
 
     /** @brief Function to get the methods of the property prototype */
-    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties(std::shared_ptr<InternalObject> prototype = nullptr);
+    static std::shared_ptr<JS::InternalObject>&
+    getPrototypeProperties(std::shared_ptr<InternalObject> prototype = nullptr);
 
     /**
      * @name Methods to make prototype methods of the Object built-in

@@ -32,8 +32,9 @@ JS::Any JS::Operator::operator<(const JS::Operator& other) const {
                         return JS::Any(JS::CONVERT::ToNumber(std::get<Rope>(this->getValue())) <
                                        std::get<bool>(other.getValue()));
                     case FUNCTION:
-                        return JS::Any(
-                            std::get<Rope>(this->getValue()).toString().compare(std::get<Rope>(other.getValue()).toString()) < 0);
+                        return JS::Any(std::get<Rope>(this->getValue())
+                                           .toString()
+                                           .compare(std::get<Rope>(other.getValue()).toString()) < 0);
                     default:
                         return JS::Any(false);
                 }
@@ -43,8 +44,9 @@ JS::Any JS::Operator::operator<(const JS::Operator& other) const {
                         return JS::Any(std::get<bool>(this->getValue()) <
                                        static_cast<long long int>(std::get<double>(other.getValue())));
                     case STRING:
-                        return JS::Any(std::get<bool>(this->getValue()) <
-                                       static_cast<long long int>(JS::CONVERT::ToNumber(std::get<Rope>(other.getValue()))));
+                        return JS::Any(
+                            std::get<bool>(this->getValue()) <
+                            static_cast<long long int>(JS::CONVERT::ToNumber(std::get<Rope>(other.getValue()))));
                     case BOOLEAN:
                         return JS::Any(std::get<bool>(this->getValue()) < std::get<bool>(other.getValue()));
                     case FUNCTION:

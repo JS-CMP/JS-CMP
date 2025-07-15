@@ -34,7 +34,8 @@ std::shared_ptr<JS::InternalObject>& JS::String::getPrototypeProperties() {
         {u"toLocaleUpperCase",
          JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::String::toLocaleUpperCase)), true, false, true}},
         {u"trim", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::String::trim)), true, false, true}},
-        {u"constructor", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::String::internal_constructor)), true, false, true}},
+        {u"constructor", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::String::internal_constructor)),
+                                            true, false, true}},
     };
     static std::shared_ptr<JS::InternalObject> instance = std::make_shared<JS::InternalObject>(
         properties_prototype, JS::Object::getPrototypeProperties(), u"String", true);

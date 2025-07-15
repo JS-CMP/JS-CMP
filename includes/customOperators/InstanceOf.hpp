@@ -5,8 +5,8 @@
 
 #include <internals/Object.hpp>
 #include <types/JsAny.hpp>
-#include <utils/Compare.hpp>
 #include <types/objects/Error/JsTypeError.hpp>
+#include <utils/Compare.hpp>
 
 inline JS::Any instanceOfFunction(JS::Any a,
                                   const JS::Any& b) { // TODO: fix CREATE_OPERATOR to handle a has a reference to avoid

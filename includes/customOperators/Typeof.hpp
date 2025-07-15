@@ -2,6 +2,7 @@
 #define TYPEOF_HPP
 
 #include "SyntaxSmith.hpp"
+
 #include <types/JsAny.hpp>
 
 inline JS::Any type_of(const JS::Any& a) {

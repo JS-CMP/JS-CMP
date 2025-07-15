@@ -76,8 +76,7 @@ double ToNumber(JS::Undefined /*unused*/) {
     return std::numeric_limits<double>::quiet_NaN();
 }
 
-
-double ToNumber(const JS::Operator& any) {// https://262.ecma-international.org/5.1/#sec-9.3
+double ToNumber(const JS::Operator& any) { // https://262.ecma-international.org/5.1/#sec-9.3
     switch (any.getValue().index()) {
         case NUMBER:
             return std::get<double>(any.getValue());

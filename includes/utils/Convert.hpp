@@ -35,7 +35,6 @@ std::string ToUtf8(const std::u16string& value);
 std::u16string ToUtf16(char ch);
 std::u16string ToUtf16(const std::string& value);
 
-
 std::shared_ptr<JS::InternalObject> ToObject(const JS::Operator& any);
 
 JS::Any FromPropertyDescriptor(const JS::Attribute& desc);

@@ -9,13 +9,14 @@ JS::Any JS::Operator::operator%(const JS::Operator& other) const {
             case NUMBER:
                 switch (other.getValue().index()) {
                     case NUMBER:
-                        return JS::Any(std::fmod(std::get<double>(this->getValue()), std::get<double>(other.getValue())));
+                        return JS::Any(
+                            std::fmod(std::get<double>(this->getValue()), std::get<double>(other.getValue())));
                     case STRING:
                         return JS::Any(std::fmod(std::get<double>(this->getValue()),
                                                  JS::CONVERT::ToNumber(std::get<Rope>(other.getValue()))));
                     case BOOLEAN:
-                        return JS::Any(
-                            std::fmod(std::get<double>(this->getValue()), static_cast<double>(std::get<bool>(other.getValue()))));
+                        return JS::Any(std::fmod(std::get<double>(this->getValue()),
+                                                 static_cast<double>(std::get<bool>(other.getValue()))));
                     default:
                         return JS::Any(std::numeric_limits<double>::quiet_NaN());
                 }
@@ -36,8 +37,8 @@ JS::Any JS::Operator::operator%(const JS::Operator& other) const {
             case BOOLEAN:
                 switch (other.getValue().index()) {
                     case NUMBER:
-                        return JS::Any(
-                            std::fmod(static_cast<double>(std::get<bool>(this->getValue())), std::get<double>(other.getValue())));
+                        return JS::Any(std::fmod(static_cast<double>(std::get<bool>(this->getValue())),
+                                                 std::get<double>(other.getValue())));
                     case STRING:
                         return JS::Any(std::fmod(static_cast<double>(std::get<bool>(this->getValue())),
                                                  JS::CONVERT::ToNumber(std::get<Rope>(other.getValue()))));
@@ -75,7 +76,8 @@ JS::Any JS::Operator::operator%(int value) const {
                 return JS::Any(
                     std::fmod(JS::CONVERT::ToNumber(std::get<Rope>(this->getValue())), static_cast<double>(value)));
             case BOOLEAN:
-                return JS::Any(std::fmod(static_cast<double>(std::get<bool>(this->getValue())), static_cast<double>(value)));
+                return JS::Any(
+                    std::fmod(static_cast<double>(std::get<bool>(this->getValue())), static_cast<double>(value)));
             case NULL_TYPE:
                 return JS::Any(std::fmod(0, static_cast<double>(value)));
             default:
@@ -177,7 +179,8 @@ JS::Any JS::Operator::operator%(bool value) const {
                 return JS::Any(
                     std::fmod(JS::CONVERT::ToNumber(std::get<Rope>(this->getValue())), static_cast<double>(value)));
             case BOOLEAN:
-                return JS::Any(std::fmod(static_cast<double>(std::get<bool>(this->getValue())), static_cast<double>(value)));
+                return JS::Any(
+                    std::fmod(static_cast<double>(std::get<bool>(this->getValue())), static_cast<double>(value)));
             case NULL_TYPE:
                 return JS::Any(std::fmod(0, static_cast<double>(value)));
             default:
@@ -231,9 +234,11 @@ Any operator%(int value, JS::Operator const& any) {
             case NUMBER:
                 return JS::Any(std::fmod(value, std::get<double>(any.getValue())));
             case STRING:
-                return JS::Any(std::fmod(static_cast<double>(value), JS::CONVERT::ToNumber(std::get<Rope>(any.getValue()))));
+                return JS::Any(
+                    std::fmod(static_cast<double>(value), JS::CONVERT::ToNumber(std::get<Rope>(any.getValue()))));
             case BOOLEAN:
-                return JS::Any(std::fmod(static_cast<double>(value), static_cast<double>(std::get<bool>(any.getValue()))));
+                return JS::Any(
+                    std::fmod(static_cast<double>(value), static_cast<double>(std::get<bool>(any.getValue()))));
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
@@ -268,7 +273,8 @@ Any operator%(const char* value, JS::Operator const& any) {
                 return JS::Any(
                     std::fmod(JS::CONVERT::ToNumber(value), JS::CONVERT::ToNumber(std::get<Rope>(any.getValue()))));
             case BOOLEAN:
-                return JS::Any(std::fmod(JS::CONVERT::ToNumber(value), static_cast<double>(std::get<bool>(any.getValue()))));
+                return JS::Any(
+                    std::fmod(JS::CONVERT::ToNumber(value), static_cast<double>(std::get<bool>(any.getValue()))));
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
@@ -286,7 +292,8 @@ Any operator%(const char16_t* value, JS::Operator const& any) {
                 return JS::Any(
                     std::fmod(JS::CONVERT::ToNumber(value), JS::CONVERT::ToNumber(std::get<Rope>(any.getValue()))));
             case BOOLEAN:
-                return JS::Any(std::fmod(JS::CONVERT::ToNumber(value), static_cast<double>(std::get<bool>(any.getValue()))));
+                return JS::Any(
+                    std::fmod(JS::CONVERT::ToNumber(value), static_cast<double>(std::get<bool>(any.getValue()))));
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
@@ -304,7 +311,8 @@ Any operator%(const std::u16string& value, JS::Operator const& any) {
                 return JS::Any(
                     std::fmod(JS::CONVERT::ToNumber(value), JS::CONVERT::ToNumber(std::get<Rope>(any.getValue()))));
             case BOOLEAN:
-                return JS::Any(std::fmod(JS::CONVERT::ToNumber(value), static_cast<double>(std::get<bool>(any.getValue()))));
+                return JS::Any(
+                    std::fmod(JS::CONVERT::ToNumber(value), static_cast<double>(std::get<bool>(any.getValue()))));
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }
@@ -319,9 +327,11 @@ Any operator%(bool value, JS::Operator const& any) {
             case NUMBER:
                 return JS::Any(std::fmod(static_cast<double>(value), std::get<double>(any.getValue())));
             case STRING:
-                return JS::Any(std::fmod(static_cast<double>(value), JS::CONVERT::ToNumber(std::get<Rope>(any.getValue()))));
+                return JS::Any(
+                    std::fmod(static_cast<double>(value), JS::CONVERT::ToNumber(std::get<Rope>(any.getValue()))));
             case BOOLEAN:
-                return JS::Any(std::fmod(static_cast<double>(value), static_cast<double>(std::get<bool>(any.getValue()))));
+                return JS::Any(
+                    std::fmod(static_cast<double>(value), static_cast<double>(std::get<bool>(any.getValue()))));
             default:
                 return JS::Any(std::numeric_limits<double>::quiet_NaN());
         }

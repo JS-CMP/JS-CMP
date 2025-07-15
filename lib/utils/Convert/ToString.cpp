@@ -1,10 +1,10 @@
+#include "internals/Object.hpp"
 #include "internals/Operator.hpp"
 #include "types/JsAny.hpp"
 #include "utils/Convert.hpp"
+#include "utils/Is.hpp"
 
 #include <cmath>
-#include "internals/Object.hpp"
-#include "utils/Is.hpp"
 
 namespace JS::CONVERT {
 std::u16string ToString(int value) {
@@ -60,7 +60,7 @@ std::u16string ToString(JS::Value value) {
     }
 }
 
-std::u16string ToString(const JS::Operator& any)  {
+std::u16string ToString(const JS::Operator& any) {
     // https://262.ecma-international.org/5.1/#sec-9.8
     switch (any.getValue().index()) {
         case NUMBER:

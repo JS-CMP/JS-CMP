@@ -2,11 +2,9 @@
 #include "utils/Convert.hpp"
 
 namespace JS {
-RangeError::RangeError() : JS::Error(JS::RangeError::getPrototypeProperties()) {
-}
+RangeError::RangeError() : JS::Error(JS::RangeError::getPrototypeProperties()) {}
 
-RangeError::RangeError(const JS::Any& value) : JS::Error(value, JS::RangeError::getPrototypeProperties()) {
-}
+RangeError::RangeError(const JS::Any& value) : JS::Error(value, JS::RangeError::getPrototypeProperties()) {}
 
 RangeError::RangeError(const std::unordered_map<std::u16string, JS::Attribute>& properties)
     : JS::Error(properties, JS::RangeError::getPrototypeProperties()) {

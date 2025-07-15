@@ -13,7 +13,9 @@ std::u16string JS::CONVERT::ObjectToString(std::shared_ptr<const JS::InternalObj
             JS::IS::AccessorDescriptor(descriptor) && std::get<JS::AccessorDescriptor>(descriptor).enumerable) {
             auto it = internalObject->get(key);
 
-            if (!first) result += u", ";
+            if (!first) {
+                result += u", ";
+            }
             result += JS::CONVERT::ToString(key) + u": " + JS::CONVERT::Stringify(it);
             first = false;
         }

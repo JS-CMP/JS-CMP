@@ -13,7 +13,9 @@ std::u16string JS::CONVERT::ObjectToString(std::shared_ptr<const JS::InternalObj
             JS::IS::AccessorDescriptor(descriptor) && std::get<JS::AccessorDescriptor>(descriptor).enumerable) {
             auto it = internalObject->get(key);
 
-            if (!first) result += u", ";
+            if (!first) {
+                result += u", ";
+            }
             result += JS::CONVERT::ToString(key) + u": " + JS::CONVERT::Stringify(it);
             first = false;
         }
@@ -30,7 +32,9 @@ std::u16string JS::CONVERT::ArrayToString(std::shared_ptr<const JS::InternalObje
 
     for (uint32_t i = 0; i < JS::CONVERT::ToUint32(len); ++i) {
         auto value = internalObject->get(JS::CONVERT::ToString(i));
-        if (!first) result += u", ";
+        if (!first) {
+            result += u", ";
+        }
         first = false;
         result += JS::CONVERT::Stringify(value);
     }

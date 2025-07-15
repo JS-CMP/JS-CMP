@@ -3,6 +3,8 @@
 #include "types/objects/Function/JsFunction.hpp"
 #include "utils/Convert.hpp"
 
+#include <types/objects/Error/JsTypeError.hpp>
+
 namespace JS::Arguments { // TODO Implement non-strict mode
 JS::Any CreateArgumentsObject(const std::vector<JS::Any>& args, const std::shared_ptr<JS::InternalObject>& func,
                               const std::vector<std::u16string>& names, const std::shared_ptr<JS::InternalObject>& env,
@@ -44,10 +46,11 @@ JS::Any CreateArgumentsObject(const std::vector<JS::Any>& args, const std::share
     if (!strict) { // theoretically, this should always be false in strict mode
         obj->defineOwnProperty(u"callee", JS::DataDescriptor{JS::Any(func), true, false, true}, false);
     } else {
-        std::shared_ptr<JS::InternalObject> thrower = std::make_shared<JS::Function>(
+        static std::shared_ptr<JS::InternalObject> thrower = std::make_shared<JS::Function>(
             // TODO: make a [[ThrowTypeError]] function object
             [](const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
-                throw std::runtime_error("TypeError: Cannot access 'caller' or 'arguments.callee' in strict mode");
+                throw JS::Any(std::make_shared<JS::TypeError>(
+                    JS::Any("Cannot access 'caller' or 'arguments.callee' in strict mode")));
             });
         obj->defineOwnProperty(u"caller", JS::AccessorDescriptor{thrower, thrower, false, false}, false);
         obj->defineOwnProperty(u"callee", JS::AccessorDescriptor{thrower, thrower, false, false}, false);

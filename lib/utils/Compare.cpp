@@ -3,21 +3,22 @@
 #include "types/objects/JsObject.hpp"
 
 #include <cmath>
+#include <types/objects/Error/JsTypeError.hpp>
 
 namespace JS::COMPARE {
-bool Type(const JS::Any& a, const JS::Any& b) {
+bool Type(const JS::Operator& a, const JS::Operator& b) {
     return a.getValue().index() == b.getValue().index();
 }
 
-bool Type(const JS::Any& a, const JS::Types& b) {
+bool Type(const JS::Operator& a, const JS::Types& b) {
     return a.getValue().index() == b;
 }
 
-bool Type(const JS::Types& a, const JS::Any& b) {
+bool Type(const JS::Types& a, const JS::Operator& b) {
     return a == b.getValue().index();
 }
 
-bool Object(const JS::Any& obj, const std::u16string& class_name) {
+bool Object(const JS::Operator& obj, const std::u16string& class_name) {
     return obj.getValue().index() == JS::OBJECT &&
            std::get<std::shared_ptr<JS::InternalObject>>(obj.getValue())->class_name == class_name;
 }
@@ -52,7 +53,7 @@ bool SameValue(const std::shared_ptr<JS::InternalObject>& a, const std::shared_p
     return a.get() == b.get();
 }
 
-bool SameValue(const JS::Any& a, const JS::Any& b) {
+bool SameValue(const JS::Operator& a, const JS::Operator& b) {
     if (!JS::COMPARE::Type(a, b)) {
         return false;
     }
@@ -95,14 +96,13 @@ bool SameValue(const JS::Attribute& a, const JS::Attribute& b) {
     return false;
 }
 
-void CheckObjectCoercible(const JS::Any& a) {
-    switch (a.getValue().index()) {
+void CheckObjectCoercible(const JS::Operator& any) {
+    switch (any.getValue().index()) {
         case JS::UNDEFINED:
         case JS::NULL_TYPE:
-            throw std::runtime_error("TypeError: Cannot convert undefined or null to object"); // TypeError
+            throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Cannot convert undefined or null to object")));
         default:
             return;
     }
 }
-
 } // namespace JS::COMPARE

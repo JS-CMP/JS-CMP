@@ -1,15 +1,9 @@
-#include "types/objects/JsObject.hpp"
+#include "internals/Object.hpp"
 
 #include <types/JsAny.hpp>
-#include <utils/Convert.hpp>
 
 JS::Any::Any(std::shared_ptr<JS::InternalObject> v) {
     value = v;
-}
-
-JS::Any::Any(const JS::InternalObject& v) {
-    std::shared_ptr<JS::InternalObject> obj = std::make_shared<JS::InternalObject>(v);
-    value = std::move(obj);
 }
 
 JS::Any::Any(const JS::Any& v) {

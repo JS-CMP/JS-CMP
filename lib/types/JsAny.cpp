@@ -1,43 +1,24 @@
 #include "utils/Convert.hpp"
 
 #include <types/JsAny.hpp>
+#include <types/objects/JsObject.hpp>
+#include <utils/Compare.hpp>
 
 JS::Value JS::Any::getValue() const {
     return this->value;
 }
 
-namespace JS {
-std::ostream& operator<<(std::ostream& os, const Any& any) {
-    os << JS::CONVERT::ToUtf8(JS::CONVERT::ToString(any));
-    return os;
+JS::Any& JS::Any::get() {
+    return *this;
+}
+JS::Any JS::Any::get() const {
+    return *this;
 }
 
-// TODO: remove and rework assert when custom operator merged
-bool JS::Any::strictEq(const JS::Any& other) const {
-    // TODO: handle identity
-    if (this->value.index() != other.value.index()) {
-        return false;
-    }
-    switch (this->value.index()) {
-        case NUMBER:
-            return std::get<double>(this->value) == std::get<double>(other.value);
-        case STRING:
-            return std::get<Rope>(this->value) == std::get<Rope>(other.value);
-        case BOOLEAN:
-            return std::get<bool>(this->value) == std::get<bool>(other.value);
-        case UNDEFINED:
-            return true;
-        case NULL_TYPE:
-            return true;
-        case OBJECT:
-            return &std::get<std::shared_ptr<InternalObject>>(this->value) ==
-                   &std::get<std::shared_ptr<InternalObject>>(other.value);
-        default:
-            return false;
-    }
+void JS::Any::setValue(const JS::Value& value) {
+    this->value = value;
 }
 
-bool JS::Any::strictNeq(const JS::Any& other) const {
-    return !this->strictEq(other);
+void JS::Any::set(const JS::Any& value) {
+    this->value = value.value;
 }
-} // namespace JS

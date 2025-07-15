@@ -25,6 +25,8 @@ public:
     Boolean();
     /** @brief Constructor that take a value */
     explicit Boolean(const JS::Any& value);
+    /** @brief Constructor that initializes the object with a given set of properties */
+    explicit Boolean(const JS::Properties& properties);
     ///@}
 
     /** @brief The destructor for the boolean defaulted */
@@ -39,6 +41,8 @@ public:
     /** @brief Returns the value of the boolean https://262.ecma-international.org/5.1/#sec-15.6.4.3 */
     static JS::Any valueOf(const JS::Any& thisArg, const JS::Any& args);
     ///@}
+
+    [[nodiscard]] std::u16string getContent() const override;
 
     /** @brief Function to get the methods of the property prototype */
     static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();

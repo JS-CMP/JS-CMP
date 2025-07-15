@@ -6,7 +6,7 @@
 #include <types/JsAny.hpp>
 #include <utils/Convert.hpp>
 
-JS::Any
+inline JS::Any
 UnsignedRightShiftOperatorFunction(JS::Any any,
                                    const JS::Any& other) { // TODO: fix CREATE_OPERATOR to handle any has a reference to
                                                            // avoid a copy with std::forward and std::move

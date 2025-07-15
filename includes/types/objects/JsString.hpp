@@ -28,6 +28,9 @@ public:
     explicit String(const JS::Any& value);
     /** @brief Constructor that initializes the object with a given set of properties */
     explicit String(const std::unordered_map<std::u16string, JS::Any>& properties);
+    /** @brief Constructor that initializes the object with a given set of properties */
+    explicit String(const JS::Properties& properties);
+
     ///@}
 
     /** @brief The destructor for the object defaulted */
@@ -110,6 +113,9 @@ public:
      * https://262.ecma-international.org/5.1/#sec-15.5.3.2 */
     [[nodiscard]] static JS::Any fromCharCode(const JS::Any& thisArg, const JS::Any& args);
     ///@}
+
+    /** @brief Returns the content of the object formatted to a string. */
+    [[nodiscard]] std::u16string getContent() const override;
 
     /** @brief Returns a shared pointer to the prototype properties of the String object. */
     static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();

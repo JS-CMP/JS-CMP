@@ -1,3 +1,4 @@
+#include "internals/Operator.hpp"
 #include "types/JsAny.hpp"
 
 #include <cmath>
@@ -43,7 +44,7 @@ uint32_t ToUint32(JS::Null /*unused*/) {
 uint32_t ToUint32(JS::Undefined /*unused*/) {
     return 0;
 }
-uint32_t ToUint32(const JS::Any& any) { // https://262.ecma-international.org/5.1/#sec-9.6
+uint32_t ToUint32(const JS::Operator& any) { // https://262.ecma-international.org/5.1/#sec-9.6
     switch (any.getValue().index()) {
         case NUMBER:
             return ToUint32(std::get<double>(any.getValue()));

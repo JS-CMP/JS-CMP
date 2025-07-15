@@ -4,6 +4,8 @@
 #include "utils/Compare.hpp"
 #include "utils/Convert.hpp"
 
+#include <types/objects/Error/JsTypeError.hpp>
+
 namespace JS {
 RegExp::RegExp(const JS::Any& pattern, const JS::Any& flags)
     : JS::InternalObject({}, getPrototypeProperties(), u"RegExp", true) {
@@ -13,7 +15,7 @@ RegExp::RegExp(const JS::Any& pattern, const JS::Any& flags)
             auto RegExpObj = std::get<std::shared_ptr<JS::InternalObject>>(pattern.getValue());
             std::u16string P = JS::CONVERT::ToString(RegExpObj->get(u"source"));
         } else {
-            throw std::runtime_error("TypeError: Invalid flags for RegExp"); // TODO: type error
+            throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Invalid flags for RegExp")));
         }
     } else {
         std::u16string P = JS::CONVERT::ToString(pattern);
@@ -27,7 +29,7 @@ RegExp::RegExp(const JS::Any& pattern, const JS::Any& flags)
         if (F.find_first_not_of(u"gim") != std::u16string::npos || (global && F.find(u'g') != F.find_last_of(u'g')) ||
             (ignoreCase && F.find(u'i') != F.find_last_of(u'i')) ||
             (multiline && F.find(u'm') != F.find_last_of(u'm'))) {
-            throw std::runtime_error("SyntaxError: Invalid regular expression flags"); // TODO: syntax error
+            throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Invalid regular expression flags")));
         }
         boost::regex_constants::syntax_option_type opt =
             boost::regex_constants::ECMAScript | boost::regex_constants::optimize;
@@ -36,7 +38,7 @@ RegExp::RegExp(const JS::Any& pattern, const JS::Any& flags)
         }
         boost::u32regex expr = boost::make_u32regex(P, opt);
         if (expr.status() != 0) {
-            throw std::runtime_error("SyntaxError: Invalid regular expression pattern"); // TODO: syntax error
+            throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Invalid regular expression pattern")));
         }
 
         this->defineOwnProperty(u"source", JS::DataDescriptor{JS::Any(P), false, false, false});

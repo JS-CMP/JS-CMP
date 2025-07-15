@@ -1,4 +1,5 @@
 #include "class/Rope/Rope.hpp"
+#include "internals/Operator.hpp"
 #include "types/JsAny.hpp"
 #include "utils/Convert.hpp"
 
@@ -35,7 +36,7 @@ Rope ToRope(JS::Null /*unused*/) {
 Rope ToRope(JS::Undefined /*unused*/) {
     return Rope(u"undefined");
 }
-Rope ToRope(const JS::Any& any) {
+Rope ToRope(const JS::Operator& any) {
     switch (any.getValue().index()) {
         case NUMBER:
             return JS::CONVERT::ToRope(std::get<double>(any.getValue()));

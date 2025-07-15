@@ -27,6 +27,8 @@ public:
     explicit Array(const JS::Any& args);
     /** @brief Default constructor initializes an array with the given vector of Any */
     explicit Array(const std::vector<JS::Any>& data);
+    /** @brief Constructor for properties with a given set of properties */
+    explicit Array(const JS::Properties& properties);
     ///@}
 
     /** @brief The destructor for the object defaulted */
@@ -128,6 +130,8 @@ public:
     /** @brief Function that is used when object is call as a function */
     static Any internal_call(const JS::Any& thisArg, const JS::Any& args);
     ///@}
+
+    [[nodiscard]] std::u16string getContent() const override;
 };
 
 } // namespace JS

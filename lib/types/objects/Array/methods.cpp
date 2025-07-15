@@ -4,7 +4,10 @@
 #include "utils/Convert.hpp"
 
 #include <algorithm>
+#include <customOperators/CustomOperators.hpp>
 #include <stdexcept>
+#include <types/objects/Error/JsRangeError.hpp>
+#include <types/objects/Error/JsTypeError.hpp>
 #include <utils/Is.hpp>
 
 namespace JS {
@@ -13,8 +16,8 @@ bool Array::defineOwnProperty(const std::u16string& key, JS::Attribute attribute
     std::optional<JS::Attribute> oldLenDesc = this->getOwnProperty(u"length");
     if (!oldLenDesc.has_value() || !JS::IS::DataDescriptor(oldLenDesc.value())) {
         if (is_throw) {
-            throw std::runtime_error("Cannot define property on Array: length is not a data descriptor");
-            // TODO: TypeError
+            throw JS::Any(std::make_shared<JS::TypeError>(
+                JS::Any("Cannot define property on Array: length is not a data descriptor")));
         }
         return false;
     }
@@ -27,7 +30,7 @@ bool Array::defineOwnProperty(const std::u16string& key, JS::Attribute attribute
         uint32_t newLen = JS::CONVERT::ToUint32(newLenDesc.value);
         if (newLen != JS::CONVERT::ToNumber(newLenDesc.value)) {
             if (is_throw) {
-                throw std::range_error("Invalid array length"); // TODO: Handle this error properly
+                throw JS::Any(std::make_shared<JS::RangeError>(JS::Any(u"Invalid array length")));
             }
             return false;
         }
@@ -36,7 +39,8 @@ bool Array::defineOwnProperty(const std::u16string& key, JS::Attribute attribute
         }
         if (!std::get<JS::DataDescriptor>(oldLenDesc.value()).writable) {
             if (is_throw) {
-                throw std::runtime_error("Cannot redefine property: length is not writable"); // TODO: TypeError
+                throw JS::Any(
+                    std::make_shared<JS::TypeError>(JS::Any("Cannot redefine property: length is not writable")));
             }
             return false;
         }
@@ -61,7 +65,7 @@ bool Array::defineOwnProperty(const std::u16string& key, JS::Attribute attribute
                 }
                 this->InternalObject::defineOwnProperty(u"length", newLenDesc, false);
                 if (is_throw) {
-                    throw std::runtime_error("Cannot delete property: length"); // TODO: TypeError
+                    throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Cannot delete property: length")));
                 }
                 return false;
             }
@@ -76,7 +80,8 @@ bool Array::defineOwnProperty(const std::u16string& key, JS::Attribute attribute
         uint32_t index = JS::CONVERT::ToUint32(key);
         if (index >= oldLen && !std::get<JS::DataDescriptor>(oldLenDesc.value()).writable) {
             if (is_throw) {
-                throw std::runtime_error("Cannot define property: length is not writable"); // TODO: TypeError
+                throw JS::Any(
+                    std::make_shared<JS::TypeError>(JS::Any("Cannot define property: length is not writable")));
             }
             return false;
         }
@@ -120,7 +125,7 @@ JS::Any Array::toLocaleString(const JS::Any& thisArg, const JS::Any& args) {
         std::shared_ptr<JS::InternalObject> elementObj = JS::CONVERT::ToObject(firstElement);
         JS::Any func = elementObj->get(u"toLocaleString");
         if (!JS::IS::Callable(func)) {
-            throw std::runtime_error("TypeError: toLocaleString is not callable"); // TODO: Handle this error properly
+            throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("toLocaleString is not callable")));
         }
         // This can be optimized to return a string because next is R + a string so R became a string in all the case
         R = JS::CONVERT::ToString(std::get<std::shared_ptr<JS::InternalObject>>(func.getValue())
@@ -136,8 +141,7 @@ JS::Any Array::toLocaleString(const JS::Any& thisArg, const JS::Any& args) {
             std::shared_ptr<JS::InternalObject> elementObj = JS::CONVERT::ToObject(nextElement);
             JS::Any func = elementObj->get(u"toLocaleString");
             if (!JS::IS::Callable(func)) {
-                throw std::runtime_error("TypeError: toLocaleString is not callable");
-                // TODO: Handle this error properly
+                throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("toLocaleString is not callable")));
             }
             R = JS::CONVERT::ToString(
                 std::get<std::shared_ptr<JS::InternalObject>>(func.getValue())
@@ -184,7 +188,6 @@ JS::Any Array::concat(const JS::Any& thisArg, const JS::Any& args) {
 }
 
 JS::Any Array::join(const JS::Any& thisArg, const JS::Any& args) {
-
     std::shared_ptr<JS::InternalObject> O = JS::CONVERT::ToObject(thisArg);
     uint32_t len = JS::CONVERT::ToUint32(O->get(u"length"));
     if (len == 0) {
@@ -344,7 +347,7 @@ JS::Any Array::sort(const JS::Any& thisArg, const JS::Any& args) {
         });
     } else if (JS::COMPARE::Type(args[u"0"], JS::OBJECT)) {
         if (!JS::IS::Callable(args[u"0"])) {
-            throw std::runtime_error("TypeError: compare function is not callable"); // TODO: Handle this error properly
+            throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("compare function is not callable")));
         }
         auto compareFn = std::get<std::shared_ptr<JS::InternalObject>>(args[u"0"].getValue());
         std::ranges::sort(elements, [&compareFn](const std::pair<std::u16string, JS::Any>& a,
@@ -353,7 +356,7 @@ JS::Any Array::sort(const JS::Any& thisArg, const JS::Any& args) {
                        JS::Any(), JS::Arguments::CreateArgumentsObject({a.second, b.second}))) < 0;
         });
     } else {
-        throw std::runtime_error("TypeError: compare function is not callable"); // TODO: Handle this error properly
+        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("compare function is not callable")));
     }
     uint32_t index = 0;
     for (const auto& [key, value] : elements) {
@@ -462,7 +465,6 @@ JS::Any Array::unshift(const JS::Any& thisArg, const JS::Any& args) {
 }
 
 JS::Any Array::indexOf(const JS::Any& thisArg, const JS::Any& args) {
-
     std::shared_ptr<JS::InternalObject> O = JS::CONVERT::ToObject(thisArg);
     uint32_t len = JS::CONVERT::ToUint32(O->get(u"length"));
     if (len == 0) {
@@ -476,7 +478,7 @@ JS::Any Array::indexOf(const JS::Any& thisArg, const JS::Any& args) {
     while (k < len) {
         if (O->hasProperty(JS::CONVERT::ToString(k))) {
             JS::Any elementK = O->get(JS::CONVERT::ToString(k));
-            if (elementK.strictEq(args[u"0"])) {
+            if (elementK strictEq args[u"0"]) {
                 return JS::Any(k);
             }
         }
@@ -498,7 +500,7 @@ JS::Any Array::lastIndexOf(const JS::Any& thisArg, const JS::Any& args) {
     while (k >= 0) {
         if (O->hasProperty(JS::CONVERT::ToString(k))) {
             JS::Any elementK = O->get(JS::CONVERT::ToString(k));
-            if (elementK.strictEq(args[u"0"])) {
+            if (elementK strictEq args[u"0"]) {
                 return JS::Any(k);
             }
         }
@@ -512,7 +514,7 @@ JS::Any Array::every(const JS::Any& thisArg, const JS::Any& args) {
     std::shared_ptr<JS::InternalObject> O = JS::CONVERT::ToObject(thisArg);
     uint32_t len = JS::CONVERT::ToUint32(O->get(u"length"));
     if (!JS::IS::Callable(args[u"0"])) {
-        throw std::runtime_error("TypeError: callback function is not callable");
+        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("callback function is not callable")));
     }
     std::shared_ptr<JS::InternalObject> callbackFn =
         std::get<std::shared_ptr<JS::InternalObject>>(args[u"0"].getValue());
@@ -537,7 +539,7 @@ JS::Any Array::some(const JS::Any& thisArg, const JS::Any& args) {
     std::shared_ptr<JS::InternalObject> O = JS::CONVERT::ToObject(thisArg);
     uint32_t len = JS::CONVERT::ToUint32(O->get(u"length"));
     if (!JS::IS::Callable(args[u"0"])) {
-        throw std::runtime_error("TypeError: callback function is not callable");
+        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("callback function is not callable")));
     }
     std::shared_ptr<JS::InternalObject> callbackFn =
         std::get<std::shared_ptr<JS::InternalObject>>(args[u"0"].getValue());
@@ -561,7 +563,7 @@ JS::Any Array::forEach(const JS::Any& thisArg, const JS::Any& args) {
     std::shared_ptr<JS::InternalObject> O = JS::CONVERT::ToObject(thisArg);
     uint32_t len = JS::CONVERT::ToUint32(O->get(u"length"));
     if (!JS::IS::Callable(args[u"0"])) {
-        throw std::runtime_error("TypeError: callback function is not callable");
+        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("callback function is not callable")));
     }
     std::shared_ptr<JS::InternalObject> callbackFn =
         std::get<std::shared_ptr<JS::InternalObject>>(args[u"0"].getValue());
@@ -582,7 +584,7 @@ JS::Any Array::map(const JS::Any& thisArg, const JS::Any& args) {
     std::shared_ptr<JS::InternalObject> O = JS::CONVERT::ToObject(thisArg);
     uint32_t len = JS::CONVERT::ToUint32(O->get(u"length"));
     if (!JS::IS::Callable(args[u"0"])) {
-        throw std::runtime_error("TypeError: callback function is not callable");
+        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("callback function is not callable")));
     }
     std::shared_ptr<JS::InternalObject> callbackFn =
         std::get<std::shared_ptr<JS::InternalObject>>(args[u"0"].getValue());
@@ -606,7 +608,7 @@ JS::Any Array::filter(const JS::Any& thisArg, const JS::Any& args) {
     std::shared_ptr<JS::InternalObject> O = JS::CONVERT::ToObject(thisArg);
     uint32_t len = JS::CONVERT::ToUint32(O->get(u"length"));
     if (!JS::IS::Callable(args[u"0"])) {
-        throw std::runtime_error("TypeError: callback function is not callable");
+        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("callback function is not callable")));
     }
     std::shared_ptr<JS::InternalObject> callbackFn =
         std::get<std::shared_ptr<JS::InternalObject>>(args[u"0"].getValue());
@@ -634,7 +636,7 @@ JS::Any Array::reduce(const JS::Any& thisArg, const JS::Any& args) {
     std::shared_ptr<JS::InternalObject> O = JS::CONVERT::ToObject(thisArg);
     uint32_t len = JS::CONVERT::ToUint32(O->get(u"length"));
     if (!JS::IS::Callable(args[u"0"])) {
-        throw std::runtime_error("TypeError: callback function is not callable");
+        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("callback function is not callable")));
     }
     std::shared_ptr<JS::InternalObject> callbackFn =
         std::get<std::shared_ptr<JS::InternalObject>>(args[u"0"].getValue());
@@ -654,7 +656,8 @@ JS::Any Array::reduce(const JS::Any& thisArg, const JS::Any& args) {
             k++;
         }
         if (!kPresent) {
-            throw std::runtime_error("TypeError: reduce called on empty array with no initial value");
+            throw JS::Any(
+                std::make_shared<JS::TypeError>(JS::Any("reduce called on empty array with no initial value")));
         }
     }
     while (k < len) {
@@ -673,7 +676,7 @@ JS::Any Array::reduceRight(const JS::Any& thisArg, const JS::Any& args) {
     std::shared_ptr<JS::InternalObject> O = JS::CONVERT::ToObject(thisArg);
     uint32_t len = JS::CONVERT::ToUint32(O->get(u"length"));
     if (!JS::IS::Callable(args[u"0"])) {
-        throw std::runtime_error("TypeError: callback function is not callable");
+        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("callback function is not callable")));
     }
     std::shared_ptr<JS::InternalObject> callbackFn =
         std::get<std::shared_ptr<JS::InternalObject>>(args[u"0"].getValue());
@@ -693,7 +696,8 @@ JS::Any Array::reduceRight(const JS::Any& thisArg, const JS::Any& args) {
             k--;
         }
         if (!kPresent) {
-            throw std::runtime_error("TypeError: reduceRight called on empty array with no initial value");
+            throw JS::Any(
+                std::make_shared<JS::TypeError>(JS::Any("reduceRight called on empty array with no initial value")));
         }
     }
     while (k >= 0) {

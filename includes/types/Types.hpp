@@ -55,6 +55,9 @@ class PropertyProxy;
 class Object;
 class Function;
 class Array;
+class Number;
+class String;
+class Boolean;
 
 class Any;
 

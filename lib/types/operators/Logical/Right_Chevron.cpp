@@ -1,36 +1,37 @@
+#include <internals/Operator.hpp>
 #include <types/JsAny.hpp>
 #include <utils/Convert.hpp>
 
-JS::Any JS::Any::operator>(const JS::Any& other) const {
+JS::Any JS::Operator::operator>(const JS::Operator& other) const {
     try {
-        switch (this->value.index()) {
+        switch (this->getValue().index()) {
             case NUMBER:
 
-                switch (other.value.index()) {
+                switch (other.getValue().index()) {
                     case NUMBER:
-                        return JS::Any(std::get<double>(this->value) > std::get<double>(other.value));
+                        return JS::Any(std::get<double>(this->getValue()) > std::get<double>(other.getValue()));
                     case STRING:
-                        return JS::Any(std::get<double>(this->value) >
-                                       JS::CONVERT::ToNumber(std::get<Rope>(other.value)));
+                        return JS::Any(std::get<double>(this->getValue()) >
+                                       JS::CONVERT::ToNumber(std::get<Rope>(other.getValue())));
                     case BOOLEAN:
-                        return JS::Any(static_cast<long long int>(std::get<double>(this->value)) >
-                                       std::get<bool>(other.value));
+                        return JS::Any(static_cast<long long int>(std::get<double>(this->getValue())) >
+                                       std::get<bool>(other.getValue()));
                     case NULL_TYPE:
-                        return JS::Any(static_cast<long long int>(std::get<double>(this->value)) > 0);
+                        return JS::Any(static_cast<long long int>(std::get<double>(this->getValue())) > 0);
                     default:
                         return JS::Any(false);
                 }
             case STRING:
 
-                switch (other.value.index()) {
+                switch (other.getValue().index()) {
                     case NUMBER:
-                        return JS::Any(JS::CONVERT::ToNumber(std::get<Rope>(this->value)) >
-                                       std::get<double>(other.value));
+                        return JS::Any(JS::CONVERT::ToNumber(std::get<Rope>(this->getValue())) >
+                                       std::get<double>(other.getValue()));
                     case STRING:
-                        return JS::Any(std::get<Rope>(this->value).compare(std::get<Rope>(other.value)) > 0);
+                        return JS::Any(std::get<Rope>(this->getValue()).compare(std::get<Rope>(other.getValue())) > 0);
                     case BOOLEAN:
-                        return JS::Any(static_cast<long long int>(JS::CONVERT::ToNumber(std::get<Rope>(this->value))) >
-                                       std::get<bool>(other.value));
+                        return JS::Any(static_cast<long long int>(JS::CONVERT::ToNumber(
+                                           std::get<Rope>(this->getValue()))) > std::get<bool>(other.getValue()));
                     case FUNCTION:
                         return JS::Any(JS::CONVERT::ToString(*this).compare(JS::CONVERT::ToString(other)) > 0);
                     case NULL_TYPE: // TODO: fix narrowing conversion
@@ -40,32 +41,33 @@ JS::Any JS::Any::operator>(const JS::Any& other) const {
                 }
             case BOOLEAN:
 
-                switch (other.value.index()) {
+                switch (other.getValue().index()) {
                     case NUMBER:
-                        return JS::Any(std::get<bool>(this->value) >
-                                       static_cast<long long int>(std::get<double>(other.value)));
+                        return JS::Any(std::get<bool>(this->getValue()) >
+                                       static_cast<long long int>(std::get<double>(other.getValue())));
                     case STRING:
-                        return JS::Any(std::get<bool>(this->value) >
-                                       static_cast<long long int>(JS::CONVERT::ToNumber(std::get<Rope>(other.value))));
+                        return JS::Any(
+                            std::get<bool>(this->getValue()) >
+                            static_cast<long long int>(JS::CONVERT::ToNumber(std::get<Rope>(other.getValue()))));
                     case BOOLEAN:
-                        return JS::Any(std::get<bool>(this->value) > std::get<bool>(other.value));
+                        return JS::Any(std::get<bool>(this->getValue()) > std::get<bool>(other.getValue()));
                     case FUNCTION:
                         return JS::Any(JS::CONVERT::ToString(*this).compare(JS::CONVERT::ToString(other)) > 0);
                     case NULL_TYPE:
-                        return JS::Any(std::get<bool>(this->value) > false);
+                        return JS::Any(std::get<bool>(this->getValue()) > false);
 
                     default:
                         return JS::Any(false);
                 }
             case NULL_TYPE:
 
-                switch (other.value.index()) {
+                switch (other.getValue().index()) {
                     case NUMBER:
-                        return JS::Any(0.0 > std::get<double>(other.value));
+                        return JS::Any(0.0 > std::get<double>(other.getValue()));
                     case STRING:
-                        return JS::Any(0.0 > JS::CONVERT::ToNumber(std::get<Rope>(other.value)));
+                        return JS::Any(0.0 > JS::CONVERT::ToNumber(std::get<Rope>(other.getValue())));
                     case BOOLEAN:
-                        return JS::Any(false < std::get<bool>(other.value));
+                        return JS::Any(false < std::get<bool>(other.getValue()));
                     default:
                         return JS::Any(false);
                 }

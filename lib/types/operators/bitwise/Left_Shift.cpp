@@ -1,8 +1,9 @@
+#include <internals/Operator.hpp>
 #include <types/JsAny.hpp>
 #include <utils/Convert.hpp>
 
 DECLARE_1FUNC(
-    JS::Any JS::Any::operator<<,
+    JS::Any JS::Operator::operator<<,
     const { return JS::Any(JS::CONVERT::ToInt32(*this) << (JS::CONVERT::ToUint32(value) & 0x1F)); })
 
 namespace JS {

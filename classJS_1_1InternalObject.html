@@ -194,7 +194,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a6c2981b61a5e8ff653cfe596fb8b2d52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a property in the object <a href="https://262.ecma-international.org/5.1/#sec-8.12.9">https://262.ecma-international.org/5.1/#sec-8.12.9</a>.  <br /></td></tr>
 <tr class="separator:a6c2981b61a5e8ff653cfe596fb8b2d52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Internal Methods Specific to certain Objects</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>All of this methods throw a <a class="el" href="classTypeError.html">TypeError</a> if the object is not of the correct type </p>
+<tr><td colspan="2"><div class="groupText"><p>All of this methods throw a <a class="el" href="classJS_1_1TypeError.html" title="Represents a JavaScript TypeError in C++.">TypeError</a> if the object is not of the correct type </p>
 </div></td></tr>
 <tr class="memitem:a014880c7186c6a7603365d39835863be" id="r_a014880c7186c6a7603365d39835863be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">virtual</a> <a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a014880c7186c6a7603365d39835863be">hasInstance</a> (<a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a> <a class="el" href="classJS_1_1Any.html">JS::Any</a> &amp;value) <a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a></td></tr>
 <tr class="memdesc:a014880c7186c6a7603365d39835863be"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if the object is likely created by this object, only <a class="el" href="classJS_1_1Function.html" title="Represents a JavaScript-like function object in C++.">Function</a> implements this  <br /></td></tr>
@@ -206,6 +206,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9946e41bd1062fadbab593a2e28a6fc0" id="r_a9946e41bd1062fadbab593a2e28a6fc0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">virtual</a> <a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a9946e41bd1062fadbab593a2e28a6fc0">isCallable</a> () <a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a></td></tr>
 <tr class="memdesc:a9946e41bd1062fadbab593a2e28a6fc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if the object is callable  <br /></td></tr>
 <tr class="separator:a9946e41bd1062fadbab593a2e28a6fc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dbd068d6187d505d9a2f009f6917600" id="r_a5dbd068d6187d505d9a2f009f6917600"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">virtual</a> std::u16string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJS_1_1InternalObject.html#a5dbd068d6187d505d9a2f009f6917600">getContent</a> () <a class="el" href="classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98">const</a></td></tr>
+<tr class="separator:a5dbd068d6187d505d9a2f009f6917600"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -604,6 +606,33 @@ Public Attributes</h2></td></tr>
 <p>Get a property of the object with all the parent included and all the checks for descriptor <a href="https://262.ecma-international.org/5.1/#sec-8.12.3">https://262.ecma-international.org/5.1/#sec-8.12.3</a>. </p>
 
 <p>Reimplemented in <a class="el" href="classJS_1_1Function.html#a496cae943948e026ff52bf0c257d3128">JS::Function</a>.</p>
+
+</div>
+</div>
+<a id="a5dbd068d6187d505d9a2f009f6917600" name="a5dbd068d6187d505d9a2f009f6917600"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dbd068d6187d505d9a2f009f6917600">&#9670;&#160;</a></span>getContent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::u16string JS::InternalObject::getContent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classJS_1_1Function.html#aad185bed7dbbe9f94bd20884acb25ae3">JS::Function</a>, <a class="el" href="classJS_1_1FunctionBinded.html#a5dba7290ff96bb86a3fee0860bc47c1f">JS::FunctionBinded</a>, <a class="el" href="classJS_1_1Array.html#a9d94c2391aa3de01d3a789c770517728">JS::Array</a>, <a class="el" href="classJS_1_1Boolean.html#a61e1dcee5636cf22b32f07f69b446358">JS::Boolean</a>, <a class="el" href="classJS_1_1Number.html#a0a97d0a33d0ebf82c4eb222b83ecc307">JS::Number</a>, <a class="el" href="classJS_1_1Object.html#a169e149ed0f089d6423703953beab46d">JS::Object</a>, and <a class="el" href="classJS_1_1String.html#a703d5aacfd401bbd4a61a3a169af19d0">JS::String</a>.</p>
 
 </div>
 </div>

@@ -15,7 +15,6 @@ var searchData=
   ['touint32_2ecpp_12',['ToUint32.cpp',['../ToUint32_8cpp.html',1,'']]],
   ['toutf16_2ecpp_13',['ToUtf16.cpp',['../ToUtf16_8cpp.html',1,'']]],
   ['toutf8_2ecpp_14',['ToUtf8.cpp',['../ToUtf8_8cpp.html',1,'']]],
-  ['typeerror_2ehpp_15',['TypeError.hpp',['../TypeError_8hpp.html',1,'']]],
-  ['typeof_2ehpp_16',['Typeof.hpp',['../Typeof_8hpp.html',1,'']]],
-  ['types_2ehpp_17',['types.hpp',['../Types_8hpp.html',1,'(Global Namespace)'],['../objects_2Types_8hpp.html',1,'(Global Namespace)']]]
+  ['typeof_2ehpp_15',['Typeof.hpp',['../Typeof_8hpp.html',1,'']]],
+  ['types_2ehpp_16',['types.hpp',['../Types_8hpp.html',1,'(Global Namespace)'],['../objects_2Types_8hpp.html',1,'(Global Namespace)']]]
 ];

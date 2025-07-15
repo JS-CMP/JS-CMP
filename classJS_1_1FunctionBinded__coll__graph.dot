@@ -13,4 +13,8 @@ digraph "JS::FunctionBinded"
   Node4 [id="Node000004",label="std::enable_shared\l_from_this\< JS::InternalObject \>",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
   Node5 -> Node1 [id="edge4_Node000001_Node000005",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" boundThis",fontcolor="grey" ];
   Node5 [id="Node000005",label="JS::Any",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classJS_1_1Any.html",tooltip="Represents a JavaScript-like variant type in C++ that can hold multiple types of values."];
+  Node6 -> Node5 [id="edge5_Node000005_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="JS::Operator",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classJS_1_1Operator.html",tooltip="Represents a JavaScript-like operator in C++ that can perform various operations on values."];
+  Node7 -> Node6 [id="edge6_Node000006_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="std::exception",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
 }

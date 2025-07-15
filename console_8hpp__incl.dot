@@ -46,9 +46,12 @@ digraph "includes/global/console.hpp"
   Node17 [id="Node000017",label="variant",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
   Node3 -> Node11 [id="edge24_Node000003_Node000011",color="steelblue1",style="solid",tooltip=" "];
   Node2 -> Node18 [id="edge25_Node000002_Node000018",color="steelblue1",style="solid",tooltip=" "];
-  Node18 [id="Node000018",label="internals/Arguments.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Arguments_8hpp.html",tooltip=" "];
-  Node18 -> Node3 [id="edge26_Node000018_Node000003",color="steelblue1",style="solid",tooltip=" "];
-  Node2 -> Node19 [id="edge27_Node000002_Node000019",color="steelblue1",style="solid",tooltip=" "];
-  Node19 [id="Node000019",label="utils/Declaration.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Declaration_8hpp.html",tooltip=" "];
-  Node1 -> Node10 [id="edge28_Node000001_Node000010",color="steelblue1",style="solid",tooltip=" "];
+  Node18 [id="Node000018",label="internals/Operator.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Operator_8hpp.html",tooltip=" "];
+  Node18 -> Node19 [id="edge26_Node000018_Node000019",color="steelblue1",style="solid",tooltip=" "];
+  Node19 [id="Node000019",label="Arguments.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Arguments_8hpp.html",tooltip=" "];
+  Node19 -> Node3 [id="edge27_Node000019_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node18 -> Node3 [id="edge28_Node000018_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node18 -> Node20 [id="edge29_Node000018_Node000020",color="steelblue1",style="solid",tooltip=" "];
+  Node20 [id="Node000020",label="utils/Declaration.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Declaration_8hpp.html",tooltip=" "];
+  Node1 -> Node10 [id="edge30_Node000001_Node000010",color="steelblue1",style="solid",tooltip=" "];
 }

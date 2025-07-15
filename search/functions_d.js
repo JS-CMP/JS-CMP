@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['next_0',['next',['../classRopeIterator.html#aa3ea287a31760262b8ff758926854c7f',1,'RopeIterator']]],
-  ['notdeepequal_1',['notDeepEqual',['../classassert.html#a98a7605066f96937013f4123088f0c11',1,'assert']]],
-  ['notequal_2',['notEqual',['../classassert.html#a0f99fe9b69e31ff0540e85c06ef93bbf',1,'assert']]],
-  ['notstrictdeepequal_3',['notStrictDeepEqual',['../classassert.html#a1678b6b6cdcfcec592cb45987af24a55',1,'assert']]],
-  ['notstrictequal_4',['notStrictEqual',['../classassert.html#ae5ec7735ed3ea5fbb71454e776b61a56',1,'assert']]],
-  ['number_5',['number',['../classJS_1_1Number.html#a052f72c74c63c0489877fe7fc28d3617',1,'JS::Number::Number()'],['../classJS_1_1Number.html#a27d4ffe67b441acb95a67dd2db4c9ee3',1,'JS::Number::Number(const JS::Any &amp;value)'],['../classJS_1_1Number.html#ad0effefc8d064cf44fd6bed798bd61ba',1,'JS::Number::Number(const std::unordered_map&lt; std::u16string, JS::Attribute &gt; &amp;properties)']]]
+  ['nativeerror_0',['nativeerror',['../classJS_1_1NativeError.html#acc0ec633eb5623eace1bc7715ffa08ad',1,'JS::NativeError::NativeError()'],['../classJS_1_1NativeError.html#aef8eafe8f08e8710f0783a7ee96e300a',1,'JS::NativeError::NativeError(const JS::Any &amp;value)'],['../classJS_1_1NativeError.html#aa7c6c6e8bfeea56a00ca77b3d31c40d4',1,'JS::NativeError::NativeError(const std::unordered_map&lt; std::u16string, JS::Attribute &gt; &amp;properties)']]],
+  ['next_1',['next',['../classRopeIterator.html#aa3ea287a31760262b8ff758926854c7f',1,'RopeIterator']]],
+  ['notdeepequal_2',['notDeepEqual',['../classJS_1_1assert.html#a0225e8f7e120235f11e951935b10bf45',1,'JS::assert']]],
+  ['notequal_3',['notEqual',['../classJS_1_1assert.html#a24231ec45c99f109f1bf25414491291d',1,'JS::assert']]],
+  ['notstrictdeepequal_4',['notStrictDeepEqual',['../classJS_1_1assert.html#abeb4ed469ab02a5029b56e27e9314913',1,'JS::assert']]],
+  ['notstrictequal_5',['notStrictEqual',['../classJS_1_1assert.html#a57282eca8c60b33080e3f6fc6af3bc23',1,'JS::assert']]],
+  ['number_6',['number',['../classJS_1_1Number.html#a052f72c74c63c0489877fe7fc28d3617',1,'JS::Number::Number()'],['../classJS_1_1Number.html#a27d4ffe67b441acb95a67dd2db4c9ee3',1,'JS::Number::Number(const JS::Any &amp;value)'],['../classJS_1_1Number.html#a21c959462e40135150ee8429fd2515d3',1,'JS::Number::Number(const JS::Properties &amp;properties)']]]
 ];

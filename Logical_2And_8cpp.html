@@ -107,7 +107,8 @@ $(document).ready(function(){initNavTree('Logical_2And_8cpp.html',''); initResiz
   <div class="headertitle"><div class="title">And.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="JsAny_8hpp_source.html">types/JsAny.hpp</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="Operator_8hpp_source.html">internals/Operator.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="JsAny_8hpp_source.html">types/JsAny.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="Convert_8hpp_source.html">utils/Convert.hpp</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for And.cpp:</div>
@@ -117,12 +118,12 @@ Include dependency graph for And.cpp:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a65fda4b88a6db7eba01d2f94658add81" id="r_a65fda4b88a6db7eba01d2f94658add81"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Logical_2And_8cpp.html#a65fda4b88a6db7eba01d2f94658add81">DECLARE_1FUNC</a> (<a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::Any::operator&amp;&amp;, const { return !<a class="el" href="namespaceJS_1_1CONVERT.html#a9c4966449f576cfa6de345e758b51dd1">JS::CONVERT::ToBoolean</a>(*this) ? *this :<a class="el" href="classJS_1_1Any.html">JS::Any</a>(value);}) namespace JS</td></tr>
-<tr class="separator:a65fda4b88a6db7eba01d2f94658add81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab51894ccf786d0d41a31e5498e151591" id="r_ab51894ccf786d0d41a31e5498e151591"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Logical_2And_8cpp.html#ab51894ccf786d0d41a31e5498e151591">DECLARE_1FUNC</a> (<a class="el" href="classJS_1_1Any.html">JS::Any</a> <a class="el" href="classJS_1_1Operator.html#aec6d54a56f39573388d4aae926168eee">JS::Operator::operator</a>&amp;&amp;, const { return !<a class="el" href="namespaceJS_1_1CONVERT.html#a9c4966449f576cfa6de345e758b51dd1">JS::CONVERT::ToBoolean</a>(*this) ? <a class="el" href="classJS_1_1Any.html">JS::Any</a>(*this) :<a class="el" href="classJS_1_1Any.html">JS::Any</a>(value);}) namespace JS</td></tr>
+<tr class="separator:ab51894ccf786d0d41a31e5498e151591"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a65fda4b88a6db7eba01d2f94658add81" name="a65fda4b88a6db7eba01d2f94658add81"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65fda4b88a6db7eba01d2f94658add81">&#9670;&#160;</a></span>DECLARE_1FUNC()</h2>
+<a id="ab51894ccf786d0d41a31e5498e151591" name="ab51894ccf786d0d41a31e5498e151591"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab51894ccf786d0d41a31e5498e151591">&#9670;&#160;</a></span>DECLARE_1FUNC()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -130,13 +131,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">DECLARE_1FUNC </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> JS::Any::operator&amp;&amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classJS_1_1Any.html">JS::Any</a> <a class="el" href="classJS_1_1Operator.html#aec6d54a56f39573388d4aae926168eee">JS::Operator::operator</a>&amp;&amp;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const { return !<a class="el" href="namespaceJS_1_1CONVERT.html#a9c4966449f576cfa6de345e758b51dd1">JS::CONVERT::ToBoolean</a>(*this) ? *this :<a class="el" href="classJS_1_1Any.html">JS::Any</a>(value);}&#160;</td>
+          <td class="paramtype">const { return !<a class="el" href="namespaceJS_1_1CONVERT.html#a9c4966449f576cfa6de345e758b51dd1">JS::CONVERT::ToBoolean</a>(*this) ? <a class="el" href="classJS_1_1Any.html">JS::Any</a>(*this) :<a class="el" href="classJS_1_1Any.html">JS::Any</a>(value);}&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>

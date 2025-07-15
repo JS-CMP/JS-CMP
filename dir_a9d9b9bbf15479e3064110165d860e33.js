@@ -3,5 +3,6 @@ var dir_a9d9b9bbf15479e3064110165d860e33 =
     [ "Arguments.hpp", "Arguments_8hpp.html", "Arguments_8hpp" ],
     [ "Attribute.hpp", "Attribute_8hpp.html", "Attribute_8hpp" ],
     [ "Object.hpp", "Object_8hpp.html", "Object_8hpp" ],
+    [ "Operator.hpp", "Operator_8hpp.html", "Operator_8hpp" ],
     [ "PropertyProxy.hpp", "PropertyProxy_8hpp.html", "PropertyProxy_8hpp" ]
 ];

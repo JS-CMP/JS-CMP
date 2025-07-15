@@ -7,4 +7,8 @@ digraph "JS::DataDescriptor"
   Node1 [id="Node000001",label="JS::DataDescriptor",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Represents data properties of a JavaScript object."];
   Node2 -> Node1 [id="edge1_Node000001_Node000002",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" value",fontcolor="grey" ];
   Node2 [id="Node000002",label="JS::Any",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classJS_1_1Any.html",tooltip="Represents a JavaScript-like variant type in C++ that can hold multiple types of values."];
+  Node3 -> Node2 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="JS::Operator",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classJS_1_1Operator.html",tooltip="Represents a JavaScript-like operator in C++ that can perform various operations on values."];
+  Node4 -> Node3 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="std::exception",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
 }

@@ -48,13 +48,16 @@ digraph "lib/internals/Object/utils.cpp"
   Node18 [id="Node000018",label="variant",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
   Node4 -> Node12 [id="edge25_Node000004_Node000012",color="steelblue1",style="solid",tooltip=" "];
   Node3 -> Node19 [id="edge26_Node000003_Node000019",color="steelblue1",style="solid",tooltip=" "];
-  Node19 [id="Node000019",label="internals/Arguments.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Arguments_8hpp.html",tooltip=" "];
-  Node19 -> Node4 [id="edge27_Node000019_Node000004",color="steelblue1",style="solid",tooltip=" "];
-  Node3 -> Node20 [id="edge28_Node000003_Node000020",color="steelblue1",style="solid",tooltip=" "];
-  Node20 [id="Node000020",label="utils/Declaration.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Declaration_8hpp.html",tooltip=" "];
-  Node2 -> Node4 [id="edge29_Node000002_Node000004",color="steelblue1",style="solid",tooltip=" "];
-  Node2 -> Node21 [id="edge30_Node000002_Node000021",color="steelblue1",style="solid",tooltip=" "];
-  Node21 [id="Node000021",label="optional",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
-  Node2 -> Node22 [id="edge31_Node000002_Node000022",color="steelblue1",style="solid",tooltip=" "];
-  Node22 [id="Node000022",label="utility",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node19 [id="Node000019",label="internals/Operator.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Operator_8hpp.html",tooltip=" "];
+  Node19 -> Node20 [id="edge27_Node000019_Node000020",color="steelblue1",style="solid",tooltip=" "];
+  Node20 [id="Node000020",label="Arguments.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Arguments_8hpp.html",tooltip=" "];
+  Node20 -> Node4 [id="edge28_Node000020_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node19 -> Node4 [id="edge29_Node000019_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node19 -> Node21 [id="edge30_Node000019_Node000021",color="steelblue1",style="solid",tooltip=" "];
+  Node21 [id="Node000021",label="utils/Declaration.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Declaration_8hpp.html",tooltip=" "];
+  Node2 -> Node4 [id="edge31_Node000002_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node2 -> Node22 [id="edge32_Node000002_Node000022",color="steelblue1",style="solid",tooltip=" "];
+  Node22 [id="Node000022",label="optional",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node2 -> Node23 [id="edge33_Node000002_Node000023",color="steelblue1",style="solid",tooltip=" "];
+  Node23 [id="Node000023",label="utility",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
 }

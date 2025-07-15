@@ -1,12 +1,15 @@
 var global_8hpp =
 [
     [ "Array", "global_8hpp.html#af05daa890d4a19365c1bd592713670d9", null ],
+    [ "assert", "global_8hpp.html#a38991003ded1032fdbb52abc5edaa25a", null ],
     [ "Boolean", "global_8hpp.html#abe8245232b8ca228a9b885133b8899dd", null ],
     [ "console", "global_8hpp.html#a1dd8007728513403154ad5a8d75d8bed", null ],
     [ "decodeURI", "global_8hpp.html#ad893b5be58a1568114cd68346c193e4f", null ],
     [ "decodeURIComponent", "global_8hpp.html#adf0f48272cb6af3dc7e87f954cfd0f24", null ],
     [ "encodeURI", "global_8hpp.html#ad45fb6f060f4e0a9cc2439c370f934dc", null ],
     [ "encodeURIComponent", "global_8hpp.html#a1aa6eb88c47dfd8564ef1dde08848c4f", null ],
+    [ "Error", "global_8hpp.html#a33f929d22ef4192bfb4fddbeee23d57b", null ],
+    [ "Function", "global_8hpp.html#abe8739ac2214d6d0a68f34e99d3c6d20", null ],
     [ "global", "global_8hpp.html#a0367ff1ec4d051794bc2cb7f5e610b89", null ],
     [ "Infinity", "global_8hpp.html#a7204152d864133825e6e650d83bc670e", null ],
     [ "isFinite", "global_8hpp.html#a8ff6a194c25c5515d0a1e9896f4f6000", null ],
@@ -17,6 +20,11 @@ var global_8hpp =
     [ "Object", "global_8hpp.html#a40d8fa8ffaba1502e945db93164125de", null ],
     [ "parseFloat", "global_8hpp.html#ac02cd475abe7faea61ec5d0a3eae37dd", null ],
     [ "parseInt", "global_8hpp.html#ac4b549447890b0bb8803156eac34b987", null ],
+    [ "RangeError", "global_8hpp.html#adcc5de16ffc869d792a21342ceb27a03", null ],
+    [ "ReferenceError", "global_8hpp.html#ae31eef6d153cac639fe2859cd6fd568e", null ],
     [ "String", "global_8hpp.html#a35ed9b9c1245ce5a94ccd5d9fb2d5cd3", null ],
-    [ "undefined", "global_8hpp.html#a3c829a3564557dabfde23b5540b1588a", null ]
+    [ "SyntaxError", "global_8hpp.html#acd222a4007127c3e7adcd4ea9658f29f", null ],
+    [ "TypeError", "global_8hpp.html#a2d6318fcae4ed82e04aeaab28d4d2b5d", null ],
+    [ "undefined", "global_8hpp.html#a3c829a3564557dabfde23b5540b1588a", null ],
+    [ "URIError", "global_8hpp.html#a236ab7e2445cad665555c642c1c9e899", null ]
 ];

@@ -6,7 +6,7 @@ var searchData=
   ['pop_3',['pop',['../classJS_1_1Array.html#a5ab7ad404473ec952228d897745dc410',1,'JS::Array']]],
   ['pow_4',['pow',['../classJS_1_1Math.html#adad9938bb7ebfc2f9139868a203e5423',1,'JS::Math']]],
   ['preventextensions_5',['preventExtensions',['../classJS_1_1Object.html#a0b59f64fe30bf16c125932afa30e66b2',1,'JS::Object']]],
-  ['primitive_6',['Primitive',['../namespaceJS_1_1IS.html#a97fa994b6f52d3259f923715be53fe3d',1,'JS::IS']]],
+  ['primitive_6',['Primitive',['../namespaceJS_1_1IS.html#ae527d5facf17583b153e4183494fce9b',1,'JS::IS']]],
   ['print_7',['print',['../classRopeNode.html#a517e55fe6ae0da703fcca48fd6d4a7f7',1,'RopeNode::print()'],['../classRopeLeaf.html#a55013cff32e8f9c3723245444a7fe0ca',1,'RopeLeaf::print()'],['../classRopeConcat.html#a28107af7dec6811158bdf6f8b942d019',1,'RopeConcat::print()'],['../classRope.html#a189d23a04d260952e6af19554417fc97',1,'Rope::print()']]],
   ['printusage_8',['printUsage',['../classOptions.html#a5a64af47966f3c0a54a8c3a3385065e3',1,'Options']]],
   ['printversion_9',['printVersion',['../classOptions.html#a7406a60e9cc9f2f08557a953105e23a4',1,'Options']]],

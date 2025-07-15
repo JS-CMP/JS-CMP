@@ -12,6 +12,7 @@ var classJS_1_1InternalObject =
     [ "defineOwnProperty", "classJS_1_1InternalObject.html#a6c2981b61a5e8ff653cfe596fb8b2d52", null ],
     [ "deleteProperty", "classJS_1_1InternalObject.html#a8371ccb93d92e114d6b204b07a2b7020", null ],
     [ "get", "classJS_1_1InternalObject.html#a396bbf33d5de52f4755862161fdb8a98", null ],
+    [ "getContent", "classJS_1_1InternalObject.html#a5dbd068d6187d505d9a2f009f6917600", null ],
     [ "getOwnProperty", "classJS_1_1InternalObject.html#a4f46e7436829a9e6f84fb795e06683f5", null ],
     [ "getProperty", "classJS_1_1InternalObject.html#ad68a9ea2a7022642eba7a268b08edc65", null ],
     [ "hasInstance", "classJS_1_1InternalObject.html#a014880c7186c6a7603365d39835863be", null ],

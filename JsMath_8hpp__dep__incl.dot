@@ -9,10 +9,6 @@ digraph "includes/types/objects/JsMath.hpp"
   Node2 [id="Node000002",label="includes/types/objects\l/Types.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$objects_2Types_8hpp.html",tooltip=" "];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node3 [id="Node000003",label="includes/global/global.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$global_8hpp.html",tooltip=" "];
-  Node3 -> Node4 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node4 [id="Node000004",label="includes/class/Assert\l/Assert.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Assert_8hpp.html",tooltip=" "];
-  Node4 -> Node5 [id="edge4_Node000004_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node5 [id="Node000005",label="lib/class/Assert/Assert.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Assert_8cpp.html",tooltip=" "];
-  Node1 -> Node6 [id="edge5_Node000001_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node6 [id="Node000006",label="lib/types/objects/Math\l/static.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$types_2objects_2Math_2static_8cpp.html",tooltip=" "];
+  Node1 -> Node4 [id="edge3_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="lib/types/objects/Math\l/static.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$types_2objects_2Math_2static_8cpp.html",tooltip=" "];
 }

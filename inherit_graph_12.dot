@@ -5,9 +5,11 @@ digraph "Graphical Class Hierarchy"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="RopeNode",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classRopeNode.html",tooltip="Abstract base class representing a node in a Rope data structure."];
-  Node0 -> Node1 [id="edge1_Node000000_Node000001",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node1 [id="Node000001",label="RopeConcat",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classRopeConcat.html",tooltip="Represents a concatenation node in a Rope data structure."];
-  Node0 -> Node2 [id="edge2_Node000000_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="RopeLeaf",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classRopeLeaf.html",tooltip="Concrete class representing a leaf node in a Rope data structure."];
+  Node0 [id="Node000000",label="std::exception",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node0 -> Node1 [id="edge20_Node000000_Node000001",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node1 [id="Node000001",label="JS::Operator",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classJS_1_1Operator.html",tooltip="Represents a JavaScript-like operator in C++ that can perform various operations on values."];
+  Node1 -> Node2 [id="edge21_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="JS::Any",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classJS_1_1Any.html",tooltip="Represents a JavaScript-like variant type in C++ that can hold multiple types of values."];
+  Node1 -> Node3 [id="edge22_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="JS::PropertyProxy",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classJS_1_1PropertyProxy.html",tooltip="Represents a proxy for accessing properties of an object in JavaScript."];
 }

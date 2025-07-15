@@ -107,19 +107,22 @@ $(document).ready(function(){initNavTree('global_8hpp.html',''); initResizable()
   <div class="headertitle"><div class="title">global.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="console_8hpp_source.html">global/console.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="assert_8hpp_source.html">class/Assert/assert.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="console_8hpp_source.html">global/console.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="globalFunctions_8hpp_source.html">globalFunctions.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="JsAny_8hpp_source.html">types/JsAny.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="JsError_8hpp_source.html">types/objects/Error/JsError.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="JsNativeError_8hpp_source.html">types/objects/Error/JsNativeError.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="JsRangeError_8hpp_source.html">types/objects/Error/JsRangeError.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="JsReferenceError_8hpp_source.html">types/objects/Error/JsReferenceError.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="JsSyntaxError_8hpp_source.html">types/objects/Error/JsSyntaxError.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="JsTypeError_8hpp_source.html">types/objects/Error/JsTypeError.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="JsURIError_8hpp_source.html">types/objects/Error/JsURIError.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="objects_2Types_8hpp_source.html">types/objects/Types.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for global.hpp:</div>
 <div class="dyncontent">
 <div class="center"><!-- SVG 0 --></div>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><!-- SVG 1 --></div>
 </div>
 </div>
 <p><a href="global_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -128,16 +131,32 @@ This graph shows which files directly or indirectly include this file:</div>
 Variables</h2></td></tr>
 <tr class="memitem:a40d8fa8ffaba1502e945db93164125de" id="r_a40d8fa8ffaba1502e945db93164125de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#a40d8fa8ffaba1502e945db93164125de">Object</a></td></tr>
 <tr class="separator:a40d8fa8ffaba1502e945db93164125de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe8739ac2214d6d0a68f34e99d3c6d20" id="r_abe8739ac2214d6d0a68f34e99d3c6d20"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#abe8739ac2214d6d0a68f34e99d3c6d20">Function</a></td></tr>
+<tr class="separator:abe8739ac2214d6d0a68f34e99d3c6d20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af05daa890d4a19365c1bd592713670d9" id="r_af05daa890d4a19365c1bd592713670d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#af05daa890d4a19365c1bd592713670d9">Array</a></td></tr>
 <tr class="separator:af05daa890d4a19365c1bd592713670d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35ed9b9c1245ce5a94ccd5d9fb2d5cd3" id="r_a35ed9b9c1245ce5a94ccd5d9fb2d5cd3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#a35ed9b9c1245ce5a94ccd5d9fb2d5cd3">String</a></td></tr>
 <tr class="separator:a35ed9b9c1245ce5a94ccd5d9fb2d5cd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ae5a836ca95e6330d6bdbaedc5f0173" id="r_a9ae5a836ca95e6330d6bdbaedc5f0173"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#a9ae5a836ca95e6330d6bdbaedc5f0173">Number</a></td></tr>
 <tr class="separator:a9ae5a836ca95e6330d6bdbaedc5f0173"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe8245232b8ca228a9b885133b8899dd" id="r_abe8245232b8ca228a9b885133b8899dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#abe8245232b8ca228a9b885133b8899dd">Boolean</a> = <a class="el" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;<a class="el" href="classJS_1_1Boolean.html">JS::Boolean</a>&gt;())</td></tr>
+<tr class="memitem:abe8245232b8ca228a9b885133b8899dd" id="r_abe8245232b8ca228a9b885133b8899dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#abe8245232b8ca228a9b885133b8899dd">Boolean</a></td></tr>
 <tr class="separator:abe8245232b8ca228a9b885133b8899dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33f929d22ef4192bfb4fddbeee23d57b" id="r_a33f929d22ef4192bfb4fddbeee23d57b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#a33f929d22ef4192bfb4fddbeee23d57b">Error</a></td></tr>
+<tr class="separator:a33f929d22ef4192bfb4fddbeee23d57b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcc5de16ffc869d792a21342ceb27a03" id="r_adcc5de16ffc869d792a21342ceb27a03"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#adcc5de16ffc869d792a21342ceb27a03">RangeError</a></td></tr>
+<tr class="separator:adcc5de16ffc869d792a21342ceb27a03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae31eef6d153cac639fe2859cd6fd568e" id="r_ae31eef6d153cac639fe2859cd6fd568e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#ae31eef6d153cac639fe2859cd6fd568e">ReferenceError</a></td></tr>
+<tr class="separator:ae31eef6d153cac639fe2859cd6fd568e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd222a4007127c3e7adcd4ea9658f29f" id="r_acd222a4007127c3e7adcd4ea9658f29f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#acd222a4007127c3e7adcd4ea9658f29f">SyntaxError</a></td></tr>
+<tr class="separator:acd222a4007127c3e7adcd4ea9658f29f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d6318fcae4ed82e04aeaab28d4d2b5d" id="r_a2d6318fcae4ed82e04aeaab28d4d2b5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#a2d6318fcae4ed82e04aeaab28d4d2b5d">TypeError</a></td></tr>
+<tr class="separator:a2d6318fcae4ed82e04aeaab28d4d2b5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a236ab7e2445cad665555c642c1c9e899" id="r_a236ab7e2445cad665555c642c1c9e899"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#a236ab7e2445cad665555c642c1c9e899">URIError</a></td></tr>
+<tr class="separator:a236ab7e2445cad665555c642c1c9e899"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e6aec879f95bae80104ce500ef93f73" id="r_a1e6aec879f95bae80104ce500ef93f73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#a1e6aec879f95bae80104ce500ef93f73">Math</a></td></tr>
 <tr class="separator:a1e6aec879f95bae80104ce500ef93f73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38991003ded1032fdbb52abc5edaa25a" id="r_a38991003ded1032fdbb52abc5edaa25a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#a38991003ded1032fdbb52abc5edaa25a">assert</a></td></tr>
+<tr class="separator:a38991003ded1032fdbb52abc5edaa25a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1dd8007728513403154ad5a8d75d8bed" id="r_a1dd8007728513403154ad5a8d75d8bed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#a1dd8007728513403154ad5a8d75d8bed">console</a></td></tr>
 <tr class="separator:a1dd8007728513403154ad5a8d75d8bed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e8172661a167bd1350fe1c05f8fd536" id="r_a6e8172661a167bd1350fe1c05f8fd536"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJS_1_1Any.html">JS::Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#a6e8172661a167bd1350fe1c05f8fd536">NaN</a> = <a class="el" href="classJS_1_1Any.html">JS::Any</a>(std::numeric_limits&lt;double&gt;::quiet_NaN())</td></tr>
@@ -177,14 +196,58 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::InternalObject&gt;(</div>
-<div class="line">    std::unordered_map&lt;std::u16string, JS::Attribute&gt;{</div>
-<div class="line">        {u<span class="stringliteral">&quot;isArray&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Array.html#a80a4635f05ec76a3bf441dba40b3d2e5">JS::Array::isArray</a>)), <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>}},</div>
-<div class="line">        {u<span class="stringliteral">&quot;length&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(0), <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}}},</div>
-<div class="line">    <span class="keyword">nullptr</span>, u<span class="stringliteral">&quot;Array&quot;</span>, <span class="keyword">true</span>))</div>
-<div class="ttc" id="aclassJS_1_1Any_html"><div class="ttname"><a href="classJS_1_1Any.html">JS::Any</a></div><div class="ttdoc">Represents a JavaScript-like variant type in C++ that can hold multiple types of values.</div><div class="ttdef"><b>Definition</b> JsAny.hpp:17</div></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Array&gt;(<a class="code hl_typedef" href="namespaceJS.html#a61b06bb7e3892674498fcb6eebaa4213">JS::Properties</a>{</div>
+<div class="line">    {u<span class="stringliteral">&quot;length&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(1), <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;name&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(u<span class="stringliteral">&quot;Array&quot;</span>), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;isArray&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Array.html#a80a4635f05ec76a3bf441dba40b3d2e5">JS::Array::isArray</a>)), <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>}},</div>
+<div class="line">}))</div>
+<div class="ttc" id="aclassJS_1_1Any_html"><div class="ttname"><a href="classJS_1_1Any.html">JS::Any</a></div><div class="ttdoc">Represents a JavaScript-like variant type in C++ that can hold multiple types of values.</div><div class="ttdef"><b>Definition</b> JsAny.hpp:16</div></div>
 <div class="ttc" id="aclassJS_1_1Array_html_a80a4635f05ec76a3bf441dba40b3d2e5"><div class="ttname"><a href="classJS_1_1Array.html#a80a4635f05ec76a3bf441dba40b3d2e5">JS::Array::isArray</a></div><div class="ttdeci">static JS::Any isArray(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Determines whether the passed value is an array. This method returns true if the value is an array,...</div><div class="ttdef"><b>Definition</b> prototype.cpp:7</div></div>
 <div class="ttc" id="aclassJS_1_1DataDescriptor_html"><div class="ttname"><a href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a></div><div class="ttdoc">Represents data properties of a JavaScript object.</div><div class="ttdef"><b>Definition</b> Attribute.hpp:15</div></div>
+<div class="ttc" id="anamespaceJS_html_a61b06bb7e3892674498fcb6eebaa4213"><div class="ttname"><a href="namespaceJS.html#a61b06bb7e3892674498fcb6eebaa4213">JS::Properties</a></div><div class="ttdeci">std::unordered_map&lt; std::u16string, JS::Attribute &gt; Properties</div><div class="ttdef"><b>Definition</b> Object.hpp:11</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a38991003ded1032fdbb52abc5edaa25a" name="a38991003ded1032fdbb52abc5edaa25a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38991003ded1032fdbb52abc5edaa25a">&#9670;&#160;</a></span>assert</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> assert</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::assert&gt;(<a class="code hl_typedef" href="namespaceJS.html#a61b06bb7e3892674498fcb6eebaa4213">JS::Properties</a>{</div>
+<div class="line">    {u<span class="stringliteral">&quot;length&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(2), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;name&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(u<span class="stringliteral">&quot;Assert&quot;</span>), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;fail&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1assert.html#a40f63aa8d5b8d183554ce42e1fc3358d">JS::assert::fail</a>)), <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;ok&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1assert.html#a35226a464188c3922fe3b846f2e17447">JS::assert::ok</a>)), <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;equal&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1assert.html#ad3eae457d1bb5b601854c8e27f1fd0ca">JS::assert::equal</a>)), <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;notEqual&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1assert.html#a24231ec45c99f109f1bf25414491291d">JS::assert::notEqual</a>)), <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;deepEqual&quot;</span>,</div>
+<div class="line">     <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1assert.html#a017824e6ac8555a55139ae140e082534">JS::assert::deepEqual</a>)), <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;notDeepEqual&quot;</span>,</div>
+<div class="line">     <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1assert.html#a0225e8f7e120235f11e951935b10bf45">JS::assert::notDeepEqual</a>)), <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;strictEqual&quot;</span>,</div>
+<div class="line">     <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1assert.html#aecf9ee2898a24baefbe26ff35ad732e7">JS::assert::strictEqual</a>)), <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;notStrictEqual&quot;</span>,</div>
+<div class="line">     <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1assert.html#a57282eca8c60b33080e3f6fc6af3bc23">JS::assert::notStrictEqual</a>)), <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;throws&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1assert.html#ad987c38bccaed007b054d63b0783bdb4">JS::assert::throws</a>)), <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;doesNotThrow&quot;</span>,</div>
+<div class="line">     <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1assert.html#a651d2bd26b0cee888a28a285ca545025">JS::assert::doesNotThrow</a>)), <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>}},</div>
+<div class="line">}))</div>
+<div class="ttc" id="aclassJS_1_1assert_html_a017824e6ac8555a55139ae140e082534"><div class="ttname"><a href="classJS_1_1assert.html#a017824e6ac8555a55139ae140e082534">JS::assert::deepEqual</a></div><div class="ttdeci">static JS::Any deepEqual(const JS::Any &amp;thisArgs, const JS::Any &amp;args)</div><div class="ttdoc">Asserts that two values are deep equal.</div><div class="ttdef"><b>Definition</b> assert.cpp:64</div></div>
+<div class="ttc" id="aclassJS_1_1assert_html_a0225e8f7e120235f11e951935b10bf45"><div class="ttname"><a href="classJS_1_1assert.html#a0225e8f7e120235f11e951935b10bf45">JS::assert::notDeepEqual</a></div><div class="ttdeci">static JS::Any notDeepEqual(const JS::Any &amp;thisArgs, const JS::Any &amp;args)</div><div class="ttdoc">Asserts that two values are not deep equal.</div><div class="ttdef"><b>Definition</b> assert.cpp:76</div></div>
+<div class="ttc" id="aclassJS_1_1assert_html_a24231ec45c99f109f1bf25414491291d"><div class="ttname"><a href="classJS_1_1assert.html#a24231ec45c99f109f1bf25414491291d">JS::assert::notEqual</a></div><div class="ttdeci">static JS::Any notEqual(const JS::Any &amp;thisArgs, const JS::Any &amp;args)</div><div class="ttdoc">Asserts that two values are not equal.</div><div class="ttdef"><b>Definition</b> assert.cpp:50</div></div>
+<div class="ttc" id="aclassJS_1_1assert_html_a35226a464188c3922fe3b846f2e17447"><div class="ttname"><a href="classJS_1_1assert.html#a35226a464188c3922fe3b846f2e17447">JS::assert::ok</a></div><div class="ttdeci">static JS::Any ok(const JS::Any &amp;thisArgs, const JS::Any &amp;args)</div><div class="ttdoc">Asserts that a value is truthy (not null, undefined, NaN, false).</div><div class="ttdef"><b>Definition</b> assert.cpp:23</div></div>
+<div class="ttc" id="aclassJS_1_1assert_html_a40f63aa8d5b8d183554ce42e1fc3358d"><div class="ttname"><a href="classJS_1_1assert.html#a40f63aa8d5b8d183554ce42e1fc3358d">JS::assert::fail</a></div><div class="ttdeci">static JS::Any fail(const JS::Any &amp;thisArgs, const JS::Any &amp;args)</div><div class="ttdoc">Asserts that a value is not truthy (null, undefined, NaN, false).</div><div class="ttdef"><b>Definition</b> assert.cpp:13</div></div>
+<div class="ttc" id="aclassJS_1_1assert_html_a57282eca8c60b33080e3f6fc6af3bc23"><div class="ttname"><a href="classJS_1_1assert.html#a57282eca8c60b33080e3f6fc6af3bc23">JS::assert::notStrictEqual</a></div><div class="ttdeci">static JS::Any notStrictEqual(const JS::Any &amp;thisArgs, const JS::Any &amp;args)</div><div class="ttdoc">Asserts that two values are not strictly equal.</div><div class="ttdef"><b>Definition</b> assert.cpp:101</div></div>
+<div class="ttc" id="aclassJS_1_1assert_html_a651d2bd26b0cee888a28a285ca545025"><div class="ttname"><a href="classJS_1_1assert.html#a651d2bd26b0cee888a28a285ca545025">JS::assert::doesNotThrow</a></div><div class="ttdeci">static JS::Any doesNotThrow(const JS::Any &amp;thisArgs, const JS::Any &amp;args)</div><div class="ttdoc">Asserts that value are not throwable.</div><div class="ttdef"><b>Definition</b> assert.cpp:147</div></div>
+<div class="ttc" id="aclassJS_1_1assert_html_ad3eae457d1bb5b601854c8e27f1fd0ca"><div class="ttname"><a href="classJS_1_1assert.html#ad3eae457d1bb5b601854c8e27f1fd0ca">JS::assert::equal</a></div><div class="ttdeci">static JS::Any equal(const JS::Any &amp;thisArgs, const JS::Any &amp;args)</div><div class="ttdoc">Asserts that two values are equal.</div><div class="ttdef"><b>Definition</b> assert.cpp:36</div></div>
+<div class="ttc" id="aclassJS_1_1assert_html_ad987c38bccaed007b054d63b0783bdb4"><div class="ttname"><a href="classJS_1_1assert.html#ad987c38bccaed007b054d63b0783bdb4">JS::assert::throws</a></div><div class="ttdeci">static JS::Any throws(const JS::Any &amp;thisArgs, const JS::Any &amp;args)</div><div class="ttdoc">Asserts that value are throwable.</div><div class="ttdef"><b>Definition</b> assert.cpp:126</div></div>
+<div class="ttc" id="aclassJS_1_1assert_html_aecf9ee2898a24baefbe26ff35ad732e7"><div class="ttname"><a href="classJS_1_1assert.html#aecf9ee2898a24baefbe26ff35ad732e7">JS::assert::strictEqual</a></div><div class="ttdeci">static JS::Any strictEqual(const JS::Any &amp;thisArgs, const JS::Any &amp;args)</div><div class="ttdoc">Asserts that two values are strictly equal.</div><div class="ttdef"><b>Definition</b> assert.cpp:89</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -195,11 +258,15 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> Boolean = <a class="el" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;<a class="el" href="classJS_1_1Boolean.html">JS::Boolean</a>&gt;())</td>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> Boolean</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Boolean&gt;(<a class="code hl_typedef" href="namespaceJS.html#a61b06bb7e3892674498fcb6eebaa4213">JS::Properties</a>{</div>
+<div class="line">    {u<span class="stringliteral">&quot;length&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(1), <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;name&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(u<span class="stringliteral">&quot;Boolean&quot;</span>), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">}))</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a1dd8007728513403154ad5a8d75d8bed" name="a1dd8007728513403154ad5a8d75d8bed"></a>
@@ -276,6 +343,42 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a33f929d22ef4192bfb4fddbeee23d57b" name="a33f929d22ef4192bfb4fddbeee23d57b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33f929d22ef4192bfb4fddbeee23d57b">&#9670;&#160;</a></span>Error</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> Error</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Error&gt;(<a class="code hl_typedef" href="namespaceJS.html#a61b06bb7e3892674498fcb6eebaa4213">JS::Properties</a>{</div>
+<div class="line">    {u<span class="stringliteral">&quot;length&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(1), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;name&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(u<span class="stringliteral">&quot;Error&quot;</span>), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">}))</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="abe8739ac2214d6d0a68f34e99d3c6d20" name="abe8739ac2214d6d0a68f34e99d3c6d20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe8739ac2214d6d0a68f34e99d3c6d20">&#9670;&#160;</a></span>Function</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> Function</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_typedef" href="namespaceJS.html#a61b06bb7e3892674498fcb6eebaa4213">JS::Properties</a>{</div>
+<div class="line">    {u<span class="stringliteral">&quot;length&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(1), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;name&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(u<span class="stringliteral">&quot;Function&quot;</span>), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">}))</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a0367ff1ec4d051794bc2cb7f5e610b89" name="a0367ff1ec4d051794bc2cb7f5e610b89"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0367ff1ec4d051794bc2cb7f5e610b89">&#9670;&#160;</a></span>global</h2>
 
@@ -303,20 +406,20 @@ Variables</h2></td></tr>
 <div class="line">    {u<span class="stringliteral">&quot;encodeURIComponent&quot;</span>, <a class="code hl_variable" href="global_8hpp.html#a1aa6eb88c47dfd8564ef1dde08848c4f">encodeURIComponent</a>},</div>
 <div class="line">    {u<span class="stringliteral">&quot;decodeURIComponent&quot;</span>, <a class="code hl_variable" href="global_8hpp.html#adf0f48272cb6af3dc7e87f954cfd0f24">decodeURIComponent</a>},</div>
 <div class="line">}))</div>
-<div class="ttc" id="aglobal_8hpp_html_a1aa6eb88c47dfd8564ef1dde08848c4f"><div class="ttname"><a href="global_8hpp.html#a1aa6eb88c47dfd8564ef1dde08848c4f">encodeURIComponent</a></div><div class="ttdeci">JS::Any encodeURIComponent</div><div class="ttdef"><b>Definition</b> global.hpp:90</div></div>
-<div class="ttc" id="aglobal_8hpp_html_a1e6aec879f95bae80104ce500ef93f73"><div class="ttname"><a href="global_8hpp.html#a1e6aec879f95bae80104ce500ef93f73">Math</a></div><div class="ttdeci">JS::Any Math</div><div class="ttdef"><b>Definition</b> global.hpp:45</div></div>
-<div class="ttc" id="aglobal_8hpp_html_a3c829a3564557dabfde23b5540b1588a"><div class="ttname"><a href="global_8hpp.html#a3c829a3564557dabfde23b5540b1588a">undefined</a></div><div class="ttdeci">JS::Any undefined</div><div class="ttdef"><b>Definition</b> global.hpp:82</div></div>
-<div class="ttc" id="aglobal_8hpp_html_a40d8fa8ffaba1502e945db93164125de"><div class="ttname"><a href="global_8hpp.html#a40d8fa8ffaba1502e945db93164125de">Object</a></div><div class="ttdeci">JS::Any Object</div><div class="ttdef"><b>Definition</b> global.hpp:10</div></div>
-<div class="ttc" id="aglobal_8hpp_html_a6e8172661a167bd1350fe1c05f8fd536"><div class="ttname"><a href="global_8hpp.html#a6e8172661a167bd1350fe1c05f8fd536">NaN</a></div><div class="ttdeci">JS::Any NaN</div><div class="ttdef"><b>Definition</b> global.hpp:80</div></div>
-<div class="ttc" id="aglobal_8hpp_html_a7051f21d84f9b852c30d670ff39c437e"><div class="ttname"><a href="global_8hpp.html#a7051f21d84f9b852c30d670ff39c437e">isNaN</a></div><div class="ttdeci">JS::Any isNaN</div><div class="ttdef"><b>Definition</b> global.hpp:84</div></div>
-<div class="ttc" id="aglobal_8hpp_html_a7204152d864133825e6e650d83bc670e"><div class="ttname"><a href="global_8hpp.html#a7204152d864133825e6e650d83bc670e">Infinity</a></div><div class="ttdeci">JS::Any Infinity</div><div class="ttdef"><b>Definition</b> global.hpp:81</div></div>
-<div class="ttc" id="aglobal_8hpp_html_a8ff6a194c25c5515d0a1e9896f4f6000"><div class="ttname"><a href="global_8hpp.html#a8ff6a194c25c5515d0a1e9896f4f6000">isFinite</a></div><div class="ttdeci">JS::Any isFinite</div><div class="ttdef"><b>Definition</b> global.hpp:87</div></div>
-<div class="ttc" id="aglobal_8hpp_html_ac02cd475abe7faea61ec5d0a3eae37dd"><div class="ttname"><a href="global_8hpp.html#ac02cd475abe7faea61ec5d0a3eae37dd">parseFloat</a></div><div class="ttdeci">JS::Any parseFloat</div><div class="ttdef"><b>Definition</b> global.hpp:86</div></div>
-<div class="ttc" id="aglobal_8hpp_html_ac4b549447890b0bb8803156eac34b987"><div class="ttname"><a href="global_8hpp.html#ac4b549447890b0bb8803156eac34b987">parseInt</a></div><div class="ttdeci">JS::Any parseInt</div><div class="ttdef"><b>Definition</b> global.hpp:85</div></div>
-<div class="ttc" id="aglobal_8hpp_html_ad45fb6f060f4e0a9cc2439c370f934dc"><div class="ttname"><a href="global_8hpp.html#ad45fb6f060f4e0a9cc2439c370f934dc">encodeURI</a></div><div class="ttdeci">JS::Any encodeURI</div><div class="ttdef"><b>Definition</b> global.hpp:88</div></div>
-<div class="ttc" id="aglobal_8hpp_html_ad893b5be58a1568114cd68346c193e4f"><div class="ttname"><a href="global_8hpp.html#ad893b5be58a1568114cd68346c193e4f">decodeURI</a></div><div class="ttdeci">JS::Any decodeURI</div><div class="ttdef"><b>Definition</b> global.hpp:89</div></div>
-<div class="ttc" id="aglobal_8hpp_html_adf0f48272cb6af3dc7e87f954cfd0f24"><div class="ttname"><a href="global_8hpp.html#adf0f48272cb6af3dc7e87f954cfd0f24">decodeURIComponent</a></div><div class="ttdeci">JS::Any decodeURIComponent</div><div class="ttdef"><b>Definition</b> global.hpp:91</div></div>
-<div class="ttc" id="aglobal_8hpp_html_af05daa890d4a19365c1bd592713670d9"><div class="ttname"><a href="global_8hpp.html#af05daa890d4a19365c1bd592713670d9">Array</a></div><div class="ttdeci">JS::Any Array</div><div class="ttdef"><b>Definition</b> global.hpp:26</div></div>
+<div class="ttc" id="aglobal_8hpp_html_a1aa6eb88c47dfd8564ef1dde08848c4f"><div class="ttname"><a href="global_8hpp.html#a1aa6eb88c47dfd8564ef1dde08848c4f">encodeURIComponent</a></div><div class="ttdeci">JS::Any encodeURIComponent</div><div class="ttdef"><b>Definition</b> global.hpp:174</div></div>
+<div class="ttc" id="aglobal_8hpp_html_a1e6aec879f95bae80104ce500ef93f73"><div class="ttname"><a href="global_8hpp.html#a1e6aec879f95bae80104ce500ef93f73">Math</a></div><div class="ttdeci">JS::Any Math</div><div class="ttdef"><b>Definition</b> global.hpp:108</div></div>
+<div class="ttc" id="aglobal_8hpp_html_a3c829a3564557dabfde23b5540b1588a"><div class="ttname"><a href="global_8hpp.html#a3c829a3564557dabfde23b5540b1588a">undefined</a></div><div class="ttdeci">JS::Any undefined</div><div class="ttdef"><b>Definition</b> global.hpp:166</div></div>
+<div class="ttc" id="aglobal_8hpp_html_a40d8fa8ffaba1502e945db93164125de"><div class="ttname"><a href="global_8hpp.html#a40d8fa8ffaba1502e945db93164125de">Object</a></div><div class="ttdeci">JS::Any Object</div><div class="ttdef"><b>Definition</b> global.hpp:18</div></div>
+<div class="ttc" id="aglobal_8hpp_html_a6e8172661a167bd1350fe1c05f8fd536"><div class="ttname"><a href="global_8hpp.html#a6e8172661a167bd1350fe1c05f8fd536">NaN</a></div><div class="ttdeci">JS::Any NaN</div><div class="ttdef"><b>Definition</b> global.hpp:164</div></div>
+<div class="ttc" id="aglobal_8hpp_html_a7051f21d84f9b852c30d670ff39c437e"><div class="ttname"><a href="global_8hpp.html#a7051f21d84f9b852c30d670ff39c437e">isNaN</a></div><div class="ttdeci">JS::Any isNaN</div><div class="ttdef"><b>Definition</b> global.hpp:168</div></div>
+<div class="ttc" id="aglobal_8hpp_html_a7204152d864133825e6e650d83bc670e"><div class="ttname"><a href="global_8hpp.html#a7204152d864133825e6e650d83bc670e">Infinity</a></div><div class="ttdeci">JS::Any Infinity</div><div class="ttdef"><b>Definition</b> global.hpp:165</div></div>
+<div class="ttc" id="aglobal_8hpp_html_a8ff6a194c25c5515d0a1e9896f4f6000"><div class="ttname"><a href="global_8hpp.html#a8ff6a194c25c5515d0a1e9896f4f6000">isFinite</a></div><div class="ttdeci">JS::Any isFinite</div><div class="ttdef"><b>Definition</b> global.hpp:171</div></div>
+<div class="ttc" id="aglobal_8hpp_html_ac02cd475abe7faea61ec5d0a3eae37dd"><div class="ttname"><a href="global_8hpp.html#ac02cd475abe7faea61ec5d0a3eae37dd">parseFloat</a></div><div class="ttdeci">JS::Any parseFloat</div><div class="ttdef"><b>Definition</b> global.hpp:170</div></div>
+<div class="ttc" id="aglobal_8hpp_html_ac4b549447890b0bb8803156eac34b987"><div class="ttname"><a href="global_8hpp.html#ac4b549447890b0bb8803156eac34b987">parseInt</a></div><div class="ttdeci">JS::Any parseInt</div><div class="ttdef"><b>Definition</b> global.hpp:169</div></div>
+<div class="ttc" id="aglobal_8hpp_html_ad45fb6f060f4e0a9cc2439c370f934dc"><div class="ttname"><a href="global_8hpp.html#ad45fb6f060f4e0a9cc2439c370f934dc">encodeURI</a></div><div class="ttdeci">JS::Any encodeURI</div><div class="ttdef"><b>Definition</b> global.hpp:172</div></div>
+<div class="ttc" id="aglobal_8hpp_html_ad893b5be58a1568114cd68346c193e4f"><div class="ttname"><a href="global_8hpp.html#ad893b5be58a1568114cd68346c193e4f">decodeURI</a></div><div class="ttdeci">JS::Any decodeURI</div><div class="ttdef"><b>Definition</b> global.hpp:173</div></div>
+<div class="ttc" id="aglobal_8hpp_html_adf0f48272cb6af3dc7e87f954cfd0f24"><div class="ttname"><a href="global_8hpp.html#adf0f48272cb6af3dc7e87f954cfd0f24">decodeURIComponent</a></div><div class="ttdeci">JS::Any decodeURIComponent</div><div class="ttdef"><b>Definition</b> global.hpp:175</div></div>
+<div class="ttc" id="aglobal_8hpp_html_af05daa890d4a19365c1bd592713670d9"><div class="ttname"><a href="global_8hpp.html#af05daa890d4a19365c1bd592713670d9">Array</a></div><div class="ttdeci">JS::Any Array</div><div class="ttdef"><b>Definition</b> global.hpp:49</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -374,7 +477,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::InternalObject&gt;(</div>
-<div class="line">    std::unordered_map&lt;std::u16string, JS::Attribute&gt;{</div>
+<div class="line">    <a class="code hl_typedef" href="namespaceJS.html#a61b06bb7e3892674498fcb6eebaa4213">JS::Properties</a>{</div>
 <div class="line">        {u<span class="stringliteral">&quot;abs&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Math.html#a98c9bf1d12d250d2d93e24040cecc258">JS::Math::abs</a>)), <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>}},</div>
 <div class="line">        {u<span class="stringliteral">&quot;acos&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Math.html#aef4bcbe1ffc9e56221c0e05967b86f9f">JS::Math::acos</a>)), <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>}},</div>
 <div class="line">        {u<span class="stringliteral">&quot;asin&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Math.html#a8deacc401cc14dfeb167e0b10c63b61d">JS::Math::asin</a>)), <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>}},</div>
@@ -402,7 +505,7 @@ Variables</h2></td></tr>
 <div class="line">        {u<span class="stringliteral">&quot;SQRT1_2&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(M_SQRT1_2), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
 <div class="line">        {u<span class="stringliteral">&quot;SQRT2&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(M_SQRT2), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
 <div class="line">    },</div>
-<div class="line">    <span class="keyword">nullptr</span>, u<span class="stringliteral">&quot;Math&quot;</span>, <span class="keyword">true</span>))</div>
+<div class="line">    <a class="code hl_function" href="classJS_1_1Object.html#aecf79d6f266e5a83ecd2a3b8de03a04e">JS::Object::getPrototypeProperties</a>(), u<span class="stringliteral">&quot;Math&quot;</span>, <span class="keyword">true</span>))</div>
 <div class="ttc" id="aclassJS_1_1Math_html_a05b075905347e52e2ffcf139e483ccf0"><div class="ttname"><a href="classJS_1_1Math.html#a05b075905347e52e2ffcf139e483ccf0">JS::Math::exp</a></div><div class="ttdeci">static JS::Any exp(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Returns the exponential of the given number.</div><div class="ttdef"><b>Definition</b> static.cpp:38</div></div>
 <div class="ttc" id="aclassJS_1_1Math_html_a245ab98c33dfa9c3117e8883e625e035"><div class="ttname"><a href="classJS_1_1Math.html#a245ab98c33dfa9c3117e8883e625e035">JS::Math::ceil</a></div><div class="ttdeci">static JS::Any ceil(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Returns the smallest integer greater than or equal to the given number.</div><div class="ttdef"><b>Definition</b> static.cpp:30</div></div>
 <div class="ttc" id="aclassJS_1_1Math_html_a2477eb95c32716b94e1869d529bc51db"><div class="ttname"><a href="classJS_1_1Math.html#a2477eb95c32716b94e1869d529bc51db">JS::Math::min</a></div><div class="ttdeci">static JS::Any min(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Returns the minimum value among the given arguments.</div><div class="ttdef"><b>Definition</b> static.cpp:75</div></div>
@@ -421,6 +524,7 @@ Variables</h2></td></tr>
 <div class="ttc" id="aclassJS_1_1Math_html_adad9938bb7ebfc2f9139868a203e5423"><div class="ttname"><a href="classJS_1_1Math.html#adad9938bb7ebfc2f9139868a203e5423">JS::Math::pow</a></div><div class="ttdeci">static JS::Any pow(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Returns the result of raising the base to the power of the exponent.</div><div class="ttdef"><b>Definition</b> static.cpp:90</div></div>
 <div class="ttc" id="aclassJS_1_1Math_html_aef4bcbe1ffc9e56221c0e05967b86f9f"><div class="ttname"><a href="classJS_1_1Math.html#aef4bcbe1ffc9e56221c0e05967b86f9f">JS::Math::acos</a></div><div class="ttdeci">static JS::Any acos(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Returns the arccosine (in radians) of the given number.</div><div class="ttdef"><b>Definition</b> static.cpp:14</div></div>
 <div class="ttc" id="aclassJS_1_1Math_html_afb660852cd3281fb1e1de07566ef0640"><div class="ttname"><a href="classJS_1_1Math.html#afb660852cd3281fb1e1de07566ef0640">JS::Math::atan2</a></div><div class="ttdeci">static JS::Any atan2(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Returns an approximation of the arctangent of the quotient y/x.</div><div class="ttdef"><b>Definition</b> static.cpp:26</div></div>
+<div class="ttc" id="aclassJS_1_1Object_html_aecf79d6f266e5a83ecd2a3b8de03a04e"><div class="ttname"><a href="classJS_1_1Object.html#aecf79d6f266e5a83ecd2a3b8de03a04e">JS::Object::getPrototypeProperties</a></div><div class="ttdeci">static std::shared_ptr&lt; JS::InternalObject &gt; &amp; getPrototypeProperties(std::shared_ptr&lt; InternalObject &gt; prototype=nullptr)</div><div class="ttdoc">Function to get the methods of the property prototype.</div><div class="ttdef"><b>Definition</b> protoypeProperties.cpp:3</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -449,19 +553,20 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Number&gt;(std::unordered_map&lt;std::u16string, JS::Attribute&gt;{</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Number&gt;(<a class="code hl_typedef" href="namespaceJS.html#a61b06bb7e3892674498fcb6eebaa4213">JS::Properties</a>{</div>
+<div class="line">    {u<span class="stringliteral">&quot;length&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(1), <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;name&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(u<span class="stringliteral">&quot;Number&quot;</span>), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
 <div class="line">    {u<span class="stringliteral">&quot;MAX_VALUE&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(<a class="code hl_variable" href="classJS_1_1Number.html#a20821367f861cb48a04aca052af8f11d">JS::Number::MAX_VALUE</a>), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
 <div class="line">    {u<span class="stringliteral">&quot;MIN_VALUE&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(<a class="code hl_variable" href="classJS_1_1Number.html#a9827b011af524a8908643d47db7e6360">JS::Number::MIN_VALUE</a>), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
 <div class="line">    {u<span class="stringliteral">&quot;NaN&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(<a class="code hl_variable" href="classJS_1_1Number.html#a1ffd4840701eb9e983fdd1c0c67cf2a3">JS::Number::NaN</a>), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
 <div class="line">    {u<span class="stringliteral">&quot;NEGATIVE_INFINITY&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(<a class="code hl_variable" href="classJS_1_1Number.html#ae02d92a758d90297cf70d9c86d805992">JS::Number::NEGATIVE_INFINITY</a>), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
 <div class="line">    {u<span class="stringliteral">&quot;POSITIVE_INFINITY&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(<a class="code hl_variable" href="classJS_1_1Number.html#a87555f3c742a4f82383d340a086faca2">JS::Number::POSITIVE_INFINITY</a>), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
-<div class="line"> </div>
 <div class="line">}))</div>
-<div class="ttc" id="aclassJS_1_1Number_html_a1ffd4840701eb9e983fdd1c0c67cf2a3"><div class="ttname"><a href="classJS_1_1Number.html#a1ffd4840701eb9e983fdd1c0c67cf2a3">JS::Number::NaN</a></div><div class="ttdeci">static constexpr double NaN</div><div class="ttdef"><b>Definition</b> JsNumber.hpp:78</div></div>
-<div class="ttc" id="aclassJS_1_1Number_html_a20821367f861cb48a04aca052af8f11d"><div class="ttname"><a href="classJS_1_1Number.html#a20821367f861cb48a04aca052af8f11d">JS::Number::MAX_VALUE</a></div><div class="ttdeci">static constexpr double MAX_VALUE</div><div class="ttdef"><b>Definition</b> JsNumber.hpp:75</div></div>
-<div class="ttc" id="aclassJS_1_1Number_html_a87555f3c742a4f82383d340a086faca2"><div class="ttname"><a href="classJS_1_1Number.html#a87555f3c742a4f82383d340a086faca2">JS::Number::POSITIVE_INFINITY</a></div><div class="ttdeci">static constexpr double POSITIVE_INFINITY</div><div class="ttdef"><b>Definition</b> JsNumber.hpp:80</div></div>
-<div class="ttc" id="aclassJS_1_1Number_html_a9827b011af524a8908643d47db7e6360"><div class="ttname"><a href="classJS_1_1Number.html#a9827b011af524a8908643d47db7e6360">JS::Number::MIN_VALUE</a></div><div class="ttdeci">static constexpr double MIN_VALUE</div><div class="ttdef"><b>Definition</b> JsNumber.hpp:77</div></div>
-<div class="ttc" id="aclassJS_1_1Number_html_ae02d92a758d90297cf70d9c86d805992"><div class="ttname"><a href="classJS_1_1Number.html#ae02d92a758d90297cf70d9c86d805992">JS::Number::NEGATIVE_INFINITY</a></div><div class="ttdeci">static constexpr double NEGATIVE_INFINITY</div><div class="ttdef"><b>Definition</b> JsNumber.hpp:79</div></div>
+<div class="ttc" id="aclassJS_1_1Number_html_a1ffd4840701eb9e983fdd1c0c67cf2a3"><div class="ttname"><a href="classJS_1_1Number.html#a1ffd4840701eb9e983fdd1c0c67cf2a3">JS::Number::NaN</a></div><div class="ttdeci">static constexpr double NaN</div><div class="ttdef"><b>Definition</b> JsNumber.hpp:81</div></div>
+<div class="ttc" id="aclassJS_1_1Number_html_a20821367f861cb48a04aca052af8f11d"><div class="ttname"><a href="classJS_1_1Number.html#a20821367f861cb48a04aca052af8f11d">JS::Number::MAX_VALUE</a></div><div class="ttdeci">static constexpr double MAX_VALUE</div><div class="ttdef"><b>Definition</b> JsNumber.hpp:78</div></div>
+<div class="ttc" id="aclassJS_1_1Number_html_a87555f3c742a4f82383d340a086faca2"><div class="ttname"><a href="classJS_1_1Number.html#a87555f3c742a4f82383d340a086faca2">JS::Number::POSITIVE_INFINITY</a></div><div class="ttdeci">static constexpr double POSITIVE_INFINITY</div><div class="ttdef"><b>Definition</b> JsNumber.hpp:83</div></div>
+<div class="ttc" id="aclassJS_1_1Number_html_a9827b011af524a8908643d47db7e6360"><div class="ttname"><a href="classJS_1_1Number.html#a9827b011af524a8908643d47db7e6360">JS::Number::MIN_VALUE</a></div><div class="ttdeci">static constexpr double MIN_VALUE</div><div class="ttdef"><b>Definition</b> JsNumber.hpp:80</div></div>
+<div class="ttc" id="aclassJS_1_1Number_html_ae02d92a758d90297cf70d9c86d805992"><div class="ttname"><a href="classJS_1_1Number.html#ae02d92a758d90297cf70d9c86d805992">JS::Number::NEGATIVE_INFINITY</a></div><div class="ttdeci">static constexpr double NEGATIVE_INFINITY</div><div class="ttdef"><b>Definition</b> JsNumber.hpp:82</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -476,34 +581,44 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Object&gt;(std::unordered_map&lt;std::u16string, JS::Any&gt;{</div>
-<div class="line">    {u<span class="stringliteral">&quot;getPrototypeOf&quot;</span>, <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#a826a38b5325baae44eef31fe05ece2ca">JS::Object::getPrototypeOf</a>))},</div>
-<div class="line">    {u<span class="stringliteral">&quot;getOwnPropertyDescriptor&quot;</span>, <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#a6655d34e561c9b0f369881962457027f">JS::Object::getOwnPropertyDescriptor</a>))},</div>
-<div class="line">    {u<span class="stringliteral">&quot;getOwnPropertyNames&quot;</span>, <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#a92c27ab880fddce065c1986cf6d63d38">JS::Object::getOwnPropertyNames</a>))},</div>
-<div class="line">    {u<span class="stringliteral">&quot;create&quot;</span>, <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#a6e7cbd4044f630b4e00fa1ac9daef9fc">JS::Object::create</a>))},</div>
-<div class="line">    {u<span class="stringliteral">&quot;defineProperty&quot;</span>, <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#a56d481addde7bad938cc3357f55213df">JS::Object::defineProperty</a>))},</div>
-<div class="line">    {u<span class="stringliteral">&quot;defineProperties&quot;</span>, <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#a4112140262b3411c017ae9e4c0e314c3">JS::Object::defineProperties</a>))},</div>
-<div class="line">    {u<span class="stringliteral">&quot;seal&quot;</span>, <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#afdf3cf86781d540d3900587578d38aa1">JS::Object::seal</a>))},</div>
-<div class="line">    {u<span class="stringliteral">&quot;freeze&quot;</span>, <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#a6b27e95619707fecefb518b3a6a5d1e2">JS::Object::freeze</a>))},</div>
-<div class="line">    {u<span class="stringliteral">&quot;preventExtensions&quot;</span>, <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#a0b59f64fe30bf16c125932afa30e66b2">JS::Object::preventExtensions</a>))},</div>
-<div class="line">    {u<span class="stringliteral">&quot;isSealed&quot;</span>, <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#a5f3f9efad4336cb8e140cb53cbfb7863">JS::Object::isSealed</a>))},</div>
-<div class="line">    {u<span class="stringliteral">&quot;isFrozen&quot;</span>, <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#acefea3548d7869dac1bb28120cd5907b">JS::Object::isFrozen</a>))},</div>
-<div class="line">    {u<span class="stringliteral">&quot;isExtensible&quot;</span>, <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#a8b155f0240f62b3ab59e2dc2a01e2c1a">JS::Object::isExtensible</a>))},</div>
-<div class="line">    {u<span class="stringliteral">&quot;keys&quot;</span>, <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#a3fd2a047054e2d73d994962bdb4e16b3">JS::Object::keys</a>))},</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Object&gt;(<a class="code hl_typedef" href="namespaceJS.html#a61b06bb7e3892674498fcb6eebaa4213">JS::Properties</a>{</div>
+<div class="line">    {u<span class="stringliteral">&quot;length&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(1), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;name&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(u<span class="stringliteral">&quot;Object&quot;</span>), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;keys&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#a3fd2a047054e2d73d994962bdb4e16b3">JS::Object::keys</a>)), <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;create&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#a6e7cbd4044f630b4e00fa1ac9daef9fc">JS::Object::create</a>)), <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;defineProperty&quot;</span>,</div>
+<div class="line">     <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#a56d481addde7bad938cc3357f55213df">JS::Object::defineProperty</a>)), <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;defineProperties&quot;</span>,</div>
+<div class="line">     <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#a4112140262b3411c017ae9e4c0e314c3">JS::Object::defineProperties</a>)), <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;freeze&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#a6b27e95619707fecefb518b3a6a5d1e2">JS::Object::freeze</a>)), <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;getPrototypeOf&quot;</span>,</div>
+<div class="line">     <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#a826a38b5325baae44eef31fe05ece2ca">JS::Object::getPrototypeOf</a>)), <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;getOwnPropertyDescriptor&quot;</span>,</div>
+<div class="line">     <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#a6655d34e561c9b0f369881962457027f">JS::Object::getOwnPropertyDescriptor</a>)), <span class="keyword">true</span>, <span class="keyword">false</span>,</div>
+<div class="line">                        <span class="keyword">true</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;getOwnPropertyNames&quot;</span>,</div>
+<div class="line">     <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#a92c27ab880fddce065c1986cf6d63d38">JS::Object::getOwnPropertyNames</a>)), <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;isSealed&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#a5f3f9efad4336cb8e140cb53cbfb7863">JS::Object::isSealed</a>)), <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;isFrozen&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#acefea3548d7869dac1bb28120cd5907b">JS::Object::isFrozen</a>)), <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;isExtensible&quot;</span>,</div>
+<div class="line">     <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#a8b155f0240f62b3ab59e2dc2a01e2c1a">JS::Object::isExtensible</a>)), <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;preventExtensions&quot;</span>,</div>
+<div class="line">     <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#a0b59f64fe30bf16c125932afa30e66b2">JS::Object::preventExtensions</a>)), <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;seal&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1Object.html#afdf3cf86781d540d3900587578d38aa1">JS::Object::seal</a>)), <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>}},</div>
 <div class="line">}))</div>
-<div class="ttc" id="aclassJS_1_1Object_html_a0b59f64fe30bf16c125932afa30e66b2"><div class="ttname"><a href="classJS_1_1Object.html#a0b59f64fe30bf16c125932afa30e66b2">JS::Object::preventExtensions</a></div><div class="ttdeci">static JS::Any preventExtensions(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Prevents extensions on the object https://262.ecma-international.org/5.1/#sec-15.2....</div><div class="ttdef"><b>Definition</b> methods.cpp:137</div></div>
-<div class="ttc" id="aclassJS_1_1Object_html_a3fd2a047054e2d73d994962bdb4e16b3"><div class="ttname"><a href="classJS_1_1Object.html#a3fd2a047054e2d73d994962bdb4e16b3">JS::Object::keys</a></div><div class="ttdeci">static JS::Any keys(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Returns the keys of the object https://262.ecma-international.org/5.1/#sec-15.2.3....</div><div class="ttdef"><b>Definition</b> methods.cpp:184</div></div>
-<div class="ttc" id="aclassJS_1_1Object_html_a4112140262b3411c017ae9e4c0e314c3"><div class="ttname"><a href="classJS_1_1Object.html#a4112140262b3411c017ae9e4c0e314c3">JS::Object::defineProperties</a></div><div class="ttdeci">static JS::Any defineProperties(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Defines multiple properties on the object https://262.ecma-international.org/5.1/#sec-15....</div><div class="ttdef"><b>Definition</b> methods.cpp:75</div></div>
-<div class="ttc" id="aclassJS_1_1Object_html_a56d481addde7bad938cc3357f55213df"><div class="ttname"><a href="classJS_1_1Object.html#a56d481addde7bad938cc3357f55213df">JS::Object::defineProperty</a></div><div class="ttdeci">static JS::Any defineProperty(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Defines a property on the object https://262.ecma-international.org/5.1/#sec-15.2....</div><div class="ttdef"><b>Definition</b> methods.cpp:64</div></div>
-<div class="ttc" id="aclassJS_1_1Object_html_a5f3f9efad4336cb8e140cb53cbfb7863"><div class="ttname"><a href="classJS_1_1Object.html#a5f3f9efad4336cb8e140cb53cbfb7863">JS::Object::isSealed</a></div><div class="ttdeci">static JS::Any isSealed(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Checks if the object is sealed https://262.ecma-international.org/5.1/#sec-15.2.3....</div><div class="ttdef"><b>Definition</b> methods.cpp:146</div></div>
-<div class="ttc" id="aclassJS_1_1Object_html_a6655d34e561c9b0f369881962457027f"><div class="ttname"><a href="classJS_1_1Object.html#a6655d34e561c9b0f369881962457027f">JS::Object::getOwnPropertyDescriptor</a></div><div class="ttdeci">static JS::Any getOwnPropertyDescriptor(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Returns a property descriptor of the object https://262.ecma-international.org/5.1/#sec-15....</div><div class="ttdef"><b>Definition</b> methods.cpp:21</div></div>
-<div class="ttc" id="aclassJS_1_1Object_html_a6b27e95619707fecefb518b3a6a5d1e2"><div class="ttname"><a href="classJS_1_1Object.html#a6b27e95619707fecefb518b3a6a5d1e2">JS::Object::freeze</a></div><div class="ttdeci">static JS::Any freeze(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Freezes the object https://262.ecma-international.org/5.1/#sec-15.2.3.8.</div><div class="ttdef"><b>Definition</b> methods.cpp:115</div></div>
-<div class="ttc" id="aclassJS_1_1Object_html_a6e7cbd4044f630b4e00fa1ac9daef9fc"><div class="ttname"><a href="classJS_1_1Object.html#a6e7cbd4044f630b4e00fa1ac9daef9fc">JS::Object::create</a></div><div class="ttdeci">static JS::Any create(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Creates a new object with the given prototype https://262.ecma-international.org/5....</div><div class="ttdef"><b>Definition</b> methods.cpp:50</div></div>
-<div class="ttc" id="aclassJS_1_1Object_html_a826a38b5325baae44eef31fe05ece2ca"><div class="ttname"><a href="classJS_1_1Object.html#a826a38b5325baae44eef31fe05ece2ca">JS::Object::getPrototypeOf</a></div><div class="ttdeci">static JS::Any getPrototypeOf(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Returns the prototype of the object https://262.ecma-international.org/5.1/#sec-15....</div><div class="ttdef"><b>Definition</b> methods.cpp:9</div></div>
-<div class="ttc" id="aclassJS_1_1Object_html_a8b155f0240f62b3ab59e2dc2a01e2c1a"><div class="ttname"><a href="classJS_1_1Object.html#a8b155f0240f62b3ab59e2dc2a01e2c1a">JS::Object::isExtensible</a></div><div class="ttdeci">static JS::Any isExtensible(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Checks if the object is extensible https://262.ecma-international.org/5.1/#sec-15....</div><div class="ttdef"><b>Definition</b> methods.cpp:177</div></div>
-<div class="ttc" id="aclassJS_1_1Object_html_a92c27ab880fddce065c1986cf6d63d38"><div class="ttname"><a href="classJS_1_1Object.html#a92c27ab880fddce065c1986cf6d63d38">JS::Object::getOwnPropertyNames</a></div><div class="ttdeci">static JS::Any getOwnPropertyNames(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Returns the property names of the object https://262.ecma-international.org/5.1/#sec-15....</div><div class="ttdef"><b>Definition</b> methods.cpp:35</div></div>
-<div class="ttc" id="aclassJS_1_1Object_html_acefea3548d7869dac1bb28120cd5907b"><div class="ttname"><a href="classJS_1_1Object.html#acefea3548d7869dac1bb28120cd5907b">JS::Object::isFrozen</a></div><div class="ttdeci">static JS::Any isFrozen(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Checks if the object is frozen https://262.ecma-international.org/5.1/#sec-15.2.3....</div><div class="ttdef"><b>Definition</b> methods.cpp:161</div></div>
-<div class="ttc" id="aclassJS_1_1Object_html_afdf3cf86781d540d3900587578d38aa1"><div class="ttname"><a href="classJS_1_1Object.html#afdf3cf86781d540d3900587578d38aa1">JS::Object::seal</a></div><div class="ttdeci">static JS::Any seal(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Seals the object https://262.ecma-international.org/5.1/#sec-15.2.3.7.</div><div class="ttdef"><b>Definition</b> methods.cpp:94</div></div>
+<div class="ttc" id="aclassJS_1_1Object_html_a0b59f64fe30bf16c125932afa30e66b2"><div class="ttname"><a href="classJS_1_1Object.html#a0b59f64fe30bf16c125932afa30e66b2">JS::Object::preventExtensions</a></div><div class="ttdeci">static JS::Any preventExtensions(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Prevents extensions on the object https://262.ecma-international.org/5.1/#sec-15.2....</div><div class="ttdef"><b>Definition</b> methods.cpp:139</div></div>
+<div class="ttc" id="aclassJS_1_1Object_html_a3fd2a047054e2d73d994962bdb4e16b3"><div class="ttname"><a href="classJS_1_1Object.html#a3fd2a047054e2d73d994962bdb4e16b3">JS::Object::keys</a></div><div class="ttdeci">static JS::Any keys(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Returns the keys of the object https://262.ecma-international.org/5.1/#sec-15.2.3....</div><div class="ttdef"><b>Definition</b> methods.cpp:185</div></div>
+<div class="ttc" id="aclassJS_1_1Object_html_a4112140262b3411c017ae9e4c0e314c3"><div class="ttname"><a href="classJS_1_1Object.html#a4112140262b3411c017ae9e4c0e314c3">JS::Object::defineProperties</a></div><div class="ttdeci">static JS::Any defineProperties(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Defines multiple properties on the object https://262.ecma-international.org/5.1/#sec-15....</div><div class="ttdef"><b>Definition</b> methods.cpp:78</div></div>
+<div class="ttc" id="aclassJS_1_1Object_html_a56d481addde7bad938cc3357f55213df"><div class="ttname"><a href="classJS_1_1Object.html#a56d481addde7bad938cc3357f55213df">JS::Object::defineProperty</a></div><div class="ttdeci">static JS::Any defineProperty(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Defines a property on the object https://262.ecma-international.org/5.1/#sec-15.2....</div><div class="ttdef"><b>Definition</b> methods.cpp:67</div></div>
+<div class="ttc" id="aclassJS_1_1Object_html_a5f3f9efad4336cb8e140cb53cbfb7863"><div class="ttname"><a href="classJS_1_1Object.html#a5f3f9efad4336cb8e140cb53cbfb7863">JS::Object::isSealed</a></div><div class="ttdeci">static JS::Any isSealed(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Checks if the object is sealed https://262.ecma-international.org/5.1/#sec-15.2.3....</div><div class="ttdef"><b>Definition</b> methods.cpp:147</div></div>
+<div class="ttc" id="aclassJS_1_1Object_html_a6655d34e561c9b0f369881962457027f"><div class="ttname"><a href="classJS_1_1Object.html#a6655d34e561c9b0f369881962457027f">JS::Object::getOwnPropertyDescriptor</a></div><div class="ttdeci">static JS::Any getOwnPropertyDescriptor(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Returns a property descriptor of the object https://262.ecma-international.org/5.1/#sec-15....</div><div class="ttdef"><b>Definition</b> methods.cpp:25</div></div>
+<div class="ttc" id="aclassJS_1_1Object_html_a6b27e95619707fecefb518b3a6a5d1e2"><div class="ttname"><a href="classJS_1_1Object.html#a6b27e95619707fecefb518b3a6a5d1e2">JS::Object::freeze</a></div><div class="ttdeci">static JS::Any freeze(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Freezes the object https://262.ecma-international.org/5.1/#sec-15.2.3.8.</div><div class="ttdef"><b>Definition</b> methods.cpp:117</div></div>
+<div class="ttc" id="aclassJS_1_1Object_html_a6e7cbd4044f630b4e00fa1ac9daef9fc"><div class="ttname"><a href="classJS_1_1Object.html#a6e7cbd4044f630b4e00fa1ac9daef9fc">JS::Object::create</a></div><div class="ttdeci">static JS::Any create(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Creates a new object with the given prototype https://262.ecma-international.org/5....</div><div class="ttdef"><b>Definition</b> methods.cpp:53</div></div>
+<div class="ttc" id="aclassJS_1_1Object_html_a826a38b5325baae44eef31fe05ece2ca"><div class="ttname"><a href="classJS_1_1Object.html#a826a38b5325baae44eef31fe05ece2ca">JS::Object::getPrototypeOf</a></div><div class="ttdeci">static JS::Any getPrototypeOf(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Returns the prototype of the object https://262.ecma-international.org/5.1/#sec-15....</div><div class="ttdef"><b>Definition</b> methods.cpp:13</div></div>
+<div class="ttc" id="aclassJS_1_1Object_html_a8b155f0240f62b3ab59e2dc2a01e2c1a"><div class="ttname"><a href="classJS_1_1Object.html#a8b155f0240f62b3ab59e2dc2a01e2c1a">JS::Object::isExtensible</a></div><div class="ttdeci">static JS::Any isExtensible(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Checks if the object is extensible https://262.ecma-international.org/5.1/#sec-15....</div><div class="ttdef"><b>Definition</b> methods.cpp:178</div></div>
+<div class="ttc" id="aclassJS_1_1Object_html_a92c27ab880fddce065c1986cf6d63d38"><div class="ttname"><a href="classJS_1_1Object.html#a92c27ab880fddce065c1986cf6d63d38">JS::Object::getOwnPropertyNames</a></div><div class="ttdeci">static JS::Any getOwnPropertyNames(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Returns the property names of the object https://262.ecma-international.org/5.1/#sec-15....</div><div class="ttdef"><b>Definition</b> methods.cpp:38</div></div>
+<div class="ttc" id="aclassJS_1_1Object_html_acefea3548d7869dac1bb28120cd5907b"><div class="ttname"><a href="classJS_1_1Object.html#acefea3548d7869dac1bb28120cd5907b">JS::Object::isFrozen</a></div><div class="ttdeci">static JS::Any isFrozen(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Checks if the object is frozen https://262.ecma-international.org/5.1/#sec-15.2.3....</div><div class="ttdef"><b>Definition</b> methods.cpp:162</div></div>
+<div class="ttc" id="aclassJS_1_1Object_html_afdf3cf86781d540d3900587578d38aa1"><div class="ttname"><a href="classJS_1_1Object.html#afdf3cf86781d540d3900587578d38aa1">JS::Object::seal</a></div><div class="ttdeci">static JS::Any seal(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Seals the object https://262.ecma-international.org/5.1/#sec-15.2.3.7.</div><div class="ttdef"><b>Definition</b> methods.cpp:96</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -535,6 +650,42 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="adcc5de16ffc869d792a21342ceb27a03" name="adcc5de16ffc869d792a21342ceb27a03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcc5de16ffc869d792a21342ceb27a03">&#9670;&#160;</a></span>RangeError</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> RangeError</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::RangeError&gt;(<a class="code hl_typedef" href="namespaceJS.html#a61b06bb7e3892674498fcb6eebaa4213">JS::Properties</a>{</div>
+<div class="line">    {u<span class="stringliteral">&quot;length&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(1), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;name&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(u<span class="stringliteral">&quot;RangeError&quot;</span>), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">}))</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae31eef6d153cac639fe2859cd6fd568e" name="ae31eef6d153cac639fe2859cd6fd568e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae31eef6d153cac639fe2859cd6fd568e">&#9670;&#160;</a></span>ReferenceError</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> ReferenceError</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::ReferenceError&gt;(<a class="code hl_typedef" href="namespaceJS.html#a61b06bb7e3892674498fcb6eebaa4213">JS::Properties</a>{</div>
+<div class="line">    {u<span class="stringliteral">&quot;length&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(1), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;name&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(u<span class="stringliteral">&quot;ReferenceError&quot;</span>), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">}))</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a35ed9b9c1245ce5a94ccd5d9fb2d5cd3" name="a35ed9b9c1245ce5a94ccd5d9fb2d5cd3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a35ed9b9c1245ce5a94ccd5d9fb2d5cd3">&#9670;&#160;</a></span>String</h2>
 
@@ -546,9 +697,49 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::String&gt;(std::unordered_map&lt;std::u16string, JS::Any&gt;{</div>
-<div class="line">    {u<span class="stringliteral">&quot;fromCharCode&quot;</span>, <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1String.html#a2a86bf5d3809227d224f19d212a9ec0e">JS::String::fromCharCode</a>))}}))</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::String&gt;(<a class="code hl_typedef" href="namespaceJS.html#a61b06bb7e3892674498fcb6eebaa4213">JS::Properties</a>{</div>
+<div class="line">    {u<span class="stringliteral">&quot;length&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(0), <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;name&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(u<span class="stringliteral">&quot;String&quot;</span>), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;fromCharCode&quot;</span>,</div>
+<div class="line">     <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::Function&gt;(<a class="code hl_function" href="classJS_1_1String.html#a2a86bf5d3809227d224f19d212a9ec0e">JS::String::fromCharCode</a>)), <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>}},</div>
+<div class="line">}))</div>
 <div class="ttc" id="aclassJS_1_1String_html_a2a86bf5d3809227d224f19d212a9ec0e"><div class="ttname"><a href="classJS_1_1String.html#a2a86bf5d3809227d224f19d212a9ec0e">JS::String::fromCharCode</a></div><div class="ttdeci">static JS::Any fromCharCode(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Creates a string from a sequence of UTF-16 code unit values. https://262.ecma-international....</div><div class="ttdef"><b>Definition</b> prototype.cpp:7</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="acd222a4007127c3e7adcd4ea9658f29f" name="acd222a4007127c3e7adcd4ea9658f29f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd222a4007127c3e7adcd4ea9658f29f">&#9670;&#160;</a></span>SyntaxError</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> SyntaxError</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::SyntaxError&gt;(<a class="code hl_typedef" href="namespaceJS.html#a61b06bb7e3892674498fcb6eebaa4213">JS::Properties</a>{</div>
+<div class="line">    {u<span class="stringliteral">&quot;length&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(1), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;name&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(u<span class="stringliteral">&quot;SyntaxError&quot;</span>), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">}))</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a2d6318fcae4ed82e04aeaab28d4d2b5d" name="a2d6318fcae4ed82e04aeaab28d4d2b5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d6318fcae4ed82e04aeaab28d4d2b5d">&#9670;&#160;</a></span>TypeError</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> TypeError</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::TypeError&gt;(<a class="code hl_typedef" href="namespaceJS.html#a61b06bb7e3892674498fcb6eebaa4213">JS::Properties</a>{</div>
+<div class="line">    {u<span class="stringliteral">&quot;length&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(1), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;name&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(u<span class="stringliteral">&quot;TypeError&quot;</span>), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">}))</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -564,6 +755,24 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+</div>
+</div>
+<a id="a236ab7e2445cad665555c642c1c9e899" name="a236ab7e2445cad665555c642c1c9e899"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a236ab7e2445cad665555c642c1c9e899">&#9670;&#160;</a></span>URIError</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classJS_1_1Any.html">JS::Any</a> URIError</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(std::make_shared&lt;JS::URIError&gt;(<a class="code hl_typedef" href="namespaceJS.html#a61b06bb7e3892674498fcb6eebaa4213">JS::Properties</a>{</div>
+<div class="line">    {u<span class="stringliteral">&quot;length&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(1), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">    {u<span class="stringliteral">&quot;name&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(u<span class="stringliteral">&quot;URIError&quot;</span>), <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}},</div>
+<div class="line">}))</div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

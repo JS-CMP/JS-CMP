@@ -1,0 +1,14 @@
+digraph "lib/types/objects/Error/Reference"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  compound=true
+  subgraph clusterdir_862d1438bfa46f850b5cbd4b20120044 {
+    graph [ bgcolor="#daedff", pencolor="grey50", label="Error", fontname=Helvetica,fontsize=10 style="filled,dashed", URL="dir_862d1438bfa46f850b5cbd4b20120044.html",tooltip=""]
+  dir_4239c5e549f0a1bb2553d3c870b0ed27 [label="Reference", fillcolor="#daedff", color="grey25", style="filled,bold", URL="dir_4239c5e549f0a1bb2553d3c870b0ed27.html",tooltip=""];
+  }
+  dir_09e761304027c904456130627fd4dcf5 [label="includes", fillcolor="#daedff", color="red", style="filled", URL="dir_09e761304027c904456130627fd4dcf5.html",tooltip=""];
+  dir_4239c5e549f0a1bb2553d3c870b0ed27->dir_09e761304027c904456130627fd4dcf5 [headlabel="6", labeldistance=1.5 headhref="dir_000034_000019.html" href="dir_000034_000019.html" color="steelblue1" fontcolor="steelblue1"];
+}

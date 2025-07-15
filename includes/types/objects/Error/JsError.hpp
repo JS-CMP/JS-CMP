@@ -19,7 +19,7 @@ public:
      */
     ///@{
     /** @brief Default constructor initializes the Error */
-    Error(const std::shared_ptr<JS::InternalObject>& prototype = nullptr);
+    explicit Error(const std::shared_ptr<JS::InternalObject>& prototype = nullptr);
     /** @brief Constructor that take a value */
     explicit Error(const JS::Any& value, const std::shared_ptr<JS::InternalObject>& prototype = nullptr);
     /** @brief Constructor for properties */

@@ -1,4 +1,4 @@
-#include "class/Assert/Assert.hpp"
+#include "class/Assert/assert.hpp"
 
 #include "customOperators/CustomOperators.hpp"
 #include "global/globalFunctions.hpp"
@@ -7,10 +7,10 @@
 #include "types/objects/Function/JsFunction.hpp"
 
 namespace JS {
-Assert::Assert(const JS::Properties& properties)
+assert::assert(const JS::Properties& properties)
     : JS::InternalObject(properties, JS::Function::getPrototypeProperties(), u"Assert") {}
 
-JS::Any Assert::fail(const JS::Any& thisArgs, const JS::Any& args) {
+JS::Any assert::fail(const JS::Any& thisArgs, const JS::Any& args) {
     // TODO : handle if args[0] is a throwable, make throwable js::any
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length == 1) {
@@ -20,7 +20,7 @@ JS::Any Assert::fail(const JS::Any& thisArgs, const JS::Any& args) {
     return {};
 }
 
-JS::Any Assert::ok(const JS::Any& thisArgs, const JS::Any& args) {
+JS::Any assert::ok(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length == 0) {
         throw JS::Any(std::make_shared<JS::TypeError>(JS::Any(u"(No value argument passed to `Assert.ok()`)")));
@@ -33,7 +33,7 @@ JS::Any Assert::ok(const JS::Any& thisArgs, const JS::Any& args) {
 }
 
 // equals
-JS::Any Assert::equal(const JS::Any& thisArgs, const JS::Any& args) {
+JS::Any assert::equal(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
         throw JS::Any(std::make_shared<JS::TypeError>(JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
@@ -46,7 +46,7 @@ JS::Any Assert::equal(const JS::Any& thisArgs, const JS::Any& args) {
     return {};
 }
 
-JS::Any Assert::notEqual(const JS::Any& thisArgs, const JS::Any& args) {
+JS::Any assert::notEqual(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
         throw JS::Any(std::make_shared<JS::TypeError>(JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
@@ -59,7 +59,7 @@ JS::Any Assert::notEqual(const JS::Any& thisArgs, const JS::Any& args) {
 }
 
 // deepEquals TODO: make the message automatique depending on the ope
-JS::Any Assert::deepEqual(const JS::Any& thisArgs, const JS::Any& args) {
+JS::Any assert::deepEqual(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
         throw JS::Any( std::make_shared<JS::TypeError>(JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
@@ -70,7 +70,7 @@ JS::Any Assert::deepEqual(const JS::Any& thisArgs, const JS::Any& args) {
     return {};
 }
 
-JS::Any Assert::notDeepEqual(const JS::Any& thisArgs, const JS::Any& args) {
+JS::Any assert::notDeepEqual(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
         throw JS::Any(std::make_shared<JS::TypeError>(JS::Any( u"(The \"actual\" and \"expected\" arguments must be specified.)")));
@@ -82,7 +82,7 @@ JS::Any Assert::notDeepEqual(const JS::Any& thisArgs, const JS::Any& args) {
 }
 
 // strictEquals
-JS::Any Assert::strictEqual(const JS::Any& thisArgs, const JS::Any& args) {
+JS::Any assert::strictEqual(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
         throw JS::Any(std::make_shared<JS::TypeError>(JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
@@ -93,7 +93,7 @@ JS::Any Assert::strictEqual(const JS::Any& thisArgs, const JS::Any& args) {
     return {};
 }
 
-JS::Any Assert::notStrictEqual(const JS::Any& thisArgs, const JS::Any& args) {
+JS::Any assert::notStrictEqual(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
         throw JS::Any(std::make_shared<JS::TypeError>(JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
@@ -105,7 +105,7 @@ JS::Any Assert::notStrictEqual(const JS::Any& thisArgs, const JS::Any& args) {
 }
 
 // other
-JS::Any Assert::ifError(const JS::Any& thisArgs, const JS::Any& args) {
+JS::Any assert::ifError(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length != 1) {
         throw JS::Any(std::make_shared<JS::TypeError>(JS::Any(u"(The \"value\" argument must be specified.)")));
@@ -117,9 +117,12 @@ JS::Any Assert::ifError(const JS::Any& thisArgs, const JS::Any& args) {
     return {};
 }
 
-JS::Any Assert::throws(const JS::Any& thisArgs, const JS::Any& args) {
+JS::Any assert::throws(const JS::Any& thisArgs, const JS::Any& args) {
     // TODO:: handle obj properties, regexp class
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
+    if (length < 1) {
+        throw JS::Any( std::make_shared<JS::TypeError>(JS::Any(u"(The \"fn\" argument must be specified.)")));
+    }
     if (!JS::COMPARE::Object(args[0], u"Function")) {
         throw JS::Any(std::make_shared<JS::TypeError>(JS::Any(u"(The \"fn\" argument must be a function.)")));
     }
@@ -135,8 +138,11 @@ JS::Any Assert::throws(const JS::Any& thisArgs, const JS::Any& args) {
     return {};
 }
 
-JS::Any Assert::doesNotThrow(const JS::Any& thisArgs, const JS::Any& args) {
+JS::Any assert::doesNotThrow(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
+    if (length < 1) {
+        throw JS::Any( std::make_shared<JS::TypeError>(JS::Any(u"(The \"fn\" argument must be specified.)")));
+    }
     if (!JS::COMPARE::Object(args[0], u"Function")) {
         throw JS::Any( std::make_shared<JS::TypeError>(JS::Any(u"(The \"fn\" argument must be a function.)")));
     }
@@ -154,7 +160,7 @@ JS::Any Assert::doesNotThrow(const JS::Any& thisArgs, const JS::Any& args) {
 }
 
 // Not needed for ES5 Error
-JS::Any Assert::deepStrictEqual(const JS::Any& thisArgs, const JS::Any& args) {
+JS::Any assert::deepStrictEqual(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
         throw JS::Any(std::make_shared<JS::TypeError>(JS::Any( u"(The \"actual\" and \"expected\" arguments must be specified.)")));
@@ -165,7 +171,7 @@ JS::Any Assert::deepStrictEqual(const JS::Any& thisArgs, const JS::Any& args) {
     return {};
 }
 
-JS::Any Assert::notStrictDeepEqual(const JS::Any& thisArgs, const JS::Any& args) {
+JS::Any assert::notStrictDeepEqual(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
         throw JS::Any(std::make_shared<JS::TypeError>(JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
@@ -177,7 +183,7 @@ JS::Any Assert::notStrictDeepEqual(const JS::Any& thisArgs, const JS::Any& args)
 }
 
 // Test262 Asserts
-JS::Any Assert::sameValue(const JS::Any& actual, const JS::Any& expected) {
+JS::Any assert::sameValue(const JS::Any& actual, const JS::Any& expected) {
     try {
         if (_sameValue(actual, expected)) {
             return {};
@@ -191,7 +197,7 @@ JS::Any Assert::sameValue(const JS::Any& actual, const JS::Any& expected) {
 }
 
 // private
-bool Assert::_sameValue(const JS::Any& actual, const JS::Any& expected) {
+bool assert::_sameValue(const JS::Any& actual, const JS::Any& expected) {
     if (JS::GLOBAL::isNaN(JS::Any(), JS::Arguments::CreateArgumentsObject({actual})) &&
         JS::GLOBAL::isNaN(JS::Any(), JS::Arguments::CreateArgumentsObject({expected}))) {
         return true;
@@ -199,7 +205,7 @@ bool Assert::_sameValue(const JS::Any& actual, const JS::Any& expected) {
     return JS::COMPARE::SameValue(actual, expected);
 }
 
-void Assert::innerFail(const JS::Any& actual, const JS::Any& expected, const JS::Any& message,
+void assert::innerFail(const JS::Any& actual, const JS::Any& expected, const JS::Any& message,
                        const std::u16string& operator_) {
     auto msg = JS::COMPARE::Type(message, JS::UNDEFINED)
                    ? JS::CONVERT::ToString(actual) + u" " + operator_ + u" " + JS::CONVERT::ToString(expected)
@@ -216,7 +222,7 @@ void Assert::innerFail(const JS::Any& actual, const JS::Any& expected, const JS:
     // throw AssertionError(actual, expected, msg, operator_);
 }
 
-bool Assert::isDeepEqual(const JS::Any& actual, const JS::Any& expected, bool strict) {
+bool assert::isDeepEqual(const JS::Any& actual, const JS::Any& expected, bool strict) {
     // Check for strict equality (===).
     if (actual strictEq expected) {
         return actual strictNeq JS::Any(0) || JS::COMPARE::SameValue(actual, expected) || !strict;

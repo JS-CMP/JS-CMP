@@ -22,9 +22,9 @@
 
 // TODO move it when we have support for modules / require
 namespace JS {
-class Assert : public JS::InternalObject {
+class assert : public JS::InternalObject {
 public:
-    explicit Assert(const JS::Properties& properties);
+    explicit assert(const JS::Properties& properties);
     /**
      * @name Assertions Functions
      * @brief Functions to assert conditions in tests.

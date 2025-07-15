@@ -1,12 +1,10 @@
 #ifndef JS_CMP_GLOBAL_HPP
 #define JS_CMP_GLOBAL_HPP
 
-#include "class/Assert/Assert.hpp"
+#include "class/Assert/assert.hpp"
 #include "global/console.hpp"
 #include "globalFunctions.hpp"
 #include "types/JsAny.hpp"
-#include "types/objects/Types.hpp"
-
 #include "types/objects/Error/JsError.hpp"
 #include "types/objects/Error/JsNativeError.hpp"
 #include "types/objects/Error/JsRangeError.hpp"
@@ -14,7 +12,7 @@
 #include "types/objects/Error/JsSyntaxError.hpp"
 #include "types/objects/Error/JsTypeError.hpp"
 #include "types/objects/Error/JsURIError.hpp"
-
+#include "types/objects/Types.hpp"
 
 // TODO fix this create Object to inherit from Function
 JS::Any Object = JS::Any(std::make_shared<JS::Object>(JS::Properties{
@@ -139,23 +137,23 @@ JS::Any Math = JS::Any(std::make_shared<JS::InternalObject>(
     JS::Object::getPrototypeProperties(), u"Math", true)); // TODO Make math inherit from Object
 
 // TODO add prototype and AssertionError function
-JS::Any Assert = JS::Any(std::make_shared<JS::Assert>(JS::Properties{
+JS::Any assert = JS::Any(std::make_shared<JS::assert>(JS::Properties{
     {u"length", JS::DataDescriptor{JS::Any(2), false, false, false}},
     {u"name", JS::DataDescriptor{JS::Any(u"Assert"), false, false, false}},
-    {u"fail", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Assert::fail)), true, true, true}},
-    {u"ok", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Assert::ok)), true, true, true}},
-    {u"equal", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Assert::equal)), true, true, true}},
-    {u"notEqual", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Assert::notEqual)), true, true, true}},
-    {u"deepEqual", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Assert::deepEqual)), true, true, true}},
+    {u"fail", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::fail)), true, true, true}},
+    {u"ok", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::ok)), true, true, true}},
+    {u"equal", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::equal)), true, true, true}},
+    {u"notEqual", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::notEqual)), true, true, true}},
+    {u"deepEqual", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::deepEqual)), true, true, true}},
     {u"notDeepEqual",
-     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Assert::notDeepEqual)), true, true, true}},
+     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::notDeepEqual)), true, true, true}},
     {u"strictEqual",
-     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Assert::strictEqual)), true, true, true}},
+     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::strictEqual)), true, true, true}},
     {u"notStrictEqual",
-     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Assert::notStrictEqual)), true, true, true}},
-    {u"throws", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Assert::throws)), true, true, true}},
+     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::notStrictEqual)), true, true, true}},
+    {u"throws", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::throws)), true, true, true}},
     {u"doesNotThrow",
-     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Assert::doesNotThrow)), true, true, true}},
+     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::doesNotThrow)), true, true, true}},
 }));
 
 

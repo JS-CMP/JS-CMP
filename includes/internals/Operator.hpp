@@ -216,7 +216,7 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const JS::Operator& any);
 
     /** @brief Exception handling method to get the error message */
-    const char* what() const noexcept;
+    const char* what() const noexcept override;
 };
 } // namespace JS
 #endif // OPERATOR_HPP

@@ -4,12 +4,6 @@
 #include "types/objects/Error/JsError.hpp"
 
 namespace JS {
-    //
-    // Right now the class error is duplicated for all different type of error, in the future it would be ideal
-    // to find a way that even if the variables in getPrototypeProperties are static and that this function is called in constructors,
-    // they are rewritten be inheritence or something.
-    //
-
     /**
      * @class SyntaxError
      * @brief Represents a JavaScript SyntaxError in C++.

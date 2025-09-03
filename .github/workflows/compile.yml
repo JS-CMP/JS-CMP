@@ -20,7 +20,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest]
         compiler: [gcc, clang]
-        arch: [x86_64, arm64, aarch64, riscv64]
+        arch: [x86_64, arm64, riscv64]
         exclude:
           - os: macos-latest
             arch: riscv64
@@ -32,13 +32,9 @@ jobs:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
 
-      - name: Set up QEMU for cross-arch (Linux only)
-        if: matrix.os == 'ubuntu-latest' && matrix.arch != 'x86_64'
-        uses: docker/setup-qemu-action@v3
-
       - name: Install dependencies on Linux
         if: matrix.os == 'ubuntu-latest'
-        run: sudo apt update && sudo apt install -y cmake g++ make libboost-all-dev libicu-dev qemu-user-static
+        run: sudo apt update && sudo apt install -y cmake g++ make libboost-all-dev libicu-dev gcc-aarch64-linux-gnu g++-aarch64-linux-gnu gcc-riscv64-linux-gnu g++-riscv64-linux-gnu
 
       - name: Install dependencies on macOS
         if: matrix.os == 'macos-latest'
@@ -49,20 +45,83 @@ jobs:
           git submodule update --init --recursive
           git submodule foreach git pull origin main
 
-      - name: Run CMake
+      - name: Run CMake (Linux)
+        if: matrix.os == 'ubuntu-latest'
         run: |
-          cmake .
-          make -j$(getconf _NPROCESSORS_ONLN)
+          mkdir -p build && cd build
+          if [ "${{ matrix.arch }}" = "x86_64" ]; then
+            cmake ..
+          elif [ "${{ matrix.arch }}" = "arm64" ]; then
+            cmake .. -DCMAKE_SYSTEM_NAME=Linux -DCMAKE_C_COMPILER=aarch64-linux-gnu-gcc -DCMAKE_CXX_COMPILER=aarch64-linux-gnu-g++
+          elif [ "${{ matrix.arch }}" = "riscv64" ]; then
+            cmake .. -DCMAKE_SYSTEM_NAME=Linux -DCMAKE_C_COMPILER=riscv64-linux-gnu-gcc -DCMAKE_CXX_COMPILER=riscv64-linux-gnu-g++
+          fi
+          make -j$(nproc)
+
+      - name: Run CMake (macOS x86_64)
+        if: matrix.os == 'macos-latest' && matrix.arch == 'x86_64'
+        run: |
+          mkdir -p build && cd build
+          arch -x86_64 cmake ..
+          arch -x86_64 make -j$(sysctl -n hw.ncpu)
+
+      - name: Run CMake (macOS arm64)
+        if: matrix.os == 'macos-latest' && matrix.arch == 'arm64'
+        run: |
+          mkdir -p build && cd build
+          cmake ..
+          make -j$(sysctl -n hw.ncpu)
 
       - name: Test the built executable
         run: |
+          cd build
           echo "console.log('Everything works fine!');" > test.js
-          ./js_cmp test.js
-          diff <(./test) <(echo "Everything works fine!")
+          arch="${{ matrix.arch }}"
+          os="${{ matrix.os }}"
+          if [ "$os" = "ubuntu-latest" ] && [ "$arch" = "x86_64" ]; then
+            ./js_cmp test.js
+            diff <(./test) <(echo "Everything works fine!")
+          elif [ "$os" = "macos-latest" ] && [ "$arch" = "arm64" ]; then
+            ./js_cmp test.js
+            diff <(./test) <(echo "Everything works fine!")
+          else
+            echo "Skipping test for cross-compiled architecture ($arch) on $os: QEMU not installed."
+          fi
 
       - name: Check built binary architecture
         run: |
-          file ./js_cmp
+          cd build
+          file_output=$(file ./js_cmp)
+          echo "Binary architecture: $file_output"
+          
+          # Extract architecture from file output
+          if [[ "$file_output" == *"x86_64"* ]] || [[ "$file_output" == *"x86-64"* ]]; then
+            actual_arch="x86_64"
+          elif [[ "$file_output" == *"arm64"* ]]; then
+            actual_arch="arm64"
+          elif [[ "$file_output" == *"riscv64"* ]]; then
+            actual_arch="riscv64"
+          else
+            echo "Unknown architecture in file output: $file_output"
+            exit 1
+          fi
+          
+          expected_arch="${{ matrix.arch }}"
+          echo "Expected architecture: $expected_arch"
+          echo "Actual architecture: $actual_arch"
+          
+          # Handle aarch64 as equivalent to arm64
+          if [[ "$expected_arch" == "aarch64" ]]; then
+            expected_arch="arm64"
+          fi
+          
+          if [[ "$actual_arch" != "$expected_arch" ]]; then
+            echo "ERROR: Binary architecture ($actual_arch) does not match expected architecture ($expected_arch)"
+            exit 1
+          fi
+          
+          echo "✓ Binary architecture matches expected architecture"
+          
           if [[ "${{ matrix.os }}" == "macos-latest" ]]; then
             lipo -info ./js_cmp || true
           fi

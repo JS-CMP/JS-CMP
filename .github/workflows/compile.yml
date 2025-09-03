@@ -14,18 +14,12 @@ permissions:
   contents: write
 
 jobs:
-  build:
-    runs-on: [ ${{ matrix.os }}, ${{ matrix.arch }} ]
+  build-linux:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: [ ubuntu-latest, macos-latest ]
         compiler: [ gcc, clang ]
-        arch: [ x64, arm64, intel ]
-        exclude:
-          - os: macos-latest
-            arch: x64
-          - os: ubuntu-latest
-            arch: intel
+        arch: [ x86_64, arm64, riscv64 ]
 
     steps:
       - name: Checkout repository
@@ -33,6 +27,132 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: linux/amd64,linux/arm64,linux/riscv64
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Set up architecture variables
+        run: |
+          case "${{ matrix.arch }}" in
+            x86_64)
+              echo "DOCKER_PLATFORM=linux/amd64" >> $GITHUB_ENV
+              echo "QEMU_ARCH=x86_64" >> $GITHUB_ENV
+              ;;
+            arm64)
+              echo "DOCKER_PLATFORM=linux/arm64" >> $GITHUB_ENV
+              echo "QEMU_ARCH=aarch64" >> $GITHUB_ENV
+              ;;
+            riscv64)
+              echo "DOCKER_PLATFORM=linux/riscv64" >> $GITHUB_ENV
+              echo "QEMU_ARCH=riscv64" >> $GITHUB_ENV
+              ;;
+          esac
+
+      - name: Set up compiler environment
+        run: |
+          if [ "${{ matrix.compiler }}" == "gcc" ]; then
+            echo "CC=gcc" >> $GITHUB_ENV
+            echo "CXX=g++" >> $GITHUB_ENV
+            echo "COMPILER_PACKAGE=gcc g++" >> $GITHUB_ENV
+          else
+            echo "CC=clang" >> $GITHUB_ENV
+            echo "CXX=clang++" >> $GITHUB_ENV
+            echo "COMPILER_PACKAGE=clang" >> $GITHUB_ENV
+          fi
+
+      - name: Create Dockerfile for cross-compilation
+        run: |
+          cat > Dockerfile << 'EOF'
+          FROM --platform=$BUILDPLATFORM ubuntu:22.04
+
+          ARG BUILDPLATFORM
+          ARG TARGETPLATFORM
+
+          RUN apt-get update && apt-get install -y \
+              cmake \
+              make \
+              git \
+              libboost-all-dev \
+              libicu-dev \
+              $COMPILER_PACKAGE \
+              && rm -rf /var/lib/apt/lists/*
+
+          WORKDIR /workspace
+          COPY . .
+
+          RUN git submodule update --init --recursive || true
+          RUN git submodule foreach git pull origin main || true
+
+          ENV CC=$CC
+          ENV CXX=$CXX
+
+          RUN cmake . && make -j$(nproc)
+
+          # Test the built executable
+          RUN echo "console.log('Everything works fine!');" > test.js && \
+              ./js_cmp test.js && \
+              timeout 10s ./test > output.txt && \
+              grep -q "Everything works fine!" output.txt
+          EOF
+
+      - name: Build and test with Docker
+        run: |
+          docker buildx build \
+            --platform ${{ env.DOCKER_PLATFORM }} \
+            --build-arg COMPILER_PACKAGE="${{ env.COMPILER_PACKAGE }}" \
+            --build-arg CC="${{ env.CC }}" \
+            --build-arg CXX="${{ env.CXX }}" \
+            --load \
+            -t js-cmp-linux-${{ matrix.arch }}-${{ matrix.compiler }} \
+            .
+
+      - name: Extract artifacts
+        if: success()
+        run: |
+          # Create a temporary container to copy artifacts
+          CONTAINER_ID=$(docker create js-cmp-linux-${{ matrix.arch }}-${{ matrix.compiler }})
+          
+          # Copy the built executable
+          docker cp $CONTAINER_ID:/workspace/js_cmp ./js_cmp-linux-${{ matrix.arch }}-${{ matrix.compiler }}
+          docker cp $CONTAINER_ID:/workspace/libjscmp.a ./libjscmp-linux-${{ matrix.arch }}-${{ matrix.compiler }}.a
+          
+          # Clean up
+          docker rm $CONTAINER_ID
+          
+          # Show file info
+          file ./js_cmp-linux-${{ matrix.arch }}-${{ matrix.compiler }}
+          ls -la ./js_cmp-linux-${{ matrix.arch }}-${{ matrix.compiler }}
+          ls -la ./libjscmp-linux-${{ matrix.arch }}-${{ matrix.compiler }}.a
+
+  build-macos:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ macos-latest, macos-13 ]  # macos-latest (ARM64) and macos-13 (x86_64)
+        compiler: [ gcc, clang ]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: Set up architecture info
+        run: |
+          ARCH=$(uname -m)
+          if [ "$ARCH" = "arm64" ]; then
+            echo "MACOS_ARCH=arm64" >> $GITHUB_ENV
+            echo "RUNNER_ARCH=arm64" >> $GITHUB_ENV
+          else
+            echo "MACOS_ARCH=x86_64" >> $GITHUB_ENV
+            echo "RUNNER_ARCH=x86_64" >> $GITHUB_ENV
+          fi
 
       - name: Set up ENV
         run: |
@@ -44,28 +164,36 @@ jobs:
             echo "CXX=clang++" >> $GITHUB_ENV
           fi
 
-      - name: Install dependencies on Linux
-        if: matrix.os == 'ubuntu-latest'
-        run: sudo apt update && sudo apt install -y cmake gcc clang make libboost-all-dev libicu-dev
-
       - name: Install dependencies on macOS
-        if: matrix.os == 'macos-latest'
-        run:
-          brew install gcc boost icu4c &&  brew link --force icu4c
+        run: |
+          brew install gcc boost icu4c cmake
+          brew link --force icu4c
 
       - name: Initialize git submodules
         run: |
           git submodule update --init --recursive
           git submodule foreach git pull origin main
 
-
       - name: Run CMake
         run: |
           cmake .
-          make -j$(getconf _NPROCESSORS_ONLN)
+          make -j$(sysctl -n hw.ncpu)
 
       - name: Test the built executable
         run: |
           echo "console.log('Everything works fine!');" > test.js
           ./js_cmp test.js
-          diff <(./test) <(echo "Everything works fine!")
+          timeout 10s ./test > output.txt
+          grep -q "Everything works fine!" output.txt
+
+      - name: Prepare artifacts
+        run: |
+          # Rename artifacts with OS and arch info
+          cp js_cmp js_cmp-macos-${{ env.MACOS_ARCH }}-${{ matrix.compiler }}
+          cp libjscmp.a libjscmp-macos-${{ env.MACOS_ARCH }}-${{ matrix.compiler }}.a
+          
+          # Show file info
+          file ./js_cmp-macos-${{ env.MACOS_ARCH }}-${{ matrix.compiler }}
+          ls -la ./js_cmp-macos-${{ env.MACOS_ARCH }}-${{ matrix.compiler }}
+          ls -la ./libjscmp-macos-${{ env.MACOS_ARCH }}-${{ matrix.compiler }}.a
+

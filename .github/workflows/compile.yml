@@ -24,7 +24,7 @@ jobs:
           ${{ (matrix.os == 'macos-latest') && 'x86_64' || 'x86_64' }},
           ${{ (matrix.os == 'macos-latest') && 'arm64' || 'arm64' }},
           ${{ (matrix.os == 'macos-latest') && 'aarch64' || 'aarch64' }},
-          ${{ (matrix.os == 'ubuntu-latest') && 'riscv64' || '' }}
+          ${{ (matrix.os == 'ubuntu-latest') && 'riscv64' || '' }} # RISC-V only on Linux
         ]
 
     steps:

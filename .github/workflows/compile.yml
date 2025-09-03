@@ -22,7 +22,7 @@ jobs:
         compiler: [ gcc, clang ]
         arch: [ x64, arm64, intel ]
     env:
-        CXX: ${{ matrix.compiler }}++
+        CXX: "if [ '${{ matrix.compiler }}' = 'gcc' ]; then echo g++; else echo clang++; fi"
         CC: ${{ matrix.compiler }}
 
     steps:

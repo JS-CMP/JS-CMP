@@ -56,13 +56,13 @@ jobs:
       - name: Set up compiler environment
         run: |
           if [ "${{ matrix.compiler }}" == "gcc" ]; then
-            export CC=gcc
-            export CXX=g++
-            export COMPILER_PACKAGE="gcc g++"
+            echo "CC=gcc" >> $GITHUB_ENV
+            echo "CXX=g++" >> $GITHUB_ENV
+            echo "COMPILER_PACKAGE=gcc g++" >> $GITHUB_ENV
           else
-            export CC=clang
-            export CXX=clang++
-            export COMPILER_PACKAGE="clang"
+            echo "CC=clang" >> $GITHUB_ENV
+            echo "CXX=clang++" >> $GITHUB_ENV
+            echo "COMPILER_PACKAGE=clang" >> $GITHUB_ENV
           fi
 
       - name: Create Dockerfile for cross-compilation
@@ -72,6 +72,9 @@ jobs:
 
           ARG BUILDPLATFORM
           ARG TARGETPLATFORM
+          ARG COMPILER_PACKAGE
+          ARG CC
+          ARG CXX
 
           RUN apt-get update && apt-get install -y \
               cmake \
@@ -79,7 +82,7 @@ jobs:
               git \
               libboost-all-dev \
               libicu-dev \
-              $COMPILER_PACKAGE \
+              ${COMPILER_PACKAGE} \
               && rm -rf /var/lib/apt/lists/*
 
           WORKDIR /workspace
@@ -88,8 +91,8 @@ jobs:
           RUN git submodule update --init --recursive || true
           RUN git submodule foreach git pull origin main || true
 
-          ENV CC=$CC
-          ENV CXX=$CXX
+          ENV CC=${CC}
+          ENV CXX=${CXX}
 
           RUN cmake . && make -j$(nproc)
 
@@ -167,7 +170,12 @@ jobs:
       - name: Install dependencies on macOS
         run: |
           brew install gcc boost icu4c
+          brew reinstall cmake
           brew link --force icu4c
+          
+          ICU_ROOT=$(brew --prefix icu4c)
+          echo "ICU_ROOT=$ICU_ROOT" >> $GITHUB_ENV
+          echo "PKG_CONFIG_PATH=$ICU_ROOT/lib/pkgconfig:$PKG_CONFIG_PATH" >> $GITHUB_ENV
 
       - name: Initialize git submodules
         run: |
@@ -196,4 +204,3 @@ jobs:
           file ./js_cmp-macos-${{ env.MACOS_ARCH }}-${{ matrix.compiler }}
           ls -la ./js_cmp-macos-${{ env.MACOS_ARCH }}-${{ matrix.compiler }}
           ls -la ./libjscmp-macos-${{ env.MACOS_ARCH }}-${{ matrix.compiler }}.a
-

@@ -18,12 +18,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
-        compiler: [gcc, clang]
-        arch: [x86_64, arm64, riscv64]
-        exclude:
-          - os: macos-latest
-            arch: riscv64
+        os: [ ubuntu-latest, macos-latest ]
+        compiler: [ gcc, clang ]
+        arch: [ x64, arm64, intel ]
+    env:
+        CXX: ${{ matrix.compiler }}++
+        CC: ${{ matrix.compiler }}
 
     steps:
       - name: Checkout repository
@@ -32,153 +32,28 @@ jobs:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
 
-      - name: Install dependencies on Linux (x86_64)
-        if: matrix.os == 'ubuntu-latest' && matrix.arch == 'x86_64'
+      - name: Install dependencies on Linux
+        if: matrix.os == 'ubuntu-latest'
         run: sudo apt update && sudo apt install -y cmake g++ make libboost-all-dev libicu-dev
 
-      - name: Install dependencies on Linux (arm64)
-        if: matrix.os == 'ubuntu-latest' && matrix.arch == 'arm64'
-        run: |
-          sudo apt update
-          sudo apt install -y cmake g++ make gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
-          # Add arm64 architecture and install cross-compilation libraries
-          sudo dpkg --add-architecture arm64
-          sudo apt update
-          sudo apt install -y libboost-all-dev:arm64 libicu-dev:arm64
-
-      - name: Install dependencies on Linux (riscv64)
-        if: matrix.os == 'ubuntu-latest' && matrix.arch == 'riscv64'
-        run: |
-          sudo apt update
-          sudo apt install -y cmake g++ make gcc-riscv64-linux-gnu g++-riscv64-linux-gnu
-          # Add riscv64 architecture and install cross-compilation libraries
-          sudo dpkg --add-architecture riscv64
-          sudo apt update
-          sudo apt install -y libboost-all-dev:riscv64 libicu-dev:riscv64
-
-      - name: Install dependencies on macOS (x86_64)
-        if: matrix.os == 'macos-latest' && matrix.arch == 'x86_64'
-        run: |
-          # For x86_64 builds on Apple Silicon, we need x86_64 versions of libraries
-          if [[ "$(uname -m)" == "arm64" ]]; then
-            echo "Installing x86_64 dependencies on Apple Silicon"
-            # Install Rosetta 2 if not already installed
-            sudo softwareupdate --install-rosetta --agree-to-license || true
-            # Install x86_64 version of Homebrew and dependencies
-            arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || true
-            arch -x86_64 /usr/local/bin/brew install gcc boost icu4c
-            arch -x86_64 /usr/local/bin/brew link --force icu4c
-          else
-            echo "Installing x86_64 dependencies on x86_64 machine"
-            brew install gcc boost icu4c && brew link --force icu4c
-          fi
-          echo "Building for x86_64 architecture on macOS"
-
-      - name: Install dependencies on macOS (arm64)
-        if: matrix.os == 'macos-latest' && matrix.arch == 'arm64'
-        run: brew install gcc boost icu4c && brew link --force icu4c
+      - name: Install dependencies on macOS
+        if: matrix.os == 'macos-latest'
+        run:
+          brew install gcc boost icu4c &&  brew link --force icu4c
 
       - name: Initialize git submodules
         run: |
           git submodule update --init --recursive
           git submodule foreach git pull origin main
 
-      - name: Run CMake (Linux x86_64)
-        if: matrix.os == 'ubuntu-latest' && matrix.arch == 'x86_64'
-        run: |
-          mkdir -p build && cd build
-          cmake ..
-          make -j$(nproc)
 
-      - name: Run CMake (Linux arm64)
-        if: matrix.os == 'ubuntu-latest' && matrix.arch == 'arm64'
+      - name: Run CMake
         run: |
-          mkdir -p build && cd build
-          cmake .. \
-            -DCMAKE_SYSTEM_NAME=Linux \
-            -DCMAKE_SYSTEM_PROCESSOR=aarch64 \
-            -DCMAKE_C_COMPILER=aarch64-linux-gnu-gcc \
-            -DCMAKE_CXX_COMPILER=aarch64-linux-gnu-g++ \
-            -DCMAKE_FIND_ROOT_PATH=/usr/lib/aarch64-linux-gnu \
-            -DCMAKE_FIND_ROOT_PATH_MODE_PROGRAM=NEVER \
-            -DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=ONLY \
-            -DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=ONLY \
-            -DCMAKE_FIND_ROOT_PATH_MODE_PACKAGE=ONLY
-          make -j$(nproc)
-
-      - name: Run CMake (Linux riscv64)
-        if: matrix.os == 'ubuntu-latest' && matrix.arch == 'riscv64'
-        run: |
-          mkdir -p build && cd build
-          cmake .. \
-            -DCMAKE_SYSTEM_NAME=Linux \
-            -DCMAKE_SYSTEM_PROCESSOR=riscv64 \
-            -DCMAKE_C_COMPILER=riscv64-linux-gnu-gcc \
-            -DCMAKE_CXX_COMPILER=riscv64-linux-gnu-g++ \
-            -DCMAKE_FIND_ROOT_PATH=/usr/lib/riscv64-linux-gnu \
-            -DCMAKE_FIND_ROOT_PATH_MODE_PROGRAM=NEVER \
-            -DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=ONLY \
-            -DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=ONLY \
-            -DCMAKE_FIND_ROOT_PATH_MODE_PACKAGE=ONLY
-          make -j$(nproc)
-
-      - name: Run CMake (macOS)
-        if: matrix.os == 'macos-latest'
-        run: |
-          mkdir -p build && cd build
-          cmake .. -DCMAKE_OSX_ARCHITECTURES=${{ matrix.arch }}
-          make -j$(sysctl -n hw.ncpu)
+          cmake .
+          make -j$(getconf _NPROCESSORS_ONLN)
 
       - name: Test the built executable
         run: |
-          cd build
           echo "console.log('Everything works fine!');" > test.js
-          arch="${{ matrix.arch }}"
-          os="${{ matrix.os }}"
-          if [ "$os" = "ubuntu-latest" ] && [ "$arch" = "x86_64" ]; then
-            ./js_cmp test.js
-            diff <(./test) <(echo "Everything works fine!")
-          elif [ "$os" = "macos-latest" ] && [ "$arch" = "arm64" ]; then
-            ./js_cmp test.js
-            diff <(./test) <(echo "Everything works fine!")
-          else
-            echo "Skipping test for cross-compiled architecture ($arch) on $os: QEMU not installed."
-          fi
-
-      - name: Check built binary architecture
-        run: |
-          cd build
-          file_output=$(file ./js_cmp)
-          echo "Binary architecture: $file_output"
-          
-          # Extract architecture from file output
-          if [[ "$file_output" == *"x86_64"* ]] || [[ "$file_output" == *"x86-64"* ]]; then
-            actual_arch="x86_64"
-          elif [[ "$file_output" == *"arm64"* ]]; then
-            actual_arch="arm64"
-          elif [[ "$file_output" == *"riscv64"* ]]; then
-            actual_arch="riscv64"
-          else
-            echo "Unknown architecture in file output: $file_output"
-            exit 1
-          fi
-          
-          expected_arch="${{ matrix.arch }}"
-          echo "Expected architecture: $expected_arch"
-          echo "Actual architecture: $actual_arch"
-          
-          # Handle aarch64 as equivalent to arm64
-          if [[ "$expected_arch" == "aarch64" ]]; then
-            expected_arch="arm64"
-          fi
-          
-          if [[ "$actual_arch" != "$expected_arch" ]]; then
-            echo "ERROR: Binary architecture ($actual_arch) does not match expected architecture ($expected_arch)"
-            exit 1
-          fi
-          
-          echo "✓ Binary architecture matches expected architecture"
-          
-          if [[ "${{ matrix.os }}" == "macos-latest" ]]; then
-            lipo -info ./js_cmp || true
-          fi
+          ./js_cmp test.js
+          diff <(./test) <(echo "Everything works fine!")

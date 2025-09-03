@@ -56,13 +56,13 @@ jobs:
       - name: Set up compiler environment
         run: |
           if [ "${{ matrix.compiler }}" == "gcc" ]; then
-            echo "CC=gcc" >> $GITHUB_ENV
-            echo "CXX=g++" >> $GITHUB_ENV
-            echo "COMPILER_PACKAGE=gcc g++" >> $GITHUB_ENV
+            export CC=gcc
+            export CXX=g++
+            export COMPILER_PACKAGE="gcc g++"
           else
-            echo "CC=clang" >> $GITHUB_ENV
-            echo "CXX=clang++" >> $GITHUB_ENV
-            echo "COMPILER_PACKAGE=clang" >> $GITHUB_ENV
+            export CC=clang
+            export CXX=clang++
+            export COMPILER_PACKAGE="clang"
           fi
 
       - name: Create Dockerfile for cross-compilation
@@ -166,7 +166,7 @@ jobs:
 
       - name: Install dependencies on macOS
         run: |
-          brew install gcc boost icu4c cmake
+          brew install gcc boost icu4c
           brew link --force icu4c
 
       - name: Initialize git submodules

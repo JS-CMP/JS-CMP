@@ -23,6 +23,12 @@ jobs:
         arch: [ x64, arm64, intel ]
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
       - name: Set up ENV
         run: |
           if [ "${{ matrix.compiler }}" == "gcc" ]; then

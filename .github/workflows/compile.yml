@@ -20,7 +20,12 @@ jobs:
       matrix:
         os: [ ubuntu-latest, macos-latest ]
         compiler: [ gcc, clang ]
-        arch: [ x86_64, arm64, aarch64, riscv64 ]
+        arch: [
+          ${{ (matrix.os == 'macos-latest') && 'x86_64' || 'x86_64' }},
+          ${{ (matrix.os == 'macos-latest') && 'arm64' || 'arm64' }},
+          ${{ (matrix.os == 'macos-latest') && 'aarch64' || 'aarch64' }},
+          ${{ (matrix.os == 'ubuntu-latest') && 'riscv64' || '' }}
+        ]
 
     steps:
       - name: Checkout repository
@@ -56,3 +61,12 @@ jobs:
           echo "console.log('Everything works fine!');" > test.js
           ./js_cmp test.js
           diff <(./test) <(echo "Everything works fine!")
+
+      - name: Check built binary architecture
+        run: |
+          if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
+            file ./js_cmp
+          else
+            file ./js_cmp
+            lipo -info ./js_cmp || true
+          fi

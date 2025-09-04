@@ -67,7 +67,7 @@ jobs:
               git \
               libboost-all-dev \
               libicu-dev \
-              gcc g++ \
+              gcc g++ pkg-config \
               && rm -rf /var/lib/apt/lists/*
           
           WORKDIR /workspace

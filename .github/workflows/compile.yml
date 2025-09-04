@@ -92,9 +92,6 @@ jobs:
         run: |
           docker buildx build \
             --platform ${{ env.DOCKER_PLATFORM }} \
-            --build-arg COMPILER_PACKAGE="${{ env.COMPILER_PACKAGE }}" \
-            --build-arg CC="${{ env.CC }}" \
-            --build-arg CXX="${{ env.CXX }}" \
             --load \
             -t js-cmp-linux-${{ matrix.arch }} \
             .
@@ -113,9 +110,9 @@ jobs:
           docker rm $CONTAINER_ID
           
           # Show file info
-          file ./js_cmp-linux-${{ matrix.arch }}-${{ matrix.compiler }}
-          ls -la ./js_cmp-linux-${{ matrix.arch }}-${{ matrix.compiler }}
-          ls -la ./libjscmp-linux-${{ matrix.arch }}-${{ matrix.compiler }}.a
+          file ./js_cmp-linux-${{ matrix.arch }}
+          ls -la ./js_cmp-linux-${{ matrix.arch }}
+          ls -la ./libjscmp-linux-${{ matrix.arch }}.a
 
   build-macos:
     runs-on: ${{ matrix.os }}

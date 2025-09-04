@@ -68,7 +68,7 @@ jobs:
       - name: Create Dockerfile for cross-compilation
         run: |
           cat > Dockerfile << 'EOF'
-          FROM --platform=$BUILDPLATFORM ubuntu:24.04
+          FROM --platform=$BUILDPLATFORM ubuntu:25.04
 
           ARG BUILDPLATFORM
           ARG TARGETPLATFORM
@@ -76,7 +76,7 @@ jobs:
           ARG CC
           ARG CXX
 
-          RUN apt-get update && apt-get install -y \
+          RUN apt update && apt install -y \
               cmake \
               make \
               git \

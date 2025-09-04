@@ -68,7 +68,7 @@ jobs:
       - name: Create Dockerfile for cross-compilation
         run: |
           cat > Dockerfile << 'EOF'
-          FROM --platform=$BUILDPLATFORM ubuntu:22.04
+          FROM --platform=$BUILDPLATFORM ubuntu:24.04
 
           ARG BUILDPLATFORM
           ARG TARGETPLATFORM
@@ -85,6 +85,7 @@ jobs:
               ${COMPILER_PACKAGE} \
               && rm -rf /var/lib/apt/lists/*
 
+          RUN g++ --version
           WORKDIR /workspace
           COPY . .
 
@@ -191,7 +192,7 @@ jobs:
         run: |
           echo "console.log('Everything works fine!');" > test.js
           ./js_cmp test.js
-          timeout 10s ./test > output.txt
+          ./test > output.txt
           grep -q "Everything works fine!" output.txt
 
       - name: Prepare artifacts

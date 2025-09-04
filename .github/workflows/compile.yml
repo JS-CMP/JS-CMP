@@ -85,7 +85,6 @@ jobs:
               ${COMPILER_PACKAGE} \
               && rm -rf /var/lib/apt/lists/*
 
-          RUN g++ --version
           WORKDIR /workspace
           COPY . .
 

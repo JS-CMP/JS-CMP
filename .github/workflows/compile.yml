@@ -70,8 +70,6 @@ jobs:
               gcc g++ \
               && rm -rf /var/lib/apt/lists/*
           
-          RUN ${CXX} --version
-          
           WORKDIR /workspace
           COPY . .
 

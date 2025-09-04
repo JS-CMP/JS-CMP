@@ -98,18 +98,18 @@ jobs:
             --build-arg CC="${{ env.CC }}" \
             --build-arg CXX="${{ env.CXX }}" \
             --load \
-            -t js-cmp-linux-${{ matrix.arch }}-${{ matrix.compiler }} \
+            -t js-cmp-linux-${{ matrix.arch }} \
             .
 
       - name: Extract artifacts
         if: success()
         run: |
           # Create a temporary container to copy artifacts
-          CONTAINER_ID=$(docker create js-cmp-linux-${{ matrix.arch }}-${{ matrix.compiler }})
+          CONTAINER_ID=$(docker create js-cmp-linux-${{ matrix.arch }})
           
           # Copy the built executable
-          docker cp $CONTAINER_ID:/workspace/js_cmp ./js_cmp-linux-${{ matrix.arch }}-${{ matrix.compiler }}
-          docker cp $CONTAINER_ID:/workspace/libjscmp.a ./libjscmp-linux-${{ matrix.arch }}-${{ matrix.compiler }}.a
+          docker cp $CONTAINER_ID:/workspace/js_cmp ./js_cmp-linux-${{ matrix.arch }}
+          docker cp $CONTAINER_ID:/workspace/libjscmp.a ./libjscmp-linux-${{ matrix.arch }}.a
           
           # Clean up
           docker rm $CONTAINER_ID
@@ -124,7 +124,7 @@ jobs:
     strategy:
       matrix:
         os: [ macos-latest ]  # macos-latest (ARM64) and macos-13 (x86_64)
-        compiler: [ gcc, clang ]
+        arch: [ arm64 ]
 
     steps:
       - name: Checkout repository
@@ -142,16 +142,6 @@ jobs:
           else
             echo "MACOS_ARCH=x86_64" >> $GITHUB_ENV
             echo "RUNNER_ARCH=x86_64" >> $GITHUB_ENV
-          fi
-
-      - name: Set up ENV
-        run: |
-          if [ "${{ matrix.compiler }}" == "gcc" ]; then
-            echo "CC=gcc" >> $GITHUB_ENV
-            echo "CXX=g++" >> $GITHUB_ENV
-          else
-            echo "CC=clang" >> $GITHUB_ENV
-            echo "CXX=clang++" >> $GITHUB_ENV
           fi
 
       - name: Install dependencies on macOS
@@ -184,10 +174,10 @@ jobs:
       - name: Prepare artifacts
         run: |
           # Rename artifacts with OS and arch info
-          cp js_cmp js_cmp-macos-${{ env.MACOS_ARCH }}-${{ matrix.compiler }}
-          cp libjscmp.a libjscmp-macos-${{ env.MACOS_ARCH }}-${{ matrix.compiler }}.a
+          cp js_cmp js_cmp-macos-${{ env.MACOS_ARCH }}
+          cp libjscmp.a libjscmp-macos-${{ env.MACOS_ARCH }}.a
           
           # Show file info
-          file ./js_cmp-macos-${{ env.MACOS_ARCH }}-${{ matrix.compiler }}
-          ls -la ./js_cmp-macos-${{ env.MACOS_ARCH }}-${{ matrix.compiler }}
-          ls -la ./libjscmp-macos-${{ env.MACOS_ARCH }}-${{ matrix.compiler }}.a
+          file ./js_cmp-macos-${{ env.MACOS_ARCH }}
+          ls -la ./js_cmp-macos-${{ env.MACOS_ARCH }}
+          ls -la ./libjscmp-macos-${{ env.MACOS_ARCH }}.a

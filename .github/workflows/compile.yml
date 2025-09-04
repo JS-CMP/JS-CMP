@@ -185,6 +185,7 @@ jobs:
       - name: Run CMake
         run: |
           cmake .
+          make -j$(getconf _NPROCESSORS_ONLN)
 
       - name: Test the built executable
         run: |

@@ -173,7 +173,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ macos-latest]  # macos-latest (ARM64) and macos-13 (x86_64)
+        os: [ macos-latest ]  # macos-latest (ARM64)
         arch: [ arm64 ]
 
     steps:

@@ -18,8 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        compiler: [ gcc, clang ]
         arch: [ x86_64, arm64 ]
+
 
     steps:
       - name: Checkout repository
@@ -53,18 +53,6 @@ jobs:
               ;;
           esac
 
-      - name: Set up compiler environment
-        run: |
-          if [ "${{ matrix.compiler }}" == "gcc" ]; then
-            echo "CC=gcc" >> $GITHUB_ENV
-            echo "CXX=g++" >> $GITHUB_ENV
-            echo "COMPILER_PACKAGE=gcc g++" >> $GITHUB_ENV
-          else
-            echo "CC=clang" >> $GITHUB_ENV
-            echo "CXX=clang++" >> $GITHUB_ENV
-            echo "COMPILER_PACKAGE=clang" >> $GITHUB_ENV
-          fi
-
       - name: Create Dockerfile for cross-compilation
         run: |
           cat > Dockerfile << 'EOF'
@@ -72,9 +60,6 @@ jobs:
 
           ARG BUILDPLATFORM
           ARG TARGETPLATFORM
-          ARG COMPILER_PACKAGE
-          ARG CC
-          ARG CXX
 
           RUN apt update && apt install -y \
               cmake \
@@ -82,7 +67,7 @@ jobs:
               git \
               libboost-all-dev \
               libicu-dev \
-              ${COMPILER_PACKAGE} \
+              gcc g++ \
               && rm -rf /var/lib/apt/lists/*
           
           RUN ${CXX} --version
@@ -93,8 +78,8 @@ jobs:
           RUN git submodule update --init --recursive || true
           RUN git submodule foreach git pull origin main || true
 
-          ENV CC=${CC}
-          ENV CXX=${CXX}
+          ENV CC=gcc
+          ENV CXX=g++
 
           RUN cmake . && make -j$(nproc)
 

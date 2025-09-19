@@ -12,7 +12,7 @@ Function::Function() : JS::InternalObject({}, getPrototypeProperties(), u"Functi
     JS::InternalObject::defineOwnProperty(u"name", JS::DataDescriptor{JS::Any(u"anonymous"), false, false, false},
                                           false);
     JS::InternalObject::defineOwnProperty(
-        u"prototype", JS::DataDescriptor{JS::Any(getPrototypeProperties()), false, false, false}, false);
+        u"prototype", JS::DataDescriptor{JS::Any(getPrototypeProperties()), true, false, false}, false);
 }
 
 Function::Function(FunctionType f, int length, const std::u16string& name)
@@ -24,7 +24,7 @@ Function::Function(FunctionType f, int length, const std::u16string& name)
             if (funcObj && funcObj->hasProperty(u"prototype")) {
                 JS::Any proto = funcObj->get(u"prototype");
                 if (JS::COMPARE::Type(proto, JS::OBJECT)) {
-                    obj->prototype = std::get<std::shared_ptr<JS::InternalObject>>(proto.getValue());
+                    obj->prototype = std::move(std::get<std::shared_ptr<JS::InternalObject>>(proto.getValue()));
                 }
             }
         }
@@ -38,7 +38,7 @@ Function::Function(FunctionType f, int length, const std::u16string& name)
     JS::InternalObject::defineOwnProperty(u"length", JS::DataDescriptor{JS::Any(length), false, false, false}, false);
     JS::InternalObject::defineOwnProperty(u"name", JS::DataDescriptor{JS::Any(name), false, false, false}, false);
     JS::InternalObject::defineOwnProperty(
-        u"prototype", JS::DataDescriptor{JS::Any(getPrototypeProperties()), false, false, false}, false);
+        u"prototype", JS::DataDescriptor{JS::Any(getPrototypeProperties()), true, false, false}, false);
 }
 Function::Function(FunctionType f, std::shared_ptr<InternalObject> prototype)
     : JS::InternalObject({}, prototype, u"Function", true) {

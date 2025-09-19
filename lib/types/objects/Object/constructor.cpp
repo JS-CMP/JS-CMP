@@ -20,7 +20,7 @@ Object::Object(const std::unordered_map<std::u16string, JS::Any>& properties)
 Object::Object(const JS::Properties& properties)
     : JS::InternalObject(properties, JS::Function::getPrototypeProperties(), u"Object", true) {
     this->InternalObject::defineOwnProperty(u"prototype", DataDescriptor({
-                                                              JS::Any(JS::Function::getPrototypeProperties()),
+                                                              JS::Any(getPrototypeProperties()),
                                                               false,
                                                               false,
                                                               false,

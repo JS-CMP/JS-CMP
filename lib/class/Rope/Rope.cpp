@@ -52,7 +52,6 @@ Rope operator+(const std::u16string& other, const Rope& rope) {
 }
 
 bool Rope::operator==(const Rope& other) const {
-    std::cout << "Comparing ropes of lengths " << this->length() << " and " << other.length() << "\n";
     return equals(this->root, other.root);
 }
 

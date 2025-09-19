@@ -175,7 +175,7 @@ JS::Any InternalObject::defaultValue() {
 }
 
 bool InternalObject::defineOwnProperty(const std::u16string& key, Attribute desc, bool is_throw) {
-    auto current = this->getOwnProperty(key);
+    auto current = this->InternalObject::getOwnProperty(key);
     bool extensible = this->extensible;
 
     if (!current.has_value() && !extensible) {

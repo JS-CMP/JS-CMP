@@ -10,7 +10,7 @@
 #include <unicode/ustream.h>
 
 std::optional<JS::Attribute> JS::String::getOwnProperty(const std::u16string& key) const {
-    auto desc = JS::InternalObject::getOwnProperty(key);
+    auto desc = this->InternalObject::getOwnProperty(key);
     if (desc.has_value()) {
         return desc;
     }

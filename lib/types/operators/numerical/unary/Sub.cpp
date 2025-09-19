@@ -4,5 +4,5 @@
 
 JS::Any JS::Operator::operator-() const {
     double value = -JS::CONVERT::ToNumber(*this);
-    return JS::Any(value == -0.0 ? 0.0 : value);
+    return JS::Any(value);
 }

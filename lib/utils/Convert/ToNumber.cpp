@@ -59,7 +59,7 @@ double ToNumber(const std::string& str) {
                 return static_cast<int>(result);
             }
         } catch (...) {
-            return 0;
+            return std::numeric_limits<double>::quiet_NaN();
         }
     }
 }

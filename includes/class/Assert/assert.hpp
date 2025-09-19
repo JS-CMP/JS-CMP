@@ -52,6 +52,8 @@ public:
     static JS::Any doesNotThrow(const JS::Any& thisArgs, const JS::Any& args);
     /** @brief Asserts that value is ok (not null, undefined, NaN, false).*/
     static JS::Any ifError(const JS::Any& thisArgs, const JS::Any& args);
+    /** @brief Asserts that two values are same value.*/
+    static JS::Any sameValue(const JS::Any& thisArgs, const JS::Any& args);
     ///@}
 
     // Not Needed for ES5 Error
@@ -65,7 +67,6 @@ private:
     static bool isDeepEqual(const JS::Any& actual, const JS::Any& expected, bool strict = false);
 
     // test262 asserts
-    static JS::Any sameValue(const JS::Any& actual, const JS::Any& expected);
     static bool _sameValue(const JS::Any& actual, const JS::Any& expected);
 };
 } // namespace JS

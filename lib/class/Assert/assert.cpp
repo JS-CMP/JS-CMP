@@ -129,7 +129,7 @@ JS::Any assert::throws(const JS::Any& thisArgs, const JS::Any& args) {
     if (length < 1) {
         throw JS::Any(std::make_shared<JS::TypeError>(JS::Any(u"(The \"fn\" argument must be specified.)")));
     }
-    if (!JS::COMPARE::Object(args[0], u"Function")) {
+    if (!JS::COMPARE::Object(args[0], u"Error") && !JS::COMPARE::Object(args[0], u"Function")) {
         throw JS::Any(std::make_shared<JS::TypeError>(JS::Any(u"(The \"fn\" argument must be a function.)")));
     }
     JS::Any fn = args[0];
@@ -191,7 +191,15 @@ JS::Any assert::notStrictDeepEqual(const JS::Any& thisArgs, const JS::Any& args)
 }
 
 // Test262 Asserts
-JS::Any assert::sameValue(const JS::Any& actual, const JS::Any& expected) {
+JS::Any assert::sameValue(const JS::Any& thisArgs, const JS::Any& args) {
+    JS::Any actual, expected;
+    const double length = JS::CONVERT::ToNumber(args[u"length"]);
+    if (length < 2) {
+        throw JS::Any(std::make_shared<JS::TypeError>(
+            JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
+    }
+    actual = args[0];
+    expected = args[1];
     try {
         if (_sameValue(actual, expected)) {
             return {};

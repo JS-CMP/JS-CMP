@@ -2,6 +2,7 @@
 
 #include "internals/Object.hpp"
 #include "types/objects/JsObject.hpp"
+#include "utils/Convert.hpp"
 
 #include <utils/Is.hpp>
 

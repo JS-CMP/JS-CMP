@@ -162,11 +162,11 @@ public:
      */
     ///@{
     /** @brief Addition operator ++a */
-    JS::Any& operator++();
+    JS::Any operator++();
     /** @brief Addition operator a++ */
     JS::Any operator++(int);
     /** @brief Subtraction operator --a */
-    JS::Any& operator--();
+    JS::Any operator--();
     /** @brief Subtraction operator a-- */
     JS::Any operator--(int);
     ///@}
@@ -179,6 +179,10 @@ public:
     JS::Any operator<(const JS::Operator& other) const;
     /** @brief Comparaison operator a > b */
     JS::Any operator>(const JS::Operator& other) const;
+    /** @brief Comparaison operator a <= b */
+    JS::Any operator<=(const JS::Operator& other) const;
+    /** @brief Comparaison operator a >= b */
+    JS::Any operator>=(const JS::Operator& other) const;
     /** @brief Comparaison operator a == b */
     JS::Any operator==(const JS::Operator& other) const;
     /** @brief Comparaison operator a != b */

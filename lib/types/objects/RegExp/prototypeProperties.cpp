@@ -3,10 +3,10 @@
 
 std::shared_ptr<JS::InternalObject>& JS::RegExp::getPrototypeProperties() {
     static std::unordered_map<std::u16string, JS::Attribute> properties_prototype = {
-        {u"exec", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::RegExp::exec)), true, true, true}},
-        {u"test", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::RegExp::test)), true, true, true}},
+        {u"exec", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::RegExp::exec, 1, u"exec")), true, true, true}},
+        {u"test", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::RegExp::test, 1, u"test")), true, true, true}},
         {u"toString",
-         JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::RegExp::toString)), true, true, true}},
+         JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::RegExp::toString, 0, u"toString")), true, true, true}},
     };
     static std::shared_ptr<JS::InternalObject> instance = std::make_shared<JS::InternalObject>(
         properties_prototype, JS::Object::getPrototypeProperties(), u"RegExp", true);

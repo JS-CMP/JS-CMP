@@ -4,10 +4,10 @@
 std::shared_ptr<JS::InternalObject>& JS::Error::getPrototypeProperties() {
     static std::unordered_map<std::u16string, JS::Attribute> properties_prototype = {
         {u"toString",
-         JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Error::toString)), true, false, true}},
+         JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Error::toString, 0, u"toString")), true, false, true}},
         {u"name", JS::DataDescriptor{JS::Any("Error"), true, false, true}},
         {u"message", JS::DataDescriptor{JS::Any(""), true, false, true}},
-        {u"constructor", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Error::internal_constructor)),
+        {u"constructor", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Error::internal_constructor, 1, u"Error")),
                                             true, false, true}},
     };
 

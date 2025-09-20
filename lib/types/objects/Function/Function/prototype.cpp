@@ -68,7 +68,7 @@ JS::Any Function::bind(const JS::Any& thisArg, const JS::Any& args) {
     const std::shared_ptr<JS::FunctionBinded> F = std::make_shared<JS::FunctionBinded>(
         std::get<std::shared_ptr<JS::InternalObject>>(target.getValue()), args[0], A);
     F->class_name = u"Function Binded"; // temporary
-    if (JS::COMPARE::Object(target, u"Function")) {
+    if (JS::COMPARE::Object(target, FUNCTION_CLASS_NAME)) {
         const int L = JS::CONVERT::ToInteger(target[u"length"]) - static_cast<int>(A.size());
         F->defineOwnProperty(u"length", JS::DataDescriptor{JS::Any(L < 0 ? 0 : L), false, false, true}, false);
     } else {

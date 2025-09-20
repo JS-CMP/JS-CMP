@@ -14,10 +14,9 @@
 #include "types/objects/Error/JsURIError.hpp"
 #include "types/objects/Types.hpp"
 
-// TODO fix this create Object to inherit from Function
 JS::Any Object = JS::Any(std::make_shared<JS::Object>(JS::Properties{
     {u"length", JS::DataDescriptor{JS::Any(1), false, false, false}},
-    {u"name", JS::DataDescriptor{JS::Any(u"Object"), false, false, false}},
+    {u"name", JS::DataDescriptor{JS::Any(OBJECT_CLASS_NAME), false, false, false}},
     {u"keys", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Object::keys)), true, false, true}},
     {u"create", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Object::create)), true, false, true}},
     {u"defineProperty",
@@ -43,25 +42,25 @@ JS::Any Object = JS::Any(std::make_shared<JS::Object>(JS::Properties{
 
 JS::Any Function = JS::Any(std::make_shared<JS::Function>(JS::Properties{
     {u"length", JS::DataDescriptor{JS::Any(1), false, false, false}},
-    {u"name", JS::DataDescriptor{JS::Any(u"Function"), false, false, false}},
+    {u"name", JS::DataDescriptor{JS::Any(FUNCTION_CLASS_NAME), false, false, false}},
 }));
 
 JS::Any Array = JS::Any(std::make_shared<JS::Array>(JS::Properties{
     {u"length", JS::DataDescriptor{JS::Any(1), true, false, false}},
-    {u"name", JS::DataDescriptor{JS::Any(u"Array"), false, false, false}},
+    {u"name", JS::DataDescriptor{JS::Any(ARRAY_CLASS_NAME), false, false, false}},
     {u"isArray", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Array::isArray)), true, true, true}},
 }));
 
 JS::Any String = JS::Any(std::make_shared<JS::String>(JS::Properties{
     {u"length", JS::DataDescriptor{JS::Any(0), true, false, false}},
-    {u"name", JS::DataDescriptor{JS::Any(u"String"), false, false, false}},
+    {u"name", JS::DataDescriptor{JS::Any(STRING_CLASS_NAME), false, false, false}},
     {u"fromCharCode",
      JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::String::fromCharCode)), true, true, true}},
 }));
 
 JS::Any Number = JS::Any(std::make_shared<JS::Number>(JS::Properties{
     {u"length", JS::DataDescriptor{JS::Any(1), true, false, false}},
-    {u"name", JS::DataDescriptor{JS::Any(u"Number"), false, false, false}},
+    {u"name", JS::DataDescriptor{JS::Any(ERROR_CLASS_NAME), false, false, false}},
     {u"MAX_VALUE", JS::DataDescriptor{JS::Any(JS::Number::MAX_VALUE), false, false, false}},
     {u"MIN_VALUE", JS::DataDescriptor{JS::Any(JS::Number::MIN_VALUE), false, false, false}},
     {u"NaN", JS::DataDescriptor{JS::Any(JS::Number::NaN), false, false, false}},
@@ -70,12 +69,12 @@ JS::Any Number = JS::Any(std::make_shared<JS::Number>(JS::Properties{
 }));
 JS::Any Boolean = JS::Any(std::make_shared<JS::Boolean>(JS::Properties{
     {u"length", JS::DataDescriptor{JS::Any(1), true, false, false}},
-    {u"name", JS::DataDescriptor{JS::Any(u"Boolean"), false, false, false}},
+    {u"name", JS::DataDescriptor{JS::Any(BOOL_CLASS_NAME), false, false, false}},
 }));
 //
 JS::Any Error = JS::Any(std::make_shared<JS::Error>(JS::Properties{
     {u"length", JS::DataDescriptor{JS::Any(1), false, false, false}},
-    {u"name", JS::DataDescriptor{JS::Any(u"Error"), false, false, false}},
+    {u"name", JS::DataDescriptor{JS::Any(ERROR_CLASS_NAME), false, false, false}},
 }));
 
 // NativeError is not expected to be used directly, but it is the base class for all native errors.
@@ -134,7 +133,7 @@ JS::Any Math = JS::Any(std::make_shared<JS::InternalObject>(
         {u"SQRT1_2", JS::DataDescriptor{JS::Any(M_SQRT1_2), false, false, false}},
         {u"SQRT2", JS::DataDescriptor{JS::Any(M_SQRT2), false, false, false}},
     },
-    JS::Object::getPrototypeProperties(), u"Math", true)); // TODO Make math inherit from Object
+    JS::Object::getPrototypeProperties(), ERROR_CLASS_NAME, true)); // TODO Make math inherit from Object
 
 // TODO add prototype and AssertionError function
 JS::Any assert = JS::Any(std::make_shared<JS::assert>(JS::Properties{

@@ -9,7 +9,7 @@ std::shared_ptr<JS::InternalObject>& JS::ReferenceError::getPrototypeProperties(
                             false, true}}};
 
     static std::shared_ptr<JS::InternalObject> protoInstance =
-        std::make_shared<JS::InternalObject>(properties_prototype, JS::Error::getPrototypeProperties(), u"Error", true);
+        std::make_shared<JS::InternalObject>(properties_prototype, JS::Error::getPrototypeProperties(), ERROR_CLASS_NAME, true);
 
     return protoInstance;
 }

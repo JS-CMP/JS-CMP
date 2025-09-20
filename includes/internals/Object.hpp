@@ -32,7 +32,7 @@ public:
     ///@{
     /** @brief Default constructor initializes the object with an empty map */
     explicit InternalObject(JS::Properties properties = {}, std::shared_ptr<JS::InternalObject> prototype = nullptr,
-                            std::u16string class_name = u"Object", bool extensible = true);
+                            std::u16string class_name = OBJECT_CLASS_NAME, bool extensible = true);
     explicit InternalObject(const std::unordered_map<std::u16string, JS::Any>& properties = {});
     /** @brief Attribute constructor */
     explicit InternalObject(const JS::Attribute& attribute);

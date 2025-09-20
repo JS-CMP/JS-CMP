@@ -5,5 +5,5 @@
 
 // static
 JS::Any JS::Array::isArray(const JS::Any& thisArg, const JS::Any& args) {
-    return JS::Any(JS::COMPARE::Object(args[u"0"], u"Array"));
+    return JS::Any(JS::COMPARE::Object(args[u"0"], ARRAY_CLASS_NAME));
 }

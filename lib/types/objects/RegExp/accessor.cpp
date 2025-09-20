@@ -3,7 +3,7 @@
 #include "utils/Compare.hpp"
 
 JS::Any JS::RegExp::internal_call(const JS::Any& thisArg, const JS::Any& args) {
-    if (JS::COMPARE::Object(args[u"0"], u"RegExp") && !JS::COMPARE::Type(args[u"1"], JS::UNDEFINED)) {
+    if (JS::COMPARE::Object(args[u"0"], REGEXP_CLASS_NAME) && !JS::COMPARE::Type(args[u"1"], JS::UNDEFINED)) {
         return args[u"0"];
     }
     return JS::Any(std::make_shared<JS::RegExp>(args[u"0"], args[u"1"]));

@@ -10,7 +10,7 @@ std::shared_ptr<JS::InternalObject>& JS::Boolean::getPrototypeProperties() {
          DataDescriptor{Any(std::make_shared<JS::Function>(JS::Boolean::internal_constructor)), true, false, true}},
     };
     static std::shared_ptr<InternalObject> instance =
-        std::make_shared<InternalObject>(properties_prototype, JS::Object::getPrototypeProperties(), u"Boolean", true);
+        std::make_shared<InternalObject>(properties_prototype, JS::Object::getPrototypeProperties(), BOOL_CLASS_NAME, true);
     instance->primitiveValue = false;
     return instance;
 }

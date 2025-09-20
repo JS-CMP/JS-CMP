@@ -8,9 +8,9 @@
 
 namespace JS {
 RegExp::RegExp(const JS::Any& pattern, const JS::Any& flags)
-    : JS::InternalObject({}, getPrototypeProperties(), u"RegExp", true) {
+    : JS::InternalObject({}, getPrototypeProperties(), REGEXP_CLASS_NAME, true) {
     if (JS::COMPARE::Type(pattern, JS::OBJECT) &&
-        std::get<std::shared_ptr<JS::InternalObject>>(pattern.getValue())->class_name == u"RegExp") {
+        std::get<std::shared_ptr<JS::InternalObject>>(pattern.getValue())->class_name == REGEXP_CLASS_NAME) {
         if (JS::COMPARE::Type(flags, JS::UNDEFINED)) {
             auto RegExpObj = std::get<std::shared_ptr<JS::InternalObject>>(pattern.getValue());
             std::u16string P = JS::CONVERT::ToString(RegExpObj->get(u"source"));

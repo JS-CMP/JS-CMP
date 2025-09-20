@@ -4,6 +4,8 @@
 #include "internals/Attribute.hpp"
 #include "types/Types.hpp"
 
+#include <internals/Object.hpp>
+
 namespace JS::COMPARE {
 bool Type(const JS::Operator& a, const JS::Operator& b);
 bool Type(const JS::Operator& a, const JS::Types& b);

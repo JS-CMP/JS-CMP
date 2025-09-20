@@ -5,10 +5,10 @@
 
 namespace JS {
 Error::Error(const std::shared_ptr<JS::InternalObject>& prototype)
-    : JS::InternalObject({}, prototype == nullptr ? JS::Error::getPrototypeProperties() : prototype, u"Error", true) {}
+    : JS::InternalObject({}, prototype == nullptr ? JS::Error::getPrototypeProperties() : prototype, ERROR_CLASS_NAME, true) {}
 
 Error::Error(const JS::Any& value, const std::shared_ptr<JS::InternalObject>& prototype)
-    : JS::InternalObject({}, prototype == nullptr ? JS::Error::getPrototypeProperties() : prototype, u"Error", true) {
+    : JS::InternalObject({}, prototype == nullptr ? JS::Error::getPrototypeProperties() : prototype, ERROR_CLASS_NAME, true) {
     if (JS::COMPARE::Type(value, JS::UNDEFINED)) {
         return;
     }
@@ -18,7 +18,7 @@ Error::Error(const JS::Any& value, const std::shared_ptr<JS::InternalObject>& pr
 
 Error::Error(const std::unordered_map<std::u16string, JS::Attribute>& properties,
              const std::shared_ptr<JS::InternalObject>& prototype)
-    : InternalObject(properties, JS::Function::getPrototypeProperties(), u"Error", true) {
+    : InternalObject(properties, JS::Function::getPrototypeProperties(), ERROR_CLASS_NAME, true) {
     this->InternalObject::defineOwnProperty(
         u"prototype",
         JS::DataDescriptor{JS::Any(prototype == nullptr ? JS::Error::getPrototypeProperties() : prototype), false,

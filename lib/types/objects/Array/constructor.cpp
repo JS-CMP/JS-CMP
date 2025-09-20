@@ -10,14 +10,14 @@ namespace JS {
 
 Array::Array()
     : InternalObject({{u"length", JS::DataDescriptor{JS::Any(0), true, false, false}}}, getPrototypeProperties(),
-                     u"Array", true) {}
+                     ARRAY_CLASS_NAME, true) {}
 
 Array::Array(const JS::Any& args)
     : InternalObject(
           {
               {u"length", JS::DataDescriptor{JS::Any(0), true, false, false}},
           },
-          getPrototypeProperties(), u"Array", true) {
+          getPrototypeProperties(), ARRAY_CLASS_NAME, true) {
     auto len = CONVERT::ToUint32(args[u"length"]);
     if (len == 1) {
         auto value = args[u"0"];
@@ -41,7 +41,7 @@ Array::Array(const JS::Any& args)
 
 Array::Array(const std::vector<JS::Any>& data)
     : InternalObject({{u"length", JS::DataDescriptor{JS::Any(static_cast<uint32_t>(data.size())), true, false, false}}},
-                     getPrototypeProperties(), u"Array", true) {
+                     getPrototypeProperties(), ARRAY_CLASS_NAME, true) {
     uint32_t length = data.size();
     for (uint32_t i = 0; i < length; ++i) {
         this->defineOwnProperty(JS::CONVERT::ToString(i), JS::DataDescriptor{data[i], true, true, true});
@@ -50,7 +50,7 @@ Array::Array(const std::vector<JS::Any>& data)
 
 // Static constructor for properties
 Array::Array(const JS::Properties& properties)
-    : InternalObject(properties, JS::Function::getPrototypeProperties(), u"Array", true) {
+    : InternalObject(properties, JS::Function::getPrototypeProperties(), ARRAY_CLASS_NAME, true) {
     this->defineOwnProperty(u"prototype", JS::DataDescriptor{JS::Any(getPrototypeProperties()), false, false, false});
     this->call_function = &JS::Array::internal_call;
     this->construct = &JS::Array::internal_call;

@@ -9,7 +9,7 @@ std::shared_ptr<JS::InternalObject>& JS::RegExp::getPrototypeProperties() {
          JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::RegExp::toString)), true, true, true}},
     };
     static std::shared_ptr<JS::InternalObject> instance = std::make_shared<JS::InternalObject>(
-        properties_prototype, JS::Object::getPrototypeProperties(), u"RegExp", true);
+        properties_prototype, JS::Object::getPrototypeProperties(), REGEXP_CLASS_NAME, true);
 
     return instance;
 }

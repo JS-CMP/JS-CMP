@@ -38,7 +38,7 @@ std::shared_ptr<JS::InternalObject>& JS::String::getPrototypeProperties() {
                                             true, false, true}},
     };
     static std::shared_ptr<JS::InternalObject> instance = std::make_shared<JS::InternalObject>(
-        properties_prototype, JS::Object::getPrototypeProperties(), u"String", true);
+        properties_prototype, JS::Object::getPrototypeProperties(), STRING_CLASS_NAME, true);
     instance->primitiveValue = Rope("");
     return instance;
 }

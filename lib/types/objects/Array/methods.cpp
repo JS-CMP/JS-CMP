@@ -165,7 +165,7 @@ JS::Any Array::concat(const JS::Any& thisArg, const JS::Any& args) {
     while (!items.empty()) {
         JS::Any E = items.front();
         items.erase(items.begin());
-        if (JS::COMPARE::Object(E, u"Array")) {
+        if (JS::COMPARE::Object(E, ARRAY_CLASS_NAME)) {
             std::shared_ptr<JS::InternalObject> arrayObj = std::get<std::shared_ptr<JS::InternalObject>>(E.getValue());
             uint32_t k = 0;
             uint32_t len = JS::CONVERT::ToUint32(arrayObj->get(u"length"));

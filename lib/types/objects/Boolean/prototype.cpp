@@ -8,8 +8,7 @@ JS::Any JS::Boolean::toString(const JS::Any& thisArg, const JS::Any& args) {
     bool b;
     if (JS::COMPARE::Type(thisArg, JS::BOOLEAN)) {
         b = std::get<bool>(thisArg.getValue());
-    } else if (JS::COMPARE::Type(thisArg, JS::OBJECT) &&
-               std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->class_name == u"Boolean") {
+    } else if (JS::COMPARE::Object(thisArg, BOOL_CLASS_NAME)) {
         b = std::get<bool>(std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->primitiveValue);
     } else {
         throw JS::Any(std::make_shared<JS::TypeError>(
@@ -22,8 +21,7 @@ JS::Any JS::Boolean::valueOf(const JS::Any& thisArg, const JS::Any& args) {
     bool b;
     if (JS::COMPARE::Type(thisArg, JS::BOOLEAN)) {
         b = std::get<bool>(thisArg.getValue());
-    } else if (JS::COMPARE::Type(thisArg, JS::OBJECT) &&
-               std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->class_name == u"Boolean") {
+    } else if (JS::COMPARE::Object(thisArg, BOOL_CLASS_NAME)) {
         b = std::get<bool>(std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->primitiveValue);
     } else {
         throw JS::Any(std::make_shared<JS::TypeError>(

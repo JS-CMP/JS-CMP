@@ -42,7 +42,7 @@ const char* JS::Operator::what() const noexcept {
     }
 
     auto obj = CONVERT::ToObject(*this);
-    if (obj->class_name != u"Error") {
+    if (obj->class_name != ERROR_CLASS_NAME) {
         utf8_buffer = CONVERT::ToUtf8(u"Uncaught " + obj->getContent());
     } else {
         JS::Any temp = obj->get(u"message");

@@ -31,7 +31,7 @@ std::optional<JS::Attribute> JS::String::getOwnProperty(const std::u16string& ke
 
 // prototype methods
 JS::Any JS::String::toString(const JS::Any& thisArg, const JS::Any& args) {
-    if (!JS::COMPARE::Object(thisArg, u"String") && !JS::COMPARE::Type(thisArg, JS::STRING)) {
+    if (!JS::COMPARE::Object(thisArg, STRING_CLASS_NAME) && !JS::COMPARE::Type(thisArg, JS::STRING)) {
         throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("String.prototype.toString called on non-object")));
     }
     return JS::Any(
@@ -39,7 +39,7 @@ JS::Any JS::String::toString(const JS::Any& thisArg, const JS::Any& args) {
 }
 
 JS::Any JS::String::valueOf(const JS::Any& thisArg, const JS::Any& args) {
-    if (!JS::COMPARE::Object(thisArg, u"String") && !JS::COMPARE::Type(thisArg, JS::STRING)) {
+    if (!JS::COMPARE::Object(thisArg, STRING_CLASS_NAME) && !JS::COMPARE::Type(thisArg, JS::STRING)) {
         throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("String.prototype.valueOf called on non-object")));
     }
     return thisArg;

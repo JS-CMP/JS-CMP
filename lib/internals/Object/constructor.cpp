@@ -9,7 +9,7 @@ InternalObject::InternalObject(Properties properties, std::shared_ptr<InternalOb
 
 InternalObject::InternalObject(const std::unordered_map<std::u16string, JS::Any>& properties)
     : properties(std::make_shared<Properties>()), prototype(nullptr), call_function(nullptr), construct(nullptr),
-      class_name(u"Object"), extensible(true) {
+      class_name(OBJECT_CLASS_NAME), extensible(true) {
 
     for (const auto& [key, value] : properties) {
         this->InternalObject::put(key, value);

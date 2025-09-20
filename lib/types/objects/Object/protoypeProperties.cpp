@@ -26,6 +26,6 @@ std::shared_ptr<JS::InternalObject>& JS::Object::getPrototypeProperties(std::sha
              JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Object::propertyIsEnumerable, prototype)),
                                 true, false, true}},
         },
-        nullptr, u"Object", true);
+        nullptr, OBJECT_CLASS_NAME, true);
     return instance;
 }

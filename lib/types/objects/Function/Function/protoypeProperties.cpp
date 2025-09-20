@@ -3,7 +3,7 @@
 std::shared_ptr<JS::InternalObject>& JS::Function::getPrototypeProperties() {
     static bool initialized = false;
     static std::shared_ptr<JS::InternalObject> instance =
-        std::make_shared<JS::InternalObject>(JS::Properties{}, nullptr, u"Function", true);
+        std::make_shared<JS::InternalObject>(JS::Properties{}, nullptr, FUNCTION_CLASS_NAME, true);
     if (initialized) {
         return instance;
     }

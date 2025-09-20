@@ -33,7 +33,7 @@ std::shared_ptr<JS::InternalObject>& JS::Array::getPrototypeProperties() {
 
     };
     static std::shared_ptr<JS::InternalObject> instance = std::make_shared<JS::InternalObject>(
-        properties_prototype, JS::Object::getPrototypeProperties(), u"Object", true);
+        properties_prototype, JS::Object::getPrototypeProperties(), OBJECT_CLASS_NAME, true);
 
     return instance;
 }

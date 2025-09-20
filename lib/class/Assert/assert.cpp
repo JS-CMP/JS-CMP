@@ -129,7 +129,7 @@ JS::Any assert::throws(const JS::Any& thisArgs, const JS::Any& args) {
     if (length < 1) {
         throw JS::Any(std::make_shared<JS::TypeError>(JS::Any(u"(The \"fn\" argument must be specified.)")));
     }
-    if (!JS::COMPARE::Object(args[0], u"Error") && !JS::COMPARE::Object(args[0], u"Function")) {
+    if (!JS::COMPARE::Object(args[0], ERROR_CLASS_NAME) && !JS::COMPARE::Object(args[0], FUNCTION_CLASS_NAME)) {
         throw JS::Any(std::make_shared<JS::TypeError>(JS::Any(u"(The \"fn\" argument must be a function.)")));
     }
     JS::Any fn = args[0];
@@ -149,7 +149,7 @@ JS::Any assert::doesNotThrow(const JS::Any& thisArgs, const JS::Any& args) {
     if (length < 1) {
         throw JS::Any(std::make_shared<JS::TypeError>(JS::Any(u"(The \"fn\" argument must be specified.)")));
     }
-    if (!JS::COMPARE::Object(args[0], u"Function")) {
+    if (!JS::COMPARE::Object(args[0], FUNCTION_CLASS_NAME)) {
         throw JS::Any(std::make_shared<JS::TypeError>(JS::Any(u"(The \"fn\" argument must be a function.)")));
     }
     JS::Any fn = args[0];

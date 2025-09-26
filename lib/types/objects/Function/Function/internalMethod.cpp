@@ -16,7 +16,7 @@ bool Function::hasInstance(const JS::Any& value) const {
     if (!JS::COMPARE::Type(value, JS::OBJECT)) {
         return false;
     }
-    JS::Any O = std::get<std::shared_ptr<InternalObject>>(value.getValue())->get(u"prototype");
+    JS::Any O = this->get(u"prototype");
     if (!JS::COMPARE::Type(O, JS::OBJECT)) {
         throw JS::Any(
             std::make_shared<JS::TypeError>(JS::Any("Function.prototype[Symbol.hasInstance] called on non-object")));

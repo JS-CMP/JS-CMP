@@ -14,31 +14,8 @@
 #include "types/objects/Error/JsURIError.hpp"
 #include "types/objects/Types.hpp"
 
-JS::Any Object = JS::Any(std::make_shared<JS::Object>(JS::Properties{
-    {u"length", JS::DataDescriptor{JS::Any(1), false, false, false}},
-    {u"name", JS::DataDescriptor{JS::Any(OBJECT_CLASS_NAME), false, false, false}},
-    {u"keys", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Object::keys)), true, false, true}},
-    {u"create", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Object::create)), true, false, true}},
-    {u"defineProperty",
-     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Object::defineProperty)), true, false, true}},
-    {u"defineProperties",
-     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Object::defineProperties)), true, false, true}},
-    {u"freeze", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Object::freeze)), true, false, true}},
-    {u"getPrototypeOf",
-     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Object::getPrototypeOf)), true, false, true}},
-    {u"getOwnPropertyDescriptor",
-     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Object::getOwnPropertyDescriptor)), true, false,
-                        true}},
-    {u"getOwnPropertyNames",
-     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Object::getOwnPropertyNames)), true, false, true}},
-    {u"isSealed", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Object::isSealed)), true, false, true}},
-    {u"isFrozen", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Object::isFrozen)), true, false, true}},
-    {u"isExtensible",
-     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Object::isExtensible)), true, false, true}},
-    {u"preventExtensions",
-     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Object::preventExtensions)), true, false, true}},
-    {u"seal", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Object::seal)), true, false, true}},
-}));
+auto a = JS::Object::getConstructor();
+JS::Any Object = JS::Any(a);
 
 JS::Any Function = JS::Any(std::make_shared<JS::Function>(JS::Properties{
     {u"length", JS::DataDescriptor{JS::Any(1), false, false, false}},
@@ -191,5 +168,16 @@ JS::Any global = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::u1
     {u"encodeURIComponent", encodeURIComponent},
     {u"decodeURIComponent", decodeURIComponent},
 }));
+
+void displayPrototypeChain(JS::Any obj) {
+    JS::Any currentObj = obj;
+    JS::Any index = JS::Any(0);
+    console[u"log"](JS::Any(u"Prototype chain:"));
+    while (currentObj != JS::Any(JS::Null{})) {
+        console[u"log"](JS::Any("level"), index, currentObj["toString"]());
+        currentObj = Object["getPrototypeOf"](currentObj);
+        index++;
+    }
+}
 
 #endif // JS_CMP_GLOBAL_HPP

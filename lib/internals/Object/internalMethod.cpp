@@ -5,6 +5,7 @@
 
 #include <types/objects/Error/JsNativeError.hpp>
 #include <types/objects/Error/JsTypeError.hpp>
+#include <types/objects/Function/JsFunction.hpp>
 #include <utils/Convert.hpp>
 
 namespace JS {

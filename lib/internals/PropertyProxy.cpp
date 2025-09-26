@@ -43,7 +43,7 @@ JS::Value PropertyProxy::getValue() const {
 }
 
 void PropertyProxy::set(const JS::Any& value) {
-    obj_->put(key_, value);
+    obj_->put(key_, value, true);
 }
 
 void PropertyProxy::setValue(const JS::Value& value) {

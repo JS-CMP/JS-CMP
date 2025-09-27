@@ -11,6 +11,8 @@ std::u16string JS::Object::getContent() const {
 }
 
 std::shared_ptr<JS::Function> JS::Object::getConstructor() {
+    std::cout << "Creating Object constructor" << std::endl;
+    auto prototype = Function::getPrototypeProperties();
     static auto constructor = std::make_shared<JS::Function>([] (const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
         JS::Any value = args[u"0"];
         if (JS::COMPARE::Type(value, JS::OBJECT)) {
@@ -24,11 +26,12 @@ std::shared_ptr<JS::Function> JS::Object::getConstructor() {
             return JS::Any(std::make_shared<JS::Object>());
         }
         return JS::Any(JS::CONVERT::ToObject(value));
-    }, 1, OBJECT_CLASS_NAME);
+    }, prototype, 1, OBJECT_CLASS_NAME);
 
     constructor->class_name = OBJECT_CLASS_NAME;
     constructor->extensible = true;
-    constructor->prototype = Function::getPrototypeProperties();
+    std::cout << "Function prototype properties for Object constructor" << std::endl;
+    constructor->prototype = prototype;
     constructor->properties = std::make_shared<JS::Properties>(JS::Properties({
         {u"length", JS::DataDescriptor{JS::Any(1), false, false, false}},
         {u"name", JS::DataDescriptor{JS::Any(OBJECT_CLASS_NAME), false, false, false}},

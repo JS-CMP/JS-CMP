@@ -12,7 +12,7 @@ Function::Function() : JS::InternalObject({}, getPrototypeProperties(), FUNCTION
     JS::InternalObject::defineOwnProperty(u"name", JS::DataDescriptor{JS::Any(u"anonymous"), false, false, false},
                                           false);
     JS::InternalObject::defineOwnProperty(
-        u"prototype", JS::DataDescriptor{JS::Any(getPrototypeProperties()), true, false, false}, false);
+        u"prototype", JS::DataDescriptor{JS::Any(getPrototypePropertiesCopy(shared_from_this())), true, false, false}, false);
 }
 
 Function::Function(FunctionType f, int length, const std::u16string& name)
@@ -38,9 +38,9 @@ Function::Function(FunctionType f, int length, const std::u16string& name)
     JS::InternalObject::defineOwnProperty(u"length", JS::DataDescriptor{JS::Any(length), false, false, false}, false);
     JS::InternalObject::defineOwnProperty(u"name", JS::DataDescriptor{JS::Any(name), false, false, false}, false);
     JS::InternalObject::defineOwnProperty(
-        u"prototype", JS::DataDescriptor{JS::Any(getPrototypeProperties()), true, false, false}, false);
+        u"prototype", JS::DataDescriptor{JS::Any(getPrototypePropertiesCopy(shared_from_this())), true, false, false}, false);
 }
-Function::Function(FunctionType f, std::shared_ptr<InternalObject> prototype)
+Function::Function(FunctionType f,const std::shared_ptr<InternalObject>& prototype, int length, const std::u16string& name)
     : JS::InternalObject({}, prototype, FUNCTION_CLASS_NAME, true) {
     construct = [f](const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
         auto obj = std::make_shared<JS::Object>();
@@ -60,7 +60,10 @@ Function::Function(FunctionType f, std::shared_ptr<InternalObject> prototype)
         return JS::Any(obj);
     };
     call_function = std::move(f);
-    // TODO add length and name properties if needed
+    JS::InternalObject::defineOwnProperty(u"length", JS::DataDescriptor{JS::Any(length), false, false, false}, false);
+    JS::InternalObject::defineOwnProperty(u"name", JS::DataDescriptor{JS::Any(name), false, false, false}, false);
+    JS::InternalObject::defineOwnProperty(
+            u"prototype", JS::DataDescriptor{JS::Any(getPrototypePropertiesCopy(shared_from_this(), prototype)), true, false, false}, false);
 }
 
 // Static constructor for Function

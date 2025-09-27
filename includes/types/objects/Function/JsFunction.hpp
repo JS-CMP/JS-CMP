@@ -25,7 +25,7 @@ public:
     /** @brief Constructs a Function object with a callable `FunctionType`. */
     explicit Function(FunctionType f, int length = 0, const std::u16string& name = u"Anonymous");
     /** @brief Constructs a Function object with a callable `FunctionType` and a name. */
-    explicit Function(FunctionType f, std::shared_ptr<InternalObject> prototype);
+    explicit Function(FunctionType f,const std::shared_ptr<InternalObject>& prototype, int length = 0, const std::u16string& name = u"Anonymous");
     /** @brief Constructs a Function object with a set of properties. */
     explicit Function(const JS::Properties& properties);
     /** @brief Copy constructor */
@@ -72,6 +72,9 @@ public:
 
     /** @brief Function to get the methods of the property prototype */
     static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
+
+    /** @brief Function to get the methods of the property constructor by copying */
+    static std::shared_ptr<JS::InternalObject> getPrototypePropertiesCopy(const std::shared_ptr<JS::InternalObject>& constructor,std::shared_ptr<JS::InternalObject> prototype = nullptr);
 
     /**
      * @name Methods that represent the functions needed for calling and constructing

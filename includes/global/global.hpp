@@ -14,8 +14,7 @@
 #include "types/objects/Error/JsURIError.hpp"
 #include "types/objects/Types.hpp"
 
-auto a = JS::Object::getConstructor();
-JS::Any Object = JS::Any(a);
+JS::Any Object = JS::Any(JS::Object::getConstructor());
 
 JS::Any Function = JS::Any(std::make_shared<JS::Function>(JS::Properties{
     {u"length", JS::DataDescriptor{JS::Any(1), false, false, false}},

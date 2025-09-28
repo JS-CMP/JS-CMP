@@ -23,7 +23,9 @@ public:
      */
     ///@{
     /** @brief Constructs a Function object with a callable `FunctionType`. */
-    explicit Function(FunctionType f = DEFAULT_FCT, int length = 0, const std::u16string& name = u"Anonymous", const std::shared_ptr<InternalObject>& prototype = nullptr);
+    explicit Function(FunctionType f = DEFAULT_FCT, int length = 0, const std::u16string& name = u"Anonymous");
+    /** @brief Constructs a Function object with a callable `FunctionType` and explicit prototype. */
+    explicit Function(FunctionType f, int length, const std::u16string& name, const std::shared_ptr<InternalObject>& prototype);
     ///@}
 
     /** @brief Destructor */
@@ -59,7 +61,7 @@ public:
     [[nodiscard]] std::u16string getContent() const override;
 
     /** @brief Function to get the methods of the property prototype */
-    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
+    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties(const std::shared_ptr<JS::InternalObject>& constructor = nullptr);
 
     /** @brief Function to get the methods of the property constructor by copying */
     static std::shared_ptr<JS::InternalObject> getPrototypePropertiesCopy(std::shared_ptr<JS::InternalObject> constructor,std::shared_ptr<JS::InternalObject> prototype = nullptr);

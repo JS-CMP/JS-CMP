@@ -1,11 +1,10 @@
 #include "types/objects/Function/JsFunction.hpp"
 
-std::shared_ptr<JS::InternalObject>& JS::Object::getPrototypeProperties(const std::shared_ptr<JS::InternalObject>& prototype) {
+std::shared_ptr<JS::InternalObject>& JS::Object::getPrototypeProperties(const std::shared_ptr<JS::InternalObject>& prototype, const std::shared_ptr<Function>& constructor) {
     static std::shared_ptr<JS::InternalObject> instance = std::make_shared<JS::InternalObject>(
         JS::Properties{
             {u"constructor",
-            // TODO : fix recursive call
-             JS::DataDescriptor{JS::Any(JS::Object::getConstructor()), true, false, true}},
+             JS::DataDescriptor{JS::Any(constructor ? constructor : getConstructor()), true, false, true}},
             {u"toString", JS::DataDescriptor{
                  JS::Any(std::make_shared<JS::Function>(JS::Object::toString, 0, u"toString", prototype)),
                  true, false, true}},

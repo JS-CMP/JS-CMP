@@ -1,6 +1,6 @@
 #include "types/objects/Function/JsFunction.hpp"
 
-std::shared_ptr<JS::InternalObject>& JS::Function::getPrototypeProperties() {
+std::shared_ptr<JS::InternalObject>& JS::Function::getPrototypeProperties(const std::shared_ptr<JS::InternalObject>& constructor) {
     static bool initialized = false;
     static std::shared_ptr<JS::InternalObject> instance = std::make_shared<JS::InternalObject>(JS::Properties{}, nullptr, FUNCTION_CLASS_NAME, true);
 
@@ -8,7 +8,7 @@ std::shared_ptr<JS::InternalObject>& JS::Function::getPrototypeProperties() {
         return instance;
     }
 
-    instance->prototype = JS::Object::getPrototypeProperties(instance);
+    instance->prototype = constructor ? constructor : JS::Object::getPrototypeProperties(instance);
     instance->defineOwnProperty(u"length", JS::DataDescriptor{JS::Any(0), false, false, false});
     instance->defineOwnProperty(u"name", JS::DataDescriptor{JS::Any(u"Empty"), false, false, false});
 

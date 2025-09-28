@@ -8,10 +8,6 @@
 
 namespace JS {
 
-Array::Array()
-    : InternalObject({{u"length", JS::DataDescriptor{JS::Any(0), true, false, false}}}, getPrototypeProperties(),
-                     ARRAY_CLASS_NAME, true) {}
-
 Array::Array(const JS::Any& args)
     : InternalObject(
           {
@@ -46,14 +42,6 @@ Array::Array(const std::vector<JS::Any>& data)
     for (uint32_t i = 0; i < length; ++i) {
         this->defineOwnProperty(JS::CONVERT::ToString(i), JS::DataDescriptor{data[i], true, true, true});
     }
-}
-
-// Static constructor for properties
-Array::Array(const JS::Properties& properties)
-    : InternalObject(properties, JS::Function::getPrototypeProperties(), ARRAY_CLASS_NAME, true) {
-    this->defineOwnProperty(u"prototype", JS::DataDescriptor{JS::Any(getPrototypeProperties()), false, false, false});
-    this->call_function = &JS::Array::internal_call;
-    this->construct = &JS::Array::internal_call;
 }
 
 } // namespace JS

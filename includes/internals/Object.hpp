@@ -109,8 +109,17 @@ public:
     ///@{
     /** @brief check if the object is callable */
     [[nodiscard]] virtual bool isCallable() const;
+    /** @brief to delete */
     [[nodiscard]] virtual std::u16string getContent() const;
-
+    /** @brief initialize the object, used to fix shared_from_this */
+    virtual void initialize();
+    /** @brief instantiate and return an object, used to fix shared_from_this */
+    template<typename T, typename... Args>
+    [[nodiscard]] static std::shared_ptr<T> create(Args&&... args) {
+        auto obj = std::make_shared<T>(std::forward<Args>(args)...);
+        obj->initialize();
+        return obj;
+    }
     ///@}
 
     std::shared_ptr<JS::Properties> properties;    /**< The properties of the object. */

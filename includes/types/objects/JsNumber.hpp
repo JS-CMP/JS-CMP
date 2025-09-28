@@ -23,12 +23,8 @@ public:
      * These constructors create a new Object with the given value
      */
     ///@{
-    /** @brief Default constructor initializes the Number with 0 */
-    Number();
     /** @brief Constructor that take a value */
-    explicit Number(const JS::Any& value);
-    /** @brief Constructor for properties */
-    explicit Number(const JS::Properties& properties);
+    explicit Number(const JS::Any& value = JS::Any(0.0));
     ///@}
 
     /** @brief The destructor for the number defaulted */
@@ -70,6 +66,9 @@ public:
     /** @brief Function that is used when object is call as a function */
     static Any internal_call(const JS::Any& thisArg, const JS::Any& args);
     ///@}
+
+    /** @brief Get the instance of the global object. */
+    [[nodiscard]] static std::shared_ptr<JS::Function> getConstructor();
 
     /**
      * @name Static variable of the Number object

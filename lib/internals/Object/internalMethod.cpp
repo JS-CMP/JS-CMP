@@ -293,4 +293,8 @@ std::u16string InternalObject::getContent() const {
     throw JS::Any(std::make_shared<JS::NativeError>(JS::Any("getContent not implemented for this object")));
 }
 
+void InternalObject::initialize() {
+
+}
+
 } // namespace JS

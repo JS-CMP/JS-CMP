@@ -14,71 +14,21 @@
 #include "types/objects/Error/JsURIError.hpp"
 #include "types/objects/Types.hpp"
 
-JS::Any Object = JS::Any(JS::Object::getConstructor());
+inline auto Object = JS::Any(JS::Object::getConstructor());
+inline auto Array = JS::Any(JS::Array::getConstructor());
+inline auto Function = JS::Any(JS::Function::getConstructor());
+inline auto String = JS::Any(JS::String::getConstructor());
+inline auto Number = JS::Any(JS::Number::getConstructor());
+inline auto Boolean = JS::Any(JS::Boolean::getConstructor());
 
-JS::Any Function = JS::Any(std::make_shared<JS::Function>(JS::Properties{
-    {u"length", JS::DataDescriptor{JS::Any(1), false, false, false}},
-    {u"name", JS::DataDescriptor{JS::Any(FUNCTION_CLASS_NAME), false, false, false}},
-}));
-
-JS::Any Array = JS::Any(std::make_shared<JS::Array>(JS::Properties{
-    {u"length", JS::DataDescriptor{JS::Any(1), true, false, false}},
-    {u"name", JS::DataDescriptor{JS::Any(ARRAY_CLASS_NAME), false, false, false}},
-    {u"isArray", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Array::isArray)), true, true, true}},
-}));
-
-JS::Any String = JS::Any(std::make_shared<JS::String>(JS::Properties{
-    {u"length", JS::DataDescriptor{JS::Any(0), true, false, false}},
-    {u"name", JS::DataDescriptor{JS::Any(STRING_CLASS_NAME), false, false, false}},
-    {u"fromCharCode",
-     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::String::fromCharCode)), true, true, true}},
-}));
-
-JS::Any Number = JS::Any(std::make_shared<JS::Number>(JS::Properties{
-    {u"length", JS::DataDescriptor{JS::Any(1), true, false, false}},
-    {u"name", JS::DataDescriptor{JS::Any(ERROR_CLASS_NAME), false, false, false}},
-    {u"MAX_VALUE", JS::DataDescriptor{JS::Any(JS::Number::MAX_VALUE), false, false, false}},
-    {u"MIN_VALUE", JS::DataDescriptor{JS::Any(JS::Number::MIN_VALUE), false, false, false}},
-    {u"NaN", JS::DataDescriptor{JS::Any(JS::Number::NaN), false, false, false}},
-    {u"NEGATIVE_INFINITY", JS::DataDescriptor{JS::Any(JS::Number::NEGATIVE_INFINITY), false, false, false}},
-    {u"POSITIVE_INFINITY", JS::DataDescriptor{JS::Any(JS::Number::POSITIVE_INFINITY), false, false, false}},
-}));
-JS::Any Boolean = JS::Any(std::make_shared<JS::Boolean>(JS::Properties{
-    {u"length", JS::DataDescriptor{JS::Any(1), true, false, false}},
-    {u"name", JS::DataDescriptor{JS::Any(BOOL_CLASS_NAME), false, false, false}},
-}));
-//
-JS::Any Error = JS::Any(std::make_shared<JS::Error>(JS::Properties{
-    {u"length", JS::DataDescriptor{JS::Any(1), false, false, false}},
-    {u"name", JS::DataDescriptor{JS::Any(ERROR_CLASS_NAME), false, false, false}},
-}));
-
+inline auto Error = JS::Any(JS::Error::getConstructor());
 // NativeError is not expected to be used directly, but it is the base class for all native errors.
+inline auto RangeError = JS::Any(JS::RangeError::getConstructor());
+inline auto ReferenceError = JS::Any(JS::ReferenceError::getConstructor());
+inline auto SyntaxError = JS::Any(JS::SyntaxError::getConstructor());
+inline auto TypeError = JS::Any(JS::TypeError::getConstructor());
+inline auto URIError = JS::Any(JS::URIError::getConstructor());
 
-JS::Any RangeError = JS::Any(std::make_shared<JS::RangeError>(JS::Properties{
-    {u"length", JS::DataDescriptor{JS::Any(1), false, false, false}},
-    {u"name", JS::DataDescriptor{JS::Any(u"RangeError"), false, false, false}},
-}));
-
-JS::Any ReferenceError = JS::Any(std::make_shared<JS::ReferenceError>(JS::Properties{
-    {u"length", JS::DataDescriptor{JS::Any(1), false, false, false}},
-    {u"name", JS::DataDescriptor{JS::Any(u"ReferenceError"), false, false, false}},
-}));
-
-JS::Any SyntaxError = JS::Any(std::make_shared<JS::SyntaxError>(JS::Properties{
-    {u"length", JS::DataDescriptor{JS::Any(1), false, false, false}},
-    {u"name", JS::DataDescriptor{JS::Any(u"SyntaxError"), false, false, false}},
-}));
-
-JS::Any TypeError = JS::Any(std::make_shared<JS::TypeError>(JS::Properties{
-    {u"length", JS::DataDescriptor{JS::Any(1), false, false, false}},
-    {u"name", JS::DataDescriptor{JS::Any(u"TypeError"), false, false, false}},
-}));
-
-JS::Any URIError = JS::Any(std::make_shared<JS::URIError>(JS::Properties{
-    {u"length", JS::DataDescriptor{JS::Any(1), false, false, false}},
-    {u"name", JS::DataDescriptor{JS::Any(u"URIError"), false, false, false}},
-}));
 
 JS::Any Math = JS::Any(std::make_shared<JS::InternalObject>(
     JS::Properties{
@@ -112,7 +62,7 @@ JS::Any Math = JS::Any(std::make_shared<JS::InternalObject>(
     JS::Object::getPrototypeProperties(), ERROR_CLASS_NAME, true)); // TODO Make math inherit from Object
 
 // TODO add prototype and AssertionError function
-JS::Any assert = JS::Any(std::make_shared<JS::assert>(JS::Properties{
+inline auto assert = JS::Any(std::make_shared<JS::assert>(JS::Properties{
     {u"length", JS::DataDescriptor{JS::Any(2), false, false, false}},
     {u"name", JS::DataDescriptor{JS::Any(u"Assert"), false, false, false}},
     {u"fail", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::fail)), true, true, true}},
@@ -134,24 +84,24 @@ JS::Any assert = JS::Any(std::make_shared<JS::assert>(JS::Properties{
      JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::sameValue)), true, true, true}},
 }));
 
-JS::Any console = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::u16string, JS::Any>{
+inline auto console = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::u16string, JS::Any>{
     {u"log", JS::Any(std::make_shared<JS::Function>(JS::console::log))},
 }));
 
-JS::Any NaN = JS::Any(std::numeric_limits<double>::quiet_NaN());
-JS::Any Infinity = JS::Any(std::numeric_limits<double>::infinity());
-JS::Any undefined = JS::Any(JS::Undefined{});
+inline auto NaN = JS::Any(std::numeric_limits<double>::quiet_NaN());
+inline auto Infinity = JS::Any(std::numeric_limits<double>::infinity());
+inline auto undefined = JS::Any(JS::Undefined{});
 
-JS::Any isNaN = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::isNaN));
-JS::Any parseInt = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::parseInt));
-JS::Any parseFloat = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::parseFloat));
-JS::Any isFinite = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::isFinite));
-JS::Any encodeURI = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::encodeURI));
-JS::Any decodeURI = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::decodeURI));
-JS::Any encodeURIComponent = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::encodeURIComponent));
-JS::Any decodeURIComponent = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::decodeURIComponent));
+inline auto isNaN = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::isNaN));
+inline auto parseInt = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::parseInt));
+inline auto parseFloat = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::parseFloat));
+inline auto isFinite = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::isFinite));
+inline auto encodeURI = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::encodeURI));
+inline auto decodeURI = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::decodeURI));
+inline auto encodeURIComponent = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::encodeURIComponent));
+inline auto decodeURIComponent = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::decodeURIComponent));
 
-JS::Any global = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::u16string, JS::Any>{
+inline auto global = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::u16string, JS::Any>{
     {u"isNaN", isNaN},
     {u"parseInt", parseInt},
     {u"parseFloat", parseFloat},
@@ -168,7 +118,9 @@ JS::Any global = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::u1
     {u"decodeURIComponent", decodeURIComponent},
 }));
 
-void displayPrototypeChain(JS::Any obj) {
+
+// debug for now , remove eventually
+inline void displayPrototypeChain(JS::Any obj) {
     JS::Any currentObj = obj;
     JS::Any index = JS::Any(0);
     console[u"log"](JS::Any(u"Prototype chain:"));

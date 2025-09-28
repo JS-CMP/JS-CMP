@@ -22,15 +22,8 @@ public:
      * These constructors create a new String object with the given value
      */
     ///@{
-    /** @brief Default constructor initializes the object with an empty map */
-    String();
     /** @brief Constructor that initializes the object with a given value */
-    explicit String(const JS::Any& value);
-    /** @brief Constructor that initializes the object with a given set of properties */
-    explicit String(const std::unordered_map<std::u16string, JS::Any>& properties);
-    /** @brief Constructor that initializes the object with a given set of properties */
-    explicit String(const JS::Properties& properties);
-
+    explicit String(const JS::Any& value = JS::Any(""));
     ///@}
 
     /** @brief The destructor for the object defaulted */
@@ -129,6 +122,9 @@ public:
     /** @brief Function that is used when object is call as a function */
     static Any internal_call(const JS::Any& thisArg, const JS::Any& args);
     ///@}
+
+    /** @brief Get the instance of the global object. */
+    [[nodiscard]] static std::shared_ptr<JS::Function> getConstructor();
 };
 } // namespace JS
 

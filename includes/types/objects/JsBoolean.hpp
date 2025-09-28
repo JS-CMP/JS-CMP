@@ -21,12 +21,8 @@ public:
      * These constructors create a new Object with the given value
      */
     ///@{
-    /** @brief Default constructor initializes the Boolean with true */
-    Boolean();
     /** @brief Constructor that take a value */
-    explicit Boolean(const JS::Any& value);
-    /** @brief Constructor that initializes the object with a given set of properties */
-    explicit Boolean(const JS::Properties& properties);
+    explicit Boolean(const JS::Any& value = Any(false));
     ///@}
 
     /** @brief The destructor for the boolean defaulted */
@@ -56,6 +52,9 @@ public:
     /** @brief Function that is used when object is call as a function */
     static Any internal_call(const JS::Any& thisArg, const JS::Any& args);
     ///@}
+
+    /** @brief Get the instance of the global error. */
+    [[nodiscard]] static std::shared_ptr<JS::Function> getConstructor();
 };
 } // namespace JS
 

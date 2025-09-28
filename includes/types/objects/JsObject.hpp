@@ -22,10 +22,8 @@ public:
      * These constructors create a new Object with the given value
      */
     ///@{
-    /** @brief Default constructor initializes the object with an empty map */
-    Object();
     /** @brief Constructor for properties with a given set of properties */
-    explicit Object(const std::unordered_map<std::u16string, JS::Any>& properties);
+    explicit Object(const std::unordered_map<std::u16string, JS::Any>& properties = {});
     ///@}
 
     /** @brief The destructor for the object defaulted */

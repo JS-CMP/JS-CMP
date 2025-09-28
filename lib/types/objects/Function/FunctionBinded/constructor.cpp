@@ -40,24 +40,4 @@ FunctionBinded::FunctionBinded(const std::shared_ptr<JS::InternalObject>& Target
     };
 }
 
-FunctionBinded::FunctionBinded(const FunctionBinded& f) : JS::Function(f) {
-    this->targetFunction = f.targetFunction;
-    this->boundThis = f.boundThis;
-    this->boundArguments = f.boundArguments;
-}
-
-FunctionBinded::FunctionBinded(FunctionBinded&& f) noexcept : JS::Function(std::move(static_cast<JS::Function&&>(f))) {
-    this->targetFunction = std::move(f.targetFunction);
-    this->boundThis = std::move(f.boundThis);
-    this->boundArguments = std::move(f.boundArguments);
-}
-
-FunctionBinded& FunctionBinded::operator=(FunctionBinded&& f) noexcept {
-    this->targetFunction = std::move(f.targetFunction);
-    this->boundThis = std::move(f.boundThis);
-    this->boundArguments = std::move(f.boundArguments);
-    JS::Function::operator=(std::move(f));
-    return *this;
-}
-
 } // namespace JS

@@ -4,30 +4,29 @@ std::shared_ptr<JS::InternalObject>& JS::Object::getPrototypeProperties(const st
     static std::shared_ptr<JS::InternalObject> instance = std::make_shared<JS::InternalObject>(
         JS::Properties{
             {u"constructor",
-             JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Object::internal_constructor, prototype)),
-                                true, false, true}},
+            // TODO : fix recursive call
+             JS::DataDescriptor{JS::Any(JS::Object::getConstructor()), true, false, true}},
             {u"toString", JS::DataDescriptor{
-                 JS::Any(std::make_shared<JS::Function>(JS::Object::toString, prototype, 0, u"toString")),
+                 JS::Any(std::make_shared<JS::Function>(JS::Object::toString, 0, u"toString", prototype)),
                  true, false, true}},
             {u"toLocaleString",
              JS::DataDescriptor{
-                 JS::Any(std::make_shared<JS::Function>(JS::Object::toLocaleString, prototype, 0, u"toLocaleString")),
+                 JS::Any(std::make_shared<JS::Function>(JS::Object::toLocaleString, 0, u"toLocaleString", prototype)),
                  true, false, true}},
             {u"valueOf", JS::DataDescriptor{
-                 JS::Any(std::make_shared<JS::Function>(JS::Object::valueOf, prototype, 0, u"valueOf")),
+                 JS::Any(std::make_shared<JS::Function>(JS::Object::valueOf, 0, u"valueOf", prototype)),
                  true, false, true}},
             {u"hasOwnProperty",
              JS::DataDescriptor{
-                 JS::Any(std::make_shared<JS::Function>(JS::Object::hasOwnProperty, prototype, 1, u"hasOwnProperty")),
+                 JS::Any(std::make_shared<JS::Function>(JS::Object::hasOwnProperty, 1, u"hasOwnProperty", prototype)),
                  true, false, true}},
             {u"isPrototypeOf",
              JS::DataDescriptor{
-                 JS::Any(std::make_shared<JS::Function>(JS::Object::isPrototypeOf, prototype, 1, u"isPrototypeOf")),
+                 JS::Any(std::make_shared<JS::Function>(JS::Object::isPrototypeOf, 1, u"isPrototypeOf", prototype)),
                  true, false, true}},
             {u"propertyIsEnumerable",
              JS::DataDescriptor{
-                 JS::Any(std::make_shared<JS::Function>(JS::Object::propertyIsEnumerable, prototype, 1,
-                                                        u"propertyIsEnumerable")),
+                 JS::Any(std::make_shared<JS::Function>(JS::Object::propertyIsEnumerable, 1,u"propertyIsEnumerable", prototype)),
                  true, false, true}},
         },
         nullptr, OBJECT_CLASS_NAME, true);

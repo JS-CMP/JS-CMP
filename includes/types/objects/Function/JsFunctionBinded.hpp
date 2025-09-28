@@ -22,14 +22,6 @@ public:
     /** @brief Default constructor initializes the object with an empty map */
     FunctionBinded(const std::shared_ptr<JS::InternalObject>& TargetFunction, const JS::Any& BoundThis,
                    const std::vector<JS::Any>& BoundArguments);
-    /** @brief Copy constructor */
-    FunctionBinded(const FunctionBinded& f);
-    /** @brief Move constructor */
-    FunctionBinded(FunctionBinded&& f) noexcept;
-    /** @brief Copy assignment operator */
-    FunctionBinded& operator=(const FunctionBinded& function) = default;
-    /** @brief Move assignment operator */
-    FunctionBinded& operator=(FunctionBinded&& f) noexcept;
     ///@}
 
     /** @brief Destructor */

@@ -2,8 +2,6 @@
 #include "utils/Convert.hpp"
 
 namespace JS {
-TypeError::TypeError() : JS::Error(JS::TypeError::getPrototypeProperties()) {}
-
 TypeError::TypeError(const JS::Any& value) : JS::Error(value, JS::TypeError::getPrototypeProperties()) {}
 
 TypeError::TypeError(const std::unordered_map<std::u16string, JS::Attribute>& properties)

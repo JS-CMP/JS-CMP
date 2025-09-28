@@ -4,9 +4,6 @@
 #include "utils/Convert.hpp"
 
 namespace JS {
-Error::Error(const std::shared_ptr<JS::InternalObject>& prototype)
-    : JS::InternalObject({}, prototype == nullptr ? JS::Error::getPrototypeProperties() : prototype, ERROR_CLASS_NAME, true) {}
-
 Error::Error(const JS::Any& value, const std::shared_ptr<JS::InternalObject>& prototype)
     : JS::InternalObject({}, prototype == nullptr ? JS::Error::getPrototypeProperties() : prototype, ERROR_CLASS_NAME, true) {
     if (JS::COMPARE::Type(value, JS::UNDEFINED)) {

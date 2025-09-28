@@ -18,8 +18,6 @@ public:
      * These constructors create a new Error with the given value
      */
     ///@{
-    /** @brief Default constructor initializes the Error */
-    explicit Error(const std::shared_ptr<JS::InternalObject>& prototype = nullptr);
     /** @brief Constructor that take a value */
     explicit Error(const JS::Any& value, const std::shared_ptr<JS::InternalObject>& prototype = nullptr);
     /** @brief Constructor for properties */
@@ -54,6 +52,9 @@ public:
     /** @brief Function that is used when object is call as a function */
     static Any internal_call(const JS::Any& thisArg, const JS::Any& args);
     ///@}
+
+    /** @brief Get the instance of the global error. */
+    [[nodiscard]] static std::shared_ptr<JS::Function> getConstructor();
 };
 
 } // namespace JS

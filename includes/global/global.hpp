@@ -32,24 +32,24 @@ inline auto URIError = JS::Any(JS::URIError::getConstructor());
 
 JS::Any Math = JS::Any(std::make_shared<JS::InternalObject>(
     JS::Properties{
-        {u"abs", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::abs)), true, true, true}},
-        {u"acos", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::acos)), true, true, true}},
-        {u"asin", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::asin)), true, true, true}},
-        {u"atan", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::atan)), true, true, true}},
-        {u"atan2", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::atan2)), true, true, true}},
-        {u"ceil", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::ceil)), true, true, true}},
-        {u"cos", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::cos)), true, true, true}},
-        {u"exp", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::exp)), true, true, true}},
-        {u"floor", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::floor)), true, true, true}},
-        {u"log", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::log)), true, true, true}},
-        {u"max", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::max)), true, true, true}},
-        {u"min", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::min)), true, true, true}},
-        {u"pow", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::pow)), true, true, true}},
-        {u"random", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::random)), true, true, true}},
-        {u"round", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::round)), true, true, true}},
-        {u"sin", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::sin)), true, true, true}},
-        {u"sqrt", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::sqrt)), true, true, true}},
-        {u"tan", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Math::tan)), true, true, true}},
+        {u"abs", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Math::abs)), true, true, true}},
+        {u"acos", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Math::acos)), true, true, true}},
+        {u"asin", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Math::asin)), true, true, true}},
+        {u"atan", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Math::atan)), true, true, true}},
+        {u"atan2", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Math::atan2)), true, true, true}},
+        {u"ceil", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Math::ceil)), true, true, true}},
+        {u"cos", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Math::cos)), true, true, true}},
+        {u"exp", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Math::exp)), true, true, true}},
+        {u"floor", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Math::floor)), true, true, true}},
+        {u"log", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Math::log)), true, true, true}},
+        {u"max", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Math::max)), true, true, true}},
+        {u"min", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Math::min)), true, true, true}},
+        {u"pow", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Math::pow)), true, true, true}},
+        {u"random", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Math::random)), true, true, true}},
+        {u"round", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Math::round)), true, true, true}},
+        {u"sin", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Math::sin)), true, true, true}},
+        {u"sqrt", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Math::sqrt)), true, true, true}},
+        {u"tan", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Math::tan)), true, true, true}},
         {u"PI", JS::DataDescriptor{JS::Any(M_PI), false, false, false}},
         {u"E", JS::DataDescriptor{JS::Any(M_E), false, false, false}},
         {u"LN2", JS::DataDescriptor{JS::Any(M_LN2), false, false, false}},
@@ -65,21 +65,21 @@ JS::Any Math = JS::Any(std::make_shared<JS::InternalObject>(
 inline auto assert = JS::Any(std::make_shared<JS::assert>(JS::Properties{
     {u"length", JS::DataDescriptor{JS::Any(2), false, false, false}},
     {u"name", JS::DataDescriptor{JS::Any(u"Assert"), false, false, false}},
-    {u"fail", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::fail)), true, true, true}},
-    {u"ok", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::ok)), true, true, true}},
-    {u"equal", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::equal)), true, true, true}},
-    {u"notEqual", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::notEqual)), true, true, true}},
-    {u"deepEqual", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::deepEqual)), true, true, true}},
-    {u"notDeepEqual", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::notDeepEqual)), true, true, true}},
-    {u"strictEqual", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::strictEqual)), true, true, true}},
-    {u"notStrictEqual", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::notStrictEqual)), true, true, true}},
-    {u"throws", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::throws)), true, true, true}},
-    {u"doesNotThrow", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::doesNotThrow)), true, true, true}},
-    {u"sameValue", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::sameValue)), true, true, true}},
+    {u"fail", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::fail)), true, true, true}},
+    {u"ok", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::ok)), true, true, true}},
+    {u"equal", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::equal)), true, true, true}},
+    {u"notEqual", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::notEqual)), true, true, true}},
+    {u"deepEqual", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::deepEqual)), true, true, true}},
+    {u"notDeepEqual", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::notDeepEqual)), true, true, true}},
+    {u"strictEqual", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::strictEqual)), true, true, true}},
+    {u"notStrictEqual", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::notStrictEqual)), true, true, true}},
+    {u"throws", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::throws)), true, true, true}},
+    {u"doesNotThrow", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::doesNotThrow)), true, true, true}},
+    {u"sameValue", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::sameValue)), true, true, true}},
 }));
 
-inline auto console = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::u16string, JS::Any>{
-    {u"log", JS::Any(std::make_shared<JS::Function>(JS::console::log))},
+inline auto console = JS::Any(JS::InternalObject::create<JS::Object>(std::unordered_map<std::u16string, JS::Any>{
+    {u"log", JS::Any(JS::InternalObject::create<JS::Function>(JS::console::log))},
 }));
 
 inline auto NaN = JS::Any(std::numeric_limits<double>::quiet_NaN());
@@ -95,7 +95,7 @@ inline auto decodeURI = JS::Any(JS::InternalObject::create<JS::Function>(JS::GLO
 inline auto encodeURIComponent = JS::Any(JS::InternalObject::create<JS::Function>(JS::GLOBAL::encodeURIComponent));
 inline auto decodeURIComponent = JS::Any(JS::InternalObject::create<JS::Function>(JS::GLOBAL::decodeURIComponent));
 
-inline auto global = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::u16string, JS::Any>{
+inline auto global = JS::Any(JS::InternalObject::create<JS::Object>(std::unordered_map<std::u16string, JS::Any>{
     {u"isNaN", isNaN},
     {u"parseInt", parseInt},
     {u"parseFloat", parseFloat},

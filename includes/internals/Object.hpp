@@ -112,12 +112,20 @@ public:
     /** @brief to delete */
     [[nodiscard]] virtual std::u16string getContent() const;
     /** @brief initialize the object, used to fix shared_from_this */
-    virtual void initialize();
+    virtual void initialize(std::shared_ptr<JS::InternalObject> prototype);
     /** @brief instantiate and return an object, used to fix shared_from_this */
     template<typename T, typename... Args>
     [[nodiscard]] static std::shared_ptr<T> create(Args&&... args) {
         auto obj = std::make_shared<T>(std::forward<Args>(args)...);
-        obj->initialize();
+        obj->initialize(nullptr);
+        return obj;
+    }
+
+    /** @brief instantiate and return an object with custom initialize parameter */
+    template<typename T, typename... Args>
+    [[nodiscard]] static std::shared_ptr<T> create(std::shared_ptr<JS::InternalObject> init_param, Args&&... args) {
+        auto obj = std::make_shared<T>(std::forward<Args>(args)...);
+        obj->initialize(init_param);
         return obj;
     }
     ///@}
@@ -134,3 +142,4 @@ public:
 } // namespace JS
 
 #endif // OBJECT_HPP
+

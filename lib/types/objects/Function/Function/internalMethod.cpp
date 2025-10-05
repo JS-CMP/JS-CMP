@@ -8,7 +8,7 @@ namespace JS {
 JS::Any Function::get(const std::u16string& key) const {
     if (key == u"caller") {
         throw JS::Any(
-            std::make_shared<JS::TypeError>(JS::Any("Cannot access 'caller' or 'arguments.callee' in strict mode")));
+            JS::InternalObject::create<JS::TypeError>(JS::Any("Cannot access 'caller' or 'arguments.callee' in strict mode")));
     }
     return InternalObject::get(key);
 }
@@ -20,7 +20,7 @@ bool Function::hasInstance(const JS::Any& value) const {
     JS::Any O = this->get(u"prototype");
     if (!JS::COMPARE::Type(O, JS::OBJECT)) {
         throw JS::Any(
-            std::make_shared<JS::TypeError>(JS::Any("Function.prototype[Symbol.hasInstance] called on non-object")));
+            JS::InternalObject::create<JS::TypeError>(JS::Any("Function.prototype[Symbol.hasInstance] called on non-object")));
     }
     std::shared_ptr<JS::InternalObject> obj = std::get<std::shared_ptr<JS::InternalObject>>(O.getValue());
     std::shared_ptr<JS::InternalObject> V = std::get<std::shared_ptr<JS::InternalObject>>(value.getValue());
@@ -39,10 +39,10 @@ std::u16string Function::getContent() const {
 
 std::shared_ptr<JS::Function> JS::Function::getConstructor(std::shared_ptr<JS::InternalObject> instance) {
     auto prototype = instance ? instance : Function::getPrototypeProperties();
-    static auto constructor = std::make_shared<JS::Function>([] (const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
+    static auto constructor = JS::InternalObject::create<JS::Function>( [] (const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
         auto len = CONVERT::ToUint32(args[u"length"]);
         if (len < 1) {
-            return JS::Any(std::make_shared<JS::Function>());
+            return JS::Any(JS::InternalObject::create<JS::Function>());
         }
         throw std::runtime_error("Not implemented"); // TODO:: Fix + change error
     }, 1, OBJECT_CLASS_NAME, prototype);

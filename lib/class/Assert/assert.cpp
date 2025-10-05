@@ -23,7 +23,7 @@ JS::Any assert::fail(const JS::Any& thisArgs, const JS::Any& args) {
 JS::Any assert::ok(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length == 0) {
-        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any(u"(No value argument passed to `Assert.ok()`)")));
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any(u"(No value argument passed to `Assert.ok()`)")));
     }
     if (!args[0]) {
         innerFail(args[0], JS::Any(true), length == 2 ? args[1] : JS::Any("The expression evaluated to a falsy value"),
@@ -36,7 +36,7 @@ JS::Any assert::ok(const JS::Any& thisArgs, const JS::Any& args) {
 JS::Any assert::equal(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw JS::Any(std::make_shared<JS::TypeError>(
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(
             JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
     }
 
@@ -50,7 +50,7 @@ JS::Any assert::equal(const JS::Any& thisArgs, const JS::Any& args) {
 JS::Any assert::notEqual(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw JS::Any(std::make_shared<JS::TypeError>(
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(
             JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
     }
     if (args[0] == args[1] || (JS::GLOBAL::isNaN(JS::Any(), JS::Arguments::CreateArgumentsObject({args[0]})) &&
@@ -64,7 +64,7 @@ JS::Any assert::notEqual(const JS::Any& thisArgs, const JS::Any& args) {
 JS::Any assert::deepEqual(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw JS::Any(std::make_shared<JS::TypeError>(
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(
             JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
     }
     if (isDeepEqual(args[0], args[1])) {
@@ -76,7 +76,7 @@ JS::Any assert::deepEqual(const JS::Any& thisArgs, const JS::Any& args) {
 JS::Any assert::notDeepEqual(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw JS::Any(std::make_shared<JS::TypeError>(
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(
             JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
     }
     if (!isDeepEqual(args[0], args[1])) {
@@ -89,7 +89,7 @@ JS::Any assert::notDeepEqual(const JS::Any& thisArgs, const JS::Any& args) {
 JS::Any assert::strictEqual(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw JS::Any(std::make_shared<JS::TypeError>(
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(
             JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
     }
     if (!JS::COMPARE::SameValue(args[0], args[1])) {
@@ -101,7 +101,7 @@ JS::Any assert::strictEqual(const JS::Any& thisArgs, const JS::Any& args) {
 JS::Any assert::notStrictEqual(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw JS::Any(std::make_shared<JS::TypeError>(
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(
             JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
     }
     if (JS::COMPARE::SameValue(args[0], args[1])) {
@@ -114,7 +114,7 @@ JS::Any assert::notStrictEqual(const JS::Any& thisArgs, const JS::Any& args) {
 JS::Any assert::ifError(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length != 1) {
-        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any(u"(The \"value\" argument must be specified.)")));
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any(u"(The \"value\" argument must be specified.)")));
     }
     if (!JS::COMPARE::Type(args[0], JS::UNDEFINED) && !JS::COMPARE::Type(args[0], JS::NULL_TYPE)) {
         innerFail(args[0], JS::Any(JS::Undefined()),
@@ -127,10 +127,10 @@ JS::Any assert::throws(const JS::Any& thisArgs, const JS::Any& args) {
     // TODO:: handle obj properties, regexp class
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 1) {
-        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any(u"(The \"fn\" argument must be specified.)")));
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any(u"(The \"fn\" argument must be specified.)")));
     }
     if (!JS::COMPARE::Object(args[0], ERROR_CLASS_NAME) && !JS::COMPARE::Object(args[0], FUNCTION_CLASS_NAME)) {
-        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any(u"(The \"fn\" argument must be a function.)")));
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any(u"(The \"fn\" argument must be a function.)")));
     }
     JS::Any fn = args[0];
     if (length == 1) {
@@ -147,10 +147,10 @@ JS::Any assert::throws(const JS::Any& thisArgs, const JS::Any& args) {
 JS::Any assert::doesNotThrow(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 1) {
-        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any(u"(The \"fn\" argument must be specified.)")));
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any(u"(The \"fn\" argument must be specified.)")));
     }
     if (!JS::COMPARE::Object(args[0], FUNCTION_CLASS_NAME)) {
-        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any(u"(The \"fn\" argument must be a function.)")));
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any(u"(The \"fn\" argument must be a function.)")));
     }
     JS::Any fn = args[0];
     if (length == 1) {
@@ -169,7 +169,7 @@ JS::Any assert::doesNotThrow(const JS::Any& thisArgs, const JS::Any& args) {
 JS::Any assert::deepStrictEqual(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw JS::Any(std::make_shared<JS::TypeError>(
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(
             JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
     }
     if (!isDeepEqual(args[0], args[1], true)) {
@@ -181,7 +181,7 @@ JS::Any assert::deepStrictEqual(const JS::Any& thisArgs, const JS::Any& args) {
 JS::Any assert::notStrictDeepEqual(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw JS::Any(std::make_shared<JS::TypeError>(
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(
             JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
     }
     if (isDeepEqual(args[0], args[1], true)) {
@@ -195,7 +195,7 @@ JS::Any assert::sameValue(const JS::Any& thisArgs, const JS::Any& args) {
     JS::Any actual, expected;
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw JS::Any(std::make_shared<JS::TypeError>(
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(
             JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
     }
     actual = args[0];
@@ -227,7 +227,7 @@ void assert::innerFail(const JS::Any& actual, const JS::Any& expected, const JS:
                    ? JS::CONVERT::ToString(actual) + u" " + operator_ + u" " + JS::CONVERT::ToString(expected)
                    : JS::CONVERT::ToString(message);
 
-    throw JS::Any(std::make_shared<JS::Error>(JS::Any(), JS::Object::getPrototypeProperties()));
+    throw JS::Any(JS::InternalObject::create<JS::Error>(JS::Any(), JS::Object::getPrototypeProperties()));
     // throw AssertionError(actual, expected, msg, operator_);
 }
 

@@ -11,11 +11,11 @@ std::u16string JS::Number::getContent() const {
 
 std::shared_ptr<JS::Function> JS::Number::getConstructor() {
     auto prototype = Function::getPrototypeProperties();
-    static auto constructor = std::make_shared<JS::Function>([] (const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
+    static auto constructor = JS::InternalObject::create<JS::Function>([] (const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
         if (JS::COMPARE::Type(args[u"0"], JS::UNDEFINED)) {
-            return JS::Any(std::make_shared<JS::Number>());
+            return JS::Any(JS::InternalObject::create<JS::Number>());
         }
-        return JS::Any(std::make_shared<JS::Number>(args[u"0"]));
+        return JS::Any(JS::InternalObject::create<JS::Number>(args[u"0"]));
     }, 1, NUMBER_CLASS_NAME, prototype);
 
     constructor->class_name = NUMBER_CLASS_NAME;

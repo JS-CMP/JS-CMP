@@ -11,7 +11,7 @@
 inline JS::Any inFunction(JS::Any a, const JS::Any& b) { // TODO: fix CREATE_OPERATOR to handle a has a reference to
                                                          // avoid a copy with std::forward and std::move
     if (JS::COMPARE::Type(b, JS::OBJECT) == false) {
-        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Cannot use 'in' operator on non-object")));
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any("Cannot use 'in' operator on non-object")));
     }
 
     auto obj = std::get<std::shared_ptr<JS::InternalObject>>(b.getValue());

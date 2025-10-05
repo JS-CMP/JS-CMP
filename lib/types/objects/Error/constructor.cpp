@@ -12,15 +12,4 @@ Error::Error(const JS::Any& value, const std::shared_ptr<JS::InternalObject>& pr
     this->InternalObject::defineOwnProperty(
         u"message", JS::DataDescriptor{JS::Any(JS::CONVERT::ToString(value)), false, false, false});
 }
-
-Error::Error(const std::unordered_map<std::u16string, JS::Attribute>& properties,
-             const std::shared_ptr<JS::InternalObject>& prototype)
-    : InternalObject(properties, JS::Function::getPrototypeProperties(), ERROR_CLASS_NAME, true) {
-    this->InternalObject::defineOwnProperty(
-        u"prototype",
-        JS::DataDescriptor{JS::Any(prototype == nullptr ? JS::Error::getPrototypeProperties() : prototype), false,
-                           false, true});
-    this->call_function = &Error::internal_call;
-    this->construct = &Error::internal_constructor;
-}
 } // namespace JS

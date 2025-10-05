@@ -226,15 +226,8 @@ void assert::innerFail(const JS::Any& actual, const JS::Any& expected, const JS:
     auto msg = JS::COMPARE::Type(message, JS::UNDEFINED)
                    ? JS::CONVERT::ToString(actual) + u" " + operator_ + u" " + JS::CONVERT::ToString(expected)
                    : JS::CONVERT::ToString(message);
-    throw JS::Any(std::make_shared<JS::Error>(
-        JS::Properties{
-            {u"name", JS::DataDescriptor{JS::Any(u"AssertionError"), false, false, false}},
-            {u"message", JS::DataDescriptor{JS::Any(msg), true, true, true}},
-            {u"actual", JS::DataDescriptor{actual, true, true, true}},
-            {u"expected", JS::DataDescriptor{expected, true, true, true}},
-            {u"operator", JS::DataDescriptor{JS::Any(operator_), true, true, true}},
-        },
-        JS::Object::getPrototypeProperties()));
+
+    throw JS::Any(std::make_shared<JS::Error>(JS::Any(), JS::Object::getPrototypeProperties()));
     // throw AssertionError(actual, expected, msg, operator_);
 }
 

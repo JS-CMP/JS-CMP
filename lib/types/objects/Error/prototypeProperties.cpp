@@ -7,8 +7,7 @@ std::shared_ptr<JS::InternalObject>& JS::Error::getPrototypeProperties() {
          JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Error::toString)), true, false, true}},
         {u"name", JS::DataDescriptor{JS::Any("Error"), true, false, true}},
         {u"message", JS::DataDescriptor{JS::Any(""), true, false, true}},
-        {u"constructor", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::Error::internal_constructor)),
-                                            true, false, true}},
+        {u"constructor", JS::DataDescriptor{JS::Any(getConstructor()),true, false, true}},
     };
 
     static std::shared_ptr<JS::InternalObject> protoInstance = std::make_shared<JS::InternalObject>(

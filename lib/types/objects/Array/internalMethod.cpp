@@ -11,7 +11,7 @@ std::u16string JS::Array::getContent() const {
 std::shared_ptr<JS::Function> JS::Array::getConstructor() {
     auto prototype = Function::getPrototypeProperties();
     static auto constructor = std::make_shared<JS::Function>([] (const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
-        return JS::Any(std::make_shared<JS::Array>(args));
+        return JS::Any(InternalObject::create<Array>(args));
     }, 1, ARRAY_CLASS_NAME, prototype);
 
     constructor->class_name = ARRAY_CLASS_NAME;

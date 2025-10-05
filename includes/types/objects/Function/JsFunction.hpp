@@ -67,21 +67,11 @@ public:
     static std::shared_ptr<JS::InternalObject> getPrototypePropertiesCopy(std::shared_ptr<JS::InternalObject> constructor,std::shared_ptr<JS::InternalObject> prototype = nullptr);
 
     /**
-     * @name Methods that represent the functions needed for calling and constructing
-     */
-    ///@{
-    /** @brief Function that represent the constructor of the Object */
-    static Any internal_constructor(const JS::Any& thisArgs, const JS::Any& args);
-    /** @brief Function that is used when object is call as a function */
-    static Any internal_call(const JS::Any& thisArg, const JS::Any& args);
-    ///@}
-
-    /**
      * @name Internal Utility Methods
      */
     ///@{
     /** @brief Get the instance of the function object. */
-    [[nodiscard]] static std::shared_ptr<JS::Function> getConstructor();
+    [[nodiscard]] static std::shared_ptr<JS::Function> getConstructor(std::shared_ptr<JS::InternalObject> instance = nullptr);
     /** @brief Override of the Internal object method. */
     void initialize() override;
     ///@}

@@ -69,19 +69,13 @@ inline auto assert = JS::Any(std::make_shared<JS::assert>(JS::Properties{
     {u"ok", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::ok)), true, true, true}},
     {u"equal", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::equal)), true, true, true}},
     {u"notEqual", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::notEqual)), true, true, true}},
-    {u"deepEqual",
-     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::deepEqual)), true, true, true}},
-    {u"notDeepEqual",
-     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::notDeepEqual)), true, true, true}},
-    {u"strictEqual",
-     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::strictEqual)), true, true, true}},
-    {u"notStrictEqual",
-     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::notStrictEqual)), true, true, true}},
+    {u"deepEqual", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::deepEqual)), true, true, true}},
+    {u"notDeepEqual", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::notDeepEqual)), true, true, true}},
+    {u"strictEqual", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::strictEqual)), true, true, true}},
+    {u"notStrictEqual", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::notStrictEqual)), true, true, true}},
     {u"throws", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::throws)), true, true, true}},
-    {u"doesNotThrow",
-     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::doesNotThrow)), true, true, true}},
-    {u"sameValue",
-     JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::sameValue)), true, true, true}},
+    {u"doesNotThrow", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::doesNotThrow)), true, true, true}},
+    {u"sameValue", JS::DataDescriptor{JS::Any(std::make_shared<JS::Function>(JS::assert::sameValue)), true, true, true}},
 }));
 
 inline auto console = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::u16string, JS::Any>{
@@ -92,14 +86,14 @@ inline auto NaN = JS::Any(std::numeric_limits<double>::quiet_NaN());
 inline auto Infinity = JS::Any(std::numeric_limits<double>::infinity());
 inline auto undefined = JS::Any(JS::Undefined{});
 
-inline auto isNaN = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::isNaN));
-inline auto parseInt = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::parseInt));
-inline auto parseFloat = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::parseFloat));
-inline auto isFinite = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::isFinite));
-inline auto encodeURI = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::encodeURI));
-inline auto decodeURI = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::decodeURI));
-inline auto encodeURIComponent = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::encodeURIComponent));
-inline auto decodeURIComponent = JS::Any(std::make_shared<JS::Function>(JS::GLOBAL::decodeURIComponent));
+inline auto isNaN = JS::Any(JS::InternalObject::create<JS::Function>(JS::GLOBAL::isNaN));
+inline auto parseInt = JS::Any(JS::InternalObject::create<JS::Function>(JS::GLOBAL::parseInt));
+inline auto parseFloat = JS::Any(JS::InternalObject::create<JS::Function>(JS::GLOBAL::parseFloat));
+inline auto isFinite = JS::Any(JS::InternalObject::create<JS::Function>(JS::GLOBAL::isFinite));
+inline auto encodeURI = JS::Any(JS::InternalObject::create<JS::Function>(JS::GLOBAL::encodeURI));
+inline auto decodeURI = JS::Any(JS::InternalObject::create<JS::Function>(JS::GLOBAL::decodeURI));
+inline auto encodeURIComponent = JS::Any(JS::InternalObject::create<JS::Function>(JS::GLOBAL::encodeURIComponent));
+inline auto decodeURIComponent = JS::Any(JS::InternalObject::create<JS::Function>(JS::GLOBAL::decodeURIComponent));
 
 inline auto global = JS::Any(std::make_shared<JS::Object>(std::unordered_map<std::u16string, JS::Any>{
     {u"isNaN", isNaN},

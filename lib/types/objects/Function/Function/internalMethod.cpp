@@ -37,8 +37,8 @@ std::u16string Function::getContent() const {
     return u"[Function: ]"; // TODO: add function name
 }
 
-std::shared_ptr<JS::Function> JS::Function::getConstructor() {
-    auto prototype = Function::getPrototypeProperties();
+std::shared_ptr<JS::Function> JS::Function::getConstructor(std::shared_ptr<JS::InternalObject> instance) {
+    auto prototype = instance ? instance : Function::getPrototypeProperties();
     static auto constructor = std::make_shared<JS::Function>([] (const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
         auto len = CONVERT::ToUint32(args[u"length"]);
         if (len < 1) {

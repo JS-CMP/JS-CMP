@@ -3,7 +3,7 @@
 
 #include "types/objects/JsObject.hpp"
 
-#define DEFAULT_FCT [](const JS::Any&, const JS::Any&) -> JS::Any { return JS::Any(std::make_shared<JS::Object>()); }
+#define DEFAULT_FCT [](const JS::Any&, const JS::Any&) -> JS::Any { return JS::Any(JS::InternalObject::create<JS::Object>()); }
 
 namespace JS {
 
@@ -73,7 +73,7 @@ public:
     /** @brief Get the instance of the function object. */
     [[nodiscard]] static std::shared_ptr<JS::Function> getConstructor(std::shared_ptr<JS::InternalObject> instance = nullptr);
     /** @brief Override of the Internal object method. */
-    void initialize() override;
+    void initialize(std::shared_ptr<JS::InternalObject> prototype) override;
     ///@}
 
 };

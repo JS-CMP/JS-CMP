@@ -5,7 +5,7 @@
 
 JS::Any JS::Error::toString(const JS::Any& thisArg, const JS::Any& args) {
     if (!JS::COMPARE::Type(thisArg, JS::OBJECT)) {
-        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("this is not an Error object")));
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any("this is not an Error object")));
     }
     std::shared_ptr<JS::InternalObject> O = std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue());
     JS::Any name = O->get(u"name");

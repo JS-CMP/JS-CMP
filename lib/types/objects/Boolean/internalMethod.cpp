@@ -12,8 +12,8 @@ std::u16string JS::Boolean::getContent() const {
 std::shared_ptr<JS::Function> JS::Boolean::getConstructor() {
     auto prototype = Function::getPrototypeProperties();
 
-    static auto constructor = std::make_shared<JS::Function>([] (const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
-        return JS::Any(std::make_shared<JS::Boolean>(args[u"0"]));
+    static auto constructor = JS::InternalObject::create<JS::Function>( [] (const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
+        return JS::Any(JS::InternalObject::create<JS::Boolean>(args[u"0"]));
     }, 1, BOOL_CLASS_NAME, prototype);
 
     constructor->class_name = BOOL_CLASS_NAME;

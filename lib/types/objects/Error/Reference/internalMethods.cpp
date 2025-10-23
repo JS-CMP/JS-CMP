@@ -8,8 +8,8 @@
 
 std::shared_ptr<JS::Function> JS::ReferenceError::getConstructor() {
     auto prototype = Function::getPrototypeProperties();
-    static auto constructor = std::make_shared<JS::Function>([] (const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
-	    return JS::Any(std::make_shared<JS::ReferenceError>(args[u"0"]));
+    static auto constructor = JS::InternalObject::create<JS::Function>( [] (const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
+	    return JS::Any(JS::InternalObject::create<JS::ReferenceError>(args[u"0"]));
     }, 1, ERROR_CLASS_NAME, prototype);
 
     constructor->class_name = ERROR_CLASS_NAME;

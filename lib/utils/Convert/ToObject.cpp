@@ -13,11 +13,11 @@ ToObject(const JS::Operator& any) { // https://262.ecma-international.org/5.1/#s
     }
     switch (any.getValue().index()) {
         case STRING:
-            return std::make_shared<JS::String>(any.get());
+            return JS::InternalObject::create<JS::String>(any.get());
         case BOOLEAN:
-            return std::make_shared<JS::Boolean>(any.get());
+            return JS::InternalObject::create<JS::Boolean>(any.get());
         case NUMBER:
-            return std::make_shared<JS::Number>(any.get());
+            return JS::InternalObject::create<JS::Number>(any.get());
         case OBJECT:
             return std::get<std::shared_ptr<JS::InternalObject>>(any.getValue());
         default:

@@ -4,8 +4,8 @@
 
 std::shared_ptr<JS::InternalObject>& JS::Boolean::getPrototypeProperties() {
     static std::unordered_map<std::u16string, Attribute> properties_prototype = {
-        {u"toString", DataDescriptor{Any(std::make_shared<JS::Function>(JS::Boolean::toString)), true, false, true}},
-        {u"valueOf", DataDescriptor{Any(std::make_shared<JS::Function>(JS::Boolean::valueOf)), true, false, true}},
+        {u"toString", DataDescriptor{Any(JS::InternalObject::create<JS::Function>(JS::Boolean::toString)), true, false, true}},
+        {u"valueOf", DataDescriptor{Any(JS::InternalObject::create<JS::Function>(JS::Boolean::valueOf)), true, false, true}},
         {u"constructor", DataDescriptor{Any(getConstructor()), true, false, true}},
     };
     static std::shared_ptr<InternalObject> instance =

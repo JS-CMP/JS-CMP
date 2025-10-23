@@ -8,7 +8,7 @@
 namespace JS::CONVERT {
 JS::Attribute ToPropertyDescriptor(const Any& desc) {
     if (!COMPARE::Type(desc, OBJECT)) {
-        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Property descriptor must be an object")));
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any("Property descriptor must be an object")));
     }
     std::shared_ptr<JS::InternalObject> obj = std::get<std::shared_ptr<JS::InternalObject>>(desc.getValue());
     JS::DataDescriptor data;
@@ -36,7 +36,7 @@ JS::Attribute ToPropertyDescriptor(const Any& desc) {
         } else if (IS::Callable(tmp)) {
             accessor.get = std::get<std::shared_ptr<JS::InternalObject>>(tmp.getValue());
         } else {
-            throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("get must be callable or undefined")));
+            throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any("get must be callable or undefined")));
         }
     }
     if ((get_or_set = get_or_set || obj->hasProperty(u"set"))) {
@@ -46,12 +46,12 @@ JS::Attribute ToPropertyDescriptor(const Any& desc) {
         } else if (IS::Callable(tmp)) {
             accessor.set = std::get<std::shared_ptr<JS::InternalObject>>(tmp.getValue());
         } else {
-            throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("set must be callable or undefined")));
+            throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any("set must be callable or undefined")));
         }
     }
     if (get_or_set) {
         if (value_or_writable) {
-            throw JS::Any(std::make_shared<JS::TypeError>(
+            throw JS::Any(JS::InternalObject::create<JS::TypeError>(
                 JS::Any("Property descriptor cannot be both accessor and data descriptor")));
         }
         return accessor;

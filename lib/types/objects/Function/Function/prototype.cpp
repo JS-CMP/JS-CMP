@@ -14,7 +14,7 @@ JS::Any Function::toString(const JS::Any& thisArg, const JS::Any& args) {
 
 JS::Any Function::apply(const JS::Any& thisArg, const JS::Any& args) {
     if (!JS::IS::Callable(thisArg)) {
-        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Function.prototype.apply called on non-object")));
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any("Function.prototype.apply called on non-object")));
     }
     JS::Any thisArgArg = args[u"0"];
     JS::Any argArray = args[u"1"];
@@ -23,7 +23,7 @@ JS::Any Function::apply(const JS::Any& thisArg, const JS::Any& args) {
             ->call_function(thisArg, JS::Arguments::CreateArgumentsObject({}));
     }
     if (!JS::COMPARE::Type(argArray, JS::OBJECT)) {
-        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Function.prototype.apply called with non-object args")));
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any("Function.prototype.apply called with non-object args")));
     }
     auto n = JS::CONVERT::ToUint32(argArray[u"length"]);
     std::vector<JS::Any> argList;
@@ -38,7 +38,7 @@ JS::Any Function::apply(const JS::Any& thisArg, const JS::Any& args) {
 
 JS::Any Function::call(const JS::Any& thisArg, const JS::Any& args) {
     if (!JS::IS::Callable(thisArg)) {
-        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Function.prototype.call called on non-object")));
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any("Function.prototype.call called on non-object")));
     }
     JS::Any thisArgArg = args[u"0"];
     JS::Any argArray = args[u"1"];
@@ -56,7 +56,7 @@ JS::Any Function::call(const JS::Any& thisArg, const JS::Any& args) {
 JS::Any Function::bind(const JS::Any& thisArg, const JS::Any& args) {
     const JS::Any& target = thisArg;
     if (!JS::IS::Callable(target)) {
-        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Function.prototype.bind called on non-object")));
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any("Function.prototype.bind called on non-object")));
     }
     std::vector<JS::Any> A;
     auto n = JS::CONVERT::ToUint32(args[u"length"]);
@@ -76,8 +76,8 @@ JS::Any Function::bind(const JS::Any& thisArg, const JS::Any& args) {
     }
     // TODO: make a [[ThrowTypeError]] function object
     std::shared_ptr<JS::InternalObject> thrower =
-        std::make_shared<JS::Function>([](const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
-            throw JS::Any(std::make_shared<JS::TypeError>(
+        JS::InternalObject::create<JS::Function>([](const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
+            throw JS::Any(JS::InternalObject::create<JS::TypeError>(
                 JS::Any("Cannot access 'caller' or 'arguments.callee' in strict mode")));
         });
     F->defineOwnProperty(u"caller", JS::AccessorDescriptor{thrower, thrower, false, false}, false);

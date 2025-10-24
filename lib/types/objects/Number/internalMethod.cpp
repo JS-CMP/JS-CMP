@@ -29,6 +29,7 @@ std::shared_ptr<JS::Function> JS::Number::getConstructor() {
         {u"NaN", JS::DataDescriptor{JS::Any(JS::Number::NaN), false, false, false}},
         {u"NEGATIVE_INFINITY", JS::DataDescriptor{JS::Any(JS::Number::NEGATIVE_INFINITY), false, false, false}},
         {u"POSITIVE_INFINITY", JS::DataDescriptor{JS::Any(JS::Number::POSITIVE_INFINITY), false, false, false}},
+        {u"prototype", JS::DataDescriptor(JS::Any(Number::getPrototypeProperties(constructor)), false, false, false)}
     });
     return constructor;
 }

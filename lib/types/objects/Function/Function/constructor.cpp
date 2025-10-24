@@ -54,14 +54,15 @@ Function::Function(FunctionType f, int length, const std::u16string& name, const
 }
 
 void Function::initialize(std::shared_ptr<InternalObject> prototype) {
-    JS::InternalObject::defineOwnProperty(u"prototype",
-        JS::DataDescriptor{
-            JS::Any(prototype ? prototype : getPrototypePropertiesCopy(shared_from_this(), this->prototype)),
-            true,
-            false,
-            false
-        },
-    false);
+    this->defineOwnProperty(u"prototype",
+                            JS::DataDescriptor{
+                                JS::Any(prototype ? prototype : getPrototypePropertiesCopy(shared_from_this(), this->prototype)),
+                                true,
+                                false,
+                                false
+                            },
+                            true);
+
 }
 
 } // namespace JS

@@ -115,7 +115,7 @@ public:
     ///@}
 
     /** @brief Returns a shared pointer to the prototype properties of the Array object. */
-    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
+    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties(const std::shared_ptr<JS::InternalObject>& constructor = nullptr);
 
     /**
      * @name Internal Utility Methods

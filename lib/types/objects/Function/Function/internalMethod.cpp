@@ -53,6 +53,7 @@ std::shared_ptr<JS::Function> JS::Function::getConstructor(std::shared_ptr<JS::I
     constructor->properties = std::make_shared<JS::Properties>(JS::Properties{
         {u"length", JS::DataDescriptor{JS::Any(1), false, false, false}},
         {u"name", JS::DataDescriptor{JS::Any(FUNCTION_CLASS_NAME), false, false, false}},
+        {u"prototype", JS::DataDescriptor(JS::Any(prototype), false , false, false)}
     });
     return constructor;
 }

@@ -7,6 +7,7 @@
 #include <types/objects/Error/JsTypeError.hpp>
 #include <types/objects/Function/JsFunction.hpp>
 #include <utils/Convert.hpp>
+#include <unordered_set>
 
 namespace JS {
 std::optional<JS::Attribute> JS::InternalObject::getOwnProperty(const std::u16string& key) const {
@@ -25,7 +26,14 @@ std::optional<JS::Attribute> InternalObject::getProperty(const std::u16string& k
     if (this->prototype == nullptr) {
         return std::nullopt;
     }
-    return this->prototype->getProperty(key);
+    static thread_local std::unordered_set<const InternalObject*> visited;
+    if (visited.contains(this)) {
+        return std::nullopt;
+    }
+    visited.insert(this);
+    auto result = this->prototype->getProperty(key);
+    visited.erase(this);
+    return result;
 }
 
 JS::Any InternalObject::get(const std::u16string& key) const {

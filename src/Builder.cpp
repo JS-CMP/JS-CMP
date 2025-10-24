@@ -1,15 +1,33 @@
 #include "Builder.hpp"
 
-Builder::Builder(const Options& options) : options(options) {}
+Builder::Builder(const Options& options)
+    : options(options) {
+}
 
 void Builder::build() {
     std::string content = read_all(this->options.getFilename());
     Lexer::Lexer lexer(content);
     std::vector<Lexer::Token> tokens = lexer.tokenize();
 
-    Lexer::Program program(tokens);
-    program.parse();
-
+    Lexer::AST::Parser parser(tokens);
+    std::vector<Lexer::AST::Stmt::Ptr> ast;
+    try {
+        while (!parser.isAtEnd()) {
+            auto stmt = parser.parseStatement();
+            ast.push_back(std::move(stmt));
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "\033[1;31mError: " << e.what() << "\033[0m\n";
+        std::exit(1);
+    }
+    std::string program;
+    try {
+        Lexer::Opt::Optimizer optimizer(ast);
+        program = optimizer.transpile();
+    } catch (const std::exception& e) {
+        std::cerr << "\033[1;31mError: " << e.what() << "\033[0m\n";
+        std::exit(1);
+    }
     if (this->options.getFlags() & OPTION_FLAG_PREPROCESS) {
         std::cout << program << '\n';
         return;
@@ -28,7 +46,7 @@ void Builder::compiling(const std::string& inputFilename) const {
     std::string customArgs =
         this->options.getCompilerArgs().empty()
             ? std::string(
-                  " -w -O3 -std=c++20 ") // -w to disable warnings, -O3 for optimization, -std=c++20 for C++20 standard
+                " -w -O3 -std=c++20 ") // -w to disable warnings, -O3 for optimization, -std=c++20 for C++20 standard
             : std::string(" -w -O3 -std=c++20 ") + this->options.getCompilerArgs();
     std::string compiler = this->options.getCompiler();
     std::string outputFilename = options.getOutputFilename();

@@ -38,7 +38,7 @@ public:
      * @param name The name of the error type (e.g., "Error", "NativeError", etc.)
      * @return A shared pointer to an InternalObject with the prototype properties
      */
-    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
+    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties(const std::shared_ptr<JS::InternalObject>& constructor = nullptr);
 
     /** @brief Get the instance of the global error. */
     [[nodiscard]] static std::shared_ptr<JS::Function> getConstructor();

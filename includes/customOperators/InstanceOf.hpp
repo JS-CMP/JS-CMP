@@ -14,8 +14,9 @@ inline JS::Any instanceOfFunction(JS::Any a,
     if (JS::COMPARE::Type(b, JS::OBJECT) == false) {
         throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any("Left-hand side of 'instanceof' is not an object")));
     }
-
+    std::cout << a << "instanceof" << b << std::endl;
     auto obj = std::get<std::shared_ptr<JS::InternalObject>>(b.getValue());
+    std::cout << "obj type" << obj->class_name << std::endl;
     return JS::Any(obj->hasInstance(a));
 }
 

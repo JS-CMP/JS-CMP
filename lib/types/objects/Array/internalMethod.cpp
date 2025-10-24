@@ -20,7 +20,8 @@ std::shared_ptr<JS::Function> JS::Array::getConstructor() {
     constructor->properties = std::make_shared<JS::Properties>(JS::Properties{
         {u"length", JS::DataDescriptor{JS::Any(1), true, false, false}},
         {u"name", JS::DataDescriptor{JS::Any(ARRAY_CLASS_NAME), false, false, false}},
-        {u"isArray", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Array::isArray)), true, true, true}},
+        {u"isArray", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Array::isArray, 1, u"isArray")), true, true, true}},
+        {u"prototype", JS::DataDescriptor(JS::Any(Array::getPrototypeProperties(constructor)), false, false, false)}
     });
     return constructor;
 }

@@ -55,7 +55,7 @@ public:
     [[nodiscard]] std::u16string getContent() const override;
 
     /** @brief Function to get the methods of the property prototype */
-    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
+    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties(const std::shared_ptr<JS::InternalObject>& constructor = nullptr);
 
 
     /** @brief Get the instance of the global object. */

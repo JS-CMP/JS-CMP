@@ -22,6 +22,7 @@ std::shared_ptr<JS::Function> JS::Boolean::getConstructor() {
     constructor->properties = std::make_shared<JS::Properties>(JS::Properties{
         {u"length", JS::DataDescriptor{JS::Any(1), true, false, false}},
         {u"name", JS::DataDescriptor{JS::Any(BOOL_CLASS_NAME), false, false, false}},
+        {u"prototype", JS::DataDescriptor(JS::Any(Boolean::getPrototypeProperties(constructor)), false, false, false)}
     });
     return constructor;
 }

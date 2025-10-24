@@ -227,7 +227,7 @@ void assert::innerFail(const JS::Any& actual, const JS::Any& expected, const JS:
                    ? JS::CONVERT::ToString(actual) + u" " + operator_ + u" " + JS::CONVERT::ToString(expected)
                    : JS::CONVERT::ToString(message);
 
-    throw JS::Any(JS::InternalObject::create<JS::Error>(JS::Any(), JS::Object::getPrototypeProperties()));
+    throw JS::Any(JS::InternalObject::create<JS::Error>(JS::Any(msg), JS::Object::getPrototypeProperties()));
     // throw AssertionError(actual, expected, msg, operator_);
 }
 

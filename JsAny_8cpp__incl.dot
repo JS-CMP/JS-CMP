@@ -80,4 +80,5 @@ digraph "lib/types/JsAny.cpp"
   Node28 [id="Node000028",label="utils/Compare.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Compare_8hpp.html",tooltip=" "];
   Node28 -> Node3 [id="edge47_Node000028_Node000003",color="steelblue1",style="solid",tooltip=" "];
   Node28 -> Node5 [id="edge48_Node000028_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node28 -> Node24 [id="edge49_Node000028_Node000024",color="steelblue1",style="solid",tooltip=" "];
 }

@@ -84,4 +84,5 @@ digraph "lib/types/objects/Boolean/prototype.cpp"
   Node31 [id="Node000031",label="utils/Compare.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Compare_8hpp.html",tooltip=" "];
   Node31 -> Node4 [id="edge48_Node000031_Node000004",color="steelblue1",style="solid",tooltip=" "];
   Node31 -> Node6 [id="edge49_Node000031_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node31 -> Node24 [id="edge50_Node000031_Node000024",color="steelblue1",style="solid",tooltip=" "];
 }

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['stricteq_0',['strictEq',['../Equality_8hpp.html#ae81286defcba1d19a7fb8e392074e990',1,'Equality.hpp']]],
-  ['strictneq_1',['strictNeq',['../Equality_8hpp.html#a340cbb4a682ed289ebc2cf8d2ad8e778',1,'Equality.hpp']]]
+  ['new_0',['NEW',['../New_8hpp.html#a2dc7161d050a803b7eb6dc6fe7ac041f',1,'New.hpp']]],
+  ['number_5fclass_5fname_1',['NUMBER_CLASS_NAME',['../Types_8hpp.html#a98ed0f0742b317a330fe1d570f24d8f4',1,'Types.hpp']]]
 ];

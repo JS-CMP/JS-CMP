@@ -1,12 +1,14 @@
 var classJS_1_1InternalObject =
 [
-    [ "InternalObject", "classJS_1_1InternalObject.html#abb4bbad34dfdea74f44852fa390217d5", null ],
+    [ "InternalObject", "classJS_1_1InternalObject.html#a8d8788ffd6a4c76a3ab9ca67f2432ca5", null ],
     [ "InternalObject", "classJS_1_1InternalObject.html#a3432179d10aca3ba9ac18818786f744a", null ],
     [ "InternalObject", "classJS_1_1InternalObject.html#a0692e2406cd1a143234db5c165e887c8", null ],
     [ "InternalObject", "classJS_1_1InternalObject.html#a21b930556865e6bb5af312377de8e331", null ],
     [ "InternalObject", "classJS_1_1InternalObject.html#a9dfe191ca24ecf84be9776f7e03601fc", null ],
     [ "~InternalObject", "classJS_1_1InternalObject.html#abd90301af99133eb72847c071e698f71", null ],
     [ "canPut", "classJS_1_1InternalObject.html#a3a3d75414dcd56c434d73e956318aa8a", null ],
+    [ "create", "classJS_1_1InternalObject.html#a3331186d9cf4e7645f7296b683cd0fb0", null ],
+    [ "create", "classJS_1_1InternalObject.html#ac5189cf8bc1a90154264c1a3bcd3da42", null ],
     [ "defaultValue", "classJS_1_1InternalObject.html#a080f00412962effd6e63edf9fe7aac63", null ],
     [ "defaultValue", "classJS_1_1InternalObject.html#a52391acdb0fae7ef365ac8d842e763cf", null ],
     [ "defineOwnProperty", "classJS_1_1InternalObject.html#a6c2981b61a5e8ff653cfe596fb8b2d52", null ],
@@ -17,6 +19,7 @@ var classJS_1_1InternalObject =
     [ "getProperty", "classJS_1_1InternalObject.html#ad68a9ea2a7022642eba7a268b08edc65", null ],
     [ "hasInstance", "classJS_1_1InternalObject.html#a014880c7186c6a7603365d39835863be", null ],
     [ "hasProperty", "classJS_1_1InternalObject.html#a950c023236a6d2c4308d9b8ab8d9c350", null ],
+    [ "initialize", "classJS_1_1InternalObject.html#a5e09c520ab28dd491d91808be78bfc1f", null ],
     [ "isCallable", "classJS_1_1InternalObject.html#a9946e41bd1062fadbab593a2e28a6fc0", null ],
     [ "match", "classJS_1_1InternalObject.html#a780c6ee8bf2cc3ae7bd5fb4c2a9736a0", null ],
     [ "operator()", "classJS_1_1InternalObject.html#ace845e0bb9a098e2cbc4df430385ddbb", null ],

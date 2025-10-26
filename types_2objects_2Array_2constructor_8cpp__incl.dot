@@ -91,4 +91,5 @@ digraph "lib/types/objects/Array/constructor.cpp"
   Node33 [id="Node000033",label="utils/Compare.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Compare_8hpp.html",tooltip=" "];
   Node33 -> Node4 [id="edge53_Node000033_Node000004",color="steelblue1",style="solid",tooltip=" "];
   Node33 -> Node6 [id="edge54_Node000033_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node33 -> Node24 [id="edge55_Node000033_Node000024",color="steelblue1",style="solid",tooltip=" "];
 }

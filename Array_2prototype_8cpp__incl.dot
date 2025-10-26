@@ -77,4 +77,5 @@ digraph "lib/types/objects/Array/prototype.cpp"
   Node28 [id="Node000028",label="utils/Compare.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Compare_8hpp.html",tooltip=" "];
   Node28 -> Node24 [id="edge44_Node000028_Node000024",color="steelblue1",style="solid",tooltip=" "];
   Node28 -> Node4 [id="edge45_Node000028_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node28 -> Node25 [id="edge46_Node000028_Node000025",color="steelblue1",style="solid",tooltip=" "];
 }

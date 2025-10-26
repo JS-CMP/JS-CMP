@@ -6,8 +6,8 @@ var dir_862d1438bfa46f850b5cbd4b20120044 =
     [ "Syntax", "dir_afe22b1a3d89e986cd4e277c25fa82b2.html", "dir_afe22b1a3d89e986cd4e277c25fa82b2" ],
     [ "Type", "dir_5b46ef279e1462f90a1ca5525bcd1c38.html", "dir_5b46ef279e1462f90a1ca5525bcd1c38" ],
     [ "URI", "dir_4fd22d8a2bae0178f5ca3f6aa4c6f551.html", "dir_4fd22d8a2bae0178f5ca3f6aa4c6f551" ],
-    [ "accessor.cpp", "types_2objects_2Error_2accessor_8cpp.html", null ],
     [ "constructor.cpp", "types_2objects_2Error_2constructor_8cpp.html", null ],
+    [ "internalMethods.cpp", "internalMethods_8cpp.html", null ],
     [ "prototype.cpp", "Error_2prototype_8cpp.html", null ],
     [ "prototypeProperties.cpp", "Error_2prototypeProperties_8cpp.html", null ]
 ];

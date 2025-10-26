@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['in_0',['in',['../In_8hpp.html#a7cc019ad88e04ddd4d5ed8b80e8bd25d',1,'In.hpp']]],
-  ['instanceof_1',['instanceof',['../InstanceOf_8hpp.html#a1036431faf49b85dc8977f67565c6b56',1,'InstanceOf.hpp']]]
+  ['for_5feach_5fconversion_5ftype_0',['FOR_EACH_CONVERSION_TYPE',['../Declaration_8hpp.html#a38882e9c6bf48dc2993b6a569521c317',1,'Declaration.hpp']]],
+  ['function_5fclass_5fname_1',['FUNCTION_CLASS_NAME',['../Types_8hpp.html#ab6c58b09497c79c0edbc987d36de5ae9',1,'Types.hpp']]]
 ];

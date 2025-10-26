@@ -1,5 +1,14 @@
 var Types_8hpp =
 [
+    [ "ARRAY_CLASS_NAME", "Types_8hpp.html#a12bff37925e247e56511424a87a22510", null ],
+    [ "BOOL_CLASS_NAME", "Types_8hpp.html#a128cc94e53b0936145d4c2b44280d02d", null ],
+    [ "ERROR_CLASS_NAME", "Types_8hpp.html#a9fd1b2fd68c5d74578a7cc10a3b7d4b2", null ],
+    [ "FUNCTION_CLASS_NAME", "Types_8hpp.html#ab6c58b09497c79c0edbc987d36de5ae9", null ],
+    [ "MATH_CLASS_NAME", "Types_8hpp.html#a732431d026971f35d65885a4d00e93f0", null ],
+    [ "NUMBER_CLASS_NAME", "Types_8hpp.html#a98ed0f0742b317a330fe1d570f24d8f4", null ],
+    [ "OBJECT_CLASS_NAME", "Types_8hpp.html#a2747a2fe75e90654a967c09d240e734e", null ],
+    [ "REGEXP_CLASS_NAME", "Types_8hpp.html#a5d14a4ca40d1dee3205a8caa1fbeebdc", null ],
+    [ "STRING_CLASS_NAME", "Types_8hpp.html#a15424d9ffdcb5563c67d6697864727a4", null ],
     [ "Attribute", "Types_8hpp.html#a045e2f5d691414608a9f6d2350e90811", null ],
     [ "FunctionType", "Types_8hpp.html#afc8f80ef0014008191a79c36ae5eb341", null ],
     [ "Null", "Types_8hpp.html#a91ba0307edda1efdfb101d5dc978e53e", null ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['for_5feach_5fconversion_5ftype_0',['FOR_EACH_CONVERSION_TYPE',['../Declaration_8hpp.html#a38882e9c6bf48dc2993b6a569521c317',1,'Declaration.hpp']]]
+  ['error_5fclass_5fname_0',['ERROR_CLASS_NAME',['../Types_8hpp.html#a9fd1b2fd68c5d74578a7cc10a3b7d4b2',1,'Types.hpp']]]
 ];

@@ -15,5 +15,6 @@ var searchData=
   ['defineproperty_12',['defineProperty',['../classJS_1_1Object.html#a56d481addde7bad938cc3357f55213df',1,'JS::Object']]],
   ['deletefunction_13',['deleteFunction',['../Delete_8hpp.html#ac37aa115892fad067a60a451a8c37aaa',1,'Delete.hpp']]],
   ['deleteproperty_14',['deleteProperty',['../classJS_1_1InternalObject.html#a8371ccb93d92e114d6b204b07a2b7020',1,'JS::InternalObject']]],
-  ['doesnotthrow_15',['doesNotThrow',['../classJS_1_1assert.html#a651d2bd26b0cee888a28a285ca545025',1,'JS::assert']]]
+  ['displayprototypechain_15',['displayPrototypeChain',['../global_8hpp.html#afabce014f1a463c17f9626a876bab47d',1,'global.hpp']]],
+  ['doesnotthrow_16',['doesNotThrow',['../classJS_1_1assert.html#a651d2bd26b0cee888a28a285ca545025',1,'JS::assert']]]
 ];

@@ -76,9 +76,15 @@ digraph "lib/types/objects/Function/Function/internalMethod.cpp"
   Node28 [id="Node000028",label="utils/Compare.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Compare_8hpp.html",tooltip=" "];
   Node28 -> Node4 [id="edge43_Node000028_Node000004",color="steelblue1",style="solid",tooltip=" "];
   Node28 -> Node6 [id="edge44_Node000028_Node000006",color="steelblue1",style="solid",tooltip=" "];
-  Node1 -> Node29 [id="edge45_Node000001_Node000029",color="steelblue1",style="solid",tooltip=" "];
+  Node28 -> Node24 [id="edge45_Node000028_Node000024",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node29 [id="edge46_Node000001_Node000029",color="steelblue1",style="solid",tooltip=" "];
   Node29 [id="Node000029",label="types/objects/Error\l/JsTypeError.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$JsTypeError_8hpp.html",tooltip=" "];
-  Node29 -> Node30 [id="edge46_Node000029_Node000030",color="steelblue1",style="solid",tooltip=" "];
+  Node29 -> Node30 [id="edge47_Node000029_Node000030",color="steelblue1",style="solid",tooltip=" "];
   Node30 [id="Node000030",label="types/objects/Error\l/JsError.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$JsError_8hpp.html",tooltip=" "];
-  Node30 -> Node24 [id="edge47_Node000030_Node000024",color="steelblue1",style="solid",tooltip=" "];
+  Node30 -> Node24 [id="edge48_Node000030_Node000024",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node31 [id="edge49_Node000001_Node000031",color="steelblue1",style="solid",tooltip=" "];
+  Node31 [id="Node000031",label="utils/Convert.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Convert_8hpp.html",tooltip=" "];
+  Node31 -> Node4 [id="edge50_Node000031_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node31 -> Node6 [id="edge51_Node000031_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node31 -> Node23 [id="edge52_Node000031_Node000023",color="steelblue1",style="solid",tooltip=" "];
 }

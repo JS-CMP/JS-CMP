@@ -4,7 +4,9 @@ var dir_407075bd378e66716ff5edd0eafa66b6 =
     [ "And.cpp", "Logical_2And_8cpp.html", "Logical_2And_8cpp" ],
     [ "Equal.cpp", "Equal_8cpp.html", null ],
     [ "Left_Chevron.cpp", "Left__Chevron_8cpp.html", null ],
+    [ "Left_Chevron_Equal.cpp", "Left__Chevron__Equal_8cpp.html", null ],
     [ "NotEqual.cpp", "NotEqual_8cpp.html", null ],
     [ "Or.cpp", "Logical_2Or_8cpp.html", "Logical_2Or_8cpp" ],
-    [ "Right_Chevron.cpp", "Right__Chevron_8cpp.html", null ]
+    [ "Right_Chevron.cpp", "Right__Chevron_8cpp.html", null ],
+    [ "Right_Chevron_Equal.cpp", "Right__Chevron__Equal_8cpp.html", null ]
 ];

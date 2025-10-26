@@ -83,14 +83,15 @@ digraph "lib/types/objects/RegExp/constructor.cpp"
   Node30 [id="Node000030",label="utils/Compare.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Compare_8hpp.html",tooltip=" "];
   Node30 -> Node2 [id="edge48_Node000030_Node000002",color="steelblue1",style="solid",tooltip=" "];
   Node30 -> Node4 [id="edge49_Node000030_Node000004",color="steelblue1",style="solid",tooltip=" "];
-  Node1 -> Node31 [id="edge50_Node000001_Node000031",color="steelblue1",style="solid",tooltip=" "];
+  Node30 -> Node24 [id="edge50_Node000030_Node000024",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node31 [id="edge51_Node000001_Node000031",color="steelblue1",style="solid",tooltip=" "];
   Node31 [id="Node000031",label="utils/Convert.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Convert_8hpp.html",tooltip=" "];
-  Node31 -> Node2 [id="edge51_Node000031_Node000002",color="steelblue1",style="solid",tooltip=" "];
-  Node31 -> Node4 [id="edge52_Node000031_Node000004",color="steelblue1",style="solid",tooltip=" "];
-  Node31 -> Node21 [id="edge53_Node000031_Node000021",color="steelblue1",style="solid",tooltip=" "];
-  Node1 -> Node32 [id="edge54_Node000001_Node000032",color="steelblue1",style="solid",tooltip=" "];
+  Node31 -> Node2 [id="edge52_Node000031_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node31 -> Node4 [id="edge53_Node000031_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node31 -> Node21 [id="edge54_Node000031_Node000021",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node32 [id="edge55_Node000001_Node000032",color="steelblue1",style="solid",tooltip=" "];
   Node32 [id="Node000032",label="types/objects/Error\l/JsTypeError.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$JsTypeError_8hpp.html",tooltip=" "];
-  Node32 -> Node33 [id="edge55_Node000032_Node000033",color="steelblue1",style="solid",tooltip=" "];
+  Node32 -> Node33 [id="edge56_Node000032_Node000033",color="steelblue1",style="solid",tooltip=" "];
   Node33 [id="Node000033",label="types/objects/Error\l/JsError.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$JsError_8hpp.html",tooltip=" "];
-  Node33 -> Node24 [id="edge56_Node000033_Node000024",color="steelblue1",style="solid",tooltip=" "];
+  Node33 -> Node24 [id="edge57_Node000033_Node000024",color="steelblue1",style="solid",tooltip=" "];
 }

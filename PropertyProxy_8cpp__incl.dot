@@ -73,7 +73,12 @@ digraph "lib/internals/PropertyProxy.cpp"
   Node25 -> Node22 [id="edge41_Node000025_Node000022",color="steelblue1",style="solid",tooltip=" "];
   Node25 -> Node2 [id="edge42_Node000025_Node000002",color="steelblue1",style="solid",tooltip=" "];
   Node1 -> Node27 [id="edge43_Node000001_Node000027",color="steelblue1",style="solid",tooltip=" "];
-  Node27 [id="Node000027",label="utils/Is.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Is_8hpp.html",tooltip=" "];
+  Node27 [id="Node000027",label="utils/Convert.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Convert_8hpp.html",tooltip=" "];
   Node27 -> Node26 [id="edge44_Node000027_Node000026",color="steelblue1",style="solid",tooltip=" "];
   Node27 -> Node4 [id="edge45_Node000027_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node27 -> Node21 [id="edge46_Node000027_Node000021",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node28 [id="edge47_Node000001_Node000028",color="steelblue1",style="solid",tooltip=" "];
+  Node28 [id="Node000028",label="utils/Is.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Is_8hpp.html",tooltip=" "];
+  Node28 -> Node26 [id="edge48_Node000028_Node000026",color="steelblue1",style="solid",tooltip=" "];
+  Node28 -> Node4 [id="edge49_Node000028_Node000004",color="steelblue1",style="solid",tooltip=" "];
 }

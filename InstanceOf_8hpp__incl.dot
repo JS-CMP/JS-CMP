@@ -74,4 +74,5 @@ digraph "includes/customOperators/InstanceOf.hpp"
   Node28 [id="Node000028",label="internals/Attribute.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Attribute_8hpp.html",tooltip=" "];
   Node28 -> Node4 [id="edge41_Node000028_Node000004",color="steelblue1",style="solid",tooltip=" "];
   Node27 -> Node5 [id="edge42_Node000027_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node27 -> Node3 [id="edge43_Node000027_Node000003",color="steelblue1",style="solid",tooltip=" "];
 }

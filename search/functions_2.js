@@ -8,9 +8,9 @@ var searchData=
   ['charcodeat_5',['charCodeAt',['../classJS_1_1String.html#a381b435a06423070c7703157780fe5ba',1,'JS::String']]],
   ['checkobjectcoercible_6',['CheckObjectCoercible',['../namespaceJS_1_1COMPARE.html#af176230a8e3c71d5206762b484c0ca62',1,'JS::COMPARE']]],
   ['compare_7',['compare',['../classRope.html#a251108c602a9d3bfee7b7c1a0c730c0d',1,'Rope']]],
-  ['concat_8',['concat',['../classJS_1_1Array.html#a5080a380726e4ece43da52bb1f65ed19',1,'JS::Array::concat()'],['../classJS_1_1String.html#ab5bc39d7f8eb03f356f25bb9c1793bca',1,'JS::String::concat()'],['../classRope.html#a4ffe8f1dbe59157a040ee2d6e98ad891',1,'Rope::concat()']]],
+  ['concat_8',['concat',['../classJS_1_1String.html#ab5bc39d7f8eb03f356f25bb9c1793bca',1,'JS::String::concat()'],['../classJS_1_1Array.html#a5080a380726e4ece43da52bb1f65ed19',1,'JS::Array::concat()'],['../classRope.html#a4ffe8f1dbe59157a040ee2d6e98ad891',1,'Rope::concat()']]],
   ['constructor_9',['constructor',['../classJS_1_1Operator.html#add73cea1f64f3185b33121d89e526509',1,'JS::Operator']]],
   ['cos_10',['cos',['../classJS_1_1Math.html#a65ea6c653b1cdc60cd5b9d36aadcd467',1,'JS::Math']]],
-  ['create_11',['create',['../classJS_1_1Object.html#a6e7cbd4044f630b4e00fa1ac9daef9fc',1,'JS::Object']]],
+  ['create_11',['create',['../classJS_1_1InternalObject.html#a3331186d9cf4e7645f7296b683cd0fb0',1,'JS::InternalObject::create(Args &amp;&amp;... args)'],['../classJS_1_1InternalObject.html#ac5189cf8bc1a90154264c1a3bcd3da42',1,'JS::InternalObject::create(std::shared_ptr&lt; JS::InternalObject &gt; init_param, Args &amp;&amp;... args)'],['../classJS_1_1Object.html#a6e7cbd4044f630b4e00fa1ac9daef9fc',1,'JS::Object::create()']]],
   ['createargumentsobject_12',['CreateArgumentsObject',['../namespaceJS_1_1Arguments.html#a73dcb7046e9792686873f7365af08460',1,'JS::Arguments']]]
 ];

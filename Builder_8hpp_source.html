@@ -113,33 +113,34 @@ $(document).ready(function(){initNavTree('Builder_8hpp_source.html',''); initRes
 <a href="Builder_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef BUILDER_HPP</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define BUILDER_HPP</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;Lexer.hpp&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="Options_8hpp.html">Options.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;Program.hpp&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classBuilder.html">   15</a></span><span class="keyword">class </span><a class="code hl_class" href="classBuilder.html">Builder</a> {</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classBuilder.html">Builder</a>(<span class="keyword">const</span> <a class="code hl_class" href="classOptions.html">Options</a>&amp; options);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBuilder.html#a25ec46356d5e6a386638ff05ddfa4c04">build</a>();</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classBuilder.html#aa8bf12e396ef056aded88d2c66d486af">read_all</a>(<span class="keyword">const</span> std::string&amp; filename);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_class" href="classOptions.html">Options</a> options; </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">void</span> compiling(<span class="keyword">const</span> std::string&amp; inputFilename) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>};</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;AST/Parser.hpp&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;Optimization/Optimizer.hpp&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="Options_8hpp.html">Options.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;Tokenizer/Lexer.hpp&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classBuilder.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="classBuilder.html">Builder</a> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classBuilder.html">Builder</a>(<span class="keyword">const</span> <a class="code hl_class" href="classOptions.html">Options</a>&amp; options);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBuilder.html#a25ec46356d5e6a386638ff05ddfa4c04">build</a>();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classBuilder.html#aa8bf12e396ef056aded88d2c66d486af">read_all</a>(<span class="keyword">const</span> std::string&amp; filename);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_class" href="classOptions.html">Options</a> options; </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">void</span> compiling(<span class="keyword">const</span> std::string&amp; inputFilename) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>};</div>
 </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#endif </span><span class="comment">// BUILDER_HPP</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#endif </span><span class="comment">// BUILDER_HPP</span></div>
 <div class="ttc" id="aOptions_8hpp_html"><div class="ttname"><a href="Options_8hpp.html">Options.hpp</a></div></div>
-<div class="ttc" id="aclassBuilder_html"><div class="ttname"><a href="classBuilder.html">Builder</a></div><div class="ttdoc">Responsible for compiling and building programs based on specified options.</div><div class="ttdef"><b>Definition</b> Builder.hpp:15</div></div>
+<div class="ttc" id="aclassBuilder_html"><div class="ttname"><a href="classBuilder.html">Builder</a></div><div class="ttdoc">Responsible for compiling and building programs based on specified options.</div><div class="ttdef"><b>Definition</b> Builder.hpp:16</div></div>
 <div class="ttc" id="aclassBuilder_html_a25ec46356d5e6a386638ff05ddfa4c04"><div class="ttname"><a href="classBuilder.html#a25ec46356d5e6a386638ff05ddfa4c04">Builder::build</a></div><div class="ttdeci">void build()</div><div class="ttdoc">Initiates the build process using configured options.</div><div class="ttdef"><b>Definition</b> Builder.cpp:5</div></div>
-<div class="ttc" id="aclassBuilder_html_aa8bf12e396ef056aded88d2c66d486af"><div class="ttname"><a href="classBuilder.html#aa8bf12e396ef056aded88d2c66d486af">Builder::read_all</a></div><div class="ttdeci">static std::string read_all(const std::string &amp;filename)</div><div class="ttdoc">Reads the entire content of a file into a string.</div><div class="ttdef"><b>Definition</b> Builder.cpp:42</div></div>
+<div class="ttc" id="aclassBuilder_html_aa8bf12e396ef056aded88d2c66d486af"><div class="ttname"><a href="classBuilder.html#aa8bf12e396ef056aded88d2c66d486af">Builder::read_all</a></div><div class="ttdeci">static std::string read_all(const std::string &amp;filename)</div><div class="ttdoc">Reads the entire content of a file into a string.</div><div class="ttdef"><b>Definition</b> Builder.cpp:55</div></div>
 <div class="ttc" id="aclassOptions_html"><div class="ttname"><a href="classOptions.html">Options</a></div><div class="ttdoc">Handles parsing and storage of command-line options and settings.</div><div class="ttdef"><b>Definition</b> Options.hpp:28</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

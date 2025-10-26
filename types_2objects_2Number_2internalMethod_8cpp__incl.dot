@@ -72,4 +72,20 @@ digraph "lib/types/objects/Number/internalMethod.cpp"
   Node27 -> Node3 [id="edge39_Node000027_Node000003",color="steelblue1",style="solid",tooltip=" "];
   Node26 -> Node4 [id="edge40_Node000026_Node000004",color="steelblue1",style="solid",tooltip=" "];
   Node26 -> Node21 [id="edge41_Node000026_Node000021",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node28 [id="edge42_Node000001_Node000028",color="steelblue1",style="solid",tooltip=" "];
+  Node28 [id="Node000028",label="types/objects/Function\l/JsFunction.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$JsFunction_8hpp.html",tooltip=" "];
+  Node28 -> Node29 [id="edge43_Node000028_Node000029",color="steelblue1",style="solid",tooltip=" "];
+  Node29 [id="Node000029",label="types/objects/JsObject.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$JsObject_8hpp.html",tooltip=" "];
+  Node29 -> Node27 [id="edge44_Node000029_Node000027",color="steelblue1",style="solid",tooltip=" "];
+  Node29 -> Node2 [id="edge45_Node000029_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node29 -> Node30 [id="edge46_Node000029_Node000030",color="steelblue1",style="solid",tooltip=" "];
+  Node30 [id="Node000030",label="internals/PropertyProxy.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$PropertyProxy_8hpp.html",tooltip=" "];
+  Node30 -> Node20 [id="edge47_Node000030_Node000020",color="steelblue1",style="solid",tooltip=" "];
+  Node30 -> Node3 [id="edge48_Node000030_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node30 -> Node4 [id="edge49_Node000030_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node31 [id="edge50_Node000001_Node000031",color="steelblue1",style="solid",tooltip=" "];
+  Node31 [id="Node000031",label="utils/Compare.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Compare_8hpp.html",tooltip=" "];
+  Node31 -> Node27 [id="edge51_Node000031_Node000027",color="steelblue1",style="solid",tooltip=" "];
+  Node31 -> Node4 [id="edge52_Node000031_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node31 -> Node2 [id="edge53_Node000031_Node000002",color="steelblue1",style="solid",tooltip=" "];
 }

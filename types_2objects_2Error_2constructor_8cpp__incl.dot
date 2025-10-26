@@ -79,9 +79,10 @@ digraph "lib/types/objects/Error/constructor.cpp"
   Node29 [id="Node000029",label="utils/Compare.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Compare_8hpp.html",tooltip=" "];
   Node29 -> Node27 [id="edge45_Node000029_Node000027",color="steelblue1",style="solid",tooltip=" "];
   Node29 -> Node5 [id="edge46_Node000029_Node000005",color="steelblue1",style="solid",tooltip=" "];
-  Node1 -> Node30 [id="edge47_Node000001_Node000030",color="steelblue1",style="solid",tooltip=" "];
+  Node29 -> Node3 [id="edge47_Node000029_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node30 [id="edge48_Node000001_Node000030",color="steelblue1",style="solid",tooltip=" "];
   Node30 [id="Node000030",label="utils/Convert.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Convert_8hpp.html",tooltip=" "];
-  Node30 -> Node27 [id="edge48_Node000030_Node000027",color="steelblue1",style="solid",tooltip=" "];
-  Node30 -> Node5 [id="edge49_Node000030_Node000005",color="steelblue1",style="solid",tooltip=" "];
-  Node30 -> Node22 [id="edge50_Node000030_Node000022",color="steelblue1",style="solid",tooltip=" "];
+  Node30 -> Node27 [id="edge49_Node000030_Node000027",color="steelblue1",style="solid",tooltip=" "];
+  Node30 -> Node5 [id="edge50_Node000030_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node30 -> Node22 [id="edge51_Node000030_Node000022",color="steelblue1",style="solid",tooltip=" "];
 }

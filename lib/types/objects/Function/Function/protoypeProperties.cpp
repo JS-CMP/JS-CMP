@@ -23,7 +23,9 @@ std::shared_ptr<JS::InternalObject>& JS::Function::getPrototypeProperties(const 
 
 std::shared_ptr<JS::InternalObject> JS::Function::getPrototypePropertiesCopy(std::shared_ptr<JS::InternalObject> constructor, std::shared_ptr<JS::InternalObject> prototype) {
     std::shared_ptr<JS::Function> functionPtr = std::dynamic_pointer_cast<JS::Function>(constructor);
-    return std::make_shared<JS::InternalObject>(JS::Properties{
-        {u"constructor", JS::DataDescriptor{JS::Any(functionPtr), false, false,false}},
-    }, JS::Object::getPrototypeProperties(prototype, functionPtr), FUNCTION_CLASS_NAME, true);
+    return std::make_shared<JS::InternalObject>(
+        JS::Properties{
+            {u"constructor", JS::DataDescriptor{JS::Any(functionPtr), false, false, false}},
+        },
+        JS::Object::getPrototypeProperties(prototype, functionPtr), FUNCTION_CLASS_NAME, true);
 }

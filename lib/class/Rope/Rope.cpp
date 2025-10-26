@@ -91,8 +91,7 @@ int Rope::compare(const Rope& other) const {
     return 0;
 }
 
-void Rope::substrHelper(const std::shared_ptr<RopeNode>& node, size_t pos, size_t len,
-                        std::vector<std::shared_ptr<RopeNode>>& pieces) const {
+void Rope::substrHelper(const std::shared_ptr<RopeNode>& node, size_t pos, size_t len, std::vector<std::shared_ptr<RopeNode>>& pieces) const {
     if (!node || len == 0) {
         return;
     }

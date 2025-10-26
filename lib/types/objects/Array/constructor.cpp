@@ -35,9 +35,7 @@ Array::Array(const JS::Any& args)
     }
 }
 
-Array::Array(const std::vector<JS::Any>& data)
-    : InternalObject({{u"length", JS::DataDescriptor{JS::Any(static_cast<uint32_t>(data.size())), true, false, false}}},
-                     getPrototypeProperties(), ARRAY_CLASS_NAME, true) {
+Array::Array(const std::vector<JS::Any>& data) : InternalObject({{u"length", JS::DataDescriptor{JS::Any(static_cast<uint32_t>(data.size())), true, false, false}}}, getPrototypeProperties(), ARRAY_CLASS_NAME, true) {
     uint32_t length = data.size();
     for (uint32_t i = 0; i < length; ++i) {
         this->defineOwnProperty(JS::CONVERT::ToString(i), JS::DataDescriptor{data[i], true, true, true});

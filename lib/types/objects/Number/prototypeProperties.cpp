@@ -11,8 +11,7 @@ std::shared_ptr<JS::InternalObject>& JS::Number::getPrototypeProperties(const st
         {u"toPrecision", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Number::toPrecision, 1, u"toPrecision")), true, false, true}},
         {u"constructor", JS::DataDescriptor{JS::Any(constructor ? constructor : JS::Number::getConstructor()), true, false, true}},
     };
-    static std::shared_ptr<JS::InternalObject> instance = std::make_shared<JS::InternalObject>(
-        properties_prototype, JS::Object::getPrototypeProperties(), OBJECT_CLASS_NAME, true);
+    static std::shared_ptr<JS::InternalObject> instance = std::make_shared<JS::InternalObject>(properties_prototype, JS::Object::getPrototypeProperties(), OBJECT_CLASS_NAME, true);
     instance->primitiveValue = 0.0;
     return instance;
 }

@@ -19,8 +19,7 @@ JS::Any Function::apply(const JS::Any& thisArg, const JS::Any& args) {
     JS::Any thisArgArg = args[u"0"];
     JS::Any argArray = args[u"1"];
     if (JS::COMPARE::Type(argArray, JS::UNDEFINED) || JS::COMPARE::Type(argArray, JS::NULL_TYPE)) {
-        return std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())
-            ->call_function(thisArg, JS::Arguments::CreateArgumentsObject({}));
+        return std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->call_function(thisArg, JS::Arguments::CreateArgumentsObject({}));
     }
     if (!JS::COMPARE::Type(argArray, JS::OBJECT)) {
         throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any("Function.prototype.apply called with non-object args")));
@@ -32,8 +31,7 @@ JS::Any Function::apply(const JS::Any& thisArg, const JS::Any& args) {
         argList.push_back(argArray[index]);
         index++;
     }
-    return std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())
-        ->call_function(thisArgArg, JS::Arguments::CreateArgumentsObject(argList));
+    return std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->call_function(thisArgArg, JS::Arguments::CreateArgumentsObject(argList));
 }
 
 JS::Any Function::call(const JS::Any& thisArg, const JS::Any& args) {
@@ -49,8 +47,7 @@ JS::Any Function::call(const JS::Any& thisArg, const JS::Any& args) {
         argList.push_back(args[index]);
         index++;
     }
-    return std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())
-        ->call_function(thisArgArg, JS::Arguments::CreateArgumentsObject(argList));
+    return std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->call_function(thisArgArg, JS::Arguments::CreateArgumentsObject(argList));
 }
 
 JS::Any Function::bind(const JS::Any& thisArg, const JS::Any& args) {
@@ -65,8 +62,7 @@ JS::Any Function::bind(const JS::Any& thisArg, const JS::Any& args) {
         A.push_back(args[index]);
         index++;
     }
-    const std::shared_ptr<JS::FunctionBinded> F = std::make_shared<JS::FunctionBinded>(
-        std::get<std::shared_ptr<JS::InternalObject>>(target.getValue()), args[0], A);
+    const std::shared_ptr<JS::FunctionBinded> F = std::make_shared<JS::FunctionBinded>(std::get<std::shared_ptr<JS::InternalObject>>(target.getValue()), args[0], A);
     F->class_name = u"Function Binded"; // temporary
     if (JS::COMPARE::Object(target, FUNCTION_CLASS_NAME)) {
         const int L = JS::CONVERT::ToInteger(target[u"length"]) - static_cast<int>(A.size());
@@ -75,11 +71,7 @@ JS::Any Function::bind(const JS::Any& thisArg, const JS::Any& args) {
         F->defineOwnProperty(u"length", JS::DataDescriptor{JS::Any(0), false, false, true}, false);
     }
     // TODO: make a [[ThrowTypeError]] function object
-    std::shared_ptr<JS::InternalObject> thrower =
-        JS::InternalObject::create<JS::Function>([](const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
-            throw JS::Any(JS::InternalObject::create<JS::TypeError>(
-                JS::Any("Cannot access 'caller' or 'arguments.callee' in strict mode")));
-        });
+    std::shared_ptr<JS::InternalObject> thrower = JS::InternalObject::create<JS::Function>([](const JS::Any& thisArg, const JS::Any& args) -> JS::Any { throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any("Cannot access 'caller' or 'arguments.callee' in strict mode"))); });
     F->defineOwnProperty(u"caller", JS::AccessorDescriptor{thrower, thrower, false, false}, false);
     F->defineOwnProperty(u"arguments", JS::AccessorDescriptor{thrower, thrower, false, false}, false);
     return JS::Any(F);

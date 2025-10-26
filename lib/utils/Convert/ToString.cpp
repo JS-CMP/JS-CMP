@@ -11,9 +11,7 @@ std::u16string ToString(int value) {
     return JS::CONVERT::ToUtf16((std::ostringstream() << value).str());
 }
 std::u16string ToString(double value) {
-    return std::isnan(value)   ? u"NaN"
-           : std::isinf(value) ? value < 0 ? u"-Infinity" : u"Infinity"
-                               : JS::CONVERT::ToUtf16((std::ostringstream() << value).str());
+    return std::isnan(value) ? u"NaN" : std::isinf(value) ? value < 0 ? u"-Infinity" : u"Infinity" : JS::CONVERT::ToUtf16((std::ostringstream() << value).str());
 }
 std::u16string ToString(bool value) {
     return value ? u"true" : u"false";

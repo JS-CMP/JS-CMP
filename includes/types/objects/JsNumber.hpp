@@ -57,7 +57,6 @@ public:
     /** @brief Function to get the methods of the property prototype */
     static std::shared_ptr<JS::InternalObject>& getPrototypeProperties(const std::shared_ptr<JS::InternalObject>& constructor = nullptr);
 
-
     /** @brief Get the instance of the global object. */
     [[nodiscard]] static std::shared_ptr<JS::Function> getConstructor();
 
@@ -65,12 +64,11 @@ public:
      * @name Static variable of the Number object
      */
     ///@{
-    constexpr static double MAX_VALUE =
-        1.7976931348623157e308;                 /**< Represents the maximum value of a number in JavaScript */
-    constexpr static double MIN_VALUE = 5e-324; /**< Represents the minimum value of a number in JavaScript */
-    constexpr static double NaN = NAN;          /**< Represents NaN in JavaScript */
-    constexpr static double NEGATIVE_INFINITY = -INFINITY; /**< Represents the negative infinity in JavaScript */
-    constexpr static double POSITIVE_INFINITY = INFINITY;  /**< Represents the positive infinity in JavaScript */
+    constexpr static double MAX_VALUE = 1.7976931348623157e308; /**< Represents the maximum value of a number in JavaScript */
+    constexpr static double MIN_VALUE = 5e-324;                 /**< Represents the minimum value of a number in JavaScript */
+    constexpr static double NaN = NAN;                          /**< Represents NaN in JavaScript */
+    constexpr static double NEGATIVE_INFINITY = -INFINITY;      /**< Represents the negative infinity in JavaScript */
+    constexpr static double POSITIVE_INFINITY = INFINITY;       /**< Represents the positive infinity in JavaScript */
     ///@}
 };
 } // namespace JS

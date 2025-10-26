@@ -2,22 +2,16 @@
 #include "internals/Object.hpp"
 
 namespace JS {
-InternalObject::InternalObject(Properties properties, std::shared_ptr<InternalObject> prototype,
-                               std::u16string class_name, bool extensible)
-    : properties(std::make_shared<Properties>(std::move(properties))), prototype(std::move(prototype)),
-      call_function(nullptr), construct(nullptr), class_name(std::move(class_name)), extensible(extensible) {}
+InternalObject::InternalObject(Properties properties, std::shared_ptr<InternalObject> prototype, std::u16string class_name, bool extensible) : properties(std::make_shared<Properties>(std::move(properties))), prototype(std::move(prototype)), call_function(nullptr), construct(nullptr), class_name(std::move(class_name)), extensible(extensible) {}
 
-InternalObject::InternalObject(const std::unordered_map<std::u16string, JS::Any>& properties)
-    : properties(std::make_shared<Properties>()), prototype(nullptr), call_function(nullptr), construct(nullptr),
-      class_name(OBJECT_CLASS_NAME), extensible(true) {
+InternalObject::InternalObject(const std::unordered_map<std::u16string, JS::Any>& properties) : properties(std::make_shared<Properties>()), prototype(nullptr), call_function(nullptr), construct(nullptr), class_name(OBJECT_CLASS_NAME), extensible(true) {
 
     for (const auto& [key, value] : properties) {
         this->InternalObject::put(key, value);
     }
 }
 
-InternalObject::InternalObject(const Attribute& attribute)
-    : properties(std::make_shared<std::unordered_map<std::u16string, JS::Attribute>>()), extensible(true) {
+InternalObject::InternalObject(const Attribute& attribute) : properties(std::make_shared<std::unordered_map<std::u16string, JS::Attribute>>()), extensible(true) {
     switch (attribute.index()) {
         case DATA_DESCRIPTOR: {
             JS::DataDescriptor desc = std::get<JS::DataDescriptor>(attribute);

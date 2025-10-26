@@ -29,7 +29,6 @@ inline auto SyntaxError = JS::Any(JS::SyntaxError::getConstructor());
 inline auto TypeError = JS::Any(JS::TypeError::getConstructor());
 inline auto URIError = JS::Any(JS::URIError::getConstructor());
 
-
 JS::Any Math = JS::Any(std::make_shared<JS::InternalObject>(
     JS::Properties{
         {u"abs", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Math::abs, 1, u"abs")), false, false, true}},
@@ -112,7 +111,6 @@ inline auto global = JS::Any(JS::InternalObject::create<JS::Object>(std::unorder
     {u"decodeURIComponent", decodeURIComponent},
 }));
 
-
 // debug for now , remove eventually
 inline void displayPrototypeChain(JS::Any obj) {
     JS::Any currentObj = obj;
@@ -126,4 +124,3 @@ inline void displayPrototypeChain(JS::Any obj) {
 }
 
 #endif // JS_CMP_GLOBAL_HPP
-

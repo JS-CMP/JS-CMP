@@ -62,8 +62,7 @@ public:
 
 private:
     // TODO: add handling stackStartFn
-    static void innerFail(const JS::Any& actual, const JS::Any& expected, const JS::Any& message,
-                          const std::u16string& operator_);
+    static void innerFail(const JS::Any& actual, const JS::Any& expected, const JS::Any& message, const std::u16string& operator_);
     static bool isDeepEqual(const JS::Any& actual, const JS::Any& expected, bool strict = false);
 
     // test262 asserts

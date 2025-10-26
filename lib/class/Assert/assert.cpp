@@ -7,8 +7,7 @@
 #include "types/objects/Function/JsFunction.hpp"
 
 namespace JS {
-assert::assert(const JS::Properties& properties)
-    : JS::InternalObject(properties, JS::Function::getPrototypeProperties(), u"Assert") {}
+assert::assert(const JS::Properties& properties) : JS::InternalObject(properties, JS::Function::getPrototypeProperties(), u"Assert") {}
 
 JS::Any assert::fail(const JS::Any& thisArgs, const JS::Any& args) {
     // TODO : handle if args[0] is a throwable, make throwable js::any
@@ -26,8 +25,7 @@ JS::Any assert::ok(const JS::Any& thisArgs, const JS::Any& args) {
         throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any(u"(No value argument passed to `Assert.ok()`)")));
     }
     if (!args[0]) {
-        innerFail(args[0], JS::Any(true), length == 2 ? args[1] : JS::Any("The expression evaluated to a falsy value"),
-                  u"ok");
+        innerFail(args[0], JS::Any(true), length == 2 ? args[1] : JS::Any("The expression evaluated to a falsy value"), u"ok");
     }
     return {};
 }
@@ -36,12 +34,10 @@ JS::Any assert::ok(const JS::Any& thisArgs, const JS::Any& args) {
 JS::Any assert::equal(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw JS::Any(JS::InternalObject::create<JS::TypeError>(
-            JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
     }
 
-    if (args[0] != args[1] && (!JS::GLOBAL::isNaN(JS::Any(), JS::Arguments::CreateArgumentsObject({args[0]})) ||
-                               !JS::GLOBAL::isNaN(JS::Any(), JS::Arguments::CreateArgumentsObject({args[1]})))) {
+    if (args[0] != args[1] && (!JS::GLOBAL::isNaN(JS::Any(), JS::Arguments::CreateArgumentsObject({args[0]})) || !JS::GLOBAL::isNaN(JS::Any(), JS::Arguments::CreateArgumentsObject({args[1]})))) {
         innerFail(args[0], args[1], length == 3 ? args[2] : JS::Any(JS::Undefined()), u"==");
     }
     return {};
@@ -50,11 +46,9 @@ JS::Any assert::equal(const JS::Any& thisArgs, const JS::Any& args) {
 JS::Any assert::notEqual(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw JS::Any(JS::InternalObject::create<JS::TypeError>(
-            JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
     }
-    if (args[0] == args[1] || (JS::GLOBAL::isNaN(JS::Any(), JS::Arguments::CreateArgumentsObject({args[0]})) &&
-                               JS::GLOBAL::isNaN(JS::Any(), JS::Arguments::CreateArgumentsObject({args[1]})))) {
+    if (args[0] == args[1] || (JS::GLOBAL::isNaN(JS::Any(), JS::Arguments::CreateArgumentsObject({args[0]})) && JS::GLOBAL::isNaN(JS::Any(), JS::Arguments::CreateArgumentsObject({args[1]})))) {
         innerFail(args[0], args[1], length == 3 ? args[2] : JS::Any(JS::Undefined()), u"!=");
     }
     return {};
@@ -64,8 +58,7 @@ JS::Any assert::notEqual(const JS::Any& thisArgs, const JS::Any& args) {
 JS::Any assert::deepEqual(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw JS::Any(JS::InternalObject::create<JS::TypeError>(
-            JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
     }
     if (isDeepEqual(args[0], args[1])) {
         innerFail(args[0], args[1], length == 3 ? args[2] : JS::Any(JS::Undefined()), u"deepEqual");
@@ -76,8 +69,7 @@ JS::Any assert::deepEqual(const JS::Any& thisArgs, const JS::Any& args) {
 JS::Any assert::notDeepEqual(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw JS::Any(JS::InternalObject::create<JS::TypeError>(
-            JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
     }
     if (!isDeepEqual(args[0], args[1])) {
         innerFail(args[0], args[1], length == 3 ? args[2] : JS::Any(JS::Undefined()), u"notDeepEqual");
@@ -89,8 +81,7 @@ JS::Any assert::notDeepEqual(const JS::Any& thisArgs, const JS::Any& args) {
 JS::Any assert::strictEqual(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw JS::Any(JS::InternalObject::create<JS::TypeError>(
-            JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
     }
     if (!JS::COMPARE::SameValue(args[0], args[1])) {
         innerFail(args[0], args[1], length == 3 ? args[2] : JS::Any(JS::Undefined()), u"strictEqual");
@@ -101,8 +92,7 @@ JS::Any assert::strictEqual(const JS::Any& thisArgs, const JS::Any& args) {
 JS::Any assert::notStrictEqual(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw JS::Any(JS::InternalObject::create<JS::TypeError>(
-            JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
     }
     if (JS::COMPARE::SameValue(args[0], args[1])) {
         innerFail(args[0], args[1], length == 3 ? args[2] : JS::Any(JS::Undefined()), u"notStrictEqual");
@@ -117,8 +107,7 @@ JS::Any assert::ifError(const JS::Any& thisArgs, const JS::Any& args) {
         throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any(u"(The \"value\" argument must be specified.)")));
     }
     if (!JS::COMPARE::Type(args[0], JS::UNDEFINED) && !JS::COMPARE::Type(args[0], JS::NULL_TYPE)) {
-        innerFail(args[0], JS::Any(JS::Undefined()),
-                  JS::Any(u"ifError got unwanted exception" + JS::CONVERT::ToString(args[0])), u"ifError");
+        innerFail(args[0], JS::Any(JS::Undefined()), JS::Any(u"ifError got unwanted exception" + JS::CONVERT::ToString(args[0])), u"ifError");
     }
     return {};
 }
@@ -157,8 +146,7 @@ JS::Any assert::doesNotThrow(const JS::Any& thisArgs, const JS::Any& args) {
         try {
             fn();
         } catch (const std::exception& e) {
-            innerFail(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()), JS::Any("Missing expected exception"),
-                      u"doesNotThrow");
+            innerFail(JS::Any(JS::Undefined()), JS::Any(JS::Undefined()), JS::Any("Missing expected exception"), u"doesNotThrow");
             return {};
         }
     }
@@ -169,8 +157,7 @@ JS::Any assert::doesNotThrow(const JS::Any& thisArgs, const JS::Any& args) {
 JS::Any assert::deepStrictEqual(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw JS::Any(JS::InternalObject::create<JS::TypeError>(
-            JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
     }
     if (!isDeepEqual(args[0], args[1], true)) {
         innerFail(args[0], args[1], length == 3 ? args[2] : JS::Any(JS::Undefined()), u"deepStrictEqual");
@@ -181,8 +168,7 @@ JS::Any assert::deepStrictEqual(const JS::Any& thisArgs, const JS::Any& args) {
 JS::Any assert::notStrictDeepEqual(const JS::Any& thisArgs, const JS::Any& args) {
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw JS::Any(JS::InternalObject::create<JS::TypeError>(
-            JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
     }
     if (isDeepEqual(args[0], args[1], true)) {
         innerFail(args[0], args[1], length == 3 ? args[2] : JS::Any(JS::Undefined()), u"notDeepStrictEqual");
@@ -195,8 +181,7 @@ JS::Any assert::sameValue(const JS::Any& thisArgs, const JS::Any& args) {
     JS::Any actual, expected;
     const double length = JS::CONVERT::ToNumber(args[u"length"]);
     if (length < 2) {
-        throw JS::Any(JS::InternalObject::create<JS::TypeError>(
-            JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any(u"(The \"actual\" and \"expected\" arguments must be specified.)")));
     }
     actual = args[0];
     expected = args[1];
@@ -214,18 +199,14 @@ JS::Any assert::sameValue(const JS::Any& thisArgs, const JS::Any& args) {
 
 // private
 bool assert::_sameValue(const JS::Any& actual, const JS::Any& expected) {
-    if (JS::GLOBAL::isNaN(JS::Any(), JS::Arguments::CreateArgumentsObject({actual})) &&
-        JS::GLOBAL::isNaN(JS::Any(), JS::Arguments::CreateArgumentsObject({expected}))) {
+    if (JS::GLOBAL::isNaN(JS::Any(), JS::Arguments::CreateArgumentsObject({actual})) && JS::GLOBAL::isNaN(JS::Any(), JS::Arguments::CreateArgumentsObject({expected}))) {
         return true;
     }
     return JS::COMPARE::SameValue(actual, expected);
 }
 
-void assert::innerFail(const JS::Any& actual, const JS::Any& expected, const JS::Any& message,
-                       const std::u16string& operator_) {
-    auto msg = JS::COMPARE::Type(message, JS::UNDEFINED)
-                   ? JS::CONVERT::ToString(actual) + u" " + operator_ + u" " + JS::CONVERT::ToString(expected)
-                   : JS::CONVERT::ToString(message);
+void assert::innerFail(const JS::Any& actual, const JS::Any& expected, const JS::Any& message, const std::u16string& operator_) {
+    auto msg = JS::COMPARE::Type(message, JS::UNDEFINED) ? JS::CONVERT::ToString(actual) + u" " + operator_ + u" " + JS::CONVERT::ToString(expected) : JS::CONVERT::ToString(message);
 
     throw JS::Any(JS::InternalObject::create<JS::Error>(JS::Any(msg), JS::Object::getPrototypeProperties()));
     // throw AssertionError(actual, expected, msg, operator_);
@@ -239,8 +220,7 @@ bool assert::isDeepEqual(const JS::Any& actual, const JS::Any& expected, bool st
 
     // Handle NaN
     if (strict && JS::COMPARE::Type(actual, JS::NUMBER) && JS::COMPARE::Type(expected, JS::NUMBER)) {
-        return JS::GLOBAL::isNaN(JS::Any(), JS::Arguments::CreateArgumentsObject({actual})) &&
-               JS::GLOBAL::isNaN(JS::Any(), JS::Arguments::CreateArgumentsObject({expected}));
+        return JS::GLOBAL::isNaN(JS::Any(), JS::Arguments::CreateArgumentsObject({actual})) && JS::GLOBAL::isNaN(JS::Any(), JS::Arguments::CreateArgumentsObject({expected}));
     }
 
     // Type and null
@@ -260,9 +240,7 @@ bool assert::isDeepEqual(const JS::Any& actual, const JS::Any& expected, bool st
         // Loose comparison - handle primitives and null.
         if (actualNull || actualObj) {
             if (expectedNull || expectedObj) {
-                return actual == expected ||
-                       (JS::GLOBAL::isNaN(JS::Any(), JS::Arguments::CreateArgumentsObject({actual})) &&
-                        JS::GLOBAL::isNaN(JS::Any(), JS::Arguments::CreateArgumentsObject({expected})));
+                return actual == expected || (JS::GLOBAL::isNaN(JS::Any(), JS::Arguments::CreateArgumentsObject({actual})) && JS::GLOBAL::isNaN(JS::Any(), JS::Arguments::CreateArgumentsObject({expected})));
             }
             return false;
         }

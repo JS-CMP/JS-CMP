@@ -1,10 +1,10 @@
 #ifndef BUILDER_HPP
 #define BUILDER_HPP
 
-#include "Tokenizer/Lexer.hpp"
+#include "AST/Parser.hpp"
 #include "Optimization/Optimizer.hpp"
 #include "Options.hpp"
-#include "AST/Parser.hpp"
+#include "Tokenizer/Lexer.hpp"
 
 #include <fstream>
 #include <iostream>

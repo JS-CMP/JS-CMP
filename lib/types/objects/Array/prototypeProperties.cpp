@@ -26,8 +26,7 @@ std::shared_ptr<JS::InternalObject>& JS::Array::getPrototypeProperties(const std
         {u"reduceRight", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Array::reduceRight, 1, u"reduceRight")), true, true, true}},
         {u"constructor", JS::DataDescriptor{JS::Any(constructor ? constructor : JS::Array::getConstructor()), true, false, true}},
     };
-    static std::shared_ptr<JS::InternalObject> instance = std::make_shared<JS::InternalObject>(
-        properties_prototype, JS::Object::getPrototypeProperties(), OBJECT_CLASS_NAME, true);
+    static std::shared_ptr<JS::InternalObject> instance = std::make_shared<JS::InternalObject>(properties_prototype, JS::Object::getPrototypeProperties(), OBJECT_CLASS_NAME, true);
 
     return instance;
 }

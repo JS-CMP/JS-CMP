@@ -20,8 +20,7 @@ bool Type(const JS::Types& a, const JS::Operator& b) {
 }
 
 bool Object(const JS::Operator& obj, const std::u16string& class_name) {
-    return obj.getValue().index() == JS::OBJECT &&
-           std::get<std::shared_ptr<JS::InternalObject>>(obj.getValue())->class_name == class_name;
+    return obj.getValue().index() == JS::OBJECT && std::get<std::shared_ptr<JS::InternalObject>>(obj.getValue())->class_name == class_name;
 }
 
 bool SameValue(const double& a, const double& b) {
@@ -70,8 +69,7 @@ bool SameValue(const JS::Operator& a, const JS::Operator& b) {
         case JS::NULL_TYPE:
             return true;
         case JS::OBJECT:
-            return SameValue(std::get<std::shared_ptr<JS::InternalObject>>(a.getValue()),
-                             std::get<std::shared_ptr<JS::InternalObject>>(b.getValue()));
+            return SameValue(std::get<std::shared_ptr<JS::InternalObject>>(a.getValue()), std::get<std::shared_ptr<JS::InternalObject>>(b.getValue()));
     }
     return false;
 }
@@ -84,14 +82,12 @@ bool SameValue(const JS::Attribute& a, const JS::Attribute& b) {
         case JS::DATA_DESCRIPTOR: {
             JS::DataDescriptor ad_a = std::get<JS::DataDescriptor>(a);
             JS::DataDescriptor ad_b = std::get<JS::DataDescriptor>(b);
-            return SameValue(ad_a.value, ad_b.value) && ad_a.writable == ad_b.writable &&
-                   ad_a.enumerable == ad_b.enumerable && ad_a.configurable == ad_b.configurable;
+            return SameValue(ad_a.value, ad_b.value) && ad_a.writable == ad_b.writable && ad_a.enumerable == ad_b.enumerable && ad_a.configurable == ad_b.configurable;
         }
         case JS::ACCESSOR_DESCRIPTOR: {
             JS::AccessorDescriptor ad_a = std::get<JS::AccessorDescriptor>(a);
             JS::AccessorDescriptor ad_b = std::get<JS::AccessorDescriptor>(b);
-            return SameValue(ad_a.get, ad_b.get) && SameValue(ad_a.set, ad_b.set) &&
-                   ad_a.enumerable == ad_b.enumerable && ad_a.configurable == ad_b.configurable;
+            return SameValue(ad_a.get, ad_b.get) && SameValue(ad_a.set, ad_b.set) && ad_a.enumerable == ad_b.enumerable && ad_a.configurable == ad_b.configurable;
         }
     }
     return false;

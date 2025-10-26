@@ -72,14 +72,12 @@ class Boolean;
 
 class Any;
 
-using FunctionType =
-    std::function<JS::Any(const JS::Any&, const JS::Any&)>; /**< Type alias for JavaScript-like functions. */
-/** @cond */                                                // Hide from Doxygen
-struct Undefined {};                                        /**< Represents an undefined value. */
+using FunctionType = std::function<JS::Any(const JS::Any&, const JS::Any&)>; /**< Type alias for JavaScript-like functions. */
+/** @cond */                                                                 // Hide from Doxygen
+struct Undefined {};                                                         /**< Represents an undefined value. */
 /** @endcond */
-using Null = std::nullptr_t; /**< Type alias for a null value. */
-using Value = std::variant<double, Rope, bool, JS::Undefined, JS::Null,
-                           std::shared_ptr<JS::InternalObject>>; /**< Union of all possible types Any can hold. */
+using Null = std::nullptr_t;                                                                                  /**< Type alias for a null value. */
+using Value = std::variant<double, Rope, bool, JS::Undefined, JS::Null, std::shared_ptr<JS::InternalObject>>; /**< Union of all possible types Any can hold. */
 } // namespace JS
 
 #endif // TYPES_HPP

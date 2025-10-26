@@ -3,52 +3,51 @@
 #include "utils/Convert.hpp"
 #include "utils/Is.hpp"
 
-#include <utils/Compare.hpp>
 #include <types/objects/Function/JsFunction.hpp>
+#include <utils/Compare.hpp>
 
 std::u16string JS::Object::getContent() const {
     return JS::CONVERT::ObjectToString(shared_from_this());
 }
 
 std::shared_ptr<JS::Function> JS::Object::getConstructor() {
-    static auto constructor = JS::InternalObject::create<JS::Function>( [] (const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
-        JS::Any value = args[u"0"];
-        if (JS::COMPARE::Type(value, JS::OBJECT)) {
-            return value;
-        }
-        if (JS::COMPARE::Type(value, JS::BOOLEAN) || JS::COMPARE::Type(value, JS::NUMBER) ||
-            JS::COMPARE::Type(value, JS::STRING)) {
+    static auto constructor = JS::InternalObject::create<JS::Function>(
+        [](const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
+            JS::Any value = args[u"0"];
+            if (JS::COMPARE::Type(value, JS::OBJECT)) {
+                return value;
+            }
+            if (JS::COMPARE::Type(value, JS::BOOLEAN) || JS::COMPARE::Type(value, JS::NUMBER) || JS::COMPARE::Type(value, JS::STRING)) {
+                return JS::Any(JS::CONVERT::ToObject(value));
+            }
+            if (JS::COMPARE::Type(value, JS::UNDEFINED) || JS::COMPARE::Type(value, JS::NULL_TYPE)) {
+                return JS::Any(JS::InternalObject::create<JS::Object>());
+            }
             return JS::Any(JS::CONVERT::ToObject(value));
-        }
-        if (JS::COMPARE::Type(value, JS::UNDEFINED) || JS::COMPARE::Type(value, JS::NULL_TYPE)) {
-            return JS::Any(JS::InternalObject::create<JS::Object>());
-        }
-        return JS::Any(JS::CONVERT::ToObject(value));
-    }, 1, OBJECT_CLASS_NAME, nullptr);
+        },
+        1, OBJECT_CLASS_NAME, nullptr);
 
     auto prototype = Function::getPrototypeProperties(constructor);
 
     constructor->class_name = OBJECT_CLASS_NAME;
     constructor->extensible = true;
     constructor->prototype = prototype;
-    constructor->properties = std::make_shared<JS::Properties>(JS::Properties({
-        {u"length", JS::DataDescriptor{JS::Any(1), false, false, false}},
-        {u"name", JS::DataDescriptor{JS::Any(OBJECT_CLASS_NAME), false, false, false}},
-        {u"keys", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::keys, 1, u"keys")), true, false, true}},
-        {u"create", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::create, 2, u"create")), true, false, true}},
-        {u"defineProperty", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::defineProperty, 3, u"defineProperty")), true, false, true}},
-        {u"defineProperties", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::defineProperties, 2, u"defineProperties")), true, false, true}},
-        {u"freeze", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::freeze, 1, u"freeze")), true, false, true}},
-        {u"getPrototypeOf", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::getPrototypeOf, 1, u"getPrototypeOf")), true, false, true}},
-        {u"getOwnPropertyDescriptor", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::getOwnPropertyDescriptor, 2, u"getOwnPropertyDescriptor")), true, false, true}},
-        {u"getOwnPropertyNames", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::getOwnPropertyNames, 1, u"getOwnPropertyNames")), true, false, true}},
-        {u"isSealed", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::isSealed, 1, u"isSealed")), true, false, true}},
-        {u"isFrozen", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::isFrozen, 1, u"isFrozen")), true, false, true}},
-        {u"isExtensible", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::isExtensible, 1, u"isExtensible")), true, false, true}},
-        {u"preventExtensions", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::preventExtensions, 1, u"preventExtensions")), true, false, true}},
-        {u"seal", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::seal, 1, u"seal")), true, false, true}},
-        {u"prototype", JS::DataDescriptor(JS::Any(Object::getPrototypeProperties(nullptr, constructor)), false , false, false)}
-    }));
+    constructor->properties = std::make_shared<JS::Properties>(JS::Properties({{u"length", JS::DataDescriptor{JS::Any(1), false, false, false}},
+                                                                               {u"name", JS::DataDescriptor{JS::Any(OBJECT_CLASS_NAME), false, false, false}},
+                                                                               {u"keys", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::keys, 1, u"keys")), true, false, true}},
+                                                                               {u"create", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::create, 2, u"create")), true, false, true}},
+                                                                               {u"defineProperty", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::defineProperty, 3, u"defineProperty")), true, false, true}},
+                                                                               {u"defineProperties", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::defineProperties, 2, u"defineProperties")), true, false, true}},
+                                                                               {u"freeze", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::freeze, 1, u"freeze")), true, false, true}},
+                                                                               {u"getPrototypeOf", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::getPrototypeOf, 1, u"getPrototypeOf")), true, false, true}},
+                                                                               {u"getOwnPropertyDescriptor", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::getOwnPropertyDescriptor, 2, u"getOwnPropertyDescriptor")), true, false, true}},
+                                                                               {u"getOwnPropertyNames", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::getOwnPropertyNames, 1, u"getOwnPropertyNames")), true, false, true}},
+                                                                               {u"isSealed", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::isSealed, 1, u"isSealed")), true, false, true}},
+                                                                               {u"isFrozen", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::isFrozen, 1, u"isFrozen")), true, false, true}},
+                                                                               {u"isExtensible", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::isExtensible, 1, u"isExtensible")), true, false, true}},
+                                                                               {u"preventExtensions", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::preventExtensions, 1, u"preventExtensions")), true, false, true}},
+                                                                               {u"seal", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Object::seal, 1, u"seal")), true, false, true}},
+                                                                               {u"prototype", JS::DataDescriptor(JS::Any(Object::getPrototypeProperties(nullptr, constructor)), false, false, false)}}));
     return constructor;
 }
 

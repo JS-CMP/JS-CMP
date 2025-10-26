@@ -62,9 +62,6 @@ JS::Any Object::propertyIsEnumerable(const JS::Any& thisArg, const JS::Any& args
     if (!desc.has_value()) {
         return JS::Any(false);
     }
-    return JS::Any(JS::IS::DataDescriptor(desc.value()) && std::get<JS::DataDescriptor>(desc.value()).enumerable ||
-                   JS::IS::AccessorDescriptor(desc.value()) &&
-                       std::get<JS::AccessorDescriptor>(desc.value())
-                           .enumerable); // TODO can be optimized with a genericDescriptor with enumerable
+    return JS::Any(JS::IS::DataDescriptor(desc.value()) && std::get<JS::DataDescriptor>(desc.value()).enumerable || JS::IS::AccessorDescriptor(desc.value()) && std::get<JS::AccessorDescriptor>(desc.value()).enumerable); // TODO can be optimized with a genericDescriptor with enumerable
 }
 } // namespace JS

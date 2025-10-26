@@ -6,8 +6,7 @@
 
 namespace JS::CONVERT {
 
-std::shared_ptr<JS::InternalObject>
-ToObject(const JS::Operator& any) { // https://262.ecma-international.org/5.1/#sec-9.9
+std::shared_ptr<JS::InternalObject> ToObject(const JS::Operator& any) { // https://262.ecma-international.org/5.1/#sec-9.9
     if (JS::COMPARE::Type(any, UNDEFINED) || JS::COMPARE::Type(any, NULL_TYPE)) {
         throw std::invalid_argument("Cannot convert undefined or null to object");
     }

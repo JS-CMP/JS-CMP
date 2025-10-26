@@ -6,13 +6,11 @@
 
 namespace JS::IS {
 bool Primitive(const JS::Operator& a) {
-    return a.getValue().index() == JS::NUMBER || a.getValue().index() == JS::STRING ||
-           a.getValue().index() == JS::BOOLEAN;
+    return a.getValue().index() == JS::NUMBER || a.getValue().index() == JS::STRING || a.getValue().index() == JS::BOOLEAN;
 }
 
 bool Callable(const JS::Operator& a) {
-    return JS::COMPARE::Type(a, JS::OBJECT) &&
-           std::get<std::shared_ptr<JS::InternalObject>>(a.getValue())->isCallable();
+    return JS::COMPARE::Type(a, JS::OBJECT) && std::get<std::shared_ptr<JS::InternalObject>>(a.getValue())->isCallable();
 }
 
 bool Callable(const JS::Value& a) {

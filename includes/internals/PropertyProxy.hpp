@@ -15,8 +15,7 @@ namespace JS {
  */
 class PropertyProxy : public Operator {
 public:
-    PropertyProxy(const std::shared_ptr<JS::InternalObject>& obj, std::u16string key)
-        : obj_(obj), key_(std::move(key)) {}
+    PropertyProxy(const std::shared_ptr<JS::InternalObject>& obj, std::u16string key) : obj_(obj), key_(std::move(key)) {}
     /** @name Getters and Setters
      * These operators allow the PropertyProxy to be used like a property
      */

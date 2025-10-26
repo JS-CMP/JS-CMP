@@ -64,7 +64,7 @@ public:
     static std::shared_ptr<JS::InternalObject>& getPrototypeProperties(const std::shared_ptr<JS::InternalObject>& constructor = nullptr);
 
     /** @brief Function to get the methods of the property constructor by copying */
-    static std::shared_ptr<JS::InternalObject> getPrototypePropertiesCopy(std::shared_ptr<JS::InternalObject> constructor,std::shared_ptr<JS::InternalObject> prototype = nullptr);
+    static std::shared_ptr<JS::InternalObject> getPrototypePropertiesCopy(std::shared_ptr<JS::InternalObject> constructor, std::shared_ptr<JS::InternalObject> prototype = nullptr);
 
     /**
      * @name Internal Utility Methods
@@ -75,7 +75,6 @@ public:
     /** @brief Override of the Internal object method. */
     void initialize(std::shared_ptr<JS::InternalObject> prototype) override;
     ///@}
-
 };
 
 } // namespace JS

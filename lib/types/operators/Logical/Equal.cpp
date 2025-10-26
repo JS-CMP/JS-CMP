@@ -10,12 +10,10 @@ JS::Any JS::Operator::operator==(const JS::Operator& other) const {
                     return JS::Any(std::get<double>(this->getValue()) == std::get<double>(other.getValue()));
                 case STRING: {
                     Rope otherRope = std::get<Rope>(other.getValue());
-                    return JS::Any(std::get<double>(this->getValue()) ==
-                                   (otherRope.length() == 0 ? 0 : std::stod(JS::CONVERT::ToUtf8(otherRope.toString()))));
+                    return JS::Any(std::get<double>(this->getValue()) == (otherRope.length() == 0 ? 0 : std::stod(JS::CONVERT::ToUtf8(otherRope.toString()))));
                 }
                 case BOOLEAN:
-                    return JS::Any(std::get<double>(this->getValue()) ==
-                                   static_cast<double>(std::get<bool>(other.getValue())));
+                    return JS::Any(std::get<double>(this->getValue()) == static_cast<double>(std::get<bool>(other.getValue())));
                 default:
                     return JS::Any(false); // Invalid type
             }
@@ -23,25 +21,22 @@ JS::Any JS::Operator::operator==(const JS::Operator& other) const {
             Rope thisRope = std::get<Rope>(this->getValue());
             switch (other.getValue().index()) {
                 case NUMBER:
-                    return JS::Any((thisRope.length() == 0 ? 0 : std::stod(JS::CONVERT::ToUtf8(thisRope.toString()))) ==
-                                   std::get<double>(other.getValue()));
+                    return JS::Any((thisRope.length() == 0 ? 0 : std::stod(JS::CONVERT::ToUtf8(thisRope.toString()))) == std::get<double>(other.getValue()));
                 case STRING:
                     return JS::Any(thisRope == std::get<Rope>(other.getValue()));
                 case BOOLEAN:
-                    return JS::Any((thisRope.length() == 0 ? 0 : std::stod(JS::CONVERT::ToUtf8(thisRope.toString()))) ==
-                                   static_cast<double>(std::get<bool>(other.getValue())));
+                    return JS::Any((thisRope.length() == 0 ? 0 : std::stod(JS::CONVERT::ToUtf8(thisRope.toString()))) == static_cast<double>(std::get<bool>(other.getValue())));
                 default:
                     return JS::Any(false); // Invalid type
-            }}
+            }
+        }
         case BOOLEAN:
             switch (other.getValue().index()) {
                 case NUMBER:
-                    return JS::Any(static_cast<double>(std::get<bool>(this->getValue())) ==
-                                   std::get<double>(other.getValue()));
+                    return JS::Any(static_cast<double>(std::get<bool>(this->getValue())) == std::get<double>(other.getValue()));
                 case STRING: {
                     Rope otherRope = std::get<Rope>(other.getValue());
-                    return JS::Any(static_cast<double>(std::get<bool>(this->getValue())) ==
-                                   (otherRope.length() == 0 ? 0 : std::stod(JS::CONVERT::ToUtf8(otherRope.toString()))));
+                    return JS::Any(static_cast<double>(std::get<bool>(this->getValue())) == (otherRope.length() == 0 ? 0 : std::stod(JS::CONVERT::ToUtf8(otherRope.toString()))));
                 }
                 case BOOLEAN:
                     return JS::Any(std::get<bool>(this->getValue()) == std::get<bool>(other.getValue()));

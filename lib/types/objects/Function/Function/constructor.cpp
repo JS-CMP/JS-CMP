@@ -5,8 +5,7 @@
 
 namespace JS {
 
-Function::Function(FunctionType f, int length, const std::u16string& name)
-: JS::InternalObject({}, getPrototypeProperties(), FUNCTION_CLASS_NAME, true) {
+Function::Function(FunctionType f, int length, const std::u16string& name) : JS::InternalObject({}, getPrototypeProperties(), FUNCTION_CLASS_NAME, true) {
     construct = [f](const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
         auto obj = JS::InternalObject::create<JS::Object>();
         if (JS::COMPARE::Type(thisArg, JS::OBJECT)) {
@@ -29,8 +28,7 @@ Function::Function(FunctionType f, int length, const std::u16string& name)
     JS::InternalObject::defineOwnProperty(u"name", JS::DataDescriptor{JS::Any(name), false, false, false}, false);
 }
 
-Function::Function(FunctionType f, int length, const std::u16string& name, const std::shared_ptr<InternalObject>& prototype)
-: JS::InternalObject({}, prototype, FUNCTION_CLASS_NAME, true) {
+Function::Function(FunctionType f, int length, const std::u16string& name, const std::shared_ptr<InternalObject>& prototype) : JS::InternalObject({}, prototype, FUNCTION_CLASS_NAME, true) {
     construct = [f](const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
         auto obj = JS::InternalObject::create<JS::Object>();
         if (JS::COMPARE::Type(thisArg, JS::OBJECT)) {
@@ -54,15 +52,7 @@ Function::Function(FunctionType f, int length, const std::u16string& name, const
 }
 
 void Function::initialize(std::shared_ptr<InternalObject> prototype) {
-    this->defineOwnProperty(u"prototype",
-                            JS::DataDescriptor{
-                                JS::Any(prototype ? prototype : getPrototypePropertiesCopy(shared_from_this(), this->prototype)),
-                                true,
-                                false,
-                                false
-                            },
-                            true);
-
+    this->defineOwnProperty(u"prototype", JS::DataDescriptor{JS::Any(prototype ? prototype : getPrototypePropertiesCopy(shared_from_this(), this->prototype)), true, false, false}, true);
 }
 
 } // namespace JS

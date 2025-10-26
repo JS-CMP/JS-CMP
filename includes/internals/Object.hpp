@@ -31,8 +31,7 @@ public:
      */
     ///@{
     /** @brief Default constructor initializes the object with an empty map */
-    explicit InternalObject(JS::Properties properties = {}, std::shared_ptr<JS::InternalObject> prototype = nullptr,
-                            std::u16string class_name = OBJECT_CLASS_NAME, bool extensible = true);
+    explicit InternalObject(JS::Properties properties = {}, std::shared_ptr<JS::InternalObject> prototype = nullptr, std::u16string class_name = OBJECT_CLASS_NAME, bool extensible = true);
     explicit InternalObject(const std::unordered_map<std::u16string, JS::Any>& properties = {});
     /** @brief Attribute constructor */
     explicit InternalObject(const JS::Attribute& attribute);
@@ -58,8 +57,7 @@ public:
     /** @brief Call operator for the object */
     template <typename... Args>
     JS::Any operator()(Args... args) {
-        return call_function(JS::Any(JS::Undefined{}),
-                             JS::Arguments::CreateArgumentsObject(std::vector<JS::Any>{std::move(args)...}));
+        return call_function(JS::Any(JS::Undefined{}), JS::Arguments::CreateArgumentsObject(std::vector<JS::Any>{std::move(args)...}));
     }
     ///@}
 
@@ -114,7 +112,7 @@ public:
     /** @brief initialize the object, used to fix shared_from_this */
     virtual void initialize(std::shared_ptr<JS::InternalObject> prototype);
     /** @brief instantiate and return an object, used to fix shared_from_this */
-    template<typename T, typename... Args>
+    template <typename T, typename... Args>
     [[nodiscard]] static std::shared_ptr<T> create(Args&&... args) {
         auto obj = std::make_shared<T>(std::forward<Args>(args)...);
         obj->initialize(nullptr);
@@ -122,7 +120,7 @@ public:
     }
 
     /** @brief instantiate and return an object with custom initialize parameter */
-    template<typename T, typename... Args>
+    template <typename T, typename... Args>
     [[nodiscard]] static std::shared_ptr<T> create(std::shared_ptr<JS::InternalObject> init_param, Args&&... args) {
         auto obj = std::make_shared<T>(std::forward<Args>(args)...);
         obj->initialize(init_param);
@@ -130,16 +128,15 @@ public:
     }
     ///@}
 
-    std::shared_ptr<JS::Properties> properties;    /**< The properties of the object. */
-    std::shared_ptr<JS::InternalObject> prototype; /**< The prototype of the object. */
-    FunctionType call_function;                    /**< The call function of the object. */
-    FunctionType construct;                        /**< The construct function of the object. */
-    std::u16string class_name;                     /**< The class name of the object. */
-    bool extensible;                               /**< Whether the object is extensible. */
-    JS::Value primitiveValue; /**< The primitive value of the object. (Only Defined for Some Objects) */
+    std::shared_ptr<JS::Properties> properties;        /**< The properties of the object. */
+    std::shared_ptr<JS::InternalObject> prototype;     /**< The prototype of the object. */
+    FunctionType call_function;                        /**< The call function of the object. */
+    FunctionType construct;                            /**< The construct function of the object. */
+    std::u16string class_name;                         /**< The class name of the object. */
+    bool extensible;                                   /**< Whether the object is extensible. */
+    JS::Value primitiveValue;                          /**< The primitive value of the object. (Only Defined for Some Objects) */
     std::shared_ptr<JS::InternalObject> parameter_map; /**< The parameter map of the object. */
 };
 } // namespace JS
 
 #endif // OBJECT_HPP
-

@@ -37,8 +37,7 @@ std::optional<JS::Match> JS::RegExp::match(const std::u16string& str, uint32_t p
 
 // prototype methods
 JS::Any JS::RegExp::exec(const JS::Any& thisArg, const JS::Any& args) {
-    if (!JS::COMPARE::Type(thisArg, JS::OBJECT) ||
-        std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->class_name != REGEXP_CLASS_NAME) {
+    if (!JS::COMPARE::Type(thisArg, JS::OBJECT) || std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->class_name != REGEXP_CLASS_NAME) {
         throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any("this is not a RegExp object")));
     }
     std::shared_ptr<JS::InternalObject> R = std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue());
@@ -87,8 +86,7 @@ JS::Any JS::RegExp::test(const JS::Any& thisArg, const JS::Any& args) {
 }
 
 JS::Any JS::RegExp::toString(const JS::Any& thisArg, const JS::Any& args) {
-    if (!JS::COMPARE::Type(thisArg, JS::OBJECT) ||
-        std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->class_name != REGEXP_CLASS_NAME) {
+    if (!JS::COMPARE::Type(thisArg, JS::OBJECT) || std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->class_name != REGEXP_CLASS_NAME) {
         throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any("This is not a RegExp object")));
     }
     std::shared_ptr<JS::InternalObject> R = std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue());

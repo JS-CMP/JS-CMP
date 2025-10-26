@@ -6,8 +6,7 @@
 
 namespace JS {
 
-Object::Object(const std::unordered_map<std::u16string, JS::Any>& properties)
-    : JS::InternalObject({}, getPrototypeProperties(), OBJECT_CLASS_NAME, true) {
+Object::Object(const std::unordered_map<std::u16string, JS::Any>& properties) : JS::InternalObject({}, getPrototypeProperties(), OBJECT_CLASS_NAME, true) {
     for (const auto& [key, value] : properties) {
         this->InternalObject::put(key, value);
     }

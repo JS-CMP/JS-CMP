@@ -27,7 +27,6 @@ public:
 
     /**
      * @brief Static function to create the prototype properties object for an Error type
-     * @param name The name of the error type (e.g., "Error", etc.)
      * @return A shared pointer to an InternalObject with the prototype properties
      */
     static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();

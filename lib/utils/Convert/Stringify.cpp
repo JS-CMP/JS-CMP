@@ -17,11 +17,11 @@ std::u16string JS::CONVERT::Stringify(const JS::Any& any) {
             return ToString(JS::Null());
         default:
             auto io = std::get<std::shared_ptr<JS::InternalObject>>(any.getValue());
-            if (io->class_name == u"Object") {
+            if (io->class_name == OBJECT_CLASS_NAME) {
                 return ObjectToString(io);
-            } else if (io->class_name == u"Array") {
+            } else if (io->class_name == ARRAY_CLASS_NAME) {
                 return ArrayToString(io);
-            } else if (io->class_name == u"Function") {
+            } else if (io->class_name == FUNCTION_CLASS_NAME) {
                 return FunctionToString(io);
             } else {
                 return u"[Object " + io->class_name + u"]";

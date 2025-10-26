@@ -37,9 +37,8 @@ std::optional<JS::Match> JS::RegExp::match(const std::u16string& str, uint32_t p
 
 // prototype methods
 JS::Any JS::RegExp::exec(const JS::Any& thisArg, const JS::Any& args) {
-    if (!JS::COMPARE::Type(thisArg, JS::OBJECT) ||
-        std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->class_name != u"RegExp") {
-        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("this is not a RegExp object")));
+    if (!JS::COMPARE::Type(thisArg, JS::OBJECT) || std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->class_name != REGEXP_CLASS_NAME) {
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any("this is not a RegExp object")));
     }
     std::shared_ptr<JS::InternalObject> R = std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue());
     std::u16string S = JS::CONVERT::ToString(args[0]);
@@ -68,7 +67,7 @@ JS::Any JS::RegExp::exec(const JS::Any& thisArg, const JS::Any& args) {
         R->put(u"lastIndex", JS::Any(static_cast<uint32_t>(i + r->string.length())), true);
     }
     size_t n = r->groups.size();
-    std::shared_ptr<JS::Array> A = std::make_shared<JS::Array>();
+    std::shared_ptr<JS::Array> A = JS::InternalObject::create<JS::Array>();
     int matchIndex = i;
     A->defineOwnProperty(u"index", JS::DataDescriptor{JS::Any(matchIndex), true, true, true}, true);
     A->defineOwnProperty(u"input", JS::DataDescriptor{JS::Any(S), true, true, true}, true);
@@ -87,9 +86,8 @@ JS::Any JS::RegExp::test(const JS::Any& thisArg, const JS::Any& args) {
 }
 
 JS::Any JS::RegExp::toString(const JS::Any& thisArg, const JS::Any& args) {
-    if (!JS::COMPARE::Type(thisArg, JS::OBJECT) ||
-        std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->class_name != u"RegExp") {
-        throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("This is not a RegExp object")));
+    if (!JS::COMPARE::Type(thisArg, JS::OBJECT) || std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->class_name != REGEXP_CLASS_NAME) {
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any("This is not a RegExp object")));
     }
     std::shared_ptr<JS::InternalObject> R = std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue());
     std::u16string source = JS::CONVERT::ToString(R->get(u"source"));

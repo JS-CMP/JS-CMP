@@ -16,8 +16,7 @@ double ToNumber(bool value) {
     return static_cast<double>(value);
 }
 double ToNumber(unsigned int value) {
-    return value <= std::numeric_limits<double>::max() ? static_cast<double>(value)
-                                                       : std::numeric_limits<double>::max();
+    return value <= std::numeric_limits<double>::max() ? static_cast<double>(value) : std::numeric_limits<double>::max();
 }
 double ToNumber(const char* str) {
     return ToNumber(std::string(str));
@@ -59,7 +58,7 @@ double ToNumber(const std::string& str) {
                 return static_cast<int>(result);
             }
         } catch (...) {
-            return 0;
+            return std::numeric_limits<double>::quiet_NaN();
         }
     }
 }

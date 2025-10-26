@@ -9,8 +9,7 @@ std::u16string JS::CONVERT::ObjectToString(std::shared_ptr<const JS::InternalObj
 
     for (const auto& [key, descriptor] : *internalObject->properties) {
         // Check if enumerable
-        if (JS::IS::DataDescriptor(descriptor) && std::get<JS::DataDescriptor>(descriptor).enumerable ||
-            JS::IS::AccessorDescriptor(descriptor) && std::get<JS::AccessorDescriptor>(descriptor).enumerable) {
+        if (JS::IS::DataDescriptor(descriptor) && std::get<JS::DataDescriptor>(descriptor).enumerable || JS::IS::AccessorDescriptor(descriptor) && std::get<JS::AccessorDescriptor>(descriptor).enumerable) {
             auto it = internalObject->get(key);
 
             if (!first) {

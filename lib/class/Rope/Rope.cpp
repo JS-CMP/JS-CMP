@@ -91,8 +91,7 @@ int Rope::compare(const Rope& other) const {
     return 0;
 }
 
-void Rope::substrHelper(const std::shared_ptr<RopeNode>& node, size_t pos, size_t len,
-                        std::vector<std::shared_ptr<RopeNode>>& pieces) const {
+void Rope::substrHelper(const std::shared_ptr<RopeNode>& node, size_t pos, size_t len, std::vector<std::shared_ptr<RopeNode>>& pieces) const {
     if (!node || len == 0) {
         return;
     }
@@ -185,9 +184,11 @@ bool Rope::equals(const std::shared_ptr<RopeNode>& node1, const std::shared_ptr<
     if (!node1 || !node2) {
         return false;
     }
+    const std::u16string* data_node1 = node1->getDataPtr();
+    const std::u16string* data_node2 = node2->getDataPtr();
 
-    if (node1 && node2) {
-        return (*node1->getDataPtr()) == (*node2->getDataPtr());
+    if (data_node1 && data_node2) {
+        return (*data_node1) == (*data_node2);
     }
 
     if (node1 && node2) {

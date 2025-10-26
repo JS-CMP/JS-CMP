@@ -28,8 +28,7 @@ public:
      * @param enumerable Whether the property will be included in enumeration operations.
      * @param configurable Whether the property can be deleted or changed to an accessor property.
      */
-    DataDescriptor(const JS::Any& value, bool writable, bool enumerable, bool configurable)
-        : value(value), writable(writable), enumerable(enumerable), configurable(configurable){};
+    DataDescriptor(const JS::Any& value, bool writable, bool enumerable, bool configurable) : value(value), writable(writable), enumerable(enumerable), configurable(configurable){};
     /**
      * @brief Constructor with a shared pointer to a JavaScript object value.
      * @param value The initial value of the property.
@@ -39,7 +38,7 @@ public:
     JS::Any value = JS::Any(JS::Undefined{}); /**< The value of the property. */
     bool writable = false;                    /**< Whether the property value can be changed. */
     bool enumerable = false;                  /**< Whether the property will be included in enumeration operations. */
-    bool configurable = false; /**< Whether the property can be deleted or changed to an accessor property. */
+    bool configurable = false;                /**< Whether the property can be deleted or changed to an accessor property. */
 };
 
 /**
@@ -60,9 +59,7 @@ public:
      * @param enumerable Whether the property will be included in enumeration operations.
      * @param configurable Whether the property can be deleted or changed to a data property.
      */
-    AccessorDescriptor(std::shared_ptr<JS::InternalObject> set, std::shared_ptr<JS::InternalObject> get,
-                       bool enumerable, bool configurable)
-        : set(std::move(set)), get(std::move(get)), enumerable(enumerable), configurable(configurable){};
+    AccessorDescriptor(std::shared_ptr<JS::InternalObject> set, std::shared_ptr<JS::InternalObject> get, bool enumerable, bool configurable) : set(std::move(set)), get(std::move(get)), enumerable(enumerable), configurable(configurable){};
 
     std::shared_ptr<JS::InternalObject> get; /**< The getter function for the property. */
     std::shared_ptr<JS::InternalObject> set; /**< The setter function for the property. */

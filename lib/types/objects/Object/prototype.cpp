@@ -24,7 +24,7 @@ JS::Any Object::toLocaleString(const JS::Any& thisArg, const JS::Any& args) {
     if (JS::IS::Callable(toString)) {
         return toString();
     }
-    throw JS::Any(std::make_shared<JS::TypeError>(JS::Any("Object.prototype.toLocaleString called on non-object")));
+    throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any("Object.prototype.toLocaleString called on non-object")));
 }
 
 JS::Any Object::valueOf(const JS::Any& thisArg, const JS::Any& args) {
@@ -62,9 +62,6 @@ JS::Any Object::propertyIsEnumerable(const JS::Any& thisArg, const JS::Any& args
     if (!desc.has_value()) {
         return JS::Any(false);
     }
-    return JS::Any(JS::IS::DataDescriptor(desc.value()) && std::get<JS::DataDescriptor>(desc.value()).enumerable ||
-                   JS::IS::AccessorDescriptor(desc.value()) &&
-                       std::get<JS::AccessorDescriptor>(desc.value())
-                           .enumerable); // TODO can be optimized with a genericDescriptor with enumerable
+    return JS::Any(JS::IS::DataDescriptor(desc.value()) && std::get<JS::DataDescriptor>(desc.value()).enumerable || JS::IS::AccessorDescriptor(desc.value()) && std::get<JS::AccessorDescriptor>(desc.value()).enumerable); // TODO can be optimized with a genericDescriptor with enumerable
 }
 } // namespace JS

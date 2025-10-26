@@ -21,14 +21,10 @@ public:
      * These constructors create a new Array object with the given value
      */
     ///@{
-    /** @brief Default constructor initializes an empty array */
-    Array();
     /** @brief Default constructor initializes an empty array of given length */
     explicit Array(const JS::Any& args);
     /** @brief Default constructor initializes an array with the given vector of Any */
-    explicit Array(const std::vector<JS::Any>& data);
-    /** @brief Constructor for properties with a given set of properties */
-    explicit Array(const JS::Properties& properties);
+    explicit Array(const std::vector<JS::Any>& data = std::vector<JS::Any>());
     ///@}
 
     /** @brief The destructor for the object defaulted */
@@ -119,19 +115,19 @@ public:
     ///@}
 
     /** @brief Returns a shared pointer to the prototype properties of the Array object. */
-    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
+    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties(const std::shared_ptr<JS::InternalObject>& constructor = nullptr);
 
     /**
-     * @name Methods that represent the functions needed for calling and constructing
+     * @name Internal Utility Methods
      */
     ///@{
-    /** @brief Function that represent the constructor of the Object */
-    static Any internal_constructor(const JS::Any& thisArgs, const JS::Any& args);
-    /** @brief Function that is used when object is call as a function */
-    static Any internal_call(const JS::Any& thisArg, const JS::Any& args);
-    ///@}
-
+    /** @brief Get the instance of the function object. */
+    [[nodiscard]] static std::shared_ptr<JS::Function> getConstructor();
+    /** @brief to delete. */
     [[nodiscard]] std::u16string getContent() const override;
+    /** @brief Get the instance of the function object. */
+    [[nodiscard]] static std::shared_ptr<JS::Array> instantiate(const JS::Any& args);
+    ///@}
 };
 
 } // namespace JS

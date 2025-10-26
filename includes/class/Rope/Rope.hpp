@@ -176,8 +176,7 @@ private:
      * @param len The length of the substring.
      * @param pieces Vector to store the resulting pieces of the substring.
      */
-    void substrHelper(const std::shared_ptr<RopeNode>& node, size_t pos, size_t len,
-                      std::vector<std::shared_ptr<RopeNode>>& pieces) const;
+    void substrHelper(const std::shared_ptr<RopeNode>& node, size_t pos, size_t len, std::vector<std::shared_ptr<RopeNode>>& pieces) const;
 };
 
 #endif // ROPE_HPP

@@ -3,6 +3,8 @@
 
 #include "types/objects/JsObject.hpp"
 
+#define DEFAULT_FCT [](const JS::Any&, const JS::Any&) -> JS::Any { return JS::Any(JS::InternalObject::create<JS::Object>()); }
+
 namespace JS {
 
 /**
@@ -20,22 +22,10 @@ public:
      * These constructors create a new Function object.
      */
     ///@{
-    /** @brief Default constructor initializes the object with an empty map */
-    Function();
     /** @brief Constructs a Function object with a callable `FunctionType`. */
-    explicit Function(FunctionType f, int length = 0, const std::u16string& name = u"Anonymous");
-    /** @brief Constructs a Function object with a callable `FunctionType` and a name. */
-    explicit Function(FunctionType f, std::shared_ptr<InternalObject> prototype);
-    /** @brief Constructs a Function object with a set of properties. */
-    explicit Function(const JS::Properties& properties);
-    /** @brief Copy constructor */
-    Function(const Function& f) = default;
-    /** @brief Move constructor */
-    Function(Function&& f) noexcept;
-    /** @brief Copy assignment operator */
-    Function& operator=(const Function& function);
-    /** @brief Move assignment operator */
-    Function& operator=(Function&& f) noexcept;
+    explicit Function(FunctionType f = DEFAULT_FCT, int length = 0, const std::u16string& name = u"Anonymous");
+    /** @brief Constructs a Function object with a callable `FunctionType` and explicit prototype. */
+    explicit Function(FunctionType f, int length, const std::u16string& name, const std::shared_ptr<InternalObject>& prototype);
     ///@}
 
     /** @brief Destructor */
@@ -71,16 +61,19 @@ public:
     [[nodiscard]] std::u16string getContent() const override;
 
     /** @brief Function to get the methods of the property prototype */
-    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
+    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties(const std::shared_ptr<JS::InternalObject>& constructor = nullptr);
+
+    /** @brief Function to get the methods of the property constructor by copying */
+    static std::shared_ptr<JS::InternalObject> getPrototypePropertiesCopy(std::shared_ptr<JS::InternalObject> constructor, std::shared_ptr<JS::InternalObject> prototype = nullptr);
 
     /**
-     * @name Methods that represent the functions needed for calling and constructing
+     * @name Internal Utility Methods
      */
     ///@{
-    /** @brief Function that represent the constructor of the Object */
-    static Any internal_constructor(const JS::Any& thisArgs, const JS::Any& args);
-    /** @brief Function that is used when object is call as a function */
-    static Any internal_call(const JS::Any& thisArg, const JS::Any& args);
+    /** @brief Get the instance of the function object. */
+    [[nodiscard]] static std::shared_ptr<JS::Function> getConstructor(std::shared_ptr<JS::InternalObject> instance = nullptr);
+    /** @brief Override of the Internal object method. */
+    void initialize(std::shared_ptr<JS::InternalObject> prototype) override;
     ///@}
 };
 

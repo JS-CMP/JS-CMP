@@ -2,6 +2,7 @@
 
 #include "internals/Object.hpp"
 #include "types/objects/JsObject.hpp"
+#include "utils/Convert.hpp"
 
 #include <utils/Is.hpp>
 
@@ -22,8 +23,7 @@ PropertyProxy::operator JS::Any() const {
 
 JS::Any JS::PropertyProxy::call(const JS::Any& args) const {
     if (JS::IS::Callable(this->getValue())) {
-        return std::get<std::shared_ptr<JS::InternalObject>>(this->getValue())
-            ->call_function(JS::Any(this->obj_), args); // TODO fix this to pass the correct this aka global object
+        return std::get<std::shared_ptr<JS::InternalObject>>(this->getValue())->call_function(JS::Any(this->obj_), args); // TODO fix this to pass the correct this aka global object
     }
     throw std::runtime_error("Value is not a function");
 }
@@ -42,7 +42,7 @@ JS::Value PropertyProxy::getValue() const {
 }
 
 void PropertyProxy::set(const JS::Any& value) {
-    obj_->put(key_, value);
+    obj_->put(key_, value, true);
 }
 
 void PropertyProxy::setValue(const JS::Value& value) {

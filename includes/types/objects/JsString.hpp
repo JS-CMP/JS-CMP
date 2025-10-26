@@ -22,15 +22,8 @@ public:
      * These constructors create a new String object with the given value
      */
     ///@{
-    /** @brief Default constructor initializes the object with an empty map */
-    String();
     /** @brief Constructor that initializes the object with a given value */
-    explicit String(const JS::Any& value);
-    /** @brief Constructor that initializes the object with a given set of properties */
-    explicit String(const std::unordered_map<std::u16string, JS::Any>& properties);
-    /** @brief Constructor that initializes the object with a given set of properties */
-    explicit String(const JS::Properties& properties);
-
+    explicit String(const JS::Any& value = JS::Any(""));
     ///@}
 
     /** @brief The destructor for the object defaulted */
@@ -118,17 +111,10 @@ public:
     [[nodiscard]] std::u16string getContent() const override;
 
     /** @brief Returns a shared pointer to the prototype properties of the String object. */
-    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
+    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties(const std::shared_ptr<JS::InternalObject>& constructor = nullptr);
 
-    /**
-     * @name Methods that represent the functions needed for calling and constructing
-     */
-    ///@{
-    /** @brief Function that represent the constructor of the Object */
-    static Any internal_constructor(const JS::Any& thisArgs, const JS::Any& args);
-    /** @brief Function that is used when object is call as a function */
-    static Any internal_call(const JS::Any& thisArg, const JS::Any& args);
-    ///@}
+    /** @brief Get the instance of the global object. */
+    [[nodiscard]] static std::shared_ptr<JS::Function> getConstructor();
 };
 } // namespace JS
 

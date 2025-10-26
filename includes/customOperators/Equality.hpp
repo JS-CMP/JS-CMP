@@ -12,8 +12,7 @@ inline JS::Any strictEqFunction(JS::Any a, const JS::Any& b) { // TODO: fix CREA
     }
 
     if (a.getValue().index() == JS::OBJECT) {
-        return JS::Any(std::get<std::shared_ptr<JS::InternalObject>>(a.getValue()) ==
-                       std::get<std::shared_ptr<JS::InternalObject>>(b.getValue()));
+        return JS::Any(std::get<std::shared_ptr<JS::InternalObject>>(a.getValue()) == std::get<std::shared_ptr<JS::InternalObject>>(b.getValue()));
     }
 
     return JS::Any(a == b);

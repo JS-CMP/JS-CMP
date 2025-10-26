@@ -45,9 +45,9 @@ std::shared_ptr<JS::Function> JS::Function::getConstructor(std::shared_ptr<JS::I
             return JS::Any(JS::InternalObject::create<JS::Function>());
         }
         throw std::runtime_error("Not implemented"); // TODO:: Fix + change error
-    }, 1, OBJECT_CLASS_NAME, prototype);
+    }, 1, FUNCTION_CLASS_NAME, prototype);
 
-    constructor->class_name = OBJECT_CLASS_NAME;
+    constructor->class_name = FUNCTION_CLASS_NAME;
     constructor->extensible = true;
     constructor->prototype = prototype;
     constructor->properties = std::make_shared<JS::Properties>(JS::Properties{

@@ -4,6 +4,8 @@
 #include "utils/Convert.hpp"
 #include "utils/Is.hpp"
 
+#include <types/objects/Error/JsTypeError.hpp>
+
 namespace JS {
 JS::Any Object::toString(const JS::Any& thisArg, const JS::Any& args) {
     switch (thisArg.getValue().index()) {
@@ -22,10 +24,12 @@ JS::Any Object::toLocaleString(const JS::Any& thisArg, const JS::Any& args) {
     if (JS::IS::Callable(toString)) {
         return toString();
     }
-    throw std::runtime_error("TypeError: Object.prototype.toLocaleString called on non-object");
+    throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any("Object.prototype.toLocaleString called on non-object")));
 }
 
-JS::Any Object::valueOf(const JS::Any& thisArg, const JS::Any& args) { return JS::Any(JS::CONVERT::ToObject(thisArg)); }
+JS::Any Object::valueOf(const JS::Any& thisArg, const JS::Any& args) {
+    return JS::Any(JS::CONVERT::ToObject(thisArg));
+}
 
 JS::Any Object::hasOwnProperty(const JS::Any& thisArg, const JS::Any& args) {
     const std::u16string P = JS::CONVERT::ToString(args[u"0"]);
@@ -58,9 +62,6 @@ JS::Any Object::propertyIsEnumerable(const JS::Any& thisArg, const JS::Any& args
     if (!desc.has_value()) {
         return JS::Any(false);
     }
-    return JS::Any(JS::IS::DataDescriptor(desc.value()) && std::get<JS::DataDescriptor>(desc.value()).enumerable ||
-                   JS::IS::AccessorDescriptor(desc.value()) &&
-                       std::get<JS::AccessorDescriptor>(desc.value())
-                           .enumerable); // TODO can be optimized with a genericDescriptor with enumerable
+    return JS::Any(JS::IS::DataDescriptor(desc.value()) && std::get<JS::DataDescriptor>(desc.value()).enumerable || JS::IS::AccessorDescriptor(desc.value()) && std::get<JS::AccessorDescriptor>(desc.value()).enumerable); // TODO can be optimized with a genericDescriptor with enumerable
 }
 } // namespace JS

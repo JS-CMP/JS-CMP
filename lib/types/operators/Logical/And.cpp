@@ -1,7 +1,8 @@
+#include <internals/Operator.hpp>
 #include <types/JsAny.hpp>
 #include <utils/Convert.hpp>
 
-DECLARE_1FUNC(JS::Any JS::Any::operator&&, const { return !JS::CONVERT::ToBoolean(*this) ? *this : JS::Any(value); })
+DECLARE_1FUNC(JS::Any JS::Operator::operator&&, const { return !JS::CONVERT::ToBoolean(*this) ? JS::Any(*this) : JS::Any(value); })
 
 namespace JS {
 

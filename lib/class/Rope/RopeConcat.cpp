@@ -1,15 +1,14 @@
 #include <class/Rope/RopeConcat.hpp>
 
-RopeConcat::RopeConcat(std::shared_ptr<RopeNode> l, std::shared_ptr<RopeNode> r)
-    : left(std::move(l)), right(std::move(r)), totalLength(left->length() + right->length()) {}
+RopeConcat::RopeConcat(std::shared_ptr<RopeNode> l, std::shared_ptr<RopeNode> r) : left(std::move(l)), right(std::move(r)), totalLength(left->length() + right->length()) {}
 
-RopeConcat::RopeConcat(std::shared_ptr<RopeNode> l, const std::u16string& r)
-    : left(std::move(l)), right(std::make_shared<RopeLeaf>(r)), totalLength(left->length() + right->length()) {}
+RopeConcat::RopeConcat(std::shared_ptr<RopeNode> l, const std::u16string& r) : left(std::move(l)), right(std::make_shared<RopeLeaf>(r)), totalLength(left->length() + right->length()) {}
 
-RopeConcat::RopeConcat(const std::u16string& l, std::shared_ptr<RopeNode> r)
-    : left(std::make_shared<RopeLeaf>(l)), right(std::move(r)), totalLength(left->length() + right->length()) {}
+RopeConcat::RopeConcat(const std::u16string& l, std::shared_ptr<RopeNode> r) : left(std::make_shared<RopeLeaf>(l)), right(std::move(r)), totalLength(left->length() + right->length()) {}
 
-size_t RopeConcat::length() const { return totalLength; }
+size_t RopeConcat::length() const {
+    return totalLength;
+}
 
 char16_t RopeConcat::getCharAt(size_t idx) const {
     if (idx < left->length()) {
@@ -19,10 +18,16 @@ char16_t RopeConcat::getCharAt(size_t idx) const {
     }
 }
 
-std::shared_ptr<RopeNode> RopeConcat::getLeft() { return left; }
+std::shared_ptr<RopeNode> RopeConcat::getLeft() {
+    return left;
+}
 
-std::shared_ptr<RopeNode> RopeConcat::getRight() { return right; }
-const std::u16string* RopeConcat::getDataPtr() const { return nullptr; }
+std::shared_ptr<RopeNode> RopeConcat::getRight() {
+    return right;
+}
+const std::u16string* RopeConcat::getDataPtr() const {
+    return nullptr;
+}
 
 size_t RopeConcat::find(const std::u16string& pattern, size_t pos) const {
     size_t leftLen = left->length();

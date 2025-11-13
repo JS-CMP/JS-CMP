@@ -23,12 +23,8 @@ public:
      * These constructors create a new Object with the given value
      */
     ///@{
-    /** @brief Default constructor initializes the Number with 0 */
-    Number();
     /** @brief Constructor that take a value */
-    explicit Number(const JS::Any& value);
-    /** @brief Constructor for properties */
-    explicit Number(const std::unordered_map<std::u16string, JS::Attribute>& properties);
+    explicit Number(const JS::Any& value = JS::Any(0.0));
     ///@}
 
     /** @brief The destructor for the number defaulted */
@@ -55,20 +51,25 @@ public:
     static JS::Any toPrecision(const JS::Any& thisArg, const JS::Any& args);
     ///@}
 
+    /** @brief Returns the content of the object formatted to a string. */
+    [[nodiscard]] std::u16string getContent() const override;
+
+    /** @brief Function to get the methods of the property prototype */
+    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties(const std::shared_ptr<JS::InternalObject>& constructor = nullptr);
+
+    /** @brief Get the instance of the global object. */
+    [[nodiscard]] static std::shared_ptr<JS::Function> getConstructor();
+
     /**
      * @name Static variable of the Number object
      */
     ///@{
-    constexpr static double MAX_VALUE =
-        1.7976931348623157e308;                 /**< Represents the maximum value of a number in JavaScript */
-    constexpr static double MIN_VALUE = 5e-324; /**< Represents the minimum value of a number in JavaScript */
-    constexpr static double NaN = NAN;          /**< Represents NaN in JavaScript */
-    constexpr static double NEGATIVE_INFINITY = -INFINITY; /**< Represents the negative infinity in JavaScript */
-    constexpr static double POSITIVE_INFINITY = INFINITY;  /**< Represents the positive infinity in JavaScript */
+    constexpr static double MAX_VALUE = 1.7976931348623157e308; /**< Represents the maximum value of a number in JavaScript */
+    constexpr static double MIN_VALUE = 5e-324;                 /**< Represents the minimum value of a number in JavaScript */
+    constexpr static double NaN = NAN;                          /**< Represents NaN in JavaScript */
+    constexpr static double NEGATIVE_INFINITY = -INFINITY;      /**< Represents the negative infinity in JavaScript */
+    constexpr static double POSITIVE_INFINITY = INFINITY;       /**< Represents the positive infinity in JavaScript */
     ///@}
-
-    /** @brief Function to get the methods of the property prototype */
-    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
 };
 } // namespace JS
 

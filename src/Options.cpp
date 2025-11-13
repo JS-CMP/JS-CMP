@@ -2,10 +2,7 @@
 Options::Options(int argc, char** argv, char** env) : desc_argv("Allowed options"), compilerArgs() {
     this->argc = argc;
     this->argv = argv;
-    this->desc_argv.add_options()("help,h", "produce help message")("version,v", "print version information")(
-        "preprocess,E", "preprocess only; do not compile")(
-        "CXX,c", po::value<std::string>(), "specify the compiler to use")("output,o", po::value<std::string>(),
-                                                                          "place the output into <file>");
+    this->desc_argv.add_options()("help,h", "produce help message")("version,v", "print version information")("preprocess,E", "preprocess only; do not compile")("CXX,c", po::value<std::string>(), "specify the compiler to use")("output,o", po::value<std::string>(), "place the output into <file>");
 
     this->argc = extractCompilerOptions();
     auto parsed = po::command_line_parser(argc, argv).options(this->desc_argv).allow_unregistered().run();
@@ -54,9 +51,7 @@ void Options::parse() {
         if (compiler.has_value()) {
             this->compiler = compiler.value();
         } else {
-            throw std::runtime_error(
-                "No compiler found. Compiler tested: " +
-                std::accumulate(std::begin(commonCompilers), std::end(commonCompilers), std::string("")));
+            throw std::runtime_error("No compiler found. Compiler tested: " + std::accumulate(std::begin(commonCompilers), std::end(commonCompilers), std::string("")));
         }
     }
 }
@@ -88,7 +83,9 @@ void Options::printUsage() {
               << '\n';
 }
 
-void Options::printVersion() { std::cout << "JS_CMP version " << JS_CMP_VERSION << '\n'; }
+void Options::printVersion() {
+    std::cout << "JS_CMP version " << JS_CMP_VERSION << '\n';
+}
 
 std::optional<std::string> Options::findCompiler() {
     for (const auto& compiler : commonCompilers) {

@@ -20,16 +20,7 @@ public:
      */
     ///@{
     /** @brief Default constructor initializes the object with an empty map */
-    FunctionBinded(const std::shared_ptr<JS::InternalObject>& TargetFunction, const JS::Any& BoundThis,
-                   const std::vector<JS::Any>& BoundArguments);
-    /** @brief Copy constructor */
-    FunctionBinded(const FunctionBinded& f);
-    /** @brief Move constructor */
-    FunctionBinded(FunctionBinded&& f) noexcept;
-    /** @brief Copy assignment operator */
-    FunctionBinded& operator=(const FunctionBinded& function) = default;
-    /** @brief Move assignment operator */
-    FunctionBinded& operator=(FunctionBinded&& f) noexcept;
+    FunctionBinded(const std::shared_ptr<JS::InternalObject>& TargetFunction, const JS::Any& BoundThis, const std::vector<JS::Any>& BoundArguments);
     ///@}
 
     /** @brief Destructor */
@@ -43,6 +34,9 @@ public:
     /** @brief Check if the object is an instance of another object */
     [[nodiscard]] bool hasInstance(const JS::Any& value) const final;
     ///@}
+
+    /** @brief Returns the content of the object formatted to a string. */
+    [[nodiscard]] std::u16string getContent() const override;
 
     std::shared_ptr<JS::InternalObject> targetFunction;
     JS::Any boundThis;

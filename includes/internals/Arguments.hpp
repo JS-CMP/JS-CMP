@@ -13,9 +13,6 @@ namespace JS::Arguments {
  * @param strict Whether the arguments object is in strict mode. (default is true)
  * @return The arguments object created from the list of arguments.
  */
-JS::Any CreateArgumentsObject(const std::vector<JS::Any>& args,
-                              const std::shared_ptr<JS::InternalObject>& func = nullptr,
-                              const std::vector<std::u16string>& names = {},
-                              const std::shared_ptr<JS::InternalObject>& env = nullptr, bool strict = true);
+JS::Any CreateArgumentsObject(const std::vector<JS::Any>& args, const std::shared_ptr<JS::InternalObject>& func = nullptr, const std::vector<std::u16string>& names = {}, const std::shared_ptr<JS::InternalObject>& env = nullptr, bool strict = true);
 } // namespace JS::Arguments
 #endif // ARGUMENTS_HPP

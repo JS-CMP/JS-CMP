@@ -14,6 +14,7 @@ namespace JS {
  * The `Object` class represents a JavaScript-like object in C++. It provides methods to access and modify properties of
  * the object. It also provides methods to check if a property exists, and if it's callable.
  */
+
 class Object : public JS::InternalObject {
 public:
     /**
@@ -21,14 +22,8 @@ public:
      * These constructors create a new Object with the given value
      */
     ///@{
-    /** @brief Default constructor initializes the object with an empty map */
-    Object();
-    /** @brief Constructor for properties */
-    explicit Object(const std::unordered_map<std::u16string, JS::Any>& properties);
-    /** @brief InternalObject constructor */
-    explicit Object(const JS::InternalObject&& internalObject);
-    /** @brief Attribute constructor */
-    explicit Object(const JS::Attribute& attribute);
+    /** @brief Constructor for properties with a given set of properties */
+    explicit Object(const std::unordered_map<std::u16string, JS::Any>& properties = {});
     ///@}
 
     /** @brief The destructor for the object defaulted */
@@ -67,7 +62,7 @@ public:
     ///@}
 
     /** @brief Function to get the methods of the property prototype */
-    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
+    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties(const std::shared_ptr<JS::InternalObject>& prototype = nullptr, const std::shared_ptr<Function>& constructor = nullptr);
 
     /**
      * @name Methods to make prototype methods of the Object built-in
@@ -86,6 +81,21 @@ public:
     /** @brief Returns if the property is enumerable https://262.ecma-international.org/5.1/#sec-15.2.4.7 */
     static JS::Any propertyIsEnumerable(const JS::Any& thisArg, const JS::Any& args);
     ///@}
+
+    /**
+     * @name Methods that represent the functions needed for calling and constructing
+     */
+    ///@{
+    /** @brief Function that represent the constructor of the Object */
+    static Any internal_constructor(const JS::Any& thisArgs, const JS::Any& args);
+    /** @brief Function that is used when object is call as a function */
+    static Any internal_call(const JS::Any& thisArg, const JS::Any& args);
+    ///@}
+
+    /** @brief Returns the content of the object formatted to a string. */
+    [[nodiscard]] std::u16string getContent() const override;
+    /** @brief Get the instance of the global object. */
+    [[nodiscard]] static std::shared_ptr<JS::Function> getConstructor();
 };
 
 } // namespace JS

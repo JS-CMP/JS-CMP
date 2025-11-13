@@ -1,15 +1,27 @@
 #include "utils/Compare.hpp"
 
 #include "types/objects/JsObject.hpp"
+#include "utils/Convert.hpp"
 
 #include <cmath>
+#include <types/objects/Error/JsTypeError.hpp>
 
 namespace JS::COMPARE {
-bool Type(const JS::Any& a, const JS::Any& b) { return a.getValue().index() == b.getValue().index(); }
+bool Type(const JS::Operator& a, const JS::Operator& b) {
+    return a.getValue().index() == b.getValue().index();
+}
 
-bool Type(const JS::Any& a, const JS::Types& b) { return a.getValue().index() == b; }
+bool Type(const JS::Operator& a, const JS::Types& b) {
+    return a.getValue().index() == b;
+}
 
-bool Type(const JS::Types& a, const JS::Any& b) { return a == b.getValue().index(); }
+bool Type(const JS::Types& a, const JS::Operator& b) {
+    return a == b.getValue().index();
+}
+
+bool Object(const JS::Operator& obj, const std::u16string& class_name) {
+    return obj.getValue().index() == JS::OBJECT && std::get<std::shared_ptr<JS::InternalObject>>(obj.getValue())->class_name == class_name;
+}
 
 bool SameValue(const double& a, const double& b) {
     if (std::isnan(a) && std::isnan(b)) {
@@ -21,19 +33,27 @@ bool SameValue(const double& a, const double& b) {
     return a == b;
 }
 
-bool SameValue(const Rope& a, const Rope& b) { return a == b; }
+bool SameValue(const Rope& a, const Rope& b) {
+    return a == b;
+}
 
-bool SameValue(const bool& a, const bool& b) { return a == b; }
+bool SameValue(const bool& a, const bool& b) {
+    return a == b;
+}
 
-bool SameValue(JS::Undefined a, JS::Undefined b) { return true; }
+bool SameValue(JS::Undefined a, JS::Undefined b) {
+    return true;
+}
 
-bool SameValue(JS::Null a, JS::Null b) { return true; }
+bool SameValue(JS::Null a, JS::Null b) {
+    return true;
+}
 
 bool SameValue(const std::shared_ptr<JS::InternalObject>& a, const std::shared_ptr<JS::InternalObject>& b) {
     return a.get() == b.get();
 }
 
-bool SameValue(const JS::Any& a, const JS::Any& b) {
+bool SameValue(const JS::Operator& a, const JS::Operator& b) {
     if (!JS::COMPARE::Type(a, b)) {
         return false;
     }
@@ -49,20 +69,10 @@ bool SameValue(const JS::Any& a, const JS::Any& b) {
         case JS::NULL_TYPE:
             return true;
         case JS::OBJECT:
-            return SameValue(std::get<std::shared_ptr<JS::InternalObject>>(a.getValue()),
-                             std::get<std::shared_ptr<JS::InternalObject>>(b.getValue()));
+            return SameValue(std::get<std::shared_ptr<JS::InternalObject>>(a.getValue()), std::get<std::shared_ptr<JS::InternalObject>>(b.getValue()));
     }
     return false;
 }
-
-// TODO: remove if useless after merge
-//    bool IsCallable(const JS::Any& a) {
-//        if (Type(a, JS::OBJECT)) {
-//            return std::get<std::shared_ptr<JS::Object>>(a.getValue())->isCallable();
-//        } else {
-//            return false;
-//        }
-//    }
 
 bool SameValue(const JS::Attribute& a, const JS::Attribute& b) {
     if (a.index() != b.index()) {
@@ -72,27 +82,24 @@ bool SameValue(const JS::Attribute& a, const JS::Attribute& b) {
         case JS::DATA_DESCRIPTOR: {
             JS::DataDescriptor ad_a = std::get<JS::DataDescriptor>(a);
             JS::DataDescriptor ad_b = std::get<JS::DataDescriptor>(b);
-            return SameValue(ad_a.value, ad_b.value) && ad_a.writable == ad_b.writable &&
-                   ad_a.enumerable == ad_b.enumerable && ad_a.configurable == ad_b.configurable;
+            return SameValue(ad_a.value, ad_b.value) && ad_a.writable == ad_b.writable && ad_a.enumerable == ad_b.enumerable && ad_a.configurable == ad_b.configurable;
         }
         case JS::ACCESSOR_DESCRIPTOR: {
             JS::AccessorDescriptor ad_a = std::get<JS::AccessorDescriptor>(a);
             JS::AccessorDescriptor ad_b = std::get<JS::AccessorDescriptor>(b);
-            return SameValue(ad_a.get, ad_b.get) && SameValue(ad_a.set, ad_b.set) &&
-                   ad_a.enumerable == ad_b.enumerable && ad_a.configurable == ad_b.configurable;
+            return SameValue(ad_a.get, ad_b.get) && SameValue(ad_a.set, ad_b.set) && ad_a.enumerable == ad_b.enumerable && ad_a.configurable == ad_b.configurable;
         }
     }
     return false;
 }
 
-void CheckObjectCoercible(const JS::Any& a) {
-    switch (a.getValue().index()) {
+void CheckObjectCoercible(const JS::Operator& any) {
+    switch (any.getValue().index()) {
         case JS::UNDEFINED:
         case JS::NULL_TYPE:
-            throw std::runtime_error("TypeError: Cannot convert undefined or null to object"); // TypeError
+            throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any("Cannot convert undefined or null to object")));
         default:
             return;
     }
 }
-
 } // namespace JS::COMPARE

@@ -10,6 +10,12 @@
 namespace JS {
 using Properties = std::unordered_map<std::u16string, JS::Attribute>;
 
+struct Match {
+    size_t index;
+    std::u16string string;
+    std::vector<std::optional<std::u16string>> groups;
+};
+
 /**
  * @class InternalObject
  * @brief Represents a base object for all JavaScript-like objects in C++.
@@ -25,8 +31,7 @@ public:
      */
     ///@{
     /** @brief Default constructor initializes the object with an empty map */
-    explicit InternalObject(JS::Properties properties = {}, std::shared_ptr<JS::InternalObject> prototype = nullptr,
-                            std::u16string class_name = u"Object", bool extensible = true);
+    explicit InternalObject(JS::Properties properties = {}, std::shared_ptr<JS::InternalObject> prototype = nullptr, std::u16string class_name = OBJECT_CLASS_NAME, bool extensible = true);
     explicit InternalObject(const std::unordered_map<std::u16string, JS::Any>& properties = {});
     /** @brief Attribute constructor */
     explicit InternalObject(const JS::Attribute& attribute);
@@ -52,8 +57,7 @@ public:
     /** @brief Call operator for the object */
     template <typename... Args>
     JS::Any operator()(Args... args) {
-        return call_function(JS::Any(JS::Undefined{}),
-                             JS::Arguments::CreateArgumentsObject(std::vector<JS::Any>{std::move(args)...}));
+        return call_function(JS::Any(JS::Undefined{}), JS::Arguments::CreateArgumentsObject(std::vector<JS::Any>{std::move(args)...}));
     }
     ///@}
 
@@ -93,6 +97,8 @@ public:
     ///@{
     /** @brief check if the object is likely created by this object, only Function implements this */
     [[nodiscard]] virtual bool hasInstance(const JS::Any& value) const;
+    /** @brief match a string with the object, only RegExp implements this */
+    [[nodiscard]] virtual std::optional<JS::Match> match(const std::u16string& string, uint32_t index) const;
     ///@}
 
     /**
@@ -101,15 +107,34 @@ public:
     ///@{
     /** @brief check if the object is callable */
     [[nodiscard]] virtual bool isCallable() const;
+    /** @brief to delete */
+    [[nodiscard]] virtual std::u16string getContent() const;
+    /** @brief initialize the object, used to fix shared_from_this */
+    virtual void initialize(std::shared_ptr<JS::InternalObject> prototype);
+    /** @brief instantiate and return an object, used to fix shared_from_this */
+    template <typename T, typename... Args>
+    [[nodiscard]] static std::shared_ptr<T> create(Args&&... args) {
+        auto obj = std::make_shared<T>(std::forward<Args>(args)...);
+        obj->initialize(nullptr);
+        return obj;
+    }
+
+    /** @brief instantiate and return an object with custom initialize parameter */
+    template <typename T, typename... Args>
+    [[nodiscard]] static std::shared_ptr<T> create(std::shared_ptr<JS::InternalObject> init_param, Args&&... args) {
+        auto obj = std::make_shared<T>(std::forward<Args>(args)...);
+        obj->initialize(init_param);
+        return obj;
+    }
     ///@}
 
-    std::shared_ptr<JS::Properties> properties;    /**< The properties of the object. */
-    std::shared_ptr<JS::InternalObject> prototype; /**< The prototype of the object. */
-    FunctionType call_function;                    /**< The call function of the object. */
-    FunctionType construct;                        /**< The construct function of the object. */
-    std::u16string class_name;                     /**< The class name of the object. */
-    bool extensible;                               /**< Whether the object is extensible. */
-    JS::Value primitiveValue; /**< The primitive value of the object. (Only Defined for Some Objects) */
+    std::shared_ptr<JS::Properties> properties;        /**< The properties of the object. */
+    std::shared_ptr<JS::InternalObject> prototype;     /**< The prototype of the object. */
+    FunctionType call_function;                        /**< The call function of the object. */
+    FunctionType construct;                            /**< The construct function of the object. */
+    std::u16string class_name;                         /**< The class name of the object. */
+    bool extensible;                                   /**< Whether the object is extensible. */
+    JS::Value primitiveValue;                          /**< The primitive value of the object. (Only Defined for Some Objects) */
     std::shared_ptr<JS::InternalObject> parameter_map; /**< The parameter map of the object. */
 };
 } // namespace JS

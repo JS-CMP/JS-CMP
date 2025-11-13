@@ -3,13 +3,14 @@
 #include "utils/Convert.hpp"
 
 #include <cmath>
+#include <types/objects/Error/JsTypeError.hpp>
 #include <types/objects/JsObject.hpp>
 #include <unicode/uchar.h>
 #include <unicode/unistr.h>
 #include <unicode/ustream.h>
 
 std::optional<JS::Attribute> JS::String::getOwnProperty(const std::u16string& key) const {
-    auto desc = JS::InternalObject::getOwnProperty(key);
+    auto desc = this->InternalObject::getOwnProperty(key);
     if (desc.has_value()) {
         return desc;
     }
@@ -17,7 +18,7 @@ std::optional<JS::Attribute> JS::String::getOwnProperty(const std::u16string& ke
         return std::nullopt;
     }
     if (this->primitiveValue.index() != JS::STRING) {
-        throw std::runtime_error("Unexpected primitive value"); // should not happen
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any("Unexpected primitive value")));
     }
     Rope str = std::get<Rope>(this->primitiveValue);
     int index = JS::CONVERT::ToInteger(key);
@@ -30,19 +31,15 @@ std::optional<JS::Attribute> JS::String::getOwnProperty(const std::u16string& ke
 
 // prototype methods
 JS::Any JS::String::toString(const JS::Any& thisArg, const JS::Any& args) {
-    if ((!JS::COMPARE::Type(thisArg, JS::OBJECT) ||
-         std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->class_name != u"String") &&
-        !JS::COMPARE::Type(thisArg, JS::STRING)) {
-        throw std::runtime_error("TypeError: String.prototype.valueOf called on non-object");
+    if (!JS::COMPARE::Object(thisArg, STRING_CLASS_NAME) && !JS::COMPARE::Type(thisArg, JS::STRING)) {
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any("String.prototype.toString called on non-object")));
     }
-    return thisArg;
+    return JS::Any(std::get<Rope>(std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->primitiveValue).toString());
 }
 
 JS::Any JS::String::valueOf(const JS::Any& thisArg, const JS::Any& args) {
-    if ((!JS::COMPARE::Type(thisArg, JS::OBJECT) ||
-         std::get<std::shared_ptr<JS::InternalObject>>(thisArg.getValue())->class_name != u"String") &&
-        !JS::COMPARE::Type(thisArg, JS::STRING)) {
-        throw std::runtime_error("TypeError: String.prototype.valueOf called on non-object");
+    if (!JS::COMPARE::Object(thisArg, STRING_CLASS_NAME) && !JS::COMPARE::Type(thisArg, JS::STRING)) {
+        throw JS::Any(JS::InternalObject::create<JS::TypeError>(JS::Any("String.prototype.valueOf called on non-object")));
     }
     return thisArg;
 }

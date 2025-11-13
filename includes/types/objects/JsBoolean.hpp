@@ -21,10 +21,8 @@ public:
      * These constructors create a new Object with the given value
      */
     ///@{
-    /** @brief Default constructor initializes the Boolean with true */
-    Boolean();
     /** @brief Constructor that take a value */
-    explicit Boolean(const JS::Any& value);
+    explicit Boolean(const JS::Any& value = Any(false));
     ///@}
 
     /** @brief The destructor for the boolean defaulted */
@@ -40,8 +38,13 @@ public:
     static JS::Any valueOf(const JS::Any& thisArg, const JS::Any& args);
     ///@}
 
+    [[nodiscard]] std::u16string getContent() const override;
+
     /** @brief Function to get the methods of the property prototype */
-    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
+    static std::shared_ptr<JS::InternalObject>& getPrototypeProperties(const std::shared_ptr<JS::InternalObject>& constructor = nullptr);
+
+    /** @brief Get the instance of the global error. */
+    [[nodiscard]] static std::shared_ptr<JS::Function> getConstructor();
 };
 } // namespace JS
 

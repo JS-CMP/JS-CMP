@@ -7,7 +7,41 @@
 #include "types/objects/Function/JsFunction.hpp"
 
 namespace JS {
-assert::assert(const JS::Properties& properties) : JS::InternalObject(properties, JS::Function::getPrototypeProperties(), u"Assert") {}
+std::shared_ptr<JS::Function> assert::getConstructor() {
+    auto prototype = Function::getPrototypeProperties();
+    static auto constructor = JS::InternalObject::create<JS::Function>(
+        [](const JS::Any& thisArg, const JS::Any& args) -> JS::Any {
+            if (args[u"0"]) {
+                return JS::Any();
+            }
+            throw args["1"];
+        },
+        2, OBJECT_CLASS_NAME, prototype);
+
+    constructor->class_name = OBJECT_CLASS_NAME;
+    constructor->extensible = true;
+    constructor->prototype = prototype;
+    constructor->properties = std::make_shared<JS::Properties>(JS::Properties{
+        {u"length", JS::DataDescriptor{JS::Any(2), false, false, false}},
+        {u"name", JS::DataDescriptor{JS::Any(u"Assert"), false, false, false}},
+        {u"fail", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::fail)), true, true, true}},
+        {u"ok", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::ok)), true, true, true}},
+        {u"equal", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::equal)), true, true, true}},
+        {u"notEqual", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::notEqual)), true, true, true}},
+        {u"deepEqual", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::deepEqual)), true, true, true}},
+        {u"notDeepEqual", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::notDeepEqual)), true, true, true}},
+        {u"strictEqual", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::strictEqual)), true, true, true}},
+        {u"notStrictEqual", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::notStrictEqual)), true, true, true}},
+        {u"throws", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::throws)), true, true, true}},
+        {u"doesNotThrow", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::doesNotThrow)), true, true, true}},
+        {u"sameValue", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::sameValue)), true, true, true}},
+    });
+    return constructor;
+}
+
+assert::assert(const JS::Properties& properties)
+    : JS::InternalObject(properties, JS::Function::getPrototypeProperties(), u"Assert") {
+}
 
 JS::Any assert::fail(const JS::Any& thisArgs, const JS::Any& args) {
     // TODO : handle if args[0] is a throwable, make throwable js::any

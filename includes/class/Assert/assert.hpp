@@ -60,6 +60,8 @@ public:
     static JS::Any deepStrictEqual(const JS::Any& thisArgs, const JS::Any& args);
     static JS::Any notStrictDeepEqual(const JS::Any& thisArgs, const JS::Any& args);
 
+    /** @brief Get the instance of the global error. */
+    [[nodiscard]] static std::shared_ptr<JS::Function> getConstructor();
 private:
     // TODO: add handling stackStartFn
     static void innerFail(const JS::Any& actual, const JS::Any& expected, const JS::Any& message, const std::u16string& operator_);

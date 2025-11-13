@@ -61,21 +61,7 @@ JS::Any Math = JS::Any(std::make_shared<JS::InternalObject>(
     JS::Object::getPrototypeProperties(), MATH_CLASS_NAME, true)); // TODO Make math inherit from Object
 
 // TODO add prototype and AssertionError function
-inline auto assert = JS::Any(std::make_shared<JS::assert>(JS::Properties{
-    {u"length", JS::DataDescriptor{JS::Any(2), false, false, false}},
-    {u"name", JS::DataDescriptor{JS::Any(u"Assert"), false, false, false}},
-    {u"fail", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::fail)), true, true, true}},
-    {u"ok", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::ok)), true, true, true}},
-    {u"equal", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::equal)), true, true, true}},
-    {u"notEqual", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::notEqual)), true, true, true}},
-    {u"deepEqual", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::deepEqual)), true, true, true}},
-    {u"notDeepEqual", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::notDeepEqual)), true, true, true}},
-    {u"strictEqual", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::strictEqual)), true, true, true}},
-    {u"notStrictEqual", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::notStrictEqual)), true, true, true}},
-    {u"throws", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::throws)), true, true, true}},
-    {u"doesNotThrow", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::doesNotThrow)), true, true, true}},
-    {u"sameValue", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::assert::sameValue)), true, true, true}},
-}));
+inline auto assert = JS::Any(JS::assert::getConstructor());
 
 inline auto console = JS::Any(JS::InternalObject::create<JS::Object>(std::unordered_map<std::u16string, JS::Any>{
     {u"log", JS::Any(JS::InternalObject::create<JS::Function>(JS::console::log))},

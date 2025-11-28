@@ -6,9 +6,13 @@
 #include <unicode/timezone.h>
 
 namespace JS::DateOperators {
-int Day(double t) { return std::floor(t / JS::DateOperators::msPerDay); }
+int Day(double t) {
+    return std::floor(t / JS::DateOperators::msPerDay);
+}
 
-double TimeWithinDay(double t) { return std::fmod(t, JS::DateOperators::msPerDay); }
+double TimeWithinDay(double t) {
+    return std::fmod(t, JS::DateOperators::msPerDay);
+}
 
 double DaysInYear(int y) {
     if ((y % 4) != 0) {
@@ -25,7 +29,9 @@ double DayFromYear(int y) {
     return 365 * (y - 1970) + std::floor((y - 1969) / 4) - std::floor((y - 1901) / 100) + std::floor((y - 1601) / 400);
 }
 
-double TimeFromYear(int y) { return JS::DateOperators::msPerDay * DayFromYear(y); }
+double TimeFromYear(int y) {
+    return JS::DateOperators::msPerDay * DayFromYear(y);
+}
 
 int YearFromTime(double t) {
     int low = -285616;
@@ -43,7 +49,9 @@ int YearFromTime(double t) {
     return low;
 }
 
-bool InLeapYear(double t) { return DaysInYear(YearFromTime(t)) == 366; }
+bool InLeapYear(double t) {
+    return DaysInYear(YearFromTime(t)) == 366;
+}
 
 int MonthFromTime(double t) {
     double day = DayWithinYear(t);
@@ -85,7 +93,9 @@ int MonthFromTime(double t) {
     return 11;
 }
 
-double DayWithinYear(double t) { return Day(t) - DayFromYear(YearFromTime(t)); }
+double DayWithinYear(double t) {
+    return Day(t) - DayFromYear(YearFromTime(t));
+}
 
 int DateFromTime(double t) {
     double day = DayWithinYear(t);
@@ -122,7 +132,9 @@ int DateFromTime(double t) {
     }
 }
 
-int WeekDay(double t) { return ((Day(t) + 4) % 7); }
+int WeekDay(double t) {
+    return ((Day(t) + 4) % 7);
+}
 
 double LocalTZA() {
     UErrorCode status = U_ZERO_ERROR;
@@ -146,17 +158,29 @@ double DaylightSavingTA(double t) {
     return dstAdjustment;
 }
 
-double LocalTime(double t) { return t + LocalTZA() + DaylightSavingTA(t); }
+double LocalTime(double t) {
+    return t + LocalTZA() + DaylightSavingTA(t);
+}
 
-double UTC(double t) { return t - LocalTZA() - DaylightSavingTA(t - LocalTZA()); }
+double UTC(double t) {
+    return t - LocalTZA() - DaylightSavingTA(t - LocalTZA());
+}
 
-int HourFromTime(double t) { return static_cast<int>(std::floor(t / msPerHour)) % HoursPerDay; }
+int HourFromTime(double t) {
+    return static_cast<int>(std::floor(t / msPerHour)) % HoursPerDay;
+}
 
-int MinFromTime(double t) { return static_cast<int>(std::floor(t / msPerMinute)) % MinutesPerHour; }
+int MinFromTime(double t) {
+    return static_cast<int>(std::floor(t / msPerMinute)) % MinutesPerHour;
+}
 
-int SecFromTime(double t) { return static_cast<int>(std::floor(t / msPerSecond)) % SecondsPerMinute; }
+int SecFromTime(double t) {
+    return static_cast<int>(std::floor(t / msPerSecond)) % SecondsPerMinute;
+}
 
-int msFromTime(double t) { return static_cast<int>(t) % static_cast<int>(msPerSecond); }
+int msFromTime(double t) {
+    return static_cast<int>(t) % static_cast<int>(msPerSecond);
+}
 
 JS::Any MakeTime(JS::Any hour, JS::Any min, JS::Any sec, JS::Any ms) {
     int h = JS::CONVERT::ToInteger(hour);

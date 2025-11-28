@@ -28,8 +28,7 @@ public:
     /** @brief Constructor that initializes the object with a given set of properties */
     explicit Date(const std::unordered_map<std::u16string, JS::Any>& properties);
     /** @brief  */
-    explicit Date(JS::Any year, JS::Any month, JS::Any day = JS::Any(), JS::Any hours = JS::Any(),
-                  JS::Any minutes = JS::Any(), JS::Any seconds = JS::Any(), JS::Any milliseconds = JS::Any());
+    explicit Date(JS::Any year, JS::Any month, JS::Any day = JS::Any(), JS::Any hours = JS::Any(), JS::Any minutes = JS::Any(), JS::Any seconds = JS::Any(), JS::Any milliseconds = JS::Any());
     ///@}
 
     /** @brief The destructor for the object defaulted */

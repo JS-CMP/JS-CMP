@@ -209,12 +209,13 @@ JS::Any MakeDay(JS::Any year, JS::Any month, JS::Any date) {
     }
     int ym = y + static_cast<int>(std::floor(m / 12.0));
     int mn = static_cast<int>(std::fmod(m, 12.0));
+    if (mn < 0) mn += 12;  // Handle negative month values
     double t = TimeFromYear(ym);
     const int maxOffsetDays = 400;
 
     for (int i = 0; i < maxOffsetDays; ++i) {
         double current = t + i * JS::DateOperators::msPerDay;
-        if (YearFromTime(current) == ym && (MonthFromTime(current) == (mn - 1)) && DateFromTime(current) == 1) {
+        if (YearFromTime(current) == ym && MonthFromTime(current) == mn && DateFromTime(current) == 1) {
             int day = static_cast<int>(std::floor(current / JS::DateOperators::msPerDay));
             return JS::Any(static_cast<double>(day + dt - 1));
         }
@@ -228,12 +229,13 @@ int MakeDay(int year, int month, int date) {
     }
     int ym = year + static_cast<int>(std::floor(month / 12.0));
     int mn = static_cast<int>(std::fmod(month, 12.0));
+    if (mn < 0) mn += 12;  // Handle negative month values
     double t = TimeFromYear(ym);
     const int maxOffsetDays = 400;
 
     for (int i = 0; i < maxOffsetDays; ++i) {
         double current = t + i * JS::DateOperators::msPerDay;
-        if (YearFromTime(current) == ym && (MonthFromTime(current) == (mn - 1)) && DateFromTime(current) == 1) {
+        if (YearFromTime(current) == ym && MonthFromTime(current) == mn && DateFromTime(current) == 1) {
             int day = static_cast<int>(std::floor(current / JS::DateOperators::msPerDay));
             return day + date - 1;
         }

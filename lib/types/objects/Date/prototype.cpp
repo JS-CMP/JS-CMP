@@ -7,9 +7,80 @@
 #include <cmath>
 
 namespace JS {
+bool Date::get_number(std::string& dateString, size_t &index, int& number) {
+    size_t start = index;
+    number = 0;
+    while (index < dateString.size() && isdigit(dateString[index])) {
+        number = number * 10 + (dateString[index] - '0');
+        ++index;
+    }
+    return index == start;
+}
 
 JS::Any Date::parse(const JS::Any& thisArg, const JS::Any& args) {
-    throw std::runtime_error("Date::parse not implemented");
+    std::string dateString = CONVERT::ToUtf8(CONVERT::ToString(args[u"0"]));
+    if (dateString.empty()) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
+    }
+    char firstChar = dateString[0];
+    bool isExtendedYear = false;
+    if (!(isExtendedYear = (firstChar == '+' || firstChar == '-')) && !isdigit(firstChar)) {
+        return JS::Any(std::numeric_limits<double>::quiet_NaN());
+    }
+
+    size_t index;
+    size_t size = dateString.size();
+    int year = 0, month = 1, day = 1, hours = 0, minutes = 0, seconds = 0, milliseconds = 0;
+
+    do {
+        if (isExtendedYear) {
+            index = 1;
+        } else {
+            index = 0;
+        }
+        if (get_number(dateString, index, year) || year > 999999)
+            return JS::Any(std::numeric_limits<double>::quiet_NaN());
+        if (isExtendedYear) {
+            if (firstChar == '-') {
+                year = -year;
+            }
+        }
+        if ((index + 1) >= size || dateString[index] != '-')
+            break;
+        ++index;
+        if (get_number(dateString, index, month) || month < 1 || month > 12)
+            return JS::Any(std::numeric_limits<double>::quiet_NaN());
+        if ((index + 1) >= size || dateString[index] != '-')
+            break;
+        ++index;
+        if (get_number(dateString, index, day) || day < 1 || day > 31)
+            return JS::Any(std::numeric_limits<double>::quiet_NaN());
+        if ((index + 1) >= size || dateString[index] != 'T')
+            break;
+        ++index;
+        if (get_number(dateString, index, hours) || hours < 0 || hours > 24)
+            return JS::Any(std::numeric_limits<double>::quiet_NaN());
+        if ((index + 1) >= size || dateString[index] != ':')
+            break;
+        ++index;
+        if (get_number(dateString, index, minutes) || minutes < 0 || minutes > 59)
+            return JS::Any(std::numeric_limits<double>::quiet_NaN());
+        if ((index + 1) >= size || dateString[index] != ':')
+            break;
+        ++index;
+        if (get_number(dateString, index, seconds) || seconds < 0 || seconds > 59)
+            return JS::Any(std::numeric_limits<double>::quiet_NaN());
+        if ((index + 1) >= size || dateString[index] != '.')
+            break;
+        ++index;
+        if (get_number(dateString, index, milliseconds) || milliseconds < 0 || milliseconds > 999)
+            return JS::Any(std::numeric_limits<double>::quiet_NaN());
+        if ((index + 1) >= size || dateString[index] != 'Z')
+            break;
+    } while (false);
+    return JS::Any(DateOperators::TimeClip(DateOperators::UTC(
+        DateOperators::MakeDate(DateOperators::MakeDay(year, month - 1, day),
+                                DateOperators::MakeTime(hours, minutes, seconds, milliseconds)))));
 }
 
 JS::Any Date::UTC(const JS::Any& thisArg, const JS::Any& args) {
@@ -34,8 +105,11 @@ JS::Any Date::UTC(const JS::Any& thisArg, const JS::Any& args) {
 }
 
 JS::Any Date::now(const JS::Any& thisArg, const JS::Any& args) {
-    auto nowMilliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
-    double now = DateOperators::TimeClip(DateOperators::UTC(DateOperators::MakeDate(DateOperators::Day(nowMilliseconds), 0)));
+    auto nowMilliseconds =
+        std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch())
+        .count();
+    double now =
+        DateOperators::TimeClip(DateOperators::UTC(DateOperators::MakeDate(DateOperators::Day(nowMilliseconds), 0)));
     return JS::Any(now);
 }
 

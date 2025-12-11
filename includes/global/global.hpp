@@ -12,6 +12,7 @@
 #include "types/objects/Error/JsSyntaxError.hpp"
 #include "types/objects/Error/JsTypeError.hpp"
 #include "types/objects/Error/JsURIError.hpp"
+#include "types/objects/JsDate.hpp"
 #include "types/objects/Types.hpp"
 
 inline auto Object = JS::Any(JS::Object::getConstructor());
@@ -20,6 +21,7 @@ inline auto Function = JS::Any(JS::Function::getConstructor());
 inline auto String = JS::Any(JS::String::getConstructor());
 inline auto Number = JS::Any(JS::Number::getConstructor());
 inline auto Boolean = JS::Any(JS::Boolean::getConstructor());
+inline auto Date = JS::Any(JS::Date::getConstructor());
 
 inline auto Error = JS::Any(JS::Error::getConstructor());
 // NativeError is not expected to be used directly, but it is the base class for all native errors.

@@ -147,6 +147,7 @@ public:
     static JS::Any toJSON(const JS::Any& thisArg, const JS::Any& args);
     ///@}
 
+    static bool get_number(std::string& dateString, size_t& index, int& number);
     /**
      * @name Static methods of the Date object built-in
      */
@@ -162,8 +163,14 @@ public:
     static JS::Any now(const JS::Any& thisArg, const JS::Any& args);
     ///@}
 
+
     /** @brief Returns a shared pointer to the prototype properties of the Date object. */
     static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
+
+    /** @brief Returns the content of the object formatted to a string. */
+    [[nodiscard]] std::u16string getContent() const override;
+    /** @brief Get the instance of the global object. */
+    [[nodiscard]] static std::shared_ptr<JS::Function> getConstructor();
 };
 
 namespace DateOperators {

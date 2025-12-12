@@ -163,7 +163,6 @@ public:
     static JS::Any now(const JS::Any& thisArg, const JS::Any& args);
     ///@}
 
-
     /** @brief Returns a shared pointer to the prototype properties of the Date object. */
     static std::shared_ptr<JS::InternalObject>& getPrototypeProperties();
 

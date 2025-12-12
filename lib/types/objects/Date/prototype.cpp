@@ -7,7 +7,7 @@
 #include <cmath>
 
 namespace JS {
-bool Date::get_number(std::string& dateString, size_t &index, int& number) {
+bool Date::get_number(std::string& dateString, size_t& index, int& number) {
     size_t start = index;
     number = 0;
     while (index < dateString.size() && isdigit(dateString[index])) {
@@ -92,9 +92,7 @@ JS::Any Date::parse(const JS::Any& thisArg, const JS::Any& args) {
             break;
         }
     } while (false);
-    return JS::Any(DateOperators::TimeClip(DateOperators::UTC(
-        DateOperators::MakeDate(DateOperators::MakeDay(year, month - 1, day),
-                                DateOperators::MakeTime(hours, minutes, seconds, milliseconds)))));
+    return JS::Any(DateOperators::TimeClip(DateOperators::UTC(DateOperators::MakeDate(DateOperators::MakeDay(year, month - 1, day), DateOperators::MakeTime(hours, minutes, seconds, milliseconds)))));
 }
 
 JS::Any Date::UTC(const JS::Any& thisArg, const JS::Any& args) {
@@ -119,11 +117,8 @@ JS::Any Date::UTC(const JS::Any& thisArg, const JS::Any& args) {
 }
 
 JS::Any Date::now(const JS::Any& thisArg, const JS::Any& args) {
-    auto nowMilliseconds =
-        std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch())
-        .count();
-    double now =
-        DateOperators::TimeClip(DateOperators::UTC(DateOperators::MakeDate(DateOperators::Day(nowMilliseconds), 0)));
+    auto nowMilliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+    double now = DateOperators::TimeClip(DateOperators::UTC(DateOperators::MakeDate(DateOperators::Day(nowMilliseconds), 0)));
     return JS::Any(now);
 }
 

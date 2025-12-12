@@ -9,9 +9,7 @@
 namespace JS {
 
 Date::Date() : InternalObject({}, getPrototypeProperties(), u"Date", true) {
-    auto nowMilliseconds =
-        std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch())
-            .count();
+    auto nowMilliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
     primitiveValue = static_cast<double>(nowMilliseconds);
 }
 
@@ -21,9 +19,7 @@ Date::Date(const JS::Any& value) : InternalObject({}, getPrototypeProperties(), 
 
     if (COMPARE::Type(v, JS::STRING)) {
         std::string dateString = CONVERT::ToUtf8(CONVERT::ToString(v));
-        V = CONVERT::ToNumber(Date::parse(JS::Any(), JS::Any(std::make_shared<JS::InternalObject>(
-            std::unordered_map<std::u16string, JS::Attribute>{{u"0", JS::DataDescriptor{v, true, true, true}}},
-            nullptr, u"Arguments", true))));
+        V = CONVERT::ToNumber(Date::parse(JS::Any(), JS::Any(std::make_shared<JS::InternalObject>(std::unordered_map<std::u16string, JS::Attribute>{{u"0", JS::DataDescriptor{v, true, true, true}}}, nullptr, u"Arguments", true))));
     } else {
         V = CONVERT::ToNumber(v);
     }

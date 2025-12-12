@@ -1,7 +1,7 @@
 #include "internals/PropertyProxy.hpp"
-#include "types/objects/JsDate.hpp"
-#include "types/objects/Error/JsTypeError.hpp"
 #include "types/objects/Error/JsRangeError.hpp"
+#include "types/objects/Error/JsTypeError.hpp"
+#include "types/objects/JsDate.hpp"
 #include "utils/Compare.hpp"
 #include "utils/Convert.hpp"
 
@@ -20,8 +20,7 @@ static const char* getDayName(int weekday) {
 
 // Helper function to get month name
 static const char* getMonthName(int month) {
-    static const std::array<const char*, 12> months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun",
-                                   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+    static const std::array<const char*, 12> months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
     return months[month];
 }
 
@@ -33,8 +32,7 @@ static std::string formatTimezoneOffset(double t) {
     int offsetMins = std::abs(offsetMinutes) % 60;
     char sign = offsetMinutes >= 0 ? '+' : '-';
     std::ostringstream oss;
-    oss << sign << std::setfill('0') << std::setw(2) << offsetHours
-        << std::setw(2) << offsetMins;
+    oss << sign << std::setfill('0') << std::setw(2) << offsetHours << std::setw(2) << offsetMins;
     return oss.str();
 }
 
@@ -58,10 +56,7 @@ JS::Any Date::toString(const JS::Any& thisArg, const JS::Any& args) {
     int seconds = DateOperators::SecFromTime(localT);
 
     std::ostringstream oss;
-    oss << getDayName(weekday) << " " << getMonthName(month) << " "
-        << std::setfill('0') << std::setw(2) << date << " " << year << " "
-        << std::setw(2) << hours << ":" << std::setw(2) << minutes << ":"
-        << std::setw(2) << seconds << " GMT" << formatTimezoneOffset(t);
+    oss << getDayName(weekday) << " " << getMonthName(month) << " " << std::setfill('0') << std::setw(2) << date << " " << year << " " << std::setw(2) << hours << ":" << std::setw(2) << minutes << ":" << std::setw(2) << seconds << " GMT" << formatTimezoneOffset(t);
 
     return JS::Any(oss.str());
 }
@@ -83,8 +78,7 @@ JS::Any Date::toDateString(const JS::Any& thisArg, const JS::Any& args) {
     int weekday = DateOperators::WeekDay(localT);
 
     std::ostringstream oss;
-    oss << getDayName(weekday) << " " << getMonthName(month) << " "
-        << std::setfill('0') << std::setw(2) << date << " " << year;
+    oss << getDayName(weekday) << " " << getMonthName(month) << " " << std::setfill('0') << std::setw(2) << date << " " << year;
 
     return JS::Any(oss.str());
 }
@@ -105,9 +99,7 @@ JS::Any Date::toTimeString(const JS::Any& thisArg, const JS::Any& args) {
     int seconds = DateOperators::SecFromTime(localT);
 
     std::ostringstream oss;
-    oss << std::setfill('0') << std::setw(2) << hours << ":"
-        << std::setw(2) << minutes << ":" << std::setw(2) << seconds
-        << " GMT" << formatTimezoneOffset(t);
+    oss << std::setfill('0') << std::setw(2) << hours << ":" << std::setw(2) << minutes << ":" << std::setw(2) << seconds << " GMT" << formatTimezoneOffset(t);
 
     return JS::Any(oss.str());
 }
@@ -138,9 +130,7 @@ JS::Any Date::toLocaleString(const JS::Any& thisArg, const JS::Any& args) {
     }
     const char* ampm = hours >= 12 ? "PM" : "AM";
 
-    oss << (month + 1) << "/" << date << "/" << year << ", "
-        << displayHour << ":" << std::setfill('0') << std::setw(2) << minutes
-        << ":" << std::setw(2) << seconds << " " << ampm;
+    oss << (month + 1) << "/" << date << "/" << year << ", " << displayHour << ":" << std::setfill('0') << std::setw(2) << minutes << ":" << std::setw(2) << seconds << " " << ampm;
 
     return JS::Any(oss.str());
 }
@@ -190,8 +180,7 @@ JS::Any Date::toLocaleTimeString(const JS::Any& thisArg, const JS::Any& args) {
     }
     const char* ampm = hours >= 12 ? "PM" : "AM";
 
-    oss << displayHour << ":" << std::setfill('0') << std::setw(2) << minutes
-        << ":" << std::setw(2) << seconds << " " << ampm;
+    oss << displayHour << ":" << std::setfill('0') << std::setw(2) << minutes << ":" << std::setw(2) << seconds << " " << ampm;
 
     return JS::Any(oss.str());
 }
@@ -472,11 +461,8 @@ JS::Any Date::setUTCSeconds(const JS::Any& thisArg, const JS::Any& args) {
     }
     double t = std::get<double>(O->primitiveValue);
     double s = CONVERT::ToNumber(args[u"0"]);
-    double milli =
-        !JS::COMPARE::Type(args[u"1"], JS::UNDEFINED) ? CONVERT::ToNumber(args[u"1"]) : DateOperators::msFromTime(t);
-    double date = DateOperators::MakeDate(
-        DateOperators::Day(t),
-        DateOperators::MakeTime(DateOperators::HourFromTime(t), DateOperators::MinFromTime(t), s, milli));
+    double milli = !JS::COMPARE::Type(args[u"1"], JS::UNDEFINED) ? CONVERT::ToNumber(args[u"1"]) : DateOperators::msFromTime(t);
+    double date = DateOperators::MakeDate(DateOperators::Day(t), DateOperators::MakeTime(DateOperators::HourFromTime(t), DateOperators::MinFromTime(t), s, milli));
     double v = DateOperators::TimeClip(date);
     O->primitiveValue = v;
     return JS::Any(v);
@@ -653,10 +639,7 @@ JS::Any Date::toUTCString(const JS::Any& thisArg, const JS::Any& args) {
     int seconds = DateOperators::SecFromTime(t);
 
     std::ostringstream oss;
-    oss << getDayName(weekday) << ", " << std::setfill('0') << std::setw(2) << date
-        << " " << getMonthName(month) << " " << year << " "
-        << std::setw(2) << hours << ":" << std::setw(2) << minutes << ":"
-        << std::setw(2) << seconds << " GMT";
+    oss << getDayName(weekday) << ", " << std::setfill('0') << std::setw(2) << date << " " << getMonthName(month) << " " << year << " " << std::setw(2) << hours << ":" << std::setw(2) << minutes << ":" << std::setw(2) << seconds << " GMT";
 
     return JS::Any(oss.str());
 }
@@ -688,13 +671,7 @@ JS::Any Date::toISOString(const JS::Any& thisArg, const JS::Any& args) {
         oss << std::setfill('0') << std::setw(4) << year;
     }
 
-    oss << "-" << std::setw(2) << (month + 1)
-        << "-" << std::setw(2) << date
-        << "T" << std::setw(2) << hours
-        << ":" << std::setw(2) << minutes
-        << ":" << std::setw(2) << seconds
-        << "." << std::setw(3) << milliseconds
-        << "Z";
+    oss << "-" << std::setw(2) << (month + 1) << "-" << std::setw(2) << date << "T" << std::setw(2) << hours << ":" << std::setw(2) << minutes << ":" << std::setw(2) << seconds << "." << std::setw(3) << milliseconds << "Z";
 
     return JS::Any(oss.str());
 }

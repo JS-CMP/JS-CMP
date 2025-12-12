@@ -53,14 +53,7 @@ std::shared_ptr<JS::Function> JS::Date::getConstructor() {
         constructor->class_name = DATE_CLASS_NAME;
         constructor->extensible = true;
         constructor->prototype = prototype;
-        constructor->properties = std::make_shared<JS::Properties>(JS::Properties({
-            {u"length", JS::DataDescriptor{JS::Any(7), false, false, false}},
-            {u"name", JS::DataDescriptor{JS::Any(DATE_CLASS_NAME), false, false, false}},
-            {u"parse", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Date::parse, 1, u"parse")), true, false, true}},
-            {u"UTC", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Date::UTC, 7, u"UTC")), true, false, true}},
-            {u"now", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Date::now, 0, u"now")), true, false, true}},
-            {u"prototype", JS::DataDescriptor(JS::Any(datePrototype), false, false, false)}
-        }));
+        constructor->properties = std::make_shared<JS::Properties>(JS::Properties({{u"length", JS::DataDescriptor{JS::Any(7), false, false, false}}, {u"name", JS::DataDescriptor{JS::Any(DATE_CLASS_NAME), false, false, false}}, {u"parse", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Date::parse, 1, u"parse")), true, false, true}}, {u"UTC", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Date::UTC, 7, u"UTC")), true, false, true}}, {u"now", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Date::now, 0, u"now")), true, false, true}}, {u"prototype", JS::DataDescriptor(JS::Any(datePrototype), false, false, false)}}));
     }
 
     return constructor;

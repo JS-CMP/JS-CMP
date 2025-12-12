@@ -31,7 +31,6 @@ namespace JS {
 #define MATH_CLASS_NAME u"Math"
 #define JSON_CLASS_NAME u"JSON"
 
-
 enum Types : std::uint8_t {
     NUMBER,    /**< Represents a numeric type (double). */
     STRING,    /**< Represents a string type. */

@@ -1,10 +1,9 @@
-#include "types/objects/JsJSON.hpp"
-
 #include "internals/Object.hpp"
 #include "internals/PropertyProxy.hpp"
 #include "types/objects/Error/JsSyntaxError.hpp"
 #include "types/objects/Error/JsTypeError.hpp"
 #include "types/objects/JsArray.hpp"
+#include "types/objects/JsJSON.hpp"
 #include "types/objects/JsObject.hpp"
 #include "utils/Convert.hpp"
 #include "utils/Is.hpp"
@@ -13,7 +12,6 @@
 #include <cmath>
 
 namespace JS {
-
 
 JS::Any JSON::parse(const JS::Any& thisArg, const JS::Any& args) {
     (void)thisArg;
@@ -37,9 +35,7 @@ JS::Any JSON::parse(const JS::Any& thisArg, const JS::Any& args) {
     return unfiltered;
 }
 
-
-JS::Any JSON::Walk(const std::shared_ptr<JS::InternalObject>& holder, const std::u16string& name,
-                   const std::shared_ptr<JS::InternalObject>& reviver) {
+JS::Any JSON::Walk(const std::shared_ptr<JS::InternalObject>& holder, const std::u16string& name, const std::shared_ptr<JS::InternalObject>& reviver) {
 
     JS::Any val = holder->get(name);
 
@@ -62,11 +58,7 @@ JS::Any JSON::Walk(const std::shared_ptr<JS::InternalObject>& holder, const std:
 
             std::vector<std::u16string> keys;
             for (const auto& [key, attr] : *valObj->properties) {
-                bool enumerable = std::visit(
-                    [](const auto& desc) {
-                        return desc.enumerable;
-                    },
-                    attr);
+                bool enumerable = std::visit([](const auto& desc) { return desc.enumerable; }, attr);
                 if (enumerable) {
                     keys.push_back(key);
                 }
@@ -86,7 +78,6 @@ JS::Any JSON::Walk(const std::shared_ptr<JS::InternalObject>& holder, const std:
     auto argsArray = JS::Arguments::CreateArgumentsObject({JS::Any(name), val});
     return reviver->call_function(JS::Any(holder), argsArray);
 }
-
 
 JS::Any JSON::stringify(const JS::Any& thisArg, const JS::Any& args) {
     (void)thisArg;
@@ -175,11 +166,7 @@ JS::Any JSON::stringify(const JS::Any& thisArg, const JS::Any& args) {
     return result;
 }
 
-
-JS::Any JSON::Str(const std::u16string& key, const std::shared_ptr<JS::InternalObject>& holder,
-                  std::vector<std::shared_ptr<JS::InternalObject>>& stack, std::u16string& indent,
-                  const std::u16string& gap, const std::shared_ptr<JS::InternalObject>& replacerFunction,
-                  const std::vector<std::u16string>* propertyList) {
+JS::Any JSON::Str(const std::u16string& key, const std::shared_ptr<JS::InternalObject>& holder, std::vector<std::shared_ptr<JS::InternalObject>>& stack, std::u16string& indent, const std::u16string& gap, const std::shared_ptr<JS::InternalObject>& replacerFunction, const std::vector<std::u16string>* propertyList) {
 
     JS::Any value = holder->get(key);
 
@@ -245,7 +232,6 @@ JS::Any JSON::Str(const std::u16string& key, const std::shared_ptr<JS::InternalO
     return JS::Any(JS::Undefined{});
 }
 
-
 std::u16string JSON::Quote(const std::u16string& value) {
     std::u16string product = u"\"";
 
@@ -281,11 +267,7 @@ std::u16string JSON::Quote(const std::u16string& value) {
     return product;
 }
 
-
-std::u16string JSON::JO(const std::shared_ptr<JS::InternalObject>& value,
-                        std::vector<std::shared_ptr<JS::InternalObject>>& stack, std::u16string& indent,
-                        const std::u16string& gap, const std::shared_ptr<JS::InternalObject>& replacerFunction,
-                        const std::vector<std::u16string>* propertyList) {
+std::u16string JSON::JO(const std::shared_ptr<JS::InternalObject>& value, std::vector<std::shared_ptr<JS::InternalObject>>& stack, std::u16string& indent, const std::u16string& gap, const std::shared_ptr<JS::InternalObject>& replacerFunction, const std::vector<std::u16string>* propertyList) {
 
     for (const auto& item : stack) {
         if (item.get() == value.get()) {
@@ -304,11 +286,7 @@ std::u16string JSON::JO(const std::shared_ptr<JS::InternalObject>& value,
         K = *propertyList;
     } else {
         for (const auto& [key, attr] : *value->properties) {
-            bool enumerable = std::visit(
-                [](const auto& desc) {
-                    return desc.enumerable;
-                },
-                attr);
+            bool enumerable = std::visit([](const auto& desc) { return desc.enumerable; }, attr);
             if (enumerable) {
                 K.push_back(key);
             }
@@ -361,11 +339,7 @@ std::u16string JSON::JO(const std::shared_ptr<JS::InternalObject>& value,
     return final;
 }
 
-
-std::u16string JSON::JA(const std::shared_ptr<JS::InternalObject>& value,
-                        std::vector<std::shared_ptr<JS::InternalObject>>& stack, std::u16string& indent,
-                        const std::u16string& gap, const std::shared_ptr<JS::InternalObject>& replacerFunction,
-                        const std::vector<std::u16string>* propertyList) {
+std::u16string JSON::JA(const std::shared_ptr<JS::InternalObject>& value, std::vector<std::shared_ptr<JS::InternalObject>>& stack, std::u16string& indent, const std::u16string& gap, const std::shared_ptr<JS::InternalObject>& replacerFunction, const std::vector<std::u16string>* propertyList) {
 
     for (const auto& item : stack) {
         if (item.get() == value.get()) {
@@ -423,7 +397,6 @@ std::u16string JSON::JA(const std::shared_ptr<JS::InternalObject>& value,
 
     return final;
 }
-
 
 JS::Any JSON::ParseJSONText(const std::u16string& text) {
     size_t pos = 0;

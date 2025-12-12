@@ -70,8 +70,7 @@ private:
      *
      * @see https://262.ecma-international.org/5.1/#sec-15.12.2
      */
-    static JS::Any Walk(const std::shared_ptr<JS::InternalObject>& holder, const std::u16string& name,
-                        const std::shared_ptr<JS::InternalObject>& reviver);
+    static JS::Any Walk(const std::shared_ptr<JS::InternalObject>& holder, const std::u16string& name, const std::shared_ptr<JS::InternalObject>& reviver);
 
     /**
      * @brief Abstract operation Str for JSON.stringify.
@@ -89,10 +88,7 @@ private:
      *
      * @see https://262.ecma-international.org/5.1/#sec-15.12.3
      */
-    static JS::Any Str(const std::u16string& key, const std::shared_ptr<JS::InternalObject>& holder,
-                       std::vector<std::shared_ptr<JS::InternalObject>>& stack, std::u16string& indent,
-                       const std::u16string& gap, const std::shared_ptr<JS::InternalObject>& replacerFunction,
-                       const std::vector<std::u16string>* propertyList);
+    static JS::Any Str(const std::u16string& key, const std::shared_ptr<JS::InternalObject>& holder, std::vector<std::shared_ptr<JS::InternalObject>>& stack, std::u16string& indent, const std::u16string& gap, const std::shared_ptr<JS::InternalObject>& replacerFunction, const std::vector<std::u16string>* propertyList);
 
     /**
      * @brief Abstract operation Quote for JSON.stringify.
@@ -122,10 +118,7 @@ private:
      *
      * @see https://262.ecma-international.org/5.1/#sec-15.12.3
      */
-    static std::u16string JO(const std::shared_ptr<JS::InternalObject>& value,
-                             std::vector<std::shared_ptr<JS::InternalObject>>& stack, std::u16string& indent,
-                             const std::u16string& gap, const std::shared_ptr<JS::InternalObject>& replacerFunction,
-                             const std::vector<std::u16string>* propertyList);
+    static std::u16string JO(const std::shared_ptr<JS::InternalObject>& value, std::vector<std::shared_ptr<JS::InternalObject>>& stack, std::u16string& indent, const std::u16string& gap, const std::shared_ptr<JS::InternalObject>& replacerFunction, const std::vector<std::u16string>* propertyList);
 
     /**
      * @brief Abstract operation JA for JSON.stringify.
@@ -143,10 +136,7 @@ private:
      *
      * @see https://262.ecma-international.org/5.1/#sec-15.12.3
      */
-    static std::u16string JA(const std::shared_ptr<JS::InternalObject>& value,
-                             std::vector<std::shared_ptr<JS::InternalObject>>& stack, std::u16string& indent,
-                             const std::u16string& gap, const std::shared_ptr<JS::InternalObject>& replacerFunction,
-                             const std::vector<std::u16string>* propertyList);
+    static std::u16string JA(const std::shared_ptr<JS::InternalObject>& value, std::vector<std::shared_ptr<JS::InternalObject>>& stack, std::u16string& indent, const std::u16string& gap, const std::shared_ptr<JS::InternalObject>& replacerFunction, const std::vector<std::u16string>* propertyList);
 
     // JSON Lexer/Parser helper methods
     static JS::Any ParseJSONText(const std::u16string& text);

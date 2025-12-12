@@ -336,8 +336,9 @@ std::u16string JSON::JO(const std::shared_ptr<JS::InternalObject>& value,
     } else if (gap.empty()) {
         std::u16string properties;
         for (size_t i = 0; i < partial.size(); ++i) {
-            if (i > 0)
+            if (i > 0) {
                 properties += u',';
+            }
             properties += partial[i];
         }
         final = u"{" + properties + u"}";
@@ -345,8 +346,9 @@ std::u16string JSON::JO(const std::shared_ptr<JS::InternalObject>& value,
         std::u16string separator = u",\n" + indent;
         std::u16string properties;
         for (size_t i = 0; i < partial.size(); ++i) {
-            if (i > 0)
+            if (i > 0) {
                 properties += separator;
+            }
             properties += partial[i];
         }
         final = u"{\n" + indent + properties + u"\n" + stepback + u"}";
@@ -385,7 +387,7 @@ std::u16string JSON::JA(const std::shared_ptr<JS::InternalObject>& value,
         std::u16string indexStr = JS::CONVERT::ToString(JS::Any(static_cast<double>(index)));
         JS::Any strP = Str(indexStr, value, stack, indent, gap, replacerFunction, propertyList);
         if (std::holds_alternative<JS::Undefined>(strP.getValue())) {
-            partial.push_back(u"null");
+            partial.emplace_back(u"null");
         } else {
             partial.push_back(JS::CONVERT::ToString(strP));
         }
@@ -397,8 +399,9 @@ std::u16string JSON::JA(const std::shared_ptr<JS::InternalObject>& value,
     } else if (gap.empty()) {
         std::u16string properties;
         for (size_t i = 0; i < partial.size(); ++i) {
-            if (i > 0)
+            if (i > 0) {
                 properties += u',';
+            }
             properties += partial[i];
         }
         final = u"[" + properties + u"]";
@@ -406,8 +409,9 @@ std::u16string JSON::JA(const std::shared_ptr<JS::InternalObject>& value,
         std::u16string separator = u",\n" + indent;
         std::u16string properties;
         for (size_t i = 0; i < partial.size(); ++i) {
-            if (i > 0)
+            if (i > 0) {
                 properties += separator;
+            }
             properties += partial[i];
         }
         final = u"[\n" + indent + properties + u"\n" + stepback + u"]";

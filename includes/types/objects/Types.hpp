@@ -3,6 +3,7 @@
 #include "JsArray.hpp"
 #include "JsBoolean.hpp"
 #include "JsMath.hpp"
+#include "JsJSON.hpp"
 #include "JsNumber.hpp"
 #include "JsObject.hpp"
 #include "JsString.hpp"

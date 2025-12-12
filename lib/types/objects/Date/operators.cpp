@@ -229,7 +229,9 @@ int MakeDay(int year, int month, int date) {
     }
     int ym = year + static_cast<int>(std::floor(month / 12.0));
     int mn = static_cast<int>(std::fmod(month, 12.0));
-    if (mn < 0) mn += 12;  // Handle negative month values
+    if (mn < 0) {
+        mn += 12;  // Handle negative month values
+    }
     double t = TimeFromYear(ym);
     const int maxOffsetDays = 400;
 

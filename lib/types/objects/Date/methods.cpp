@@ -5,6 +5,7 @@
 #include "utils/Compare.hpp"
 #include "utils/Convert.hpp"
 
+#include <array>
 #include <cmath>
 #include <iomanip>
 #include <sstream>
@@ -13,13 +14,13 @@ namespace JS {
 
 // Helper function to get day name
 static const char* getDayName(int weekday) {
-    static const char* days[] = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+    static const std::array<const char*, 7> days = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
     return days[weekday];
 }
 
 // Helper function to get month name
 static const char* getMonthName(int month) {
-    static const char* months[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    static const std::array<const char*, 12> months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun",
                                    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
     return months[month];
 }
@@ -182,7 +183,9 @@ JS::Any Date::toLocaleTimeString(const JS::Any& thisArg, const JS::Any& args) {
     // Format: H:MM:SS AM/PM (locale-dependent, simplified)
     std::ostringstream oss;
     int displayHour = hours % 12;
-    if (displayHour == 0) displayHour = 12;
+    if (displayHour == 0) {
+        displayHour = 12;
+    }
     const char* ampm = hours >= 12 ? "PM" : "AM";
 
     oss << displayHour << ":" << std::setfill('0') << std::setw(2) << minutes

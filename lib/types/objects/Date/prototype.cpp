@@ -38,45 +38,59 @@ JS::Any Date::parse(const JS::Any& thisArg, const JS::Any& args) {
         } else {
             index = 0;
         }
-        if (get_number(dateString, index, year) || year > 999999)
+        if (get_number(dateString, index, year) || year > 999999) {
             return JS::Any(std::numeric_limits<double>::quiet_NaN());
+        }
         if (isExtendedYear) {
             if (firstChar == '-') {
                 year = -year;
             }
         }
-        if ((index + 1) >= size || dateString[index] != '-')
+        if ((index + 1) >= size || dateString[index] != '-') {
             break;
+        }
         ++index;
-        if (get_number(dateString, index, month) || month < 1 || month > 12)
+        if (get_number(dateString, index, month) || month < 1 || month > 12) {
             return JS::Any(std::numeric_limits<double>::quiet_NaN());
-        if ((index + 1) >= size || dateString[index] != '-')
+        }
+        if ((index + 1) >= size || dateString[index] != '-') {
             break;
+        }
         ++index;
-        if (get_number(dateString, index, day) || day < 1 || day > 31)
+        if (get_number(dateString, index, day) || day < 1 || day > 31) {
             return JS::Any(std::numeric_limits<double>::quiet_NaN());
-        if ((index + 1) >= size || dateString[index] != 'T')
+        }
+        if ((index + 1) >= size || dateString[index] != 'T') {
             break;
+        }
         ++index;
-        if (get_number(dateString, index, hours) || hours < 0 || hours > 24)
+        if (get_number(dateString, index, hours) || hours < 0 || hours > 24) {
             return JS::Any(std::numeric_limits<double>::quiet_NaN());
-        if ((index + 1) >= size || dateString[index] != ':')
+        }
+        if ((index + 1) >= size || dateString[index] != ':') {
             break;
+        }
         ++index;
-        if (get_number(dateString, index, minutes) || minutes < 0 || minutes > 59)
+        if (get_number(dateString, index, minutes) || minutes < 0 || minutes > 59) {
             return JS::Any(std::numeric_limits<double>::quiet_NaN());
-        if ((index + 1) >= size || dateString[index] != ':')
+        }
+        if ((index + 1) >= size || dateString[index] != ':') {
             break;
+        }
         ++index;
-        if (get_number(dateString, index, seconds) || seconds < 0 || seconds > 59)
+        if (get_number(dateString, index, seconds) || seconds < 0 || seconds > 59) {
             return JS::Any(std::numeric_limits<double>::quiet_NaN());
-        if ((index + 1) >= size || dateString[index] != '.')
+        }
+        if ((index + 1) >= size || dateString[index] != '.') {
             break;
+        }
         ++index;
-        if (get_number(dateString, index, milliseconds) || milliseconds < 0 || milliseconds > 999)
+        if (get_number(dateString, index, milliseconds) || milliseconds < 0 || milliseconds > 999) {
             return JS::Any(std::numeric_limits<double>::quiet_NaN());
-        if ((index + 1) >= size || dateString[index] != 'Z')
+        }
+        if ((index + 1) >= size || dateString[index] != 'Z') {
             break;
+        }
     } while (false);
     return JS::Any(DateOperators::TimeClip(DateOperators::UTC(
         DateOperators::MakeDate(DateOperators::MakeDay(year, month - 1, day),

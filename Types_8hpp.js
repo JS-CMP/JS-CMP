@@ -2,6 +2,7 @@ var Types_8hpp =
 [
     [ "ARRAY_CLASS_NAME", "Types_8hpp.html#a12bff37925e247e56511424a87a22510", null ],
     [ "BOOL_CLASS_NAME", "Types_8hpp.html#a128cc94e53b0936145d4c2b44280d02d", null ],
+    [ "DATE_CLASS_NAME", "Types_8hpp.html#aa1be4719930cf2234c5ee03941eaea67", null ],
     [ "ERROR_CLASS_NAME", "Types_8hpp.html#a9fd1b2fd68c5d74578a7cc10a3b7d4b2", null ],
     [ "FUNCTION_CLASS_NAME", "Types_8hpp.html#ab6c58b09497c79c0edbc987d36de5ae9", null ],
     [ "JSON_CLASS_NAME", "Types_8hpp.html#a03748c218ceb0b2667d30d4a12ca9e0c", null ],

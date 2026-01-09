@@ -89,8 +89,8 @@ var NAVTREE =
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ],
+        [ "All", "namespacemembers.html", "namespacemembers_dup" ],
+        [ "Functions", "namespacemembers_func.html", "namespacemembers_func" ],
         [ "Variables", "namespacemembers_vars.html", null ],
         [ "Typedefs", "namespacemembers_type.html", null ],
         [ "Enumerations", "namespacemembers_enum.html", null ],
@@ -126,12 +126,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Add_8cpp.html",
-"Options_8hpp_source.html",
-"classJS_1_1Any.html#a0e0b261ce635df5f0b8afd04b3642bdb",
-"classJS_1_1InternalObject.html#a9946e41bd1062fadbab593a2e28a6fc0",
-"classJS_1_1Operator.html#ad4826f898f13d2fd2544851060e8cd52",
-"classRopeConcat.html#acc60a417b383ca4baa0f0428539e6252",
-"namespaceJS.html#a25c0ffb20b4906bbc8c14837420282c9a8679fd1cc65fe417fb82f9a115297368"
+"Logical_2Or_8cpp.html#a5932c87f9c0c7eada8469f50699d2cd1",
+"URightShift_8hpp.html#ae112f5de53b385819e500535cc7df9b3",
+"classJS_1_1Date.html#a864a10f1d0afaa27a71acc90ee0c9edf",
+"classJS_1_1Number.html#a0f50b2584064a1630a6cf960ea2fb7ec",
+"classJS_1_1String.html#a3524d98cdca17341c91606e653037c97",
+"functions_func_d.html",
+"namespaceJS_1_1CONVERT.html#a63dcd1d28e1747dc1131475e68fcea15"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

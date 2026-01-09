@@ -1,21 +1,4 @@
 var searchData=
 [
-  ['_7earray_0',['~Array',['../classJS_1_1Array.html#a5995d4eb515b69a958309240660ad822',1,'JS::Array']]],
-  ['_7eboolean_1',['~Boolean',['../classJS_1_1Boolean.html#a29791e1e1df2af3373584bd289dd1b02',1,'JS::Boolean']]],
-  ['_7eerror_2',['~Error',['../classJS_1_1Error.html#a9f67eea3d38f411b26df9bd34792620e',1,'JS::Error']]],
-  ['_7efunction_3',['~Function',['../classJS_1_1Function.html#ac20acc0634c2e87493b10d7ac69e0e1f',1,'JS::Function']]],
-  ['_7efunctionbinded_4',['~FunctionBinded',['../classJS_1_1FunctionBinded.html#a58742bd8713725fc63b050a96bfd919c',1,'JS::FunctionBinded']]],
-  ['_7einternalobject_5',['~InternalObject',['../classJS_1_1InternalObject.html#abd90301af99133eb72847c071e698f71',1,'JS::InternalObject']]],
-  ['_7enativeerror_6',['~NativeError',['../classJS_1_1NativeError.html#adb2cabd8533dfdde02e5748d9ffd7ab5',1,'JS::NativeError']]],
-  ['_7enumber_7',['~Number',['../classJS_1_1Number.html#a3030102a79e28a8a657697cee2312203',1,'JS::Number']]],
-  ['_7eobject_8',['~Object',['../classJS_1_1Object.html#ad3d93de79afdf210892e127da27e6aa6',1,'JS::Object']]],
-  ['_7eoptions_9',['~Options',['../classOptions.html#a0bf0757248a84e954165d21613308b86',1,'Options']]],
-  ['_7erangeerror_10',['~RangeError',['../classJS_1_1RangeError.html#ad3271565a3bbc3646f9eeb77a5b1e7ac',1,'JS::RangeError']]],
-  ['_7ereferenceerror_11',['~ReferenceError',['../classJS_1_1ReferenceError.html#a652f45eaa29f1cc327983be8e95da6ef',1,'JS::ReferenceError']]],
-  ['_7eregexp_12',['~RegExp',['../classJS_1_1RegExp.html#ade006f663aef7d2e0d61395777283c8d',1,'JS::RegExp']]],
-  ['_7eropenode_13',['~RopeNode',['../classRopeNode.html#a6eaab31ba7910e144622bbc22ea59668',1,'RopeNode']]],
-  ['_7estring_14',['~String',['../classJS_1_1String.html#aaa4b61b1aadb3dd38419af4143b62361',1,'JS::String']]],
-  ['_7esyntaxerror_15',['~SyntaxError',['../classJS_1_1SyntaxError.html#ab8a64bd015cdc9e7976d20382ff2a2b5',1,'JS::SyntaxError']]],
-  ['_7etypeerror_16',['~TypeError',['../classJS_1_1TypeError.html#ac7ac9cd346d805b2ee225584fa348525',1,'JS::TypeError']]],
-  ['_7eurierror_17',['~URIError',['../classJS_1_1URIError.html#a97f908da8920128bcb6391caefdfbcfc',1,'JS::URIError']]]
+  ['yearfromtime_0',['YearFromTime',['../namespaceJS_1_1DateOperators.html#a067e9a77e9946e17818e1d9cdef9d7da',1,'JS::DateOperators']]]
 ];

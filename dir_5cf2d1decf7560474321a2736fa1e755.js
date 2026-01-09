@@ -2,6 +2,7 @@ var dir_5cf2d1decf7560474321a2736fa1e755 =
 [
     [ "Array", "dir_4ef2ccce8ced566b68ce2856cb7dbb5d.html", "dir_4ef2ccce8ced566b68ce2856cb7dbb5d" ],
     [ "Boolean", "dir_eced1a732f40892e12481ed700ce298c.html", "dir_eced1a732f40892e12481ed700ce298c" ],
+    [ "Date", "dir_5304291fd2a65cfbd294e37d684f068a.html", "dir_5304291fd2a65cfbd294e37d684f068a" ],
     [ "Error", "dir_862d1438bfa46f850b5cbd4b20120044.html", "dir_862d1438bfa46f850b5cbd4b20120044" ],
     [ "Function", "dir_8e394419521e172f5df06492d0bbe20e.html", "dir_8e394419521e172f5df06492d0bbe20e" ],
     [ "JSON", "dir_708a54fdd7b2cd55866fe58370612d23.html", "dir_708a54fdd7b2cd55866fe58370612d23" ],

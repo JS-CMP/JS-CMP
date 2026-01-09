@@ -9,6 +9,7 @@ var hierarchy =
       [ "JS::InternalObject", "classJS_1_1InternalObject.html", [
         [ "JS::Array", "classJS_1_1Array.html", null ],
         [ "JS::Boolean", "classJS_1_1Boolean.html", null ],
+        [ "JS::Date", "classJS_1_1Date.html", null ],
         [ "JS::Error", "classJS_1_1Error.html", [
           [ "JS::NativeError", "classJS_1_1NativeError.html", null ],
           [ "JS::RangeError", "classJS_1_1RangeError.html", null ],

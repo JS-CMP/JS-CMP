@@ -6,5 +6,6 @@ var searchData=
   ['notequal_3',['notEqual',['../classJS_1_1assert.html#a24231ec45c99f109f1bf25414491291d',1,'JS::assert']]],
   ['notstrictdeepequal_4',['notStrictDeepEqual',['../classJS_1_1assert.html#abeb4ed469ab02a5029b56e27e9314913',1,'JS::assert']]],
   ['notstrictequal_5',['notStrictEqual',['../classJS_1_1assert.html#a57282eca8c60b33080e3f6fc6af3bc23',1,'JS::assert']]],
-  ['number_6',['Number',['../classJS_1_1Number.html#ad4555a94f6bfcc050544f652b7a1258b',1,'JS::Number']]]
+  ['now_6',['now',['../classJS_1_1Date.html#afe7747a09486759f00e42ff8bbe9357b',1,'JS::Date']]],
+  ['number_7',['Number',['../classJS_1_1Number.html#ad4555a94f6bfcc050544f652b7a1258b',1,'JS::Number']]]
 ];

@@ -5,6 +5,7 @@ var global_8hpp =
     [ "assert", "global_8hpp.html#aff97a41bd56c9d59a613b892f8902a11", null ],
     [ "Boolean", "global_8hpp.html#a2d442e241b9cd5dfba5a5f7d3895e057", null ],
     [ "console", "global_8hpp.html#ae8cef62711eeb58d1774ec9b9bd2667f", null ],
+    [ "Date", "global_8hpp.html#aa405aaa510e5bf34e6b5b8e7cb13229b", null ],
     [ "decodeURI", "global_8hpp.html#a503edd0a6423e818b3a321988a872b3e", null ],
     [ "decodeURIComponent", "global_8hpp.html#a14d3fa6c6fa24d8e212417b0dedcb708", null ],
     [ "encodeURI", "global_8hpp.html#a8f1a608cc93b6e0c54c8524fcc2c1c36", null ],

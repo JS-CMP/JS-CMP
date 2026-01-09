@@ -119,6 +119,7 @@ $(document).ready(function(){initNavTree('global_8hpp.html',''); initResizable()
 <code>#include &quot;<a class="el" href="JsSyntaxError_8hpp_source.html">types/objects/Error/JsSyntaxError.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="JsTypeError_8hpp_source.html">types/objects/Error/JsTypeError.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="JsURIError_8hpp_source.html">types/objects/Error/JsURIError.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="JsDate_8hpp_source.html">types/objects/JsDate.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="JsJSON_8hpp_source.html">types/objects/JsJSON.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="objects_2Types_8hpp_source.html">types/objects/Types.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -148,6 +149,8 @@ Variables</h2></td></tr>
 <tr class="separator:a4368c9eeb3163c10a1510cecfdce77a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d442e241b9cd5dfba5a5f7d3895e057" id="r_a2d442e241b9cd5dfba5a5f7d3895e057"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#a2d442e241b9cd5dfba5a5f7d3895e057">Boolean</a> = <a class="el" href="classJS_1_1Any.html">JS::Any</a>(<a class="el" href="classJS_1_1Boolean.html#abc9db3eaae2a77d288353e253a2cc081">JS::Boolean::getConstructor</a>())</td></tr>
 <tr class="separator:a2d442e241b9cd5dfba5a5f7d3895e057"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa405aaa510e5bf34e6b5b8e7cb13229b" id="r_aa405aaa510e5bf34e6b5b8e7cb13229b"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#aa405aaa510e5bf34e6b5b8e7cb13229b">Date</a> = <a class="el" href="classJS_1_1Any.html">JS::Any</a>(<a class="el" href="classJS_1_1Date.html#a94fc88f37df85ba386deb3cf2414da7f">JS::Date::getConstructor</a>())</td></tr>
+<tr class="separator:aa405aaa510e5bf34e6b5b8e7cb13229b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae291929ee8fc4ac0284c38620fe6aadf" id="r_ae291929ee8fc4ac0284c38620fe6aadf"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#ae291929ee8fc4ac0284c38620fe6aadf">Error</a> = <a class="el" href="classJS_1_1Any.html">JS::Any</a>(<a class="el" href="classJS_1_1Error.html#a02ab38f3fafe391a95406eeed3f461e2">JS::Error::getConstructor</a>())</td></tr>
 <tr class="separator:ae291929ee8fc4ac0284c38620fe6aadf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad124e6074835fd699cb01bf8641051a9" id="r_ad124e6074835fd699cb01bf8641051a9"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#ad124e6074835fd699cb01bf8641051a9">RangeError</a> = <a class="el" href="classJS_1_1Any.html">JS::Any</a>(<a class="el" href="classJS_1_1RangeError.html#a2ef86de5bf5b17a0d8321d6bcd5d9d8a">JS::RangeError::getConstructor</a>())</td></tr>
@@ -343,6 +346,28 @@ Variables</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="aa405aaa510e5bf34e6b5b8e7cb13229b" name="aa405aaa510e5bf34e6b5b8e7cb13229b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa405aaa510e5bf34e6b5b8e7cb13229b">&#9670;&#160;</a></span>Date</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Date = <a class="el" href="classJS_1_1Any.html">JS::Any</a>(<a class="el" href="classJS_1_1Date.html#a94fc88f37df85ba386deb3cf2414da7f">JS::Date::getConstructor</a>())</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a503edd0a6423e818b3a321988a872b3e" name="a503edd0a6423e818b3a321988a872b3e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a503edd0a6423e818b3a321988a872b3e">&#9670;&#160;</a></span>decodeURI</h2>
 
@@ -511,21 +536,21 @@ Variables</h2></td></tr>
 <div class="line">    {u<span class="stringliteral">&quot;encodeURIComponent&quot;</span>, <a class="code hl_variable" href="global_8hpp.html#a8edff60be4a8d7ee2d6986a79c3568e7">encodeURIComponent</a>},</div>
 <div class="line">    {u<span class="stringliteral">&quot;decodeURIComponent&quot;</span>, <a class="code hl_variable" href="global_8hpp.html#a14d3fa6c6fa24d8e212417b0dedcb708">decodeURIComponent</a>},</div>
 <div class="line">}))</div>
-<div class="ttc" id="aglobal_8hpp_html_a14d3fa6c6fa24d8e212417b0dedcb708"><div class="ttname"><a href="global_8hpp.html#a14d3fa6c6fa24d8e212417b0dedcb708">decodeURIComponent</a></div><div class="ttdeci">auto decodeURIComponent</div><div class="ttdef"><b>Definition</b> global.hpp:103</div></div>
-<div class="ttc" id="aglobal_8hpp_html_a17ee09a80e58d3d79582c7a166bdb4f0"><div class="ttname"><a href="global_8hpp.html#a17ee09a80e58d3d79582c7a166bdb4f0">NaN</a></div><div class="ttdeci">auto NaN</div><div class="ttdef"><b>Definition</b> global.hpp:92</div></div>
-<div class="ttc" id="aglobal_8hpp_html_a1e6aec879f95bae80104ce500ef93f73"><div class="ttname"><a href="global_8hpp.html#a1e6aec879f95bae80104ce500ef93f73">Math</a></div><div class="ttdeci">JS::Any Math</div><div class="ttdef"><b>Definition</b> global.hpp:33</div></div>
-<div class="ttc" id="aglobal_8hpp_html_a3422fa64251c625960b4fb213beedf96"><div class="ttname"><a href="global_8hpp.html#a3422fa64251c625960b4fb213beedf96">JSON</a></div><div class="ttdeci">JS::Any JSON</div><div class="ttdef"><b>Definition</b> global.hpp:64</div></div>
-<div class="ttc" id="aglobal_8hpp_html_a384daf7aee1d62db4fe3169d0fcaca0e"><div class="ttname"><a href="global_8hpp.html#a384daf7aee1d62db4fe3169d0fcaca0e">isNaN</a></div><div class="ttdeci">auto isNaN</div><div class="ttdef"><b>Definition</b> global.hpp:96</div></div>
-<div class="ttc" id="aglobal_8hpp_html_a503edd0a6423e818b3a321988a872b3e"><div class="ttname"><a href="global_8hpp.html#a503edd0a6423e818b3a321988a872b3e">decodeURI</a></div><div class="ttdeci">auto decodeURI</div><div class="ttdef"><b>Definition</b> global.hpp:101</div></div>
-<div class="ttc" id="aglobal_8hpp_html_a55541adfca4a7ef6f5170a01baeaf130"><div class="ttname"><a href="global_8hpp.html#a55541adfca4a7ef6f5170a01baeaf130">undefined</a></div><div class="ttdeci">auto undefined</div><div class="ttdef"><b>Definition</b> global.hpp:94</div></div>
-<div class="ttc" id="aglobal_8hpp_html_a677bf06dfec99cb062c8f47570c065b0"><div class="ttname"><a href="global_8hpp.html#a677bf06dfec99cb062c8f47570c065b0">isFinite</a></div><div class="ttdeci">auto isFinite</div><div class="ttdef"><b>Definition</b> global.hpp:99</div></div>
-<div class="ttc" id="aglobal_8hpp_html_a81ff46f8bf07442d92b19ae9575a343a"><div class="ttname"><a href="global_8hpp.html#a81ff46f8bf07442d92b19ae9575a343a">parseFloat</a></div><div class="ttdeci">auto parseFloat</div><div class="ttdef"><b>Definition</b> global.hpp:98</div></div>
-<div class="ttc" id="aglobal_8hpp_html_a82769ac96d56a1425aba16621b8f0970"><div class="ttname"><a href="global_8hpp.html#a82769ac96d56a1425aba16621b8f0970">Array</a></div><div class="ttdeci">auto Array</div><div class="ttdef"><b>Definition</b> global.hpp:19</div></div>
-<div class="ttc" id="aglobal_8hpp_html_a8edff60be4a8d7ee2d6986a79c3568e7"><div class="ttname"><a href="global_8hpp.html#a8edff60be4a8d7ee2d6986a79c3568e7">encodeURIComponent</a></div><div class="ttdeci">auto encodeURIComponent</div><div class="ttdef"><b>Definition</b> global.hpp:102</div></div>
-<div class="ttc" id="aglobal_8hpp_html_a8f1a608cc93b6e0c54c8524fcc2c1c36"><div class="ttname"><a href="global_8hpp.html#a8f1a608cc93b6e0c54c8524fcc2c1c36">encodeURI</a></div><div class="ttdeci">auto encodeURI</div><div class="ttdef"><b>Definition</b> global.hpp:100</div></div>
-<div class="ttc" id="aglobal_8hpp_html_a9e763b3da07b6fc8203f6c78174942c3"><div class="ttname"><a href="global_8hpp.html#a9e763b3da07b6fc8203f6c78174942c3">parseInt</a></div><div class="ttdeci">auto parseInt</div><div class="ttdef"><b>Definition</b> global.hpp:97</div></div>
-<div class="ttc" id="aglobal_8hpp_html_aa8e2cf4404e19cd3ce619d2958b542eb"><div class="ttname"><a href="global_8hpp.html#aa8e2cf4404e19cd3ce619d2958b542eb">Object</a></div><div class="ttdeci">auto Object</div><div class="ttdef"><b>Definition</b> global.hpp:18</div></div>
-<div class="ttc" id="aglobal_8hpp_html_aaf18650b54ebd1e91c4c6720467f0730"><div class="ttname"><a href="global_8hpp.html#aaf18650b54ebd1e91c4c6720467f0730">Infinity</a></div><div class="ttdeci">auto Infinity</div><div class="ttdef"><b>Definition</b> global.hpp:93</div></div>
+<div class="ttc" id="aglobal_8hpp_html_a14d3fa6c6fa24d8e212417b0dedcb708"><div class="ttname"><a href="global_8hpp.html#a14d3fa6c6fa24d8e212417b0dedcb708">decodeURIComponent</a></div><div class="ttdeci">auto decodeURIComponent</div><div class="ttdef"><b>Definition</b> global.hpp:105</div></div>
+<div class="ttc" id="aglobal_8hpp_html_a17ee09a80e58d3d79582c7a166bdb4f0"><div class="ttname"><a href="global_8hpp.html#a17ee09a80e58d3d79582c7a166bdb4f0">NaN</a></div><div class="ttdeci">auto NaN</div><div class="ttdef"><b>Definition</b> global.hpp:94</div></div>
+<div class="ttc" id="aglobal_8hpp_html_a1e6aec879f95bae80104ce500ef93f73"><div class="ttname"><a href="global_8hpp.html#a1e6aec879f95bae80104ce500ef93f73">Math</a></div><div class="ttdeci">JS::Any Math</div><div class="ttdef"><b>Definition</b> global.hpp:35</div></div>
+<div class="ttc" id="aglobal_8hpp_html_a3422fa64251c625960b4fb213beedf96"><div class="ttname"><a href="global_8hpp.html#a3422fa64251c625960b4fb213beedf96">JSON</a></div><div class="ttdeci">JS::Any JSON</div><div class="ttdef"><b>Definition</b> global.hpp:66</div></div>
+<div class="ttc" id="aglobal_8hpp_html_a384daf7aee1d62db4fe3169d0fcaca0e"><div class="ttname"><a href="global_8hpp.html#a384daf7aee1d62db4fe3169d0fcaca0e">isNaN</a></div><div class="ttdeci">auto isNaN</div><div class="ttdef"><b>Definition</b> global.hpp:98</div></div>
+<div class="ttc" id="aglobal_8hpp_html_a503edd0a6423e818b3a321988a872b3e"><div class="ttname"><a href="global_8hpp.html#a503edd0a6423e818b3a321988a872b3e">decodeURI</a></div><div class="ttdeci">auto decodeURI</div><div class="ttdef"><b>Definition</b> global.hpp:103</div></div>
+<div class="ttc" id="aglobal_8hpp_html_a55541adfca4a7ef6f5170a01baeaf130"><div class="ttname"><a href="global_8hpp.html#a55541adfca4a7ef6f5170a01baeaf130">undefined</a></div><div class="ttdeci">auto undefined</div><div class="ttdef"><b>Definition</b> global.hpp:96</div></div>
+<div class="ttc" id="aglobal_8hpp_html_a677bf06dfec99cb062c8f47570c065b0"><div class="ttname"><a href="global_8hpp.html#a677bf06dfec99cb062c8f47570c065b0">isFinite</a></div><div class="ttdeci">auto isFinite</div><div class="ttdef"><b>Definition</b> global.hpp:101</div></div>
+<div class="ttc" id="aglobal_8hpp_html_a81ff46f8bf07442d92b19ae9575a343a"><div class="ttname"><a href="global_8hpp.html#a81ff46f8bf07442d92b19ae9575a343a">parseFloat</a></div><div class="ttdeci">auto parseFloat</div><div class="ttdef"><b>Definition</b> global.hpp:100</div></div>
+<div class="ttc" id="aglobal_8hpp_html_a82769ac96d56a1425aba16621b8f0970"><div class="ttname"><a href="global_8hpp.html#a82769ac96d56a1425aba16621b8f0970">Array</a></div><div class="ttdeci">auto Array</div><div class="ttdef"><b>Definition</b> global.hpp:20</div></div>
+<div class="ttc" id="aglobal_8hpp_html_a8edff60be4a8d7ee2d6986a79c3568e7"><div class="ttname"><a href="global_8hpp.html#a8edff60be4a8d7ee2d6986a79c3568e7">encodeURIComponent</a></div><div class="ttdeci">auto encodeURIComponent</div><div class="ttdef"><b>Definition</b> global.hpp:104</div></div>
+<div class="ttc" id="aglobal_8hpp_html_a8f1a608cc93b6e0c54c8524fcc2c1c36"><div class="ttname"><a href="global_8hpp.html#a8f1a608cc93b6e0c54c8524fcc2c1c36">encodeURI</a></div><div class="ttdeci">auto encodeURI</div><div class="ttdef"><b>Definition</b> global.hpp:102</div></div>
+<div class="ttc" id="aglobal_8hpp_html_a9e763b3da07b6fc8203f6c78174942c3"><div class="ttname"><a href="global_8hpp.html#a9e763b3da07b6fc8203f6c78174942c3">parseInt</a></div><div class="ttdeci">auto parseInt</div><div class="ttdef"><b>Definition</b> global.hpp:99</div></div>
+<div class="ttc" id="aglobal_8hpp_html_aa8e2cf4404e19cd3ce619d2958b542eb"><div class="ttname"><a href="global_8hpp.html#aa8e2cf4404e19cd3ce619d2958b542eb">Object</a></div><div class="ttdeci">auto Object</div><div class="ttdef"><b>Definition</b> global.hpp:19</div></div>
+<div class="ttc" id="aglobal_8hpp_html_aaf18650b54ebd1e91c4c6720467f0730"><div class="ttname"><a href="global_8hpp.html#aaf18650b54ebd1e91c4c6720467f0730">Infinity</a></div><div class="ttdeci">auto Infinity</div><div class="ttdef"><b>Definition</b> global.hpp:95</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -612,7 +637,7 @@ Variables</h2></td></tr>
 <div class="line">        {u<span class="stringliteral">&quot;stringify&quot;</span>, <a class="code hl_class" href="classJS_1_1DataDescriptor.html">JS::DataDescriptor</a>{<a class="code hl_class" href="classJS_1_1Any.html">JS::Any</a>(<a class="code hl_function" href="classJS_1_1InternalObject.html#a3331186d9cf4e7645f7296b683cd0fb0">JS::InternalObject::create&lt;JS::Function&gt;</a>(<a class="code hl_function" href="classJS_1_1JSON.html#a192e99ce23fe28c44194cf56fd76bd52">JS::JSON::stringify</a>, 3, u<span class="stringliteral">&quot;stringify&quot;</span>)), <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>}},</div>
 <div class="line">    },</div>
 <div class="line">    <a class="code hl_function" href="classJS_1_1Object.html#a52bc8460166648da3021c4735700111e">JS::Object::getPrototypeProperties</a>(), <a class="code hl_define" href="Types_8hpp.html#a03748c218ceb0b2667d30d4a12ca9e0c">JSON_CLASS_NAME</a>, <span class="keyword">true</span>))</div>
-<div class="ttc" id="aTypes_8hpp_html_a03748c218ceb0b2667d30d4a12ca9e0c"><div class="ttname"><a href="Types_8hpp.html#a03748c218ceb0b2667d30d4a12ca9e0c">JSON_CLASS_NAME</a></div><div class="ttdeci">#define JSON_CLASS_NAME</div><div class="ttdef"><b>Definition</b> Types.hpp:32</div></div>
+<div class="ttc" id="aTypes_8hpp_html_a03748c218ceb0b2667d30d4a12ca9e0c"><div class="ttname"><a href="Types_8hpp.html#a03748c218ceb0b2667d30d4a12ca9e0c">JSON_CLASS_NAME</a></div><div class="ttdeci">#define JSON_CLASS_NAME</div><div class="ttdef"><b>Definition</b> Types.hpp:33</div></div>
 <div class="ttc" id="aclassJS_1_1JSON_html_a192e99ce23fe28c44194cf56fd76bd52"><div class="ttname"><a href="classJS_1_1JSON.html#a192e99ce23fe28c44194cf56fd76bd52">JS::JSON::stringify</a></div><div class="ttdeci">static JS::Any stringify(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Returns a String in JSON format representing an ECMAScript value.</div><div class="ttdef"><b>Definition</b> static.cpp:82</div></div>
 <div class="ttc" id="aclassJS_1_1JSON_html_af286f811633a88a27d85f7418a711926"><div class="ttname"><a href="classJS_1_1JSON.html#af286f811633a88a27d85f7418a711926">JS::JSON::parse</a></div><div class="ttdeci">static JS::Any parse(const JS::Any &amp;thisArg, const JS::Any &amp;args)</div><div class="ttdoc">Parses a JSON text and produces an ECMAScript value.</div><div class="ttdef"><b>Definition</b> static.cpp:16</div></div>
 <div class="ttc" id="aclassJS_1_1Object_html_a52bc8460166648da3021c4735700111e"><div class="ttname"><a href="classJS_1_1Object.html#a52bc8460166648da3021c4735700111e">JS::Object::getPrototypeProperties</a></div><div class="ttdeci">static std::shared_ptr&lt; JS::InternalObject &gt; &amp; getPrototypeProperties(const std::shared_ptr&lt; JS::InternalObject &gt; &amp;prototype=nullptr, const std::shared_ptr&lt; Function &gt; &amp;constructor=nullptr)</div><div class="ttdoc">Function to get the methods of the property prototype.</div><div class="ttdef"><b>Definition</b> protoypeProperties.cpp:3</div></div>

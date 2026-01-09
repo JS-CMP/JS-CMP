@@ -8,6 +8,7 @@ var annotated_dup =
       [ "Boolean", "classJS_1_1Boolean.html", "classJS_1_1Boolean" ],
       [ "console", "classJS_1_1console.html", "classJS_1_1console" ],
       [ "DataDescriptor", "classJS_1_1DataDescriptor.html", "classJS_1_1DataDescriptor" ],
+      [ "Date", "classJS_1_1Date.html", "classJS_1_1Date" ],
       [ "Error", "classJS_1_1Error.html", "classJS_1_1Error" ],
       [ "Function", "classJS_1_1Function.html", "classJS_1_1Function" ],
       [ "FunctionBinded", "classJS_1_1FunctionBinded.html", "classJS_1_1FunctionBinded" ],

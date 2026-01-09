@@ -2,6 +2,7 @@
 #include "Function/JsFunctionBinded.hpp"
 #include "JsArray.hpp"
 #include "JsBoolean.hpp"
+#include "JsJSON.hpp"
 #include "JsMath.hpp"
 #include "JsNumber.hpp"
 #include "JsObject.hpp"

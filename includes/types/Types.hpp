@@ -30,6 +30,7 @@ namespace JS {
 #define REGEXP_CLASS_NAME u"RegExp"
 #define MATH_CLASS_NAME u"Math"
 #define DATE_CLASS_NAME u"Date"
+#define JSON_CLASS_NAME u"JSON"
 
 enum Types : std::uint8_t {
     NUMBER,    /**< Represents a numeric type (double). */

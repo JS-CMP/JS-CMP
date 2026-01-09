@@ -13,6 +13,7 @@
 #include "types/objects/Error/JsTypeError.hpp"
 #include "types/objects/Error/JsURIError.hpp"
 #include "types/objects/JsDate.hpp"
+#include "types/objects/JsJSON.hpp"
 #include "types/objects/Types.hpp"
 
 inline auto Object = JS::Any(JS::Object::getConstructor());
@@ -62,6 +63,13 @@ JS::Any Math = JS::Any(std::make_shared<JS::InternalObject>(
     },
     JS::Object::getPrototypeProperties(), MATH_CLASS_NAME, true)); // TODO Make math inherit from Object
 
+JS::Any JSON = JS::Any(std::make_shared<JS::InternalObject>(
+    JS::Properties{
+        {u"parse", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::JSON::parse, 2, u"parse")), true, false, true}},
+        {u"stringify", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::JSON::stringify, 3, u"stringify")), true, false, true}},
+    },
+    JS::Object::getPrototypeProperties(), JSON_CLASS_NAME, true));
+
 // TODO add prototype and AssertionError function
 inline auto assert = JS::Any(std::make_shared<JS::assert>(JS::Properties{
     {u"length", JS::DataDescriptor{JS::Any(2), false, false, false}},
@@ -107,6 +115,7 @@ inline auto global = JS::Any(JS::InternalObject::create<JS::Object>(std::unorder
     {u"Object", Object},
     {u"Array", Array},
     {u"Math", Math},
+    {u"JSON", JSON},
     {u"encodeURI", encodeURI},
     {u"decodeURI", decodeURI},
     {u"encodeURIComponent", encodeURIComponent},

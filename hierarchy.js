@@ -33,6 +33,7 @@ var hierarchy =
         [ "JS::PropertyProxy", "classJS_1_1PropertyProxy.html", null ]
       ] ]
     ] ],
+    [ "JS::JSON", "classJS_1_1JSON.html", null ],
     [ "JS::Match", "structJS_1_1Match.html", null ],
     [ "JS::Math", "classJS_1_1Math.html", null ],
     [ "Options", "classOptions.html", null ],

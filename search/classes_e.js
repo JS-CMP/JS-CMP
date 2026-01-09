@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['urierror_0',['URIError',['../classJS_1_1URIError.html',1,'JS']]]
+  ['typeerror_0',['TypeError',['../classJS_1_1TypeError.html',1,'JS']]]
 ];

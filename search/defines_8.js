@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['math_5fclass_5fname_0',['MATH_CLASS_NAME',['../Types_8hpp.html#a732431d026971f35d65885a4d00e93f0',1,'Types.hpp']]]
+  ['l_5fparen_0',['L_PAREN',['../Declaration_8hpp.html#ad43fda2ce3d149c92179e57cb933a6a2',1,'Declaration.hpp']]]
 ];

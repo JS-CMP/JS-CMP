@@ -12,6 +12,7 @@ var annotated_dup =
       [ "Function", "classJS_1_1Function.html", "classJS_1_1Function" ],
       [ "FunctionBinded", "classJS_1_1FunctionBinded.html", "classJS_1_1FunctionBinded" ],
       [ "InternalObject", "classJS_1_1InternalObject.html", "classJS_1_1InternalObject" ],
+      [ "JSON", "classJS_1_1JSON.html", "classJS_1_1JSON" ],
       [ "Match", "structJS_1_1Match.html", "structJS_1_1Match" ],
       [ "Math", "classJS_1_1Math.html", "classJS_1_1Math" ],
       [ "NativeError", "classJS_1_1NativeError.html", "classJS_1_1NativeError" ],

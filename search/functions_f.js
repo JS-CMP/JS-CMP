@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['parse_0',['parse',['../classOptions.html#af60d154a4c071355c1435f5891ef5fdd',1,'Options']]],
+  ['parse_0',['parse',['../classJS_1_1JSON.html#af286f811633a88a27d85f7418a711926',1,'JS::JSON::parse()'],['../classOptions.html#af60d154a4c071355c1435f5891ef5fdd',1,'Options::parse()']]],
   ['parsefloat_1',['parseFloat',['../namespaceJS_1_1GLOBAL.html#a586a2e88cc0e2973db37ecf3c853542f',1,'JS::GLOBAL']]],
   ['parseint_2',['parseInt',['../namespaceJS_1_1GLOBAL.html#a5fbd03c5dc84abad99173464e694f218',1,'JS::GLOBAL']]],
   ['pop_3',['pop',['../classJS_1_1Array.html#a5ab7ad404473ec952228d897745dc410',1,'JS::Array']]],

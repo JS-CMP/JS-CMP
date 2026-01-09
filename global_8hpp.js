@@ -15,6 +15,7 @@ var global_8hpp =
     [ "Infinity", "global_8hpp.html#aaf18650b54ebd1e91c4c6720467f0730", null ],
     [ "isFinite", "global_8hpp.html#a677bf06dfec99cb062c8f47570c065b0", null ],
     [ "isNaN", "global_8hpp.html#a384daf7aee1d62db4fe3169d0fcaca0e", null ],
+    [ "JSON", "global_8hpp.html#a3422fa64251c625960b4fb213beedf96", null ],
     [ "Math", "global_8hpp.html#a1e6aec879f95bae80104ce500ef93f73", null ],
     [ "NaN", "global_8hpp.html#a17ee09a80e58d3d79582c7a166bdb4f0", null ],
     [ "Number", "global_8hpp.html#a4368c9eeb3163c10a1510cecfdce77a1", null ],

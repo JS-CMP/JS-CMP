@@ -1,10 +1,10 @@
 var searchData=
 [
   ['parameter_5fmap_0',['parameter_map',['../classJS_1_1InternalObject.html#a50157f7e03a302993ba61e5ec30dc44a',1,'JS::InternalObject']]],
-  ['parse_1',['parse',['../classOptions.html#af60d154a4c071355c1435f5891ef5fdd',1,'Options']]],
+  ['parse_1',['parse',['../classJS_1_1JSON.html#af286f811633a88a27d85f7418a711926',1,'JS::JSON::parse()'],['../classOptions.html#af60d154a4c071355c1435f5891ef5fdd',1,'Options::parse()']]],
   ['parsefloat_2',['parsefloat',['../global_8hpp.html#a81ff46f8bf07442d92b19ae9575a343a',1,'parseFloat:&#160;global.hpp'],['../namespaceJS_1_1GLOBAL.html#a586a2e88cc0e2973db37ecf3c853542f',1,'JS::GLOBAL::parseFloat()']]],
   ['parsefloat_2ecpp_3',['parseFloat.cpp',['../parseFloat_8cpp.html',1,'']]],
-  ['parseint_4',['parseint',['../global_8hpp.html#a9e763b3da07b6fc8203f6c78174942c3',1,'parseInt:&#160;global.hpp'],['../namespaceJS_1_1GLOBAL.html#a5fbd03c5dc84abad99173464e694f218',1,'JS::GLOBAL::parseInt()']]],
+  ['parseint_4',['parseint',['../namespaceJS_1_1GLOBAL.html#a5fbd03c5dc84abad99173464e694f218',1,'JS::GLOBAL::parseInt()'],['../global_8hpp.html#a9e763b3da07b6fc8203f6c78174942c3',1,'parseInt:&#160;global.hpp']]],
   ['parseint_2ecpp_5',['parseInt.cpp',['../parseInt_8cpp.html',1,'']]],
   ['passing_20rate_6',['1. Test Passing Rate',['../md_CODE__OF__CONDUCT.html#autotoc_md48',1,'']]],
   ['performance_20benchmarks_7',['2. Performance Benchmarks',['../md_CODE__OF__CONDUCT.html#autotoc_md49',1,'']]],
@@ -19,7 +19,7 @@ var searchData=
   ['preventextensions_16',['preventExtensions',['../classJS_1_1Object.html#a0b59f64fe30bf16c125932afa30e66b2',1,'JS::Object']]],
   ['primitive_17',['Primitive',['../namespaceJS_1_1IS.html#ae527d5facf17583b153e4183494fce9b',1,'JS::IS']]],
   ['primitivevalue_18',['primitiveValue',['../classJS_1_1InternalObject.html#accef381901579e7e0f47c3487181b0d9',1,'JS::InternalObject']]],
-  ['print_19',['print',['../classRopeNode.html#a517e55fe6ae0da703fcca48fd6d4a7f7',1,'RopeNode::print()'],['../classRopeLeaf.html#a55013cff32e8f9c3723245444a7fe0ca',1,'RopeLeaf::print()'],['../classRopeConcat.html#a28107af7dec6811158bdf6f8b942d019',1,'RopeConcat::print()'],['../classRope.html#a189d23a04d260952e6af19554417fc97',1,'Rope::print()']]],
+  ['print_19',['print',['../classRope.html#a189d23a04d260952e6af19554417fc97',1,'Rope::print()'],['../classRopeConcat.html#a28107af7dec6811158bdf6f8b942d019',1,'RopeConcat::print()'],['../classRopeLeaf.html#a55013cff32e8f9c3723245444a7fe0ca',1,'RopeLeaf::print()'],['../classRopeNode.html#a517e55fe6ae0da703fcca48fd6d4a7f7',1,'RopeNode::print()']]],
   ['printusage_20',['printUsage',['../classOptions.html#a5a64af47966f3c0a54a8c3a3385065e3',1,'Options']]],
   ['printversion_21',['printVersion',['../classOptions.html#a7406a60e9cc9f2f08557a953105e23a4',1,'Options']]],
   ['process_22',['process',['../md_CODE__OF__CONDUCT.html#autotoc_md25',1,'Code Quality and Review Process'],['../md_CONTRIBUTING.html#autotoc_md58',1,'Review Process']]],

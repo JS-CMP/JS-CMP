@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['tcf_0',['TCF',['../TCF_8hpp.html#aab9e639f7d129b70ed7f1c61721f08da',1,'TCF.hpp']]],
-  ['tcf_5fbreak_1',['TCF_BREAK',['../TCF_8hpp.html#ab2f75d5cb151c2fa5b2f35661a097108',1,'TCF.hpp']]],
-  ['tcf_5fcontinue_2',['TCF_CONTINUE',['../TCF_8hpp.html#a06937db49149a97c421b5e2fba9d688f',1,'TCF.hpp']]],
-  ['tcf_5freturn_3',['TCF_RETURN',['../TCF_8hpp.html#a1a014e9688d4c257251f8ca0589b87b0',1,'TCF.hpp']]],
-  ['tcf_5fthrow_4',['TCF_THROW',['../TCF_8hpp.html#a76a0521ee1581c457acf9c5c547ba3f0',1,'TCF.hpp']]],
-  ['typeof_5',['typeOf',['../Typeof_8hpp.html#a7dbfa15ab3c1e06ba4e2244decc28331',1,'Typeof.hpp']]]
+  ['stricteq_0',['strictEq',['../Equality_8hpp.html#ae81286defcba1d19a7fb8e392074e990',1,'Equality.hpp']]],
+  ['strictneq_1',['strictNeq',['../Equality_8hpp.html#a340cbb4a682ed289ebc2cf8d2ad8e778',1,'Equality.hpp']]],
+  ['string_5fclass_5fname_2',['STRING_CLASS_NAME',['../Types_8hpp.html#a15424d9ffdcb5563c67d6697864727a4',1,'Types.hpp']]]
 ];

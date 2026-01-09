@@ -4,6 +4,7 @@ var dir_5cf2d1decf7560474321a2736fa1e755 =
     [ "Boolean", "dir_eced1a732f40892e12481ed700ce298c.html", "dir_eced1a732f40892e12481ed700ce298c" ],
     [ "Error", "dir_862d1438bfa46f850b5cbd4b20120044.html", "dir_862d1438bfa46f850b5cbd4b20120044" ],
     [ "Function", "dir_8e394419521e172f5df06492d0bbe20e.html", "dir_8e394419521e172f5df06492d0bbe20e" ],
+    [ "JSON", "dir_708a54fdd7b2cd55866fe58370612d23.html", "dir_708a54fdd7b2cd55866fe58370612d23" ],
     [ "Math", "dir_4b9d567d8506c00fa8231f42cd574560.html", "dir_4b9d567d8506c00fa8231f42cd574560" ],
     [ "Number", "dir_f079aee3a6fd104e067379379838b280.html", "dir_f079aee3a6fd104e067379379838b280" ],
     [ "Object", "dir_1fe854bcec9b56b8f4dc10d84ac4f9dd.html", "dir_1fe854bcec9b56b8f4dc10d84ac4f9dd" ],

@@ -5,5 +5,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="JS::Match",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structJS_1_1Match.html",tooltip=" "];
+  Node0 [id="Node000000",label="JS::JSON",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classJS_1_1JSON.html",tooltip="Provides JSON parsing and stringification similar to JavaScript's JSON object."];
 }

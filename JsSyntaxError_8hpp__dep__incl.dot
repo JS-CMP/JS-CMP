@@ -13,4 +13,6 @@ digraph "includes/types/objects/Error/JsSyntaxError.hpp"
   Node4 [id="Node000004",label="lib/types/objects/Error\l/Syntax/internalMethods.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Syntax_2internalMethods_8cpp.html",tooltip=" "];
   Node1 -> Node5 [id="edge4_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node5 [id="Node000005",label="lib/types/objects/Error\l/Syntax/prototypeProperties.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Error_2Syntax_2prototypeProperties_8cpp.html",tooltip=" "];
+  Node1 -> Node6 [id="edge5_Node000001_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="lib/types/objects/JSON\l/static.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$types_2objects_2JSON_2static_8cpp.html",tooltip=" "];
 }

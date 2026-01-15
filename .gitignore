@@ -15,6 +15,7 @@ Makefile
 *.js
 *.js.cpp
 *.a
+*.dylib
 
 compile_commands.json
 

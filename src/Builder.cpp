@@ -60,26 +60,24 @@ void Builder::compiling(const std::string& inputFilename) const {
     // Build the compilation command with proper library and include paths
     std::string includePaths = "-Iincludes -Isubmodules/SyntaxSmith/includes";
     std::string libraryPaths = "-L./";
-    
+
     // Add current working directory to library search path
     char* pwd = getenv("PWD");
     if (pwd) {
         libraryPaths += " -L" + std::string(pwd);
         includePaths += " -I" + std::string(pwd) + "/includes";
     }
-    
+
     // Add build directory if different from current directory
     libraryPaths += " -L.";
     includePaths += " -I.";
-    
+
     // For Linux, add common library locations
 #ifndef __APPLE__
     libraryPaths += " -L/usr/local/lib -L/usr/lib -L/lib";
 #endif
-    
-    std::string command = compiler + customArgs + inputFilename + std::string(" -o ") + outputFilename +
-                          " " + includePaths + " " + libraryPaths + " -ljscmp $(pkg-config --libs icu-uc icu-i18n) -DBOOST_REGEX_NO_LIB" +
-                          rpathFlag;
+
+    std::string command = compiler + customArgs + inputFilename + std::string(" -o ") + outputFilename + " " + includePaths + " " + libraryPaths + " -ljscmp $(pkg-config --libs icu-uc icu-i18n) -DBOOST_REGEX_NO_LIB" + rpathFlag;
 
     system(command.c_str());
 }

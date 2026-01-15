@@ -148,6 +148,14 @@ else()
             INSTALL_RPATH "$ORIGIN"
             BUILD_RPATH "${CMAKE_BINARY_DIR}"
         )
+        # Enable RPATH for the build tree and ensure it's used
+        set(CMAKE_SKIP_BUILD_RPATH FALSE)
+        set(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
+        set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+        # Also set the RPATH to include the current directory for testing
+        set_target_properties(${PROJECT_NAME} PROPERTIES
+            BUILD_RPATH "${CMAKE_BINARY_DIR}:$ORIGIN"
+        )
     endif()
 endif()
 

@@ -1,0 +1,198 @@
+name: Release
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build-release:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        arch: [x86_64, arm64]
+        build_type: [static, dynamic]
+        exclude:
+          - os: macos-latest
+            arch: arm64  # Use specific macOS ARM runner
+    
+    runs-on: ${{ matrix.os }}
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+    
+    - name: Setup Environment
+      run: |
+        if [ "${{ runner.os }}" == "Linux" ]; then
+          sudo apt update && sudo apt install -y libboost-all-dev libicu-dev
+        elif [ "${{ runner.os }}" == "macOS" ]; then
+          brew install boost icu4c
+        fi
+    
+    - name: Configure CMake
+      run: |
+        mkdir -p build
+        cd build
+        cmake .. \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DBUILD_STATIC=$(if [ "${{ matrix.build_type }}" == "static" ]; then echo "ON"; else echo "OFF"; fi) \
+          -DBUILD_SHARED=$(if [ "${{ matrix.build_type }}" == "dynamic" ]; then echo "ON"; else echo "OFF"; fi) \
+          -DFORCE_STATIC_DEPS=$(if [ "${{ matrix.build_type }}" == "static" ]; then echo "ON"; else echo "OFF"; fi) \
+          -DCMAKE_OSX_ARCHITECTURES=${{ matrix.arch }} \
+          -DCMAKE_SYSTEM_PROCESSOR=${{ matrix.arch }}
+    
+    - name: Build
+      run: |
+        cd build
+        make -j$(nproc)
+    
+    - name: Create Package
+      run: |
+        cd build
+        mkdir -p ../../release
+        
+        # Determine package name
+        if [ "${{ runner.os }}" == "Linux" ]; then
+          PLATFORM="linux"
+        else
+          PLATFORM="macos"
+        fi
+        
+        PACKAGE_NAME="js-cmp-${PLATFORM}-${{ matrix.arch }}-${{ matrix.build_type }}"
+        
+        # Create tarball with appropriate files based on build type
+        if [ "${{ matrix.build_type }}" == "static" ]; then
+          tar czvf "../../release/${PACKAGE_NAME}.tar.gz" \
+            js_cmp \
+            libjscmp.a \
+            ../includes \
+            ../submodules/Lexer/include \
+            ../submodules/SyntaxSmith/includes \
+            ../cmake \
+            ../LICENSE \
+            ../README.md \
+            ../CONTRIBUTING.md
+        else
+          # For dynamic builds, include shared libraries
+          if [ "${{ runner.os }}" == "Linux" ]; then
+            tar czvf "../../release/${PACKAGE_NAME}.tar.gz" \
+              js_cmp \
+              libjscmp.so* \
+              ../includes \
+              ../submodules/Lexer/include \
+              ../submodules/SyntaxSmith/includes \
+              ../cmake \
+              ../LICENSE \
+              ../README.md \
+              ../CONTRIBUTING.md
+          else
+            tar czvf "../../release/${PACKAGE_NAME}.tar.gz" \
+              js_cmp \
+              libjscmp.dylib* \
+              ../includes \
+              ../submodules/Lexer/include \
+              ../submodules/SyntaxSmith/includes \
+              ../cmake \
+              ../LICENSE \
+              ../README.md \
+              ../CONTRIBUTING.md
+          fi
+        fi
+    
+    - name: Upload Release Assets
+      uses: actions/upload-artifact@v3
+      with:
+        name: release-packages
+        path: release/
+    
+  create-release:
+    needs: [build-release, build-macos-arm64]
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Download Artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: release
+    
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: release/**/*.tar.gz
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+  # ARM64 macOS build using specific runner
+  build-macos-arm64:
+    strategy:
+      matrix:
+        build_type: [static, dynamic]
+    
+    runs-on: macos-14  # ARM64 runner
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+    
+    - name: Setup Environment
+      run: brew install boost icu4c
+    
+    - name: Configure CMake for ARM64
+      run: |
+        mkdir -p build
+        cd build
+        cmake .. \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DBUILD_STATIC=$(if [ "${{ matrix.build_type }}" == "static" ]; then echo "ON"; else echo "OFF"; fi) \
+          -DBUILD_SHARED=$(if [ "${{ matrix.build_type }}" == "dynamic" ]; then echo "ON"; else echo "OFF"; fi) \
+          -DFORCE_STATIC_DEPS=$(if [ "${{ matrix.build_type }}" == "static" ]; then echo "ON"; else echo "OFF"; fi) \
+          -DCMAKE_OSX_ARCHITECTURES=arm64 \
+          -DCMAKE_SYSTEM_PROCESSOR=arm64
+    
+    - name: Build
+      run: |
+        cd build
+        make -j$(sysctl -n hw.ncpu)
+    
+    - name: Create Package
+      run: |
+        cd build
+        mkdir -p ../../release
+        
+        PACKAGE_NAME="js-cmp-macos-arm64-${{ matrix.build_type }}"
+        
+        # Create tarball with appropriate files based on build type
+        if [ "${{ matrix.build_type }}" == "static" ]; then
+          tar czvf "../../release/${PACKAGE_NAME}.tar.gz" \
+            js_cmp \
+            libjscmp.a \
+            ../includes \
+            ../submodules/Lexer/include \
+            ../submodules/SyntaxSmith/includes \
+            ../cmake \
+            ../LICENSE \
+            ../README.md \
+            ../CONTRIBUTING.md
+        else
+          # For dynamic builds, include shared libraries
+          tar czvf "../../release/${PACKAGE_NAME}.tar.gz" \
+            js_cmp \
+            libjscmp.dylib* \
+            ../includes \
+            ../submodules/Lexer/include \
+            ../submodules/SyntaxSmith/includes \
+            ../cmake \
+            ../LICENSE \
+            ../README.md \
+            ../CONTRIBUTING.md
+        fi
+    
+    - name: Upload Release Assets
+      uses: actions/upload-artifact@v3
+      with:
+        name: release-packages-arm64-${{ matrix.build_type }}
+        path: release/

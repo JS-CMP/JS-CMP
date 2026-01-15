@@ -1,0 +1,27 @@
+# Configuration file for js_cmp
+# This file is configured by CMake and should not be edited manually
+
+@PACKAGE_INIT@
+
+# Include directory
+set(js_cmp_INCLUDE_DIRS "${PACKAGE_PREFIX_DIR}/include")
+
+# Library directory
+set(js_cmp_LIBRARY_DIRS "${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_LIBDIR@")
+
+# Targets
+include("${CMAKE_CURRENT_LIST_DIR}/js_cmpTargets.cmake")
+
+# Version information
+set(js_cmp_VERSION @PROJECT_VERSION@)
+
+# Check if all required components are found
+include("${CMAKE_CURRENT_LIST_DIR}/js_cmpTargets.cmake")
+
+# Compatibility check
+if(NOT TARGET js_cmp::jscmp)
+    set(js_cmp_FOUND FALSE)
+    set(js_cmp_NOT_FOUND_MESSAGE "js_cmp targets not found - project may not be installed correctly")
+else()
+    set(js_cmp_FOUND TRUE)
+endif()

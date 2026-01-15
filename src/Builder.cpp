@@ -45,9 +45,17 @@ void Builder::compiling(const std::string& inputFilename) const {
                                                                      : std::string(" -w -O3 -std=c++20 ") + this->options.getCompilerArgs();
     std::string compiler = this->options.getCompiler();
     std::string outputFilename = options.getOutputFilename();
+    // Add rpath based on platform to eliminate need for DYLD_LIBRARY_PATH/LD_LIBRARY_PATH
+    std::string rpathFlag;
+    #ifdef __APPLE__
+        rpathFlag = " -Wl,-rpath,@loader_path";
+    #else
+        rpathFlag = " -Wl,-rpath,$ORIGIN";
+    #endif
+
     std::string command = compiler + customArgs + inputFilename + std::string(" -o ") + outputFilename +
                           std::string(" -Iincludes -Isubmodules/SyntaxSmith/includes -L./ -ljscmp $(pkg-config --libs "
-                                      "icu-uc icu-i18n) -DBOOST_REGEX_NO_LIB");
+                                      "icu-uc icu-i18n) -DBOOST_REGEX_NO_LIB") + rpathFlag;
 
     system(command.c_str());
 }

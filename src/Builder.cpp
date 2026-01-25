@@ -45,9 +45,39 @@ void Builder::compiling(const std::string& inputFilename) const {
                                                                      : std::string(" -w -O3 -std=c++20 ") + this->options.getCompilerArgs();
     std::string compiler = this->options.getCompiler();
     std::string outputFilename = options.getOutputFilename();
-    std::string command = compiler + customArgs + inputFilename + std::string(" -o ") + outputFilename +
-                          std::string(" -Iincludes -Isubmodules/SyntaxSmith/includes -L./ -ljscmp $(pkg-config --libs "
-                                      "icu-uc icu-i18n) -DBOOST_REGEX_NO_LIB");
+    // Add rpath based on platform to eliminate need for DYLD_LIBRARY_PATH/LD_LIBRARY_PATH
+    std::string rpathFlag;
+#ifdef __APPLE__
+    rpathFlag = " -Wl,-rpath,@loader_path";
+#else
+    // For Linux, set multiple RPATH locations to ensure the library can be found
+    // $ORIGIN refers to the directory containing the executable
+    // . refers to the current working directory
+    // ./ refers to the current working directory (alternative form)
+    rpathFlag = " -Wl,-rpath,$ORIGIN -Wl,-rpath,. -Wl,-rpath,./ -Wl,--enable-new-dtags";
+#endif
+
+    // Build the compilation command with proper library and include paths
+    std::string includePaths = "-Iincludes -Isubmodules/SyntaxSmith/includes";
+    std::string libraryPaths = "-L./";
+
+    // Add current working directory to library search path
+    char* pwd = getenv("PWD");
+    if (pwd) {
+        libraryPaths += " -L" + std::string(pwd);
+        includePaths += " -I" + std::string(pwd) + "/includes";
+    }
+
+    // Add build directory if different from current directory
+    libraryPaths += " -L.";
+    includePaths += " -I.";
+
+    // For Linux, add common library locations
+#ifndef __APPLE__
+    libraryPaths += " -L/usr/local/lib -L/usr/lib -L/lib";
+#endif
+
+    std::string command = compiler + customArgs + inputFilename + std::string(" -o ") + outputFilename + " " + includePaths + " " + libraryPaths + " -ljscmp $(pkg-config --libs icu-uc icu-i18n) -DBOOST_REGEX_NO_LIB" + rpathFlag;
 
     system(command.c_str());
 }

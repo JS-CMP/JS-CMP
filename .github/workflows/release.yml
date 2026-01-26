@@ -102,7 +102,7 @@ jobs:
         fi
     
     - name: Upload Release Assets
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: release-packages
         path: release/
@@ -113,7 +113,7 @@ jobs:
     
     steps:
     - name: Download Artifacts
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         path: release
     
@@ -192,7 +192,7 @@ jobs:
         fi
     
     - name: Upload Release Assets
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: release-packages-arm64-${{ matrix.build_type }}
         path: release/

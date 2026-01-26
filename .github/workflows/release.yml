@@ -10,7 +10,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest]
         arch: [x86_64, arm64]
-        build_type: [static, dynamic]
+        build_type: [dynamic]
         exclude:
           - os: macos-latest
             arch: arm64  # Use specific macOS ARM runner

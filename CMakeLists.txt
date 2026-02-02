@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(js_cmp VERSION 0.0.1 LANGUAGES CXX)
+project(js_cmp VERSION 0.1.0 LANGUAGES CXX)
 
 # Build options
 option(BUILD_STATIC "Build static library and statically linked executable" OFF)

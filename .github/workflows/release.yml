@@ -32,7 +32,7 @@ jobs:
     - name: Upload Release Assets
       uses: actions/upload-artifact@v4
       with:
-        name: release-packages
+        name: release-packages-${{ matrix.os }}-${{ matrix.arch }}
         path: release/
     
   create-release:
@@ -43,6 +43,7 @@ jobs:
     - name: Download Artifacts
       uses: actions/download-artifact@v4
       with:
+        name: 
         path: release
     
     - name: Create Release

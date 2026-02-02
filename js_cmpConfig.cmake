@@ -37,7 +37,7 @@ set(js_cmp_LIBRARY_DIRS "${PACKAGE_PREFIX_DIR}/lib")
 include("${CMAKE_CURRENT_LIST_DIR}/js_cmpTargets.cmake")
 
 # Version information
-set(js_cmp_VERSION 0.0.1)
+set(js_cmp_VERSION 0.1.0)
 
 # Check if all required components are found
 include("${CMAKE_CURRENT_LIST_DIR}/js_cmpTargets.cmake")

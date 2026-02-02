@@ -247,15 +247,15 @@ function create_package() {
         # Copy all dylib files including versioned symlinks
         cp -P "${build_dir}/libjscmp.dylib" .
         cp -P "${build_dir}/libjscmp.1.dylib" .
-        cp -P "${build_dir}/libjscmp.0.0.1.dylib" .
+        cp -P "${build_dir}/libjscmp.0.1.0.dylib" .
     elif [ -f "${build_dir}/libjscmp.so" ]; then
         # Copy all so files including versioned symlinks
         cp "${build_dir}/libjscmp.so" .
         if [ -f "${build_dir}/libjscmp.so.1" ]; then
             cp "${build_dir}/libjscmp.so.1" .
         fi
-        if [ -f "${build_dir}/libjscmp.so.0.0.1" ]; then
-            cp "${build_dir}/libjscmp.so.0.0.1" .
+        if [ -f "${build_dir}/libjscmp.so.0.1.0" ]; then
+            cp "${build_dir}/libjscmp.so.0.1.0" .
         fi
     fi
     
@@ -275,9 +275,9 @@ function create_package() {
     if [ -f "libjscmp.a" ]; then
         files_to_package+=("libjscmp.a")
     elif [ -f "libjscmp.dylib" ]; then
-        files_to_package+=("libjscmp.dylib" "libjscmp.1.dylib" "libjscmp.0.0.1.dylib")
+        files_to_package+=("libjscmp.dylib" "libjscmp.1.dylib" "libjscmp.0.1.0.dylib")
     elif [ -f "libjscmp.so" ]; then
-        files_to_package+=("libjscmp.so" "libjscmp.so.1" "libjscmp.so.0.0.1")
+        files_to_package+=("libjscmp.so" "libjscmp.so.1" "libjscmp.so.0.1.0")
     fi
     
     if [ "${package_type}" == "tar" ]; then

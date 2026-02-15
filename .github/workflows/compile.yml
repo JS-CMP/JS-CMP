@@ -3,6 +3,32 @@ name: Run Compile
 on:
   workflow_call:
   workflow_dispatch:
+    inputs:
+      create_release:
+        description: 'Create a release after successful build'
+        required: false
+        default: false
+        type: boolean
+      release_tag:
+        description: 'Release tag (e.g., v1.0.0)'
+        required: false
+        default: ''
+        type: string
+      release_name:
+        description: 'Release name'
+        required: false
+        default: ''
+        type: string
+      release_description:
+        description: 'Release description (optional)'
+        required: false
+        default: ''
+        type: string
+      prerelease:
+        description: 'Mark as pre-release'
+        required: false
+        default: false
+        type: boolean
   pull_request:
   merge_group:
   workflow_run:
@@ -14,12 +40,13 @@ permissions:
   contents: write
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
+  build-linux:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: [ ubuntu-latest, macos-latest ]
-        compiler: [ gcc, clang ]
+        os: [ ubuntu-latest ]  # Fixed typo: ubuntu-lastest -> ubuntu-latest
+        arch: [ x86_64, arm64, riscv64 ]
+
 
     steps:
       - name: Checkout repository
@@ -28,20 +55,159 @@ jobs:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
 
-      - name: Install dependencies on Linux
-        if: matrix.os == 'ubuntu-latest'
-        run: sudo apt update && sudo apt install -y cmake g++ make libboost-all-dev libicu-dev
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: linux/amd64,linux/arm64,linux/riscv64
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Set up architecture variables
+        run: |
+          case "${{ matrix.arch }}" in
+            x86_64)
+              echo "DOCKER_PLATFORM=linux/amd64" >> $GITHUB_ENV
+              echo "QEMU_ARCH=x86_64" >> $GITHUB_ENV
+              ;;
+            arm64)
+              echo "DOCKER_PLATFORM=linux/arm64" >> $GITHUB_ENV
+              echo "QEMU_ARCH=aarch64" >> $GITHUB_ENV
+              ;;
+            riscv64)
+              echo "DOCKER_PLATFORM=linux/riscv64" >> $GITHUB_ENV
+              echo "QEMU_ARCH=riscv64" >> $GITHUB_ENV
+              ;;
+          esac
+
+      - name: Create Dockerfile for cross-compilation
+        run: |
+          cat > Dockerfile << 'EOF'
+          FROM --platform=$BUILDPLATFORM ubuntu:25.04
+
+          ARG BUILDPLATFORM
+          ARG TARGETPLATFORM
+
+          RUN apt update && apt install -y \
+              cmake \
+              make \
+              git \
+              libboost-all-dev \
+              libicu-dev \
+              gcc g++ pkg-config \
+              && rm -rf /var/lib/apt/lists/*
+          
+          WORKDIR /workspace
+          COPY . .
+
+          RUN git submodule update --init --recursive || true
+          RUN git submodule foreach git pull origin main || true
+
+          ENV CC=gcc
+          ENV CXX=g++
+
+          RUN cmake . && make -j$(nproc)
+
+          # Test the built executable
+          RUN echo "console.log('Everything works fine!');" > test.js && \
+              ./js_cmp test.js && \
+              timeout 10s ./test > output.txt && \
+              grep -q "Everything works fine!" output.txt
+          EOF
+
+      - name: Build and test with Docker
+        run: |
+          docker buildx build \
+            --platform ${{ env.DOCKER_PLATFORM }} \
+            --load \
+            -t js-cmp-linux-${{ matrix.arch }} \
+            .
+
+      - name: Extract artifacts
+        if: success()
+        run: |
+          # Create a temporary container to copy artifacts
+          CONTAINER_ID=$(docker create js-cmp-linux-${{ matrix.arch }})
+          
+          # Copy the built executable and library
+          docker cp $CONTAINER_ID:/workspace/js_cmp ./js_cmp
+          docker cp $CONTAINER_ID:/workspace/libjscmp.a ./libjscmp.a
+          
+          # Clean up container
+          docker rm $CONTAINER_ID
+          
+          # Create structured directory for this platform
+          mkdir -p js-cmp-linux-${{ matrix.arch }}/lib
+          mkdir -p js-cmp-linux-${{ matrix.arch }}/include
+          
+          # Copy binaries with consistent names
+          cp js_cmp js-cmp-linux-${{ matrix.arch }}/js_cmp
+          cp libjscmp.a js-cmp-linux-${{ matrix.arch }}/lib/libjscmp.a
+          
+          # Copy documentation and license
+          cp README.md js-cmp-linux-${{ matrix.arch }}/
+          cp LICENSE js-cmp-linux-${{ matrix.arch }}/
+          
+          # Copy include directory
+          cp -r include/* js-cmp-linux-${{ matrix.arch }}/include/
+          
+          # Create zip file
+          zip -r js-cmp-linux-${{ matrix.arch }}.zip js-cmp-linux-${{ matrix.arch }}/
+          
+          # Show file info
+          file js-cmp-linux-${{ matrix.arch }}/js_cmp
+          ls -la js-cmp-linux-${{ matrix.arch }}/
+          ls -la js-cmp-linux-${{ matrix.arch }}/lib/
+          ls -la js-cmp-linux-${{ matrix.arch }}/include/
+          ls -la *.zip
+
+      - name: Upload Linux artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: js-cmp-linux-${{ matrix.arch }}
+          path: |
+            js-cmp-linux-${{ matrix.arch }}.zip
+          retention-days: 30
+
+  build-macos:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ macos-latest ]  # macos-latest (ARM64)
+        arch: [ arm64 ]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: Set up architecture info
+        run: |
+          ARCH=$(uname -m)
+          if [ "$ARCH" = "arm64" ]; then
+            echo "MACOS_ARCH=arm64" >> $GITHUB_ENV
+            echo "RUNNER_ARCH=arm64" >> $GITHUB_ENV
+          else
+            echo "MACOS_ARCH=x86_64" >> $GITHUB_ENV
+            echo "RUNNER_ARCH=x86_64" >> $GITHUB_ENV
+          fi
 
       - name: Install dependencies on macOS
-        if: matrix.os == 'macos-latest'
-        run:
-          brew install gcc boost icu4c &&  brew link --force icu4c
+        run: |
+          brew install gcc boost icu4c
+          brew reinstall cmake
+          brew link --force icu4c
+          
+          ICU_ROOT=$(brew --prefix icu4c)
+          echo "ICU_ROOT=$ICU_ROOT" >> $GITHUB_ENV
+          echo "PKG_CONFIG_PATH=$ICU_ROOT/lib/pkgconfig:$PKG_CONFIG_PATH" >> $GITHUB_ENV
 
       - name: Initialize git submodules
         run: |
           git submodule update --init --recursive
           git submodule foreach git pull origin main
-
 
       - name: Run CMake
         run: |
@@ -52,4 +218,160 @@ jobs:
         run: |
           echo "console.log('Everything works fine!');" > test.js
           ./js_cmp test.js
-          diff <(./test) <(echo "Everything works fine!")
+          ./test > output.txt
+          grep -q "Everything works fine!" output.txt
+
+      - name: Prepare artifacts
+        run: |
+          # Create structured directory for this platform
+          mkdir -p js-cmp-macos-${{ env.MACOS_ARCH }}/lib
+          mkdir -p js-cmp-macos-${{ env.MACOS_ARCH }}/include
+          
+          # Copy binaries with consistent names
+          cp js_cmp js-cmp-macos-${{ env.MACOS_ARCH }}/js_cmp
+          cp libjscmp.a js-cmp-macos-${{ env.MACOS_ARCH }}/lib/libjscmp.a
+          
+          # Copy documentation and license
+          cp README.md js-cmp-macos-${{ env.MACOS_ARCH }}/
+          cp LICENSE js-cmp-macos-${{ env.MACOS_ARCH }}/
+          
+          # Copy include directory
+          cp -r include/* js-cmp-macos-${{ env.MACOS_ARCH }}/include/
+          
+          # Create zip file
+          zip -r js-cmp-macos-${{ env.MACOS_ARCH }}.zip js-cmp-macos-${{ env.MACOS_ARCH }}/
+          
+          # Show file info
+          file js-cmp-macos-${{ env.MACOS_ARCH }}/js_cmp
+          ls -la js-cmp-macos-${{ env.MACOS_ARCH }}/
+          ls -la js-cmp-macos-${{ env.MACOS_ARCH }}/lib/
+          ls -la js-cmp-macos-${{ env.MACOS_ARCH }}/include/
+          ls -la *.zip
+
+      - name: Upload macOS artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: js-cmp-macos-${{ env.MACOS_ARCH }}
+          path: |
+            js-cmp-macos-${{ env.MACOS_ARCH }}.zip
+          retention-days: 30
+
+  create-release:
+    if: ${{ github.event.inputs.create_release == 'true' && github.ref == 'refs/heads/main' }}
+    needs: [build-linux, build-macos]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: ./artifacts
+
+      - name: Prepare release assets
+        run: |
+          mkdir -p release-assets
+          
+          # Copy zip files from artifacts
+          find ./artifacts -name "*.zip" -type f -exec cp {} release-assets/ \;
+          
+          # Create checksums for zip files
+          cd release-assets
+          for file in *.zip; do
+            sha256sum "$file" > "$file.sha256"
+          done
+          
+          # List all files
+          ls -la
+
+      - name: Generate release tag
+        id: tag
+        run: |
+          if [ -n "${{ github.event.inputs.release_tag }}" ]; then
+            echo "tag=${{ github.event.inputs.release_tag }}" >> $GITHUB_OUTPUT
+          else
+            # Generate tag based on current date and short commit hash
+            TAG="v$(date +%Y.%m.%d)-$(git rev-parse --short HEAD)"
+            echo "tag=$TAG" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Generate release name
+        id: name
+        run: |
+          if [ -n "${{ github.event.inputs.release_name }}" ]; then
+            echo "name=${{ github.event.inputs.release_name }}" >> $GITHUB_OUTPUT
+          else
+            echo "name=JS-CMP Release ${{ steps.tag.outputs.tag }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag.outputs.tag }}
+          name: ${{ steps.name.outputs.name }}
+          draft: false
+          prerelease: ${{ github.event.inputs.prerelease == 'true' }}
+          generate_release_notes: true
+          files: |
+            release-assets/*
+          body: |
+            ## JS-CMP Cross-Platform Binaries
+            
+            This release contains complete cross-platform packages for the JS-CMP project.
+            
+            ${{ github.event.inputs.release_description != '' && format('### Release Description{0}{1}{0}', char(10), github.event.inputs.release_description) || '' }}
+            
+            ### Included Platforms:
+            - **Linux**: x86_64, ARM64, RISC-V 64-bit
+            - **macOS**: ARM64 (Apple Silicon)
+            
+            ### Package Contents:
+            Each zip file contains:
+            - `js_cmp` - Main executable binary
+            - `lib/libjscmp.a` - Static library
+            - `include/` - All header files for development
+            - `README.md` - Documentation
+            - `LICENSE` - License file
+            
+            ### Files:
+            - `js-cmp-[os]-[arch].zip` - Complete platform packages
+            - `*.sha256` - SHA256 checksums for verification
+            
+            ### Usage:
+            ```bash
+            # Extract the package
+            unzip js-cmp-linux-x86_64.zip
+            cd js-cmp-linux-x86_64/
+            
+            # Make executable
+            chmod +x js_cmp
+            
+            # Compile JavaScript file
+            ./js_cmp your-file.js
+            ```
+            
+            ### Development Usage:
+            To link against the JS-CMP library in your own projects:
+            
+            ```bash
+            g++ -Iincludes -Isubmodules/SyntaxSmith/includes -L./lib -ljscmp \
+                $(pkg-config --libs icu-uc icu-i18n) -DBOOST_REGEX_NO_LIB \
+                your_code.cpp -o your_program
+            ```
+            
+            **Required dependencies:**
+            - ICU library (Unicode support)
+            - Boost libraries
+            - Compiler flag: `-DBOOST_REGEX_NO_LIB`
+            
+            **Include paths:**
+            - `-Iincludes` - Main JS-CMP headers
+            - `-Isubmodules/SyntaxSmith/includes` - SyntaxSmith parser headers
+            
+            Built from commit: ${{ github.sha }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

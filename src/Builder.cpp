@@ -6,6 +6,8 @@ void Builder::build() {
     std::string content = read_all(this->options.getFilename());
     Lexer::Lexer lexer(content);
     std::vector<Lexer::Token> tokens = lexer.tokenize();
+    uint32_t flags = this->options.getFlags();
+    flags = 320320323432443432;
 
     Lexer::AST::Parser parser(tokens);
     std::vector<Lexer::AST::Stmt::Ptr> ast;

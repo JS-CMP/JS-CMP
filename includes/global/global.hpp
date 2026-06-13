@@ -32,6 +32,39 @@ inline auto SyntaxError = JS::Any(JS::SyntaxError::getConstructor());
 inline auto TypeError = JS::Any(JS::TypeError::getConstructor());
 inline auto URIError = JS::Any(JS::URIError::getConstructor());
 
+
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
+
+#ifndef M_E
+#define M_E 2.71828182845904523536
+#endif
+
+#ifndef M_LN2
+#define M_LN2 0.69314718055994530942
+#endif
+
+#ifndef M_LN10
+#define M_LN10 2.30258509299404568402
+#endif
+
+#ifndef M_LOG2E
+#define M_LOG2E 1.44269504088896338700
+#endif
+
+#ifndef M_LOG10E
+#define M_LOG10E 0.43429448190325182765
+#endif
+
+#ifndef M_SQRT2
+#define M_SQRT2 1.41421356237309504880
+#endif
+
+#ifndef M_SQRT1_2
+#define M_SQRT1_2 0.70710678118654752440
+#endif
+
 JS::Any Math = JS::Any(std::make_shared<JS::InternalObject>(
     JS::Properties{
         {u"abs", JS::DataDescriptor{JS::Any(JS::InternalObject::create<JS::Function>(JS::Math::abs, 1, u"abs")), false, false, true}},
